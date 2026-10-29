@@ -1,0 +1,10 @@
+{
+  "name": "NullBoundary.Demo",
+  "rootNamespace": "NullBoundary.Demo",
+  "references": [
+    "Unity.InputSystem",
+    "Unity.Timeline",
+    "Unity.AI.Navigation"
+  ],
+  "autoReferenced": true
+}

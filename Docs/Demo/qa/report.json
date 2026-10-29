@@ -1,0 +1,22 @@
+{
+  "desktop": {
+    "width": 1440,
+    "scrollWidth": 1440,
+    "headings": 13,
+    "tables": 14,
+    "images": [
+      {
+        "loaded": true
+      }
+    ],
+    "tableOverflow": 0
+  },
+  "mobile": {
+    "width": 390,
+    "scrollWidth": 390
+  },
+  "flow": {
+    "outside": []
+  },
+  "errors": []
+}

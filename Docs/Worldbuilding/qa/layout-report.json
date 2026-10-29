@@ -1,0 +1,67 @@
+{
+  "desktop": {
+    "width": 1440,
+    "scrollWidth": 1440,
+    "images": [
+      {
+        "alt": "两代实验设施与地下巨构的环境概念研究",
+        "loaded": true,
+        "width": 1672
+      },
+      {
+        "alt": "两代设施与深层空间结构示意",
+        "loaded": true,
+        "width": 1160
+      },
+      {
+        "alt": "《零界》历史与现代事故时间线",
+        "loaded": true,
+        "width": 1160
+      },
+      {
+        "alt": "人物与阵营关系图",
+        "loaded": true,
+        "width": 1160
+      },
+      {
+        "alt": "角色轮廓与异常阶段探索",
+        "loaded": true,
+        "width": 1672
+      }
+    ],
+    "chapters": 17,
+    "tableOverflows": 0
+  },
+  "mobile": {
+    "width": 390,
+    "scrollWidth": 390,
+    "tableWraps": 22
+  },
+  "diagrams": [
+    {
+      "name": "relationships",
+      "viewBox": [
+        1160,
+        900
+      ],
+      "outside": []
+    },
+    {
+      "name": "timeline",
+      "viewBox": [
+        1160,
+        1340
+      ],
+      "outside": []
+    },
+    {
+      "name": "facility-map",
+      "viewBox": [
+        1160,
+        940
+      ],
+      "outside": []
+    }
+  ],
+  "errors": []
+}
