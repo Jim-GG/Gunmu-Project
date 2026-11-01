@@ -44,6 +44,7 @@ public class PendulumButton : MonoBehaviour
 
     private void Update()
     {
+        if (DemoSession.IsGameplayBlocked) return;
         if (targetPendulum == null && targetSeesaw == null)
             return;
 

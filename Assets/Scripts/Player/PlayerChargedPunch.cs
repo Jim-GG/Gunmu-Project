@@ -1,0 +1,238 @@
+using System;
+using UnityEngine;
+using UnityEngine.InputSystem;
+
+// Each press starts a fresh charge. Release uses the last fully completed tier.
+public class PlayerChargedPunch : MonoBehaviour
+{
+    [SerializeField, Min(0.01f)] private float minimumWindup = 0.15f;
+    [SerializeField, Min(0.02f)] private float tierOneTime = 0.5f;
+    [SerializeField, Min(0.03f)] private float tierTwoTime = 1.25f;
+    [SerializeField, Min(0.04f)] private float tierThreeTime = 2.5f;
+    [SerializeField, Min(0.1f)] private float reach = 0.9f;
+    [SerializeField, Min(0f)] private float recovery = 0.3f;
+    [Header("各档冲撞距离（米）")]
+    [SerializeField, Min(0f)] private float basicLungeDistance = 0.75f;
+    [SerializeField, Min(0f)] private float tierOneLungeDistance = 2.5f;
+    [SerializeField, Min(0f)] private float tierTwoLungeDistance = 4.5f;
+    [SerializeField, Min(0f)] private float tierThreeLungeDistance = 6.5f;
+    [SerializeField, Min(1)] private int basicDamage = 1;
+    [SerializeField, Min(1)] private int tierOneDamage = 2;
+    [SerializeField, Min(1)] private int tierTwoDamage = 4;
+    [SerializeField, Min(1)] private int tierThreeDamage = 6;
+    [SerializeField, Min(0f)] private float tierOneImpulse = 11f;
+    [SerializeField, Min(0f)] private float tierTwoImpulse = 16f;
+    [SerializeField, Min(0f)] private float tierThreeImpulse = 22f;
+    [SerializeField, InspectorName("命中敌人时轻微腾空")] private bool liftOnEnemyHit = true;
+    [SerializeField, InspectorName("一至三级自身腾空速度")] private Vector3 combatLiftSpeeds = new Vector3(2.2f, 3f, 3.8f);
+
+    [SerializeField, Range(0, 3)] private int initialEnergy = 0;
+    [SerializeField] private int storedEnergy;
+    private bool attacking;
+    private int attackTier;
+    public int StoredEnergy => storedEnergy;
+    public float VisualCharge => charging ? .3f + .7f * Mathf.Clamp01(elapsed / tierThreeTime) : 0f;
+    private PunchPresentation presentation;
+    public bool CanGuard => isActiveAndEnabled && !charging && !attacking && Time.unscaledTime >= nextReady;
+    public bool AddEnergy(int amount)
+    {
+        PlayerGauntletEquipment equipment = GetComponent<PlayerGauntletEquipment>();
+        if (equipment != null && !equipment.HasGauntlet) return false;
+        if (amount <= 0 || storedEnergy >= 3) return false;
+        storedEnergy = Mathf.Min(3, storedEnergy + amount);
+        feedback = $"充能：{storedEnergy}/3 格";
+        feedbackUntil = Time.unscaledTime + 1.5f;
+        return true;
+    }
+    // Call only after the combat system confirms a successful block.
+    public void NotifySuccessfulBlock() => AddEnergy(1);
+
+    private PlayerMovement movement;
+    private Transform aim;
+    private bool charging;
+    private bool releaseQueued;
+    private bool cursorWasLocked;
+    private float elapsed;
+    private float chargeStartedAt;
+    private float nextReady;
+    private float feedbackUntil;
+    private string feedback = "";
+    public int CurrentTier => Mathf.Min(storedEnergy, elapsed >= tierThreeTime ? 3 : elapsed >= tierTwoTime ? 2 : elapsed >= tierOneTime ? 1 : 0);
+
+    private void Awake()
+    {
+        storedEnergy = initialEnergy;
+        presentation = GetComponent<PunchPresentation>();
+        if (presentation == null) presentation = gameObject.AddComponent<PunchPresentation>();
+        movement = GetComponent<PlayerMovement>();
+        Camera camera = GetComponentInChildren<Camera>();
+        aim = camera != null ? camera.transform : transform.Find("CameraPivot");
+        if (aim == null) aim = transform;
+    }
+
+    private void OnValidate()
+    {
+        minimumWindup = Mathf.Max(0.01f, minimumWindup);
+        tierOneTime = Mathf.Max(minimumWindup + 0.01f, tierOneTime);
+        tierTwoTime = Mathf.Max(tierOneTime + 0.01f, tierTwoTime);
+        tierThreeTime = Mathf.Max(tierTwoTime + 0.01f, tierThreeTime);
+        tierOneLungeDistance = Mathf.Max(basicLungeDistance + 0.05f, tierOneLungeDistance);
+        tierTwoLungeDistance = Mathf.Max(tierOneLungeDistance + 0.05f, tierTwoLungeDistance);
+        tierThreeLungeDistance = Mathf.Max(tierTwoLungeDistance + 0.05f, tierThreeLungeDistance);
+    }
+
+    private void Update()
+    {
+        if (presentation != null && presentation.IsHitStopped) return;
+        PlayerGauntletEquipment equipment = GetComponent<PlayerGauntletEquipment>();
+        if (equipment != null && !equipment.HasGauntlet)
+        {
+            CancelCharge();
+            attacking = false;
+            if (movement != null) movement.StopPunchLunge();
+            return;
+        }
+        if (attacking)
+        {
+            if (!Application.isFocused || Cursor.lockState != CursorLockMode.Locked
+                || movement == null || !movement.enabled
+                || (Keyboard.current != null && (Keyboard.current.rKey.wasPressedThisFrame || Keyboard.current.escapeKey.wasPressedThisFrame)))
+            {
+                attacking = false;
+                if (movement != null) movement.StopPunchLunge();
+                return;
+            }
+            TryLungeHit();
+            return;
+        }
+        Keyboard key = Keyboard.current;
+        Mouse mouse = Mouse.current;
+        bool cancel = !Application.isFocused || Cursor.lockState != CursorLockMode.Locked
+            || (movement != null && (!movement.enabled || movement.IsDashing))
+            || (key != null && (key.escapeKey.wasPressedThisFrame || key.rKey.wasPressedThisFrame));
+        if (cancel || mouse == null)
+        {
+            CancelCharge();
+            return;
+        }
+        if (!charging && cursorWasLocked && Time.unscaledTime >= nextReady && mouse.leftButton.wasPressedThisFrame)
+        {
+            charging = true;
+            releaseQueued = false;
+            elapsed = 0f;
+            chargeStartedAt = Time.unscaledTime;
+        }
+        if (!charging) return;
+        // Real time keeps the hold duration consistent inside bullet time.
+        float cap = storedEnergy == 3 ? tierThreeTime : storedEnergy == 2 ? tierTwoTime
+            : storedEnergy == 1 ? tierOneTime : minimumWindup;
+        elapsed = Mathf.Min(cap, Time.unscaledTime - chargeStartedAt);
+        if (mouse.leftButton.wasReleasedThisFrame || !mouse.leftButton.isPressed) releaseQueued = true;
+        if (releaseQueued && elapsed >= minimumWindup)
+        {
+            int tier = CurrentTier;
+            CancelCharge();
+            nextReady = Time.unscaledTime + recovery;
+            storedEnergy -= tier;
+            attackTier = tier;
+            attacking = true;
+            float distance = tier == 3 ? tierThreeLungeDistance : tier == 2 ? tierTwoLungeDistance
+                : tier == 1 ? tierOneLungeDistance : basicLungeDistance;
+            if (presentation != null) presentation.Swing(tier);
+            if (movement != null) movement.BeginPunchLunge(distance);
+            TryLungeHit();
+        }
+    }
+
+    private void LateUpdate() => cursorWasLocked = Cursor.lockState == CursorLockMode.Locked;
+    private void OnDisable() { CancelCharge(); attacking = false; if (movement != null) movement.StopPunchLunge(); cursorWasLocked = false; }
+    private void OnApplicationFocus(bool focused) { if (!focused) { CancelCharge(); cursorWasLocked = false; } }
+    public void CancelCharge() { charging = false; releaseQueued = false; elapsed = 0f; }
+    public void ResetPunchState() { CancelCharge(); attacking = false; storedEnergy = initialEnergy; nextReady = 0f; feedbackUntil = 0f; }
+
+    private void TryLungeHit()
+    {
+        // Near-body queries and actual controller contacts hit once during traversal.
+        Vector3[] origins = { aim.position, transform.position + Vector3.up * 0.8f };
+        RaycastHit? nearest = null;
+        foreach (Vector3 origin in origins)
+        foreach (RaycastHit hit in Physics.SphereCastAll(origin, 0.12f, aim.forward, reach,
+            Physics.DefaultRaycastLayers, QueryTriggerInteraction.Ignore))
+        {
+            if (hit.collider.transform.IsChildOf(transform)) continue;
+            if (hit.normal.y > 0.65f && aim.forward.y > -0.4f
+                && hit.collider.GetComponentInParent<KineticBox>() == null
+                && hit.collider.GetComponentInParent<PunchTargetHealth>() == null) continue;
+            if (!nearest.HasValue || hit.distance < nearest.Value.distance) nearest = hit;
+        }
+        if (nearest.HasValue)
+        {
+            RaycastHit hit = nearest.Value;
+            ResolveLungeContact(hit.collider, hit.point, hit.normal);
+        }
+        if (attacking && (movement == null || !movement.IsPunchLunging))
+        {
+            attacking = false;
+            ChargedPunchPulse.Spawn(aim.position + aim.forward, -aim.forward, attackTier);
+            feedback = $"{attackTier} 档冲撞未命中｜剩余充能：{storedEnergy}/3 格";
+            feedbackUntil = Time.unscaledTime + 1.5f;
+            nextReady = Time.unscaledTime + recovery;
+        }
+    }
+
+    public void ResolveLungeContact(Collider collider, Vector3 point, Vector3 normal)
+    {
+        if (!attacking || collider.transform.IsChildOf(transform)) return;
+        // Ignore ground support contact; walls/targets consume this attack exactly once.
+        if (normal.y > 0.65f && aim.forward.y > -0.4f) return;
+        attacking = false;
+        if (movement != null) movement.StopPunchLunge();
+        int tier = attackTier;
+        int damage = tier == 3 ? tierThreeDamage : tier == 2 ? tierTwoDamage : tier == 1 ? tierOneDamage : basicDamage;
+        float impulse = tier == 3 ? tierThreeImpulse : tier == 2 ? tierTwoImpulse : tier == 1 ? tierOneImpulse : 0f;
+        KineticBox box = collider.GetComponentInParent<KineticBox>();
+        if (box != null && tier > 0) box.ApplyCardinalImpulse(normal, aim.forward, impulse);
+        PunchTargetHealth health = collider.GetComponentInParent<PunchTargetHealth>();
+        if (health != null) health.TakeDamage(damage);
+        TutorialEnemy enemy = collider.GetComponentInParent<TutorialEnemy>();
+        if (enemy != null) enemy.OnPunched(tier, aim.forward, impulse);
+        if (enemy != null && tier > 0 && liftOnEnemyHit && movement != null)
+            movement.LiftAfterCombatPunch(tier == 3 ? combatLiftSpeeds.z : tier == 2 ? combatLiftSpeeds.y : combatLiftSpeeds.x);
+        if (presentation != null) presentation.Impact(point, normal, tier, enemy != null);
+        Rigidbody body = collider.attachedRigidbody;
+        if (box == null && tier > 0 && body != null && !body.isKinematic)
+            body.AddForce(aim.forward * impulse, ForceMode.VelocityChange);
+        ChargedPunchPulse.Spawn(point + normal * 0.03f, normal, tier);
+        feedback = $"{tier} 档攻击命中｜剩余充能：{storedEnergy}/3 格";
+        feedbackUntil = Time.unscaledTime + 1.5f;
+        nextReady = Time.unscaledTime + recovery;
+    }
+
+    private void OnGUI()
+    {
+        if (DemoSession.IsGameplayBlocked) return;
+        ChineseGameUI.EnsureFont();
+        float width = Mathf.Min(520f, Screen.width - 20f);
+        Rect panel = new Rect((Screen.width - width) * 0.5f, Screen.height - 125f, width, 105f);
+        GUI.Box(panel, "");
+        GUI.Label(new Rect(panel.x + 10f, panel.y + 5f, width - 20f, 25f),
+            charging ? $"充能：{storedEnergy}/3 格｜当前蓄力：{CurrentTier} 档｜{elapsed:0.00} 秒"
+                : $"充能：{storedEnergy}/3 格｜按住左键蓄力，松开后冲撞出拳");
+        for (int i = 0; i < 3; i++)
+        {
+            float from = i == 0 ? 0f : i == 1 ? tierOneTime : tierTwoTime;
+            float to = i == 0 ? tierOneTime : i == 1 ? tierTwoTime : tierThreeTime;
+            float fill = charging ? Mathf.Clamp01((elapsed - from) / (to - from)) : 0f;
+            float cellWidth = (width - 40f) / 3f;
+            Rect cell = new Rect(panel.x + 10f + i * (cellWidth + 10f), panel.y + 35f, cellWidth, 20f);
+            Color old = GUI.color;
+            GUI.color = i < storedEnergy ? new Color(0.1f, 0.35f, 0.45f) : Color.gray;
+            GUI.DrawTexture(cell, Texture2D.whiteTexture);
+            GUI.color = fill >= 1f ? Color.cyan : new Color(0.9f, 0.65f, 0.15f);
+            GUI.DrawTexture(new Rect(cell.x, cell.y, cell.width * fill, cell.height), Texture2D.whiteTexture);
+            GUI.color = old;
+        }
+        if (Time.unscaledTime < feedbackUntil)
+            GUI.Label(new Rect(panel.x + 10f, panel.y + 70f, width - 20f, 25f), feedback);
+    }
+}

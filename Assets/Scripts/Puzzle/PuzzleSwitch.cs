@@ -10,6 +10,7 @@ public class PuzzleSwitch : MonoBehaviour
     [SerializeField] private Color activeColor = new Color(0.15f, 1f, 0.35f, 1f);
     [SerializeField] private Transform doorOrIndicatorToMove;
     [SerializeField] private Vector3 activatedOffset = new Vector3(0f, 2.5f, 0f);
+    [SerializeField, InspectorName("允许玩家碰触触发")] private bool allowPlayerActivation = true;
 
     private Renderer switchRenderer;
     private MaterialPropertyBlock propBlock;
@@ -17,6 +18,7 @@ public class PuzzleSwitch : MonoBehaviour
     private bool isActivated;
 
     public bool IsActivated => isActivated;
+    public bool AllowPlayerActivation => allowPlayerActivation;
 
     private void Awake()
     {
@@ -40,13 +42,13 @@ public class PuzzleSwitch : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.GetComponent<KineticBox>() != null || other.GetComponent<PlayerMovement>() != null)
+        if (other.GetComponentInParent<KineticBox>() != null || (allowPlayerActivation && other.GetComponentInParent<PlayerMovement>() != null))
             Activate();
     }
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.collider.GetComponent<KineticBox>() != null || collision.collider.GetComponent<PlayerMovement>() != null)
+        if (collision.collider.GetComponentInParent<KineticBox>() != null || (allowPlayerActivation && collision.collider.GetComponentInParent<PlayerMovement>() != null))
             Activate();
     }
 
