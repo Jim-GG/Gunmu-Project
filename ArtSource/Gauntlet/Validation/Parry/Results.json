@@ -1,0 +1,24 @@
+{
+  "date": "2026-11-02",
+  "scene": "Assets/备份拳套/Gauntlet/Scenes/GauntletPreview.unity",
+  "unity": "6000.3.26f1",
+  "parryValidation": {
+    "animationBindingsAndLoopSettings": "passed (4 clips)",
+    "largeDeltaVs120Steps": "passed (0, 1, 2, 3 energy)",
+    "startKeepHitHolsterAndInterrupts": "passed",
+    "energyCapAndFrontalGuard": "passed",
+    "chargeSkipDestinationsAndCosts": "passed (0, 1, 2, 3 energy)",
+    "animatorSeek": "passed",
+    "quickClickAndQueuedReleasePreserveEnergy": "passed",
+    "enemyDamageAndSuccessfulBlock": "passed"
+  },
+  "regression": {
+    "attackSequence": [1, 2, 2, 2, 3, 3, 4, 4],
+    "fullHeldAcrossLoops": true,
+    "walkDistanceMetres": 0.497759521,
+    "mouseLook": "passed"
+  },
+  "visualReview": "Parry/ParryKeep.png: gauntlet guard pose and visible test enemy reviewed",
+  "consoleErrors": 0,
+  "consoleWarnings": 0
+}

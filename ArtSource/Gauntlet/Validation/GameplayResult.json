@@ -1,0 +1,25 @@
+{
+  "success": true,
+  "result": {
+    "diagnostics": [],
+    "compileMs": 114,
+    "executeMs": 209,
+    "assemblyName": "PipelineRunScript_Test_596abe1c76274b6793529ab0ffd81b01",
+    "success": true,
+    "result": {
+      "passed": true,
+      "attackSequence": [
+        1,
+        2,
+        2,
+        2,
+        3,
+        3,
+        4,
+        4
+      ],
+      "fullHeldAcrossLoops": true,
+      "walkDistance": 0.9126793
+    }
+  }
+}
