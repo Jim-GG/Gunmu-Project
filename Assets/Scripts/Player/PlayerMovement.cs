@@ -17,27 +17,25 @@ public class PlayerMovement : MonoBehaviour
 
     [Header("蓄力拳冲撞位移")]
     [SerializeField] private Transform cameraPivot;
-    [SerializeField, Min(1)] private int maxDashCharges = 1;
     [SerializeField, Min(1f)] private float dashSpeed = 19f;
-    [SerializeField, Min(0.05f)] private float dashDuration = 0.18f;
     [SerializeField, Range(0.2f, 1f)] private float dashEndMomentumRetention = 0.72f;
-    [SerializeField, Min(1f)] private float externalSpeedRechargeThreshold = 12f;
+    [SerializeField, Min(0f)] private float hitRecoilBackSpeed = 4.5f;
+    [SerializeField, Min(0f)] private float hitRecoilUpSpeed = 3.5f;
 
     [Header("动量锁定与子弹时间")]
     [SerializeField, Range(0.05f, 0.5f)] private float bulletTimeScale = 0.12f;
     [SerializeField, Min(5f)] private float maxLockDistance = 60f;
 
     private CharacterController controller;
+    private PlayerChargedPunch chargedPunch;
 
     // Persistent world-space velocity components (preserves inertia in mid-air!)
     private Vector3 currentHorizontalVelocity;
     private float verticalSpeed;
 
-    // Dash state
-    private int currentDashCharges;
+    // Punch lunge state
     private float dashTimer;
     private Vector3 dashDirection;
-    private bool wasDashingThisFrame;
     private bool punchLunging;
     public bool IsPunchLunging => punchLunging && dashTimer > 0f;
 
@@ -54,8 +52,6 @@ public class PlayerMovement : MonoBehaviour
     private Collider ignoredBoxCollider;
     private float ignoreBoxTimer;
 
-    public int CurrentDashCharges => currentDashCharges;
-    public int MaxDashCharges => maxDashCharges;
     public bool IsDashing => dashTimer > 0f;
     public bool IsBulletTimeActive => isBulletTimeActive;
 
@@ -69,9 +65,9 @@ public class PlayerMovement : MonoBehaviour
                 cameraPivot = found;
         }
 
-        currentDashCharges = maxDashCharges;
-        if (GetComponent<PlayerChargedPunch>() == null)
-            gameObject.AddComponent<PlayerChargedPunch>();
+        chargedPunch = GetComponent<PlayerChargedPunch>();
+        if (chargedPunch == null)
+            chargedPunch = gameObject.AddComponent<PlayerChargedPunch>();
     }
 
     private void Start()
@@ -87,6 +83,7 @@ public class PlayerMovement : MonoBehaviour
         currentHorizontalVelocity = Vector3.zero;
         verticalSpeed = 0f;
         dashTimer = 0f;
+        punchLunging = false;
         SetBulletTime(false);
     }
 
@@ -102,7 +99,6 @@ public class PlayerMovement : MonoBehaviour
             return;
 
         Keyboard keyboard = Keyboard.current;
-        Mouse mouse = Mouse.current;
 
         // Quick puzzle reset with R key
         if (GetComponent<RoomRestartController>() == null && keyboard != null && keyboard.rKey.wasPressedThisFrame)
@@ -114,38 +110,37 @@ public class PlayerMovement : MonoBehaviour
         // Scene number shortcuts are development-only and cannot skip the packaged demo.
         if (Application.isEditor)
         {
-        // Quick scene switch between Level 1..4 (Keys 1, 2, 3, 4)
-        if (keyboard != null && keyboard.digit1Key.wasPressedThisFrame)
-        {
-            SetBulletTime(false);
-            SceneManager.LoadScene("Level1_Billiards");
-            return;
-        }
-        if (keyboard != null && keyboard.digit2Key.wasPressedThisFrame)
-        {
-            SetBulletTime(false);
-            SceneManager.LoadScene("Level2_Pendulum");
-            return;
-        }
-        if (keyboard != null && keyboard.digit3Key.wasPressedThisFrame)
-        {
-            SetBulletTime(false);
-            SceneManager.LoadScene("Level3_Seesaw");
-            return;
-        }
-        if (keyboard != null && keyboard.digit4Key.wasPressedThisFrame)
-        {
-            SetBulletTime(false);
-            SceneManager.LoadScene("Level4_MomentumRedirect");
-            return;
-        }
-        if (keyboard != null && keyboard.digit5Key.wasPressedThisFrame)
-        {
-            SetBulletTime(false);
-            SceneManager.LoadScene("Level5_ChainReaction");
-            return;
-        }
-
+            // Quick scene switch between Level 1..5 (Keys 1, 2, 3, 4, 5)
+            if (keyboard != null && keyboard.digit1Key.wasPressedThisFrame)
+            {
+                SetBulletTime(false);
+                SceneManager.LoadScene("Level1_Billiards");
+                return;
+            }
+            if (keyboard != null && keyboard.digit2Key.wasPressedThisFrame)
+            {
+                SetBulletTime(false);
+                SceneManager.LoadScene("Level2_Pendulum");
+                return;
+            }
+            if (keyboard != null && keyboard.digit3Key.wasPressedThisFrame)
+            {
+                SetBulletTime(false);
+                SceneManager.LoadScene("Level3_Seesaw");
+                return;
+            }
+            if (keyboard != null && keyboard.digit4Key.wasPressedThisFrame)
+            {
+                SetBulletTime(false);
+                SceneManager.LoadScene("Level4_MomentumRedirect");
+                return;
+            }
+            if (keyboard != null && keyboard.digit5Key.wasPressedThisFrame)
+            {
+                SetBulletTime(false);
+                SceneManager.LoadScene("Level5_ChainReaction");
+                return;
+            }
         }
 
         if (ignoreBoxTimer > 0f)
@@ -202,8 +197,6 @@ public class PlayerMovement : MonoBehaviour
         // World-space wish direction from player input
         Vector3 wishDir = transform.right * input.x + transform.forward * input.y;
 
-        // Left-button charged punches are now the only source of dash movement.
-        wasDashingThisFrame = dashTimer > 0f;
         Vector3 frameVelocity;
 
         if (dashTimer > 0f)
@@ -213,12 +206,10 @@ public class PlayerMovement : MonoBehaviour
             dashTimer -= stepTime;
             frameVelocity = dt > 0f ? dashDirection * (dashSpeed * stepTime / dt) : Vector3.zero;
 
-            // Continuously sync persistent velocity so when dash ends, momentum carries over seamlessly!
+            // Continuously sync persistent velocity so when dash ends naturally, momentum carries over seamlessly!
             Vector3 retainedVel = dashDirection * (dashSpeed * dashEndMomentumRetention);
             currentHorizontalVelocity = new Vector3(retainedVel.x, 0f, retainedVel.z);
             verticalSpeed = retainedVel.y;
-
-
         }
         else
         {
@@ -266,7 +257,9 @@ public class PlayerMovement : MonoBehaviour
 
         CollisionFlags collisions = controller.Move(frameVelocity * dt);
 
-        if (punchLunging && dashTimer <= 0f) StopPunchLunge();
+        // Natural end of lunge: exit lunge state while preserving retained momentum!
+        if (punchLunging && dashTimer <= 0f)
+            punchLunging = false;
 
         if ((collisions & CollisionFlags.Above) != 0 && verticalSpeed > 0f)
             verticalSpeed = 0f;
@@ -350,33 +343,6 @@ public class PlayerMovement : MonoBehaviour
 
     public void BeginPunchLunge(float distance)
     {
-        int previousCharges = currentDashCharges;
-        StartDash();
-        dashTimer = Mathf.Max(0f, distance) / Mathf.Max(0.01f, dashSpeed);
-        currentDashCharges = previousCharges;
-        punchLunging = true;
-    }
-
-    public void StopPunchLunge()
-    {
-        if (!punchLunging) return;
-        punchLunging = false;
-        dashTimer = 0f;
-        currentHorizontalVelocity = Vector3.zero;
-        verticalSpeed = Mathf.Min(0f, verticalSpeed);
-    }
-
-    public void LiftAfterCombatPunch(float upwardSpeed)
-    {
-        // Called only for a confirmed enemy impact, so puzzle launches retain their trajectory.
-        verticalSpeed = Mathf.Max(verticalSpeed, Mathf.Max(0f, upwardSpeed));
-    }
-
-    private void StartDash()
-    {
-        currentDashCharges--;
-        dashTimer = dashDuration;
-
         Vector3 lookDir = cameraPivot != null ? cameraPivot.forward : transform.forward;
 
         if (controller.isGrounded && lookDir.y < 0.25f && lookDir.y > -0.55f)
@@ -389,25 +355,47 @@ public class PlayerMovement : MonoBehaviour
             dashDirection = lookDir.normalized;
         }
 
+        dashTimer = Mathf.Max(0f, distance) / Mathf.Max(0.01f, dashSpeed);
+        punchLunging = dashTimer > 0f;
+
         Vector3 retainedVel = dashDirection * (dashSpeed * dashEndMomentumRetention);
         currentHorizontalVelocity = new Vector3(retainedVel.x, 0f, retainedVel.z);
         verticalSpeed = retainedVel.y;
-
-
     }
 
+    public void StopPunchLunge()
+    {
+        if (!punchLunging && dashTimer <= 0f) return;
+        punchLunging = false;
+        dashTimer = 0f;
+        currentHorizontalVelocity = Vector3.zero;
+        verticalSpeed = Mathf.Min(0f, verticalSpeed);
+    }
 
+    public void ApplyBoxHitRecoil(Vector3 appliedImpulseDirection)
+    {
+        punchLunging = false;
+        dashTimer = 0f;
+        Vector3 recoilHoriz = -new Vector3(appliedImpulseDirection.x, 0f, appliedImpulseDirection.z).normalized * hitRecoilBackSpeed;
+        currentHorizontalVelocity = recoilHoriz;
+        verticalSpeed = hitRecoilUpSpeed;
+    }
+
+    public void LiftAfterCombatPunch(float upwardSpeed)
+    {
+        // Called only for a confirmed enemy impact, so puzzle launches retain their trajectory.
+        verticalSpeed = Mathf.Max(verticalSpeed, Mathf.Max(0f, upwardSpeed));
+    }
 
     private void OnControllerColliderHit(ControllerColliderHit hit)
     {
-        if (IsPunchLunging)
-            GetComponent<PlayerChargedPunch>()?.ResolveLungeContact(hit.collider, hit.point, hit.normal);
+        if (IsPunchLunging && chargedPunch != null)
+            chargedPunch.ResolveLungeContact(hit.collider, hit.point, hit.normal);
 
         if (hit.collider.TryGetComponent(out PuzzleSwitch sw) && sw.AllowPlayerActivation)
         {
             sw.Activate();
         }
-
 
         // If hitting a vertical wall in mid-air or on ground, remove the velocity component pushing into the wall
         if (Mathf.Abs(hit.normal.y) < 0.5f)
@@ -446,13 +434,10 @@ public class PlayerMovement : MonoBehaviour
         Debug.Log($"[PlayerMovement] Player catapulted by released KineticBox! Velocity: ({currentHorizontalVelocity.x:F1}, {verticalSpeed:F1}, {currentHorizontalVelocity.z:F1}) m/s", this);
     }
 
-
-
     public bool TryRechargeDash(string sourceReason)
     {
         // Compatibility with existing scene crystals. No other recharge sources allowed.
-        return sourceReason == "Crystal" && GetComponent<PlayerChargedPunch>() != null
-            && GetComponent<PlayerChargedPunch>().AddEnergy(3);
+        return sourceReason == "Crystal" && chargedPunch != null && chargedPunch.AddEnergy(3);
     }
 
     public void TeleportTo(Vector3 targetPosition)
@@ -467,10 +452,10 @@ public class PlayerMovement : MonoBehaviour
     private void ResetPuzzleState()
     {
         StopPunchLunge();
-        GetComponent<PlayerChargedPunch>()?.ResetPunchState();
+        if (chargedPunch != null)
+            chargedPunch.ResetPunchState();
         SetBulletTime(false);
         currentLockedBox = null;
-        currentDashCharges = maxDashCharges;
         dashTimer = 0f;
         verticalSpeed = 0f;
         currentHorizontalVelocity = Vector3.zero;
@@ -514,7 +499,8 @@ public class PlayerMovement : MonoBehaviour
             GUI.Box(new Rect(cx - 260f, 20f, 520f, 40f), btHint, btStyle);
         }
 
-        GUI.color = hoveredBox != null ? Color.green : (currentDashCharges > 0 ? Color.cyan : Color.gray);
+        bool hasEnergy = chargedPunch != null && chargedPunch.StoredEnergy > 0;
+        GUI.color = hoveredBox != null ? Color.green : (hasEnergy ? Color.cyan : Color.gray);
         float size = hoveredBox != null ? 12f : 8f;
         GUI.Box(new Rect(cx - size * 0.5f, cy - size * 0.5f, size, size), GUIContent.none);
 

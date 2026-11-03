@@ -191,7 +191,11 @@ public class PlayerChargedPunch : MonoBehaviour
         int damage = tier == 3 ? tierThreeDamage : tier == 2 ? tierTwoDamage : tier == 1 ? tierOneDamage : basicDamage;
         float impulse = tier == 3 ? tierThreeImpulse : tier == 2 ? tierTwoImpulse : tier == 1 ? tierOneImpulse : 0f;
         KineticBox box = collider.GetComponentInParent<KineticBox>();
-        if (box != null && tier > 0) box.ApplyCardinalImpulse(normal, aim.forward, impulse);
+        if (box != null && tier > 0)
+        {
+            Vector3 appliedDir = box.ApplyCardinalImpulse(normal, aim.forward, impulse);
+            if (movement != null) movement.ApplyBoxHitRecoil(appliedDir);
+        }
         PunchTargetHealth health = collider.GetComponentInParent<PunchTargetHealth>();
         if (health != null) health.TakeDamage(damage);
         TutorialEnemy enemy = collider.GetComponentInParent<TutorialEnemy>();
