@@ -26,7 +26,8 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField, Min(0f), InspectorName("格挡平地撞击离地微跃速度")] private float guardHorizontalLaunchUpSpeed = 5.5f;
     [SerializeField, Range(0f, 1f), InspectorName("格挡时方块反弹速度比例")] private float guardBoxReboundRatio = 0.2f;
     [SerializeField, Min(0f), InspectorName("格挡时方块最大反弹速度")] private float guardBoxMaxReboundSpeed = 3.5f;
-    [SerializeField, Min(1f), InspectorName("撞墙格挡充能最低速度")] private float externalSpeedRechargeThreshold = 9f;
+    [SerializeField, Min(1f), InspectorName("高速碰撞判定最低速度")] private float externalSpeedRechargeThreshold = 9f;
+    [SerializeField, Min(0f), InspectorName("撞墙特效最低垂直速度")] private float wallImpactEffectMinSpeed = 9f;
     [SerializeField, Min(1f), InspectorName("物体碰撞判定最低相对速度")] private float minObjectCollisionSpeed = 3.5f;
 
     [Header("动量锁定与子弹时间")]
@@ -646,36 +647,20 @@ public class PlayerMovement : MonoBehaviour
         if (Mathf.Abs(hit.normal.y) < 0.5f)
         {
             Vector3 horizNormal = new Vector3(hit.normal.x, 0f, hit.normal.z).normalized;
-            float intoWallSpeed = -Vector3.Dot(currentHorizontalVelocity, horizNormal);
-            float totalSpeed = CurrentVelocity.magnitude;
-
-            // High-speed wall impact: both guarding and unguarded stop the player, but guarding refills energy to full!
-            if (intoWallSpeed >= 4.5f || (totalSpeed >= externalSpeedRechargeThreshold && intoWallSpeed > 2.0f))
-            {
-                currentHorizontalVelocity = Vector3.zero;
-                if (verticalSpeed > 0f)
-                    verticalSpeed = 0f;
-
-                if (Time.unscaledTime - lastCollisionResolveTime >= 0.15f)
-                {
-                    lastCollisionResolveTime = Time.unscaledTime;
-                    if (chargedPunch != null && chargedPunch.IsGuardingSurface(hit.normal))
-                    {
-                        chargedPunch.RefillEnergyByGuard(hit.point, hit.normal);
-                    }
-                    else if (chargedPunch != null)
-                    {
-                        chargedPunch.NotifyPlasticCollision();
-                    }
-                }
-                return;
-            }
-
-            // Normal low-speed walking against a wall: slide along wall by removing into-wall component
             float intoWall = Vector3.Dot(currentHorizontalVelocity, horizNormal);
+            float intoWallSpeed = -intoWall;
+
+            // 只清除朝墙的法向分量，保留沿墙的切向速度：不做强行停住（垂直速度也不动，竖直墙不应阻断上升）。
             if (intoWall < 0f)
-            {
                 currentHorizontalVelocity -= horizNormal * intoWall;
+
+            // 撞击反馈（音效 + 震屏）：不影响移动，只按撞墙前的法向速度判定。
+            if (intoWallSpeed >= wallImpactEffectMinSpeed &&
+                Time.unscaledTime - lastCollisionResolveTime >= 0.15f)
+            {
+                lastCollisionResolveTime = Time.unscaledTime;
+                if (chargedPunch != null)
+                    chargedPunch.NotifyPlasticCollision();
             }
         }
     }

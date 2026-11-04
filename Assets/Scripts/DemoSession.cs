@@ -225,7 +225,7 @@ public class DemoSession : MonoBehaviour
         string message = mode == ScreenMode.Dead ? deathReason + "\n重新挑战会恢复当前房间和人物的初始状态。"
             : mode == ScreenMode.Completed ? "你已完成教学战斗与两段解谜。\n感谢试玩！是否从头重新游玩？"
             : mode == ScreenMode.Paused ? "可以继续，也可以重置当前房间或返回主菜单。"
-            : "终端获取拳套 → 教学战斗 → 两段解谜\n格挡储能，蓄力反击，用冲量打开前路。";
+            : "拾取拳套 → 教学战斗 → 两段解谜\n格挡储能，蓄力反击，用冲量打开前路。";
         GUI.Label(new Rect(380, 220, 520, 72), message, paragraph);
         if (mode == ScreenMode.Start)
         {

@@ -100,7 +100,7 @@ public class TutorialEncounter : MonoBehaviour
         if (!ready) return;
         GUI.Label(new Rect(15f, 18f, Screen.width - 30f, 50f), failed ? "战斗失败，按 R 重新开始"
             : IsCleared ? "教学战斗完成！出口已解锁。"
-            : !equipment.HasGauntlet ? "先完成终端校准，再按 E 拾取拳套。"
+            : !equipment.HasGauntlet ? "按 E 拾取拳套，开启教学战斗。"
             : $"教学敌人：{spawned}/3｜右键防御攒充能，左键蓄力反击。");
         if (failed && GUI.Button(new Rect(Screen.width / 2f - 100f, Screen.height / 2f, 200f, 50f), "重新开始（R）")) Restart();
     }
