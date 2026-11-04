@@ -44,8 +44,6 @@ public class TutorialEncounter : MonoBehaviour
         if (!ready || IsCleared) return;
         if (player.IsDefeated)
         {
-            if (DemoSession.Instance != null && DemoSession.Instance.IsDemoScene)
-            { DemoSession.Instance.ShowDeath(); return; }
             if (!failed)
             {
                 failed = true;

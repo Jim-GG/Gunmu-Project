@@ -1,6 +1,5 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
-using UnityEngine.SceneManagement;
 
 // Reloading the current room resets all scene objects and the authored player spawn.
 [DefaultExecutionOrder(-9000)]
@@ -17,8 +16,8 @@ public class RoomRestartController : MonoBehaviour
         if (GameplayGate.IsBlocked) return;
         if (detectFall && transform.position.y < initialY - fallDistance)
         {
-            if (DemoSession.Instance != null) DemoSession.Instance.ShowDeath("你坠出了实验区域。");
-            else RestartRoom();
+            GameStateManager.NotifyPlayerDied("你坠出了实验区域。");
+            RestartRoom();
             return;
         }
         Keyboard keyboard = Keyboard.current;
@@ -29,11 +28,6 @@ public class RoomRestartController : MonoBehaviour
     }
     public void RestartRoom()
     {
-        if (DemoSession.Instance != null && DemoSession.Instance.IsDemoScene) DemoSession.Instance.RestartRoom();
-        else
-        {
-            Time.timeScale = 1; Time.fixedDeltaTime = .02f;
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-        }
+        GameStateManager.RestartCurrentRoom();
     }
 }

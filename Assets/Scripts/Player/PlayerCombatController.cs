@@ -37,7 +37,7 @@ public class PlayerCombatController : MonoBehaviour
         nextHurt = Time.time + hurtProtection;
         feedback = "受到攻击！面向敌人并按住右键防御";
         feedbackUntil = Time.unscaledTime + 1.2f;
-        if (IsDefeated && DemoSession.Instance != null) DemoSession.Instance.ShowDeath();
+        if (IsDefeated) GameStateManager.NotifyPlayerDied();
     }
 
     private void OnGUI()

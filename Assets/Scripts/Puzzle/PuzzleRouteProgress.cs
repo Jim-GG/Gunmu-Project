@@ -86,7 +86,7 @@ public class PuzzleRouteProgress : MonoBehaviour
         if (string.IsNullOrWhiteSpace(nextSceneName))
         {
             reached = true;
-            if (DemoSession.Instance != null) DemoSession.Instance.CompleteDemo();
+            GameStateManager.NotifyLevelCompleted();
             return;
         }
         if (!Application.CanStreamedLevelBeLoaded(nextSceneName))
