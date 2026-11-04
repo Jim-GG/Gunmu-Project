@@ -44,6 +44,7 @@ public class DemoSession : MonoBehaviour
         if (Instance != null && Instance != this) { Destroy(gameObject); return; }
         Instance = this; DontDestroyOnLoad(gameObject);
         SceneManager.sceneLoaded += OnSceneLoaded;
+        GameplayGate.IsBlocked = IsGameplayBlocked;
     }
 
     private void Start()
@@ -77,6 +78,9 @@ public class DemoSession : MonoBehaviour
 
     private void Update()
     {
+        // 玩法拦截状态对外只暴露中立的 GameplayGate，道具层不再直接引用本类。
+        GameplayGate.IsBlocked = IsGameplayBlocked;
+
         if (!IsDemoScene) return;
         if (mode == ScreenMode.Playing && playerHealth != null && playerHealth.IsDefeated)
         { ShowDeath("生命耗尽，请重新挑战。"); return; }
@@ -193,6 +197,7 @@ public class DemoSession : MonoBehaviour
     {
         if (Instance != this) return;
         SceneManager.sceneLoaded -= OnSceneLoaded; Instance = null; RestoreTime();
+        GameplayGate.IsBlocked = false;
     }
 
     private void OnGUI()

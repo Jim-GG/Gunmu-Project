@@ -1,16 +1,21 @@
 using UnityEngine;
+using UnityEngine.Events;
 
 /// <summary>
 /// Switch inside the narrow gap that activates when struck by a KineticBox.
 /// </summary>
 [RequireComponent(typeof(Collider))]
-public class PuzzleSwitch : MonoBehaviour
+public class PuzzleSwitch : MonoBehaviour, IPuzzleResettable
 {
     [SerializeField] private Color inactiveColor = new Color(1f, 0.35f, 0.1f, 1f);
     [SerializeField] private Color activeColor = new Color(0.15f, 1f, 0.35f, 1f);
     [SerializeField] private Transform doorOrIndicatorToMove;
     [SerializeField] private Vector3 activatedOffset = new Vector3(0f, 2.5f, 0f);
     [SerializeField, InspectorName("允许玩家碰触触发")] private bool allowPlayerActivation = true;
+
+    [Header("事件")]
+    [SerializeField, InspectorName("开关被激活时")] private UnityEvent onActivated = new UnityEvent();
+    [SerializeField, InspectorName("开关被复位时")] private UnityEvent onReset = new UnityEvent();
 
     private Renderer switchRenderer;
     private MaterialPropertyBlock propBlock;
@@ -24,15 +29,6 @@ public class PuzzleSwitch : MonoBehaviour
     {
         switchRenderer = GetComponent<Renderer>();
         propBlock = new MaterialPropertyBlock();
-
-        if (doorOrIndicatorToMove == null && transform.parent != null)
-        {
-            Transform found = transform.parent.Find("VictoryGate_East");
-            if (found == null)
-                found = transform.parent.Find("GapWall_MidBar");
-            if (found != null)
-                doorOrIndicatorToMove = found;
-        }
 
         if (doorOrIndicatorToMove != null)
             doorInitialPos = doorOrIndicatorToMove.position;
@@ -64,6 +60,7 @@ public class PuzzleSwitch : MonoBehaviour
             doorOrIndicatorToMove.position = doorInitialPos + activatedOffset;
 
         Debug.Log("[PuzzleSwitch] Switch Activated! Billiard Puzzle Solved!", this);
+        onActivated.Invoke();
     }
 
     public void ResetSwitch()
@@ -73,6 +70,14 @@ public class PuzzleSwitch : MonoBehaviour
 
         if (doorOrIndicatorToMove != null)
             doorOrIndicatorToMove.position = doorInitialPos;
+
+        onReset.Invoke();
+    }
+
+    /// <summary>统一重置接口（由 PuzzleResetUtility 调用）。</summary>
+    public void ResetPuzzle()
+    {
+        ResetSwitch();
     }
 
     private void UpdateVisuals()

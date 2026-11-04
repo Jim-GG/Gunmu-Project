@@ -1094,11 +1094,17 @@ MonoBehaviour:
   jumpHeight: 1.2
   gravity: 20
   cameraPivot: {fileID: 175054328}
-  maxDashCharges: 1
   dashSpeed: 18
-  dashDuration: 0.2
   dashEndMomentumRetention: 0.72
+  hitRecoilBackSpeed: 4.5
+  hitRecoilUpSpeed: 3.5
+  guardPlayerLaunchMultiplier: 1.15
+  unguardedIncomingMomentumRetention: 0.25
+  guardHorizontalLaunchUpSpeed: 5.5
+  guardBoxReboundRatio: 0.2
+  guardBoxMaxReboundSpeed: 3.5
   externalSpeedRechargeThreshold: 12
+  minObjectCollisionSpeed: 3.5
   bulletTimeScale: 0.12
   maxLockDistance: 60
 --- !u!114 &367500427
@@ -1935,6 +1941,11 @@ MonoBehaviour:
   groundLinearDamping: 0.8
   launchedLinearDamping: 0.05
   stopSpeedThreshold: 0.15
+  appearanceMaterial: {fileID: 0}
+  appearanceTexture: {fileID: 0}
+  tintStaticAppearance: 1
+  stateMaterial: {fileID: 2100000, guid: 44d95a649908af8438f44c6089065375, type: 2}
+  stateEmissionIntensity: 1.5
   normalColor: {r: 0.95, g: 0.75, b: 0.15, a: 1}
   bulletTimeHighlightColor: {r: 0, g: 1, b: 0.95, a: 1}
   bulletTimeHoverColor: {r: 0.35, g: 1, b: 0.2, a: 1}

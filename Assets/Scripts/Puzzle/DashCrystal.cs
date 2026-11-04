@@ -4,7 +4,7 @@ using UnityEngine;
 /// Energy crystal that refills the player's Kinetic Dash charge upon contact and respawns after a short cooldown.
 /// </summary>
 [RequireComponent(typeof(Collider))]
-public class DashCrystal : MonoBehaviour
+public class DashCrystal : MonoBehaviour, IPuzzleResettable
 {
     [SerializeField, Min(0.1f)] private float respawnCooldown = 1.5f;
     [SerializeField] private float rotateSpeed = 90f;
@@ -63,6 +63,12 @@ public class DashCrystal : MonoBehaviour
     {
         respawnTimer = 0f;
         SetCrystalActive(true);
+    }
+
+    /// <summary>统一重置接口（由 PuzzleResetUtility 调用，等价于 ResetCrystal）。</summary>
+    public void ResetPuzzle()
+    {
+        ResetCrystal();
     }
 
     private void SetCrystalActive(bool active)

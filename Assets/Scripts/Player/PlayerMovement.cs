@@ -598,8 +598,9 @@ public class PlayerMovement : MonoBehaviour
         if (bouncyWall != null)
         {
             Vector3 incomingVel = preMoveVelocity.sqrMagnitude > CurrentVelocity.sqrMagnitude ? preMoveVelocity : CurrentVelocity;
-            float speedIntoWall = -Vector3.Dot(incomingVel, hit.normal);
-            if (incomingVel.magnitude >= 3.5f && speedIntoWall > 1.0f && Time.unscaledTime - lastCollisionResolveTime >= 0.12f)
+            // 阈值与倍率统一由弹性墙决定：方块和玩家的反弹结果因此完全一致。
+            if (bouncyWall.TryReflect(incomingVel, hit.normal, out Vector3 reflectedVel) &&
+                Time.unscaledTime - lastCollisionResolveTime >= 0.12f)
             {
                 lastCollisionResolveTime = Time.unscaledTime;
                 bool isGuardingBouncy = chargedPunch != null &&
@@ -608,9 +609,9 @@ public class PlayerMovement : MonoBehaviour
                 if (isGuardingBouncy)
                 {
                     chargedPunch.RefillEnergyByGuard(hit.point, hit.normal);
-                    Vector3 reflectedVel = bouncyWall.ComputeReflectedVelocity(incomingVel, hit.normal);
                     currentHorizontalVelocity = new Vector3(reflectedVel.x, 0f, reflectedVel.z);
                     verticalSpeed = reflectedVel.y;
+                    bouncyWall.NotifyReflected(hit.point, hit.normal, reflectedVel);
                 }
                 else
                 {
@@ -714,20 +715,8 @@ public class PlayerMovement : MonoBehaviour
             controller.enabled = true;
         }
 
-        foreach (KineticBox box in FindObjectsByType<KineticBox>(FindObjectsSortMode.None))
-            box.ResetBox();
-
-        foreach (DashCrystal crystal in FindObjectsByType<DashCrystal>(FindObjectsSortMode.None))
-            crystal.ResetCrystal();
-
-        foreach (PuzzleSwitch sw in FindObjectsByType<PuzzleSwitch>(FindObjectsSortMode.None))
-            sw.ResetSwitch();
-
-        foreach (PendulumMechanism p in FindObjectsByType<PendulumMechanism>(FindObjectsSortMode.None))
-            p.ResetPendulum();
-
-        foreach (SeesawMechanism s in FindObjectsByType<SeesawMechanism>(FindObjectsSortMode.None))
-            s.ResetMechanism();
+        // 统一重置：所有可复位机关都实现了 IPuzzleResettable，新增道具不需要再改这里。
+        PuzzleResetUtility.ResetAll();
     }
 
     private void OnGUI()
@@ -803,7 +792,7 @@ public class PlayerMovement : MonoBehaviour
         }
         else if (cachedPendulum != null)
         {
-            puzzleText = "第2关：1格蓄力拳将载荷打入沟中 → Q减速、E锁定 → F释放摆锤 → E释放载荷命中东侧接收器。成功后填沟开门。";
+            puzzleText = "第2关：1格蓄力拳将载荷打入沟中 → Q减速、E锁定 → F释放摆锤 → E释放载荷命中对岸接收器。成功后填沟开门。";
         }
         else
         {
