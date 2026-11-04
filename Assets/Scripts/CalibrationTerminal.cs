@@ -44,7 +44,7 @@ public class CalibrationTerminal : DemoInteractable
 
     private void Update()
     {
-        if (DemoSession.IsGameplayBlocked) return;
+        if (GameplayGate.IsBlocked) return;
         if (!isOpen) return;
         if (Keyboard.current != null && Keyboard.current.escapeKey.wasPressedThisFrame)
         {
@@ -87,7 +87,7 @@ public class CalibrationTerminal : DemoInteractable
 
     private void OnGUI()
     {
-        if (DemoSession.IsGameplayBlocked) return;
+        if (GameplayGate.IsBlocked) return;
         ChineseGameUI.EnsureFont();
         if (!isOpen) return;
         GUI.depth = -50;

@@ -14,7 +14,7 @@ public class PuzzleRouteExit : MonoBehaviour
     private void OnTriggerStay(Collider other) => Check(other);
     private void Check(Collider other)
     {
-        if (!DemoSession.IsGameplayBlocked && enabled && route != null && other.GetComponentInParent<PlayerMovement>() is PlayerMovement player)
+        if (!GameplayGate.IsBlocked && enabled && route != null && other.GetComponentInParent<PlayerMovement>() is PlayerMovement player)
             route.ReachExit(player);
     }
 }

@@ -61,7 +61,7 @@ public class TutorialEnemy : MonoBehaviour
 
     private void Update()
     {
-        if (DemoSession.IsGameplayBlocked) return;
+        if (GameplayGate.IsBlocked) return;
         if (player == null || !controller.enabled || (presentation != null && presentation.IsHitStopped)) return;
         Vector3 walking = Vector3.zero;
         if (IsDefeated)
@@ -110,7 +110,7 @@ public class TutorialEnemy : MonoBehaviour
 
     private void OnGUI()
     {
-        if (DemoSession.IsGameplayBlocked) return;
+        if (GameplayGate.IsBlocked) return;
         ChineseGameUI.EnsureFont();
         if (view == null || IsDefeated) return;
         Vector3 p = view.WorldToScreenPoint(transform.position + Vector3.up * 1.25f);

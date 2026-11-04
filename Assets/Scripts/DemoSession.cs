@@ -200,6 +200,12 @@ public class DemoSession : MonoBehaviour
         GameplayGate.IsBlocked = false;
     }
 
+    private void OnDisable()
+    {
+        // 管理器被禁用/卸载时不要把玩法永久锁死。
+        GameplayGate.IsBlocked = false;
+    }
+
     private void OnGUI()
     {
         if (!drawPlaceholderUI || !IsGameplayBlocked) return;

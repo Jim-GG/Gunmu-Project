@@ -40,7 +40,7 @@ public class TutorialEncounter : MonoBehaviour
 
     private void Update()
     {
-        if (DemoSession.IsGameplayBlocked) return;
+        if (GameplayGate.IsBlocked) return;
         if (!ready || IsCleared) return;
         if (player.IsDefeated)
         {
@@ -95,7 +95,7 @@ public class TutorialEncounter : MonoBehaviour
 
     private void OnGUI()
     {
-        if (DemoSession.IsGameplayBlocked) return;
+        if (GameplayGate.IsBlocked) return;
         ChineseGameUI.EnsureFont();
         if (!ready) return;
         GUI.Label(new Rect(15f, 18f, Screen.width - 30f, 50f), failed ? "战斗失败，按 R 重新开始"

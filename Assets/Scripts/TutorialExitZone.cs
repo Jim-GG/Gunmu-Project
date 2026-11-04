@@ -26,7 +26,7 @@ public class TutorialExitZone : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (DemoSession.IsGameplayBlocked || !enabled || loading || !encounter.IsCleared || player.IsDefeated) return;
+        if (GameplayGate.IsBlocked || !enabled || loading || !encounter.IsCleared || player.IsDefeated) return;
         if (other.GetComponentInParent<PlayerCombatController>() != player) return;
         if (!Application.CanStreamedLevelBeLoaded(nextSceneName))
         {

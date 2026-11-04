@@ -300,7 +300,7 @@ public class PlayerChargedPunch : MonoBehaviour
 
     private void OnGUI()
     {
-        if (DemoSession.IsGameplayBlocked) return;
+        if (GameplayGate.IsBlocked) return;
         ChineseGameUI.EnsureFont();
         float width = Mathf.Min(520f, Screen.width - 20f);
         Rect panel = new Rect((Screen.width - width) * 0.5f, Screen.height - 125f, width, 105f);

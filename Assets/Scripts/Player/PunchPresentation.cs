@@ -147,7 +147,7 @@ public class PunchPresentation : MonoBehaviour
 
     private void OnGUI()
     {
-        if (DemoSession.IsGameplayBlocked) return;
+        if (GameplayGate.IsBlocked) return;
         float age = Time.unscaledTime - hitAt;
         if (age > .18f) return;
         Color old = GUI.color;

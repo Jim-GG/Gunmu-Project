@@ -35,7 +35,7 @@ public class PuzzleRouteProgress : MonoBehaviour
 
     private void Update()
     {
-        if (DemoSession.IsGameplayBlocked) return;
+        if (GameplayGate.IsBlocked) return;
         if (!valid) return;
         if (!puzzleSwitch.IsActivated)
         {
@@ -82,7 +82,7 @@ public class PuzzleRouteProgress : MonoBehaviour
 
     public void ReachExit(PlayerMovement player)
     {
-        if (DemoSession.IsGameplayBlocked || !IsOpen || loading || player == null) return;
+        if (GameplayGate.IsBlocked || !IsOpen || loading || player == null) return;
         if (string.IsNullOrWhiteSpace(nextSceneName))
         {
             reached = true;
@@ -100,7 +100,7 @@ public class PuzzleRouteProgress : MonoBehaviour
 
     private void OnGUI()
     {
-        if (DemoSession.IsGameplayBlocked) return;
+        if (GameplayGate.IsBlocked) return;
         if (!valid || !puzzleSwitch.IsActivated) return;
         ChineseGameUI.EnsureFont();
         GUI.Box(new Rect(16, 106, Mathf.Min(700, Screen.width - 32), 38), reached

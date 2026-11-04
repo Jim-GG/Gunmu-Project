@@ -90,7 +90,7 @@ public class PlayerInteractor : MonoBehaviour
     public void EndUI(DemoInteractable owner)
     {
         if (modalOwner != owner || closingUI) return;
-        if (DemoSession.IsGameplayBlocked || !gameObject.activeInHierarchy)
+        if (GameplayGate.IsBlocked || !gameObject.activeInHierarchy)
         { modalOwner = null; closingUI = false; return; }
         closingUI = true;
         StartCoroutine(RestoreControls());
@@ -101,7 +101,7 @@ public class PlayerInteractor : MonoBehaviour
         // Consume the closing click/Esc before restoring gameplay controls.
         yield return null;
         PlayerCombatController combat = GetComponent<PlayerCombatController>();
-        bool alive = !DemoSession.IsGameplayBlocked && gameObject.activeInHierarchy && (combat == null || !combat.IsDefeated);
+        bool alive = !GameplayGate.IsBlocked && gameObject.activeInHierarchy && (combat == null || !combat.IsDefeated);
         for (int i = 0; i < suspendedControls.Length; i++)
             if (suspendedControls[i] == null)
                 suspendedControls[i].enabled = alive && previousEnabled[i];
@@ -119,7 +119,7 @@ public class PlayerInteractor : MonoBehaviour
 
     private void OnGUI()
     {
-        if (DemoSession.IsGameplayBlocked) return;
+        if (GameplayGate.IsBlocked) return;
         ChineseGameUI.EnsureFont();
         if (promptStyle == null)
             promptStyle = new GUIStyle(GUI.skin.label)

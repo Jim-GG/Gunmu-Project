@@ -114,7 +114,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void Update()
     {
-        if (DemoSession.IsGameplayBlocked || PunchPresentation.IsStopped(gameObject)) return;
+        if (GameplayGate.IsBlocked || PunchPresentation.IsStopped(gameObject)) return;
         if (!controller.enabled)
             return;
 
@@ -706,7 +706,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void OnGUI()
     {
-        if (DemoSession.IsGameplayBlocked) return;
+        if (GameplayGate.IsBlocked) return;
         ChineseGameUI.EnsureFont();
         float cx = Screen.width * 0.5f;
         float cy = Screen.height * 0.5f;

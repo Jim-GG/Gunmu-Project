@@ -22,7 +22,7 @@ public class PlayerCombatController : MonoBehaviour
 
     public void ReceiveAttack(Vector3 source, int damage)
     {
-        if (IsDefeated || DemoSession.IsGameplayBlocked) return;
+        if (IsDefeated || GameplayGate.IsBlocked) return;
         Vector3 direction = Vector3.ProjectOnPlane(source - transform.position, Vector3.up);
         if (IsGuarding && Vector3.Angle(transform.forward, direction) <= guardAngle * 0.5f)
         {
@@ -42,7 +42,7 @@ public class PlayerCombatController : MonoBehaviour
 
     private void OnGUI()
     {
-        if (DemoSession.IsGameplayBlocked) return;
+        if (GameplayGate.IsBlocked) return;
         ChineseGameUI.EnsureFont();
         GUI.Label(new Rect(15f, Screen.height - 65f, 240f, 30f),
             $"生命：{health}/{maxHealth} | {(IsGuarding ? "防御中" : "按住右键防御")}");
