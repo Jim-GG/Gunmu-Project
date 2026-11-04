@@ -25,7 +25,7 @@ public class DemoSession : MonoBehaviour
     private readonly Dictionary<Behaviour, bool> savedControls = new Dictionary<Behaviour, bool>();
     public ScreenMode Mode => mode;
     public bool IsDemoScene => IsSupported(SceneManager.GetActiveScene().name);
-    private bool IsSupported(string name) => name == firstSceneName || name == "Level1_Billiards" || name == "Level2_Pendulum";
+    private bool IsSupported(string name) => name == firstSceneName || LevelFlow.IsLevelScene(name);
 
     [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.SubsystemRegistration)]
     private static void ClearStatic() { Instance = null; }
@@ -78,6 +78,7 @@ public class DemoSession : MonoBehaviour
     private void Update()
     {
         if (!IsDemoScene) return;
+        if (LevelFlow.IsTransitioning) return;
         if (mode == ScreenMode.Playing && playerHealth != null && playerHealth.IsDefeated)
         { ShowDeath("生命耗尽，请重新挑战。"); return; }
         Keyboard keyboard = Keyboard.current;
@@ -158,7 +159,9 @@ public class DemoSession : MonoBehaviour
     }
     public void CompleteDemo()
     {
-        if (mode != ScreenMode.Playing || SceneManager.GetActiveScene().name != "Level2_Pendulum") return;
+        if (mode != ScreenMode.Playing) return;
+        string sceneName = SceneManager.GetActiveScene().name;
+        if (sceneName != "Level2_Pendulum" && sceneName != "Level6_BouncyWall") return;
         mode = ScreenMode.Completed; PauseWorld();
     }
     public void RestartRoom()
@@ -215,12 +218,12 @@ public class DemoSession : MonoBehaviour
         GUIStyle button = new GUIStyle(GUI.skin.button) { fontSize = 22 };
         GUI.Label(new Rect(370, 91, 540, 70), gameTitle, title);
         string heading = mode == ScreenMode.Start ? "冲量实验 · 玩法 Demo" : mode == ScreenMode.Dead ? "挑战失败"
-            : mode == ScreenMode.Completed ? "Demo 已完成" : mode == ScreenMode.Paused ? "游戏已暂停" : "正在载入……";
+            : mode == ScreenMode.Completed ? "全部关卡完成" : mode == ScreenMode.Paused ? "游戏已暂停" : "正在载入……";
         GUI.Label(new Rect(380, 169, 520, 42), heading, subtitle);
         string message = mode == ScreenMode.Dead ? deathReason + "\n重新挑战会恢复当前房间和人物的初始状态。"
-            : mode == ScreenMode.Completed ? "你已完成教学战斗与两段解谜。\n感谢试玩！是否从头重新游玩？"
+            : mode == ScreenMode.Completed ? "你已完成教学战斗与全部六关解谜。\n感谢试玩！是否从头重新游玩？"
             : mode == ScreenMode.Paused ? "可以继续，也可以重置当前房间或返回主菜单。"
-            : "终端获取拳套 → 教学战斗 → 两段解谜\n格挡储能，蓄力反击，用冲量打开前路。";
+            : "终端获取拳套 → 教学战斗 → 六段解谜\n格挡储能，蓄力反击，用冲量打开前路。";
         GUI.Label(new Rect(380, 220, 520, 72), message, paragraph);
         if (mode == ScreenMode.Start)
         {

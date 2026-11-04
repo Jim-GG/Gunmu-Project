@@ -15,6 +15,7 @@ public class RoomRestartController : MonoBehaviour
     private void Update()
     {
         if (DemoSession.IsGameplayBlocked) return;
+        if (LevelFlow.IsTransitioning) return;
         if (detectFall && transform.position.y < initialY - fallDistance)
         {
             if (DemoSession.Instance != null) DemoSession.Instance.ShowDeath("你坠出了实验区域。");

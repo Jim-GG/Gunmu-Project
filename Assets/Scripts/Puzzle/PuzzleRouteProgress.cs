@@ -94,6 +94,8 @@ public class PuzzleRouteProgress : MonoBehaviour
             Debug.LogError("无法进入下一关，请在构建场景列表中勾选：" + nextSceneName, this); return;
         }
         loading = true;
+        // Route through the shared flow so the same black fade covers every level.
+        if (LevelFlow.Instance != null) { LevelFlow.Go(nextSceneName, false); return; }
         Time.timeScale = 1; Time.fixedDeltaTime = .02f;
         SceneManager.LoadScene(nextSceneName, LoadSceneMode.Single);
     }

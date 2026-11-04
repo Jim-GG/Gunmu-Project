@@ -803,6 +803,59 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 186539573}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &198752574
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 198752576}
+  - component: {fileID: 198752575}
+  m_Layer: 0
+  m_Name: "\u5173\u5361\u901A\u9053"
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &198752575
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 198752574}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ae998671248cee4439ef3a83c3bda072, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LevelPortal
+  puzzleSwitch: {fileID: 0}
+  routeProgress: {fileID: 1836403795}
+  nextSceneName: Level3_Seesaw
+  nextLevelNumber: 3
+  ownsTrigger: 0
+  appearDelay: 0.55
+  ringColor: {r: 0.28, g: 0.95, b: 0.76, a: 1}
+  ringMaterial: {fileID: 2100000, guid: 90fe02fb8bb762c47be78393fc50ca43, type: 2}
+  beamMaterial: {fileID: 2100000, guid: f41d7b11f288f604ea3fa1b735ff779a, type: 2}
+--- !u!4 &198752576
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 198752574}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 18.8, y: 4.045, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &203844586
 GameObject:
   m_ObjectHideFlags: 0
@@ -1597,11 +1650,17 @@ MonoBehaviour:
   jumpHeight: 1.2
   gravity: 20
   cameraPivot: {fileID: 175054328}
-  maxDashCharges: 1
   dashSpeed: 18
-  dashDuration: 0.2
   dashEndMomentumRetention: 0.72
+  hitRecoilBackSpeed: 4.5
+  hitRecoilUpSpeed: 3.5
+  guardPlayerLaunchMultiplier: 1.15
+  unguardedIncomingMomentumRetention: 0.25
+  guardHorizontalLaunchUpSpeed: 5.5
+  guardBoxReboundRatio: 0.2
+  guardBoxMaxReboundSpeed: 3.5
   externalSpeedRechargeThreshold: 12
+  minObjectCollisionSpeed: 3.5
   bulletTimeScale: 0.12
   maxLockDistance: 60
 --- !u!114 &367500427
@@ -6072,6 +6131,7 @@ MonoBehaviour:
   maxEastAngleDeg: 65
   swingSpeedDegPerSec: 140
   impulseSpeedToBox: 18.5
+  autoSwing: 0
 --- !u!4 &1547603836
 Transform:
   m_ObjectHideFlags: 0
@@ -7579,8 +7639,9 @@ MonoBehaviour:
   bridgeDuration: 1.4
   doorDuration: 0.8
   receiverBlocker: {fileID: 1594287766}
-  nextSceneName: 
-  exitHint: "\u6C9F\u58D1\u5DF2\u586B\u5E73\uFF0C\u524D\u5F80\u63A5\u6536\u5C4F\u5E55\u540E\u65B9\u7684\u95E8\u3002"
+  nextSceneName: Level3_Seesaw
+  exitHint: "\u901A\u9053\u5DF2\u5F00\u542F\uFF01\u8D70\u5165\u5149\u67F1\u8FDB\u5165\u7B2C
+    3 \u5173\u3002"
 --- !u!4 &1836403796
 Transform:
   m_ObjectHideFlags: 0
@@ -8497,3 +8558,4 @@ SceneRoots:
   - {fileID: 367500425}
   - {fileID: 2109873464}
   - {fileID: 1836403796}
+  - {fileID: 198752576}

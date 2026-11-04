@@ -24,6 +24,7 @@ public class PlayerLook : MonoBehaviour
 
     private void Update()
     {
+        if (LevelFlow.IsTransitioning) return;
         if (Keyboard.current != null && Keyboard.current.escapeKey.wasPressedThisFrame)
         {
             SetCursorLocked(false);

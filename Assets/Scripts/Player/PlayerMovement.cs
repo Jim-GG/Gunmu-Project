@@ -114,6 +114,7 @@ public class PlayerMovement : MonoBehaviour
     private void Update()
     {
         if (DemoSession.IsGameplayBlocked || PunchPresentation.IsStopped(gameObject)) return;
+        if (LevelFlow.IsTransitioning) return;
         if (!controller.enabled)
             return;
 
@@ -783,23 +784,24 @@ public class PlayerMovement : MonoBehaviour
         {
             puzzleText = sceneName == "Level1_Billiards" ? "解谜成功！从右侧出口进入第二关。"
                 : sceneName == "Level2_Pendulum" ? "解谜成功！等待沟壑填平，穿过接收屏幕后方的门。"
-                : "★ 机关已触发！解谜成功！（按 1~6 切换关卡，按 R 重置）";
+                : sceneName == "Level6_BouncyWall" ? "★ 全部机关已完成！通道已开启，走进光柱完成 Demo。"
+                : "★ 通道已开启！跟随屏幕光标走进光柱进入下一关。";
         }
         else if (sceneName == "Level6_BouncyWall")
         {
-            puzzleText = "第6关流程：①站上橙色击球区，面向往复摆动的大摆锤按住右键格挡，直接继承摆锤动量飞越深渊 → ②空中转向青色【弹性墙】按住右键格挡反射向右斜上方 → ③空中左键蓄力冲撞拐弯落上目标平台！（按1~6切关，R重置）";
+            puzzleText = "第6关流程：①站上橙色击球区，面向往复摆动的大摆锤按住右键格挡，直接继承摆锤动量飞越深渊 → ②空中转向青色【弹性墙】按住右键格挡反射向右斜上方 → ③空中左键蓄力冲撞拐弯落上目标平台！（R 重置本关）";
         }
         else if (sceneName == "Level5_ChainReaction")
         {
-            puzzleText = "第5关流程：①用1格蓄力拳击打白色【母球】穿过窄缝至大摆锤前 → ②右侧按钮[F]释放起重机弹起黄方块，Q减速后按E锁在轨道高度 → ③左侧按钮[F]释放摆锤击飞母球传力给黄方块 → ④按[E]释放黄方块！（按1~6切关，R重置）";
+            puzzleText = "第5关流程：①用1格蓄力拳击打白色【母球】穿过窄缝至大摆锤前 → ②右侧按钮[F]释放起重机弹起黄方块，Q减速后按E锁在轨道高度 → ③左侧按钮[F]释放摆锤击飞母球传力给黄方块 → ④按[E]释放黄方块！（R 重置本关）";
         }
         else if (sceneName == "Level4_MomentumRedirect")
         {
-            puzzleText = "第4关流程：①按[F]释放起重机弹起方块 → ②方块升至平台高度时Q减速、E锁定 → ③朝对面平台【1格蓄力拳】击打方块将向上动量偏转为向前 → ④按[E]释放飞跃峡谷！（按1~6切关，R重置）";
+            puzzleText = "第4关流程：①按[F]释放起重机弹起方块 → ②方块升至平台高度时Q减速、E锁定 → ③朝对面平台【1格蓄力拳】击打方块将向上动量偏转为向前 → ④按[E]释放飞跃峡谷！（R 重置本关）";
         }
         else if (cachedSeesaw != null)
         {
-            puzzleText = "第3关流程：①按[F]释放起重机重物砸向跷跷板 → ②Q减速、E锁定飞上来的方块 → ③迎着方块按住右键格挡并按[E]释放弹射升空 → ④高空松开左键冲撞到头顶平台（按1~6切关，R重置）";
+            puzzleText = "第3关流程：①按[F]释放起重机重物砸向跷跷板 → ②Q减速、E锁定飞上来的方块 → ③迎着方块按住右键格挡并按[E]释放弹射升空 → ④高空松开左键冲撞到头顶平台（R 重置本关）";
         }
         else if (cachedPendulum != null)
         {
