@@ -71,12 +71,26 @@ public class PunchPresentation : MonoBehaviour
         DemoImpactBurst.Spawn(point, normal, tier, flesh);
     }
 
-    public void GuardFeedback(bool success)
+    public void GuardFeedback(bool success, Vector3? hitPoint = null, Vector3? hitNormal = null)
     {
-        if (success && sound != null && guardSound != null) { sound.pitch = 1f; sound.PlayOneShot(guardSound, .8f); }
+        if (success && sound != null && guardSound != null)
+        {
+            sound.pitch = 1f;
+            sound.PlayOneShot(guardSound, .85f);
+        }
+        else if (!success && sound != null && impactSound != null)
+        {
+            sound.pitch = 0.85f;
+            sound.PlayOneShot(impactSound, .4f);
+        }
+
         Shake(success ? .17f : .25f, success ? .025f : .045f);
         if (success && view != null)
-            DemoImpactBurst.Spawn(view.transform.position + view.transform.forward * .85f, -view.transform.forward, 1, false);
+        {
+            Vector3 spawnPos = hitPoint ?? (view.transform.position + view.transform.forward * .85f);
+            Vector3 spawnNormal = hitNormal ?? (-view.transform.forward);
+            DemoImpactBurst.Spawn(spawnPos, spawnNormal, 2, false);
+        }
     }
 
     private void Shake(float duration, float amount)
@@ -97,8 +111,12 @@ public class PunchPresentation : MonoBehaviour
             float charge = punch != null ? punch.VisualCharge : 0f;
             Vector3 pos = restingPosition + new Vector3(.03f * charge, -.035f * charge, -.23f * charge);
             Quaternion rot = Quaternion.Euler(-8f * charge, -10f * charge, -14f * charge);
-            if (combat != null && combat.IsGuarding)
-            { pos = new Vector3(.06f, -.17f, .51f); rot = Quaternion.Euler(-10f, -25f, -30f); }
+            bool isGuarding = (punch != null && punch.IsGuarding) || (combat != null && combat.IsGuarding);
+            if (isGuarding)
+            {
+                pos = new Vector3(.06f, -.17f, .51f);
+                rot = Quaternion.Euler(-10f, -25f, -30f);
+            }
             float age = Time.unscaledTime - attackAt;
             if (age < .32f)
             {

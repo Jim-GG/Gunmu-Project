@@ -25,11 +25,13 @@ public class KineticBox : MonoBehaviour
     private BoxCollider boxCollider;
     private Renderer boxRenderer;
     private MaterialPropertyBlock propBlock;
+    private PlayerMovement cachedPlayer;
 
     private Vector3 initialPosition;
     private Quaternion initialRotation;
     private Vector3 lastImpulseDirection;
     private float lastImpulseTime = -10f;
+    private Vector3 recentLinearVelocity;
 
     // Momentum Lock & trajectory mode state
     private bool isMomentumLocked;
@@ -47,9 +49,13 @@ public class KineticBox : MonoBehaviour
     private Renderer[] arrowRenderers;
 
     public Rigidbody Body => rb;
+    public BoxCollider Collider => boxCollider;
     public bool IsMomentumLocked => isMomentumLocked;
     public float StoredSpeed => storedSpeed;
     public Vector3 StoredDirection => storedDirection;
+    public Vector3 PreImpactVelocity => rb != null && rb.linearVelocity.sqrMagnitude >= recentLinearVelocity.sqrMagnitude
+        ? rb.linearVelocity
+        : recentLinearVelocity;
 
     private void Awake()
     {
@@ -84,6 +90,11 @@ public class KineticBox : MonoBehaviour
         UpdateVisuals();
     }
 
+    private void Start()
+    {
+        cachedPlayer = FindFirstObjectByType<PlayerMovement>();
+    }
+
     private void CreateDirectionArrowIndicator()
     {
         GameObject rootObj = new GameObject("MomentumArrowRoot");
@@ -115,7 +126,10 @@ public class KineticBox : MonoBehaviour
     private void FixedUpdate()
     {
         if (isMomentumLocked)
+        {
+            recentLinearVelocity = Vector3.zero;
             return;
+        }
 
         if (highSpeedLaunchTimer > 0f)
         {
@@ -147,8 +161,95 @@ public class KineticBox : MonoBehaviour
             }
         }
 
+        recentLinearVelocity = rb.linearVelocity;
+
         // Check Box-to-Box ("Cue Ball" -> Target Box) impulse transfer!
         CheckBoxToBoxImpulseTransfer();
+
+        // Check Moving Box -> Player collision (supports stationary guarding player parrying incoming flying/sliding boxes!)
+        CheckMovingBoxPlayerCollision();
+    }
+
+    private void CheckMovingBoxPlayerCollision()
+    {
+        Vector3 vel = recentLinearVelocity;
+        float speed = vel.magnitude;
+        if (speed < 3.5f)
+            return;
+
+        if (cachedPlayer == null)
+            cachedPlayer = FindFirstObjectByType<PlayerMovement>();
+        if (cachedPlayer == null || !cachedPlayer.isActiveAndEnabled || cachedPlayer.IsIgnoringBox(boxCollider))
+            return;
+
+        Vector3 playerCenter = cachedPlayer.transform.position + Vector3.up * 0.9f;
+        Vector3 toPlayer = playerCenter - boxCollider.bounds.center;
+        if (Vector3.Dot(vel.normalized, toPlayer.normalized) < -0.15f)
+            return;
+
+        Bounds expandedBox = boxCollider.bounds;
+        expandedBox.Expand(speed * Time.fixedDeltaTime * 2f + 0.4f);
+
+        Bounds playerBounds = new Bounds(playerCenter, new Vector3(0.95f, 1.9f, 0.95f));
+        if (!expandedBox.Intersects(playerBounds))
+            return;
+
+        Vector3 contactPoint = boxCollider.ClosestPoint(playerCenter);
+        Vector3 normalTowardsPlayer = (playerCenter - boxCollider.bounds.center);
+        normalTowardsPlayer = normalTowardsPlayer.sqrMagnitude > 0.001f ? normalTowardsPlayer.normalized : vel.normalized;
+
+        cachedPlayer.ResolveBoxCollision(this, contactPoint, normalTowardsPlayer, vel);
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (isMomentumLocked)
+            return;
+
+        if (collision.collider.TryGetComponent(out PlayerMovement pm) && !pm.IsIgnoringBox(boxCollider))
+        {
+            Vector3 vel = PreImpactVelocity;
+            if (vel.magnitude >= 3.5f)
+            {
+                ContactPoint cp = collision.GetContact(0);
+                pm.ResolveBoxCollision(this, cp.point, -cp.normal, vel);
+            }
+        }
+    }
+
+    /// <summary>
+    /// Applies a small damped rebound to the box when parried by the player, preventing the box from flying too far away.
+    /// </summary>
+    public void ApplyGentleGuardRebound(Vector3 reboundDirection, float reboundSpeed)
+    {
+        if (isMomentumLocked)
+            return;
+
+        highSpeedLaunchTimer = 0f;
+        isFreeTrajectory = false;
+        rb.linearDamping = groundLinearDamping;
+
+        Vector3 dir = reboundDirection.sqrMagnitude > 0.001f
+            ? SnapToCardinalDirection(reboundDirection.normalized, allowVertical: true)
+            : Vector3.zero;
+
+        rb.linearVelocity = dir * Mathf.Max(0f, reboundSpeed);
+        recentLinearVelocity = rb.linearVelocity;
+    }
+
+    /// <summary>
+    /// Stops horizontal and upward motion upon a plastic (unguarded) collision.
+    /// </summary>
+    public void StopPlasticMotion()
+    {
+        if (isMomentumLocked)
+            return;
+
+        highSpeedLaunchTimer = 0f;
+        isFreeTrajectory = false;
+        recentLinearVelocity = Vector3.zero;
+        rb.linearDamping = groundLinearDamping;
+        rb.linearVelocity = new Vector3(0f, Mathf.Min(0f, rb.linearVelocity.y), 0f);
     }
 
     private void CheckBoxToBoxImpulseTransfer()
@@ -182,6 +283,7 @@ public class KineticBox : MonoBehaviour
                 // Transfer impulse strictly along the 6 cardinal axes of the struck box, and stop the Cue Ball box!
                 other.ApplyCardinalImpulse(-moveDir, moveDir, speed, allowVerticalAxis: false);
                 rb.linearVelocity = Vector3.zero;
+                recentLinearVelocity = Vector3.zero;
                 isFreeTrajectory = false;
                 Debug.Log($"[KineticBox] Cue Ball '{name}' struck '{other.name}' and transferred {speed:F1} m/s impulse along {moveDir}!", this);
                 return;
@@ -204,6 +306,7 @@ public class KineticBox : MonoBehaviour
             : Vector3.zero;
 
         isMomentumLocked = true;
+        recentLinearVelocity = Vector3.zero;
         rb.linearVelocity = Vector3.zero;
         rb.angularVelocity = Vector3.zero;
         rb.isKinematic = true;
@@ -229,13 +332,7 @@ public class KineticBox : MonoBehaviour
             highSpeedLaunchTimer = 1.5f;
             rb.linearDamping = launchedLinearDamping;
             rb.linearVelocity = launchVel;
-
-            // If the player is standing on top of (or right next to the launch face of) this box, catapult the player together with it!
-            PlayerMovement player = FindFirstObjectByType<PlayerMovement>();
-            if (player != null && IsPlayerRidingOrTouching(player))
-            {
-                player.LaunchWithReleasedBox(launchVel, boxCollider);
-            }
+            recentLinearVelocity = launchVel;
 
             Debug.Log($"[KineticBox] Momentum Released! Launching along {storedDirection} at {storedSpeed:F1} m/s", this);
         }
@@ -243,22 +340,9 @@ public class KineticBox : MonoBehaviour
         storedSpeed = 0f;
         storedDirection = Vector3.zero;
         UpdateVisuals();
-    }
 
-    private bool IsPlayerRidingOrTouching(PlayerMovement player)
-    {
-        Vector3 pPos = player.transform.position;
-        Bounds b = boxCollider.bounds;
-
-        bool horizOverlap =
-            Mathf.Abs(pPos.x - b.center.x) <= (b.extents.x + 0.65f) &&
-            Mathf.Abs(pPos.z - b.center.z) <= (b.extents.z + 0.65f);
-
-        bool onTopOrTouching =
-            pPos.y >= (b.min.y - 0.2f) &&
-            pPos.y <= (b.max.y + 0.85f);
-
-        return horizOverlap && onTopOrTouching;
+        // If the released box immediately collides with the player, resolve guard/plastic collision right away!
+        CheckMovingBoxPlayerCollision();
     }
 
     public void SetBulletTimeHighlight(bool bulletTimeActive, bool hovered)
@@ -296,6 +380,7 @@ public class KineticBox : MonoBehaviour
         else
         {
             rb.linearVelocity = cardinalDir * impulseSpeed;
+            recentLinearVelocity = rb.linearVelocity;
             Debug.Log($"[KineticBox] Applied 6-Axis Impulse along {cardinalDir} with speed {impulseSpeed:F1} m/s", this);
         }
 
@@ -328,6 +413,7 @@ public class KineticBox : MonoBehaviour
             highSpeedLaunchTimer = 1.5f;
             rb.linearDamping = launchedLinearDamping;
             rb.linearVelocity = dir * impulseSpeed;
+            recentLinearVelocity = rb.linearVelocity;
             Debug.Log($"[KineticBox] Applied Diagonal Impulse along {dir} with speed {impulseSpeed:F1} m/s", this);
         }
 
@@ -386,6 +472,7 @@ public class KineticBox : MonoBehaviour
         storedSpeed = 0f;
         storedDirection = Vector3.zero;
         highSpeedLaunchTimer = 0f;
+        recentLinearVelocity = Vector3.zero;
         rb.isKinematic = false;
         rb.linearDamping = groundLinearDamping;
         rb.linearVelocity = Vector3.zero;

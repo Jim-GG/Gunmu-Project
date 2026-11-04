@@ -26,17 +26,77 @@ public class PlayerChargedPunch : MonoBehaviour
     [SerializeField, InspectorName("命中敌人时轻微腾空")] private bool liftOnEnemyHit = true;
     [SerializeField, InspectorName("一至三级自身腾空速度")] private Vector3 combatLiftSpeeds = new Vector3(2.2f, 3f, 3.8f);
 
+    [Header("右键格挡与充能")]
+    [SerializeField, Range(30f, 180f), InspectorName("格挡判定角度")] private float guardAngle = 120f;
     [SerializeField, Range(0, 3)] private int initialEnergy = 0;
     [SerializeField] private int storedEnergy;
+
     private bool attacking;
     private int attackTier;
     public int StoredEnergy => storedEnergy;
     public float VisualCharge => charging ? .3f + .7f * Mathf.Clamp01(elapsed / tierThreeTime) : 0f;
+
     private PunchPresentation presentation;
-    public bool CanGuard => isActiveAndEnabled && !charging && !attacking && Time.unscaledTime >= nextReady;
+    private PlayerMovement movement;
+    private PlayerCombatController combat;
+    private PlayerGauntletEquipment equipment;
+    private Transform aim;
+
+    public bool CanGuard => isActiveAndEnabled
+        && !charging
+        && !attacking
+        && (equipment == null || equipment.HasGauntlet)
+        && (combat == null || !combat.IsDefeated);
+
+    public bool IsGuarding => CanGuard
+        && Cursor.lockState == CursorLockMode.Locked
+        && Mouse.current != null
+        && Mouse.current.rightButton.isPressed;
+
+    /// <summary>
+    /// Checks whether the player is currently holding Right-Click guard and facing toward the given world position.
+    /// </summary>
+    public bool IsGuardingTowardsPoint(Vector3 targetWorldPoint)
+    {
+        if (!IsGuarding) return false;
+        Vector3 origin = aim != null ? aim.position : transform.position;
+        Vector3 toTarget = targetWorldPoint - origin;
+        return IsDirectionWithinGuardCone(toTarget);
+    }
+
+    /// <summary>
+    /// Checks whether the player is currently holding Right-Click guard and facing against a surface with the given normal.
+    /// (surfaceNormal points outward from the wall/object toward the player.)
+    /// </summary>
+    public bool IsGuardingSurface(Vector3 surfaceNormal)
+    {
+        if (!IsGuarding) return false;
+        return IsDirectionWithinGuardCone(-surfaceNormal);
+    }
+
+    private bool IsDirectionWithinGuardCone(Vector3 toObstacleDir)
+    {
+        if (toObstacleDir.sqrMagnitude < 0.0001f) return true;
+        float halfAngle = guardAngle * 0.5f;
+
+        Vector3 viewForward = aim != null ? aim.forward : transform.forward;
+        if (Vector3.Angle(viewForward, toObstacleDir) <= halfAngle)
+            return true;
+
+        Vector3 flatForward = Vector3.ProjectOnPlane(viewForward, Vector3.up);
+        Vector3 flatTarget = Vector3.ProjectOnPlane(toObstacleDir, Vector3.up);
+        if (flatForward.sqrMagnitude > 0.001f && flatTarget.sqrMagnitude > 0.001f)
+        {
+            if (Vector3.Angle(flatForward, flatTarget) <= halfAngle)
+                return true;
+        }
+
+        return false;
+    }
+
     public bool AddEnergy(int amount)
     {
-        PlayerGauntletEquipment equipment = GetComponent<PlayerGauntletEquipment>();
+        if (equipment == null) equipment = GetComponent<PlayerGauntletEquipment>();
         if (equipment != null && !equipment.HasGauntlet) return false;
         if (amount <= 0 || storedEnergy >= 3) return false;
         storedEnergy = Mathf.Min(3, storedEnergy + amount);
@@ -44,11 +104,29 @@ public class PlayerChargedPunch : MonoBehaviour
         feedbackUntil = Time.unscaledTime + 1.5f;
         return true;
     }
-    // Call only after the combat system confirms a successful block.
-    public void NotifySuccessfulBlock() => AddEnergy(1);
 
-    private PlayerMovement movement;
-    private Transform aim;
+    /// <summary>
+    /// Refills energy to full (3/3) and triggers metallic guard feedback (sound, sparks, camera shake).
+    /// </summary>
+    public void RefillEnergyByGuard(Vector3 impactPoint, Vector3 impactNormal)
+    {
+        if (equipment == null) equipment = GetComponent<PlayerGauntletEquipment>();
+        if (equipment != null && !equipment.HasGauntlet) return;
+
+        storedEnergy = 3;
+        if (presentation != null)
+            presentation.GuardFeedback(true, impactPoint, impactNormal);
+    }
+
+    public void NotifyPlasticCollision()
+    {
+        if (presentation != null)
+            presentation.GuardFeedback(false);
+    }
+
+    // Call only after the combat system confirms a successful block.
+    public void NotifySuccessfulBlock() => AddEnergy(3);
+
     private bool charging;
     private bool releaseQueued;
     private bool cursorWasLocked;
@@ -65,6 +143,8 @@ public class PlayerChargedPunch : MonoBehaviour
         presentation = GetComponent<PunchPresentation>();
         if (presentation == null) presentation = gameObject.AddComponent<PunchPresentation>();
         movement = GetComponent<PlayerMovement>();
+        combat = GetComponent<PlayerCombatController>();
+        equipment = GetComponent<PlayerGauntletEquipment>();
         Camera camera = GetComponentInChildren<Camera>();
         aim = camera != null ? camera.transform : transform.Find("CameraPivot");
         if (aim == null) aim = transform;
@@ -84,7 +164,7 @@ public class PlayerChargedPunch : MonoBehaviour
     private void Update()
     {
         if (presentation != null && presentation.IsHitStopped) return;
-        PlayerGauntletEquipment equipment = GetComponent<PlayerGauntletEquipment>();
+        if (equipment == null) equipment = GetComponent<PlayerGauntletEquipment>();
         if (equipment != null && !equipment.HasGauntlet)
         {
             CancelCharge();
@@ -115,7 +195,13 @@ public class PlayerChargedPunch : MonoBehaviour
             CancelCharge();
             return;
         }
-        if (!charging && cursorWasLocked && Time.unscaledTime >= nextReady && mouse.leftButton.wasPressedThisFrame)
+        // Pressing Right Mouse Button to guard cancels any unlaunched charge
+        if (charging && mouse.rightButton.wasPressedThisFrame)
+        {
+            CancelCharge();
+            return;
+        }
+        if (!charging && cursorWasLocked && !mouse.rightButton.isPressed && Time.unscaledTime >= nextReady && mouse.leftButton.wasPressedThisFrame)
         {
             charging = true;
             releaseQueued = false;

@@ -26,9 +26,8 @@ public class PlayerCombatController : MonoBehaviour
         Vector3 direction = Vector3.ProjectOnPlane(source - transform.position, Vector3.up);
         if (IsGuarding && Vector3.Angle(transform.forward, direction) <= guardAngle * 0.5f)
         {
-            punch.NotifySuccessfulBlock();
-            GetComponent<PunchPresentation>()?.GuardFeedback(true);
-            feedback = "格挡成功！获得 1 格充能";
+            punch.RefillEnergyByGuard(transform.position + Vector3.up * 1.0f + transform.forward * 0.6f, -transform.forward);
+            feedback = "格挡成功！蓄力已回满";
             feedbackUntil = Time.unscaledTime + 1.2f;
             return;
         }
