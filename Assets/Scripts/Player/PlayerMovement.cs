@@ -21,9 +21,9 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField, Range(0.2f, 1f)] private float dashEndMomentumRetention = 0.72f;
     [SerializeField, Min(0f)] private float hitRecoilBackSpeed = 4.5f;
     [SerializeField, Min(0f)] private float hitRecoilUpSpeed = 3.5f;
-    [SerializeField, Range(0.5f, 2.5f), InspectorName("格挡弹射玩家速度倍率")] private float guardPlayerLaunchMultiplier = 1.25f;
-    [SerializeField, Min(0f), InspectorName("格挡弹射玩家保底速度")] private float guardPlayerMinLaunchSpeed = 14f;
-    [SerializeField, Min(0f), InspectorName("格挡水平弹射附加腾空速度")] private float guardHorizontalLaunchUpSpeed = 6.5f;
+    [SerializeField, Range(0.5f, 2.5f), InspectorName("格挡继承动量倍率")] private float guardPlayerLaunchMultiplier = 1.15f;
+    [SerializeField, Range(0f, 0.6f), InspectorName("未格挡受击动量保留比例")] private float unguardedIncomingMomentumRetention = 0.25f;
+    [SerializeField, Min(0f), InspectorName("格挡平地撞击离地微跃速度")] private float guardHorizontalLaunchUpSpeed = 5.5f;
     [SerializeField, Range(0f, 1f), InspectorName("格挡时方块反弹速度比例")] private float guardBoxReboundRatio = 0.2f;
     [SerializeField, Min(0f), InspectorName("格挡时方块最大反弹速度")] private float guardBoxMaxReboundSpeed = 3.5f;
     [SerializeField, Min(1f), InspectorName("撞墙格挡充能最低速度")] private float externalSpeedRechargeThreshold = 9f;
@@ -39,10 +39,13 @@ public class PlayerMovement : MonoBehaviour
     // Persistent world-space velocity components (preserves inertia in mid-air!)
     private Vector3 currentHorizontalVelocity;
     private float verticalSpeed;
+    private Vector3 preMoveVelocity;
 
     // Punch lunge state
     private float dashTimer;
     private Vector3 dashDirection;
+    private float activeLungeSpeed;
+    private float activeLungeRetention;
     private bool punchLunging;
     public bool IsPunchLunging => punchLunging && dashTimer > 0f;
 
@@ -59,6 +62,9 @@ public class PlayerMovement : MonoBehaviour
     private Collider ignoredBoxCollider;
     private float ignoreBoxTimer;
     private float lastCollisionResolveTime = -10f;
+    private Vector3 initialSpawnPosition;
+    private Quaternion initialSpawnRotation;
+    private bool hasRecordedSpawn;
 
     public bool IsDashing => dashTimer > 0f;
     public bool IsBulletTimeActive => isBulletTimeActive;
@@ -82,6 +88,9 @@ public class PlayerMovement : MonoBehaviour
 
     private void Start()
     {
+        initialSpawnPosition = transform.position;
+        initialSpawnRotation = transform.rotation;
+        hasRecordedSpawn = true;
         cachedSwitch = FindFirstObjectByType<PuzzleSwitch>();
         cachedPendulum = FindFirstObjectByType<PendulumMechanism>();
         cachedSeesaw = FindFirstObjectByType<SeesawMechanism>();
@@ -120,7 +129,7 @@ public class PlayerMovement : MonoBehaviour
         // Scene number shortcuts are development-only and cannot skip the packaged demo.
         if (Application.isEditor)
         {
-            // Quick scene switch between Level 1..5 (Keys 1, 2, 3, 4, 5)
+            // Quick scene switch between Level 1..6 (Keys 1..6)
             if (keyboard != null && keyboard.digit1Key.wasPressedThisFrame)
             {
                 SetBulletTime(false);
@@ -149,6 +158,12 @@ public class PlayerMovement : MonoBehaviour
             {
                 SetBulletTime(false);
                 SceneManager.LoadScene("Level5_ChainReaction");
+                return;
+            }
+            if (keyboard != null && keyboard.digit6Key.wasPressedThisFrame)
+            {
+                SetBulletTime(false);
+                SceneManager.LoadScene("Level6_BouncyWall");
                 return;
             }
         }
@@ -214,10 +229,12 @@ public class PlayerMovement : MonoBehaviour
             // Clamp the last movement step so distance is not rounded up by a full frame.
             float stepTime = Mathf.Min(dt, dashTimer);
             dashTimer -= stepTime;
-            frameVelocity = dt > 0f ? dashDirection * (dashSpeed * stepTime / dt) : Vector3.zero;
+            float lungeSpd = activeLungeSpeed > 0.1f ? activeLungeSpeed : dashSpeed;
+            float lungeRet = activeLungeRetention > 0.01f ? activeLungeRetention : dashEndMomentumRetention;
+            frameVelocity = dt > 0f ? dashDirection * (lungeSpd * stepTime / dt) : Vector3.zero;
 
             // Continuously sync persistent velocity so when dash ends naturally, momentum carries over seamlessly!
-            Vector3 retainedVel = dashDirection * (dashSpeed * dashEndMomentumRetention);
+            Vector3 retainedVel = dashDirection * (lungeSpd * lungeRet);
             currentHorizontalVelocity = new Vector3(retainedVel.x, 0f, retainedVel.z);
             verticalSpeed = retainedVel.y;
         }
@@ -265,16 +282,21 @@ public class PlayerMovement : MonoBehaviour
             frameVelocity = currentHorizontalVelocity + Vector3.up * verticalSpeed;
         }
 
+        preMoveVelocity = new Vector3(currentHorizontalVelocity.x, verticalSpeed, currentHorizontalVelocity.z);
         CollisionFlags collisions = controller.Move(frameVelocity * dt);
 
         // Natural end of lunge: exit lunge state while preserving retained momentum!
         if (punchLunging && dashTimer <= 0f)
             punchLunging = false;
 
-        if ((collisions & CollisionFlags.Above) != 0 && verticalSpeed > 0f)
-            verticalSpeed = 0f;
-        if ((collisions & CollisionFlags.Below) != 0 && verticalSpeed < 0f)
-            verticalSpeed = -2f;
+        bool bouncedThisFrame = (Time.unscaledTime - lastCollisionResolveTime) < 0.02f;
+        if (!bouncedThisFrame)
+        {
+            if ((collisions & CollisionFlags.Above) != 0 && verticalSpeed > 0f)
+                verticalSpeed = 0f;
+            if ((collisions & CollisionFlags.Below) != 0 && verticalSpeed < 0f)
+                verticalSpeed = -2f;
+        }
     }
 
     private void UpdateHoveredBox()
@@ -365,10 +387,15 @@ public class PlayerMovement : MonoBehaviour
             dashDirection = lookDir.normalized;
         }
 
-        dashTimer = Mathf.Max(0f, distance) / Mathf.Max(0.01f, dashSpeed);
+        float preLungeSpeed = CurrentVelocity.magnitude;
+        bool highSpeedAerialTurn = !controller.isGrounded && preLungeSpeed > dashSpeed;
+        activeLungeSpeed = highSpeedAerialTurn ? preLungeSpeed : dashSpeed;
+        activeLungeRetention = highSpeedAerialTurn ? Mathf.Max(dashEndMomentumRetention, 0.9f) : dashEndMomentumRetention;
+
+        dashTimer = Mathf.Max(0f, distance) / Mathf.Max(0.01f, activeLungeSpeed);
         punchLunging = dashTimer > 0f;
 
-        Vector3 retainedVel = dashDirection * (dashSpeed * dashEndMomentumRetention);
+        Vector3 retainedVel = dashDirection * (activeLungeSpeed * activeLungeRetention);
         currentHorizontalVelocity = new Vector3(retainedVel.x, 0f, retainedVel.z);
         verticalSpeed = retainedVel.y;
     }
@@ -397,6 +424,42 @@ public class PlayerMovement : MonoBehaviour
         verticalSpeed = Mathf.Max(verticalSpeed, Mathf.Max(0f, upwardSpeed));
     }
 
+    /// <summary>
+    /// Unified handler for any incoming high-speed impact (e.g., Giant Pendulum hammer or incoming box):
+    /// - Guarding toward the impact: Player fully inherits the incoming momentum + refills gauntlet energy to 3/3.
+    /// - Not guarding: Plastic collision (player only retains a small damped fraction of the incoming velocity and does not refill energy).
+    /// </summary>
+    public bool ResolveIncomingImpact(Vector3 sourceCenter, Vector3 contactPoint, Vector3 surfaceNormalOnPlayer, Vector3 incomingVelocity)
+    {
+        if (Time.unscaledTime - lastCollisionResolveTime < 0.12f)
+            return false;
+
+        lastCollisionResolveTime = Time.unscaledTime;
+        punchLunging = false;
+        dashTimer = 0f;
+
+        bool isGuardingSource = chargedPunch != null &&
+            (chargedPunch.IsGuardingTowardsPoint(sourceCenter) || chargedPunch.IsGuardingSurface(surfaceNormalOnPlayer));
+
+        if (isGuardingSource)
+        {
+            chargedPunch.RefillEnergyByGuard(contactPoint, surfaceNormalOnPlayer);
+            Vector3 launchVel = incomingVelocity * guardPlayerLaunchMultiplier;
+            currentHorizontalVelocity = new Vector3(launchVel.x, 0f, launchVel.z);
+            verticalSpeed = Mathf.Abs(launchVel.y) > 0.5f ? launchVel.y : Mathf.Max(verticalSpeed, guardHorizontalLaunchUpSpeed);
+            return true;
+        }
+        else
+        {
+            Vector3 plasticVel = incomingVelocity * unguardedIncomingMomentumRetention;
+            currentHorizontalVelocity = new Vector3(plasticVel.x, 0f, plasticVel.z);
+            verticalSpeed = Mathf.Max(0f, plasticVel.y);
+            if (chargedPunch != null)
+                chargedPunch.NotifyPlasticCollision();
+            return false;
+        }
+    }
+
     private void IgnoreBoxBriefly(Collider boxCol, float duration = 0.22f)
     {
         if (boxCol == null) return;
@@ -411,7 +474,7 @@ public class PlayerMovement : MonoBehaviour
     /// <summary>
     /// Handles collision between the Player and an UNLOCKED moving KineticBox:
     /// (Momentum-locked boxes are treated as static walls/floors, never entering this method!)
-    /// - Guarding (Right-Click + facing object): Elastic collision (player gets catapulted at high speed, box only rebounds gently) + refill energy to full (3/3).
+    /// - Guarding (Right-Click + facing object): Elastic collision (player inherits momentum, box only rebounds gently) + refill energy to full (3/3).
     /// - Not guarding: Plastic collision (both lose speed) + no energy refill.
     /// </summary>
     public void ResolveBoxCollision(KineticBox box, Vector3 contactPoint, Vector3 surfaceNormalOnPlayer, Vector3 boxVelocity)
@@ -424,7 +487,7 @@ public class PlayerMovement : MonoBehaviour
             return;
 
         float boxSpeed = boxVelocity.magnitude;
-        Vector3 playerVel = CurrentVelocity;
+        Vector3 playerVel = preMoveVelocity.sqrMagnitude > CurrentVelocity.sqrMagnitude ? preMoveVelocity : CurrentVelocity;
         float playerSpeed = playerVel.magnitude;
 
         // If the box itself is stationary/slow on the ground:
@@ -438,62 +501,49 @@ public class PlayerMovement : MonoBehaviour
                 return;
         }
 
-        bool isGuardingBox = chargedPunch != null &&
-            (chargedPunch.IsGuardingTowardsPoint(box.transform.position) || chargedPunch.IsGuardingSurface(surfaceNormalOnPlayer));
-
-        lastCollisionResolveTime = Time.unscaledTime;
-
-        if (isGuardingBox)
+        if (boxSpeed >= playerSpeed)
         {
-            chargedPunch.RefillEnergyByGuard(contactPoint, surfaceNormalOnPlayer);
-            IgnoreBoxBriefly(box.Collider, 0.25f);
-
-            if (boxSpeed >= playerSpeed)
+            // Incoming moving box hits player: use the unified incoming impact handler!
+            bool guarded = ResolveIncomingImpact(box.transform.position, contactPoint, surfaceNormalOnPlayer, boxVelocity);
+            if (guarded)
             {
-                // Incoming moving box hits guarding player: transfer momentum primarily into launching the player,
-                // while the box only rebounds gently!
-                if (boxVelocity.y > 1.5f)
-                {
-                    verticalSpeed = Mathf.Max(boxVelocity.y * guardPlayerLaunchMultiplier, 23.5f);
-                    currentHorizontalVelocity = new Vector3(boxVelocity.x, 0f, boxVelocity.z) * guardPlayerLaunchMultiplier;
-                }
-                else
-                {
-                    Vector3 launchHorizDir = new Vector3(boxVelocity.x, 0f, boxVelocity.z).normalized;
-                    if (launchHorizDir.sqrMagnitude < 0.01f)
-                        launchHorizDir = new Vector3(surfaceNormalOnPlayer.x, 0f, surfaceNormalOnPlayer.z).normalized;
-
-                    float launchSpeed = Mathf.Max(boxSpeed * guardPlayerLaunchMultiplier, guardPlayerMinLaunchSpeed);
-                    currentHorizontalVelocity = launchHorizDir * launchSpeed;
-                    verticalSpeed = Mathf.Max(verticalSpeed, guardHorizontalLaunchUpSpeed);
-                }
-
+                IgnoreBoxBriefly(box.Collider, 0.25f);
                 float gentleRebound = Mathf.Min(boxSpeed * guardBoxReboundRatio, guardBoxMaxReboundSpeed);
                 box.ApplyGentleGuardRebound(-boxVelocity, gentleRebound);
             }
             else
             {
-                // Fast-moving player slams into an unlocked box while guarding: player bounces off at high speed!
-                Vector3 horizNormal = new Vector3(surfaceNormalOnPlayer.x, 0f, surfaceNormalOnPlayer.z).normalized;
-                Vector3 reflected = Vector3.Reflect(currentHorizontalVelocity, horizNormal);
-                float reboundSpeed = Mathf.Max(playerSpeed * guardPlayerLaunchMultiplier, guardPlayerMinLaunchSpeed);
-                currentHorizontalVelocity = (reflected.sqrMagnitude > 0.01f ? reflected.normalized : horizNormal) * reboundSpeed;
-                verticalSpeed = Mathf.Max(verticalSpeed, guardHorizontalLaunchUpSpeed);
-
-                float gentlePush = Mathf.Min(playerSpeed * guardBoxReboundRatio, guardBoxMaxReboundSpeed);
-                box.ApplyGentleGuardRebound(-surfaceNormalOnPlayer, gentlePush);
+                box.StopPlasticMotion();
             }
         }
         else
         {
-            // Plastic collision (not guarding): lose speed on both box and player, no energy refill!
-            box.StopPlasticMotion();
-            currentHorizontalVelocity = Vector3.zero;
-            if (verticalSpeed > 0f)
-                verticalSpeed = 0f;
+            // Fast-moving player slams into a slower unlocked box
+            lastCollisionResolveTime = Time.unscaledTime;
+            bool isGuardingBox = chargedPunch != null &&
+                (chargedPunch.IsGuardingTowardsPoint(box.transform.position) || chargedPunch.IsGuardingSurface(surfaceNormalOnPlayer));
 
-            if (chargedPunch != null)
-                chargedPunch.NotifyPlasticCollision();
+            if (isGuardingBox)
+            {
+                chargedPunch.RefillEnergyByGuard(contactPoint, surfaceNormalOnPlayer);
+                IgnoreBoxBriefly(box.Collider, 0.25f);
+
+                Vector3 reflected = Vector3.Reflect(playerVel, surfaceNormalOnPlayer) * guardPlayerLaunchMultiplier;
+                currentHorizontalVelocity = new Vector3(reflected.x, 0f, reflected.z);
+                verticalSpeed = Mathf.Abs(reflected.y) > 0.5f ? reflected.y : Mathf.Max(verticalSpeed, guardHorizontalLaunchUpSpeed);
+
+                float gentlePush = Mathf.Min(playerSpeed * guardBoxReboundRatio, guardBoxMaxReboundSpeed);
+                box.ApplyGentleGuardRebound(-surfaceNormalOnPlayer, gentlePush);
+            }
+            else
+            {
+                box.StopPlasticMotion();
+                currentHorizontalVelocity = Vector3.zero;
+                if (verticalSpeed > 0f)
+                    verticalSpeed = 0f;
+                if (chargedPunch != null)
+                    chargedPunch.NotifyPlasticCollision();
+            }
         }
     }
 
@@ -507,7 +557,7 @@ public class PlayerMovement : MonoBehaviour
 
         Vector3 bodyVel = body.linearVelocity;
         float bodySpeed = bodyVel.magnitude;
-        Vector3 playerVel = CurrentVelocity;
+        Vector3 playerVel = preMoveVelocity.sqrMagnitude > CurrentVelocity.sqrMagnitude ? preMoveVelocity : CurrentVelocity;
         float playerSpeed = playerVel.magnitude;
 
         if (bodySpeed < minObjectCollisionSpeed)
@@ -516,30 +566,17 @@ public class PlayerMovement : MonoBehaviour
                 return;
         }
 
-        lastCollisionResolveTime = Time.unscaledTime;
-        bool isGuardingObj = chargedPunch != null &&
-            (chargedPunch.IsGuardingTowardsPoint(body.worldCenterOfMass) || chargedPunch.IsGuardingSurface(surfaceNormalOnPlayer));
-
-        if (isGuardingObj)
+        Vector3 effectiveIncoming = bodySpeed >= playerSpeed ? bodyVel : Vector3.Reflect(playerVel, surfaceNormalOnPlayer);
+        bool guarded = ResolveIncomingImpact(body.worldCenterOfMass, contactPoint, surfaceNormalOnPlayer, effectiveIncoming);
+        if (guarded)
         {
-            chargedPunch.RefillEnergyByGuard(contactPoint, surfaceNormalOnPlayer);
             float refSpeed = Mathf.Max(bodySpeed, playerSpeed);
-            float launchSpeed = Mathf.Max(refSpeed * guardPlayerLaunchMultiplier, guardPlayerMinLaunchSpeed);
-            Vector3 launchDir = bodySpeed >= playerSpeed ? bodyVel.normalized : surfaceNormalOnPlayer;
-            currentHorizontalVelocity = new Vector3(launchDir.x, 0f, launchDir.z).normalized * launchSpeed;
-            verticalSpeed = Mathf.Max(verticalSpeed, guardHorizontalLaunchUpSpeed);
-
             float gentleRebound = Mathf.Min(refSpeed * guardBoxReboundRatio, guardBoxMaxReboundSpeed);
-            body.linearVelocity = -launchDir.normalized * gentleRebound;
+            body.linearVelocity = -effectiveIncoming.normalized * gentleRebound;
         }
         else
         {
             body.linearVelocity = new Vector3(0f, Mathf.Min(0f, body.linearVelocity.y), 0f);
-            currentHorizontalVelocity = Vector3.zero;
-            if (verticalSpeed > 0f)
-                verticalSpeed = 0f;
-            if (chargedPunch != null)
-                chargedPunch.NotifyPlasticCollision();
         }
     }
 
@@ -554,6 +591,37 @@ public class PlayerMovement : MonoBehaviour
         if (hit.collider.TryGetComponent(out PuzzleSwitch sw) && sw.AllowPlayerActivation)
         {
             sw.Activate();
+        }
+
+        // 0. Check collision with BouncyWall (弹性墙)
+        BouncyWall bouncyWall = hit.collider.GetComponentInParent<BouncyWall>();
+        if (bouncyWall != null)
+        {
+            Vector3 incomingVel = preMoveVelocity.sqrMagnitude > CurrentVelocity.sqrMagnitude ? preMoveVelocity : CurrentVelocity;
+            float speedIntoWall = -Vector3.Dot(incomingVel, hit.normal);
+            if (incomingVel.magnitude >= 3.5f && speedIntoWall > 1.0f && Time.unscaledTime - lastCollisionResolveTime >= 0.12f)
+            {
+                lastCollisionResolveTime = Time.unscaledTime;
+                bool isGuardingBouncy = chargedPunch != null &&
+                    (chargedPunch.IsGuardingSurface(hit.normal) || chargedPunch.IsGuardingTowardsPoint(bouncyWall.transform.position));
+
+                if (isGuardingBouncy)
+                {
+                    chargedPunch.RefillEnergyByGuard(hit.point, hit.normal);
+                    Vector3 reflectedVel = bouncyWall.ComputeReflectedVelocity(incomingVel, hit.normal);
+                    currentHorizontalVelocity = new Vector3(reflectedVel.x, 0f, reflectedVel.z);
+                    verticalSpeed = reflectedVel.y;
+                }
+                else
+                {
+                    currentHorizontalVelocity = Vector3.zero;
+                    if (verticalSpeed > 0f)
+                        verticalSpeed = 0f;
+                    if (chargedPunch != null)
+                        chargedPunch.NotifyPlasticCollision();
+                }
+            }
+            return;
         }
 
         // 1. Check collision with UNLOCKED KineticBox (Momentum-Locked boxes fall through and are treated as static walls/platforms!)
@@ -620,6 +688,8 @@ public class PlayerMovement : MonoBehaviour
     public void TeleportTo(Vector3 targetPosition)
     {
         SetBulletTime(false);
+        initialSpawnPosition = targetPosition;
+        hasRecordedSpawn = true;
         controller.enabled = false;
         transform.position = targetPosition;
         controller.enabled = true;
@@ -636,6 +706,13 @@ public class PlayerMovement : MonoBehaviour
         dashTimer = 0f;
         verticalSpeed = 0f;
         currentHorizontalVelocity = Vector3.zero;
+
+        if (hasRecordedSpawn)
+        {
+            controller.enabled = false;
+            transform.SetPositionAndRotation(initialSpawnPosition, initialSpawnRotation);
+            controller.enabled = true;
+        }
 
         foreach (KineticBox box in FindObjectsByType<KineticBox>(FindObjectsSortMode.None))
             box.ResetBox();
@@ -706,19 +783,23 @@ public class PlayerMovement : MonoBehaviour
         {
             puzzleText = sceneName == "Level1_Billiards" ? "解谜成功！从右侧出口进入第二关。"
                 : sceneName == "Level2_Pendulum" ? "解谜成功！等待沟壑填平，穿过接收屏幕后方的门。"
-                : "机关已触发！解谜成功！（按 R 重置）";
+                : "★ 机关已触发！解谜成功！（按 1~6 切换关卡，按 R 重置）";
+        }
+        else if (sceneName == "Level6_BouncyWall")
+        {
+            puzzleText = "第6关流程：①站上橙色击球区，面向往复摆动的大摆锤按住右键格挡，直接继承摆锤动量飞越深渊 → ②空中转向青色【弹性墙】按住右键格挡反射向右斜上方 → ③空中左键蓄力冲撞拐弯落上目标平台！（按1~6切关，R重置）";
         }
         else if (sceneName == "Level5_ChainReaction")
         {
-            puzzleText = "第5关流程：①用1格蓄力拳击打白色【母球】穿过窄缝至大摆锤前 → ②右侧按钮[F]释放起重机弹起黄方块，Q减速后按E锁在轨道高度 → ③左侧按钮[F]释放摆锤击飞母球传力给黄方块 → ④按[E]释放黄方块！（按1~5切关，R重置）";
+            puzzleText = "第5关流程：①用1格蓄力拳击打白色【母球】穿过窄缝至大摆锤前 → ②右侧按钮[F]释放起重机弹起黄方块，Q减速后按E锁在轨道高度 → ③左侧按钮[F]释放摆锤击飞母球传力给黄方块 → ④按[E]释放黄方块！（按1~6切关，R重置）";
         }
         else if (sceneName == "Level4_MomentumRedirect")
         {
-            puzzleText = "第4关流程：①按[F]释放起重机弹起方块 → ②方块升至平台高度时Q减速、E锁定 → ③朝对面平台【1格蓄力拳】击打方块将向上动量偏转为向前 → ④按[E]释放飞跃峡谷！（按1~5切关，R重置）";
+            puzzleText = "第4关流程：①按[F]释放起重机弹起方块 → ②方块升至平台高度时Q减速、E锁定 → ③朝对面平台【1格蓄力拳】击打方块将向上动量偏转为向前 → ④按[E]释放飞跃峡谷！（按1~6切关，R重置）";
         }
         else if (cachedSeesaw != null)
         {
-            puzzleText = "第3关流程：①按[F]释放起重机重物砸向跷跷板 → ②Q减速、E锁定飞上来的方块 → ③站在方块上低头按住右键格挡并按[E]释放弹射升空 → ④高空松开左键冲撞到头顶平台（按1~4切关，R重置）";
+            puzzleText = "第3关流程：①按[F]释放起重机重物砸向跷跷板 → ②Q减速、E锁定飞上来的方块 → ③迎着方块按住右键格挡并按[E]释放弹射升空 → ④高空松开左键冲撞到头顶平台（按1~6切关，R重置）";
         }
         else if (cachedPendulum != null)
         {

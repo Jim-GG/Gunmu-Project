@@ -31,6 +31,7 @@ public class KineticBox : MonoBehaviour
     private Quaternion initialRotation;
     private Vector3 lastImpulseDirection;
     private float lastImpulseTime = -10f;
+    private float lastBouncyWallTime = -10f;
     private Vector3 recentLinearVelocity;
 
     // Momentum Lock & trajectory mode state
@@ -163,11 +164,50 @@ public class KineticBox : MonoBehaviour
 
         recentLinearVelocity = rb.linearVelocity;
 
+        // Check BouncyWall reflection ahead of impact so PhysX does not dampen velocity first
+        CheckBouncyWallReflection();
+
         // Check Box-to-Box ("Cue Ball" -> Target Box) impulse transfer!
         CheckBoxToBoxImpulseTransfer();
 
         // Check Moving Box -> Player collision (supports stationary guarding player parrying incoming flying/sliding boxes!)
         CheckMovingBoxPlayerCollision();
+    }
+
+    private void CheckBouncyWallReflection()
+    {
+        if (Time.unscaledTime - lastBouncyWallTime < 0.12f)
+            return;
+
+        Vector3 vel = recentLinearVelocity;
+        float speed = vel.magnitude;
+        if (speed < 2.5f)
+            return;
+
+        float castDist = speed * Time.fixedDeltaTime + 0.15f;
+        if (Physics.BoxCast(boxCollider.bounds.center, boxCollider.bounds.extents * 0.92f, vel.normalized,
+            out RaycastHit hit, transform.rotation, castDist, Physics.DefaultRaycastLayers, QueryTriggerInteraction.Ignore))
+        {
+            BouncyWall bouncy = hit.collider.GetComponentInParent<BouncyWall>();
+            if (bouncy != null)
+            {
+                ReflectOffBouncyWall(bouncy, hit.point, hit.normal, vel);
+            }
+        }
+    }
+
+    private void ReflectOffBouncyWall(BouncyWall bouncy, Vector3 hitPoint, Vector3 hitNormal, Vector3 incomingVel)
+    {
+        if (Time.unscaledTime - lastBouncyWallTime < 0.12f)
+            return;
+
+        lastBouncyWallTime = Time.unscaledTime;
+        lastImpulseTime = -10f; // Allow immediate impulse application
+
+        Vector3 reflectedVel = bouncy.ComputeReflectedVelocity(incomingVel, hitNormal);
+        ApplyFreeImpulse(reflectedVel.normalized, reflectedVel.magnitude);
+        DemoImpactBurst.Spawn(hitPoint, hitNormal, 2, false);
+        Debug.Log($"[KineticBox] Reflected off BouncyWall '{bouncy.name}' with velocity {reflectedVel} ({reflectedVel.magnitude:F1} m/s)!", this);
     }
 
     private void CheckMovingBoxPlayerCollision()
@@ -205,6 +245,18 @@ public class KineticBox : MonoBehaviour
     {
         if (isMomentumLocked)
             return;
+
+        BouncyWall bouncy = collision.collider.GetComponentInParent<BouncyWall>();
+        if (bouncy != null)
+        {
+            Vector3 vel = PreImpactVelocity;
+            if (vel.magnitude >= 2.0f)
+            {
+                ContactPoint cp = collision.GetContact(0);
+                ReflectOffBouncyWall(bouncy, cp.point, cp.normal, vel);
+                return;
+            }
+        }
 
         if (collision.collider.TryGetComponent(out PlayerMovement pm) && !pm.IsIgnoringBox(boxCollider))
         {
@@ -388,7 +440,7 @@ public class KineticBox : MonoBehaviour
     }
 
     /// <summary>
-    /// Used by scripted mechanisms (e.g., Giant Pendulum): applies an arbitrary/diagonal 3D impulse without 6-axis snapping.
+    /// Used by scripted mechanisms (e.g., Giant Pendulum, Bouncy Wall): applies an arbitrary/diagonal 3D impulse without 6-axis snapping.
     /// </summary>
     public Vector3 ApplyFreeImpulse(Vector3 worldDirection, float impulseSpeed)
     {
@@ -479,6 +531,7 @@ public class KineticBox : MonoBehaviour
         rb.angularVelocity = Vector3.zero;
         transform.SetPositionAndRotation(initialPosition, initialRotation);
         lastImpulseTime = -10f;
+        lastBouncyWallTime = -10f;
         UpdateVisuals();
     }
 

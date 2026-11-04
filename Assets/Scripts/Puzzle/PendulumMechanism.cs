@@ -12,6 +12,7 @@ public class PendulumMechanism : MonoBehaviour
     [SerializeField] private float maxEastAngleDeg = 65f;
     [SerializeField] private float swingSpeedDegPerSec = 140f;
     [SerializeField] private float impulseSpeedToBox = 18.5f;
+    [SerializeField] private bool autoSwing = false;
 
     private enum State
     {
@@ -64,8 +65,8 @@ public class PendulumMechanism : MonoBehaviour
 
             if (Mathf.Approximately(currentAngleDeg, startAngleDeg))
             {
-                currentState = State.ReadyAtWest;
                 hasDeliveredHit = false;
+                currentState = autoSwing ? State.SwingingEast : State.ReadyAtWest;
             }
         }
     }
@@ -75,6 +76,16 @@ public class PendulumMechanism : MonoBehaviour
         if (hasDeliveredHit || hammerCollider == null)
             return;
 
+        // Compute the instantaneous tangent direction from the pendulum's current swing angle!
+        // At currentAngleDeg == 0 (lowest point), tangent is (1, 0, 0) (horizontal East).
+        // At currentAngleDeg > 0 (upswing on the East side of the pivot), tangent is (cos(θ), sin(θ), 0) (diagonally Upward-East!).
+        float rad = currentAngleDeg * Mathf.Deg2Rad;
+        Vector3 localTangent = new Vector3(Mathf.Cos(rad), Mathf.Sin(rad), 0f).normalized;
+        Vector3 tangentDirection = pivotTransform.parent != null
+            ? pivotTransform.parent.TransformDirection(localTangent)
+            : localTangent;
+        Vector3 hammerVelocity = tangentDirection * impulseSpeedToBox;
+
         Bounds b = hammerCollider.bounds;
         Collider[] hits = Physics.OverlapBox(b.center, b.extents * 1.1f, hammerCollider.transform.rotation);
         for (int i = 0; i < hits.Length; i++)
@@ -82,18 +93,23 @@ public class PendulumMechanism : MonoBehaviour
             if (hits[i].TryGetComponent(out KineticBox box))
             {
                 hasDeliveredHit = true;
-
-                // Compute the instantaneous tangent direction from the pendulum's current swing angle!
-                // At currentAngleDeg == 0 (lowest point), tangent is (1, 0, 0) (horizontal East).
-                // At currentAngleDeg > 0 (upswing on the East side of the pivot), tangent is (cos(θ), sin(θ), 0) (diagonally Upward-East!).
-                float rad = currentAngleDeg * Mathf.Deg2Rad;
-                Vector3 tangentDirection = new Vector3(Mathf.Cos(rad), Mathf.Sin(rad), 0f).normalized;
-
                 box.ApplyFreeImpulse(tangentDirection, impulseSpeedToBox);
 
                 // Rebound back West so the hammer clears the Eastward launch trajectory!
                 currentState = State.ReboundingWest;
                 Debug.Log($"[PendulumMechanism] Struck KineticBox at swing angle {currentAngleDeg:F1}° -> Tangent impulse direction: {tangentDirection}", this);
+                return;
+            }
+
+            if (hits[i].TryGetComponent(out PlayerMovement player))
+            {
+                hasDeliveredHit = true;
+                Vector3 contactPoint = b.ClosestPoint(player.transform.position + Vector3.up * 0.9f);
+                // Normal on the player points along the hammer's swing direction (so -normal points back toward the hammer)
+                player.ResolveIncomingImpact(b.center, contactPoint, tangentDirection, hammerVelocity);
+
+                currentState = State.ReboundingWest;
+                Debug.Log($"[PendulumMechanism] Struck Player at swing angle {currentAngleDeg:F1}° -> Tangent velocity: {hammerVelocity}", this);
                 return;
             }
         }
@@ -111,7 +127,7 @@ public class PendulumMechanism : MonoBehaviour
 
     public void ResetPendulum()
     {
-        currentState = State.ReadyAtWest;
+        currentState = autoSwing ? State.SwingingEast : State.ReadyAtWest;
         currentAngleDeg = startAngleDeg;
         hasDeliveredHit = false;
         ApplyPivotAngle(currentAngleDeg);
