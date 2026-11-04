@@ -248,7 +248,8 @@ public class PlayerChargedPunch : MonoBehaviour
             if (hit.collider.transform.IsChildOf(transform)) continue;
             if (hit.normal.y > 0.65f && aim.forward.y > -0.4f
                 && hit.collider.GetComponentInParent<KineticBox>() == null
-                && hit.collider.GetComponentInParent<PunchTargetHealth>() == null) continue;
+                && hit.collider.GetComponentInParent<PunchTargetHealth>() == null
+                && hit.collider.GetComponentInParent<IPunchReceiver>() == null) continue;
             if (!nearest.HasValue || hit.distance < nearest.Value.distance) nearest = hit;
         }
         if (nearest.HasValue)
@@ -284,11 +285,12 @@ public class PlayerChargedPunch : MonoBehaviour
         }
         PunchTargetHealth health = collider.GetComponentInParent<PunchTargetHealth>();
         if (health != null) health.TakeDamage(damage);
-        TutorialEnemy enemy = collider.GetComponentInParent<TutorialEnemy>();
-        if (enemy != null) enemy.OnPunched(tier, aim.forward, impulse);
-        if (enemy != null && tier > 0 && liftOnEnemyHit && movement != null)
+
+        IPunchReceiver receiver = collider.GetComponentInParent<IPunchReceiver>();
+        if (receiver != null) receiver.OnPunched(point, normal, aim.forward, tier, impulse);
+        if (receiver != null && tier > 0 && liftOnEnemyHit && movement != null)
             movement.LiftAfterCombatPunch(tier == 3 ? combatLiftSpeeds.z : tier == 2 ? combatLiftSpeeds.y : combatLiftSpeeds.x);
-        if (presentation != null) presentation.Impact(point, normal, tier, enemy != null);
+        if (presentation != null) presentation.Impact(point, normal, tier, receiver != null && receiver.IsFlesh);
         Rigidbody body = collider.attachedRigidbody;
         if (box == null && tier > 0 && body != null && !body.isKinematic)
             body.AddForce(aim.forward * impulse, ForceMode.VelocityChange);

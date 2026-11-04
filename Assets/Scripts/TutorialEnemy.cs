@@ -1,7 +1,7 @@
 using UnityEngine;
 
 [RequireComponent(typeof(CharacterController), typeof(PunchTargetHealth))]
-public class TutorialEnemy : MonoBehaviour
+public class TutorialEnemy : MonoBehaviour, IPunchReceiver
 {
     [SerializeField, Min(1)] private int maxHealth = 6;
     [SerializeField, Min(0f)] private float moveSpeed = 2.2f;
@@ -45,7 +45,10 @@ public class TutorialEnemy : MonoBehaviour
         health.ResetHealth(maxHealth);
     }
 
-    public void OnPunched(int tier, Vector3 direction, float strength)
+    /// <summary>IPunchReceiver：教学敌人按肉体处理表现。</summary>
+    public bool IsFlesh => true;
+
+    public void OnPunched(Vector3 point, Vector3 normal, Vector3 direction, int tier, float strength)
     {
         if (presentation != null) presentation.Hit(tier);
         if (tier > 0)

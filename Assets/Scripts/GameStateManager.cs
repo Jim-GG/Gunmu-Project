@@ -133,9 +133,25 @@ public class GameStateManager : MonoBehaviour
     /// <summary>最小骨架的“重生”：直接重载当前场景（后续可换成检查点/重生点）。</summary>
     public static void RestartCurrentRoom()
     {
+        LoadLevel(SceneManager.GetActiveScene().name);
+    }
+
+    /// <summary>加载指定关卡（统一处理 timeScale；新场景载入后会回到 Running）。</summary>
+    public static bool LoadLevel(string sceneName)
+    {
+        if (string.IsNullOrWhiteSpace(sceneName))
+            return false;
+
+        if (!Application.CanStreamedLevelBeLoaded(sceneName))
+        {
+            Debug.LogError($"[GameState] 场景 '{sceneName}' 未加入 Build Settings（且已勾选），无法加载。");
+            return false;
+        }
+
         Time.timeScale = 1f;
         Time.fixedDeltaTime = 0.02f;
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        SceneManager.LoadScene(sceneName, LoadSceneMode.Single);
+        return true;
     }
 
     private static void ApplyState(GameState next, bool force = false)

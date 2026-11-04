@@ -33,22 +33,13 @@ public class PuzzleButton : MonoBehaviour
     private bool hasAppliedColor;
 
     /// <summary>只要有任一目标可以被触发就算就绪（没有目标时视为就绪）。</summary>
-    public bool IsReady
-    {
-        get
-        {
-            for (int i = 0; i < resolvedTargets.Count; i++)
-                if (resolvedTargets[i].CanTrigger)
-                    return true;
-            return resolvedTargets.Count == 0;
-        }
-    }
+    public bool IsReady => PuzzleTriggerUtility.AnyCanTrigger(resolvedTargets);
 
     private void Awake()
     {
         buttonRenderer = GetComponent<Renderer>();
         propBlock = new MaterialPropertyBlock();
-        ResolveTargets();
+        PuzzleTriggerUtility.Collect(targets, resolvedTargets, this);
     }
 
     private void Start()
@@ -88,9 +79,7 @@ public class PuzzleButton : MonoBehaviour
         if (GameplayGate.IsBlocked)
             return;
 
-        for (int i = 0; i < resolvedTargets.Count; i++)
-            resolvedTargets[i].Trigger();
-
+        PuzzleTriggerUtility.TriggerAll(resolvedTargets);
         onPressed.Invoke();
     }
 
@@ -115,28 +104,6 @@ public class PuzzleButton : MonoBehaviour
             return;
 
         Press();
-    }
-
-    private void ResolveTargets()
-    {
-        resolvedTargets.Clear();
-        if (targets == null)
-            return;
-
-        for (int i = 0; i < targets.Length; i++)
-        {
-            MonoBehaviour target = targets[i];
-            if (target == null)
-                continue;
-
-            if (target is IPuzzleTriggerable triggerable)
-            {
-                resolvedTargets.Add(triggerable);
-                continue;
-            }
-
-            Debug.LogWarning($"[PuzzleButton] '{target.name}' 没有实现 IPuzzleTriggerable，不会被这个按钮触发。", this);
-        }
     }
 
     private void UpdateVisuals(bool force)

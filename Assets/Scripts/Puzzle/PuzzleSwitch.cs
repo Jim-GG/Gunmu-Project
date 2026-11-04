@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -13,12 +14,16 @@ public class PuzzleSwitch : MonoBehaviour, IPuzzleResettable
     [SerializeField] private Vector3 activatedOffset = new Vector3(0f, 2.5f, 0f);
     [SerializeField, InspectorName("允许玩家碰触触发")] private bool allowPlayerActivation = true;
 
+    [Header("触发目标")]
+    [SerializeField, InspectorName("激活时触发的机关（需实现 IPuzzleTriggerable）")] private MonoBehaviour[] targets;
+
     [Header("事件")]
     [SerializeField, InspectorName("开关被激活时")] private UnityEvent onActivated = new UnityEvent();
     [SerializeField, InspectorName("开关被复位时")] private UnityEvent onReset = new UnityEvent();
 
     private Renderer switchRenderer;
     private MaterialPropertyBlock propBlock;
+    private readonly List<IPuzzleTriggerable> resolvedTargets = new List<IPuzzleTriggerable>();
     private Vector3 doorInitialPos;
     private bool isActivated;
 
@@ -29,6 +34,7 @@ public class PuzzleSwitch : MonoBehaviour, IPuzzleResettable
     {
         switchRenderer = GetComponent<Renderer>();
         propBlock = new MaterialPropertyBlock();
+        PuzzleTriggerUtility.Collect(targets, resolvedTargets, this);
 
         if (doorOrIndicatorToMove != null)
             doorInitialPos = doorOrIndicatorToMove.position;
@@ -60,6 +66,9 @@ public class PuzzleSwitch : MonoBehaviour, IPuzzleResettable
             doorOrIndicatorToMove.position = doorInitialPos + activatedOffset;
 
         Debug.Log("[PuzzleSwitch] Switch Activated! Billiard Puzzle Solved!", this);
+
+        // 和按钮一样：激活时触发挂在上面的机关（摆锤 / 跷跷板 / 以后的任何 IPuzzleTriggerable）。
+        PuzzleTriggerUtility.TriggerAll(resolvedTargets);
         onActivated.Invoke();
     }
 
