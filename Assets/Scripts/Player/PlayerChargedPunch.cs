@@ -106,14 +106,14 @@ public class PlayerChargedPunch : MonoBehaviour
     }
 
     /// <summary>
-    /// Refills energy to full (3/3) and triggers metallic guard feedback (sound, sparks, camera shake).
+    /// Refills 1 energy and triggers metallic guard feedback (sound, sparks, camera shake).
     /// </summary>
     public void RefillEnergyByGuard(Vector3 impactPoint, Vector3 impactNormal)
     {
         if (equipment == null) equipment = GetComponent<PlayerGauntletEquipment>();
         if (equipment != null && !equipment.HasGauntlet) return;
 
-        storedEnergy = 3;
+        storedEnergy = Mathf.Min(3, storedEnergy + 1);
         if (presentation != null)
             presentation.GuardFeedback(true, impactPoint, impactNormal);
     }
