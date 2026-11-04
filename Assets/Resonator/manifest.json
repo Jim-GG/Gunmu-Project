@@ -1,0 +1,609 @@
+{
+  "meshes": [
+    {
+      "label": "Clothing",
+      "vertices": 14739,
+      "triangles": 27540,
+      "components": 333
+    },
+    {
+      "label": "SculptedHeadSkin",
+      "vertices": 2086,
+      "triangles": 3370,
+      "components": 26
+    }
+  ],
+  "clips": [
+    {
+      "name": "Resonator_Walking",
+      "source": "C:\\Users\\Sakaona\\Desktop\\共鸣者动作\\Walking.fbx",
+      "frames": [
+        1,
+        50
+      ],
+      "fps": 30.0,
+      "mapped_bones": 52
+    },
+    {
+      "name": "Resonator_Zombie_Agonizing",
+      "source": "C:\\Users\\Sakaona\\Desktop\\共鸣者动作\\Zombie Agonizing.fbx",
+      "frames": [
+        1,
+        350
+      ],
+      "fps": 30.0,
+      "mapped_bones": 52
+    },
+    {
+      "name": "Resonator_Zombie_Attack",
+      "source": "C:\\Users\\Sakaona\\Desktop\\共鸣者动作\\Zombie Attack.fbx",
+      "frames": [
+        1,
+        140
+      ],
+      "fps": 30.0,
+      "mapped_bones": 52
+    },
+    {
+      "name": "Resonator_Zombie_Death",
+      "source": "C:\\Users\\Sakaona\\Desktop\\共鸣者动作\\Zombie Death.fbx",
+      "frames": [
+        1,
+        90
+      ],
+      "fps": 30.0,
+      "mapped_bones": 52
+    },
+    {
+      "name": "Resonator_Zombie_Headbutt",
+      "source": "C:\\Users\\Sakaona\\Desktop\\共鸣者动作\\Zombie Headbutt.fbx",
+      "frames": [
+        1,
+        79
+      ],
+      "fps": 30.0,
+      "mapped_bones": 52
+    },
+    {
+      "name": "Resonator_Zombie_Kicking",
+      "source": "C:\\Users\\Sakaona\\Desktop\\共鸣者动作\\Zombie Kicking.fbx",
+      "frames": [
+        1,
+        102
+      ],
+      "fps": 30.0,
+      "mapped_bones": 52
+    },
+    {
+      "name": "Resonator_Zombie_Punching",
+      "source": "C:\\Users\\Sakaona\\Desktop\\共鸣者动作\\Zombie Punching.fbx",
+      "frames": [
+        1,
+        116
+      ],
+      "fps": 30.0,
+      "mapped_bones": 52
+    },
+    {
+      "name": "Resonator_Zombie_Reaction_Hit",
+      "source": "C:\\Users\\Sakaona\\Desktop\\共鸣者动作\\Zombie Reaction Hit.fbx",
+      "frames": [
+        1,
+        66
+      ],
+      "fps": 30.0,
+      "mapped_bones": 52
+    },
+    {
+      "name": "Resonator_Zombie_Running",
+      "source": "C:\\Users\\Sakaona\\Desktop\\共鸣者动作\\Zombie Running.fbx",
+      "frames": [
+        1,
+        25
+      ],
+      "fps": 30.0,
+      "mapped_bones": 52
+    },
+    {
+      "name": "Resonator_Zombie_Scream",
+      "source": "C:\\Users\\Sakaona\\Desktop\\共鸣者动作\\Zombie Scream.fbx",
+      "frames": [
+        1,
+        85
+      ],
+      "fps": 30.0,
+      "mapped_bones": 52
+    },
+    {
+      "name": "Resonator_Zombie_Stumbling",
+      "source": "C:\\Users\\Sakaona\\Desktop\\共鸣者动作\\Zombie Stumbling.fbx",
+      "frames": [
+        1,
+        149
+      ],
+      "fps": 30.0,
+      "mapped_bones": 52
+    },
+    {
+      "name": "Zombie_01_Attack_Walking",
+      "source": "Zombie_01_Attack_Walking | 移动攻击",
+      "frames": [
+        1,
+        461
+      ],
+      "fps": 30.0
+    },
+    {
+      "name": "Zombie_02_Being_Shot",
+      "source": "Zombie_02_Being_Shot | 受击",
+      "frames": [
+        1,
+        574
+      ],
+      "fps": 30.0
+    },
+    {
+      "name": "Zombie_03_Feeding_Ground",
+      "source": "Zombie_03_Feeding_Ground | 地面进食",
+      "frames": [
+        1,
+        512
+      ],
+      "fps": 30.0
+    },
+    {
+      "name": "Zombie_04_Idle_Restless",
+      "source": "Zombie_04_Idle_Restless | 躁动待机",
+      "frames": [
+        1,
+        1000
+      ],
+      "fps": 30.0
+    },
+    {
+      "name": "Zombie_05_Idle_Slow",
+      "source": "Zombie_05_Idle_Slow | 缓慢待机",
+      "frames": [
+        1,
+        868
+      ],
+      "fps": 30.0
+    },
+    {
+      "name": "Zombie_06_WakeUp_Transform",
+      "source": "Zombie_06_WakeUp_Transform | 苏醒变身",
+      "frames": [
+        1,
+        652
+      ],
+      "fps": 30.0
+    },
+    {
+      "name": "Zombie_07_Walk",
+      "source": "Zombie_07_Walk | 行走",
+      "frames": [
+        1,
+        512
+      ],
+      "fps": 30.0
+    },
+    {
+      "name": "Zombie_08_Walk_Slow",
+      "source": "Zombie_08_Walk_Slow | 缓慢行走",
+      "frames": [
+        1,
+        711
+      ],
+      "fps": 30.0
+    },
+    {
+      "name": "Resonator_Walking",
+      "source": "C:\\Users\\Sakaona\\Desktop\\共鸣者动作\\Walking.fbx",
+      "frames": [
+        1,
+        50
+      ],
+      "fps": 30.0,
+      "mapped_bones": 52
+    },
+    {
+      "name": "Resonator_Zombie_Agonizing",
+      "source": "C:\\Users\\Sakaona\\Desktop\\共鸣者动作\\Zombie Agonizing.fbx",
+      "frames": [
+        1,
+        350
+      ],
+      "fps": 30.0,
+      "mapped_bones": 52
+    },
+    {
+      "name": "Resonator_Zombie_Attack",
+      "source": "C:\\Users\\Sakaona\\Desktop\\共鸣者动作\\Zombie Attack.fbx",
+      "frames": [
+        1,
+        140
+      ],
+      "fps": 30.0,
+      "mapped_bones": 52
+    },
+    {
+      "name": "Resonator_Zombie_Death",
+      "source": "C:\\Users\\Sakaona\\Desktop\\共鸣者动作\\Zombie Death.fbx",
+      "frames": [
+        1,
+        90
+      ],
+      "fps": 30.0,
+      "mapped_bones": 52
+    },
+    {
+      "name": "Resonator_Zombie_Headbutt",
+      "source": "C:\\Users\\Sakaona\\Desktop\\共鸣者动作\\Zombie Headbutt.fbx",
+      "frames": [
+        1,
+        79
+      ],
+      "fps": 30.0,
+      "mapped_bones": 52
+    },
+    {
+      "name": "Resonator_Zombie_Kicking",
+      "source": "C:\\Users\\Sakaona\\Desktop\\共鸣者动作\\Zombie Kicking.fbx",
+      "frames": [
+        1,
+        102
+      ],
+      "fps": 30.0,
+      "mapped_bones": 52
+    },
+    {
+      "name": "Resonator_Zombie_Punching",
+      "source": "C:\\Users\\Sakaona\\Desktop\\共鸣者动作\\Zombie Punching.fbx",
+      "frames": [
+        1,
+        116
+      ],
+      "fps": 30.0,
+      "mapped_bones": 52
+    },
+    {
+      "name": "Resonator_Zombie_Reaction_Hit",
+      "source": "C:\\Users\\Sakaona\\Desktop\\共鸣者动作\\Zombie Reaction Hit.fbx",
+      "frames": [
+        1,
+        66
+      ],
+      "fps": 30.0,
+      "mapped_bones": 52
+    },
+    {
+      "name": "Resonator_Zombie_Running",
+      "source": "C:\\Users\\Sakaona\\Desktop\\共鸣者动作\\Zombie Running.fbx",
+      "frames": [
+        1,
+        25
+      ],
+      "fps": 30.0,
+      "mapped_bones": 52
+    },
+    {
+      "name": "Resonator_Zombie_Scream",
+      "source": "C:\\Users\\Sakaona\\Desktop\\共鸣者动作\\Zombie Scream.fbx",
+      "frames": [
+        1,
+        85
+      ],
+      "fps": 30.0,
+      "mapped_bones": 52
+    },
+    {
+      "name": "Resonator_Zombie_Stumbling",
+      "source": "C:\\Users\\Sakaona\\Desktop\\共鸣者动作\\Zombie Stumbling.fbx",
+      "frames": [
+        1,
+        149
+      ],
+      "fps": 30.0,
+      "mapped_bones": 52
+    },
+    {
+      "name": "Zombie_01_Attack_Walking",
+      "source": "C:\\Users\\Sakaona\\Desktop\\Zombie\\ZombieAttack_Walking_mixamo.fbx",
+      "frames": [
+        1,
+        462
+      ],
+      "fps": 24.0,
+      "mapped_bones": 52
+    },
+    {
+      "name": "Zombie_02_Being_Shot",
+      "source": "C:\\Users\\Sakaona\\Desktop\\Zombie\\ZombieBeingShot_mixamo.fbx",
+      "frames": [
+        1,
+        575
+      ],
+      "fps": 24.0,
+      "mapped_bones": 52
+    },
+    {
+      "name": "Zombie_03_Feeding_Ground",
+      "source": "C:\\Users\\Sakaona\\Desktop\\Zombie\\ZombieFeeding_Ground_mixamo.fbx",
+      "frames": [
+        1,
+        513
+      ],
+      "fps": 24.0,
+      "mapped_bones": 52
+    },
+    {
+      "name": "Zombie_04_Idle_Restless",
+      "source": "C:\\Users\\Sakaona\\Desktop\\Zombie\\ZombieIdle_Restless_mixamo.fbx",
+      "frames": [
+        1,
+        1001
+      ],
+      "fps": 24.0,
+      "mapped_bones": 52
+    },
+    {
+      "name": "Zombie_05_Idle_Slow",
+      "source": "C:\\Users\\Sakaona\\Desktop\\Zombie\\ZombieIdle_Slow_mixamo.fbx",
+      "frames": [
+        1,
+        869
+      ],
+      "fps": 24.0,
+      "mapped_bones": 52
+    },
+    {
+      "name": "Zombie_06_WakeUp_Transform",
+      "source": "C:\\Users\\Sakaona\\Desktop\\Zombie\\ZombieWakeUp_Transform_mixamo.fbx",
+      "frames": [
+        1,
+        653
+      ],
+      "fps": 24.0,
+      "mapped_bones": 52
+    },
+    {
+      "name": "Zombie_07_Walk",
+      "source": "C:\\Users\\Sakaona\\Desktop\\Zombie\\ZombieWalk_01_mixamo.fbx",
+      "frames": [
+        1,
+        513
+      ],
+      "fps": 24.0,
+      "mapped_bones": 52
+    },
+    {
+      "name": "Zombie_08_Walk_Slow",
+      "source": "C:\\Users\\Sakaona\\Desktop\\Zombie\\ZombieWalk_02_Slow_mixamo.fbx",
+      "frames": [
+        1,
+        712
+      ],
+      "fps": 24.0,
+      "mapped_bones": 52
+    }
+  ],
+  "sculpt_normal_preserved": true,
+  "retarget_samples": [
+    {
+      "clip": "ZombieAttack_Walking_mixamo",
+      "frame": 1,
+      "head": [
+        -2.251174191769678e-05,
+        0.03869637846946716,
+        1.5623602867126465
+      ]
+    },
+    {
+      "clip": "ZombieAttack_Walking_mixamo",
+      "frame": 231,
+      "head": [
+        -1.1343448162078857,
+        -1.5565893650054932,
+        1.216766119003296
+      ]
+    },
+    {
+      "clip": "ZombieAttack_Walking_mixamo",
+      "frame": 462,
+      "head": [
+        -0.7322739958763123,
+        -1.599960446357727,
+        1.4689342975616455
+      ]
+    },
+    {
+      "clip": "ZombieBeingShot_mixamo",
+      "frame": 1,
+      "head": [
+        -2.251174191769678e-05,
+        0.03869637846946716,
+        1.5623602867126465
+      ]
+    },
+    {
+      "clip": "ZombieBeingShot_mixamo",
+      "frame": 288,
+      "head": [
+        -0.7115864753723145,
+        -0.7748240828514099,
+        1.4386082887649536
+      ]
+    },
+    {
+      "clip": "ZombieBeingShot_mixamo",
+      "frame": 575,
+      "head": [
+        -1.1802277565002441,
+        -1.8126400709152222,
+        1.4881459474563599
+      ]
+    },
+    {
+      "clip": "ZombieFeeding_Ground_mixamo",
+      "frame": 1,
+      "head": [
+        -2.251174191769678e-05,
+        0.03869637846946716,
+        1.5623602867126465
+      ]
+    },
+    {
+      "clip": "ZombieFeeding_Ground_mixamo",
+      "frame": 257,
+      "head": [
+        -0.5547562837600708,
+        -1.0256943702697754,
+        0.4410701096057892
+      ]
+    },
+    {
+      "clip": "ZombieFeeding_Ground_mixamo",
+      "frame": 513,
+      "head": [
+        -0.7918515205383301,
+        -1.779758334159851,
+        1.4518320560455322
+      ]
+    },
+    {
+      "clip": "ZombieIdle_Restless_mixamo",
+      "frame": 1,
+      "head": [
+        -2.251174191769678e-05,
+        0.03869637846946716,
+        1.5623602867126465
+      ]
+    },
+    {
+      "clip": "ZombieIdle_Restless_mixamo",
+      "frame": 501,
+      "head": [
+        0.14100530743598938,
+        -0.033365994691848755,
+        1.5148786306381226
+      ]
+    },
+    {
+      "clip": "ZombieIdle_Restless_mixamo",
+      "frame": 1001,
+      "head": [
+        -0.10194720327854156,
+        -1.4022135734558105,
+        1.4991796016693115
+      ]
+    },
+    {
+      "clip": "ZombieIdle_Slow_mixamo",
+      "frame": 1,
+      "head": [
+        -2.251174191769678e-05,
+        0.03869637846946716,
+        1.5623602867126465
+      ]
+    },
+    {
+      "clip": "ZombieIdle_Slow_mixamo",
+      "frame": 435,
+      "head": [
+        -0.09844043850898743,
+        -0.20484207570552826,
+        1.5165340900421143
+      ]
+    },
+    {
+      "clip": "ZombieIdle_Slow_mixamo",
+      "frame": 869,
+      "head": [
+        -0.1120406836271286,
+        -1.309385061264038,
+        1.5213571786880493
+      ]
+    },
+    {
+      "clip": "ZombieWakeUp_Transform_mixamo",
+      "frame": 1,
+      "head": [
+        -2.251174191769678e-05,
+        0.03869637846946716,
+        1.5623602867126465
+      ]
+    },
+    {
+      "clip": "ZombieWakeUp_Transform_mixamo",
+      "frame": 327,
+      "head": [
+        0.288665771484375,
+        0.58985435962677,
+        0.3522999882698059
+      ]
+    },
+    {
+      "clip": "ZombieWakeUp_Transform_mixamo",
+      "frame": 653,
+      "head": [
+        -0.3850097358226776,
+        -1.4119234085083008,
+        1.4721601009368896
+      ]
+    },
+    {
+      "clip": "ZombieWalk_01_mixamo",
+      "frame": 1,
+      "head": [
+        -2.251174191769678e-05,
+        0.03869637846946716,
+        1.5623602867126465
+      ]
+    },
+    {
+      "clip": "ZombieWalk_01_mixamo",
+      "frame": 257,
+      "head": [
+        0.006448688916862011,
+        -0.8049391508102417,
+        1.470180869102478
+      ]
+    },
+    {
+      "clip": "ZombieWalk_01_mixamo",
+      "frame": 513,
+      "head": [
+        -0.41692256927490234,
+        -1.5432723760604858,
+        1.4916388988494873
+      ]
+    },
+    {
+      "clip": "ZombieWalk_02_Slow_mixamo",
+      "frame": 1,
+      "head": [
+        -2.251174191769678e-05,
+        0.03869637846946716,
+        1.5623602867126465
+      ]
+    },
+    {
+      "clip": "ZombieWalk_02_Slow_mixamo",
+      "frame": 356,
+      "head": [
+        -0.4705266058444977,
+        -0.8260117173194885,
+        1.5082491636276245
+      ]
+    },
+    {
+      "clip": "ZombieWalk_02_Slow_mixamo",
+      "frame": 712,
+      "head": [
+        -0.8423715829849243,
+        -1.6532444953918457,
+        1.4894884824752808
+      ]
+    }
+  ]
+}

@@ -1,0 +1,30 @@
+{
+  "success": true,
+  "result": {
+    "diagnostics": [],
+    "compileMs": 70,
+    "executeMs": 27,
+    "assemblyName": "PipelineRunScript_AttackDisplacementScenarios_89704746bc70479d8caea24a8e6bd81f",
+    "success": true,
+    "result": {
+      "passed": true,
+      "cases": [
+        "Already within planned contact distance: no extra forward travel",
+        "Frame-windowed attack advances, stops at contact distance, and synchronizes NavMesh",
+        "Wind-up follows moving targets; lock frame preserves a chance to evade",
+        "Maximum additional travel is bounded even when target escapes",
+        "Per-second speed cap prevents catch-up teleports",
+        "Workbench distance preview uses the same cumulative budget as runtime",
+        "Physics and NavMesh collision constraints prevent attack wall penetration",
+        "Hit interrupt cancels added attack movement",
+        "Retreating player: stationary attack misses, pursuit attack reaches the same hitbox",
+        "Animation entry skips do not replay old displacement"
+      ],
+      "freeSpacePursuitMetres": 2.0,
+      "retreatingPlayerHits": [
+        0,
+        1
+      ]
+    }
+  }
+}

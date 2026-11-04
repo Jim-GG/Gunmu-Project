@@ -1,0 +1,25 @@
+{
+  "success": true,
+  "result": {
+    "diagnostics": [],
+    "compileMs": 53,
+    "executeMs": 17,
+    "assemblyName": "PipelineRunScript_AnimationAuthoringScenarios_c1a833cbecd94cdc88f81ce309d05aec",
+    "success": true,
+    "result": {
+      "passed": true,
+      "cases": [
+        "No wind-up damage; exact frame activation; one hit per window",
+        "Box, sphere and capsule respect position and volume",
+        "Nearby target outside the volume cannot be damaged",
+        "Large time steps still evaluate a fractional one-frame hitbox",
+        "Skipped windows never hit retroactively using a recovery pose",
+        "Multiple volumes in one hit group and multiple hurt colliders hit only once",
+        "Disabled volumes and target layers suppress hits",
+        "Frame events fire once on crossing, skip past entry, and repeat on loops",
+        "Preview uses the exact runtime blend and never dispatches gameplay events",
+        "Bone attachment follows the pose; FBX scale never inflates offsets"
+      ]
+    }
+  }
+}

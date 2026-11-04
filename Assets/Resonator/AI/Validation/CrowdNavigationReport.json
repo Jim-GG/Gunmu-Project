@@ -1,0 +1,33 @@
+{
+  "success": true,
+  "result": {
+    "diagnostics": [],
+    "compileMs": 2635,
+    "executeMs": 8467,
+    "assemblyName": "PipelineRunScript_CrowdNavigationScenarios_bf8a23aa57b84c018d638f97d1843a3e",
+    "success": true,
+    "result": {
+      "passed": true,
+      "cases": [
+        "Three initially overlapping pursuers all progress and separate with distinct avoidance priorities",
+        "A pursuer behind a stationary ally finds a strike opening instead of stopping at the attack ring",
+        "Existing and newly spawned living agents ignore corpse bones and pass a fallen body",
+        "A small physical blocker triggers lateral recovery instead of a permanent deadlock",
+        "World walls still block attacks after peer/corpse filtering",
+        "Running initiates kicking around 1.7 metres, before old 1.1m range",
+        "Close hit recovery can launch headbutt at its authored starting distance",
+        "Extended attacks still require facing and unobstructed contact line",
+        "Attack timing accounts for outward target velocity and authored wind-up",
+        "Retreating targets trigger running pressure sooner than the old far-distance threshold"
+      ],
+      "crowdProgressMetres": [
+        9.398227,
+        9.428638,
+        9.241303
+      ],
+      "minimumCrowdSpacing": 0.598567069,
+      "corpsePassedAtZ": 5.5716815,
+      "predictedStartRange": 1.40467429
+    }
+  }
+}

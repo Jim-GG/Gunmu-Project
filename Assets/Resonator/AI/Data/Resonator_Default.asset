@@ -1,0 +1,718 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f5a71cc6fc304f049abd015e4accc49e, type: 3}
+  m_Name: Resonator_Default
+  m_EditorClassIdentifier: Assembly-CSharp::Resonator.AI.ResonatorTuning
+  wake:
+    track: {fileID: 11400000, guid: fc147bc5d2885214eafb36d94cfe7f34, type: 2}
+    startFrame: 0
+    endFrame: 520
+    loop: 0
+    speed: 1
+    blend: 0.15
+    events: []
+  feeding:
+    track: {fileID: 11400000, guid: 56c2496cb39e07647a668ea9a822b28e, type: 2}
+    startFrame: 150
+    endFrame: 420
+    loop: 1
+    speed: 1
+    blend: 0.15
+    events: []
+  idleSlow:
+    track: {fileID: 11400000, guid: 19e30da27e94ec546920b5a0b201b6eb, type: 2}
+    startFrame: 0
+    endFrame: 700
+    loop: 1
+    speed: 1
+    blend: 0.15
+    events: []
+  idleRestless:
+    track: {fileID: 11400000, guid: 3dd46d840a1c29c44ab6b0985cb13170, type: 2}
+    startFrame: 0
+    endFrame: 425
+    loop: 1
+    speed: 1
+    blend: 0.15
+    events: []
+  resonance:
+    track: {fileID: 11400000, guid: 535fb199ee91eb44290eca82d1ab6f61, type: 2}
+    startFrame: 0
+    endFrame: -1
+    loop: 1
+    speed: 1
+    blend: 0.15
+    events: []
+  agonizing:
+    track: {fileID: 11400000, guid: c0a838d624f3fdf45854dc39989fa8c9, type: 2}
+    startFrame: 0
+    endFrame: 180
+    loop: 0
+    speed: 1
+    blend: 0.15
+    events: []
+  scream:
+    track: {fileID: 11400000, guid: e05df12749dca6c4ea9d76145dfe1b11, type: 2}
+    startFrame: 0
+    endFrame: -1
+    loop: 0
+    speed: 1
+    blend: 0.15
+    events: []
+  walk:
+    track: {fileID: 11400000, guid: 19e0875e64b7a134a90558ec161220a9, type: 2}
+    startFrame: 0
+    endFrame: -1
+    loop: 1
+    speed: 1
+    blend: 0.15
+    events: []
+  run:
+    track: {fileID: 11400000, guid: fbf14f813e7d14747a31cd23ef0b7419, type: 2}
+    startFrame: 0
+    endFrame: -1
+    loop: 1
+    speed: 1
+    blend: 0.15
+    events: []
+  hit:
+    track: {fileID: 11400000, guid: 8e03319a1fce803458743f5666525678, type: 2}
+    startFrame: 18
+    endFrame: 60
+    loop: 0
+    speed: 1.5
+    blend: 0.15
+    events: []
+  stumble:
+    track: {fileID: 11400000, guid: f0158cf99b3c1ec49b9a21f10876eaa5, type: 2}
+    startFrame: 12
+    endFrame: -1
+    loop: 0
+    speed: 1.5
+    blend: 0.15
+    events: []
+  death:
+    track: {fileID: 11400000, guid: bff0d5a2919cfcf4d910f1048fabd912, type: 2}
+    startFrame: 0
+    endFrame: -1
+    loop: 0
+    speed: 1
+    blend: 0.15
+    events: []
+  headbutt:
+    animation:
+      track: {fileID: 11400000, guid: 535fb199ee91eb44290eca82d1ab6f61, type: 2}
+      startFrame: 0
+      endFrame: -1
+      loop: 0
+      speed: 1
+      blend: 0.15
+      events: []
+    hits:
+    - label: Hitbox
+      hitGroup: 
+      enabled: 1
+      startFrame: 36
+      endFrame: 40
+      damage: 21
+      reach: 1.5
+      halfAngle: 65
+      shape: 1
+      anchor: 1
+      customBone: 
+      position: {x: -0.23, y: -0.12, z: 0}
+      rotation: {x: 0, y: 0, z: 0}
+      size: {x: 0.65, y: 0.7, z: 0.65}
+      radius: 0.267
+      height: 0.7
+      targetLayers:
+        serializedVersion: 2
+        m_Bits: 4294967295
+      minimumBlendWeight: 0
+    rootMotionScale: 1
+    lockFacingFrame: 20
+    displacement:
+      enabled: 1
+      includeAuthoredRootMotion: 0
+      stopOnHit: 1
+      trackTarget: 1
+      trackingStartFrame: 0
+      trackingEndFrame: 37
+      turnSpeed: 100
+      maxTrackingAngle: 110
+      segments:
+      - label: "\u4F38\u624B\u903C\u8FD1"
+        enabled: 1
+        startFrame: 10
+        endFrame: 32
+        maxDistance: 0.91
+        maxSpeed: 1.67
+        contactDistance: 0.86
+        progress:
+          serializedVersion: 2
+          m_Curve:
+          - serializedVersion: 3
+            time: 0
+            value: 0
+            inSlope: 0
+            outSlope: 1
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0
+          - serializedVersion: 3
+            time: 1
+            value: 1
+            inSlope: 1
+            outSlope: 0
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0
+          m_PreInfinity: 2
+          m_PostInfinity: 2
+          m_RotationOrder: 4
+      - label: "\u5934\u69CC\u524D\u538B"
+        enabled: 1
+        startFrame: 33
+        endFrame: 40
+        maxDistance: 0.67
+        maxSpeed: 1.9
+        contactDistance: 0.82
+        progress:
+          serializedVersion: 2
+          m_Curve:
+          - serializedVersion: 3
+            time: 0
+            value: 0
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0
+          - serializedVersion: 3
+            time: 1
+            value: 1
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0
+          m_PreInfinity: 2
+          m_PostInfinity: 2
+          m_RotationOrder: 4
+    startDistance: 1.6
+  kick:
+    animation:
+      track: {fileID: 11400000, guid: 2262a8bf734087949a6aadd036dfc2e0, type: 2}
+      startFrame: 0
+      endFrame: -1
+      loop: 0
+      speed: 1
+      blend: 0.15
+      events: []
+    hits:
+    - label: Hitbox
+      hitGroup: 
+      enabled: 1
+      startFrame: 21
+      endFrame: 25
+      damage: 18
+      reach: 1.5
+      halfAngle: 65
+      shape: 1
+      anchor: 6
+      customBone: 
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: 0, y: 0, z: 0}
+      size: {x: 0.65, y: 0.7, z: 0.65}
+      radius: 0.3
+      height: 0.7
+      targetLayers:
+        serializedVersion: 2
+        m_Bits: 4294967295
+      minimumBlendWeight: 0
+    rootMotionScale: 1
+    lockFacingFrame: 20
+    displacement:
+      enabled: 1
+      includeAuthoredRootMotion: 0
+      stopOnHit: 1
+      trackTarget: 1
+      trackingStartFrame: 0
+      trackingEndFrame: 22
+      turnSpeed: 110
+      maxTrackingAngle: 110
+      segments:
+      - label: "\u8E22\u51FB\u524D\u6ED1"
+        enabled: 1
+        startFrame: 12
+        endFrame: 29
+        maxDistance: 1.2
+        maxSpeed: 2.4
+        contactDistance: 1.05
+        progress:
+          serializedVersion: 2
+          m_Curve:
+          - serializedVersion: 3
+            time: 0
+            value: 0
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0
+          - serializedVersion: 3
+            time: 0.4112547
+            value: 0.12776628
+            inSlope: 0.5845357
+            outSlope: 0.5845357
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0.33333334
+            outWeight: 0.14022273
+          - serializedVersion: 3
+            time: 0.75350076
+            value: 1
+            inSlope: -0.020581465
+            outSlope: -0.020581465
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0.33333334
+            outWeight: 0.37501714
+          - serializedVersion: 3
+            time: 1
+            value: 0
+            inSlope: -1.8393013
+            outSlope: -1.8393013
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0.2455361
+            outWeight: 0
+          m_PreInfinity: 2
+          m_PostInfinity: 2
+          m_RotationOrder: 4
+    startDistance: 1.75
+  attack:
+    animation:
+      track: {fileID: 11400000, guid: 19db1f1ea2c95214fa28e2026977111f, type: 2}
+      startFrame: 0
+      endFrame: -1
+      loop: 0
+      speed: 1.367
+      blend: 0.15
+      events: []
+    hits:
+    - label: Hitbox
+      hitGroup: 
+      enabled: 1
+      startFrame: 40
+      endFrame: 46
+      damage: 30
+      reach: 1.5
+      halfAngle: 65
+      shape: 1
+      anchor: 3
+      customBone: 
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: 0, y: 0, z: 0}
+      size: {x: 0.65, y: 0.7, z: 0.65}
+      radius: 0.3
+      height: 0.7
+      targetLayers:
+        serializedVersion: 2
+        m_Bits: 4294967295
+      minimumBlendWeight: 0
+    rootMotionScale: 1
+    lockFacingFrame: 20
+    displacement:
+      enabled: 1
+      includeAuthoredRootMotion: 0
+      stopOnHit: 1
+      trackTarget: 1
+      trackingStartFrame: 0
+      trackingEndFrame: 36
+      turnSpeed: 150
+      maxTrackingAngle: 110
+      segments:
+      - label: "\u7838\u51FB\u7206\u53D1\u524D\u51B2"
+        enabled: 1
+        startFrame: 28
+        endFrame: 46
+        maxDistance: 1.8
+        maxSpeed: 6.5
+        contactDistance: 0.95
+        progress:
+          serializedVersion: 2
+          m_Curve:
+          - serializedVersion: 3
+            time: 0
+            value: 0
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0
+          - serializedVersion: 3
+            time: 1
+            value: 1
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0
+          m_PreInfinity: 2
+          m_PostInfinity: 2
+          m_RotationOrder: 4
+    startDistance: 1.8
+  punch:
+    animation:
+      track: {fileID: 11400000, guid: e14763c2e30a7874e8bc6e2880d378c8, type: 2}
+      startFrame: 0
+      endFrame: -1
+      loop: 0
+      speed: 1
+      blend: 0.15
+      events: []
+    hits:
+    - label: Hitbox
+      hitGroup: 
+      enabled: 1
+      startFrame: 36
+      endFrame: 41
+      damage: 20
+      reach: 1.5
+      halfAngle: 65
+      shape: 1
+      anchor: 4
+      customBone: 
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: 0, y: 0, z: 0}
+      size: {x: 0.65, y: 0.7, z: 0.65}
+      radius: 0.3
+      height: 0.7
+      targetLayers:
+        serializedVersion: 2
+        m_Bits: 4294967295
+      minimumBlendWeight: 0
+    rootMotionScale: 1
+    lockFacingFrame: 20
+    displacement:
+      enabled: 1
+      includeAuthoredRootMotion: 0
+      stopOnHit: 1
+      trackTarget: 1
+      trackingStartFrame: 0
+      trackingEndFrame: 36
+      turnSpeed: 150
+      maxTrackingAngle: 110
+      segments:
+      - label: "\u6325\u51FB\u8E0F\u6B65"
+        enabled: 1
+        startFrame: 24
+        endFrame: 42
+        maxDistance: 1.3
+        maxSpeed: 3
+        contactDistance: 1
+        progress:
+          serializedVersion: 2
+          m_Curve:
+          - serializedVersion: 3
+            time: 0
+            value: 0
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0
+          - serializedVersion: 3
+            time: 1
+            value: 1
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0
+          m_PreInfinity: 2
+          m_PostInfinity: 2
+          m_RotationOrder: 4
+    startDistance: 1.7
+  wakeRevealFrame: 520
+  feedingResumeFrame: 421
+  feedingRevealFrame: 490
+  ragdollFrame: 50
+  sightRange: 14
+  sightAngle: 105
+  hearingMultiplier: 1
+  sensorInterval: 0.12
+  obstructionMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  attackEnterDistance: 1.1
+  minimumSeparation: 0.8
+  walkToRunDistance: 5
+  attackDecisionSlack: 0.08
+  attackStartFacingAngle: 65
+  retreatPrediction: 0.6
+  maxAttackPredictionSeconds: 0.4
+  retreatRunThreshold: 1.2
+  walkSpeedMultiplier: 1.5
+  runSpeedMultiplier: 1.2
+  walkSpeedLimits: {x: 0.8, y: 2.1}
+  runSpeedLimits: {x: 2.8, y: 5.2}
+  acceleration: 13
+  navigationTurnSpeed: 420
+  attackTurnSpeed: 200
+  screamTurnSpeed: 300
+  disturbedTurnSpeed: 20
+  locomotionPlaybackLimits: {x: 0.35, y: 2.2}
+  crowdAvoidance: 1
+  crowdPadding: 0.1
+  crowdBodyGap: 0.025
+  crowdSeparationSpeed: 1.2
+  avoidancePriority: 50
+  avoidancePrioritySpread: 12
+  stuckAfterSeconds: 0.55
+  unstuckStepDistance: 0.75
+  unstuckDuration: 0.7
+  recoverySeconds: {x: 0.6, y: 1.5}
+  headbuttContinueChance: 0.75
+  maxComboContinueDistance: 2
+  blockedCountsAsHit: 0
+  maxHealth: 120
+  frontHitDot: 0.25
+  allowAttackRetreat: 1
+  hitRootMotionScale: 0
+  stumbleRootMotionScale: 0.5
+  deathRootMotionScale: 0.25
+  maxActionSpeed: 5
+  collisionSkin: 0.025
+  navSampleRadius: 0.25
+  ragdollImpulse: 2.5
+  hitboxSchemaVersion: 2
+  transitions:
+  - label: Headbutt -> Kicking
+    enabled: 1
+    anySource: 0
+    from: 7
+    to: 8
+    blend: 0.267
+    entryFrame: 12
+    exitFrame: -1
+    automaticCombo: 1
+    cancelFrameOnHit: 43
+    cancelFrameOnMiss: 53
+  - label: Kicking -> Attack
+    enabled: 1
+    anySource: 0
+    from: 8
+    to: 9
+    blend: 0.267
+    entryFrame: 18
+    exitFrame: -1
+    automaticCombo: 1
+    cancelFrameOnHit: 29
+    cancelFrameOnMiss: 33
+  - label: Running -> Kicking
+    enabled: 1
+    anySource: 0
+    from: 6
+    to: 8
+    blend: 0.25
+    entryFrame: 12
+    exitFrame: -1
+    automaticCombo: 0
+    cancelFrameOnHit: -1
+    cancelFrameOnMiss: -1
+  - label: Waking -> Screaming
+    enabled: 1
+    anySource: 0
+    from: 1
+    to: 4
+    blend: 0.18
+    entryFrame: 0
+    exitFrame: -1
+    automaticCombo: 0
+    cancelFrameOnHit: -1
+    cancelFrameOnMiss: -1
+  - label: FeedingRise -> Screaming
+    enabled: 1
+    anySource: 0
+    from: 2
+    to: 4
+    blend: 0.18
+    entryFrame: 0
+    exitFrame: -1
+    automaticCombo: 0
+    cancelFrameOnHit: -1
+    cancelFrameOnMiss: -1
+  - label: Screaming -> Running
+    enabled: 1
+    anySource: 0
+    from: 4
+    to: 6
+    blend: 0.67
+    entryFrame: 0
+    exitFrame: -1
+    automaticCombo: 0
+    cancelFrameOnHit: -1
+    cancelFrameOnMiss: -1
+  - label: Screaming -> Walking
+    enabled: 1
+    anySource: 0
+    from: 4
+    to: 5
+    blend: 0.8
+    entryFrame: 0
+    exitFrame: -1
+    automaticCombo: 0
+    cancelFrameOnHit: -1
+    cancelFrameOnMiss: -1
+  - label: Screaming -> Headbutt
+    enabled: 1
+    anySource: 0
+    from: 4
+    to: 7
+    blend: 0.67
+    entryFrame: 0
+    exitFrame: -1
+    automaticCombo: 0
+    cancelFrameOnHit: -1
+    cancelFrameOnMiss: -1
+  - label: Screaming -> Punching
+    enabled: 1
+    anySource: 0
+    from: 4
+    to: 10
+    blend: 0.367
+    entryFrame: 0
+    exitFrame: -1
+    automaticCombo: 0
+    cancelFrameOnHit: -1
+    cancelFrameOnMiss: -1
+  - label: Walking -> Headbutt
+    enabled: 1
+    anySource: 0
+    from: 5
+    to: 7
+    blend: 0.1
+    entryFrame: 0
+    exitFrame: -1
+    automaticCombo: 0
+    cancelFrameOnHit: -1
+    cancelFrameOnMiss: -1
+  - label: Walking -> Kicking
+    enabled: 1
+    anySource: 0
+    from: 5
+    to: 8
+    blend: 0.1
+    entryFrame: 0
+    exitFrame: -1
+    automaticCombo: 0
+    cancelFrameOnHit: -1
+    cancelFrameOnMiss: -1
+  - label: Walking -> Punching
+    enabled: 1
+    anySource: 0
+    from: 5
+    to: 10
+    blend: 0.1
+    entryFrame: 0
+    exitFrame: -1
+    automaticCombo: 0
+    cancelFrameOnHit: -1
+    cancelFrameOnMiss: -1
+  - label: Any -> Hit
+    enabled: 1
+    anySource: 1
+    from: 0
+    to: 12
+    blend: 0.167
+    entryFrame: 12
+    exitFrame: -1
+    automaticCombo: 0
+    cancelFrameOnHit: -1
+    cancelFrameOnMiss: -1
+  - label: Any -> Stumbling
+    enabled: 1
+    anySource: 1
+    from: 0
+    to: 13
+    blend: 0.25
+    entryFrame: 10
+    exitFrame: -1
+    automaticCombo: 0
+    cancelFrameOnHit: -1
+    cancelFrameOnMiss: -1
+  - label: Any -> Dying
+    enabled: 1
+    anySource: 1
+    from: 0
+    to: 14
+    blend: 0.03
+    entryFrame: 0
+    exitFrame: -1
+    automaticCombo: 0
+    cancelFrameOnHit: -1
+    cancelFrameOnMiss: -1
+  - label: Attack -> Screaming
+    enabled: 1
+    anySource: 0
+    from: 9
+    to: 4
+    blend: 0.367
+    entryFrame: 36
+    exitFrame: -1
+    automaticCombo: 0
+    cancelFrameOnHit: -1
+    cancelFrameOnMiss: -1
+  - label: Any -> Combat Idle
+    enabled: 1
+    anySource: 1
+    from: 9
+    to: 11
+    blend: 0.8
+    entryFrame: 0
+    exitFrame: -1
+    automaticCombo: 0
+    cancelFrameOnHit: -1
+    cancelFrameOnMiss: -1
+  - label: CombatIdle -> Walking
+    enabled: 1
+    anySource: 1
+    from: 11
+    to: 5
+    blend: 0.8
+    entryFrame: 0
+    exitFrame: -1
+    automaticCombo: 0
+    cancelFrameOnHit: -1
+    cancelFrameOnMiss: -1
+  - label: CombatIdle -> Running
+    enabled: 1
+    anySource: 1
+    from: 11
+    to: 6
+    blend: 0.8
+    entryFrame: 0
+    exitFrame: -1
+    automaticCombo: 0
+    cancelFrameOnHit: -1
+    cancelFrameOnMiss: -1

@@ -1,0 +1,7 @@
+using System;using System.Linq;using UnityEngine;
+public static class PlayValidation {public static object Run(){
+ if(!Application.isPlaying)throw new Exception("Play mode required");var p=UnityEngine.Object.FindFirstObjectByType<Resonator.ResonatorAnimationPreview>();var a=p.animator;var bones=p.GetComponentsInChildren<Transform>();int tested=0;
+ for(int i=0;i<p.clips.Length;i++){p.Play(i);a.Update(.15f);if(!a.GetCurrentAnimatorStateInfo(0).IsName(p.clips[i]))throw new Exception("Wrong state "+p.clips[i]);var start=bones.Select(b=>b.position).ToArray();a.Update(.2f);var movement=bones.Select((b,k)=>(b.position-start[k]).magnitude).Max();if(movement<.00001f)throw new Exception("Frozen state "+p.clips[i]);tested++;}
+ foreach(var r in p.GetComponentsInChildren<SkinnedMeshRenderer>()){if(r.bones.Any(b=>!b))throw new Exception("Unbound skin");foreach(var w in r.sharedMesh.boneWeights){float sum=w.weight0+w.weight1+w.weight2+w.weight3;if(Mathf.Abs(sum-1)>.01f)throw new Exception("Invalid skin weights");}}
+ p.Play(Array.IndexOf(p.clips,"Resonator_Walking"));return new{passed=true,playedStates=tested,skinWeightsNormalized=true,allSkinBonesBound=true};
+}}

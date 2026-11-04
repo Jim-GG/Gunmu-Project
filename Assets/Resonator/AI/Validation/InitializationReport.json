@@ -1,0 +1,40 @@
+{
+  "success": true,
+  "result": {
+    "diagnostics": [],
+    "compileMs": 31,
+    "executeMs": 1647,
+    "assemblyName": "PipelineRunScript_InitializationStability_b4df7da54cfe4c4d8af30664af20ba9f",
+    "success": true,
+    "result": {
+      "passed": true,
+      "results": [
+        {
+          "activity": "FeignDeath",
+          "maxSkinnedExtentMetres": 2.109197,
+          "livingRigidbodies": 0
+        },
+        {
+          "activity": "Feeding",
+          "maxSkinnedExtentMetres": 1.61240685,
+          "livingRigidbodies": 0
+        },
+        {
+          "activity": "SlowIdle",
+          "maxSkinnedExtentMetres": 2.19478536,
+          "livingRigidbodies": 0
+        },
+        {
+          "activity": "RestlessIdle",
+          "maxSkinnedExtentMetres": 2.2001245,
+          "livingRigidbodies": 0
+        },
+        {
+          "activity": "Resonating",
+          "maxSkinnedExtentMetres": 2.10838771,
+          "livingRigidbodies": 0
+        }
+      ]
+    }
+  }
+}
