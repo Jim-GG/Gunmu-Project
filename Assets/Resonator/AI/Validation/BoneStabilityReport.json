@@ -1,0 +1,15 @@
+{
+  "success": true,
+  "result": {
+    "diagnostics": [],
+    "compileMs": 44,
+    "executeMs": 1030,
+    "assemblyName": "PipelineRunScript_BoneStability_85e8b854da654e978725eca78a557550",
+    "success": true,
+    "result": {
+      "maxJointTranslationErrorMetres": 0.0,
+      "poses": 32.403656,
+      "livingRigidbodies": 0
+    }
+  }
+}

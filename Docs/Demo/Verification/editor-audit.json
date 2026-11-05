@@ -1,0 +1,9 @@
+{
+  "success": true,
+  "result": {
+    "output": null,
+    "diagnostics": [],
+    "success": true,
+    "result": "{\"scene\":\"Assets/NullBoundaryDemo/Scenes/NullBoundary_FirstDescent.unity\",\"dirty\":false,\"missingScripts\":0,\"navMesh\":true,\"timelineClips\":6,\"player\":true,\"enemyPrefab\":true,\"doors\":true}"
+  }
+}

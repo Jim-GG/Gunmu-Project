@@ -1,0 +1,45 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f464a784a79d7646910e52ec6c98420, type: 3}
+  m_Name: Resonator_Zombie_Running_Motion
+  m_EditorClassIdentifier: Assembly-CSharp:Resonator.AI:ResonatorMotionTrack
+  clip: {fileID: -623603649343465320, guid: 6168356f17f684e498f33c7af3edd078, type: 3}
+  framesPerSecond: 30
+  sampleRate: 30
+  referenceHip: {x: 0.000022744074, y: 0.96180046, z: -0.006000325}
+  trajectory:
+  - {x: -0.0041768877, y: 0, z: -0.0008996576}
+  - {x: -0.0019663777, y: 0, z: 0.12712152}
+  - {x: -0.0039330586, y: 0, z: 0.257747}
+  - {x: -0.009147117, y: 0, z: 0.39546043}
+  - {x: -0.017138686, y: 0, z: 0.54130876}
+  - {x: -0.027307626, y: 0, z: 0.6951795}
+  - {x: -0.037958086, y: 0, z: 0.8502367}
+  - {x: -0.049070176, y: 0, z: 1.0011292}
+  - {x: -0.060749635, y: 0, z: 1.1408359}
+  - {x: -0.07336861, y: 0, z: 1.2736216}
+  - {x: -0.084943675, y: 0, z: 1.3936793}
+  - {x: -0.09719438, y: 0, z: 1.5131787}
+  - {x: -0.104557835, y: 0, z: 1.6270777}
+  - {x: -0.109462455, y: 0, z: 1.7451029}
+  - {x: -0.11026916, y: 0, z: 1.8678023}
+  - {x: -0.10678388, y: 0, z: 1.9991409}
+  - {x: -0.09996502, y: 0, z: 2.1406956}
+  - {x: -0.08823658, y: 0, z: 2.2911758}
+  - {x: -0.07368507, y: 0, z: 2.4453244}
+  - {x: -0.057304997, y: 0, z: 2.596262}
+  - {x: -0.04060326, y: 0, z: 2.7358127}
+  - {x: -0.0245687, y: 0, z: 2.8689418}
+  - {x: -0.014297153, y: 0, z: 2.9951124}
+  - {x: -0.007010862, y: 0, z: 3.1201842}
+  - {x: -0.0042110533, y: 0, z: 3.2446399}
+  averageSpeed: 4.0680857

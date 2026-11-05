@@ -1,0 +1,90 @@
+{
+  "success": true,
+  "result": {
+    "entries": [
+      {
+        "seq": 1,
+        "timestampUtc": "2026-10-29T11:40:10.3243677Z",
+        "level": "warn",
+        "logType": "Warning",
+        "message": "Editor is already in edit mode",
+        "stackTrace": "UnityEngine.Debug:LogWarning (object)\nUnity.Pipeline.Editor.Commands.PlayModeCommands:Stop () (at ./Library/PackageCache/com.unity.pipeline@363b8bb9e91d/Editor/Commands/PlayModeCommands.cs:73)\nSystem.Reflection.MethodBase:Invoke (object,object[])\nUnity.Pipeline.Commands.DefaultCommandQueue:InvokeDirect (Unity.Pipeline.Commands.CommandContext,Unity.Pipeline.Commands.CommandInfo,object[]) (at ./Library/PackageCache/com.unity.pipeline@363b8bb9e91d/Runtime/CommandExecution/CommandQueue/DefaultCommandQueue.cs:487)\nUnity.Pipeline.Commands.DefaultCommandQueue/<>c__DisplayClass19_0:<Invoke>b__1 () (at ./Library/PackageCache/com.unity.pipeline@363b8bb9e91d/Runtime/CommandExecution/CommandQueue/DefaultCommandQueue.cs:409)\nUnity.Pipeline.Threading.Dispatcher/WorkItem`1<object>:ExecuteCore () (at ./Library/PackageCache/com.unity.pipeline@363b8bb9e91d/Runtime/Common/Dispatcher.cs:342)\nUnity.Pipeline.Threading.Dispatcher/WorkItem:Execute () (at ./Library/PackageCache/com.unity.pipeline@363b8bb9e91d/Runtime/Common/Dispatcher.cs:285)\nUnity.Pipeline.Threading.Dispatcher:ProcessWorkQueue (int) (at ./Library/PackageCache/com.unity.pipeline@363b8bb9e91d/Runtime/Common/Dispatcher.cs:251)\nUnity.Pipeline.Threading.Dispatcher:ProcessWorkQueue () (at ./Library/PackageCache/com.unity.pipeline@363b8bb9e91d/Runtime/Common/Dispatcher.cs:266)\nUnityEditor.EditorApplication:Internal_CallUpdateFunctions ()\n",
+        "seeded": false
+      },
+      {
+        "seq": 2,
+        "timestampUtc": "2026-10-29T11:40:30.4039006Z",
+        "level": "warn",
+        "logType": "Warning",
+        "message": "Deleting invalid font reference.",
+        "stackTrace": "UnityEditor.ScriptReloadProperties:Load (UnityEditor.ScriptReloadProperties)\n",
+        "seeded": false
+      },
+      {
+        "seq": 3,
+        "timestampUtc": "2026-10-29T11:45:55.6558649Z",
+        "level": "error",
+        "logType": "Error",
+        "message": "\"GetRemainingDistance\" can only be called on an active agent that has been placed on a NavMesh.",
+        "stackTrace": "UnityEngine.AI.NavMeshAgent:get_remainingDistance ()\nPipelineEvaluation.PipelineEval_43386213/<>c:<Execute>b__0_0 (NullBoundary.Demo.DemoEnemy)\nSystem.Linq.Enumerable:ToArray<<>f__AnonymousType1`8<string, bool, single, UnityEngine.Vector3, bool, bool, string, single>> (System.Collections.Generic.IEnumerable`1<<>f__AnonymousType1`8<string, bool, single, UnityEngine.Vector3, bool, bool, string, single>>)\nPipelineEvaluation.PipelineEval_43386213:Execute ()\nSystem.Reflection.MethodBase:Invoke (object,object[])\nUnity.Pipeline.Compilation.EvalCodeCompiler:ExecuteCompiledAssembly (System.Reflection.Assembly) (at ./Library/PackageCache/com.unity.pipeline@363b8bb9e91d/Runtime/Compilation/EvalCodeCompiler.cs:190)\nUnity.Pipeline.Compilation.EvalCodeCompiler:CompileAndExecuteOnMainThread (string,System.TimeSpan,System.Diagnostics.Stopwatch) (at ./Library/PackageCache/com.unity.pipeline@363b8bb9e91d/Runtime/Compilation/EvalCodeCompiler.cs:54)\nUnity.Pipeline.Runtime.Commands.CodeEvalCommand:EvaluateSource (string,System.TimeSpan,string) (at ./Library/PackageCache/com.unity.pipeline@363b8bb9e91d/Runtime/Commands/CodeEvalCommand.cs:97)\nUnity.Pipeline.Runtime.Commands.CodeEvalCommand:Eval (string,double) (at ./Library/PackageCache/com.unity.pipeline@363b8bb9e91d/Runtime/Commands/CodeEvalCommand.cs:26)\nSystem.Reflection.MethodBase:Invoke (object,object[])\nUnity.Pipeline.Commands.DefaultCommandQueue:InvokeDirect (Unity.Pipeline.Commands.CommandContext,Unity.Pipeline.Commands.CommandInfo,object[]) (at ./Library/PackageCache/com.unity.pipeline@363b8bb9e91d/Runtime/CommandExecution/CommandQueue/DefaultCommandQueue.cs:487)\nUnity.Pipeline.Commands.DefaultCommandQueue/<>c__DisplayClass19_0:<Invoke>b__1 () (at ./Library/PackageCache/com.unity.pipeline@363b8bb9e91d/Runtime/CommandExecution/CommandQueue/DefaultCommandQueue.cs:409)\nUnity.Pipeline.Threading.Dispatcher/WorkItem`1<object>:ExecuteCore () (at ./Library/PackageCache/com.unity.pipeline@363b8bb9e91d/Runtime/Common/Dispatcher.cs:342)\nUnity.Pipeline.Threading.Dispatcher/WorkItem:Execute () (at ./Library/PackageCache/com.unity.pipeline@363b8bb9e91d/Runtime/Common/Dispatcher.cs:285)\nUnity.Pipeline.Threading.Dispatcher:ProcessWorkQueue (int) (at ./Library/PackageCache/com.unity.pipeline@363b8bb9e91d/Runtime/Common/Dispatcher.cs:251)\nUnity.Pipeline.Threading.Dispatcher:ProcessWorkQueue () (at ./Library/PackageCache/com.unity.pipeline@363b8bb9e91d/Runtime/Common/Dispatcher.cs:266)\nUnityEditor.EditorApplication:Internal_CallUpdateFunctions ()\n",
+        "seeded": false
+      },
+      {
+        "seq": 4,
+        "timestampUtc": "2026-10-29T11:45:55.6563736Z",
+        "level": "error",
+        "logType": "Error",
+        "message": "\"GetRemainingDistance\" can only be called on an active agent that has been placed on a NavMesh.",
+        "stackTrace": "UnityEngine.AI.NavMeshAgent:get_remainingDistance ()\nPipelineEvaluation.PipelineEval_43386213/<>c:<Execute>b__0_0 (NullBoundary.Demo.DemoEnemy)\nSystem.Linq.Enumerable:ToArray<<>f__AnonymousType1`8<string, bool, single, UnityEngine.Vector3, bool, bool, string, single>> (System.Collections.Generic.IEnumerable`1<<>f__AnonymousType1`8<string, bool, single, UnityEngine.Vector3, bool, bool, string, single>>)\nPipelineEvaluation.PipelineEval_43386213:Execute ()\nSystem.Reflection.MethodBase:Invoke (object,object[])\nUnity.Pipeline.Compilation.EvalCodeCompiler:ExecuteCompiledAssembly (System.Reflection.Assembly) (at ./Library/PackageCache/com.unity.pipeline@363b8bb9e91d/Runtime/Compilation/EvalCodeCompiler.cs:190)\nUnity.Pipeline.Compilation.EvalCodeCompiler:CompileAndExecuteOnMainThread (string,System.TimeSpan,System.Diagnostics.Stopwatch) (at ./Library/PackageCache/com.unity.pipeline@363b8bb9e91d/Runtime/Compilation/EvalCodeCompiler.cs:54)\nUnity.Pipeline.Runtime.Commands.CodeEvalCommand:EvaluateSource (string,System.TimeSpan,string) (at ./Library/PackageCache/com.unity.pipeline@363b8bb9e91d/Runtime/Commands/CodeEvalCommand.cs:97)\nUnity.Pipeline.Runtime.Commands.CodeEvalCommand:Eval (string,double) (at ./Library/PackageCache/com.unity.pipeline@363b8bb9e91d/Runtime/Commands/CodeEvalCommand.cs:26)\nSystem.Reflection.MethodBase:Invoke (object,object[])\nUnity.Pipeline.Commands.DefaultCommandQueue:InvokeDirect (Unity.Pipeline.Commands.CommandContext,Unity.Pipeline.Commands.CommandInfo,object[]) (at ./Library/PackageCache/com.unity.pipeline@363b8bb9e91d/Runtime/CommandExecution/CommandQueue/DefaultCommandQueue.cs:487)\nUnity.Pipeline.Commands.DefaultCommandQueue/<>c__DisplayClass19_0:<Invoke>b__1 () (at ./Library/PackageCache/com.unity.pipeline@363b8bb9e91d/Runtime/CommandExecution/CommandQueue/DefaultCommandQueue.cs:409)\nUnity.Pipeline.Threading.Dispatcher/WorkItem`1<object>:ExecuteCore () (at ./Library/PackageCache/com.unity.pipeline@363b8bb9e91d/Runtime/Common/Dispatcher.cs:342)\nUnity.Pipeline.Threading.Dispatcher/WorkItem:Execute () (at ./Library/PackageCache/com.unity.pipeline@363b8bb9e91d/Runtime/Common/Dispatcher.cs:285)\nUnity.Pipeline.Threading.Dispatcher:ProcessWorkQueue (int) (at ./Library/PackageCache/com.unity.pipeline@363b8bb9e91d/Runtime/Common/Dispatcher.cs:251)\nUnity.Pipeline.Threading.Dispatcher:ProcessWorkQueue () (at ./Library/PackageCache/com.unity.pipeline@363b8bb9e91d/Runtime/Common/Dispatcher.cs:266)\nUnityEditor.EditorApplication:Internal_CallUpdateFunctions ()\n",
+        "seeded": false
+      },
+      {
+        "seq": 5,
+        "timestampUtc": "2026-10-29T11:45:55.6563736Z",
+        "level": "error",
+        "logType": "Error",
+        "message": "\"GetRemainingDistance\" can only be called on an active agent that has been placed on a NavMesh.",
+        "stackTrace": "UnityEngine.AI.NavMeshAgent:get_remainingDistance ()\nPipelineEvaluation.PipelineEval_43386213/<>c:<Execute>b__0_0 (NullBoundary.Demo.DemoEnemy)\nSystem.Linq.Enumerable:ToArray<<>f__AnonymousType1`8<string, bool, single, UnityEngine.Vector3, bool, bool, string, single>> (System.Collections.Generic.IEnumerable`1<<>f__AnonymousType1`8<string, bool, single, UnityEngine.Vector3, bool, bool, string, single>>)\nPipelineEvaluation.PipelineEval_43386213:Execute ()\nSystem.Reflection.MethodBase:Invoke (object,object[])\nUnity.Pipeline.Compilation.EvalCodeCompiler:ExecuteCompiledAssembly (System.Reflection.Assembly) (at ./Library/PackageCache/com.unity.pipeline@363b8bb9e91d/Runtime/Compilation/EvalCodeCompiler.cs:190)\nUnity.Pipeline.Compilation.EvalCodeCompiler:CompileAndExecuteOnMainThread (string,System.TimeSpan,System.Diagnostics.Stopwatch) (at ./Library/PackageCache/com.unity.pipeline@363b8bb9e91d/Runtime/Compilation/EvalCodeCompiler.cs:54)\nUnity.Pipeline.Runtime.Commands.CodeEvalCommand:EvaluateSource (string,System.TimeSpan,string) (at ./Library/PackageCache/com.unity.pipeline@363b8bb9e91d/Runtime/Commands/CodeEvalCommand.cs:97)\nUnity.Pipeline.Runtime.Commands.CodeEvalCommand:Eval (string,double) (at ./Library/PackageCache/com.unity.pipeline@363b8bb9e91d/Runtime/Commands/CodeEvalCommand.cs:26)\nSystem.Reflection.MethodBase:Invoke (object,object[])\nUnity.Pipeline.Commands.DefaultCommandQueue:InvokeDirect (Unity.Pipeline.Commands.CommandContext,Unity.Pipeline.Commands.CommandInfo,object[]) (at ./Library/PackageCache/com.unity.pipeline@363b8bb9e91d/Runtime/CommandExecution/CommandQueue/DefaultCommandQueue.cs:487)\nUnity.Pipeline.Commands.DefaultCommandQueue/<>c__DisplayClass19_0:<Invoke>b__1 () (at ./Library/PackageCache/com.unity.pipeline@363b8bb9e91d/Runtime/CommandExecution/CommandQueue/DefaultCommandQueue.cs:409)\nUnity.Pipeline.Threading.Dispatcher/WorkItem`1<object>:ExecuteCore () (at ./Library/PackageCache/com.unity.pipeline@363b8bb9e91d/Runtime/Common/Dispatcher.cs:342)\nUnity.Pipeline.Threading.Dispatcher/WorkItem:Execute () (at ./Library/PackageCache/com.unity.pipeline@363b8bb9e91d/Runtime/Common/Dispatcher.cs:285)\nUnity.Pipeline.Threading.Dispatcher:ProcessWorkQueue (int) (at ./Library/PackageCache/com.unity.pipeline@363b8bb9e91d/Runtime/Common/Dispatcher.cs:251)\nUnity.Pipeline.Threading.Dispatcher:ProcessWorkQueue () (at ./Library/PackageCache/com.unity.pipeline@363b8bb9e91d/Runtime/Common/Dispatcher.cs:266)\nUnityEditor.EditorApplication:Internal_CallUpdateFunctions ()\n",
+        "seeded": false
+      },
+      {
+        "seq": 6,
+        "timestampUtc": "2026-10-29T11:48:23.1745132Z",
+        "level": "error",
+        "logType": "Assert",
+        "message": "Assertion failed",
+        "stackTrace": "\nUnityEditor.EditorApplication:Internal_PlayModeStateChanged (UnityEditor.PlayModeStateChange)\n",
+        "seeded": true
+      },
+      {
+        "seq": 7,
+        "timestampUtc": "2026-10-29T11:49:03.3824171Z",
+        "level": "warn",
+        "logType": "Warning",
+        "message": "Editor is already in edit mode",
+        "stackTrace": "UnityEngine.Debug:LogWarning (object)\nUnity.Pipeline.Editor.Commands.PlayModeCommands:Stop () (at ./Library/PackageCache/com.unity.pipeline@363b8bb9e91d/Editor/Commands/PlayModeCommands.cs:73)\nSystem.Reflection.MethodBase:Invoke (object,object[])\nUnity.Pipeline.Commands.DefaultCommandQueue:InvokeDirect (Unity.Pipeline.Commands.CommandContext,Unity.Pipeline.Commands.CommandInfo,object[]) (at ./Library/PackageCache/com.unity.pipeline@363b8bb9e91d/Runtime/CommandExecution/CommandQueue/DefaultCommandQueue.cs:487)\nUnity.Pipeline.Commands.DefaultCommandQueue/<>c__DisplayClass19_0:<Invoke>b__1 () (at ./Library/PackageCache/com.unity.pipeline@363b8bb9e91d/Runtime/CommandExecution/CommandQueue/DefaultCommandQueue.cs:409)\nUnity.Pipeline.Threading.Dispatcher/WorkItem`1<object>:ExecuteCore () (at ./Library/PackageCache/com.unity.pipeline@363b8bb9e91d/Runtime/Common/Dispatcher.cs:342)\nUnity.Pipeline.Threading.Dispatcher/WorkItem:Execute () (at ./Library/PackageCache/com.unity.pipeline@363b8bb9e91d/Runtime/Common/Dispatcher.cs:285)\nUnity.Pipeline.Threading.Dispatcher:ProcessWorkQueue (int) (at ./Library/PackageCache/com.unity.pipeline@363b8bb9e91d/Runtime/Common/Dispatcher.cs:251)\nUnity.Pipeline.Threading.Dispatcher:ProcessWorkQueue () (at ./Library/PackageCache/com.unity.pipeline@363b8bb9e91d/Runtime/Common/Dispatcher.cs:266)\nUnityEditor.EditorApplication:Internal_CallUpdateFunctions ()\n",
+        "seeded": false
+      },
+      {
+        "seq": 8,
+        "timestampUtc": "2026-10-29T11:49:19.3599721Z",
+        "level": "warn",
+        "logType": "Warning",
+        "message": "Deleting invalid font reference.",
+        "stackTrace": "UnityEditor.ScriptReloadProperties:Load (UnityEditor.ScriptReloadProperties)\n",
+        "seeded": false
+      }
+    ],
+    "cursor": 8,
+    "session": "5fbc6fbf84214784b94256b3824ba1fa",
+    "returned": 8,
+    "dropped": false,
+    "reset": false,
+    "counts": {
+      "error": 4,
+      "warn": 4,
+      "log": 0
+    },
+    "groundTruth": null
+  }
+}

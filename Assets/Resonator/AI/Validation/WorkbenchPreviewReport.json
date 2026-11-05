@@ -1,0 +1,18 @@
+{
+  "success": true,
+  "result": {
+    "diagnostics": [],
+    "compileMs": 118,
+    "executeMs": 135,
+    "assemblyName": "PipelineRunScript_WorkbenchPreviewScenarios_495ae1c8f5f54cbc940d7cc0d0daf001",
+    "success": true,
+    "result": {
+      "passed": true,
+      "bonePositionError": 0.0,
+      "rootPositionError": 0.0,
+      "blendAngleError": 0.0,
+      "scaledRootDrift": 1.27602124E-08,
+      "previewAttackTravel": 1.78395045
+    }
+  }
+}
