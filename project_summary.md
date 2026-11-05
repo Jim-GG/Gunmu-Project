@@ -66,12 +66,12 @@
 - `Assets/Scripts/`：玩法框架（`Player/`、`Puzzle/`、`LevelFlow/`、`Enemies/`，根目录为全局契约）。
 - `Assets/Resonator/`：共鸣者模型、19 个动作、AI（状态机 + 动画工作台）。
 - `Assets/Gauntlet/`：拳套美术与 Viewmodel、动画控制器、预览场景。
-- `Assets/Editor/NewLevelBuilder.cs`：用基本体块 + 通用组件生成关卡（菜单 **Tools > Levels**），可直接在场景里改，重建会覆盖。
+- `Assets/Scenes/`：关卡场景。`Soviet_1` 是正式关卡（白模手工搭建），`Test_01_PunchThrough` / `Test_02_Combat` / `Test_03_Billiards` 是组件示例用的测试关卡。
 - 关卡内容与流程见 `COMPONENTS.md` 的「当前关卡」一节。
 
 ## 四、 当前边界
 
-- 当前共3个关卡，作为组件使用示例，非正式关卡。
+- 正式关卡目前只有 `Soviet_1`（白模）；另有三关作为组件使用示例（`Test_01`~`Test_03`）。
 - 只有共鸣者一种敌人；没有音效。
 - 过场演出用 Timeline / Animator，或 `PuzzleSwitch` 的“移动目标 + 激活偏移”；暂无通用的位移组件。
 - 关卡切换、暂停、死亡重开由 `GameStateManager` 统一管理，新场景载入后自动回到 `Running`。

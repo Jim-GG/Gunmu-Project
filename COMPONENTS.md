@@ -304,7 +304,7 @@ BouncyWall（斜置、非 Trigger、倍率 1.1~1.2）
 1. **发光需要材质开启 Emission 关键字**。现成的有 `Materials/KineticBox_State.mat`、`Materials/BouncyWall_Glow.mat`；`KineticBox` 未指定特殊状态材质时会打警告，`BouncyWall` 会在运行期复制材质并自动打开发光。
 2. **弹性墙不能是 Trigger**，否则完全不生效。
 3. **摆锤/跷跷板的尺寸**：优先改 `摆长`、`板身长度`、`重物初始高度` 这类参数，而不是直接缩放预制体（缩放会让摆长/落点跟着变，虽然会自动测量但不好维护）。
-4. **Build Settings 必须勾选目标场景**，否则 `LevelExit` 的 `Awake` 会报错并禁用自己。当前只有 `Level1_PunchThrough` / `Level2_Combat` / `Level3_Billiards` 三条，均已勾选。
+4. **Build Settings 必须勾选目标场景**，否则 `LevelExit` 的 `Awake` 会报错并禁用自己。当前已勾选 `Test_01_PunchThrough` / `Test_02_Combat` / `Test_03_Billiards` / `Soviet_1` 四条。
 5. **两套 R 重置并存**：挂了 `RoomRestartController` → R 重载场景；没挂 → R 原位复位（`PuzzleResetUtility.ResetAll()`）。别在一个关卡里同时依赖两种语义。
 6. **KineticBox 的 6 轴吸附**：默认会把水平速度吸附到 ±X/±Z，斜向撞墙的反射方向以吸附后的速度为准。
 7. **箱体、门、抬升机关的自身位移**都是用 `PuzzleSwitch` 的“移动目标 + 激活偏移”实现的；没有专门的位移组件，需要更复杂的过场就用 Timeline / Animator。
@@ -335,11 +335,11 @@ BouncyWall（斜置、非 Trigger、倍率 1.1~1.2）
 
 | 场景 | 内容 | 用到的组件 |
 |---|---|---|
-| `Scenes/Level1_PunchThrough.unity` | 捡起拳套 → 一拳轰开堵住 1.6 米通道的方块 → 走到出口 | `GauntletPickup` + `PlayerGauntletEquipment` + `KineticBox` + `LevelExit` |
-| `Scenes/Level2_Combat.unity` | 清掉三只共鸣者，门打开后出口生效 | `ResonatorEncounter` + `ResonatorAgent` + `NavMeshSurface` + `LevelExit`（门禁 = Encounter） |
-| `Scenes/Level3_Billiards.unity` | 拿晶体充能 → 把方块横向顶到定位挡条对齐 → 从背后一拳送进窄缝 → 击开关抬门 | `KineticBox` + `DashCrystal` + `PuzzleSwitch` + `LevelExit`（门禁 = Switch） |
+| `Scenes/Soviet_1.unity` | **正式关卡（白模）**：坠落的电梯里出生 → 捡拳套 → 从破墙洞出去 → 深渊上方的 L 形钢走廊 → 轰开堵住门洞的动能方块 → 在房间里把方块从门禁室钢条下方打进去撞开关 → 抬门出口 | `GauntletPickup` + `PlayerGauntletEquipment` + `KineticBox` + `DashCrystal` + `PuzzleSwitch` + `LevelExit`（门禁 = Switch） |
+| `Scenes/Test_01_PunchThrough.unity` | 测试关卡：捡起拳套 → 一拳轰开堵住 1.6 米通道的方块 → 走到出口 | `GauntletPickup` + `PlayerGauntletEquipment` + `KineticBox` + `LevelExit` |
+| `Scenes/Test_02_Combat.unity` | 测试关卡：清掉三只共鸣者，门打开后出口生效 | `ResonatorEncounter` + `ResonatorAgent` + `NavMeshSurface` + `LevelExit`（门禁 = Encounter） |
+| `Scenes/Test_03_Billiards.unity` | 测试关卡：拿晶体充能 → 把方块横向顶到定位挡条对齐 → 从背后一拳送进窄缝 → 击开关抬门 | `KineticBox` + `DashCrystal` + `PuzzleSwitch` + `LevelExit`（门禁 = Switch） |
 
-- 链路：`Level1` → `Level2` → `Level3`（最终关，`nextSceneName` 留空 = 通知通关）。
-- 三个场景都由菜单 **Tools > Levels** 重建（`Editor/NewLevelBuilder.cs`，按关卡单独重建或一键重建）；重建会覆盖同名场景，执行前先存当前场景。
-- 想自己改地图：直接在场景里拖物体/改引用即可，不必改脚本；重建时才会被覆盖。
-- 每个关卡都需要 `Navigation` 物体（`NavMeshSurface`）重新 Bake 才能让敌人正确寻路。
+- 链路：`Test_01_PunchThrough` → `Test_02_Combat` → `Test_03_Billiards`（最终关，`nextSceneName` 留空 = 通知通关）；`Soviet_1` 独立，出口同样留空（= 最终关）。
+- 四个场景都是直接在编辑器里堆基本体块 + 拖组件搭的，没有生成器；想改地图直接在场景里拖物体/改引用即可，不必改脚本。
+- `Test_02_Combat` 需要 `Navigation` 物体（`NavMeshSurface`）重新 Bake 才能让敌人正确寻路；`Soviet_1` 目前没有敌人，不需要 NavMesh。
