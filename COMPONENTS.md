@@ -172,6 +172,8 @@ Trigger 或实体碰撞都可以触发；被任意 `KineticBox` 击中也会激�
 | 组件 | 负责 |
 |---|---|
 | `PlayerChargedPunch` | **玩法规则**：蓄力档位、冲撞距离、冲量、伤害、充能、格挡判定锥 |
+
+- **0 档（无蓄力快拳）不产生任何冲刺位移**，只做一次接触判定：否则玩家能靠零消耗普攻反复推自己上天（无限飞行）。冲撞距离只对 1~3 档生效。
 | `PlayerGauntletView` | **外观与动画**：实例化 `GauntletViewModel`，把蓄力/出拳/格挡映射到 `Gauntlet.controller` 的片段 |
 | `PunchPresentation` | **打击反馈**：镜头震动、命中顿帧、准星反馈（本项目不使用音效） |
 

@@ -15,7 +15,7 @@
 ### 1. 机械拳套：蓄力冲拳与格挡碰撞
 （[`PlayerChargedPunch`](file:///d:/Projects/Gunmu-Project/Assets/Scripts/Player/PlayerChargedPunch.cs) / [`PlayerMovement`](file:///d:/Projects/Gunmu-Project/Assets/Scripts/Player/PlayerMovement.cs) / [`PlayerGauntletView`](file:///d:/Projects/Gunmu-Project/Assets/Scripts/Player/PlayerGauntletView.cs)）
 
-- **左键蓄力冲拳**：按住左键按当前储备能量分段蓄力（0.5 / 1.25 / 2.5 秒对应一至三档），松开后向准星方向突进出拳；档位越高冲撞距离、冲量与伤害越高，并消耗对应数量的充能。
+- **左键蓄力冲拳**：按住左键按当前储备能量分段蓄力（0.5 / 1.25 / 2.5 秒对应一至三档），松开后向准星方向突进出拳；档位越高冲撞距离、冲量与伤害越高，并消耗对应数量的充能。**无蓄力的快拳（0 档）只做一次接触判定，不产生任何位移**，避免零消耗反复飞行。
   - **空中惯性与高速变向**：冲拳自然结束会平滑保留突进惯性；已处于高速飞行状态时出拳不会减速，而是把当前速度矢量直接偏转到出拳方向。
   - **正交面施力与后坐力**：命中未锁定的动能方块时严格沿立方体六个正交面之一施加冲量，玩家自身同时获得向后上方的后坐力。
 - **右键格挡**：面向来物按住右键触发弹性碰撞——玩家继承动量被弹飞、来物轻微反弹、充能 +1。

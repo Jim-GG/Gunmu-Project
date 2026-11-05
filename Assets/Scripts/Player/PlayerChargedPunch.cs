@@ -12,7 +12,6 @@ public class PlayerChargedPunch : MonoBehaviour
     [SerializeField, Min(0.1f)] private float reach = 0.9f;
     [SerializeField, Min(0f)] private float recovery = 0.3f;
     [Header("各档冲撞距离（米）")]
-    [SerializeField, Min(0f)] private float basicLungeDistance = 0.75f;
     [SerializeField, Min(0f)] private float tierOneLungeDistance = 2.5f;
     [SerializeField, Min(0f)] private float tierTwoLungeDistance = 4.5f;
     [SerializeField, Min(0f)] private float tierThreeLungeDistance = 6.5f;
@@ -180,7 +179,7 @@ public class PlayerChargedPunch : MonoBehaviour
         tierOneTime = Mathf.Max(minimumWindup + 0.01f, tierOneTime);
         tierTwoTime = Mathf.Max(tierOneTime + 0.01f, tierTwoTime);
         tierThreeTime = Mathf.Max(tierTwoTime + 0.01f, tierThreeTime);
-        tierOneLungeDistance = Mathf.Max(basicLungeDistance + 0.05f, tierOneLungeDistance);
+        tierOneLungeDistance = Mathf.Max(0.05f, tierOneLungeDistance);
         tierTwoLungeDistance = Mathf.Max(tierOneLungeDistance + 0.05f, tierTwoLungeDistance);
         tierThreeLungeDistance = Mathf.Max(tierTwoLungeDistance + 0.05f, tierThreeLungeDistance);
     }
@@ -248,10 +247,13 @@ public class PlayerChargedPunch : MonoBehaviour
             attackTier = tier;
             attacking = true;
             PunchReleased?.Invoke(tier);
-            float distance = tier == 3 ? tierThreeLungeDistance : tier == 2 ? tierTwoLungeDistance
-                : tier == 1 ? tierOneLungeDistance : basicLungeDistance;
+            // 无蓄力快拳（0 档）不给任何冲刺位移：否则玩家能靠零消耗的普攻反复推自己上天（无限飞行）。
+            float distance = tier == 3 ? tierThreeLungeDistance
+                : tier == 2 ? tierTwoLungeDistance
+                : tier == 1 ? tierOneLungeDistance
+                : 0f;
             if (presentation != null) presentation.Swing(tier);
-            if (movement != null) movement.BeginPunchLunge(distance);
+            if (movement != null && distance > 0.0001f) movement.BeginPunchLunge(distance);
             TryLungeHit();
         }
     }
@@ -305,7 +307,7 @@ public class PlayerChargedPunch : MonoBehaviour
         {
             attacking = false;
             ChargedPunchPulse.Spawn(aim.position + aim.forward, -aim.forward, attackTier);
-            feedback = $"{attackTier} 档冲撞未命中｜剩余充能：{storedEnergy}/3 格";
+            feedback = (attackTier == 0 ? "普攻未命中" : $"{attackTier} 档冲撞未命中") + $"｜剩余充能：{storedEnergy}/3 格";
             feedbackUntil = Time.unscaledTime + 1.5f;
             nextReady = Time.unscaledTime + recovery;
         }
@@ -339,7 +341,7 @@ public class PlayerChargedPunch : MonoBehaviour
         if (box == null && tier > 0 && body != null && !body.isKinematic)
             body.AddForce(aim.forward * impulse, ForceMode.VelocityChange);
         ChargedPunchPulse.Spawn(point + normal * 0.03f, normal, tier);
-        feedback = $"{tier} 档攻击命中｜剩余充能：{storedEnergy}/3 格";
+        feedback = (tier == 0 ? "普攻命中" : $"{tier} 档攻击命中") + $"｜剩余充能：{storedEnergy}/3 格";
         feedbackUntil = Time.unscaledTime + 1.5f;
         nextReady = Time.unscaledTime + recovery;
     }
