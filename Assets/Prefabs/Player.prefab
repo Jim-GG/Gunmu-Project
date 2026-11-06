@@ -269,7 +269,7 @@ MonoBehaviour:
   groundAcceleration: 45
   groundDeceleration: 35
   airAcceleration: 6
-  airDrag: 0.25
+  airDrag: 0.05
   jumpHeight: 1.2
   gravity: 20
   cameraPivot: {fileID: 8599460903090411290}
@@ -313,7 +313,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 60f82d6945001654db0ecc1bbe72aa96, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerGauntletEquipment
-  hasGauntlet: 0
+  startsEquipped: 0
   onEquipped:
     m_PersistentCalls:
       m_Calls: []
@@ -417,7 +417,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PunchPresentation
   shakeStrength: 1
   hitStopStrength: 1
-  guardSound: {fileID: 0}
 --- !u!114 &2310124353051374048
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -436,7 +435,6 @@ MonoBehaviour:
   tierThreeTime: 2.5
   reach: 0.9
   recovery: 0.3
-  basicLungeDistance: 0.75
   tierOneLungeDistance: 2.5
   tierTwoLungeDistance: 4.5
   tierThreeLungeDistance: 6.5

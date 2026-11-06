@@ -10,7 +10,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField, Min(1f)] private float groundAcceleration = 45f;
     [SerializeField, Min(1f)] private float groundDeceleration = 35f;
     [SerializeField, Min(0f)] private float airAcceleration = 6f;
-    [SerializeField, Min(0f)] private float airDrag = 0.25f;
+    [SerializeField, Min(0f)] private float airDrag = 0.05f;
     [SerializeField, Min(0f)] private float jumpHeight = 1.3f;
     [SerializeField, Min(0.1f)] private float gravity = 20f;
 
@@ -373,6 +373,18 @@ public class PlayerMovement : MonoBehaviour
     {
         // Called only for a confirmed enemy impact, so puzzle launches retain their trajectory.
         verticalSpeed = Mathf.Max(verticalSpeed, Mathf.Max(0f, upwardSpeed));
+    }
+
+    /// <summary>
+    /// 外部装置（大炮 / 弹射器等）直接把玩家当弹体发射：接管当前速度，保留原有惯性规则。
+    /// </summary>
+    public void LaunchAsProjectile(Vector3 velocity)
+    {
+        punchLunging = false;
+        dashTimer = 0f;
+        activeLungeSpeed = 0f;
+        currentHorizontalVelocity = new Vector3(velocity.x, 0f, velocity.z);
+        verticalSpeed = velocity.y;
     }
 
     /// <summary>

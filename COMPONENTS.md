@@ -181,6 +181,25 @@ Trigger 或实体碰撞都可以触发；被任意 `KineticBox` 击中也会激�
 
 ---
 
+### 1.11 `Cannon` —— 大炮（吸入 → 蓄压 → 发射）
+
+配套预制体：`Prefabs/Cannon.prefab`（底座 + 可俯仰的炮管 + 侧面填弹仓 + 炮口指示灯）。
+
+> 填弹仓**只用地面上的发光标记框 + 一个 Trigger 体积**标记，没有导轨/挡板实体，贴着墙滑过去的方块不会被卡住（标记框也不带碰撞）。
+
+| 分组 | 关键字段（默认值） |
+|---|---|
+| 引用 | 炮管 `Pivot`（用它的 forward 当发射方向）/ 发射点 `Muzzle` / 填弹仓触发器 `LoadingBay`（Trigger，留空自动按名字找）/ 炮口指示灯 `ChargeLight` |
+| 朝向 | **仰角 `12°`**（正 = 上扬，作用在炮管本地 X 上）；**偏航 = 预制体实例自身的 Y 旋转** |
+| 工作参数 | 吸入时长 `0.25s` / 蓄压间隔 `0.55s` / 发射速度 `26 m/s` / 装填冷却 `1.2s` / 发射点前方偏置 `0.75m` / 是否吸入玩家（勾选） |
+
+- 检测方式：**每帧用 `Physics.OverlapBox` 轮询填弹仓体积**（不用 Trigger 回调——组件在根节点、触发器在子物体，Unity 的 Trigger 消息不会往上发）。命中的第一个未锁定 `KineticBox` 或 `PlayerMovement` 会被吸进去。
+- 方块：吸入期间置为 Kinematic 并拉到炮膛内；发射时用 `ApplyFreeImpulse` 沿炮管方向飞出（自由轨迹、不做 6 轴吸附，仰角会被保留）。
+- 玩家：吸入期间暂时禁用 `PlayerMovement` 与 `CharacterController`，发射时瞬移到炮口并调 `PlayerMovement.LaunchAsProjectile(velocity)` 接管速度。
+- 发射后进入冷却（避免立刻把自己吸回去）；暂停/死亡会取消装填并放掉手里的东西；实现 `IPuzzleResettable`，R 复位时清空装填。
+
+---
+
 ## 2. 通用契约与流程
 
 ### 2.0 `PlayerChargedPunch` + `PlayerGauntletView` —— 拳套（规则 / 外观分离）
@@ -351,12 +370,13 @@ BouncyWall（斜置、非 Trigger、倍率 1.1~1.2）
 
 | 场景 | 内容 | 用到的组件 |
 |---|---|---|
+| `Scenes/Soviet_GetTheBox.unity` | **正式关卡（白模）**：从起点房间出来到窄平台（带坡塌廊桥残段）→ 坐起点大炮沿 +Z 射出 → 撞拐角那面**小、斜向上**的弹性墙 → 弹到终点的窄平台（同样是断桥残段）→ 把方块推进终点大炮、自己也坐进去 → 沿 −X 射出、再撞同一面弹性墙 → 回到起点平台 → 把方块轰进起点房间里触发开关（终点门打开）→ 再坐起点大炮飞回终点进门 | `Cannon`×2 + `BouncyWall`（小斜面板）+ `KineticBox` + `PuzzleSwitch` + `DashCrystal` + `LevelExit`（门禁 = Switch） |
 | `Scenes/Soviet_1.unity` | **正式关卡（白模）**：坠落的电梯里出生 → 捡拳套 → 从破墙洞出去 → 深渊上方的 L 形钢走廊 → 轰开堵住门洞的动能方块 → 在房间里把方块从门禁室钢条下方打进去撞开关 → 抬门出口 | `GauntletPickup` + `PlayerGauntletEquipment` + `KineticBox` + `DashCrystal` + `PuzzleSwitch` + `LevelExit`（门禁 = Switch） |
 | `Scenes/Soviet_TheBridge.unity` | **正式关卡（白模）**：拳套能量 0 出生在房间里 → 进入 36×36 的高墙深渊大厅 → 沿“中”字竖笔的钢廊桥走 → 断口对面挂着塔塌桥体 → 右侧高处运输管道不时冒出带初速度的动能方块，落到斜向弹性墙上被弹向断口中央横飞而过 → `Q` 子弹时间 + `E` 锁定它做垫脚跳过去 → 走完对面廊桥，从墙上的门进入房间 | `KineticBoxDropper`（+`KineticBox` 预制体）+ `BouncyWall` + `LevelExit` |
 | `Scenes/Test_01_PunchThrough.unity` | 测试关卡：捡起拳套 → 一拳轰开堵住 1.6 米通道的方块 → 走到出口 | `GauntletPickup` + `PlayerGauntletEquipment` + `KineticBox` + `LevelExit` |
 | `Scenes/Test_02_Combat.unity` | 测试关卡：清掉三只共鸣者，门打开后出口生效 | `ResonatorEncounter` + `ResonatorAgent` + `NavMeshSurface` + `LevelExit`（门禁 = Encounter） |
 | `Scenes/Test_03_Billiards.unity` | 测试关卡：拿晶体充能 → 把方块横向顶到定位挡条对齐 → 从背后一拳送进窄缝 → 击开关抬门 | `KineticBox` + `DashCrystal` + `PuzzleSwitch` + `LevelExit`（门禁 = Switch） |
 
-- 链路：`Test_01_PunchThrough` → `Test_02_Combat` → `Test_03_Billiards`（最终关）；正式关卡链路：`Soviet_1` → `Soviet_TheBridge`（`nextSceneName` 留空 = 通知通关，后续新增关卡再接上即可）。
+- 链路：`Test_01_PunchThrough` → `Test_02_Combat` → `Test_03_Billiards`（最终关）；正式关卡目前 `Soviet_1` → `Soviet_TheBridge`、`Soviet_GetTheBox` 为独立场景（`nextSceneName` 留空 = 通知通关，后续再接）。
 - 五个场景都是直接在编辑器里堆基本体块 + 拖组件搭的，没有生成器；想改地图直接在场景里拖物体/改引用即可，不必改脚本。
 - `Test_02_Combat` 需要 `Navigation` 物体（`NavMeshSurface`）重新 Bake 才能让敌人正确寻路；`Soviet_1` / `Soviet_TheBridge` 目前没有敌人，不需要 NavMesh。
