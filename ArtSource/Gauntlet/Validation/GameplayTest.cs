@@ -14,7 +14,7 @@ public static class GameplayTest
   var p=new ChargePolicy();
   foreach(int frame in new[]{13,31,32,61,62,63,91,92,93})Check(p.Punch(frame/30f)==(frame<62?2:frame<92?3:4),"Boundary "+frame);
   Check(p.Punch(.1f)==1,"Quick click");Check(p.Tier(32/30f)==1&&p.Tier(62/30f)==2&&p.Tier(92/30f)==3,"Tier boundaries");
-  var c=AssetDatabase.LoadAllAssetsAtPath("Assets/备份拳套/Gauntlet/Animations/Gauntlet_charge_full.fbx").OfType<AnimationClip>().First(a=>a.name=="charge full");
+  var c=AssetDatabase.LoadAllAssetsAtPath("Assets/Game/Player/Gauntlet/Animations/Gauntlet_charge_full.fbx").OfType<AnimationClip>().First(a=>a.name=="charge full");
   Check(Mathf.Abs(c.length-50/30f)<.001f&&c.isLooping,"Full clip range/loop");
   var combat=UnityEngine.Object.FindFirstObjectByType<GauntletCombat>();
   var bindings=AnimationUtility.GetCurveBindings(c);Check(bindings.All(b=>b.path==""||combat.animationPlayer.animator.transform.Find(b.path)),"Unbound full animation path");

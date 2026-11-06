@@ -7,7 +7,7 @@ public static class ResonatorScenarios
  static ResonatorTarget actor;static List<ResonatorEnemy> created;
  static ResonatorEnemy Make(RestActivity activity)
  {
-  var prefab=AssetDatabase.LoadAssetAtPath<GameObject>("Assets/Resonator/AI/Prefabs/ResonatorAgent.prefab");
+  var prefab=AssetDatabase.LoadAssetAtPath<GameObject>("Assets/Game/Enemies/Resonator/AI/Prefabs/ResonatorAgent.prefab");
   var go=UnityEngine.Object.Instantiate(prefab,Vector3.zero,Quaternion.identity);go.name="Scenario Enemy";
   var e=go.GetComponent<ResonatorEnemy>();e.enabled=false;e.target=actor;
   e.tuning=UnityEngine.Object.Instantiate(e.tuning);e.tuning.headbuttContinueChance=1;e.tuning.recoverySeconds=new Vector2(.6f,.6f);

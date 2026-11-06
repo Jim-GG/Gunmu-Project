@@ -11,7 +11,7 @@ public static class AttackDisplacementScenarios
   var created=new List<ResonatorEnemy>();var cases=new List<string>();GameObject wall=null;
   Func<Vector3,ResonatorEnemy> make=point=>
   {
-   actorGo.transform.position=point;var go=UnityEngine.Object.Instantiate(AssetDatabase.LoadAssetAtPath<GameObject>("Assets/Resonator/AI/Prefabs/ResonatorAgent.prefab"));var e=go.GetComponent<ResonatorEnemy>();e.enabled=false;e.target=actor;e.tuning=UnityEngine.Object.Instantiate(e.tuning);created.Add(e);
+   actorGo.transform.position=point;var go=UnityEngine.Object.Instantiate(AssetDatabase.LoadAssetAtPath<GameObject>("Assets/Game/Enemies/Resonator/AI/Prefabs/ResonatorAgent.prefab"));var e=go.GetComponent<ResonatorEnemy>();e.enabled=false;e.target=actor;e.tuning=UnityEngine.Object.Instantiate(e.tuning);created.Add(e);
    var a=e.tuning.punch;a.animation.speed=1;a.rootMotionScale=0;a.hits=new[]{new HitWindow{startFrame=80,endFrame=81,anchor=HitboxAnchor.Root,position=new Vector3(0,1,1),size=Vector3.one*.5f}};
    a.displacement=new AttackDisplacement{enabled=true,trackingEndFrame=30,turnSpeed=120,segments=new[]{new AttackMoveSegment{startFrame=5,endFrame=35,maxDistance=2,maxSpeed=3,contactDistance=1,progress=AnimationCurve.Linear(0,0,1,1)}}};
    e.Initialize(RestActivity.FeignDeath);Start.Invoke(e,new object[]{EnemyState.Punching,true});Physics.SyncTransforms();return e;
@@ -37,7 +37,7 @@ public static class AttackDisplacementScenarios
     for(int f=0;f<30;f++){actorGo.transform.position+=Vector3.forward*.03f;Physics.SyncTransforms();e.Tick(1/30f);}drop(e);
    }
    Check(hits[0]==0&&hits[1]>0,"Added movement failed to improve hit rate on retreating target: "+string.Join(",",hits));cases.Add("Retreating player: stationary attack misses, pursuit attack reaches the same hitbox");
-   var beat=new AttackBeat();beat.animation.track=AssetDatabase.LoadAssetAtPath<ResonatorMotionTrack>("Assets/Resonator/AI/Data/Resonator_Zombie_Punching_Motion.asset");beat.displacement=new AttackDisplacement{enabled=true,segments=new[]{new AttackMoveSegment{startFrame=10,endFrame=20,maxDistance=1,maxSpeed=100,contactDistance=1,progress=AnimationCurve.Linear(0,0,1,1)}}};
+   var beat=new AttackBeat();beat.animation.track=AssetDatabase.LoadAssetAtPath<ResonatorMotionTrack>("Assets/Game/Enemies/Resonator/AI/Data/Resonator_Zombie_Punching_Motion.asset");beat.displacement=new AttackDisplacement{enabled=true,segments=new[]{new AttackMoveSegment{startFrame=10,endFrame=20,maxDistance=1,maxSpeed=100,contactDistance=1,progress=AnimationCurve.Linear(0,0,1,1)}}};
    Check(Mathf.Abs(AttackMoveBudget.Preview(beat,15,30,4,.8f)-.5f)<.001f,"Skipped entry frames produced retroactive travel");cases.Add("Animation entry skips do not replay old displacement");
    return new{passed=true,cases=cases.ToArray(),freeSpacePursuitMetres=moved,retreatingPlayerHits=hits};
   }

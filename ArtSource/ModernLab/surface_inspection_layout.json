@@ -1,0 +1,102 @@
+{
+  "lights": [
+    {
+      "name": "Raking light",
+      "position": [
+        -5,
+        -0.8,
+        2.5
+      ],
+      "target": [
+        -1,
+        0,
+        1.5
+      ],
+      "energy": 500,
+      "size": [
+        0.4,
+        3
+      ]
+    },
+    {
+      "name": "Long reflected softbox",
+      "position": [
+        1,
+        -2.5,
+        2.2
+      ],
+      "target": [
+        0,
+        0,
+        1.6
+      ],
+      "energy": 220,
+      "size": [
+        0.15,
+        3
+      ]
+    },
+    {
+      "name": "Metal side softbox",
+      "position": [
+        5,
+        -1,
+        3
+      ],
+      "target": [
+        4,
+        0,
+        1
+      ],
+      "energy": 350,
+      "size": [
+        2,
+        0.3
+      ]
+    }
+  ],
+  "shots": [
+    {
+      "name": "RoughWall",
+      "position": [
+        -2.8,
+        -1.25,
+        1.25
+      ],
+      "target": [
+        -2.9,
+        0,
+        1.25
+      ],
+      "fov": 36.243719226850246
+    },
+    {
+      "name": "DustyGloss",
+      "position": [
+        0.15,
+        -1.6,
+        1.6
+      ],
+      "target": [
+        0.2,
+        0,
+        1.6
+      ],
+      "fov": 36.243719226850246
+    },
+    {
+      "name": "SpottedMetal",
+      "position": [
+        4.761846604787494,
+        -0.6,
+        1.35
+      ],
+      "target": [
+        4.761846604787494,
+        0,
+        1.2
+      ],
+      "fov": 36.243719226850246
+    }
+  ]
+}

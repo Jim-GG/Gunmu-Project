@@ -1,0 +1,26 @@
+{
+  "success": true,
+  "result": {
+    "diagnostics": [],
+    "compileMs": 1191,
+    "executeMs": 1556,
+    "assemblyName": "PipelineRunScript_ModernLabMaterialChecks_fbf28287318845c7bb896af689ec7dca",
+    "success": true,
+    "result": {
+      "passed": true,
+      "cases": [
+        "Twelve shared URP materials have complete 2K PBR maps and correct colour spaces",
+        "Walls and resin are dielectric; handrails have a dedicated metallic steel material",
+        "Original 29 modules plus 7 derived modules use shared materials, valid UV0 and tangent bases",
+        "Metric UV scale survives FBX import on a 4 metre wall; colour paints reuse white paint surface maps",
+        "Actual mesh review contains four stair variants and all nine metallic guardrail variants with noncollapsed UVs",
+        "Actual URP preview renders with a persistent baked reflection, isolated from the gameplay scene",
+        "Preview rendering and scene cleanup log no new errors"
+      ],
+      "surfaceMaterials": 12,
+      "prefabs": 36,
+      "textureCount": 27,
+      "actualReviewMeshes": 21
+    }
+  }
+}

@@ -1,0 +1,99 @@
+{
+  "objects": [
+    {
+      "source": "平面.018",
+      "location": [
+        -3.0,
+        0.0,
+        0.0
+      ],
+      "role": "Floor"
+    },
+    {
+      "source": "平面.019",
+      "location": [
+        3.0,
+        0.0,
+        0.0
+      ],
+      "role": "Floor"
+    },
+    {
+      "source": "分区墙_Lime",
+      "location": [
+        -3.0,
+        3.0,
+        0.0
+      ],
+      "role": "AccentWall"
+    },
+    {
+      "source": "分区墙_Red",
+      "location": [
+        0.0,
+        3.0,
+        0.0
+      ],
+      "role": "AccentWall"
+    },
+    {
+      "source": "分区墙_Yellow",
+      "location": [
+        3.0,
+        3.0,
+        0.0
+      ],
+      "role": "AccentWall"
+    },
+    {
+      "source": "吊顶_6m",
+      "location": [
+        -1.5,
+        0.0,
+        3.4000000953674316
+      ],
+      "role": "Ceiling"
+    },
+    {
+      "source": "吊顶_3m",
+      "location": [
+        3.0,
+        1.5,
+        3.4000000953674316
+      ],
+      "role": "Ceiling"
+    },
+    {
+      "source": "平面.014",
+      "location": [
+        5.599999904632568,
+        3.0,
+        2.0
+      ],
+      "role": "WallDark"
+    },
+    {
+      "source": "6*1.2护栏",
+      "location": [
+        3.0,
+        6.0,
+        0.0
+      ],
+      "role": "Rail"
+    }
+  ],
+  "camera": {
+    "position": [
+      9.0,
+      -13.0,
+      2.25
+    ],
+    "target": [
+      0.699999988079071,
+      1.2999999523162842,
+      1.399999976158142
+    ],
+    "fov": 44.49804723504026
+  },
+  "aspect": 1.6
+}

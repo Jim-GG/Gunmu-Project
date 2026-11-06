@@ -13,7 +13,7 @@ public static class CrowdNavigationScenarios
   var created=new List<ResonatorEnemy>();GameObject wall=null;var cases=new List<string>();
   Func<Vector3,bool,ResonatorEnemy> make=(point,native)=>
   {
-   var go=UnityEngine.Object.Instantiate(AssetDatabase.LoadAssetAtPath<GameObject>("Assets/Resonator/AI/Prefabs/ResonatorAgent.prefab"),point,Quaternion.identity);
+   var go=UnityEngine.Object.Instantiate(AssetDatabase.LoadAssetAtPath<GameObject>("Assets/Game/Enemies/Resonator/AI/Prefabs/ResonatorAgent.prefab"),point,Quaternion.identity);
    var e=go.GetComponent<ResonatorEnemy>();e.enabled=false;e.target=actor;e.tuning=UnityEngine.Object.Instantiate(e.tuning);e.Initialize(RestActivity.FeignDeath);created.Add(e);
    Enter.Invoke(e,new object[]{EnemyState.Screaming,true});Enter.Invoke(e,new object[]{EnemyState.Running,true});e.enabled=native;return e;
   };
@@ -38,7 +38,7 @@ public static class CrowdNavigationScenarios
    at(new Vector3(0,0,6));var e2=make(Vector3.zero,false);wall=GameObject.CreatePrimitive(PrimitiveType.Cube);wall.transform.position=new Vector3(0,1,.65f);wall.transform.localScale=new Vector3(4,2,.15f);Physics.SyncTransforms();e2.motor.AttackStep(Vector3.zero,0,Vector3.forward*3,5,actor,.8f,1);
    Check(e2.transform.position.z<.35f,"World collision was removed together with peer collision");cases.Add("World walls still block attacks after peer/corpse filtering");drop(e2);UnityEngine.Object.DestroyImmediate(wall);wall=null;
    at(new Vector3(0,0,1.7f));e2=make(Vector3.zero,false);e2.Tick(.02f);Check(e2.State==EnemyState.Kicking,"Running did not initiate kicking at the new longer range");Check(e2.Distance>1.5f,"Long-range attack actually started too close");cases.Add("Running initiates kicking around 1.7 metres, before old 1.1m range");drop(e2);
-   at(new Vector3(0,0,1.55f));e2=make(Vector3.zero,false);e2.TakeDamage(1,Vector3.forward*2);e2.Tick((e2.motion.Beat.EndSeconds-e2.motion.SourceSeconds)/e2.motion.Beat.speed+.03f);Check(e2.State==EnemyState.Headbutt,"Headbutt cannot initiate from its extended reach");cases.Add("Close hit recovery can launch headbutt at its authored starting distance");drop(e2);
+   at(new Vector3(0,0,1.55f));e2=make(Vector3.zero,false);at(new Vector3(0,0,Mathf.Max(.9f,(e2.tuning.headbutt.startDistance>0?e2.tuning.headbutt.startDistance:e2.tuning.attackEnterDistance)-.05f)));e2.TakeDamage(1,Vector3.forward*2);e2.Tick((e2.motion.Beat.EndSeconds-e2.motion.SourceSeconds)/e2.motion.Beat.speed+.03f);Check(e2.State==EnemyState.Headbutt,"Headbutt cannot initiate from its extended reach");cases.Add("Close hit recovery can launch headbutt at its authored starting distance");drop(e2);
    at(new Vector3(0,0,1.8f));e2=make(Vector3.zero,false);e2.transform.rotation=Quaternion.Euler(0,180,0);e2.Tick(.01f);Check(e2.State==EnemyState.Running,"Attack began while facing away");e2.transform.rotation=Quaternion.identity;
    wall=GameObject.CreatePrimitive(PrimitiveType.Cube);wall.transform.position=new Vector3(0,1,.9f);wall.transform.localScale=new Vector3(2,2,.1f);Physics.SyncTransforms();e2.Tick(.02f);Check(e2.State==EnemyState.Running,"Attack began through a wall");cases.Add("Extended attacks still require facing and unobstructed contact line");drop(e2);UnityEngine.Object.DestroyImmediate(wall);wall=null;
    at(new Vector3(0,0,3));e2=make(Vector3.zero,false);float maximum=e2.PlannedStartDistance;e2.Tick(.1f);for(int i=0;i<4;i++){at(actorGo.transform.position+Vector3.forward*.2f);e2.Tick(.1f);}float predicted=e2.PlannedStartDistance;

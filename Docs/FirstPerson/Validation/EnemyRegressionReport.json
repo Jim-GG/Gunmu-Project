@@ -1,0 +1,37 @@
+{
+  "success": true,
+  "result": {
+    "diagnostics": [],
+    "compileMs": 147,
+    "executeMs": 1989,
+    "assemblyName": "PipelineRunScript_PlayModeScenarios_30dee02aefab435f8072fd2fe3606839",
+    "success": true,
+    "result": {
+      "passed": true,
+      "cases": [
+        "Feign death freezes; hearing only; reveal at frame 520; far scream -> run",
+        "Feeding loops 150-420, resumes 421, reveals 490",
+        "SlowIdle loop and sight detection",
+        "RestlessIdle loop and sight detection",
+        "Resonance hearing only; agonizing turns 20 degrees per second",
+        "Run -> kick -> attack -> scream; separation; single-use spatial impact windows",
+        "Headbutt combo; front/back reactions; hit interrupts attack; direct combat return",
+        "Missed combo -> timed recovery -> pursuit",
+        "Fast connected combo uses configured hit cancel frames, entries and blends",
+        "Missed attacks use independently editable cancellation timing",
+        "Interrupting an unfinished blend preserves the full mixed skeletal pose",
+        "Close scream selects headbutt/punch; punching has no combo branch",
+        "Physics obstruction blocks attack motion and damage",
+        "Death dominates hit; ragdoll at frame 50; physical settling",
+        "Live gameplay noise event wakes a hearing-only unit",
+        "Active impact window can catch an entering target, only once",
+        "Actual gauntlet parry blocks enemy and gains charge energy; unblocked hit damages player",
+        "Actual player punch emits noise and damages/staggers the enemy",
+        "Real navigation moves; animation follows speed; no double root translation",
+        "Native NavMesh path routes around a static wall"
+      ],
+      "nativeWalkDistance": 0.5256972,
+      "visualRootDrift": 8.574781E-08
+    }
+  }
+}

@@ -1,0 +1,433 @@
+{
+  "revision": 2,
+  "uv_space": "UV0",
+  "tile_metres": 2,
+  "micro_tile_metres": 0.25,
+  "mask": "R metal / G AO / B dust / A clean smoothness",
+  "base_alpha": "black spot coverage, opaque surface",
+  "materials": {
+    "Lab_White_Matte": {
+      "kind": "matte",
+      "dust_amount": 0.05,
+      "dust_colour_strength": 0.01,
+      "dust_roughness": 0.55,
+      "dust_tiling": 2.0,
+      "spot_amount": 1.0,
+      "normal_strength": 1.0,
+      "micro_strength": 0.16,
+      "micro_tiling": 8.0,
+      "roughness_bias": 0.0,
+      "detail": "Lab_Detail_Coating_Normal",
+      "roughness_min": 0.5432882308959961,
+      "roughness_max": 0.7599999904632568,
+      "roughness_mean": 0.6499601602554321,
+      "dust_mean": 0.22686466574668884,
+      "spot_coverage": 0.0003266334533691406,
+      "metallic_max": 0.0,
+      "normal_slope_rms": 0.0179043710231781,
+      "files": [
+        "D:\\UNITY工程\\棍木项目\\棍木项目\\Assets\\Game\\Environment\\ModernLab\\Textures\\Lab_White_Matte_BaseColor.png",
+        "D:\\UNITY工程\\棍木项目\\棍木项目\\Assets\\Game\\Environment\\ModernLab\\Textures\\Lab_White_Matte_Normal.png",
+        "D:\\UNITY工程\\棍木项目\\棍木项目\\Assets\\Game\\Environment\\ModernLab\\Textures\\Lab_White_Matte_Mask.png"
+      ],
+      "tint": [
+        1,
+        1,
+        1
+      ]
+    },
+    "Lab_Dark_Panel": {
+      "kind": "dark",
+      "dust_amount": 0.08,
+      "dust_colour_strength": 0.01,
+      "dust_roughness": 0.55,
+      "dust_tiling": 2.0,
+      "spot_amount": 1.0,
+      "normal_strength": 1.0,
+      "micro_strength": 0.16,
+      "micro_tiling": 8.0,
+      "roughness_bias": 0.0,
+      "detail": "Lab_Detail_Coating_Normal",
+      "roughness_min": 0.38328829407691956,
+      "roughness_max": 0.6000000238418579,
+      "roughness_mean": 0.4899601936340332,
+      "dust_mean": 0.22680997848510742,
+      "spot_coverage": 0.0002703666687011719,
+      "metallic_max": 0.0,
+      "normal_slope_rms": 0.019257180392742157,
+      "files": [
+        "D:\\UNITY工程\\棍木项目\\棍木项目\\Assets\\Game\\Environment\\ModernLab\\Textures\\Lab_Dark_Panel_BaseColor.png",
+        "D:\\UNITY工程\\棍木项目\\棍木项目\\Assets\\Game\\Environment\\ModernLab\\Textures\\Lab_Dark_Panel_Normal.png",
+        "D:\\UNITY工程\\棍木项目\\棍木项目\\Assets\\Game\\Environment\\ModernLab\\Textures\\Lab_Dark_Panel_Mask.png"
+      ],
+      "tint": [
+        1,
+        1,
+        1
+      ]
+    },
+    "Lab_Floor_Resin": {
+      "kind": "resin",
+      "dust_amount": 0.1,
+      "dust_colour_strength": 0.01,
+      "dust_roughness": 0.45,
+      "dust_tiling": 2.0,
+      "spot_amount": 1.0,
+      "normal_strength": 1.0,
+      "micro_strength": 0.16,
+      "micro_tiling": 8.0,
+      "roughness_bias": 0.0,
+      "detail": "Lab_Detail_Coating_Normal",
+      "roughness_min": 0.17000000178813934,
+      "roughness_max": 0.4300000071525574,
+      "roughness_mean": 0.23455408215522766,
+      "dust_mean": 0.22680705785751343,
+      "spot_coverage": 0.00023627281188964844,
+      "metallic_max": 0.0,
+      "normal_slope_rms": 0.0007266979664564133,
+      "files": [
+        "D:\\UNITY工程\\棍木项目\\棍木项目\\Assets\\Game\\Environment\\ModernLab\\Textures\\Lab_Floor_Resin_BaseColor.png",
+        "D:\\UNITY工程\\棍木项目\\棍木项目\\Assets\\Game\\Environment\\ModernLab\\Textures\\Lab_Floor_Resin_Normal.png",
+        "D:\\UNITY工程\\棍木项目\\棍木项目\\Assets\\Game\\Environment\\ModernLab\\Textures\\Lab_Floor_Resin_Mask.png"
+      ],
+      "tint": [
+        1,
+        1,
+        1
+      ]
+    },
+    "Lab_Rail_BrushedSteel": {
+      "kind": "steel",
+      "dust_amount": 0.12,
+      "dust_colour_strength": 0.01,
+      "dust_roughness": 0.55,
+      "dust_tiling": 2.0,
+      "spot_amount": 1.0,
+      "normal_strength": 1.0,
+      "micro_strength": 0.16,
+      "micro_tiling": 8.0,
+      "roughness_bias": 0.0,
+      "detail": "Lab_Detail_Coating_Normal",
+      "roughness_min": 0.19553421437740326,
+      "roughness_max": 0.4030318260192871,
+      "roughness_mean": 0.29996800422668457,
+      "dust_mean": 0.22683581709861755,
+      "spot_coverage": 0.00045180320739746094,
+      "metallic_max": 1.0,
+      "normal_slope_rms": 0.0013130854349583387,
+      "files": [
+        "D:\\UNITY工程\\棍木项目\\棍木项目\\Assets\\Game\\Environment\\ModernLab\\Textures\\Lab_Rail_BrushedSteel_BaseColor.png",
+        "D:\\UNITY工程\\棍木项目\\棍木项目\\Assets\\Game\\Environment\\ModernLab\\Textures\\Lab_Rail_BrushedSteel_Normal.png",
+        "D:\\UNITY工程\\棍木项目\\棍木项目\\Assets\\Game\\Environment\\ModernLab\\Textures\\Lab_Rail_BrushedSteel_Mask.png"
+      ],
+      "tint": [
+        1,
+        1,
+        1
+      ]
+    },
+    "Lab_Floor_Checker": {
+      "kind": "checker",
+      "dust_amount": 0.06,
+      "dust_colour_strength": 0.01,
+      "dust_roughness": 0.45,
+      "dust_tiling": 2.0,
+      "spot_amount": 1.0,
+      "normal_strength": 1.0,
+      "micro_strength": 0.16,
+      "micro_tiling": 8.0,
+      "roughness_bias": 0.0,
+      "detail": "Lab_Detail_Coating_Normal",
+      "roughness_min": 0.2800000011920929,
+      "roughness_max": 0.8354243636131287,
+      "roughness_mean": 0.33779817819595337,
+      "dust_mean": 0.22684556245803833,
+      "spot_coverage": 0.00023484230041503906,
+      "metallic_max": 0.0,
+      "normal_slope_rms": 0.0198755394667387,
+      "files": [
+        "D:\\UNITY工程\\棍木项目\\棍木项目\\Assets\\Game\\Environment\\ModernLab\\Textures\\Lab_Floor_Checker_BaseColor.png",
+        "D:\\UNITY工程\\棍木项目\\棍木项目\\Assets\\Game\\Environment\\ModernLab\\Textures\\Lab_Floor_Checker_Normal.png",
+        "D:\\UNITY工程\\棍木项目\\棍木项目\\Assets\\Game\\Environment\\ModernLab\\Textures\\Lab_Floor_Checker_Mask.png"
+      ],
+      "tint": [
+        1,
+        1,
+        1
+      ]
+    },
+    "Lab_Ceiling_Acoustic": {
+      "kind": "ceiling",
+      "dust_amount": 0.0,
+      "dust_colour_strength": 0.0,
+      "dust_roughness": 0.55,
+      "dust_tiling": 2.0,
+      "spot_amount": 1.0,
+      "normal_strength": 1.0,
+      "micro_strength": 0.6,
+      "micro_tiling": 8.0,
+      "roughness_bias": 0.0,
+      "detail": "Lab_Detail_Mineral_Normal",
+      "roughness_min": 0.758758008480072,
+      "roughness_max": 0.9650000333786011,
+      "roughness_mean": 0.8599656820297241,
+      "dust_mean": 0.22691775858402252,
+      "spot_coverage": 0.0002665519714355469,
+      "metallic_max": 0.0,
+      "normal_slope_rms": 0.06040912866592407,
+      "files": [
+        "D:\\UNITY工程\\棍木项目\\棍木项目\\Assets\\Game\\Environment\\ModernLab\\Textures\\Lab_Ceiling_Acoustic_BaseColor.png",
+        "D:\\UNITY工程\\棍木项目\\棍木项目\\Assets\\Game\\Environment\\ModernLab\\Textures\\Lab_Ceiling_Acoustic_Normal.png",
+        "D:\\UNITY工程\\棍木项目\\棍木项目\\Assets\\Game\\Environment\\ModernLab\\Textures\\Lab_Ceiling_Acoustic_Mask.png"
+      ],
+      "tint": [
+        1,
+        1,
+        1
+      ]
+    },
+    "Lab_Wall_Ribbed": {
+      "kind": "ribbed",
+      "dust_amount": 0.0,
+      "dust_colour_strength": 0.0,
+      "dust_roughness": 0.55,
+      "dust_tiling": 2.0,
+      "spot_amount": 1.0,
+      "normal_strength": 1.0,
+      "micro_strength": 0.6,
+      "micro_tiling": 8.0,
+      "roughness_bias": 0.0,
+      "detail": "Lab_Detail_Mineral_Normal",
+      "roughness_min": 0.5946975350379944,
+      "roughness_max": 0.8500000238418579,
+      "roughness_mean": 0.7199577689170837,
+      "dust_mean": 0.2268601357936859,
+      "spot_coverage": 0.000202178955078125,
+      "metallic_max": 0.0,
+      "normal_slope_rms": 0.1140010803937912,
+      "files": [
+        "D:\\UNITY工程\\棍木项目\\棍木项目\\Assets\\Game\\Environment\\ModernLab\\Textures\\Lab_Wall_Ribbed_BaseColor.png",
+        "D:\\UNITY工程\\棍木项目\\棍木项目\\Assets\\Game\\Environment\\ModernLab\\Textures\\Lab_Wall_Ribbed_Normal.png",
+        "D:\\UNITY工程\\棍木项目\\棍木项目\\Assets\\Game\\Environment\\ModernLab\\Textures\\Lab_Wall_Ribbed_Mask.png"
+      ],
+      "tint": [
+        1,
+        1,
+        1
+      ]
+    },
+    "Lab_Paint_RoughWhite": {
+      "kind": "mineral",
+      "dust_amount": 0.0,
+      "dust_colour_strength": 0.0,
+      "dust_roughness": 0.55,
+      "dust_tiling": 2.0,
+      "spot_amount": 1.0,
+      "normal_strength": 1.0,
+      "micro_strength": 0.6,
+      "micro_tiling": 8.0,
+      "roughness_bias": 0.0,
+      "detail": "Lab_Detail_Mineral_Normal",
+      "roughness_min": 0.6796975135803223,
+      "roughness_max": 0.9700000286102295,
+      "roughness_mean": 0.7938399314880371,
+      "dust_mean": 0.22686712443828583,
+      "spot_coverage": 0.0003218650817871094,
+      "metallic_max": 0.0,
+      "normal_slope_rms": 0.04292336106300354,
+      "files": [
+        "D:\\UNITY工程\\棍木项目\\棍木项目\\Assets\\Game\\Environment\\ModernLab\\Textures\\Lab_Paint_RoughWhite_BaseColor.png",
+        "D:\\UNITY工程\\棍木项目\\棍木项目\\Assets\\Game\\Environment\\ModernLab\\Textures\\Lab_Paint_RoughWhite_Normal.png",
+        "D:\\UNITY工程\\棍木项目\\棍木项目\\Assets\\Game\\Environment\\ModernLab\\Textures\\Lab_Paint_RoughWhite_Mask.png"
+      ],
+      "tint": [
+        1,
+        1,
+        1
+      ]
+    },
+    "Lab_Paint_GlossWhite": {
+      "kind": "gloss",
+      "dust_amount": 0.18,
+      "dust_colour_strength": 0.01,
+      "dust_roughness": 0.45,
+      "dust_tiling": 2.0,
+      "spot_amount": 1.0,
+      "normal_strength": 1.0,
+      "micro_strength": 0.16,
+      "micro_tiling": 8.0,
+      "roughness_bias": 0.0,
+      "detail": "Lab_Detail_Coating_Normal",
+      "roughness_min": 0.16367436945438385,
+      "roughness_max": 0.2874999940395355,
+      "roughness_mean": 0.22497326135635376,
+      "dust_mean": 0.22689945995807648,
+      "spot_coverage": 0.0003552436828613281,
+      "metallic_max": 0.0,
+      "normal_slope_rms": 0.0012859702110290527,
+      "files": [
+        "D:\\UNITY工程\\棍木项目\\棍木项目\\Assets\\Game\\Environment\\ModernLab\\Textures\\Lab_Paint_GlossWhite_BaseColor.png",
+        "D:\\UNITY工程\\棍木项目\\棍木项目\\Assets\\Game\\Environment\\ModernLab\\Textures\\Lab_Paint_GlossWhite_Normal.png",
+        "D:\\UNITY工程\\棍木项目\\棍木项目\\Assets\\Game\\Environment\\ModernLab\\Textures\\Lab_Paint_GlossWhite_Mask.png"
+      ],
+      "tint": [
+        1,
+        1,
+        1
+      ]
+    },
+    "Lab_White_Coursed": {
+      "kind": "coursed",
+      "dust_amount": 0.0,
+      "dust_colour_strength": 0.0,
+      "dust_roughness": 0.55,
+      "dust_tiling": 2.0,
+      "spot_amount": 1.0,
+      "normal_strength": 1.0,
+      "micro_strength": 0.6,
+      "micro_tiling": 8.0,
+      "roughness_bias": 0.0,
+      "detail": "Lab_Detail_Mineral_Normal",
+      "roughness_min": 0.6796975135803223,
+      "roughness_max": 0.9700000286102295,
+      "roughness_mean": 0.7957074642181396,
+      "dust_mean": 0.22683651745319366,
+      "spot_coverage": 0.0004794597625732422,
+      "metallic_max": 0.0,
+      "normal_slope_rms": 0.06403835117816925,
+      "files": [
+        "D:\\UNITY工程\\棍木项目\\棍木项目\\Assets\\Game\\Environment\\ModernLab\\Textures\\Lab_White_Coursed_BaseColor.png",
+        "D:\\UNITY工程\\棍木项目\\棍木项目\\Assets\\Game\\Environment\\ModernLab\\Textures\\Lab_White_Coursed_Normal.png",
+        "D:\\UNITY工程\\棍木项目\\棍木项目\\Assets\\Game\\Environment\\ModernLab\\Textures\\Lab_White_Coursed_Mask.png"
+      ],
+      "tint": [
+        1,
+        1,
+        1
+      ]
+    },
+    "Lab_Paint_WhiteSteel": {
+      "kind": "white_steel",
+      "dust_amount": 0.09,
+      "dust_colour_strength": 0.01,
+      "dust_roughness": 0.55,
+      "dust_tiling": 2.0,
+      "spot_amount": 1.0,
+      "normal_strength": 1.0,
+      "micro_strength": 0.16,
+      "micro_tiling": 8.0,
+      "roughness_bias": 0.0,
+      "detail": "Lab_Detail_Coating_Normal",
+      "roughness_min": 0.3100000023841858,
+      "roughness_max": 0.4798777997493744,
+      "roughness_mean": 0.3700474202632904,
+      "dust_mean": 0.22685730457305908,
+      "spot_coverage": 0.0043447017669677734,
+      "metallic_max": 0.9991452097892761,
+      "normal_slope_rms": 0.0053401184268295765,
+      "files": [
+        "D:\\UNITY工程\\棍木项目\\棍木项目\\Assets\\Game\\Environment\\ModernLab\\Textures\\Lab_Paint_WhiteSteel_BaseColor.png",
+        "D:\\UNITY工程\\棍木项目\\棍木项目\\Assets\\Game\\Environment\\ModernLab\\Textures\\Lab_Paint_WhiteSteel_Normal.png",
+        "D:\\UNITY工程\\棍木项目\\棍木项目\\Assets\\Game\\Environment\\ModernLab\\Textures\\Lab_Paint_WhiteSteel_Mask.png"
+      ],
+      "tint": [
+        1,
+        1,
+        1
+      ]
+    },
+    "Lab_Paint_Lime": {
+      "kind": "mineral",
+      "dust_amount": 0.0,
+      "dust_colour_strength": 0.0,
+      "dust_roughness": 0.55,
+      "dust_tiling": 2.0,
+      "spot_amount": 1.0,
+      "normal_strength": 1.0,
+      "micro_strength": 0.6,
+      "micro_tiling": 8.0,
+      "roughness_bias": 0.0,
+      "detail": "Lab_Detail_Mineral_Normal",
+      "roughness_min": 0.6796975135803223,
+      "roughness_max": 0.9700000286102295,
+      "roughness_mean": 0.7938399314880371,
+      "dust_mean": 0.22686712443828583,
+      "spot_coverage": 0.0003218650817871094,
+      "metallic_max": 0.0,
+      "normal_slope_rms": 0.04292336106300354,
+      "files": [
+        "D:\\UNITY工程\\棍木项目\\棍木项目\\Assets\\Game\\Environment\\ModernLab\\Textures\\Lab_Paint_RoughWhite_BaseColor.png",
+        "D:\\UNITY工程\\棍木项目\\棍木项目\\Assets\\Game\\Environment\\ModernLab\\Textures\\Lab_Paint_RoughWhite_Normal.png",
+        "D:\\UNITY工程\\棍木项目\\棍木项目\\Assets\\Game\\Environment\\ModernLab\\Textures\\Lab_Paint_RoughWhite_Mask.png"
+      ],
+      "tint": [
+        0.53,
+        0.94,
+        0.025
+      ],
+      "source": "Lab_Paint_RoughWhite"
+    },
+    "Lab_Paint_Red": {
+      "kind": "mineral",
+      "dust_amount": 0.0,
+      "dust_colour_strength": 0.0,
+      "dust_roughness": 0.55,
+      "dust_tiling": 2.0,
+      "spot_amount": 1.0,
+      "normal_strength": 1.0,
+      "micro_strength": 0.6,
+      "micro_tiling": 8.0,
+      "roughness_bias": 0.0,
+      "detail": "Lab_Detail_Mineral_Normal",
+      "roughness_min": 0.6796975135803223,
+      "roughness_max": 0.9700000286102295,
+      "roughness_mean": 0.7938399314880371,
+      "dust_mean": 0.22686712443828583,
+      "spot_coverage": 0.0003218650817871094,
+      "metallic_max": 0.0,
+      "normal_slope_rms": 0.04292336106300354,
+      "files": [
+        "D:\\UNITY工程\\棍木项目\\棍木项目\\Assets\\Game\\Environment\\ModernLab\\Textures\\Lab_Paint_RoughWhite_BaseColor.png",
+        "D:\\UNITY工程\\棍木项目\\棍木项目\\Assets\\Game\\Environment\\ModernLab\\Textures\\Lab_Paint_RoughWhite_Normal.png",
+        "D:\\UNITY工程\\棍木项目\\棍木项目\\Assets\\Game\\Environment\\ModernLab\\Textures\\Lab_Paint_RoughWhite_Mask.png"
+      ],
+      "tint": [
+        0.97,
+        0.065,
+        0.035
+      ],
+      "source": "Lab_Paint_RoughWhite"
+    },
+    "Lab_Paint_Yellow": {
+      "kind": "gloss",
+      "dust_amount": 0.18,
+      "dust_colour_strength": 0.01,
+      "dust_roughness": 0.45,
+      "dust_tiling": 2.0,
+      "spot_amount": 1.0,
+      "normal_strength": 1.0,
+      "micro_strength": 0.16,
+      "micro_tiling": 8.0,
+      "roughness_bias": 0.0,
+      "detail": "Lab_Detail_Coating_Normal",
+      "roughness_min": 0.16367436945438385,
+      "roughness_max": 0.2874999940395355,
+      "roughness_mean": 0.22497326135635376,
+      "dust_mean": 0.22689945995807648,
+      "spot_coverage": 0.0003552436828613281,
+      "metallic_max": 0.0,
+      "normal_slope_rms": 0.0012859702110290527,
+      "files": [
+        "D:\\UNITY工程\\棍木项目\\棍木项目\\Assets\\Game\\Environment\\ModernLab\\Textures\\Lab_Paint_GlossWhite_BaseColor.png",
+        "D:\\UNITY工程\\棍木项目\\棍木项目\\Assets\\Game\\Environment\\ModernLab\\Textures\\Lab_Paint_GlossWhite_Normal.png",
+        "D:\\UNITY工程\\棍木项目\\棍木项目\\Assets\\Game\\Environment\\ModernLab\\Textures\\Lab_Paint_GlossWhite_Mask.png"
+      ],
+      "tint": [
+        0.99,
+        0.79,
+        0.025
+      ],
+      "source": "Lab_Paint_GlossWhite"
+    }
+  }
+}

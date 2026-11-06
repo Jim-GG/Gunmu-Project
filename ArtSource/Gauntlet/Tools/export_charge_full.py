@@ -61,7 +61,7 @@ scene.frame_start=0;scene.frame_end=end-start;scene.render.fps=30;scene.unit_set
 bpy.ops.object.select_all(action='DESELECT')
 for o in [asset,rig,anchor]:o.select_set(True)
 bpy.context.view_layer.objects.active=rig
-out=root/'Assets/备份拳套/Gauntlet/Animations/Gauntlet_charge_full.fbx'
+out=root/'Assets/Game/Player/Gauntlet/Animations/Gauntlet_charge_full.fbx'
 bpy.ops.export_scene.fbx(filepath=str(out),use_selection=True,object_types={'EMPTY','ARMATURE'},global_scale=1,apply_unit_scale=True,apply_scale_options='FBX_SCALE_UNITS',axis_forward='-Z',axis_up='Y',add_leaf_bones=False,use_armature_deform_only=False,bake_anim=True,bake_anim_use_all_bones=True,bake_anim_use_all_actions=False,bake_anim_use_nla_strips=False,bake_anim_step=1,bake_anim_simplify_factor=0)
 print('CHARGE FULL EXPORTED',start,end,len(data.bones),flush=True)
 

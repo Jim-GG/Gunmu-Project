@@ -1,0 +1,24 @@
+{
+  "success": true,
+  "result": {
+    "diagnostics": [],
+    "compileMs": 619,
+    "executeMs": 2412,
+    "assemblyName": "PipelineRunScript_GauntletLiveScenarios_85c60a4b422e4b48a89f7cdc1594b53f",
+    "success": true,
+    "result": {
+      "passed": true,
+      "cases": [
+        "Native Animator Controller is suspended while the shared graph owns animation",
+        "Held charge visibly changes bones across actual engine updates",
+        "Punch pose survives native animation evaluation and matches the original FBX at its source frame",
+        "Guard enter/loop/exit advance in the real player loop",
+        "Destroyed graph can be recreated without invalid Playable handles",
+        "Real Update punches damage the actual Resonator adapter"
+      ],
+      "nativePoseAngleError": 0.0,
+      "chargeBoneRotation": 38.9360046,
+      "punchFrame": 2.94749331
+    }
+  }
+}

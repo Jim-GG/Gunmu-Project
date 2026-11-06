@@ -1,0 +1,20 @@
+{
+  "success": true,
+  "result": {
+    "diagnostics": [],
+    "compileMs": 2657,
+    "executeMs": 387,
+    "assemblyName": "PipelineRunScript_SharedWorkbenchScenarios_49d57fd38c3147dba7840e4505c3280d",
+    "success": true,
+    "result": {
+      "passed": true,
+      "cases": [
+        "All four punch previews match original FBX poses and bind every animation curve",
+        "First-person hitbox binds to the view origin, in metre units",
+        "Same runtime mixer previews interrupted action transitions; preview emits no gameplay events",
+        "Charge-full preview uses only source frames 0-50"
+      ],
+      "maximumPoseAngleError": 0.0
+    }
+  }
+}

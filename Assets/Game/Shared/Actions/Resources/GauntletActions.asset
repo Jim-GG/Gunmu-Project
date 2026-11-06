@@ -1,0 +1,736 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 717b0fdfb7092024984f95b6546f7d51, type: 3}
+  m_Name: GauntletActions
+  m_EditorClassIdentifier: Assembly-CSharp::GameActions.ActionSet
+  previewModel: {fileID: 388306111364748650, guid: 5b29a22175004c343a1ad604937b06dc, type: 3}
+  firstPersonPreview: 1
+  previewCameraBone: ViewCameraMotion
+  previewFieldOfView: 65
+  sockets: []
+  minimumSeparation: 0.85
+  inputBufferSeconds: 0.22
+  actions:
+  - id: charge
+    isAttack: 0
+    action:
+      animation:
+        track: {fileID: 11400000, guid: f66830cbf11c3c94290aed7c0698b7fc, type: 2}
+        startFrame: 0
+        endFrame: -1
+        loop: 0
+        speed: 1
+        blend: 0.07
+        events: []
+      hits: []
+      rootMotionScale: 1
+      lockFacingFrame: 20
+      displacement:
+        enabled: 0
+        includeAuthoredRootMotion: 0
+        stopOnHit: 1
+        trackTarget: 1
+        trackingStartFrame: 0
+        trackingEndFrame: 32
+        turnSpeed: 140
+        maxTrackingAngle: 110
+        segments: []
+      startDistance: 0
+    acquisitionRange: 3
+    acquisitionHalfAngle: 32
+    maxHeightDifference: 1.25
+    groundedAssistanceOnly: 1
+  - id: Idle
+    isAttack: 0
+    action:
+      animation:
+        track: {fileID: 11400000, guid: f0b0801f9f092f449ba75be9fb0fee46, type: 2}
+        startFrame: 0
+        endFrame: -1
+        loop: 1
+        speed: 1
+        blend: 0.07
+        events: []
+      hits: []
+      rootMotionScale: 1
+      lockFacingFrame: 20
+      displacement:
+        enabled: 0
+        includeAuthoredRootMotion: 0
+        stopOnHit: 1
+        trackTarget: 1
+        trackingStartFrame: 0
+        trackingEndFrame: 32
+        turnSpeed: 140
+        maxTrackingAngle: 110
+        segments: []
+      startDistance: 0
+    acquisitionRange: 3
+    acquisitionHalfAngle: 32
+    maxHeightDifference: 1.25
+    groundedAssistanceOnly: 1
+  - id: Parry-Hit
+    isAttack: 0
+    action:
+      animation:
+        track: {fileID: 11400000, guid: f76028c5caa834c428ea82a2cd572135, type: 2}
+        startFrame: 0
+        endFrame: -1
+        loop: 0
+        speed: 1
+        blend: 0.07
+        events: []
+      hits: []
+      rootMotionScale: 1
+      lockFacingFrame: 20
+      displacement:
+        enabled: 0
+        includeAuthoredRootMotion: 0
+        stopOnHit: 1
+        trackTarget: 1
+        trackingStartFrame: 0
+        trackingEndFrame: 32
+        turnSpeed: 140
+        maxTrackingAngle: 110
+        segments: []
+      startDistance: 0
+    acquisitionRange: 3
+    acquisitionHalfAngle: 32
+    maxHeightDifference: 1.25
+    groundedAssistanceOnly: 1
+  - id: Parry-Holster
+    isAttack: 0
+    action:
+      animation:
+        track: {fileID: 11400000, guid: 6e66cc63f08f38d4ca3249b710a76558, type: 2}
+        startFrame: 0
+        endFrame: -1
+        loop: 0
+        speed: 1
+        blend: 0.07
+        events: []
+      hits: []
+      rootMotionScale: 1
+      lockFacingFrame: 20
+      displacement:
+        enabled: 0
+        includeAuthoredRootMotion: 0
+        stopOnHit: 1
+        trackTarget: 1
+        trackingStartFrame: 0
+        trackingEndFrame: 32
+        turnSpeed: 140
+        maxTrackingAngle: 110
+        segments: []
+      startDistance: 0
+    acquisitionRange: 3
+    acquisitionHalfAngle: 32
+    maxHeightDifference: 1.25
+    groundedAssistanceOnly: 1
+  - id: Parry-Keep
+    isAttack: 0
+    action:
+      animation:
+        track: {fileID: 11400000, guid: 7591f810aa273c542abcb517e0fef4e8, type: 2}
+        startFrame: 0
+        endFrame: -1
+        loop: 1
+        speed: 1
+        blend: 0.07
+        events: []
+      hits: []
+      rootMotionScale: 1
+      lockFacingFrame: 20
+      displacement:
+        enabled: 0
+        includeAuthoredRootMotion: 0
+        stopOnHit: 1
+        trackTarget: 1
+        trackingStartFrame: 0
+        trackingEndFrame: 32
+        turnSpeed: 140
+        maxTrackingAngle: 110
+        segments: []
+      startDistance: 0
+    acquisitionRange: 3
+    acquisitionHalfAngle: 32
+    maxHeightDifference: 1.25
+    groundedAssistanceOnly: 1
+  - id: Parry-Start
+    isAttack: 0
+    action:
+      animation:
+        track: {fileID: 11400000, guid: 164a032237be10646933f8bfa256a50a, type: 2}
+        startFrame: 0
+        endFrame: -1
+        loop: 0
+        speed: 1
+        blend: 0.07
+        events: []
+      hits: []
+      rootMotionScale: 1
+      lockFacingFrame: 20
+      displacement:
+        enabled: 0
+        includeAuthoredRootMotion: 0
+        stopOnHit: 1
+        trackTarget: 1
+        trackingStartFrame: 0
+        trackingEndFrame: 32
+        turnSpeed: 140
+        maxTrackingAngle: 110
+        segments: []
+      startDistance: 0
+    acquisitionRange: 3
+    acquisitionHalfAngle: 32
+    maxHeightDifference: 1.25
+    groundedAssistanceOnly: 1
+  - id: punch1
+    isAttack: 1
+    action:
+      animation:
+        track: {fileID: 11400000, guid: eb8d010e135fe60489d4864f47316b65, type: 2}
+        startFrame: 6
+        endFrame: -1
+        loop: 0
+        speed: 1.367
+        blend: 0.07
+        events: []
+      hits:
+      - label: "\u62F3\u5957\u6709\u6548\u5E27"
+        hitGroup: fist
+        enabled: 1
+        startFrame: 14
+        endFrame: 17
+        damage: 24
+        reach: 1.45
+        halfAngle: 65
+        shape: 0
+        anchor: 0
+        customBone: 
+        position: {x: 0, y: -0.25, z: 1.05}
+        rotation: {x: 0, y: 0, z: 0}
+        size: {x: 0.7, y: 0.9, z: 0.7}
+        radius: 0.25
+        height: 0.7
+        targetLayers:
+          serializedVersion: 2
+          m_Bits: 4294967295
+        minimumBlendWeight: 0.2
+      rootMotionScale: 1
+      lockFacingFrame: 20
+      displacement:
+        enabled: 1
+        includeAuthoredRootMotion: 0
+        stopOnHit: 1
+        trackTarget: 1
+        trackingStartFrame: 10
+        trackingEndFrame: 20
+        turnSpeed: 140
+        maxTrackingAngle: 32
+        segments:
+        - label: "\u6709\u6548\u5E27\u7206\u53D1\u5438\u9644"
+          enabled: 1
+          startFrame: 14
+          endFrame: 17
+          maxDistance: 0.65
+          maxSpeed: 12
+          contactDistance: 1.05
+          progress:
+            serializedVersion: 2
+            m_Curve:
+            - serializedVersion: 3
+              time: 0
+              value: 0
+              inSlope: 0
+              outSlope: 1
+              tangentMode: 0
+              weightedMode: 0
+              inWeight: 0
+              outWeight: 0
+            - serializedVersion: 3
+              time: 1
+              value: 1
+              inSlope: 1
+              outSlope: 0
+              tangentMode: 0
+              weightedMode: 0
+              inWeight: 0
+              outWeight: 0
+            m_PreInfinity: 2
+            m_PostInfinity: 2
+            m_RotationOrder: 4
+      startDistance: 0
+    acquisitionRange: 3.1
+    acquisitionHalfAngle: 32
+    maxHeightDifference: 1.25
+    groundedAssistanceOnly: 1
+  - id: punch2
+    isAttack: 1
+    action:
+      animation:
+        track: {fileID: 11400000, guid: 69606fa96beaf824d938e750237c75b2, type: 2}
+        startFrame: 0
+        endFrame: -1
+        loop: 0
+        speed: 1
+        blend: 0.07
+        events: []
+      hits:
+      - label: "\u62F3\u5957\u6709\u6548\u5E27"
+        hitGroup: fist
+        enabled: 1
+        startFrame: 2
+        endFrame: 5
+        damage: 40
+        reach: 1.45
+        halfAngle: 65
+        shape: 0
+        anchor: 0
+        customBone: 
+        position: {x: 0, y: -0.25, z: 1.05}
+        rotation: {x: 0, y: 0, z: 0}
+        size: {x: 0.7, y: 0.9, z: 0.7}
+        radius: 0.25
+        height: 0.7
+        targetLayers:
+          serializedVersion: 2
+          m_Bits: 4294967295
+        minimumBlendWeight: 0.2
+      rootMotionScale: 1
+      lockFacingFrame: 20
+      displacement:
+        enabled: 1
+        includeAuthoredRootMotion: 0
+        stopOnHit: 1
+        trackTarget: 1
+        trackingStartFrame: 2
+        trackingEndFrame: 5
+        turnSpeed: 140
+        maxTrackingAngle: 32
+        segments:
+        - label: "\u6709\u6548\u5E27\u7206\u53D1\u5438\u9644"
+          enabled: 1
+          startFrame: 2
+          endFrame: 5
+          maxDistance: 0.85
+          maxSpeed: 12
+          contactDistance: 1.05
+          progress:
+            serializedVersion: 2
+            m_Curve:
+            - serializedVersion: 3
+              time: 0
+              value: 0
+              inSlope: 0
+              outSlope: 1
+              tangentMode: 0
+              weightedMode: 0
+              inWeight: 0
+              outWeight: 0
+            - serializedVersion: 3
+              time: 1
+              value: 1
+              inSlope: 1
+              outSlope: 0
+              tangentMode: 0
+              weightedMode: 0
+              inWeight: 0
+              outWeight: 0
+            m_PreInfinity: 2
+            m_PostInfinity: 2
+            m_RotationOrder: 4
+      startDistance: 0
+    acquisitionRange: 3.1
+    acquisitionHalfAngle: 32
+    maxHeightDifference: 1.25
+    groundedAssistanceOnly: 1
+  - id: punch3
+    isAttack: 1
+    action:
+      animation:
+        track: {fileID: 11400000, guid: ec233d0b38c95904cb93344b481c993b, type: 2}
+        startFrame: 0
+        endFrame: -1
+        loop: 0
+        speed: 1.2
+        blend: 0.07
+        events: []
+      hits:
+      - label: "\u62F3\u5957\u6709\u6548\u5E27"
+        hitGroup: fist
+        enabled: 1
+        startFrame: 4
+        endFrame: 8
+        damage: 65
+        reach: 1.45
+        halfAngle: 65
+        shape: 0
+        anchor: 0
+        customBone: 
+        position: {x: 0, y: -0.25, z: 1.05}
+        rotation: {x: 0, y: 0, z: 0}
+        size: {x: 0.7, y: 0.9, z: 0.7}
+        radius: 0.25
+        height: 0.7
+        targetLayers:
+          serializedVersion: 2
+          m_Bits: 4294967295
+        minimumBlendWeight: 0.2
+      rootMotionScale: 1
+      lockFacingFrame: 20
+      displacement:
+        enabled: 1
+        includeAuthoredRootMotion: 0
+        stopOnHit: 1
+        trackTarget: 1
+        trackingStartFrame: 4
+        trackingEndFrame: 8
+        turnSpeed: 140
+        maxTrackingAngle: 32
+        segments:
+        - label: "\u6709\u6548\u5E27\u7206\u53D1\u5438\u9644"
+          enabled: 1
+          startFrame: 4
+          endFrame: 8
+          maxDistance: 1
+          maxSpeed: 12
+          contactDistance: 1.05
+          progress:
+            serializedVersion: 2
+            m_Curve:
+            - serializedVersion: 3
+              time: 0
+              value: 0
+              inSlope: 0
+              outSlope: 1
+              tangentMode: 0
+              weightedMode: 0
+              inWeight: 0
+              outWeight: 0
+            - serializedVersion: 3
+              time: 1
+              value: 1
+              inSlope: 1
+              outSlope: 0
+              tangentMode: 0
+              weightedMode: 0
+              inWeight: 0
+              outWeight: 0
+            m_PreInfinity: 2
+            m_PostInfinity: 2
+            m_RotationOrder: 4
+      startDistance: 0
+    acquisitionRange: 3.1
+    acquisitionHalfAngle: 32
+    maxHeightDifference: 1.25
+    groundedAssistanceOnly: 1
+  - id: punch4
+    isAttack: 1
+    action:
+      animation:
+        track: {fileID: 11400000, guid: c20f920ef300aa84997ab65095561a05, type: 2}
+        startFrame: 0
+        endFrame: -1
+        loop: 0
+        speed: 1.2
+        blend: 0.07
+        events: []
+      hits:
+      - label: "\u62F3\u5957\u6709\u6548\u5E27"
+        hitGroup: fist
+        enabled: 1
+        startFrame: 6
+        endFrame: 11
+        damage: 110
+        reach: 1.45
+        halfAngle: 65
+        shape: 0
+        anchor: 0
+        customBone: 
+        position: {x: 0, y: -0.25, z: 1.05}
+        rotation: {x: 0, y: 0, z: 0}
+        size: {x: 0.7, y: 0.9, z: 0.7}
+        radius: 0.25
+        height: 0.7
+        targetLayers:
+          serializedVersion: 2
+          m_Bits: 4294967295
+        minimumBlendWeight: 0.2
+      rootMotionScale: 1
+      lockFacingFrame: 20
+      displacement:
+        enabled: 1
+        includeAuthoredRootMotion: 0
+        stopOnHit: 1
+        trackTarget: 1
+        trackingStartFrame: 6
+        trackingEndFrame: 11
+        turnSpeed: 140
+        maxTrackingAngle: 32
+        segments:
+        - label: "\u6709\u6548\u5E27\u7206\u53D1\u5438\u9644"
+          enabled: 1
+          startFrame: 6
+          endFrame: 11
+          maxDistance: 1.15
+          maxSpeed: 12
+          contactDistance: 1.05
+          progress:
+            serializedVersion: 2
+            m_Curve:
+            - serializedVersion: 3
+              time: 0
+              value: 0
+              inSlope: 0
+              outSlope: 1
+              tangentMode: 0
+              weightedMode: 0
+              inWeight: 0
+              outWeight: 0
+            - serializedVersion: 3
+              time: 1
+              value: 1
+              inSlope: 1
+              outSlope: 0
+              tangentMode: 0
+              weightedMode: 0
+              inWeight: 0
+              outWeight: 0
+            m_PreInfinity: 2
+            m_PostInfinity: 2
+            m_RotationOrder: 4
+      startDistance: 0
+    acquisitionRange: 3.1
+    acquisitionHalfAngle: 32
+    maxHeightDifference: 1.25
+    groundedAssistanceOnly: 1
+  - id: charge full
+    isAttack: 0
+    action:
+      animation:
+        track: {fileID: 11400000, guid: 474a0a771f771fd4384649efe62ca2e3, type: 2}
+        startFrame: 0
+        endFrame: 50
+        loop: 1
+        speed: 1
+        blend: 0.07
+        events: []
+      hits: []
+      rootMotionScale: 1
+      lockFacingFrame: 20
+      displacement:
+        enabled: 0
+        includeAuthoredRootMotion: 0
+        stopOnHit: 1
+        trackTarget: 1
+        trackingStartFrame: 0
+        trackingEndFrame: 32
+        turnSpeed: 140
+        maxTrackingAngle: 110
+        segments: []
+      startDistance: 0
+    acquisitionRange: 3
+    acquisitionHalfAngle: 32
+    maxHeightDifference: 1.25
+    groundedAssistanceOnly: 1
+  transitions:
+  - label: "punch4 \u2192 Parry-Start"
+    from: punch4
+    to: Parry-Start
+    enabled: 1
+    anySource: 0
+    blend: 0.167
+    entryFrame: 8
+    cancelFrame: 13
+    cancelEndFrame: -1
+    bufferStartFrame: 8
+  - label: "punch4 \u2192 charge"
+    from: punch4
+    to: charge
+    enabled: 1
+    anySource: 0
+    blend: 0.25
+    entryFrame: 2
+    cancelFrame: 15
+    cancelEndFrame: -1
+    bufferStartFrame: 8
+  - label: "punch3 \u2192 Parry-Start"
+    from: punch3
+    to: Parry-Start
+    enabled: 1
+    anySource: 0
+    blend: 0.167
+    entryFrame: 8
+    cancelFrame: 11
+    cancelEndFrame: -1
+    bufferStartFrame: 5
+  - label: "punch3 \u2192 charge"
+    from: punch3
+    to: charge
+    enabled: 1
+    anySource: 0
+    blend: 0.25
+    entryFrame: 4
+    cancelFrame: 11
+    cancelEndFrame: -1
+    bufferStartFrame: 5
+  - label: "punch2 \u2192 Parry-Start"
+    from: punch2
+    to: Parry-Start
+    enabled: 1
+    anySource: 0
+    blend: 0.12
+    entryFrame: 8
+    cancelFrame: 9
+    cancelEndFrame: -1
+    bufferStartFrame: 2
+  - label: "punch2 \u2192 charge"
+    from: punch2
+    to: charge
+    enabled: 1
+    anySource: 0
+    blend: 0.25
+    entryFrame: -1
+    cancelFrame: 8
+    cancelEndFrame: -1
+    bufferStartFrame: 2
+  - label: "punch1 \u2192 Parry-Start"
+    from: punch1
+    to: Parry-Start
+    enabled: 1
+    anySource: 0
+    blend: 0.167
+    entryFrame: 8
+    cancelFrame: 20
+    cancelEndFrame: -1
+    bufferStartFrame: 12
+  - label: "punch1 \u2192 charge"
+    from: punch1
+    to: charge
+    enabled: 1
+    anySource: 0
+    blend: 0.25
+    entryFrame: 4
+    cancelFrame: 24
+    cancelEndFrame: -1
+    bufferStartFrame: 12
+  - label: "Any \u2192 charge"
+    from: 
+    to: charge
+    enabled: 1
+    anySource: 1
+    blend: 0.075
+    entryFrame: -1
+    cancelFrame: 0
+    cancelEndFrame: -1
+    bufferStartFrame: -1
+  - label: "Any \u2192 Idle"
+    from: 
+    to: Idle
+    enabled: 1
+    anySource: 1
+    blend: 0.075
+    entryFrame: -1
+    cancelFrame: 0
+    cancelEndFrame: -1
+    bufferStartFrame: -1
+  - label: "Any \u2192 Parry-Hit"
+    from: 
+    to: Parry-Hit
+    enabled: 1
+    anySource: 1
+    blend: 0.025
+    entryFrame: -1
+    cancelFrame: 0
+    cancelEndFrame: -1
+    bufferStartFrame: -1
+  - label: "Any \u2192 Parry-Holster"
+    from: 
+    to: Parry-Holster
+    enabled: 1
+    anySource: 1
+    blend: 0.055
+    entryFrame: -1
+    cancelFrame: 0
+    cancelEndFrame: -1
+    bufferStartFrame: -1
+  - label: "Any \u2192 Parry-Keep"
+    from: 
+    to: Parry-Keep
+    enabled: 1
+    anySource: 1
+    blend: 0.075
+    entryFrame: -1
+    cancelFrame: 0
+    cancelEndFrame: -1
+    bufferStartFrame: -1
+  - label: "Any \u2192 Parry-Start"
+    from: 
+    to: Parry-Start
+    enabled: 1
+    anySource: 1
+    blend: 0.075
+    entryFrame: -1
+    cancelFrame: 0
+    cancelEndFrame: -1
+    bufferStartFrame: -1
+  - label: "Any \u2192 punch1"
+    from: 
+    to: punch1
+    enabled: 1
+    anySource: 1
+    blend: 0.045
+    entryFrame: -1
+    cancelFrame: 0
+    cancelEndFrame: -1
+    bufferStartFrame: -1
+  - label: "Any \u2192 punch2"
+    from: 
+    to: punch2
+    enabled: 1
+    anySource: 1
+    blend: 0.045
+    entryFrame: -1
+    cancelFrame: 0
+    cancelEndFrame: -1
+    bufferStartFrame: -1
+  - label: "Any \u2192 punch3"
+    from: 
+    to: punch3
+    enabled: 1
+    anySource: 1
+    blend: 0.045
+    entryFrame: -1
+    cancelFrame: 0
+    cancelEndFrame: -1
+    bufferStartFrame: -1
+  - label: "Any \u2192 punch4"
+    from: 
+    to: punch4
+    enabled: 1
+    anySource: 1
+    blend: 0.045
+    entryFrame: -1
+    cancelFrame: 0
+    cancelEndFrame: -1
+    bufferStartFrame: -1
+  - label: "Any \u2192 charge full"
+    from: 
+    to: charge full
+    enabled: 1
+    anySource: 1
+    blend: 0.075
+    entryFrame: -1
+    cancelFrame: 0
+    cancelEndFrame: -1
+    bufferStartFrame: -1

@@ -1,0 +1,15 @@
+{
+  "success": true,
+  "result": {
+    "diagnostics": [],
+    "compileMs": 69,
+    "executeMs": 3060,
+    "assemblyName": "PipelineRunScript_VerifyEditorRendering_575a8171888544268dc1c23a38532eea",
+    "success": true,
+    "result": {
+      "passed": true,
+      "errors": [],
+      "count": 0
+    }
+  }
+}

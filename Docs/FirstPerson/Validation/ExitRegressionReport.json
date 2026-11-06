@@ -1,0 +1,26 @@
+{
+  "success": true,
+  "result": {
+    "diagnostics": [],
+    "compileMs": 45,
+    "executeMs": 17,
+    "assemblyName": "PipelineRunScript_AttackExitScenarios_1b16b9135e8d44c7a87d48ef17f2e567",
+    "success": true,
+    "result": {
+      "passed": true,
+      "cases": [
+        "Attack hit exits immediately using authored Screaming blend and entry",
+        "Attack miss waits for active windows, uses Any idle, and keeps recovery timer",
+        "Punching miss shares Any -> Combat Idle",
+        "Exact Attack idle overrides Any and respects authored exit frame",
+        "Optional source exit frame can preserve a chosen hit follow-through",
+        "Kick still chains Attack; previous kick hit does not hide a missed final Attack",
+        "Headbutt pending combo keeps priority over shared recovery",
+        "Any recovery never interrupts reaction or death"
+      ],
+      "authoredScreamBlend": 0.367,
+      "authoredScreamEntry": 36.0,
+      "sharedIdleBlend": 0.8
+    }
+  }
+}

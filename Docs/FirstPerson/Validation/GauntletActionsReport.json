@@ -1,0 +1,43 @@
+{
+  "success": true,
+  "result": {
+    "diagnostics": [],
+    "compileMs": 229,
+    "executeMs": 40,
+    "assemblyName": "PipelineRunScript_GauntletActionScenarios_533f5f3883af491993d2cebc3d5ff4ea",
+    "success": true,
+    "result": {
+      "passed": true,
+      "cases": [
+        "Quick punch: no windup damage, hit at source frame 14, one contact per target",
+        "Animation speed changes effective hit time without changing authored hit frames",
+        "Buffered short click cancels recovery at frame 18, keeps release, executes once",
+        "Input outside pre-input window is ignored instead of scheduling future attacks",
+        "Pre-input expires after configured 0.22 seconds",
+        "Held block cancels at legal gate; releasing block immediately removes protection",
+        "Charge-to-guard, hit interrupt, keep and holster use shared playback",
+        "Fresh attack cancels held guard, while held right resumes guard after the punch",
+        "Three block-energy skips and looping charge-full frames 0-50 remain intact",
+        "Non-click release before charge frame 13 retains its release gate",
+        "Buffered held input starts charging from acceptance, not from the preceding attack",
+        "Spatial miss does not turn into guaranteed damage",
+        "World geometry blocks damage even when overlap volume reaches the target",
+        "Each punch absorbs only in active frames; distinct 0.65/0.85/1.00/1.15 metre budgets",
+        "Assistance improves reach through actual player movement and collision hitboxes",
+        "No assistance to targets behind the player",
+        "Dead or lost target ends assistance",
+        "Obstruction appearing after target acquisition stops assistance and damage",
+        "Cancel/Escape removes pending inputs, active hits and target movement",
+        "External input lock clears buffered commands and current attack"
+      ],
+      "assistanceTravel": [
+        0.6549061,
+        0.8537587,
+        1.00319493,
+        1.15278077
+      ],
+      "profile": "Shared Action Set",
+      "core": "GameActions.ActionMotionPlayer"
+    }
+  }
+}

@@ -1,0 +1,208 @@
+{
+  "objects": [
+    {
+      "source": "立方体",
+      "location": [
+        1.0,
+        0.0,
+        1.0
+      ],
+      "role": "Stairs"
+    },
+    {
+      "source": "3*1.5楼梯护栏",
+      "location": [
+        1.0,
+        0.0,
+        1.0
+      ],
+      "role": "Rail"
+    },
+    {
+      "source": "立方体.001",
+      "location": [
+        6.0,
+        0.0,
+        1.0
+      ],
+      "role": "Stairs"
+    },
+    {
+      "source": "3*1.2楼梯护栏上尽头",
+      "location": [
+        6.0,
+        0.0,
+        1.0
+      ],
+      "role": "Rail"
+    },
+    {
+      "source": "立方体.003",
+      "location": [
+        3.0,
+        5.0,
+        1.0
+      ],
+      "role": "Stairs"
+    },
+    {
+      "source": "3*1.2楼梯护栏下尽头",
+      "location": [
+        3.0,
+        5.0,
+        1.0
+      ],
+      "role": "Rail"
+    },
+    {
+      "source": "立方体.005",
+      "location": [
+        11.0,
+        5.0,
+        1.0
+      ],
+      "role": "Stairs"
+    },
+    {
+      "source": "3*1.2楼梯护栏双尽头",
+      "location": [
+        11.0,
+        5.0,
+        1.0
+      ],
+      "role": "Rail"
+    },
+    {
+      "source": "6*1.2护栏",
+      "location": [
+        13.0,
+        5.009511947631836,
+        0.0
+      ],
+      "role": "Rail"
+    },
+    {
+      "source": "平面.001",
+      "location": [
+        13.0,
+        -1.0,
+        0.0
+      ],
+      "role": "Rail"
+    },
+    {
+      "source": "平面.002",
+      "location": [
+        13.0,
+        -1.0,
+        0.0
+      ],
+      "role": "Rail"
+    },
+    {
+      "source": "平面.003",
+      "location": [
+        13.0,
+        -1.0,
+        0.0
+      ],
+      "role": "Rail"
+    },
+    {
+      "source": "平面.004",
+      "location": [
+        13.0,
+        -1.0,
+        0.0
+      ],
+      "role": "Rail"
+    },
+    {
+      "source": "平面",
+      "location": [
+        2.0,
+        0.0,
+        0.0
+      ],
+      "role": "Floor"
+    },
+    {
+      "source": "平面.017",
+      "location": [
+        8.0,
+        0.0,
+        0.0
+      ],
+      "role": "Floor"
+    },
+    {
+      "source": "平面.018",
+      "location": [
+        2.0,
+        6.0,
+        0.0
+      ],
+      "role": "Floor"
+    },
+    {
+      "source": "平面.019",
+      "location": [
+        13.0,
+        -1.0,
+        0.0
+      ],
+      "role": "Floor"
+    },
+    {
+      "source": "平面.007",
+      "location": [
+        0.0,
+        9.0,
+        2.0
+      ],
+      "role": "WallWhite"
+    },
+    {
+      "source": "平面.006",
+      "location": [
+        5.0,
+        9.0,
+        1.5
+      ],
+      "role": "WallWhite"
+    },
+    {
+      "source": "平面.014",
+      "location": [
+        10.0,
+        9.0,
+        2.0
+      ],
+      "role": "WallDark"
+    },
+    {
+      "source": "平面.012",
+      "location": [
+        15.0,
+        9.0,
+        1.5
+      ],
+      "role": "WallDark"
+    }
+  ],
+  "camera": {
+    "position": [
+      -7.0,
+      -13.0,
+      9.0
+    ],
+    "target": [
+      7,
+      2,
+      1.1
+    ],
+    "fov": 45.42882443399458
+  },
+  "source_scene": "Modular Asset Kit",
+  "review_scene": "Module Review"
+}

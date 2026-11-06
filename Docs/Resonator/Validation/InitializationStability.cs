@@ -11,7 +11,7 @@ public static class InitializationStability
   {
    foreach(RestActivity activity in Enum.GetValues(typeof(RestActivity)))
    {
-    var go=UnityEngine.Object.Instantiate(AssetDatabase.LoadAssetAtPath<GameObject>("Assets/Resonator/AI/Prefabs/ResonatorAgent.prefab"),new Vector3(7,0,6),Quaternion.Euler(0,123,0));created.Add(go);
+    var go=UnityEngine.Object.Instantiate(AssetDatabase.LoadAssetAtPath<GameObject>("Assets/Game/Enemies/Resonator/AI/Prefabs/ResonatorAgent.prefab"),new Vector3(7,0,6),Quaternion.Euler(0,123,0));created.Add(go);
     var e=go.GetComponent<ResonatorEnemy>();e.enabled=false;e.target=target;e.Initialize(activity);
     float maxExtent=0;var mesh=new Mesh();
     for(int i=0;i<12;i++)

@@ -1,0 +1,39 @@
+{
+  "assets_before": 381,
+  "assets_after": 381,
+  "original_guids_preserved": 440,
+  "dependency_sets_unchanged": 157,
+  "missing_scripts": 0,
+  "path_only_file_changes": [
+    "Assets/Game/Player/Editor/FirstPersonSetup.cs",
+    "Assets/Game/Player/Editor/ParryTrainingSetup.cs",
+    "Assets/Tools/AnimationWorkbench/Editor/GauntletActionsSetup.cs",
+    "Assets/Game/Shared/Actions/README.md",
+    "Assets/Game/Environment/ModernLab/Editor/ModernLabLayeredShaderBuilder.cs",
+    "Assets/Game/Environment/ModernLab/Editor/ModernLabMaterialSetup.cs",
+    "Assets/Game/Environment/ModernLab/Editor/ModernLabSurfaceInspection.cs",
+    "Assets/Game/Environment/ModernLab/Editor/ModernLabSurfaceV2.cs",
+    "Assets/Game/Demo/Editor/DemoSceneBuilder.cs",
+    "Assets/Game/Demo/README.md",
+    "Assets/Game/Enemies/Resonator/AI/Editor/ResonatorAIBuilder.cs",
+    "Assets/Tools/AnimationWorkbench/Editor/ResonatorAnimationWorkbench.cs",
+    "Assets/Game/Enemies/Resonator/AI/Editor/ResonatorAttackExitSetup.cs",
+    "Assets/Game/Enemies/Resonator/AI/Editor/ResonatorAttackMotionSetup.cs",
+    "Assets/Game/Enemies/Resonator/AI/Editor/ResonatorHitboxDefaults.cs",
+    "Assets/Game/Enemies/Resonator/AI/Editor/ResonatorNavigationSetup.cs",
+    "Assets/Game/Enemies/Resonator/AI/README.md",
+    "Assets/Game/Enemies/Resonator/Editor/ResonatorImport.cs",
+    "Assets/Game/Enemies/Resonator/README.md",
+    "Assets/Game/Documentation/TutorialInfo/Scripts/Editor/ReadmeEditor.cs",
+    "Assets/Game/Player/Gauntlet/Editor/GauntletAssetTools.cs",
+    "Assets/Game/Player/Gauntlet/Editor/GauntletCinemachineSetup.cs"
+  ],
+  "other_content_changes": [],
+  "live_editor_material_differences": [
+    "Assets/Game/Environment/ModernLab/Materials/Lab_Paint_GlossWhite.mat",
+    "Assets/Game/Environment/ModernLab/Materials/Lab_Paint_Yellow.mat"
+  ],
+  "live_editor_note": "Live NormalStrength/MicroStrength edits were observed while the user tuned materials; left untouched. Persisted material file hashes are checked separately above.",
+  "issues": [],
+  "passed": true
+}

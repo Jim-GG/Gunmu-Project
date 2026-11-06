@@ -1,0 +1,4934 @@
+[
+  {
+    "path": "Assets/FirstPerson/Editor/FirstPersonSetup.cs",
+    "sha256": "90639f5f9bfee2f316a68b8668d2860e2324c6c31562d01d603d342d0a99f8ae",
+    "guid": "",
+    "size": 4667
+  },
+  {
+    "path": "Assets/FirstPerson/Editor/FirstPersonSetup.cs.meta",
+    "sha256": "8876844a4c057204a5a51f7f4125f6f72ad3a4de2abc4acb7dbae69268eb6bb1",
+    "guid": "369fa83e4466e974290c7ca7c393ea6a",
+    "size": 59
+  },
+  {
+    "path": "Assets/FirstPerson/Editor/ParryTrainingSetup.cs",
+    "sha256": "cf5d1a3fca19dd8debec570d91826ca1756377f201f6d29326151a20d45bd2c6",
+    "guid": "",
+    "size": 4118
+  },
+  {
+    "path": "Assets/FirstPerson/Editor/ParryTrainingSetup.cs.meta",
+    "sha256": "9f31d07ee2fdf59fc3d510bc7f55fcaf12633902631c337fbcf2cae4203cec69",
+    "guid": "edf068622e81aa6489659abd75bc8bcc",
+    "size": 59
+  },
+  {
+    "path": "Assets/FirstPerson/Editor.meta",
+    "sha256": "dcacce9df958ea1b3a12260f0443a4a22fb95fb07234be6c96561f9bb76bc85e",
+    "guid": "5413206c42e3fad45a438c99fb08e5ea",
+    "size": 172
+  },
+  {
+    "path": "Assets/FirstPerson/Materials/TrainingEnemy.mat",
+    "sha256": "8e832a95ae5deed5f40bffc6ec3a6e4d2f879906a65ebc543b61f6ad9464e656",
+    "guid": "",
+    "size": 3834
+  },
+  {
+    "path": "Assets/FirstPerson/Materials/TrainingEnemy.mat.meta",
+    "sha256": "891556fee668ea7eba9a6844d1984341c4fa09ccf88c07fdaa3fd7886ad7aef6",
+    "guid": "cb63c5745d7d14c419793d150d5e1371",
+    "size": 188
+  },
+  {
+    "path": "Assets/FirstPerson/Materials.meta",
+    "sha256": "9a7ad32b4d0422b30b47d9fa355dc65d0a5c529c918dbbd991f888398d1adc69",
+    "guid": "d4660c6460b1a144fa7efde043de9abd",
+    "size": 172
+  },
+  {
+    "path": "Assets/FirstPerson/Prefabs/FirstPersonPlayer.prefab",
+    "sha256": "12664d37e5d3e54bd9742dd7ca4a6801d228e5e0f3f8bbb8e21bef3fe0c68e39",
+    "guid": "",
+    "size": 53913
+  },
+  {
+    "path": "Assets/FirstPerson/Prefabs/FirstPersonPlayer.prefab.meta",
+    "sha256": "fd1ea83091174505fd9ff63bb8d0e53f0684e65ab6ebfa867695eea036155702",
+    "guid": "7c605cafd1b7a2940a727cd5575481f0",
+    "size": 154
+  },
+  {
+    "path": "Assets/FirstPerson/Prefabs.meta",
+    "sha256": "43ee20cf0cb3c961535c544888ca8b62ca6c4ded0ac907ef7781edc7acf740cd",
+    "guid": "60e0535ee9e92ca448fc0e33e1947c7c",
+    "size": 172
+  },
+  {
+    "path": "Assets/FirstPerson/README.md",
+    "sha256": "ed2438b4338d39d83e062b6f804ba4efc8bc7dc5517b34dce4056d8f891deb3e",
+    "guid": "",
+    "size": 4631
+  },
+  {
+    "path": "Assets/FirstPerson/README.md.meta",
+    "sha256": "7342c72e6b1dd990daf297f0fc550a4aa344b13b2016c60dcf019a592757d5de",
+    "guid": "8746e0001bb60e747a7dcc55a0181a18",
+    "size": 158
+  },
+  {
+    "path": "Assets/FirstPerson/Runtime/FirstPersonInput.cs",
+    "sha256": "0c415fcafd3381effe31f8f45f74d190e3ace659e9c1044a133b71afde3f66ad",
+    "guid": "",
+    "size": 2066
+  },
+  {
+    "path": "Assets/FirstPerson/Runtime/FirstPersonInput.cs.meta",
+    "sha256": "9039ab40d44b8b2b219a13bc93618ea524281e954406087c9c7ddc2af63f0dc1",
+    "guid": "086914bab13b40941be80e169dc45e03",
+    "size": 59
+  },
+  {
+    "path": "Assets/FirstPerson/Runtime/FirstPersonMotor.cs",
+    "sha256": "932e7aca28062974d485c7da7ba2b014ba54d93c72ac0f08d47bd2e9faca327b",
+    "guid": "",
+    "size": 1502
+  },
+  {
+    "path": "Assets/FirstPerson/Runtime/FirstPersonMotor.cs.meta",
+    "sha256": "a6969af6753db4df6d3cf64f86da7f61eea8259abdd0b853f590e137c8b86ae8",
+    "guid": "42b488a3f61e0b54c89970802a0327df",
+    "size": 59
+  },
+  {
+    "path": "Assets/FirstPerson/Runtime/FirstPersonVitals.cs",
+    "sha256": "d6a8f632222261766c746d72fafea47be142ae4a9cdfb02fe8ec01c9a8c0c3ed",
+    "guid": "",
+    "size": 647
+  },
+  {
+    "path": "Assets/FirstPerson/Runtime/FirstPersonVitals.cs.meta",
+    "sha256": "ee189f53569cc06154f3b205c16f4aefdfa909168048e1c6635f8f15e8aa87d1",
+    "guid": "a6d1e3810ea90154d970975ac66f5b9a",
+    "size": 59
+  },
+  {
+    "path": "Assets/FirstPerson/Runtime/GauntletCombat.cs",
+    "sha256": "cd46f5f210b6ffbeecd675bfa7c1f24b4fe1005e228ef1fd45df8bee00282567",
+    "guid": "",
+    "size": 15450
+  },
+  {
+    "path": "Assets/FirstPerson/Runtime/GauntletCombat.cs.meta",
+    "sha256": "fc0f5ce2703a5a7ff438021a3cb89bfb0cdd2cf30e3e3d5c480d8462a7cbb40c",
+    "guid": "9bf10256a9b0ed6419d69a9f782d4db4",
+    "size": 59
+  },
+  {
+    "path": "Assets/FirstPerson/Runtime/GauntletTrainingHUD.cs",
+    "sha256": "13ac4af23a303f5d31cabfe18cde045e9a1aaa9f6422d9168e2e4f87f298cf53",
+    "guid": "",
+    "size": 1539
+  },
+  {
+    "path": "Assets/FirstPerson/Runtime/GauntletTrainingHUD.cs.meta",
+    "sha256": "67339669323f7f0d6b456f63c1652eaab3ac714e3a36fc2a8b39b8a1b64660d2",
+    "guid": "d8fe8455efa159a45b84b64247bb4891",
+    "size": 59
+  },
+  {
+    "path": "Assets/FirstPerson/Runtime/ParryTrainingEnemy.cs",
+    "sha256": "9c51de859305814d71041b31d8921cade8234f57f4ac9e15dc19540e86c49ac9",
+    "guid": "",
+    "size": 3422
+  },
+  {
+    "path": "Assets/FirstPerson/Runtime/ParryTrainingEnemy.cs.meta",
+    "sha256": "952ecf0e4225d2bfb41e0b1429065592873fced51ba9f36384241a38919b1e39",
+    "guid": "820cb6ed521e2cc4e98b273daa19e129",
+    "size": 59
+  },
+  {
+    "path": "Assets/FirstPerson/Runtime.meta",
+    "sha256": "437bf91a555e7d1386a3eecee979ff5d84b4437b44ed18b4a67215389e185175",
+    "guid": "e7a0ff6542477a3419dd60844d14a736",
+    "size": 172
+  },
+  {
+    "path": "Assets/FirstPerson.meta",
+    "sha256": "9ff56427429f98f5909c1ab7c2f703a91593d880f45867919924d5e8d2c17c82",
+    "guid": "58dd4688b65e27746a2f74273d7f5e99",
+    "size": 172
+  },
+  {
+    "path": "Assets/GameActions/Editor/ActionSetInspector.cs",
+    "sha256": "47f99baa1e7231ea9fcfee34043b7e0b79d24f2c7539790e090ad47d0f823d99",
+    "guid": "",
+    "size": 1848
+  },
+  {
+    "path": "Assets/GameActions/Editor/ActionSetInspector.cs.meta",
+    "sha256": "2d0af30cea6be5a903bdadedc9466c839afc58bd3c88e03d17ed080e5372911c",
+    "guid": "138456cc02ce82e41972c38e45ce9343",
+    "size": 59
+  },
+  {
+    "path": "Assets/GameActions/Editor/GauntletActionsSetup.cs",
+    "sha256": "85faeba3c6adbea5274c768752557e2ffb2894ef7ced440d8863537bfa029071",
+    "guid": "",
+    "size": 4836
+  },
+  {
+    "path": "Assets/GameActions/Editor/GauntletActionsSetup.cs.meta",
+    "sha256": "2a6536b8c86d445f3c5179beae04d373e32ec4412666ff0ecd334e8713259ebd",
+    "guid": "caa42f00e17eb2e428b91253a48ab521",
+    "size": 59
+  },
+  {
+    "path": "Assets/GameActions/Editor.meta",
+    "sha256": "e757f80ebba5e0dcb51b19e2e50dccc6330c9b44aa10977bee591c706b4b0944",
+    "guid": "9fabce548d364e448956c72615f65a0b",
+    "size": 172
+  },
+  {
+    "path": "Assets/GameActions/README.md",
+    "sha256": "8e98ad9e9b75036de2e2c0aaad06d9c4accb513a39afd8539124506b33889405",
+    "guid": "",
+    "size": 6206
+  },
+  {
+    "path": "Assets/GameActions/README.md.meta",
+    "sha256": "9896b55a43d41c1c042877485aa6d55ee526048d5b7e93b738bd0426441e66d4",
+    "guid": "4c0e6416aec98d0418ebef32421becc4",
+    "size": 158
+  },
+  {
+    "path": "Assets/GameActions/Resources/GauntletActions.asset",
+    "sha256": "9a57c0c2b47117f1e67aa5c4d99c01a1bf2c8b7c0c36f4848b0890276637c73e",
+    "guid": "",
+    "size": 17908
+  },
+  {
+    "path": "Assets/GameActions/Resources/GauntletActions.asset.meta",
+    "sha256": "5fc44909a8f7b33fe4ea046f031425c3e5a3c1012c6b5cf2774214d1e7d3c52b",
+    "guid": "a19800920f2ceb84f84888731f82edfa",
+    "size": 189
+  },
+  {
+    "path": "Assets/GameActions/Resources/Tracks/charge.asset",
+    "sha256": "617b628f287ce429a830d273c175ac847257a937be0c2ed544d5dd6c95f62157",
+    "guid": "",
+    "size": 642
+  },
+  {
+    "path": "Assets/GameActions/Resources/Tracks/charge.asset.meta",
+    "sha256": "94e10aad400a2dcefee09581052d3d6365aa0a09b857f98030b1b2289883a071",
+    "guid": "f66830cbf11c3c94290aed7c0698b7fc",
+    "size": 189
+  },
+  {
+    "path": "Assets/GameActions/Resources/Tracks/charge_full.asset",
+    "sha256": "69545725b8ef3524485e54fa7ff681a5b419b21e1c7c636da24b59ff90174309",
+    "guid": "",
+    "size": 647
+  },
+  {
+    "path": "Assets/GameActions/Resources/Tracks/charge_full.asset.meta",
+    "sha256": "dad117227a13c7622fb7ce033e928bd785d51034fb836c8fa94772dd00cc2589",
+    "guid": "474a0a771f771fd4384649efe62ca2e3",
+    "size": 189
+  },
+  {
+    "path": "Assets/GameActions/Resources/Tracks/Idle.asset",
+    "sha256": "5e4b982f61ee0e891a3f454d6f58568d4d76f9f7ef1a7ee19ed03a1709a5d8b7",
+    "guid": "",
+    "size": 640
+  },
+  {
+    "path": "Assets/GameActions/Resources/Tracks/Idle.asset.meta",
+    "sha256": "bdfd17c6b0c512c33dc8d33a8a1bfeadb031f09154d41b9598f0db0181d82be6",
+    "guid": "f0b0801f9f092f449ba75be9fb0fee46",
+    "size": 189
+  },
+  {
+    "path": "Assets/GameActions/Resources/Tracks/Parry-Hit.asset",
+    "sha256": "361ff130ccd60b543d75c6e523642f0bb97a46c842f6052fe1dabd4c760185ec",
+    "guid": "",
+    "size": 645
+  },
+  {
+    "path": "Assets/GameActions/Resources/Tracks/Parry-Hit.asset.meta",
+    "sha256": "88e79c4d775d685b80048d83627b18ea45cb2e2cdbd1b92c0e80f9ccad7d346d",
+    "guid": "f76028c5caa834c428ea82a2cd572135",
+    "size": 189
+  },
+  {
+    "path": "Assets/GameActions/Resources/Tracks/Parry-Holster.asset",
+    "sha256": "927ac5a484e059b7c3460bb92b00afa0a782cf423ab80e8b8f02f08ea57c10fd",
+    "guid": "",
+    "size": 649
+  },
+  {
+    "path": "Assets/GameActions/Resources/Tracks/Parry-Holster.asset.meta",
+    "sha256": "89a48b1994f10457bc3d5388723582d1fdade07b650513379b11724d40f6e914",
+    "guid": "6e66cc63f08f38d4ca3249b710a76558",
+    "size": 189
+  },
+  {
+    "path": "Assets/GameActions/Resources/Tracks/Parry-Keep.asset",
+    "sha256": "9d0019028efaa1b65eea5a7256bbd3dbff0c15a3b3fc979c64d6ab67ffc9db1b",
+    "guid": "",
+    "size": 646
+  },
+  {
+    "path": "Assets/GameActions/Resources/Tracks/Parry-Keep.asset.meta",
+    "sha256": "2dfd4668ef722b58ff58d9f3a1e7d3549a682d480e2d7439346b093371badf1f",
+    "guid": "7591f810aa273c542abcb517e0fef4e8",
+    "size": 189
+  },
+  {
+    "path": "Assets/GameActions/Resources/Tracks/Parry-Start.asset",
+    "sha256": "be131b9caeba33f9e369cd86f94f5fc124eb86b97591e9818aadd02c8312c76b",
+    "guid": "",
+    "size": 647
+  },
+  {
+    "path": "Assets/GameActions/Resources/Tracks/Parry-Start.asset.meta",
+    "sha256": "8336bafbad798ed0813b157bf72fa3e387dd4b36e049bf1f8880a6fcd209769e",
+    "guid": "164a032237be10646933f8bfa256a50a",
+    "size": 189
+  },
+  {
+    "path": "Assets/GameActions/Resources/Tracks/punch1.asset",
+    "sha256": "52f058c53ca487ec16e660b7b5db6f14971fddc3c5e4e21c4c9269df63e0b4d3",
+    "guid": "",
+    "size": 642
+  },
+  {
+    "path": "Assets/GameActions/Resources/Tracks/punch1.asset.meta",
+    "sha256": "1be74848071b49d7db334f3c18b961a69c8892cacc059e915e9fc9fd8ddf0311",
+    "guid": "eb8d010e135fe60489d4864f47316b65",
+    "size": 189
+  },
+  {
+    "path": "Assets/GameActions/Resources/Tracks/punch2.asset",
+    "sha256": "c07ed11e3afcac6002dbf3db0a4baf44ab48ad25807b4d2e7ebfcd014667aa16",
+    "guid": "",
+    "size": 642
+  },
+  {
+    "path": "Assets/GameActions/Resources/Tracks/punch2.asset.meta",
+    "sha256": "9c9721c8fbe38178c42e5c04008670152858a60e4248b9bb2bee32f437c76f68",
+    "guid": "69606fa96beaf824d938e750237c75b2",
+    "size": 189
+  },
+  {
+    "path": "Assets/GameActions/Resources/Tracks/punch3.asset",
+    "sha256": "61b96591a5393880b7f267e7aec98b05d66251e3e5fbb25c80147fd2af637cdc",
+    "guid": "",
+    "size": 642
+  },
+  {
+    "path": "Assets/GameActions/Resources/Tracks/punch3.asset.meta",
+    "sha256": "b27ac8157717276d54b945c8afd01dda5965c4890a145e8f8cebce370104722f",
+    "guid": "ec233d0b38c95904cb93344b481c993b",
+    "size": 189
+  },
+  {
+    "path": "Assets/GameActions/Resources/Tracks/punch4.asset",
+    "sha256": "ae4c2bff2c38178df010f902464d24cb5b1ffe1af780de83288ab5e0edb5d057",
+    "guid": "",
+    "size": 642
+  },
+  {
+    "path": "Assets/GameActions/Resources/Tracks/punch4.asset.meta",
+    "sha256": "050bfe10b5ba4c8bdb20d02bdf46f1d91b0d45f41c31918e29ebf663e1aa5e42",
+    "guid": "c20f920ef300aa84997ab65095561a05",
+    "size": 189
+  },
+  {
+    "path": "Assets/GameActions/Resources/Tracks.meta",
+    "sha256": "a0b489f663f0c9ec32230b54aacbd120adda0a451621f9576305528980581ca4",
+    "guid": "5faa62d3ef69093488af6e730b537cfb",
+    "size": 172
+  },
+  {
+    "path": "Assets/GameActions/Resources.meta",
+    "sha256": "b3a32953b1d9e71ca1785208c4033a4b9b9a803fcd51ca446762fe3fa046fc2d",
+    "guid": "286cc8ba80966e84784eea3ed708e289",
+    "size": 172
+  },
+  {
+    "path": "Assets/GameActions/Runtime/ActionContact.cs",
+    "sha256": "acb4b691df0e36fa6c9900523f7bfe53a5c3bdaafc320b3e906c290132308ef2",
+    "guid": "",
+    "size": 3084
+  },
+  {
+    "path": "Assets/GameActions/Runtime/ActionContact.cs.meta",
+    "sha256": "1365b508b87d3d57496f4f7685bd5345071b0795788b8020f6f3dfb061c64bcb",
+    "guid": "fba57d9215bc25946ac235dcd12cd0ac",
+    "size": 59
+  },
+  {
+    "path": "Assets/GameActions/Runtime/ActionEventDispatcher.cs",
+    "sha256": "89f44626955759a147ca0051cb50612d7c4f34992a9836bc8f5790f26ef1bb64",
+    "guid": "",
+    "size": 1658
+  },
+  {
+    "path": "Assets/GameActions/Runtime/ActionEventDispatcher.cs.meta",
+    "sha256": "c53ddff8af16a6dcc9b893fb0d9bf980e9c1dc8552b8a4f48fc4e773ca668457",
+    "guid": "56523f098b5b45041810a6c9dd0d5741",
+    "size": 59
+  },
+  {
+    "path": "Assets/GameActions/Runtime/ActionHitbox.cs",
+    "sha256": "c3bf46ad574fa263094e413ea9c90a92a8bd83d85bce9b5abf9acdc72b5e10b5",
+    "guid": "",
+    "size": 5718
+  },
+  {
+    "path": "Assets/GameActions/Runtime/ActionHitbox.cs.meta",
+    "sha256": "604467bf5ca0ff06a27a486c693a2278f6ef973b837c7e723be737ab82aec7c8",
+    "guid": "21ad8f171f33d2945afb98bceac2c516",
+    "size": 59
+  },
+  {
+    "path": "Assets/GameActions/Runtime/ActionMotionPlayer.cs",
+    "sha256": "2113cb43cbbfa3ed1acdf0bb52d57eacf6221a03df360258dd16e691b58d5f71",
+    "guid": "",
+    "size": 9542
+  },
+  {
+    "path": "Assets/GameActions/Runtime/ActionMotionPlayer.cs.meta",
+    "sha256": "58eb0928bca5daa553f6f14b8b804304034ea53436f13914cf12009c1cadb883",
+    "guid": "f38b9dcd8d1b30e4f95d447569d41dc4",
+    "size": 59
+  },
+  {
+    "path": "Assets/GameActions/Runtime/ActionRunner.cs",
+    "sha256": "36fe3c92234899b38992adb4095a63c4831e39e570ebca11ae09234cefb2183b",
+    "guid": "",
+    "size": 1617
+  },
+  {
+    "path": "Assets/GameActions/Runtime/ActionRunner.cs.meta",
+    "sha256": "78fa83b6001eed710970d5af47b96f880dd56e994b2bd3b919b49cf4013baa01",
+    "guid": "65e5db5a508b0234fa9fa6414036bea3",
+    "size": 59
+  },
+  {
+    "path": "Assets/GameActions/Runtime/ActionSet.cs",
+    "sha256": "267ad63acb03404aa175923396fb317e61c2d16c879396126553bfb60a413b53",
+    "guid": "",
+    "size": 4031
+  },
+  {
+    "path": "Assets/GameActions/Runtime/ActionSet.cs.meta",
+    "sha256": "30f2cb899eab7797f2616718d272e3b93f0669b79fd3541f54e351091f3f7abe",
+    "guid": "717b0fdfb7092024984f95b6546f7d51",
+    "size": 59
+  },
+  {
+    "path": "Assets/GameActions/Runtime/ActionTargetAssist.cs",
+    "sha256": "aece9809ab8b02e2ce4775d81b46ff1e688ded53eb2c3e7ee4442f241c220558",
+    "guid": "",
+    "size": 4903
+  },
+  {
+    "path": "Assets/GameActions/Runtime/ActionTargetAssist.cs.meta",
+    "sha256": "40816de50526556851ae4561226ad045fbf65d8c40eaed91d7802ef7abb922c0",
+    "guid": "8c547cc049433964391b1132b1113990",
+    "size": 59
+  },
+  {
+    "path": "Assets/GameActions/Runtime.meta",
+    "sha256": "c89128bd2f8bb6ff4bb280940fd0519b480d2c6cd583a22ccf19d0af51e35993",
+    "guid": "39af239f238804a4c9d5c0e7541c2f94",
+    "size": 172
+  },
+  {
+    "path": "Assets/GameActions.meta",
+    "sha256": "074664b6fb916e88f3d8b67e0f779213cd10cb72b22e658b3616db443f212480",
+    "guid": "d82e63c9ec77f2c47819940584282e5f",
+    "size": 172
+  },
+  {
+    "path": "Assets/InputSystem_Actions.inputactions",
+    "sha256": "1c6cbb519d65ecfe19a29231735b7f54741a20ac1a8ad4f46a18e1bfb28a3c39",
+    "guid": "",
+    "size": 41005
+  },
+  {
+    "path": "Assets/InputSystem_Actions.inputactions.meta",
+    "sha256": "3b4e424a80f5b4fa76b6abd774884a24285eaa61f22ff9bb20e5ad505fd8b569",
+    "guid": "052faaac586de48259a63d0c4782560b",
+    "size": 376
+  },
+  {
+    "path": "Assets/ModernLab/Editor/ModernLabLayeredShaderBuilder.cs",
+    "sha256": "953aacb1e952567cba3c0a98309721aa305d740190e046a9db5de44ca598cc12",
+    "guid": "",
+    "size": 8032
+  },
+  {
+    "path": "Assets/ModernLab/Editor/ModernLabLayeredShaderBuilder.cs.meta",
+    "sha256": "ce3612b105c3af8ae329e872ece7a83bcb3a9ecd6bc94d47c0f7de4913fe5d33",
+    "guid": "e6afb0d9b07f9a946b5cb09750ad9e19",
+    "size": 59
+  },
+  {
+    "path": "Assets/ModernLab/Editor/ModernLabMaterialSetup.cs",
+    "sha256": "c7733a375fc79de0c46afa7909b6a8f8d1699e4aec16c162e6a433e0aa1d16f7",
+    "guid": "",
+    "size": 27389
+  },
+  {
+    "path": "Assets/ModernLab/Editor/ModernLabMaterialSetup.cs.meta",
+    "sha256": "6047defac2e11baca1603f9cf00c5922f5b8e220c37d807994a1d3530e8ee71b",
+    "guid": "18c7a775004e9634c8bcfb642832896f",
+    "size": 59
+  },
+  {
+    "path": "Assets/ModernLab/Editor/ModernLabSurfaceInspection.cs",
+    "sha256": "5b8d943797af0aeff60938045588a709c5367848aa8ba4b4ec3acca5dc8ac8bc",
+    "guid": "",
+    "size": 7975
+  },
+  {
+    "path": "Assets/ModernLab/Editor/ModernLabSurfaceInspection.cs.meta",
+    "sha256": "12c2188ef55a5da4505d931d8358e410ab9093298d9e7a5cfbb3b049d7a4d7e4",
+    "guid": "a026fedd7c83e7e44940765460732ed0",
+    "size": 59
+  },
+  {
+    "path": "Assets/ModernLab/Editor/ModernLabSurfaceV2.cs",
+    "sha256": "58a8343ec902b66356915889289d4c167e3cba33abdc6dba6aa60fb8ebf5e2f2",
+    "guid": "",
+    "size": 2522
+  },
+  {
+    "path": "Assets/ModernLab/Editor/ModernLabSurfaceV2.cs.meta",
+    "sha256": "5ccb95df5337c77413f64d750d142c27d906d75024afb573bae2567ecd9f6c09",
+    "guid": "cc5d1f5bca67f404586d98760261cd2d",
+    "size": 59
+  },
+  {
+    "path": "Assets/ModernLab/Editor.meta",
+    "sha256": "d1362ff76009d93bf643120a83db0acd4da8ad3e204028dfdd0dd1268f762b6d",
+    "guid": "d2d179fa6a14b2a4eb273bf23635f140",
+    "size": 172
+  },
+  {
+    "path": "Assets/ModernLab/Materials/Lab_Ceiling_Acoustic.mat",
+    "sha256": "75429be2d82b38c98dbd125de7167ecf2873781e92a6519699c4f7c92cccd62d",
+    "guid": "",
+    "size": 4734
+  },
+  {
+    "path": "Assets/ModernLab/Materials/Lab_Ceiling_Acoustic.mat.meta",
+    "sha256": "0824c12de8b9f7ff6df568f18cd76bdc8e31c975547f29b7956aa87f39bc0a55",
+    "guid": "8e5e8920c5ea1e043a7de0fa789ab3c5",
+    "size": 188
+  },
+  {
+    "path": "Assets/ModernLab/Materials/Lab_Dark_Panel.mat",
+    "sha256": "7515cce5b20e4c764a67d28c1fd5673587b91d98bc24cb92601b22923867a681",
+    "guid": "",
+    "size": 4731
+  },
+  {
+    "path": "Assets/ModernLab/Materials/Lab_Dark_Panel.mat.meta",
+    "sha256": "5dd69c3a36268e6512ef9a0d1ed131b62bbc670c605f5d14feec9562ffc6453f",
+    "guid": "e7e036e3c6e102347b97d4a401a65d96",
+    "size": 188
+  },
+  {
+    "path": "Assets/ModernLab/Materials/Lab_Floor_Checker.mat",
+    "sha256": "fd458d086a644a83a67256afbec6d31083b09d7448de9fed7919fc17142e7525",
+    "guid": "",
+    "size": 4745
+  },
+  {
+    "path": "Assets/ModernLab/Materials/Lab_Floor_Checker.mat.meta",
+    "sha256": "87b66b99d8240df57342bac717cc804dab1bf0ad92dbaea1c3cb7aeea970496d",
+    "guid": "3a615a5117a75984eba9580c1d342fb6",
+    "size": 188
+  },
+  {
+    "path": "Assets/ModernLab/Materials/Lab_Floor_Resin.mat",
+    "sha256": "10d73e556cd5d1390b716af589a5d2fddf0127e0ac649d4f0a298e4acb07b56a",
+    "guid": "",
+    "size": 4731
+  },
+  {
+    "path": "Assets/ModernLab/Materials/Lab_Floor_Resin.mat.meta",
+    "sha256": "e9c4695a3b968c05eceaabd7f051ac353a9c3df43faea6e30ff17dfcd6e1f9bc",
+    "guid": "8503db6520a3b144d92043158747ec3a",
+    "size": 188
+  },
+  {
+    "path": "Assets/ModernLab/Materials/Lab_Paint_GlossWhite.mat",
+    "sha256": "3ff335c5bf58d8fcf1969772cc0371a8ec08e75cb80311bf4c467fbe68cbd6bd",
+    "guid": "",
+    "size": 4741
+  },
+  {
+    "path": "Assets/ModernLab/Materials/Lab_Paint_GlossWhite.mat.meta",
+    "sha256": "76dda90bf98f08d17bca4dcb7adf0f5596a30553b16305a82f7a27533c3cc33e",
+    "guid": "29df5579bce3b9b4dbeea97bd0670efc",
+    "size": 188
+  },
+  {
+    "path": "Assets/ModernLab/Materials/Lab_Paint_Lime.mat",
+    "sha256": "37176809366ce10721c09c13654535e64a198d99efeedb38b87bdc7cc701fdaf",
+    "guid": "",
+    "size": 4748
+  },
+  {
+    "path": "Assets/ModernLab/Materials/Lab_Paint_Lime.mat.meta",
+    "sha256": "6714a59e9d6a2aa8a675f1b0b8ec30d051e5e274939a59ff9ad16ffd7b3da940",
+    "guid": "00c506c44d9661140b4d401f1ad725f8",
+    "size": 188
+  },
+  {
+    "path": "Assets/ModernLab/Materials/Lab_Paint_Red.mat",
+    "sha256": "3d8a9e4927ac5f77eda97260c040755d2fdaa4fd6e88635cf847a5cc8e9b81a1",
+    "guid": "",
+    "size": 4761
+  },
+  {
+    "path": "Assets/ModernLab/Materials/Lab_Paint_Red.mat.meta",
+    "sha256": "403c08540931f1913728791e7f77a9e6f26fa883795ebeb5757356887678ded2",
+    "guid": "13635ba839db66f488344a2920c7c9fb",
+    "size": 188
+  },
+  {
+    "path": "Assets/ModernLab/Materials/Lab_Paint_RoughWhite.mat",
+    "sha256": "0c40188e49a751abe68baacf89078661d9802a8240398688ed58d9294f7d4dcd",
+    "guid": "",
+    "size": 4733
+  },
+  {
+    "path": "Assets/ModernLab/Materials/Lab_Paint_RoughWhite.mat.meta",
+    "sha256": "5c705accca831103c70be327007b6090896385e2c50732c7d6139d1670cf0e39",
+    "guid": "2f34e619c01bf734d8065ef3a8d12d41",
+    "size": 188
+  },
+  {
+    "path": "Assets/ModernLab/Materials/Lab_Paint_WhiteSteel.mat",
+    "sha256": "ded8341df7ac08be8ee13658019cfed7594d791f9c090d600cf170c82b92f9d6",
+    "guid": "",
+    "size": 2641
+  },
+  {
+    "path": "Assets/ModernLab/Materials/Lab_Paint_WhiteSteel.mat.meta",
+    "sha256": "2dff74259501511eafc8867ab72d03ff5cf3e34a60124eb09b2bc72d8c1338a6",
+    "guid": "39da667f18d6cd8429c7e2c471605e76",
+    "size": 188
+  },
+  {
+    "path": "Assets/ModernLab/Materials/Lab_Paint_Yellow.mat",
+    "sha256": "d8066f4b5c899976170fba939731727fac7a0a7933690bc6d21380d49d8ba3a0",
+    "guid": "",
+    "size": 4770
+  },
+  {
+    "path": "Assets/ModernLab/Materials/Lab_Paint_Yellow.mat.meta",
+    "sha256": "2454a3ab0d899f45193d46667fcbb59d153e8e8afd0a0c97624b3b6385ecf790",
+    "guid": "2387f1b5fa4eaca4e8d7baf46fda3c61",
+    "size": 188
+  },
+  {
+    "path": "Assets/ModernLab/Materials/Lab_Rail_BrushedSteel.mat",
+    "sha256": "f517d727d6bf08780b2e267e00dc157d42e9f40a53a4b35eecdc33c6954fc6c4",
+    "guid": "",
+    "size": 4741
+  },
+  {
+    "path": "Assets/ModernLab/Materials/Lab_Rail_BrushedSteel.mat.meta",
+    "sha256": "9d675327f328a04ee22afa559a3f2ae3607c4b272db522b6583818e42fbfe6d8",
+    "guid": "83c29fa49ffbc004ea05cd0d74ed41ec",
+    "size": 188
+  },
+  {
+    "path": "Assets/ModernLab/Materials/Lab_Wall_Ribbed.mat",
+    "sha256": "7b14486df766f58aacd4db0e76e4323bd7d45a7d7895ec654252fec7940de7b2",
+    "guid": "",
+    "size": 4733
+  },
+  {
+    "path": "Assets/ModernLab/Materials/Lab_Wall_Ribbed.mat.meta",
+    "sha256": "b17f7375217897308c1dcff67a2fc7a569712809a8cfb417ed09cba7817145bb",
+    "guid": "e42d8951ea6168b40b0ab348bacdf3c3",
+    "size": 188
+  },
+  {
+    "path": "Assets/ModernLab/Materials/Lab_White_Coursed.mat",
+    "sha256": "9701ce94b085ee604e6cfdc1a99df522ebc2fc5752bb9d4552b838c68b0c055a",
+    "guid": "",
+    "size": 2631
+  },
+  {
+    "path": "Assets/ModernLab/Materials/Lab_White_Coursed.mat.meta",
+    "sha256": "2a3adaef2781357edd794a430c8e3a01ec1ddb15bd455b60aad8aa6fead58f2f",
+    "guid": "db6df62655b450841aa49a49fe2d9f8c",
+    "size": 188
+  },
+  {
+    "path": "Assets/ModernLab/Materials/Lab_White_Matte.mat",
+    "sha256": "52541d59d21e655f9feb395a0e444ccaad7c6409b3a8f6fef539a54f44488519",
+    "guid": "",
+    "size": 4735
+  },
+  {
+    "path": "Assets/ModernLab/Materials/Lab_White_Matte.mat.meta",
+    "sha256": "c89ec2eab7ac5827812311011852dded9e38515242e37c34e50d9f70b46cdca1",
+    "guid": "a7188573afe2c274bbae1c00f54c4fa5",
+    "size": 188
+  },
+  {
+    "path": "Assets/ModernLab/Materials/Preview_Light.mat",
+    "sha256": "2745563f4ebba6d55120685b4c74fd3027d890b4a487b602c9b34dc32ef83d36",
+    "guid": "",
+    "size": 3832
+  },
+  {
+    "path": "Assets/ModernLab/Materials/Preview_Light.mat.meta",
+    "sha256": "37201205854643885898ab32b8ae957dce18c4c966752f6780576b1becfddc3f",
+    "guid": "eeba502b42a404b49a127a34cf44a31f",
+    "size": 188
+  },
+  {
+    "path": "Assets/ModernLab/Materials/Preview_Safety_Marking.mat",
+    "sha256": "5baeca27db1ec7d231148676b75f0343778d467a4e3ae656155033d4a449844b",
+    "guid": "",
+    "size": 3840
+  },
+  {
+    "path": "Assets/ModernLab/Materials/Preview_Safety_Marking.mat.meta",
+    "sha256": "127fe8f45e8ea41beca8d6939dec310224e9170a8fec5d0a30b639a17918b79b",
+    "guid": "63d61fbe4f08093478cf8560a023f5f2",
+    "size": 188
+  },
+  {
+    "path": "Assets/ModernLab/Materials.meta",
+    "sha256": "4b3f6fd30cb83efb311537d84623d5192962136abb8f831db5dfe230ff58254d",
+    "guid": "2656298f9a74e104fa847431fb29d2ed",
+    "size": 172
+  },
+  {
+    "path": "Assets/ModernLab/Models/Lab_AccentWall_31.fbx",
+    "sha256": "a0e9ad964b8381b15c87daff3b0309bd34484fc8aa3c739c93914f6087443181",
+    "guid": "",
+    "size": 17516
+  },
+  {
+    "path": "Assets/ModernLab/Models/Lab_AccentWall_31.fbx.meta",
+    "sha256": "d4cdf1fd912c59c731fa742c519282853619471228beeb7e0f4dce5be1bbbbdd",
+    "guid": "ec182d8038f8d3244b28fa3221d16505",
+    "size": 5575
+  },
+  {
+    "path": "Assets/ModernLab/Models/Lab_AccentWall_32.fbx",
+    "sha256": "b06e31aa97e1e77eb25f4c342e0fe55a0ffe83195531df9a8781ab5e6f9b7447",
+    "guid": "",
+    "size": 17484
+  },
+  {
+    "path": "Assets/ModernLab/Models/Lab_AccentWall_32.fbx.meta",
+    "sha256": "c1cb91f493ba274460dd7fbd030bdcf286e00bd8cb0738c64431683f0012f652",
+    "guid": "d71262909ac2a2a43bcfc2dcf326df2a",
+    "size": 5575
+  },
+  {
+    "path": "Assets/ModernLab/Models/Lab_AccentWall_33.fbx",
+    "sha256": "7ba48d95ecf6f51796022589a09b8bbf4e4664d6b52178d21406d77123f1a7be",
+    "guid": "",
+    "size": 17564
+  },
+  {
+    "path": "Assets/ModernLab/Models/Lab_AccentWall_33.fbx.meta",
+    "sha256": "785e233bca5600917d11c070eb08178484f745edc7df3565fbe0ce7f2efd0db6",
+    "guid": "71cc9a99419b395418b2bcf32a829869",
+    "size": 5575
+  },
+  {
+    "path": "Assets/ModernLab/Models/Lab_AccentWall_34.fbx",
+    "sha256": "e4e94e6132a4aa415ebec2e97d24913d70f36b6a51650770f8a454ae13e6af1a",
+    "guid": "",
+    "size": 16236
+  },
+  {
+    "path": "Assets/ModernLab/Models/Lab_AccentWall_34.fbx.meta",
+    "sha256": "dca7dafb997ea1aaeb4d991e7a134b77b67cf6299c7e9d678a82ded03b1a3642",
+    "guid": "ef7bd268f8c13bb4dbf96ff3da07f944",
+    "size": 5575
+  },
+  {
+    "path": "Assets/ModernLab/Models/Lab_AccentWall_35.fbx",
+    "sha256": "6f8eb4129b03fa93d3ba1c4d565cb6ba3215dd8aaa5624129276d9bc24a035a4",
+    "guid": "",
+    "size": 16236
+  },
+  {
+    "path": "Assets/ModernLab/Models/Lab_AccentWall_35.fbx.meta",
+    "sha256": "1cebaf096fc66f8c4366a2ab20d42a3431ddd6860b0b83960ee07a5a0b2c93c6",
+    "guid": "4818938056d1dec4895af4237d45466d",
+    "size": 5575
+  },
+  {
+    "path": "Assets/ModernLab/Models/Lab_Ceiling_29.fbx",
+    "sha256": "c59cc75caa05ea4f680ec9e8712f15bfcba9acbaf432cfefbbf83f27b3e32d0d",
+    "guid": "",
+    "size": 18572
+  },
+  {
+    "path": "Assets/ModernLab/Models/Lab_Ceiling_29.fbx.meta",
+    "sha256": "e315c473a8de98f567502884934454ae7df04d330f7aa20db9f16e012f300453",
+    "guid": "e548629d039ffeb4196aca0b52715de5",
+    "size": 5575
+  },
+  {
+    "path": "Assets/ModernLab/Models/Lab_Ceiling_30.fbx",
+    "sha256": "68b561be09d3bedfa875d4b57e5bde29380023eb7750bdc2c3ccc15987155a1e",
+    "guid": "",
+    "size": 18572
+  },
+  {
+    "path": "Assets/ModernLab/Models/Lab_Ceiling_30.fbx.meta",
+    "sha256": "118bc662300107ec8fcdb94dfee2cd62cc4b8b966b7bbd537d6a99aad59634e4",
+    "guid": "b870c8c29b7753742a1930b95b615557",
+    "size": 5575
+  },
+  {
+    "path": "Assets/ModernLab/Models/Lab_Floor_00.fbx",
+    "sha256": "dff90ebd4b33009ce89de896157f4392493304787a91753333c1b9803b718cab",
+    "guid": "",
+    "size": 17276
+  },
+  {
+    "path": "Assets/ModernLab/Models/Lab_Floor_00.fbx.meta",
+    "sha256": "0718af96814835120ada115b04bab63badf12136d23c7aaa64ebadc881233214",
+    "guid": "a154010e959f04348a4a6233900ac9fa",
+    "size": 5575
+  },
+  {
+    "path": "Assets/ModernLab/Models/Lab_Floor_26.fbx",
+    "sha256": "6ccc66cef5846ae0b8d8388bb582002190cbdd053442efc215e543af172c9f42",
+    "guid": "",
+    "size": 17276
+  },
+  {
+    "path": "Assets/ModernLab/Models/Lab_Floor_26.fbx.meta",
+    "sha256": "3ea60a9c4a52bf9828e6911e3e0ec2843e8166898159e6ca985bb431dd29b40f",
+    "guid": "eb387e243f55d88459e65d65952d6de7",
+    "size": 5575
+  },
+  {
+    "path": "Assets/ModernLab/Models/Lab_Floor_27.fbx",
+    "sha256": "0d5b5cd6106e6710677209c645a92be210da42509716cd345b7429baa48998e3",
+    "guid": "",
+    "size": 17276
+  },
+  {
+    "path": "Assets/ModernLab/Models/Lab_Floor_27.fbx.meta",
+    "sha256": "81fa7482a9ac37b481f06269862eff82f329a616fcab9fc2569e4e45a2da75ea",
+    "guid": "5db14f0a5d93ebe48ad1d0778e97ffc4",
+    "size": 5575
+  },
+  {
+    "path": "Assets/ModernLab/Models/Lab_Floor_28.fbx",
+    "sha256": "b56dd047c9bba17811618b302603533901384c9cf8d4c03e852a9de0612508f1",
+    "guid": "",
+    "size": 17276
+  },
+  {
+    "path": "Assets/ModernLab/Models/Lab_Floor_28.fbx.meta",
+    "sha256": "c4d8c62779f80d22a692f7309ad412bc9117edbb3c0e8e557550286bf1f89efb",
+    "guid": "b4c67b26f6c56cc4c909881d1ebe94d1",
+    "size": 5575
+  },
+  {
+    "path": "Assets/ModernLab/Models/Lab_Rail_01.fbx",
+    "sha256": "d26763cbf5966d0e02151a656d79372f5caf069d87b0720368e95de635877b14",
+    "guid": "",
+    "size": 156572
+  },
+  {
+    "path": "Assets/ModernLab/Models/Lab_Rail_01.fbx.meta",
+    "sha256": "d4a146ad3c8acacf8657045fd5168f241ecdafa92279118bcf08090334fbf7e3",
+    "guid": "5eac4e61eefe5de4fa03da6de1aa7dde",
+    "size": 5575
+  },
+  {
+    "path": "Assets/ModernLab/Models/Lab_Rail_03.fbx",
+    "sha256": "88d7bb18be7843631fdc6e9d36e2857c27854e7845d019e23a85a8703d7cf192",
+    "guid": "",
+    "size": 68876
+  },
+  {
+    "path": "Assets/ModernLab/Models/Lab_Rail_03.fbx.meta",
+    "sha256": "0f30823c18be8fa873438e63628a0b8c3b236c3226296fbe1784f68ce768757b",
+    "guid": "3d493beba9de09d4b9b60ac1bf60c686",
+    "size": 5575
+  },
+  {
+    "path": "Assets/ModernLab/Models/Lab_Rail_05.fbx",
+    "sha256": "0cfc46908f5a8a6c9b450c98f741cd41ed725a3b3bdb626413e5f5c81f3e33da",
+    "guid": "",
+    "size": 125340
+  },
+  {
+    "path": "Assets/ModernLab/Models/Lab_Rail_05.fbx.meta",
+    "sha256": "b3d27287b7267da69404324ebed581597c87dc9b732465b6d07cb9c2a81b1477",
+    "guid": "0f0b23da416100b40b3caa609d98e919",
+    "size": 5575
+  },
+  {
+    "path": "Assets/ModernLab/Models/Lab_Rail_07.fbx",
+    "sha256": "852bacd5ce00f0332415a4f0431c29654e001c57d4730b4ad560694f1543df12",
+    "guid": "",
+    "size": 126268
+  },
+  {
+    "path": "Assets/ModernLab/Models/Lab_Rail_07.fbx.meta",
+    "sha256": "38752bb8fbc9bde3bfc11e283731a4116993d233f2bea166f77a5f01387a4b72",
+    "guid": "9fb2ecf23b8d0bc45b0596f857d87a44",
+    "size": 5575
+  },
+  {
+    "path": "Assets/ModernLab/Models/Lab_Rail_09.fbx",
+    "sha256": "84f35e098cdf78e0032ab4d5085cdb80d4680401189f2f0a4f58f30734be4c63",
+    "guid": "",
+    "size": 177356
+  },
+  {
+    "path": "Assets/ModernLab/Models/Lab_Rail_09.fbx.meta",
+    "sha256": "33d91e5ff47387df10bc3a7d449b78e45a8365283c7e196bf0bc035b7344a24f",
+    "guid": "b1a64bbff148ceb469258088634cfe60",
+    "size": 5575
+  },
+  {
+    "path": "Assets/ModernLab/Models/Lab_Rail_10.fbx",
+    "sha256": "7a97c26dc25c911c34d8606a67e754a7bf01a0bcdab43105b47cf6a3b7ae998e",
+    "guid": "",
+    "size": 76860
+  },
+  {
+    "path": "Assets/ModernLab/Models/Lab_Rail_10.fbx.meta",
+    "sha256": "ac51b5f384f0692d5d6dd8fd6192acb957a1661f0293e35191b6337380ce580d",
+    "guid": "1f56396a33bdbf347af99c60b2af8321",
+    "size": 5575
+  },
+  {
+    "path": "Assets/ModernLab/Models/Lab_Rail_11.fbx",
+    "sha256": "aff287cab4bcc2221ef92537979e4e8fa529bb5fc2381b3b03cb3efd97b041fc",
+    "guid": "",
+    "size": 77244
+  },
+  {
+    "path": "Assets/ModernLab/Models/Lab_Rail_11.fbx.meta",
+    "sha256": "b075b9457e066714f3bb4662aafd913a9e1fc630474a6d1557e8e2ee8df2cf10",
+    "guid": "9efc632295592e34fba9d583c804b639",
+    "size": 5575
+  },
+  {
+    "path": "Assets/ModernLab/Models/Lab_Rail_12.fbx",
+    "sha256": "58d4706a2cd246bb6c67a418143e72a584728ac0a6abf2b10d20bab52224dd03",
+    "guid": "",
+    "size": 91180
+  },
+  {
+    "path": "Assets/ModernLab/Models/Lab_Rail_12.fbx.meta",
+    "sha256": "4041526f3b6eafa534351753356a3158061345341fb1c5ff6b0bbcad685867df",
+    "guid": "8c5e24b5d38a61b4a91412550ad10572",
+    "size": 5575
+  },
+  {
+    "path": "Assets/ModernLab/Models/Lab_Rail_13.fbx",
+    "sha256": "9afced25931894b3eac67a0ef79572e6b3b298ca9977ff9deb9c2d179389c549",
+    "guid": "",
+    "size": 95260
+  },
+  {
+    "path": "Assets/ModernLab/Models/Lab_Rail_13.fbx.meta",
+    "sha256": "1434c3ea32df869f8dcbe868cef2b8182fd906efc65087c866c561812766f21a",
+    "guid": "273b6ea2b1c865245889b6ccf59ddb87",
+    "size": 5575
+  },
+  {
+    "path": "Assets/ModernLab/Models/Lab_Stairs_02.fbx",
+    "sha256": "361fbf718b024be5c847f4f59646e5d000fceb3f92b7339fc0e43eefea027818",
+    "guid": "",
+    "size": 17436
+  },
+  {
+    "path": "Assets/ModernLab/Models/Lab_Stairs_02.fbx.meta",
+    "sha256": "43aebe529d6d253efbfb13452d4549dbb4524c14ad5382b07cbe67080a18cf29",
+    "guid": "e295703e1a804924c80434521fb53a1b",
+    "size": 5575
+  },
+  {
+    "path": "Assets/ModernLab/Models/Lab_Stairs_04.fbx",
+    "sha256": "03130b1646db84028275efce40f5f4c0dc20364a4e7b3db87fd2f41bd71e8048",
+    "guid": "",
+    "size": 17932
+  },
+  {
+    "path": "Assets/ModernLab/Models/Lab_Stairs_04.fbx.meta",
+    "sha256": "d605c5a9c1c144496e70ee70ce2cec75700853f9001a66b472708da2f50741f7",
+    "guid": "26231b397cc20034480683c625e6dbf6",
+    "size": 5575
+  },
+  {
+    "path": "Assets/ModernLab/Models/Lab_Stairs_06.fbx",
+    "sha256": "9ff8e79d64ecfb36a3928a476525b1b221ddb0bde5b00fc67fc6814cfa6092d0",
+    "guid": "",
+    "size": 18172
+  },
+  {
+    "path": "Assets/ModernLab/Models/Lab_Stairs_06.fbx.meta",
+    "sha256": "134536220f49c3d3072170c44cfd4b79ab82920a93ae662ea333fe0cef47a90a",
+    "guid": "1f0d9cb28f8ac654b98f720aeedfb328",
+    "size": 5575
+  },
+  {
+    "path": "Assets/ModernLab/Models/Lab_Stairs_08.fbx",
+    "sha256": "b193eb2430c6027544b1fa2962e28564b7baaf6e43e87456cf2ef165ca900ab0",
+    "guid": "",
+    "size": 18172
+  },
+  {
+    "path": "Assets/ModernLab/Models/Lab_Stairs_08.fbx.meta",
+    "sha256": "054c6c483dccb359f6c91a415f6359b0672a1e7ba03a93cc98b6479b93263d35",
+    "guid": "482a9124dfd462743925503fe563b99f",
+    "size": 5575
+  },
+  {
+    "path": "Assets/ModernLab/Models/Lab_WallDark_20.fbx",
+    "sha256": "f83f4912cceef4ee6677853d609dbf38d36dac9823d8ac27ef62279e459d0f18",
+    "guid": "",
+    "size": 16220
+  },
+  {
+    "path": "Assets/ModernLab/Models/Lab_WallDark_20.fbx.meta",
+    "sha256": "ed81b6d96732f4758d008816765196fcb1d6b0c7dd08952dc7d8952119f89cc9",
+    "guid": "7dd9da89012c53948a36d3ec0fa92f6c",
+    "size": 5575
+  },
+  {
+    "path": "Assets/ModernLab/Models/Lab_WallDark_21.fbx",
+    "sha256": "3b2574313de93a5c4c4b652444bc2f51c1f111e783a7c1c2fc64bdb7012a253d",
+    "guid": "",
+    "size": 16300
+  },
+  {
+    "path": "Assets/ModernLab/Models/Lab_WallDark_21.fbx.meta",
+    "sha256": "5084c88ecb2ab561c2ce734ffff80ea485cb953b970d889c8ac15fbe1ad8bcfb",
+    "guid": "bb1617947a0acb641aed98b689790a3d",
+    "size": 5575
+  },
+  {
+    "path": "Assets/ModernLab/Models/Lab_WallDark_22.fbx",
+    "sha256": "b9891e2dd69bbd4b8e9fe65953fca928030111b3101d2ae7ad48263e56e412f9",
+    "guid": "",
+    "size": 16300
+  },
+  {
+    "path": "Assets/ModernLab/Models/Lab_WallDark_22.fbx.meta",
+    "sha256": "8e89aca5b8fa3c1cb094c6eb63adaa7b0166fe77ac3992a55113c572414a2111",
+    "guid": "6a6de7f69fc937446a995edd9aa9bd16",
+    "size": 5575
+  },
+  {
+    "path": "Assets/ModernLab/Models/Lab_WallDark_23.fbx",
+    "sha256": "a3ffaf9422560fac5149692e3b253b9620a973e688a931a52899293b892483a4",
+    "guid": "",
+    "size": 16300
+  },
+  {
+    "path": "Assets/ModernLab/Models/Lab_WallDark_23.fbx.meta",
+    "sha256": "573219dd1ad71bc95ed28748891fe5b3e0212b713dc45b1d02b644d6f8623359",
+    "guid": "af9a43fbce305aa44adb84b4a15a08a5",
+    "size": 5575
+  },
+  {
+    "path": "Assets/ModernLab/Models/Lab_WallDark_24.fbx",
+    "sha256": "2fea0df2e9f276f5662f8f546579a31446ead73211bc664b62e6f792eecac41a",
+    "guid": "",
+    "size": 16300
+  },
+  {
+    "path": "Assets/ModernLab/Models/Lab_WallDark_24.fbx.meta",
+    "sha256": "96394b553ee49b7580152d5473179da74f7dddfd001011e13c9403ba20a44022",
+    "guid": "41a84e61a12e5b345bcbe6fa86a62b36",
+    "size": 5575
+  },
+  {
+    "path": "Assets/ModernLab/Models/Lab_WallDark_25.fbx",
+    "sha256": "dc942600622e443d29535195ac1029372fc506a6e5acd8c6a1a921a72f5c295f",
+    "guid": "",
+    "size": 16300
+  },
+  {
+    "path": "Assets/ModernLab/Models/Lab_WallDark_25.fbx.meta",
+    "sha256": "493f7dd29b1a32715a892189cafbde89e8f8b06dd4232f38ae235e2d6917ea5f",
+    "guid": "54e29c07ac493294c9d18550a1589603",
+    "size": 5575
+  },
+  {
+    "path": "Assets/ModernLab/Models/Lab_WallWhite_14.fbx",
+    "sha256": "3aeedc5a28bd3f4ae7084c80c0d9436b9508fee42e14a0fdc8af33bb98eea032",
+    "guid": "",
+    "size": 16220
+  },
+  {
+    "path": "Assets/ModernLab/Models/Lab_WallWhite_14.fbx.meta",
+    "sha256": "e7725424b1989aaba54f3085e8890ba026431fdc8e5c0e7a61306aa9ce696532",
+    "guid": "caddc076fb16def4dba3e83de8fd9aaa",
+    "size": 5575
+  },
+  {
+    "path": "Assets/ModernLab/Models/Lab_WallWhite_15.fbx",
+    "sha256": "5776525cf687e35cea14323890a2368c7844f6adc44f3a4d018eb7c6e9edf979",
+    "guid": "",
+    "size": 16300
+  },
+  {
+    "path": "Assets/ModernLab/Models/Lab_WallWhite_15.fbx.meta",
+    "sha256": "8d8372c9b7a71d79c3a7012488a1269e444387da562187d8f71720d5a70dc4a8",
+    "guid": "1ffd73fac6f42b345a3a1a8e57827d3f",
+    "size": 5575
+  },
+  {
+    "path": "Assets/ModernLab/Models/Lab_WallWhite_16.fbx",
+    "sha256": "628bcc8b1505694ee31744236bed84ae3e409a24510f7aca6b86452c0cdf1d76",
+    "guid": "",
+    "size": 16316
+  },
+  {
+    "path": "Assets/ModernLab/Models/Lab_WallWhite_16.fbx.meta",
+    "sha256": "fb4a05731d0f642a9a39cea20fe746e7c56317801fcdfa6801d05e0654e88843",
+    "guid": "948d418e03617664daeccda7db222efa",
+    "size": 5575
+  },
+  {
+    "path": "Assets/ModernLab/Models/Lab_WallWhite_17.fbx",
+    "sha256": "ff376f66c62fa8709dda51a211ec52708cb2edd4da2ba52137a77730d29ae571",
+    "guid": "",
+    "size": 16316
+  },
+  {
+    "path": "Assets/ModernLab/Models/Lab_WallWhite_17.fbx.meta",
+    "sha256": "560a989a07c8268aa7c42d327adf9c245842dc3cf21e019d6123602a21b57f46",
+    "guid": "b2f4eca338cf7f34c8ef3d90ef80b6c4",
+    "size": 5575
+  },
+  {
+    "path": "Assets/ModernLab/Models/Lab_WallWhite_18.fbx",
+    "sha256": "841c0484ab2a21ec34a94ac5dbb7caa28f4ba88376da183fd47556d6b9ef5f0e",
+    "guid": "",
+    "size": 16316
+  },
+  {
+    "path": "Assets/ModernLab/Models/Lab_WallWhite_18.fbx.meta",
+    "sha256": "7b8d5b283b3445af6dfb2b3659fc9f385f6465f8be147e0517efbe8f899cb685",
+    "guid": "a136d125eda568d4d9076f1ae11b9d02",
+    "size": 5575
+  },
+  {
+    "path": "Assets/ModernLab/Models/Lab_WallWhite_19.fbx",
+    "sha256": "a9c57ef32d2bf81f47e91856c48abc83f6359fde23b111c56116667568366c14",
+    "guid": "",
+    "size": 16316
+  },
+  {
+    "path": "Assets/ModernLab/Models/Lab_WallWhite_19.fbx.meta",
+    "sha256": "8afb397ced6e9ea1612ac7274d6ad30f63aa7f06d7844966f61ca485295309a2",
+    "guid": "17fe8f4f5731854439978f4cd6ea1628",
+    "size": 5575
+  },
+  {
+    "path": "Assets/ModernLab/Models.meta",
+    "sha256": "6af1146b784f781fbcf920fd014a968ce9e53098e55c305d7c6efcb1c1886e45",
+    "guid": "45870883e4f6fda46a5ef238e349cf30",
+    "size": 172
+  },
+  {
+    "path": "Assets/ModernLab/Prefabs/Lab_AccentWall_31.prefab",
+    "sha256": "90dd3c6f0b14c4d3da538f4f7722af3c3e0f592cd9d0cd22f6be37a6ff1fef76",
+    "guid": "",
+    "size": 2477
+  },
+  {
+    "path": "Assets/ModernLab/Prefabs/Lab_AccentWall_31.prefab.meta",
+    "sha256": "f5650f3f7b09833c6d09519323ffd9d81c7ab0fb416e6f99f7d63b3636d38911",
+    "guid": "1c9ad10f4805c5946918e7ae62d699a9",
+    "size": 154
+  },
+  {
+    "path": "Assets/ModernLab/Prefabs/Lab_AccentWall_32.prefab",
+    "sha256": "a1c2a583117fa1650342da735f9ca46d216e6e5d0bc04ec1bae037f4f90f117c",
+    "guid": "",
+    "size": 2476
+  },
+  {
+    "path": "Assets/ModernLab/Prefabs/Lab_AccentWall_32.prefab.meta",
+    "sha256": "206dd197fe6f6438b2a486f7e1a0a392200887b8bb8d2d1a839a68874ffa0258",
+    "guid": "eb8edf233d0ae8244880127ca2db15f8",
+    "size": 154
+  },
+  {
+    "path": "Assets/ModernLab/Prefabs/Lab_AccentWall_33.prefab",
+    "sha256": "2c9526e480e6676e48c56bf267f28daf050507094443d402baa667ff170fef2d",
+    "guid": "",
+    "size": 2477
+  },
+  {
+    "path": "Assets/ModernLab/Prefabs/Lab_AccentWall_33.prefab.meta",
+    "sha256": "49c22908ec3d205191a4d2c221da2d5cfd3d97f775b124816316b2ccc4556218",
+    "guid": "0a531b7ba6358a946804896728485781",
+    "size": 154
+  },
+  {
+    "path": "Assets/ModernLab/Prefabs/Lab_AccentWall_34.prefab",
+    "sha256": "34503c9cf8b5c4f8a9cbb551cd31de7272fed48a241a396cffd3e3263a00db8d",
+    "guid": "",
+    "size": 2477
+  },
+  {
+    "path": "Assets/ModernLab/Prefabs/Lab_AccentWall_34.prefab.meta",
+    "sha256": "b413eba6d816846f6063834ba9d23d89f029488e64862fb495337232a721427d",
+    "guid": "89a2a49d0e15e404f837694ee1c67bb3",
+    "size": 154
+  },
+  {
+    "path": "Assets/ModernLab/Prefabs/Lab_AccentWall_35.prefab",
+    "sha256": "a1f4fe208429f109158846f59ecdd82ca43d1772a264b7eeecba9d066c3fc66e",
+    "guid": "",
+    "size": 2477
+  },
+  {
+    "path": "Assets/ModernLab/Prefabs/Lab_AccentWall_35.prefab.meta",
+    "sha256": "3c95a959b380cd7783a35d4d881f37956f74d72199a2e3a6270729ddfab29e26",
+    "guid": "db6a27e6752a6ce4bb770c0df46576f5",
+    "size": 154
+  },
+  {
+    "path": "Assets/ModernLab/Prefabs/Lab_Ceiling_29.prefab",
+    "sha256": "cc7202045b0788184a5a6389ffaaded9b5a3b14416d2aef62adabeb4ab610ebb",
+    "guid": "",
+    "size": 2473
+  },
+  {
+    "path": "Assets/ModernLab/Prefabs/Lab_Ceiling_29.prefab.meta",
+    "sha256": "143be86ab5d20e2cfd9f5bef52fc3771e5aea546aaa7e4984a700aa58b4069e5",
+    "guid": "20428cc8f82b916478a6cd05240d86dd",
+    "size": 154
+  },
+  {
+    "path": "Assets/ModernLab/Prefabs/Lab_Ceiling_30.prefab",
+    "sha256": "ff57a8df1367c5e7690a1bd38fe52e15e948e0c9070b9ee4260ef7a4282acce8",
+    "guid": "",
+    "size": 2473
+  },
+  {
+    "path": "Assets/ModernLab/Prefabs/Lab_Ceiling_30.prefab.meta",
+    "sha256": "9678df59ba48ebd77462391af6b57e1ed0ac9a89cf66a68428472b5a64d6ec52",
+    "guid": "4a0f97f4ba5794a43ab2bba513ad9b8a",
+    "size": 154
+  },
+  {
+    "path": "Assets/ModernLab/Prefabs/Lab_Floor_00.prefab",
+    "sha256": "ce807c7c4775cad02c49044178d6d91d81d9ffb1c61d2d665f838e7692d736aa",
+    "guid": "",
+    "size": 2472
+  },
+  {
+    "path": "Assets/ModernLab/Prefabs/Lab_Floor_00.prefab.meta",
+    "sha256": "4ec51586d890cdce56818379732d0b8345c4e61cb16ab2ca77a83fd33d008b74",
+    "guid": "9d7ccec0094f2fb41a93a2df34988bdc",
+    "size": 154
+  },
+  {
+    "path": "Assets/ModernLab/Prefabs/Lab_Floor_26.prefab",
+    "sha256": "19c6fe47a0b009b41ecdcb7c25b82371bb34318c92805043b09e5642222ec154",
+    "guid": "",
+    "size": 2472
+  },
+  {
+    "path": "Assets/ModernLab/Prefabs/Lab_Floor_26.prefab.meta",
+    "sha256": "33cafe0b62f6a79c7cf63c75068a6194852378850b9a1eae8b6a5351a3069816",
+    "guid": "574b5d94b4575b04192e1d55477a19f4",
+    "size": 154
+  },
+  {
+    "path": "Assets/ModernLab/Prefabs/Lab_Floor_27.prefab",
+    "sha256": "5694f7795f16c9ae0b0f331b1a52bd251b8adafe62d4eb8588d8eced41382ba2",
+    "guid": "",
+    "size": 2471
+  },
+  {
+    "path": "Assets/ModernLab/Prefabs/Lab_Floor_27.prefab.meta",
+    "sha256": "9c656aea49aa63fa03f1499398ae7fac74fff0ad11e3f25a70dc374dbe2e19eb",
+    "guid": "b5853ffca024eee4ab38e5dd0636286c",
+    "size": 154
+  },
+  {
+    "path": "Assets/ModernLab/Prefabs/Lab_Floor_28.prefab",
+    "sha256": "9e2fd03e7c2421b189db5a28e6dea61349941fc335e4b7e12edeeb92c5d83c23",
+    "guid": "",
+    "size": 2471
+  },
+  {
+    "path": "Assets/ModernLab/Prefabs/Lab_Floor_28.prefab.meta",
+    "sha256": "85d34c1ee16f9586ab05e10f2b8924fafc0b453887d6a08197cc3c8cf2699d3c",
+    "guid": "ae328da58adfa0a47bf5a91ba7cbab9b",
+    "size": 154
+  },
+  {
+    "path": "Assets/ModernLab/Prefabs/Lab_Rail_01.prefab",
+    "sha256": "dec27d9c2317da5283f9d2bcb2df39ad46a07b5bd59ddcae5bf9bdedbd68ba9e",
+    "guid": "",
+    "size": 2471
+  },
+  {
+    "path": "Assets/ModernLab/Prefabs/Lab_Rail_01.prefab.meta",
+    "sha256": "85fb51f0da6e182aa5b65e9fd929c2b9707ff6748ef160a80d4e39425f4264b0",
+    "guid": "df7af2b1a81bd574a9a28fa9d731363f",
+    "size": 154
+  },
+  {
+    "path": "Assets/ModernLab/Prefabs/Lab_Rail_03.prefab",
+    "sha256": "8a35fae91137c4db49e04ce29fd08c64356c0db06b88428ecc6ca0a1c327fdd3",
+    "guid": "",
+    "size": 2471
+  },
+  {
+    "path": "Assets/ModernLab/Prefabs/Lab_Rail_03.prefab.meta",
+    "sha256": "b3a1b15cccdffa3cad12aa580b6a9bf4b52dd8cb5a7c1ffb931c3b856eee11d7",
+    "guid": "844b671f3f4cd2741a287ea7fd15b72d",
+    "size": 154
+  },
+  {
+    "path": "Assets/ModernLab/Prefabs/Lab_Rail_05.prefab",
+    "sha256": "2d7d0f783b8796b4d4c56cf60f2e9e275345fabeb24924fce1bc9f6958f9654d",
+    "guid": "",
+    "size": 2471
+  },
+  {
+    "path": "Assets/ModernLab/Prefabs/Lab_Rail_05.prefab.meta",
+    "sha256": "349984ab17b3f7ad6ac32cc46b0cb0864db2051b68dd8eab3975c30081b97028",
+    "guid": "9ce36a36194da3a42a8a87855809c62d",
+    "size": 154
+  },
+  {
+    "path": "Assets/ModernLab/Prefabs/Lab_Rail_07.prefab",
+    "sha256": "c3308fc9f152259aa2a9c88d9abbb6a75aead0864a9fd5f5031903557e0027a9",
+    "guid": "",
+    "size": 2471
+  },
+  {
+    "path": "Assets/ModernLab/Prefabs/Lab_Rail_07.prefab.meta",
+    "sha256": "e559069da94f86ddb5f7afd797283711f60d875e67f0b88abc95cb56b7c9f3d7",
+    "guid": "d9f2a03b0c5f719498a32e041f2be1e1",
+    "size": 154
+  },
+  {
+    "path": "Assets/ModernLab/Prefabs/Lab_Rail_09.prefab",
+    "sha256": "8887bc0af5e0721014e06485e1e496a9a7b47c71623ccd099343a71eaa7dc783",
+    "guid": "",
+    "size": 2471
+  },
+  {
+    "path": "Assets/ModernLab/Prefabs/Lab_Rail_09.prefab.meta",
+    "sha256": "84d2b39b69053ead11b934c0eaf9594c6d6ffd042031f88671ba39377e7510e1",
+    "guid": "602fdf77d16fcd641be3d78d6f3c6e72",
+    "size": 154
+  },
+  {
+    "path": "Assets/ModernLab/Prefabs/Lab_Rail_10.prefab",
+    "sha256": "2d88964fc4e71d119a9ab2033f12806909b70589892576d96bc3d90a91a8b313",
+    "guid": "",
+    "size": 2471
+  },
+  {
+    "path": "Assets/ModernLab/Prefabs/Lab_Rail_10.prefab.meta",
+    "sha256": "dccc639d1161456eac1cd5d68a4483e9e2d59ce21d5f407c13d61c4f83f0bfbf",
+    "guid": "31eb7c0b914633141ba4e7c0f990f15f",
+    "size": 154
+  },
+  {
+    "path": "Assets/ModernLab/Prefabs/Lab_Rail_11.prefab",
+    "sha256": "caab3473dee9aad44045aabcea7f692e9ee18ba546d5a24cee87354417973c8d",
+    "guid": "",
+    "size": 2471
+  },
+  {
+    "path": "Assets/ModernLab/Prefabs/Lab_Rail_11.prefab.meta",
+    "sha256": "9fe4ab92ffa9097fe82f6db4c980d564a9a74cb7110ee50e070317e6fbb5c10a",
+    "guid": "4874bcf0a70590541a1ed46b02221cbb",
+    "size": 154
+  },
+  {
+    "path": "Assets/ModernLab/Prefabs/Lab_Rail_12.prefab",
+    "sha256": "75dad529be930abd212efd2b787b9136c054bf87d7c4b0b7b0bd72bbb9a5fa70",
+    "guid": "",
+    "size": 2471
+  },
+  {
+    "path": "Assets/ModernLab/Prefabs/Lab_Rail_12.prefab.meta",
+    "sha256": "f7cdf78adbda62ad7a4665a2770f37fa21461fc4c5fb347ba26888382c458f40",
+    "guid": "b59d1a57bb824b140b260299646cf8da",
+    "size": 154
+  },
+  {
+    "path": "Assets/ModernLab/Prefabs/Lab_Rail_13.prefab",
+    "sha256": "8af43b0eaa504cb094bb9729021b51791004320599879952628c3fab7bbcd614",
+    "guid": "",
+    "size": 2471
+  },
+  {
+    "path": "Assets/ModernLab/Prefabs/Lab_Rail_13.prefab.meta",
+    "sha256": "14baf35709deb2e08f397c9114ed7fdccb2cd04bd2e42d83b701ef94306fe68b",
+    "guid": "d43fc5b3cf938ec47a91242b3b11b010",
+    "size": 154
+  },
+  {
+    "path": "Assets/ModernLab/Prefabs/Lab_Stairs_02.prefab",
+    "sha256": "547b8f4e13035ee0a3fffff23d0f343aa0be6b1e1ed33a68e662959d4123fe25",
+    "guid": "",
+    "size": 2473
+  },
+  {
+    "path": "Assets/ModernLab/Prefabs/Lab_Stairs_02.prefab.meta",
+    "sha256": "592aac67e6a5365e9179a5e308f1d0442ba871cf0e96264d543dc3ee687d63cb",
+    "guid": "4c1559cd1a1c96d46b05ad69da904970",
+    "size": 154
+  },
+  {
+    "path": "Assets/ModernLab/Prefabs/Lab_Stairs_04.prefab",
+    "sha256": "888122ce225f104428b28c43545bea06836ed1cc4baaafa186a3d9dae55e8aa6",
+    "guid": "",
+    "size": 2473
+  },
+  {
+    "path": "Assets/ModernLab/Prefabs/Lab_Stairs_04.prefab.meta",
+    "sha256": "38f4ae6a7bd8f272f9082748e9ed994efc3650267bd14a0f04bcf4d0dcb79ef5",
+    "guid": "f9258b43e9333d042a6a6e8ab01ce0e7",
+    "size": 154
+  },
+  {
+    "path": "Assets/ModernLab/Prefabs/Lab_Stairs_06.prefab",
+    "sha256": "02f2f760c136aea4a7861f31c872144593bce36ecc60ff90c031444a2360fccc",
+    "guid": "",
+    "size": 2473
+  },
+  {
+    "path": "Assets/ModernLab/Prefabs/Lab_Stairs_06.prefab.meta",
+    "sha256": "bfd97879e72a052462df6c5eb2f0fe541a9c79543515ed8076469a7b1334cc0a",
+    "guid": "2f39c35b14662c74ea1817eac3fcdc97",
+    "size": 154
+  },
+  {
+    "path": "Assets/ModernLab/Prefabs/Lab_Stairs_08.prefab",
+    "sha256": "72a83b388600f92a7b090007705d69ded5d1061c86f32509634d568e682d246b",
+    "guid": "",
+    "size": 2472
+  },
+  {
+    "path": "Assets/ModernLab/Prefabs/Lab_Stairs_08.prefab.meta",
+    "sha256": "01c52db820c27a9243159299e695c10db1e9750c510e11b1372aba82b8073304",
+    "guid": "00767865d007b5244b6c249695ecc190",
+    "size": 154
+  },
+  {
+    "path": "Assets/ModernLab/Prefabs/Lab_WallDark_20.prefab",
+    "sha256": "f947ad4ed287d31b598d1783e5b50ea3321b908ed83cf034da4dfc9f5901eab8",
+    "guid": "",
+    "size": 2474
+  },
+  {
+    "path": "Assets/ModernLab/Prefabs/Lab_WallDark_20.prefab.meta",
+    "sha256": "314dc524fb65cb5cf56a5b73762cb0739cf7b6d036e589595f3e0452a67da1e2",
+    "guid": "383990a68dbb5b3428f2be4a976981c7",
+    "size": 154
+  },
+  {
+    "path": "Assets/ModernLab/Prefabs/Lab_WallDark_21.prefab",
+    "sha256": "29824b56bd9000acb2633b4d28b4e4326cb9509f3cdce350fda96cc9a56c93d3",
+    "guid": "",
+    "size": 2475
+  },
+  {
+    "path": "Assets/ModernLab/Prefabs/Lab_WallDark_21.prefab.meta",
+    "sha256": "5bfa2c365a4913fe74915d22651d30dc9921006215787a87f5730f15d36997a0",
+    "guid": "2052bf4e4bff3694aa6dc625c3d664c1",
+    "size": 154
+  },
+  {
+    "path": "Assets/ModernLab/Prefabs/Lab_WallDark_22.prefab",
+    "sha256": "e5c81c6b11a73af3155011d3414b8d6afb87664a83230010b0488ab6116913e7",
+    "guid": "",
+    "size": 2474
+  },
+  {
+    "path": "Assets/ModernLab/Prefabs/Lab_WallDark_22.prefab.meta",
+    "sha256": "64420c9e353f8db3f7981741527b8c45008260f7a5e761118eb204712d32fbb9",
+    "guid": "a077626ff7b29fd4ea14fe5187d6fb1f",
+    "size": 154
+  },
+  {
+    "path": "Assets/ModernLab/Prefabs/Lab_WallDark_23.prefab",
+    "sha256": "6f15d1bb587bca310ad639aa3be6a24752be04ec78054707bddb51579ff3ada1",
+    "guid": "",
+    "size": 2474
+  },
+  {
+    "path": "Assets/ModernLab/Prefabs/Lab_WallDark_23.prefab.meta",
+    "sha256": "af392637899bf98dd9fcf26dada777f8d8ba1b5470d1bfdf1b6cb940b03baf9d",
+    "guid": "ae17a6b14b4f6ba4d802353e1a1326a7",
+    "size": 154
+  },
+  {
+    "path": "Assets/ModernLab/Prefabs/Lab_WallDark_24.prefab",
+    "sha256": "cab30645a615df1153fe0ebb7579a5f48c364f3a602266a31b4ec7a2341fc614",
+    "guid": "",
+    "size": 2474
+  },
+  {
+    "path": "Assets/ModernLab/Prefabs/Lab_WallDark_24.prefab.meta",
+    "sha256": "9ce35b98cff0498eabd16de6b1f364fcc25b2f5ed3def04ef8d482ac94c6b7f3",
+    "guid": "28ff76c3eb3e5e249aadfaa91dd621bb",
+    "size": 154
+  },
+  {
+    "path": "Assets/ModernLab/Prefabs/Lab_WallDark_25.prefab",
+    "sha256": "759d0c971844462431da838b0a6ebef473192b77f0c6d22604f15374485db591",
+    "guid": "",
+    "size": 2474
+  },
+  {
+    "path": "Assets/ModernLab/Prefabs/Lab_WallDark_25.prefab.meta",
+    "sha256": "a0b7845f069495b45fe47d19d09e448005197a677c890a00d61a4e078cc47787",
+    "guid": "6c17cd080ddbfcb43942dcfffd67e0f8",
+    "size": 154
+  },
+  {
+    "path": "Assets/ModernLab/Prefabs/Lab_WallWhite_14.prefab",
+    "sha256": "42da96563363b0888f447da384084fd50d0ff2a922250b6c12b8f4222327db37",
+    "guid": "",
+    "size": 2475
+  },
+  {
+    "path": "Assets/ModernLab/Prefabs/Lab_WallWhite_14.prefab.meta",
+    "sha256": "646b24c82e36efce757cbc38907fbe1d8420599ba07740e623f9555febe0adf2",
+    "guid": "d06b06a3700425944b6b067663f4dea1",
+    "size": 154
+  },
+  {
+    "path": "Assets/ModernLab/Prefabs/Lab_WallWhite_15.prefab",
+    "sha256": "a0ef9ebe95dc0b26ba96d55e90fed482c24f709f87f89381c22773c6f23567f3",
+    "guid": "",
+    "size": 2476
+  },
+  {
+    "path": "Assets/ModernLab/Prefabs/Lab_WallWhite_15.prefab.meta",
+    "sha256": "3e48117adac61baa0f40f894464936529d75c724925f4ad28ffc414ffbd0bd7f",
+    "guid": "6b43aa1b8a4e40642b3061981c554eea",
+    "size": 154
+  },
+  {
+    "path": "Assets/ModernLab/Prefabs/Lab_WallWhite_16.prefab",
+    "sha256": "c876d0118c01cb0b6bc73a38821dc5fa72521dc5f5668282415b6640f69c6442",
+    "guid": "",
+    "size": 2475
+  },
+  {
+    "path": "Assets/ModernLab/Prefabs/Lab_WallWhite_16.prefab.meta",
+    "sha256": "da23f31fe553cda78f8040ecc3e06aadb42781fe7231864c95c7a377918a1a80",
+    "guid": "bac4d87f6a3aaf04c9b285802975fb6b",
+    "size": 154
+  },
+  {
+    "path": "Assets/ModernLab/Prefabs/Lab_WallWhite_17.prefab",
+    "sha256": "fc8c79494e58e39fa6d7976ddfc926663f480e080761f681b1e19db6e98bb771",
+    "guid": "",
+    "size": 2475
+  },
+  {
+    "path": "Assets/ModernLab/Prefabs/Lab_WallWhite_17.prefab.meta",
+    "sha256": "0ef82a040a576ba2c1ed2c029fc4e5646eb5bdae646b005dc2a096ddfd844fe5",
+    "guid": "7b8f334f987c29f4780c3d958af4f063",
+    "size": 154
+  },
+  {
+    "path": "Assets/ModernLab/Prefabs/Lab_WallWhite_18.prefab",
+    "sha256": "7469b6c2dbb16b5fcafe43ee46d0aefc2e4c2d81510d2c5777ae42db2fc8068f",
+    "guid": "",
+    "size": 2476
+  },
+  {
+    "path": "Assets/ModernLab/Prefabs/Lab_WallWhite_18.prefab.meta",
+    "sha256": "b4e634a9095c16c69fe2a4acb2330b1af63ff94f152abe9fb6bcb0742ddb392b",
+    "guid": "2196174182cd8b7478a6ba74d269b8b4",
+    "size": 154
+  },
+  {
+    "path": "Assets/ModernLab/Prefabs/Lab_WallWhite_19.prefab",
+    "sha256": "a5152f8a24a473987e96df431582b75bea36701b3cac384e74db27e41ab3ffe4",
+    "guid": "",
+    "size": 2475
+  },
+  {
+    "path": "Assets/ModernLab/Prefabs/Lab_WallWhite_19.prefab.meta",
+    "sha256": "b041c714828209905d9a8f332497ca2aca17f6fa560a9b0bf2234cce12279cfb",
+    "guid": "96f260b4d4fe8ad4daeb61a1553395c8",
+    "size": 154
+  },
+  {
+    "path": "Assets/ModernLab/Prefabs.meta",
+    "sha256": "520da04de0c01dc886d3df3ebe39ac57e876f245159793558bbc6bc3c7283b87",
+    "guid": "2469a6ad1298b1a45b62aaa6ddd7a3b4",
+    "size": 172
+  },
+  {
+    "path": "Assets/ModernLab/PreviewMeshes/Box_0.025_0.006_5.asset",
+    "sha256": "9697e208c8b08c97ae635088db8afe49e5e8fa7dc13217de66e569a3062aeb6f",
+    "guid": "",
+    "size": 5877
+  },
+  {
+    "path": "Assets/ModernLab/PreviewMeshes/Box_0.025_0.006_5.asset.meta",
+    "sha256": "48cc346a55b37554087744cc4f28035003a6f3fc081f386dbc026f49e8576b86",
+    "guid": "35a4996aca8af7b4ab2d2c64c93b02d4",
+    "size": 188
+  },
+  {
+    "path": "Assets/ModernLab/PreviewMeshes/Box_0.075_2.8_0.12.asset",
+    "sha256": "26ba5eb57a6abcef1b91319dc40ef607e0380c63e621516298641dcd44f35976",
+    "guid": "",
+    "size": 5876
+  },
+  {
+    "path": "Assets/ModernLab/PreviewMeshes/Box_0.075_2.8_0.12.asset.meta",
+    "sha256": "1117d0b0cfb4c1524b23655f1487ab5486de05f760eca864db434aa06f80f1ab",
+    "guid": "cd04fc154b1895f4aae148088c3cfda2",
+    "size": 188
+  },
+  {
+    "path": "Assets/ModernLab/PreviewMeshes/Box_0.11_0.04_4.asset",
+    "sha256": "618b984d671e0a95c2051e1b0db40cc00166c551ec44acc50278aa07c08f4f95",
+    "guid": "",
+    "size": 5867
+  },
+  {
+    "path": "Assets/ModernLab/PreviewMeshes/Box_0.11_0.04_4.asset.meta",
+    "sha256": "417fc6b84a1d7c99f9e7e34aee970c7e81b37ba7b564fc43124161d70eb701b4",
+    "guid": "2000fb0aa89b23d4d87e74453f666c5c",
+    "size": 188
+  },
+  {
+    "path": "Assets/ModernLab/PreviewMeshes/Box_0.15_4.2_4.4.asset",
+    "sha256": "06e580577817f4630689dc0dd197b153015a02f673154e9c072f31da941dde77",
+    "guid": "",
+    "size": 5870
+  },
+  {
+    "path": "Assets/ModernLab/PreviewMeshes/Box_0.15_4.2_4.4.asset.meta",
+    "sha256": "21f8b83c75a9aca012244579f322c4172e97e2452454f0e59fbf14f411322644",
+    "guid": "dd4d515476e58344789be1f0aec87404",
+    "size": 188
+  },
+  {
+    "path": "Assets/ModernLab/PreviewMeshes/Box_0.16_0.025_2.9.asset",
+    "sha256": "167c7e61652984ad5875a0549b0db2b1c200f051e4d5f685b58ce38fbf9e8ae3",
+    "guid": "",
+    "size": 5878
+  },
+  {
+    "path": "Assets/ModernLab/PreviewMeshes/Box_0.16_0.025_2.9.asset.meta",
+    "sha256": "8160e4f719dc4b81e7d7b9e03066e72fd140d278dc1e691072ad88dc8c537f7e",
+    "guid": "8a65d2a8d9497a848bce8febd0168174",
+    "size": 188
+  },
+  {
+    "path": "Assets/ModernLab/PreviewMeshes/Box_0.45_4_3.8.asset",
+    "sha256": "383b004260ef63d50b5f4ef230471febef79bac0d9c093273c0f125b3b08e50a",
+    "guid": "",
+    "size": 5864
+  },
+  {
+    "path": "Assets/ModernLab/PreviewMeshes/Box_0.45_4_3.8.asset.meta",
+    "sha256": "db57c5a1d245b914e71f529257bd0add934686eadae36b3f095d568eeed127aa",
+    "guid": "34d896d6b4c231f42b4d7d47d037992b",
+    "size": 188
+  },
+  {
+    "path": "Assets/ModernLab/PreviewMeshes/Box_1.6_2.65_0.18.asset",
+    "sha256": "9c7251bd663653adb41ba1f6409c91431a70b50cf4ab98547192d31118d874cb",
+    "guid": "",
+    "size": 5873
+  },
+  {
+    "path": "Assets/ModernLab/PreviewMeshes/Box_1.6_2.65_0.18.asset.meta",
+    "sha256": "15722b73562082e0c5d3efe13642135384f03a61fcd9a7b7f1037b595c940d9f",
+    "guid": "fceeab2efd8bc834d8defffacef72d33",
+    "size": 188
+  },
+  {
+    "path": "Assets/ModernLab/PreviewMeshes/Box_1.85_0.075_0.12.asset",
+    "sha256": "c1760a70a1edf41272a233ec7b3308aa6f431b944c0c89bf71845b152ae1fb0f",
+    "guid": "",
+    "size": 5881
+  },
+  {
+    "path": "Assets/ModernLab/PreviewMeshes/Box_1.85_0.075_0.12.asset.meta",
+    "sha256": "6d2dd34fef03a9cc2ea9dc52e1aad1abc585af6533a3ae1bf6c69c5b61bcf82c",
+    "guid": "a85088974e2fd7b43923d1611babe27b",
+    "size": 188
+  },
+  {
+    "path": "Assets/ModernLab/PreviewMeshes/Box_1.8_1.2_0.04.asset",
+    "sha256": "d22461adac29a685972b3d8f522ce6766fa321a29f483abd77bdd7ff596de2ea",
+    "guid": "",
+    "size": 5868
+  },
+  {
+    "path": "Assets/ModernLab/PreviewMeshes/Box_1.8_1.2_0.04.asset.meta",
+    "sha256": "fe660a2577e4de2ab2da1023e80c7efbd399d450beaa4988ec8a12dabb07db3d",
+    "guid": "8d1182b39e554414bae14e6cd3348060",
+    "size": 188
+  },
+  {
+    "path": "Assets/ModernLab/PreviewMeshes/Box_1.8_1.8_0.18.asset",
+    "sha256": "2406eea070a30680d40f9b47d255b26ac9b0221944f5247e97ad81b04f1f59c4",
+    "guid": "",
+    "size": 5868
+  },
+  {
+    "path": "Assets/ModernLab/PreviewMeshes/Box_1.8_1.8_0.18.asset.meta",
+    "sha256": "78119fe2e5a19e7fa16a60e1be9ca65f2b49429a57e34b2f83567ef906926326",
+    "guid": "b9311bece0a0f7347be698aa97e71345",
+    "size": 188
+  },
+  {
+    "path": "Assets/ModernLab/PreviewMeshes/Box_6_0.025_0.4.asset",
+    "sha256": "cc4af9d0c7664ecc299d200221e2d0329c2a1fc1753de74c95a79f314cdd5a3f",
+    "guid": "",
+    "size": 5867
+  },
+  {
+    "path": "Assets/ModernLab/PreviewMeshes/Box_6_0.025_0.4.asset.meta",
+    "sha256": "c786e4395932ff5210750a04287181d4551985b1bdd14645bb9f6ffc44a5f7c9",
+    "guid": "4b3a3960ea5058a488cd0cf116bf1f9a",
+    "size": 188
+  },
+  {
+    "path": "Assets/ModernLab/PreviewMeshes/Box_8_1.3_0.15.asset",
+    "sha256": "796e4ccd5a85832156d0a4885f92042c4a7786f31b96f6a0f5954d203ffeae26",
+    "guid": "",
+    "size": 5866
+  },
+  {
+    "path": "Assets/ModernLab/PreviewMeshes/Box_8_1.3_0.15.asset.meta",
+    "sha256": "a1f8f4a5b9220b236dd4ce63a719aa2d0449df4cccb6afeb3af5d620937560d8",
+    "guid": "24beb7e8335166c469cb1713f745b187",
+    "size": 188
+  },
+  {
+    "path": "Assets/ModernLab/PreviewMeshes/Box_8_3.2_0.15.asset",
+    "sha256": "4271958015d0bb8c2a7e56167310002e657acfcaf4b9488092dcd73fbb86a4f7",
+    "guid": "",
+    "size": 5864
+  },
+  {
+    "path": "Assets/ModernLab/PreviewMeshes/Box_8_3.2_0.15.asset.meta",
+    "sha256": "e15710b4ea2ac82e7e135c1ccbf7497cba2f6843989fde1088085c54ff3a97b1",
+    "guid": "9b50dee7ff36b3a4e97b7a3f79c13384",
+    "size": 188
+  },
+  {
+    "path": "Assets/ModernLab/PreviewMeshes/Box_9_0.2_9.asset",
+    "sha256": "1ffda619f5286e7a915795afce15d13c2f2da51eb2f09aed64bb27ae91e51071",
+    "guid": "",
+    "size": 5861
+  },
+  {
+    "path": "Assets/ModernLab/PreviewMeshes/Box_9_0.2_9.asset.meta",
+    "sha256": "eba8723df4d2219a7e4c33d0f9f6dc07979c568abb0b9ae08c1c4ca6b33b9d36",
+    "guid": "c5cb49b55f39c72499cabaab6a228097",
+    "size": 188
+  },
+  {
+    "path": "Assets/ModernLab/PreviewMeshes.meta",
+    "sha256": "6649d4645394a5f7092f1981de7518a00bc1d5cdbb5cd2600a4d3542d02a9566",
+    "guid": "618bdea8eee658e46892b2fc1e52cebd",
+    "size": 172
+  },
+  {
+    "path": "Assets/ModernLab/README.md",
+    "sha256": "e3753b9a69edadddd8c321fe14cb86de1c26b0af01f93a8da0014a253e8ce432",
+    "guid": "",
+    "size": 2512
+  },
+  {
+    "path": "Assets/ModernLab/README.md.meta",
+    "sha256": "f999f124ee118c28b976e4bd1f24fe9ae40c3e3e50645338e867a0192851e55e",
+    "guid": "1555b19189823f34683fd4d716c33cb9",
+    "size": 158
+  },
+  {
+    "path": "Assets/ModernLab/Scenes/ModernLabAdditionalSurfaces.unity",
+    "sha256": "f7838fa716b565abcac952304eba32458d579836a7c37cbf896ba313946fce93",
+    "guid": "",
+    "size": 92103
+  },
+  {
+    "path": "Assets/ModernLab/Scenes/ModernLabAdditionalSurfaces.unity.meta",
+    "sha256": "7946e4ce754addb3949d53d7b29a133212378a43c8217e81d734d66890bff034",
+    "guid": "9d09f927b0112ec4da971c6322a773a7",
+    "size": 155
+  },
+  {
+    "path": "Assets/ModernLab/Scenes/ModernLabAdditionalSurfacesReflection.cubemap",
+    "sha256": "b51e318e22f691dfff1cec69b4a40cfd04ab606d3949d5222dd871a8c79d3e75",
+    "guid": "",
+    "size": 8389750
+  },
+  {
+    "path": "Assets/ModernLab/Scenes/ModernLabAdditionalSurfacesReflection.cubemap.meta",
+    "sha256": "216fe8316a9d1a09a217d8cc35537fdde3fe9c80768ad59c83f09c27a99db203",
+    "guid": "6a3bece98ac7c284a8fceb0fb4907e60",
+    "size": 188
+  },
+  {
+    "path": "Assets/ModernLab/Scenes/ModernLabMaterialPreview.unity",
+    "sha256": "768d593c575705d834d516e4ff85bfb027aa8359c63f22e41a610e578056e634",
+    "guid": "",
+    "size": 78631
+  },
+  {
+    "path": "Assets/ModernLab/Scenes/ModernLabMaterialPreview.unity.meta",
+    "sha256": "f1c8ac8aa0649f9ec0a6940b1296123b317ea9215f03b93d1748fc219baa709e",
+    "guid": "17cf33cb84b3d3349b269bbab53d9f3e",
+    "size": 155
+  },
+  {
+    "path": "Assets/ModernLab/Scenes/ModernLabModuleReflection.cubemap",
+    "sha256": "b91c53c6fc178ea8340ed39e5648012a1610801fa0d0067167d69b9b0da7a7cc",
+    "guid": "",
+    "size": 8389738
+  },
+  {
+    "path": "Assets/ModernLab/Scenes/ModernLabModuleReflection.cubemap.meta",
+    "sha256": "8cfb87554bb7677f47133e3dd566e6a1a531b849cf97531d9ef311159727d4d1",
+    "guid": "82282028f12573b47b78f106dc61cbc4",
+    "size": 188
+  },
+  {
+    "path": "Assets/ModernLab/Scenes/ModernLabModuleReview.unity",
+    "sha256": "db50bf46a0c4239b4ecc1705878e2a0117cfbf84f95943cea6d592ae3a4e16f2",
+    "guid": "",
+    "size": 83315
+  },
+  {
+    "path": "Assets/ModernLab/Scenes/ModernLabModuleReview.unity.meta",
+    "sha256": "edba330471c5120609fa559f555773ce8190d63a62bf52248f148a1eaee4467b",
+    "guid": "5f7f5a0d17d3eca4d99b5a3e36f844ab",
+    "size": 155
+  },
+  {
+    "path": "Assets/ModernLab/Scenes/ModernLabModuleReviewReflection.cubemap",
+    "sha256": "b0e2339ebe461d7fbb8c1963e68a6449a9df270a4b2a6196b905ddbf7b808518",
+    "guid": "",
+    "size": 8389744
+  },
+  {
+    "path": "Assets/ModernLab/Scenes/ModernLabModuleReviewReflection.cubemap.meta",
+    "sha256": "27c27f32e29046b72ac00839fed02bacbdeda1fe8cb97cf4f4922213fc35745c",
+    "guid": "50bbc261d4a562242b5c67e6342163fe",
+    "size": 188
+  },
+  {
+    "path": "Assets/ModernLab/Scenes/ModernLabPreviewVolume.asset",
+    "sha256": "ac3ab6323c63e62fbd14930475a579ee6b604f0d37b5a693438dafa0974c7290",
+    "guid": "",
+    "size": 1501
+  },
+  {
+    "path": "Assets/ModernLab/Scenes/ModernLabPreviewVolume.asset.meta",
+    "sha256": "df4cac65e3e86ee38dfa7ca0b799755863a642598fa51b6b27c3efe238c86e36",
+    "guid": "1a7f3640b9775ed44a41a9384d737a23",
+    "size": 189
+  },
+  {
+    "path": "Assets/ModernLab/Scenes/ModernLabRoomReflection.cubemap",
+    "sha256": "edbce9cd6c9fd24fa3424d132716e97309505859713bfe277f85470e47087d9f",
+    "guid": "",
+    "size": 8389736
+  },
+  {
+    "path": "Assets/ModernLab/Scenes/ModernLabRoomReflection.cubemap.meta",
+    "sha256": "714f01eedbe147ae1ae0abb8adab6ec0094d5f1a27a1d1274896b10a8760f0dd",
+    "guid": "169f90a53ca4afd499cf3e3ef4bea512",
+    "size": 188
+  },
+  {
+    "path": "Assets/ModernLab/Scenes/ModernLabSurfaceInspection.unity",
+    "sha256": "f69d0ecde865c4ecd2497bbcbaa73d02c6cb08792b28d5d24612956a635f68c0",
+    "guid": "",
+    "size": 48335
+  },
+  {
+    "path": "Assets/ModernLab/Scenes/ModernLabSurfaceInspection.unity.meta",
+    "sha256": "e0a16bdbf4488b3804ad880c61467bb9b860b0923dd9c2c383fdd12b65005a2c",
+    "guid": "e3720234a7b22424c945fe3506294c6c",
+    "size": 155
+  },
+  {
+    "path": "Assets/ModernLab/Scenes/SurfaceV2InspectionReflection.cubemap",
+    "sha256": "51a8c6c7c59ccd1f2a292d4bc81a77265476eb7c668812468de928d8fbfe81ea",
+    "guid": "",
+    "size": 8389742
+  },
+  {
+    "path": "Assets/ModernLab/Scenes/SurfaceV2InspectionReflection.cubemap.meta",
+    "sha256": "b697e40828c8262016ad6b194ae37f128a12ff82e7798639314db72842d0bcbf",
+    "guid": "d6927693523e6ab4fab4e62fa1313014",
+    "size": 188
+  },
+  {
+    "path": "Assets/ModernLab/Scenes.meta",
+    "sha256": "352c1fab0af972e746acb615b46c3d01fff6be3c4eecb7358fe45074bfe6a267",
+    "guid": "4d93e5b27827626409a8e4fecbc27dcc",
+    "size": 172
+  },
+  {
+    "path": "Assets/ModernLab/Shaders/LabSurface.hlsl",
+    "sha256": "3763d8ee80d15ef73b26ccd5b54afd2e2ac461d2b2d3902930d005595db6abd7",
+    "guid": "",
+    "size": 1717
+  },
+  {
+    "path": "Assets/ModernLab/Shaders/LabSurface.hlsl.meta",
+    "sha256": "178ef0c8892ef281f355195bf6183403787a8b10f03a9fd141678b77f140ea6e",
+    "guid": "cba065979a4f7ed419de63310213f508",
+    "size": 161
+  },
+  {
+    "path": "Assets/ModernLab/Shaders/ModernLabLayered.shadergraph",
+    "sha256": "9ca05c40dba575632be7b5697cb64120bd0ae36e69e7f610d7979b8c84a96181",
+    "guid": "",
+    "size": 77298
+  },
+  {
+    "path": "Assets/ModernLab/Shaders/ModernLabLayered.shadergraph.meta",
+    "sha256": "e04372a35bc95677a5e17510a1ebdecbf5e58d7ca7c8fb33eb871432d3221d95",
+    "guid": "92880611376477d4db29df9f63cdd692",
+    "size": 445
+  },
+  {
+    "path": "Assets/ModernLab/Shaders.meta",
+    "sha256": "d7c5b3a41f07156ef1647540e177d49285a69f1097babc8fc5d806d0a7d266d8",
+    "guid": "722cca3e7762d3d4ba18d04a92dcc558",
+    "size": 172
+  },
+  {
+    "path": "Assets/ModernLab/Textures/Lab_Ceiling_Acoustic_BaseColor.png",
+    "sha256": "582f5598f02d54fd4375bb0a72989ba6a9f3d779c2b08057b753f461611d16f7",
+    "guid": "",
+    "size": 1461468
+  },
+  {
+    "path": "Assets/ModernLab/Textures/Lab_Ceiling_Acoustic_BaseColor.png.meta",
+    "sha256": "9572bb8f126e4f3c4d110ccdce7a465670c4800aa75c5ab0becec931e13e63d8",
+    "guid": "5d5cc4daf6d32a24a94f2e33010690e0",
+    "size": 2652
+  },
+  {
+    "path": "Assets/ModernLab/Textures/Lab_Ceiling_Acoustic_Mask.png",
+    "sha256": "68fa39abd78d52c6a0aa32466c2b69145b9d2e74b3acfd7e7d3f9b6e92f80b8b",
+    "guid": "",
+    "size": 4958208
+  },
+  {
+    "path": "Assets/ModernLab/Textures/Lab_Ceiling_Acoustic_Mask.png.meta",
+    "sha256": "0aebbd4f7e361f122c5324deeffb2c643ebac0d47d9383c5b861d0752887900d",
+    "guid": "f937311883851d44d81da0499bab5226",
+    "size": 2652
+  },
+  {
+    "path": "Assets/ModernLab/Textures/Lab_Ceiling_Acoustic_Normal.png",
+    "sha256": "6a04f3adb34686319d2f6ad4342e3956bfb35273efcf0fe2ba996bf97c732c4d",
+    "guid": "",
+    "size": 4964445
+  },
+  {
+    "path": "Assets/ModernLab/Textures/Lab_Ceiling_Acoustic_Normal.png.meta",
+    "sha256": "6991812389435b78619cce1ddf6c7a12815f6ce7341a046f8dc54f0d6fc9f4c2",
+    "guid": "a416328dc649e1148be481a3eadb15ea",
+    "size": 2652
+  },
+  {
+    "path": "Assets/ModernLab/Textures/Lab_Dark_Panel_BaseColor.png",
+    "sha256": "33832fc06a764ebe18adf8a5ef0014485a5bc4198421e6fd25d2cb82af2526e4",
+    "guid": "",
+    "size": 594411
+  },
+  {
+    "path": "Assets/ModernLab/Textures/Lab_Dark_Panel_BaseColor.png.meta",
+    "sha256": "90a9fa2b42898bd803744fd2bba81e95736547ec131201b5cde79aea137ada72",
+    "guid": "8c86e18018ea5d44186531c8ae2562e3",
+    "size": 2652
+  },
+  {
+    "path": "Assets/ModernLab/Textures/Lab_Dark_Panel_Mask.png",
+    "sha256": "296680ae6fefadff7261f63939605fb08ec9c503b97c2a10b786c0c7f03e6add",
+    "guid": "",
+    "size": 4568159
+  },
+  {
+    "path": "Assets/ModernLab/Textures/Lab_Dark_Panel_Mask.png.meta",
+    "sha256": "808b6e807bd226681d65649fb658690bcf92dfe18abaa847c7777a083fb1ea0c",
+    "guid": "9d38e252208916048bf32b04d4e6c5cb",
+    "size": 2652
+  },
+  {
+    "path": "Assets/ModernLab/Textures/Lab_Dark_Panel_Normal.png",
+    "sha256": "2237fc3d1120ed34e62eed401409fe11ea587cefb815bba74097b6aa9832c3e1",
+    "guid": "",
+    "size": 4239308
+  },
+  {
+    "path": "Assets/ModernLab/Textures/Lab_Dark_Panel_Normal.png.meta",
+    "sha256": "51fef48066976e3060d40e7784ee16d71385596298da723d3a644f538d683061",
+    "guid": "240f839567feaaa43b4b77ec71e1d77f",
+    "size": 2652
+  },
+  {
+    "path": "Assets/ModernLab/Textures/Lab_Detail_Coating_Normal.png",
+    "sha256": "079ca661da3910f271547e2672b38a3de42e3e31288c112f21f39b97ca6710e4",
+    "guid": "",
+    "size": 520745
+  },
+  {
+    "path": "Assets/ModernLab/Textures/Lab_Detail_Coating_Normal.png.meta",
+    "sha256": "019dfc58ba4ae1988daedd9d71d6f82d85ffd4d5a38f9b04896fd12c2bf0cc0f",
+    "guid": "ff2f01231d9870e4a94fd9812aa95890",
+    "size": 2652
+  },
+  {
+    "path": "Assets/ModernLab/Textures/Lab_Detail_Mineral_Normal.png",
+    "sha256": "af896c7db689b653d1cdbd3e8766c5fc5363c755311cce895150feaedcc820d7",
+    "guid": "",
+    "size": 1010331
+  },
+  {
+    "path": "Assets/ModernLab/Textures/Lab_Detail_Mineral_Normal.png.meta",
+    "sha256": "277914e01db4bfd377815745632cef95fe5dfb23f57c1adb2f9abff4e149c234",
+    "guid": "68d5caa629883d54eb0745a0d94ba5bf",
+    "size": 2652
+  },
+  {
+    "path": "Assets/ModernLab/Textures/Lab_Floor_Checker_BaseColor.png",
+    "sha256": "7e5dd14b269c19bfb7a0fdc51eda0e23fc69e231edcea5ad3a810588de815b0e",
+    "guid": "",
+    "size": 425414
+  },
+  {
+    "path": "Assets/ModernLab/Textures/Lab_Floor_Checker_BaseColor.png.meta",
+    "sha256": "7336f2c843f86b9f5054743c62b11fb68935a8062fed7d736f8b3d6a72c369dc",
+    "guid": "0ea0a67056baec54e917ec83694adf73",
+    "size": 2652
+  },
+  {
+    "path": "Assets/ModernLab/Textures/Lab_Floor_Checker_Mask.png",
+    "sha256": "21da0e0d8abdb27d9e1b25ef03f115a1970c2c1465c09230445c155a0d2c79a5",
+    "guid": "",
+    "size": 3872371
+  },
+  {
+    "path": "Assets/ModernLab/Textures/Lab_Floor_Checker_Mask.png.meta",
+    "sha256": "006504162f09315af5a54811c93cc0aca3c0187d852ac29952b0804d6aab08af",
+    "guid": "e5fe77815e86b86428191836c45861e6",
+    "size": 2652
+  },
+  {
+    "path": "Assets/ModernLab/Textures/Lab_Floor_Checker_Normal.png",
+    "sha256": "23303637c33c0d5329cf1692c9a4a0574e08846b5ac88d9fa6af84f6d7dd1222",
+    "guid": "",
+    "size": 1207315
+  },
+  {
+    "path": "Assets/ModernLab/Textures/Lab_Floor_Checker_Normal.png.meta",
+    "sha256": "ff2cf4a230f96e2d6d1daa5227b2dc489db27f1d390d8ae90a79ab400597cfa7",
+    "guid": "f568c64ec131314418b47d496f21a62b",
+    "size": 2652
+  },
+  {
+    "path": "Assets/ModernLab/Textures/Lab_Floor_Resin_BaseColor.png",
+    "sha256": "e359bd0fc8396689b5697394793513c7f98942b23a3430bd376819df726f9cab",
+    "guid": "",
+    "size": 522739
+  },
+  {
+    "path": "Assets/ModernLab/Textures/Lab_Floor_Resin_BaseColor.png.meta",
+    "sha256": "320b2551f12d8086eb97baf33c753202c0961b4067a008df83ded82ecf367d98",
+    "guid": "d5fb1993dadf3a84a95a0f8a899e4b8c",
+    "size": 2652
+  },
+  {
+    "path": "Assets/ModernLab/Textures/Lab_Floor_Resin_Mask.png",
+    "sha256": "aedec1efd31cfda2d3e1d044351eee676730ae25e682848610d7d15dfd96d94b",
+    "guid": "",
+    "size": 4238540
+  },
+  {
+    "path": "Assets/ModernLab/Textures/Lab_Floor_Resin_Mask.png.meta",
+    "sha256": "f108fd1ab0203b5e5e18902b70495f3bc729344dfec8d0f1e192803611331f98",
+    "guid": "aaae6ee61e2782c4b8efbe0920dfeb4d",
+    "size": 2652
+  },
+  {
+    "path": "Assets/ModernLab/Textures/Lab_Floor_Resin_Normal.png",
+    "sha256": "3d5b2d3b6a6b901b09461ea87a4b0b307894fb9ae59b91b75acaa9c1579504a7",
+    "guid": "",
+    "size": 1205190
+  },
+  {
+    "path": "Assets/ModernLab/Textures/Lab_Floor_Resin_Normal.png.meta",
+    "sha256": "06e7f2630acd637e2c307447822f5c363a08998548a5d44853e3f4a2620feef5",
+    "guid": "1f505e73641ccf549a8b74cb3036de2d",
+    "size": 2652
+  },
+  {
+    "path": "Assets/ModernLab/Textures/Lab_Paint_GlossWhite_BaseColor.png",
+    "sha256": "dd035265de37da9d41c881c5ab0024b03d536dcea076187c46b0ceb4ae16e7f4",
+    "guid": "",
+    "size": 411730
+  },
+  {
+    "path": "Assets/ModernLab/Textures/Lab_Paint_GlossWhite_BaseColor.png.meta",
+    "sha256": "a13ba5ba41c21b3496389419e8b9948cf766b3be34f46266955c42f4da499fd3",
+    "guid": "9b463a38eda936b418a8c111615d81f5",
+    "size": 2652
+  },
+  {
+    "path": "Assets/ModernLab/Textures/Lab_Paint_GlossWhite_Mask.png",
+    "sha256": "4d328a1ed85ee9cf67341bda28b581b3fa66bae6cea49f3b0ba7565433b1dad3",
+    "guid": "",
+    "size": 4212729
+  },
+  {
+    "path": "Assets/ModernLab/Textures/Lab_Paint_GlossWhite_Mask.png.meta",
+    "sha256": "94e0c906448bf2f02e4ce7bc9a0a8c12f3a743b6aee4d17b23c2dad18313de96",
+    "guid": "8ffe89bfe8198514ca195130b798615c",
+    "size": 2652
+  },
+  {
+    "path": "Assets/ModernLab/Textures/Lab_Paint_GlossWhite_Normal.png",
+    "sha256": "dfe72d189880cb46c987c37bc60ba2033268f69a38e2fccf6da1e12f9e3946ba",
+    "guid": "",
+    "size": 2211788
+  },
+  {
+    "path": "Assets/ModernLab/Textures/Lab_Paint_GlossWhite_Normal.png.meta",
+    "sha256": "de71b1495ebe2f7ce36ccb9d23b4f9913840fb16f39dd7c8da4d68d9fc0857de",
+    "guid": "afe0927ce5024f741a8183dde7b42756",
+    "size": 2652
+  },
+  {
+    "path": "Assets/ModernLab/Textures/Lab_Paint_RoughWhite_BaseColor.png",
+    "sha256": "5d34caa4941b5cc49a579370670e9be5febc203f87cff4f5258151211fb96d98",
+    "guid": "",
+    "size": 729298
+  },
+  {
+    "path": "Assets/ModernLab/Textures/Lab_Paint_RoughWhite_BaseColor.png.meta",
+    "sha256": "4c2d75dcb4cace98f040d571621546dcbdc43ded4c925ab466b0516bcf2f0163",
+    "guid": "ed36db64685f4cc46b83d8e4c077f951",
+    "size": 2652
+  },
+  {
+    "path": "Assets/ModernLab/Textures/Lab_Paint_RoughWhite_Mask.png",
+    "sha256": "cb06ef776d10b5eed4f2946608a5e864238298f5d9e9325c65277466b6611a4b",
+    "guid": "",
+    "size": 5269678
+  },
+  {
+    "path": "Assets/ModernLab/Textures/Lab_Paint_RoughWhite_Mask.png.meta",
+    "sha256": "3c583f52c0aeb30f7afb5cb5b34e702caf359206b64c53ef1a0ffd1862aafa7c",
+    "guid": "395359fd31ebb6249897194a65abfd5b",
+    "size": 2652
+  },
+  {
+    "path": "Assets/ModernLab/Textures/Lab_Paint_RoughWhite_Normal.png",
+    "sha256": "c96c4d993cff0dc8164c4fd08acfafb9344724971d25a175d0ab1bb208e03dd3",
+    "guid": "",
+    "size": 6297426
+  },
+  {
+    "path": "Assets/ModernLab/Textures/Lab_Paint_RoughWhite_Normal.png.meta",
+    "sha256": "c16e8ae402b87b5a43c0b1a38ebcbac20edf281eecb6fc2df9402c86bab63983",
+    "guid": "fcca43b1c374c364988df780c9d24346",
+    "size": 2652
+  },
+  {
+    "path": "Assets/ModernLab/Textures/Lab_Paint_WhiteSteel_BaseColor.png",
+    "sha256": "7b65813834986738ea2c2da3472e64712d07394454adf615d058ba98a4fe4353",
+    "guid": "",
+    "size": 694676
+  },
+  {
+    "path": "Assets/ModernLab/Textures/Lab_Paint_WhiteSteel_BaseColor.png.meta",
+    "sha256": "65a42aa832fb8f314ee565c24bb92cbe8482fc9029e606ff9bd455f417abc053",
+    "guid": "80fba71df49bf644a982014d342dfa78",
+    "size": 2652
+  },
+  {
+    "path": "Assets/ModernLab/Textures/Lab_Paint_WhiteSteel_Mask.png",
+    "sha256": "322847b80536014ead716a05e291fc3638adfacb613fb99b204456c317d1b06e",
+    "guid": "",
+    "size": 4105156
+  },
+  {
+    "path": "Assets/ModernLab/Textures/Lab_Paint_WhiteSteel_Mask.png.meta",
+    "sha256": "995431d7ab61db9a8cf3c74fefcab0da8561cebf45602a3f2a7ed822f1790587",
+    "guid": "48b91c39f007262438f796a33c26889c",
+    "size": 2652
+  },
+  {
+    "path": "Assets/ModernLab/Textures/Lab_Paint_WhiteSteel_Normal.png",
+    "sha256": "b2de4a206c23d7f0208cc425403459fa58505e602866f8fd475f7e44ec1ac34a",
+    "guid": "",
+    "size": 2207805
+  },
+  {
+    "path": "Assets/ModernLab/Textures/Lab_Paint_WhiteSteel_Normal.png.meta",
+    "sha256": "5dbfa3ea2f7eb53fdfcfb622ef05a03e5595bb6879ad99f5ca1037b8f9add491",
+    "guid": "493460859772f56489718da91e087c25",
+    "size": 2652
+  },
+  {
+    "path": "Assets/ModernLab/Textures/Lab_Rail_BrushedSteel_BaseColor.png",
+    "sha256": "4d0b82d300541044bb4a4fb033c4013574f9f3bacc037042aa7a224d343f6cbe",
+    "guid": "",
+    "size": 763916
+  },
+  {
+    "path": "Assets/ModernLab/Textures/Lab_Rail_BrushedSteel_BaseColor.png.meta",
+    "sha256": "7a1953e8e879ff65088fe28757e358d06e02eed054c54b9e7f0192a827c2c793",
+    "guid": "a96cfa82461a3844dbb93b0d9243d4e7",
+    "size": 2652
+  },
+  {
+    "path": "Assets/ModernLab/Textures/Lab_Rail_BrushedSteel_Mask.png",
+    "sha256": "6d39a3dbb9dcc2c67112a4df1ea9c4caa1f076506a4a82562361e9a8f9baf8e4",
+    "guid": "",
+    "size": 4167708
+  },
+  {
+    "path": "Assets/ModernLab/Textures/Lab_Rail_BrushedSteel_Mask.png.meta",
+    "sha256": "7b0cd06ac0e6ca36a3092dd7e655e244d600ca69176710c81da3ca2fe3b89e35",
+    "guid": "352e6fed6bda1b44cb70218793b58098",
+    "size": 2652
+  },
+  {
+    "path": "Assets/ModernLab/Textures/Lab_Rail_BrushedSteel_Normal.png",
+    "sha256": "d768ce7743d5f845906c74247fd8cfd9a7a9184c470ae8f5908235be7df95789",
+    "guid": "",
+    "size": 940406
+  },
+  {
+    "path": "Assets/ModernLab/Textures/Lab_Rail_BrushedSteel_Normal.png.meta",
+    "sha256": "e9b651b7a6a60d8fa72f0b93599dfedd5aa90790967a21f17921aa90d4fcc343",
+    "guid": "f5c1ce5282c727d4181ad72c535a5360",
+    "size": 2652
+  },
+  {
+    "path": "Assets/ModernLab/Textures/Lab_Wall_Ribbed_BaseColor.png",
+    "sha256": "ed9e4889d138f910d5472ceae992aafbfaf477599f9254d0374984ef79d5cdd8",
+    "guid": "",
+    "size": 527988
+  },
+  {
+    "path": "Assets/ModernLab/Textures/Lab_Wall_Ribbed_BaseColor.png.meta",
+    "sha256": "51984102feea693bd01abe618df8f23b28687ba96ded5b14a1f031ac102b7ddb",
+    "guid": "3551aba911f84b549a50a4fdb633d50b",
+    "size": 2652
+  },
+  {
+    "path": "Assets/ModernLab/Textures/Lab_Wall_Ribbed_Mask.png",
+    "sha256": "da8bc13bbfa53d529a894ef3d23f00e86873ca8684014556de4170c57b1ea188",
+    "guid": "",
+    "size": 4785008
+  },
+  {
+    "path": "Assets/ModernLab/Textures/Lab_Wall_Ribbed_Mask.png.meta",
+    "sha256": "49a197245d2e764f2a9ec9a4161c87be3ee06f06ac8cb7a75f788e8c467b7b98",
+    "guid": "ae46642e3caca0044adce019fd3ee880",
+    "size": 2652
+  },
+  {
+    "path": "Assets/ModernLab/Textures/Lab_Wall_Ribbed_Normal.png",
+    "sha256": "4cb709d746c918761f2012e2fefd2ce89e8b374b528abbd20b9d0eaef210717d",
+    "guid": "",
+    "size": 5328110
+  },
+  {
+    "path": "Assets/ModernLab/Textures/Lab_Wall_Ribbed_Normal.png.meta",
+    "sha256": "37f2003bc7191d7174acb5e5a109faadbc4d9c174717154fefa3e20f9b777f20",
+    "guid": "3d2e2416e7bea5643a87874d78e09b0f",
+    "size": 2652
+  },
+  {
+    "path": "Assets/ModernLab/Textures/Lab_White_Coursed_BaseColor.png",
+    "sha256": "5a5eaa42a117057074cb0273b02d17be93aeaea8fd14bec57e5526f669c4b6f2",
+    "guid": "",
+    "size": 744876
+  },
+  {
+    "path": "Assets/ModernLab/Textures/Lab_White_Coursed_BaseColor.png.meta",
+    "sha256": "642bc0b16c5d8d51d25372b70e7a0f75b50f0a77f624b3d986ea111cd8ef535d",
+    "guid": "f59cd63ae2413d14f91fdc026acb49e5",
+    "size": 2652
+  },
+  {
+    "path": "Assets/ModernLab/Textures/Lab_White_Coursed_Mask.png",
+    "sha256": "0b181e20d2e8825984936548e01acce03071033e13cb43d2637b23679d9b9cf0",
+    "guid": "",
+    "size": 5280598
+  },
+  {
+    "path": "Assets/ModernLab/Textures/Lab_White_Coursed_Mask.png.meta",
+    "sha256": "93787f9a5d784a8c5784923112a4a2d0f90d8c3d1a295034be6b0b8ff27d6a0a",
+    "guid": "266e779be6c6eba47ac63929dc3a32c9",
+    "size": 2652
+  },
+  {
+    "path": "Assets/ModernLab/Textures/Lab_White_Coursed_Normal.png",
+    "sha256": "a959fd7b2106e75d32187c90a9f0137c86c8fbdbc90b9a63b15e3137bdeb4107",
+    "guid": "",
+    "size": 6320771
+  },
+  {
+    "path": "Assets/ModernLab/Textures/Lab_White_Coursed_Normal.png.meta",
+    "sha256": "7906f75f3bbb210b718c31260efb0ec1db637a201a4f2f566c213da0a0d10e8a",
+    "guid": "31f3d3b59ad2cfd4db589cd96405341d",
+    "size": 2652
+  },
+  {
+    "path": "Assets/ModernLab/Textures/Lab_White_Matte_BaseColor.png",
+    "sha256": "cd3f72db3b68d746f8ea6c7f53a0491a45d9072f81a447061afdefe38c41e69c",
+    "guid": "",
+    "size": 583347
+  },
+  {
+    "path": "Assets/ModernLab/Textures/Lab_White_Matte_BaseColor.png.meta",
+    "sha256": "f9e65cb5c388871337c8b53a0dab296d21405be42e6d22571b28e92ec94783e2",
+    "guid": "065b6b6e657b6424bb0cde6e01148d58",
+    "size": 2652
+  },
+  {
+    "path": "Assets/ModernLab/Textures/Lab_White_Matte_Mask.png",
+    "sha256": "82fdd74f33dfc5dcbdb650c3c29c25d802f7dbe874cbd2422fe158406f964ece",
+    "guid": "",
+    "size": 4570944
+  },
+  {
+    "path": "Assets/ModernLab/Textures/Lab_White_Matte_Mask.png.meta",
+    "sha256": "70646f6b6529f36d262eac7c7f445a5d3f2fb50c6f85e3cc3f6ca4c3351843d6",
+    "guid": "55ef8d0416827bb4987e92c26444fb12",
+    "size": 2652
+  },
+  {
+    "path": "Assets/ModernLab/Textures/Lab_White_Matte_Normal.png",
+    "sha256": "b18f469f6d2027bcbdf00d0129562495aae4e6e47c03373fa4a2145ae2872d39",
+    "guid": "",
+    "size": 4238119
+  },
+  {
+    "path": "Assets/ModernLab/Textures/Lab_White_Matte_Normal.png.meta",
+    "sha256": "6c78ec6c7690fe3bf3c939268406cfd239f740ae2a84cea23b7867ee57b98731",
+    "guid": "1b188a0cba04bd84abee2a3adc43ab66",
+    "size": 2652
+  },
+  {
+    "path": "Assets/ModernLab/Textures.meta",
+    "sha256": "78b183071efc09c18ad717f9a86027df0e206c68d9a124ef5df594e854c4f64b",
+    "guid": "17a447880b5dc624dabfab64f496ca24",
+    "size": 172
+  },
+  {
+    "path": "Assets/ModernLab.meta",
+    "sha256": "1cef26f82ba7f6b1efc3dcae26a9671c0ca852d3e3efbf521dc92ca5a3a0b72f",
+    "guid": "1236c5e577000fd4199d2cdd7e02a404",
+    "size": 172
+  },
+  {
+    "path": "Assets/NullBoundaryDemo/Art/AbyssonanceStudy.mat",
+    "sha256": "8f26d3162afb6863edd3cb63a2a52d89927ad5ea3cacdc0cbe5314b806498ea1",
+    "guid": "",
+    "size": 3861
+  },
+  {
+    "path": "Assets/NullBoundaryDemo/Art/AbyssonanceStudy.mat.meta",
+    "sha256": "0b783d0352bdb7a96b9e485b39e3d49addaddc947630df9a461af6fb589329e1",
+    "guid": "87b2f30692ee82d47acf9a97dcc39ae9",
+    "size": 188
+  },
+  {
+    "path": "Assets/NullBoundaryDemo/Art/Concrete.mat",
+    "sha256": "c5a9edd452e7ce5af58345564f26ffef37514810c2637d7b0a0b1f176371c6d4",
+    "guid": "",
+    "size": 3839
+  },
+  {
+    "path": "Assets/NullBoundaryDemo/Art/Concrete.mat.meta",
+    "sha256": "c223c2bc932bb376b8aea49a62049b60a70a2ce74bc9f85512279972565985ae",
+    "guid": "0d337270f2dbb804bb699b731fd4500a",
+    "size": 188
+  },
+  {
+    "path": "Assets/NullBoundaryDemo/Art/ControlCyan.mat",
+    "sha256": "531d5be366035919e3eb3d5e1847dba123ba8bc0d38b704362285db572b41da0",
+    "guid": "",
+    "size": 3848
+  },
+  {
+    "path": "Assets/NullBoundaryDemo/Art/ControlCyan.mat.meta",
+    "sha256": "b42b551e7809a7fa9bdb4060b937443021014509c7816e09999658bf63df275e",
+    "guid": "1c9b3c796f2312d49a92f47677630989",
+    "size": 188
+  },
+  {
+    "path": "Assets/NullBoundaryDemo/Art/CrystalStudy.asset",
+    "sha256": "2fd804c001beaf67a61fc320d7fa50dd82877c26791ca213f8f4f1c1682eaf6d",
+    "guid": "",
+    "size": 3797
+  },
+  {
+    "path": "Assets/NullBoundaryDemo/Art/CrystalStudy.asset.meta",
+    "sha256": "b9e5e93b6f691dabbc38fc8f7e7d2eefc5d2f53bab1a915acc8f1087fe19eeca",
+    "guid": "df6fc205b1b0cb84dab418976c6c2d56",
+    "size": 188
+  },
+  {
+    "path": "Assets/NullBoundaryDemo/Art/DemoNavigation.asset",
+    "sha256": "9799e39b2593d9dcc240705bd1e1e42cf0dd1ac850022f99eee69e28c2f2ef49",
+    "guid": "",
+    "size": 28388
+  },
+  {
+    "path": "Assets/NullBoundaryDemo/Art/DemoNavigation.asset.meta",
+    "sha256": "d86b0e1484cb01c7080b529f03d68dbc1043199458c4539377a1fbff5f8e9a9f",
+    "guid": "7546f32e25bf415449fe37fd32c892f0",
+    "size": 189
+  },
+  {
+    "path": "Assets/NullBoundaryDemo/Art/OldPorcelain.mat",
+    "sha256": "c2c01f188d5d8a819ce7d64ebed90f435dfa40e2bb662f98dcda27bb1a524952",
+    "guid": "",
+    "size": 3834
+  },
+  {
+    "path": "Assets/NullBoundaryDemo/Art/OldPorcelain.mat.meta",
+    "sha256": "ab68a673d70aca0836b80e638d8ebb09b4f8e143a52f84409bb5d4907b539843",
+    "guid": "21d42fb002412dd419b6e794b3f0aeaf",
+    "size": 188
+  },
+  {
+    "path": "Assets/NullBoundaryDemo/Art/Rubber.mat",
+    "sha256": "ac762834b9747d062158a09b494d1b51389e878d61e3404678f6693b517e1e40",
+    "guid": "",
+    "size": 3838
+  },
+  {
+    "path": "Assets/NullBoundaryDemo/Art/Rubber.mat.meta",
+    "sha256": "e0059bf81f118928b1d248270762858003e34849a0f7f1eab1e0ed7f2b648506",
+    "guid": "52cd6924a5c56a54bb8ee482066f732d",
+    "size": 188
+  },
+  {
+    "path": "Assets/NullBoundaryDemo/Art/SafetyRed.mat",
+    "sha256": "08903771101924a49dd1a30301867395199d60165aa697d9859ce4c4e38fadc8",
+    "guid": "",
+    "size": 3857
+  },
+  {
+    "path": "Assets/NullBoundaryDemo/Art/SafetyRed.mat.meta",
+    "sha256": "27ad3bddd125c6b71e5b9bfebb96f4cb0e1e7741bb02fa68620831e26041cddb",
+    "guid": "e85b19a3607af7d40a23bf2abb227dda",
+    "size": 188
+  },
+  {
+    "path": "Assets/NullBoundaryDemo/Art/SodiumAmber.mat",
+    "sha256": "4b5df777804caf8aa8e4017ae4324f77a1f7fa0fd2c1f2c81e80dc3dd6d85af9",
+    "guid": "",
+    "size": 3849
+  },
+  {
+    "path": "Assets/NullBoundaryDemo/Art/SodiumAmber.mat.meta",
+    "sha256": "74c4835826dfbc4da5c7ff4efb5f61cf8185184f02b4b4a63a4452737bc42273",
+    "guid": "07a538e8921816841808e125684804fd",
+    "size": 188
+  },
+  {
+    "path": "Assets/NullBoundaryDemo/Art/SovietGreen.mat",
+    "sha256": "6c1a0e0d5d919606d78d6f9b820418fe6b499009fb42b63780561eac200df9f4",
+    "guid": "",
+    "size": 3840
+  },
+  {
+    "path": "Assets/NullBoundaryDemo/Art/SovietGreen.mat.meta",
+    "sha256": "c1d491dd6332b701f621e7357ebb68bb12638f214d90b538c39caa50471e0d32",
+    "guid": "75bee3c3f52af564a913d63397a696af",
+    "size": 188
+  },
+  {
+    "path": "Assets/NullBoundaryDemo/Art/Steel.mat",
+    "sha256": "577ae8810caaa43593ea44bd4fa7335d9433092e063e108af901cb989e154830",
+    "guid": "",
+    "size": 3839
+  },
+  {
+    "path": "Assets/NullBoundaryDemo/Art/Steel.mat.meta",
+    "sha256": "6c08a438016ea56c7b3c70c016ba38ab6a0cebcf9cb72afdf4329e1715076ef5",
+    "guid": "538f977ed4d942d408a4b55315c404f9",
+    "size": 188
+  },
+  {
+    "path": "Assets/NullBoundaryDemo/Art.meta",
+    "sha256": "6061944d259b37731956082bc0af175cf2a6b30245577edf8adc377944871f0c",
+    "guid": "4e8b942158f735b40b1f017e1901ee44",
+    "size": 172
+  },
+  {
+    "path": "Assets/NullBoundaryDemo/Editor/DemoSceneBuilder.cs",
+    "sha256": "82b8daee614e44d95e74ed5eb897f72d6cde66b515ffecd525007ef4e624a778",
+    "guid": "",
+    "size": 28019
+  },
+  {
+    "path": "Assets/NullBoundaryDemo/Editor/DemoSceneBuilder.cs.meta",
+    "sha256": "14092fa53478f37594c2558db129937a6f3a09790102c27e38c81aa9add7dbc6",
+    "guid": "53965eff8eda4c049a11800f330d4bba",
+    "size": 59
+  },
+  {
+    "path": "Assets/NullBoundaryDemo/Editor/NullBoundary.Demo.Editor.asmdef",
+    "sha256": "76d5ebaa8c08708710d996195403a9de401371eddc92e09bdfa7f3ed42764f13",
+    "guid": "",
+    "size": 277
+  },
+  {
+    "path": "Assets/NullBoundaryDemo/Editor/NullBoundary.Demo.Editor.asmdef.meta",
+    "sha256": "24755322729eb65ac8ffc3e719331b2935c0e7d820b29945d1aa3f076a62cd7e",
+    "guid": "a3a8c396c09cd6947bd7cb48e86fd756",
+    "size": 166
+  },
+  {
+    "path": "Assets/NullBoundaryDemo/Editor.meta",
+    "sha256": "a77644260e8114f5900ebd633437160a407dbe6ab2982b1d165d748795e1f835",
+    "guid": "71bf7da6976ca3a4d99df8766ea5e901",
+    "size": 172
+  },
+  {
+    "path": "Assets/NullBoundaryDemo/Prefabs/OrdinaryResonator.prefab",
+    "sha256": "d1915dced62a5ae859bf857b67ebb08fd10ea9093aa86b1a98c28773d1503d23",
+    "guid": "",
+    "size": 32330
+  },
+  {
+    "path": "Assets/NullBoundaryDemo/Prefabs/OrdinaryResonator.prefab.meta",
+    "sha256": "16c4f64046516122249acc8e0410a42e0c4f42337f21ae1d02825c50dd7d5776",
+    "guid": "93b2b8dc6fe7fd34fb9ad332cdf92e3f",
+    "size": 154
+  },
+  {
+    "path": "Assets/NullBoundaryDemo/Prefabs.meta",
+    "sha256": "b0e002aeb578fea1fae3893ac86bb8dd81b88fbf085383faf75001347c3659e7",
+    "guid": "85dc4b8d66519494da2989201cd6f33f",
+    "size": 172
+  },
+  {
+    "path": "Assets/NullBoundaryDemo/README.md",
+    "sha256": "62d7401ec6daaae09b105dad2ba4e85051b9acd8a856534270327cca355fddd7",
+    "guid": "",
+    "size": 3532
+  },
+  {
+    "path": "Assets/NullBoundaryDemo/README.md.meta",
+    "sha256": "79033a3eab84713cbbf024d0b911862c2683c1b39e48a6a607f08f5f398ba97e",
+    "guid": "bbdf39fab6674c04c8fa4aade669abea",
+    "size": 158
+  },
+  {
+    "path": "Assets/NullBoundaryDemo/Runtime/DemoDoor.cs",
+    "sha256": "94630fae3a2a1b56f0493fca54f446722f6733c56bbc80891d24f7a8cda339e2",
+    "guid": "",
+    "size": 1655
+  },
+  {
+    "path": "Assets/NullBoundaryDemo/Runtime/DemoDoor.cs.meta",
+    "sha256": "c6593df73c1b8da688a2f6e544144353ce90885afafe2b6be4baa89ea6e11818",
+    "guid": "c74b895bce45a964189c569a27faa8e1",
+    "size": 59
+  },
+  {
+    "path": "Assets/NullBoundaryDemo/Runtime/DemoEnemy.cs",
+    "sha256": "ad133abcea5a8d1e9ace017a09e758c103901e8ceb0adafe2293ed7a910feacd",
+    "guid": "",
+    "size": 5396
+  },
+  {
+    "path": "Assets/NullBoundaryDemo/Runtime/DemoEnemy.cs.meta",
+    "sha256": "e897f4fbe6cc2aae3928b66fab75785dd437e3e571f385a8ffc4817a9ab2789f",
+    "guid": "6a52e7a2ca908fd41bccf98cbe06c53a",
+    "size": 59
+  },
+  {
+    "path": "Assets/NullBoundaryDemo/Runtime/DemoFlow.cs",
+    "sha256": "56156ad1d8d4058ffcad759b6f9a4aa418677192776ed4153dc23140b26cdb65",
+    "guid": "",
+    "size": 18658
+  },
+  {
+    "path": "Assets/NullBoundaryDemo/Runtime/DemoFlow.cs.meta",
+    "sha256": "8e91813f978af26e677f9d527a2ec967fc6dfeca22637dcf01f7afaf69fbdccf",
+    "guid": "61a75c24750ea5c4fa2ff653587db810",
+    "size": 59
+  },
+  {
+    "path": "Assets/NullBoundaryDemo/Runtime/DemoInteractable.cs",
+    "sha256": "aeb0c312f0661eebbc9b5ac4bed173403e7c81affc7eeb3f4c0dc09c661af626",
+    "guid": "",
+    "size": 403
+  },
+  {
+    "path": "Assets/NullBoundaryDemo/Runtime/DemoInteractable.cs.meta",
+    "sha256": "b72a9ba68cb0d6cf133ac55a7e3dc6c3930b09dcd8b650f7254e3592ad87060f",
+    "guid": "92254734289545149b6862cbbe605f2b",
+    "size": 59
+  },
+  {
+    "path": "Assets/NullBoundaryDemo/Runtime/DemoIntro.cs",
+    "sha256": "32127f5abb539ccde24ad6defdaef14466a6969a70a0516589cf3b4708758aeb",
+    "guid": "",
+    "size": 4393
+  },
+  {
+    "path": "Assets/NullBoundaryDemo/Runtime/DemoIntro.cs.meta",
+    "sha256": "9f24efc88f2b7aabed7de33c26f26c5097ce9018b777540c79a1646e7dab467c",
+    "guid": "c3058822f626eca48bb6f5936129b294",
+    "size": 59
+  },
+  {
+    "path": "Assets/NullBoundaryDemo/Runtime/DemoIntroClip.cs",
+    "sha256": "c00fae6803ab0b096f37f6ac80b5c6e911421fa24a61a27a672c8fc7db7adf76",
+    "guid": "",
+    "size": 824
+  },
+  {
+    "path": "Assets/NullBoundaryDemo/Runtime/DemoIntroClip.cs.meta",
+    "sha256": "d6d38f081d7d9c556b1b053d2ba797fd758d46499839fc26b666d055be1cd661",
+    "guid": "486291a1b5fd6394da2b2b3f2e14b412",
+    "size": 59
+  },
+  {
+    "path": "Assets/NullBoundaryDemo/Runtime/DemoIntroTrack.cs",
+    "sha256": "ade4f90b9fa194b4e7eb5706cb85e0c289ca33c4471e8ea42139827e491be8e3",
+    "guid": "",
+    "size": 244
+  },
+  {
+    "path": "Assets/NullBoundaryDemo/Runtime/DemoIntroTrack.cs.meta",
+    "sha256": "aef9ddfcde956c9d627354534473bc9f0312f972a2ad84f21fac654283c1305d",
+    "guid": "260629c00b91e19449ed82ac3fb1e948",
+    "size": 59
+  },
+  {
+    "path": "Assets/NullBoundaryDemo/Runtime/DemoPlayer.cs",
+    "sha256": "74743c20a49f9d55456deb0c285e914e9f35979ac72416d82ed25db65974f1fb",
+    "guid": "",
+    "size": 6557
+  },
+  {
+    "path": "Assets/NullBoundaryDemo/Runtime/DemoPlayer.cs.meta",
+    "sha256": "d76c17da75db32fb58a1c91c0332c34b1f3429c6b07db5074ecab1849313a45c",
+    "guid": "9b28134453b50fb41a98bd5f82b04704",
+    "size": 59
+  },
+  {
+    "path": "Assets/NullBoundaryDemo/Runtime/DemoSound.cs",
+    "sha256": "2098d5f8f17477a27c50ab9d1f0b91d233695101503eecd2cd89ca97c9148955",
+    "guid": "",
+    "size": 1805
+  },
+  {
+    "path": "Assets/NullBoundaryDemo/Runtime/DemoSound.cs.meta",
+    "sha256": "ba9fb4df91f03ea46c825667dfefc967a756777a0d31dea346b0bc1ddfdc93e4",
+    "guid": "4e809d5c73d315149a74f9c7f6d058d3",
+    "size": 59
+  },
+  {
+    "path": "Assets/NullBoundaryDemo/Runtime/NullBoundary.Demo.asmdef",
+    "sha256": "342c2f705f73ee20f54d65fe8e9569c95644298b8b4d2c90a6e5198c742b0412",
+    "guid": "",
+    "size": 196
+  },
+  {
+    "path": "Assets/NullBoundaryDemo/Runtime/NullBoundary.Demo.asmdef.meta",
+    "sha256": "0fbee618aded4332591c5e0580fdaf713a3ed913c7e284471752385c9859882b",
+    "guid": "e1aa8a39f4621584eb8f7a03ba9d6da3",
+    "size": 166
+  },
+  {
+    "path": "Assets/NullBoundaryDemo/Runtime.meta",
+    "sha256": "e08bb37ecf1bba7a7d45689c46a940bd9fc26c10c574e2810fef03734fa5a969",
+    "guid": "4718adf5de2bae840b4cc48b9e8cf7b7",
+    "size": 172
+  },
+  {
+    "path": "Assets/NullBoundaryDemo/Scenes/NullBoundary_FirstDescent.unity",
+    "sha256": "b73af897747a35d06105ba9c6a0d83b692ccac6133462e2f5bfedb7dc4e28884",
+    "guid": "",
+    "size": 960382
+  },
+  {
+    "path": "Assets/NullBoundaryDemo/Scenes/NullBoundary_FirstDescent.unity.meta",
+    "sha256": "57936a92c5a5bac0a2a40c42a7d53d66f3c0f26cb33d232bfcd0ffd87a1fa657",
+    "guid": "7a661ed9db0405d43be1d211653cc7ee",
+    "size": 155
+  },
+  {
+    "path": "Assets/NullBoundaryDemo/Scenes.meta",
+    "sha256": "54b5f4ea6aee8237903d56b222e4894dd407922248874ffd0483da4455fb1e47",
+    "guid": "79422a3045b2fdd4f865f7d9227419d3",
+    "size": 172
+  },
+  {
+    "path": "Assets/NullBoundaryDemo/Timelines/ElevatorCrash.playable",
+    "sha256": "8cee3758a9d8b49d4c4e5cf88ad062e86c48f92fab0e172fc73398df6aebd72f",
+    "guid": "",
+    "size": 13625
+  },
+  {
+    "path": "Assets/NullBoundaryDemo/Timelines/ElevatorCrash.playable.meta",
+    "sha256": "4fcd0c7e996c5079a49aa956a6bab7f043716524c501d0e1614cc983e23188c1",
+    "guid": "f40d5ecfb93c09b4390020ef3a58aed6",
+    "size": 189
+  },
+  {
+    "path": "Assets/NullBoundaryDemo/Timelines.meta",
+    "sha256": "fbe02be3fde93919bdbca45f1627c457a7cb45eb97725d107fdab8b1436a9e1f",
+    "guid": "6a75b4e8668e27940b93a02260708b97",
+    "size": 172
+  },
+  {
+    "path": "Assets/NullBoundaryDemo.meta",
+    "sha256": "ac9f754333fb1cd223ecd43d55806b9656bd5783b011f5750fe95b44eae2b4b2",
+    "guid": "1c198deb7879c554581ad9e5b31f309b",
+    "size": 172
+  },
+  {
+    "path": "Assets/Readme.asset",
+    "sha256": "6d098604e909b6a0e64fe5910c2719704864d49678bcf5413bd47b67e5490107",
+    "guid": "",
+    "size": 1144
+  },
+  {
+    "path": "Assets/Readme.asset.meta",
+    "sha256": "46c6b89ac1d47bd0c0d1a8b141ae3e32cd95d3e74c49381f0d9f942488c254ce",
+    "guid": "8105016687592461f977c054a80ce2f2",
+    "size": 182
+  },
+  {
+    "path": "Assets/Resonator/AI/Data/Resonator_Default.asset",
+    "sha256": "9322eb7b86a3964b529536cf65a40e601fa7968d262e5c9b7a91099089d6341c",
+    "guid": "",
+    "size": 16368
+  },
+  {
+    "path": "Assets/Resonator/AI/Data/Resonator_Default.asset.meta",
+    "sha256": "4e0d590e131d96526ce81a6607b81c882562d3ae2d2c26635eccf5c5f1caf81a",
+    "guid": "a995b48aea3215848ae5671cbbd73089",
+    "size": 189
+  },
+  {
+    "path": "Assets/Resonator/AI/Data/Resonator_Walking_Motion.asset",
+    "sha256": "cf7a1eb3666712acac3b04f6ee8736e7ba52942f537e21fabddb85ef4e27c6eb",
+    "guid": "",
+    "size": 2815
+  },
+  {
+    "path": "Assets/Resonator/AI/Data/Resonator_Walking_Motion.asset.meta",
+    "sha256": "ab09a05fc84000ab2c5b10429bac1f7de6743e367f8007bf1be8a441b3238d15",
+    "guid": "19e0875e64b7a134a90558ec161220a9",
+    "size": 189
+  },
+  {
+    "path": "Assets/Resonator/AI/Data/Resonator_Zombie_Agonizing_Motion.asset",
+    "sha256": "e1da7dc4532a18f08121cf05d292778b4032bfdc7165eb71f944d8a920aa9edb",
+    "guid": "",
+    "size": 15951
+  },
+  {
+    "path": "Assets/Resonator/AI/Data/Resonator_Zombie_Agonizing_Motion.asset.meta",
+    "sha256": "73d58d5e089d5584a5e0188cfac7ca169c4e0fca387e3541110685a0aec7dc13",
+    "guid": "c0a838d624f3fdf45854dc39989fa8c9",
+    "size": 189
+  },
+  {
+    "path": "Assets/Resonator/AI/Data/Resonator_Zombie_Attack_Motion.asset",
+    "sha256": "71ddaf4564728b6a78762e440e92c1331561a36e769d653a0ed79d81932f0d21",
+    "guid": "",
+    "size": 6731
+  },
+  {
+    "path": "Assets/Resonator/AI/Data/Resonator_Zombie_Attack_Motion.asset.meta",
+    "sha256": "528fa09775f604f9e1db55a93f709848541f944ac74eb66e1a149b26d9a0c373",
+    "guid": "19db1f1ea2c95214fa28e2026977111f",
+    "size": 189
+  },
+  {
+    "path": "Assets/Resonator/AI/Data/Resonator_Zombie_Death_Motion.asset",
+    "sha256": "efc763907eec0cac892dc9a821210b20ad4b61655003f94979409f92f864e01a",
+    "guid": "",
+    "size": 4495
+  },
+  {
+    "path": "Assets/Resonator/AI/Data/Resonator_Zombie_Death_Motion.asset.meta",
+    "sha256": "3df9d35ea2f2d108170ed365525a8ada36767fecf26329c22d426bc77ac3d104",
+    "guid": "bff0d5a2919cfcf4d910f1048fabd912",
+    "size": 189
+  },
+  {
+    "path": "Assets/Resonator/AI/Data/Resonator_Zombie_Headbutt_Motion.asset",
+    "sha256": "5c2619e46e997d2407d7117b88c2cceefb0a981e2a1b45473a3e3fcedc5e95d8",
+    "guid": "",
+    "size": 4164
+  },
+  {
+    "path": "Assets/Resonator/AI/Data/Resonator_Zombie_Headbutt_Motion.asset.meta",
+    "sha256": "4839bd2edac0e2cc2bf6ce03c509cd14aa7409b1315278d64bd8e38c6a144304",
+    "guid": "535fb199ee91eb44290eca82d1ab6f61",
+    "size": 189
+  },
+  {
+    "path": "Assets/Resonator/AI/Data/Resonator_Zombie_Kicking_Motion.asset",
+    "sha256": "d92b929784be59f24b137d6104b6af64881af452cd98140c86f9e09a00fadf98",
+    "guid": "",
+    "size": 5049
+  },
+  {
+    "path": "Assets/Resonator/AI/Data/Resonator_Zombie_Kicking_Motion.asset.meta",
+    "sha256": "29d269b893ca13c3514086efd1f5c499d8a63bb9b52e015ccabb2704334a0302",
+    "guid": "2262a8bf734087949a6aadd036dfc2e0",
+    "size": 189
+  },
+  {
+    "path": "Assets/Resonator/AI/Data/Resonator_Zombie_Punching_Motion.asset",
+    "sha256": "35d9300c2c7b502cf6995ba2653357ef7cf00104feb3be765468fea591de5eda",
+    "guid": "",
+    "size": 5704
+  },
+  {
+    "path": "Assets/Resonator/AI/Data/Resonator_Zombie_Punching_Motion.asset.meta",
+    "sha256": "d30931abc09ec4d771669fca9b9de5cfe485909f975d7b9684b32b503e322f1e",
+    "guid": "e14763c2e30a7874e8bc6e2880d378c8",
+    "size": 189
+  },
+  {
+    "path": "Assets/Resonator/AI/Data/Resonator_Zombie_Reaction_Hit_Motion.asset",
+    "sha256": "e169ae049fe2428bd317971a7b612236461d89bea00574ae749c7bec2acb35b7",
+    "guid": "",
+    "size": 3557
+  },
+  {
+    "path": "Assets/Resonator/AI/Data/Resonator_Zombie_Reaction_Hit_Motion.asset.meta",
+    "sha256": "fa1245ce75dfc470132c551c280ce555daa5048cfb045492e67e27b553a491c8",
+    "guid": "8e03319a1fce803458743f5666525678",
+    "size": 189
+  },
+  {
+    "path": "Assets/Resonator/AI/Data/Resonator_Zombie_Running_Motion.asset",
+    "sha256": "88af150319e7a24ac7f68ef7e7b5a5e29a600e83414d72c770724bcd276e9e26",
+    "guid": "",
+    "size": 1752
+  },
+  {
+    "path": "Assets/Resonator/AI/Data/Resonator_Zombie_Running_Motion.asset.meta",
+    "sha256": "df103efed088e3a1beb81d023ba4cf12e2fba47e63fbfbbd3cde5c7cf9da0533",
+    "guid": "fbf14f813e7d14747a31cd23ef0b7419",
+    "size": 189
+  },
+  {
+    "path": "Assets/Resonator/AI/Data/Resonator_Zombie_Scream_Motion.asset",
+    "sha256": "3c4529c00b85a4b4abb2386d32e4948adf82291eece8209fcacbdc068d9e5bac",
+    "guid": "",
+    "size": 4465
+  },
+  {
+    "path": "Assets/Resonator/AI/Data/Resonator_Zombie_Scream_Motion.asset.meta",
+    "sha256": "e146999054c75eeba8c27f43f31006f1062b9c4bedb0ea82f397873c9ba2ac29",
+    "guid": "e05df12749dca6c4ea9d76145dfe1b11",
+    "size": 189
+  },
+  {
+    "path": "Assets/Resonator/AI/Data/Resonator_Zombie_Stumbling_Motion.asset",
+    "sha256": "27bce7b2284daf9cfe8419619fbb1f1e9b54367e5e2f19d86afa10b6602c3fdb",
+    "guid": "",
+    "size": 6665
+  },
+  {
+    "path": "Assets/Resonator/AI/Data/Resonator_Zombie_Stumbling_Motion.asset.meta",
+    "sha256": "eafb4bb307e4cdee348e717401bd28eed1314302cb394735c702e292bccd2a11",
+    "guid": "f0158cf99b3c1ec49b9a21f10876eaa5",
+    "size": 189
+  },
+  {
+    "path": "Assets/Resonator/AI/Data/Zombie_01_Attack_Walking_Motion.asset",
+    "sha256": "9d61df675f61a351b451c28796f4264918c3c9a78aaaa80c45623ae9bde663b0",
+    "guid": "",
+    "size": 23756
+  },
+  {
+    "path": "Assets/Resonator/AI/Data/Zombie_01_Attack_Walking_Motion.asset.meta",
+    "sha256": "5f74226fa1f35d075c52814033bddb5772ab89b34be9bae7e9a6a7414032c216",
+    "guid": "8f1a72d1740de8d48b64e4adfc17fc22",
+    "size": 189
+  },
+  {
+    "path": "Assets/Resonator/AI/Data/Zombie_02_Being_Shot_Motion.asset",
+    "sha256": "5c59838a9e1f63298700daa6871979e4b69c39ca59eeec707c5fe5874ea452a4",
+    "guid": "",
+    "size": 29255
+  },
+  {
+    "path": "Assets/Resonator/AI/Data/Zombie_02_Being_Shot_Motion.asset.meta",
+    "sha256": "5f85c0202202a20307f20ebb508787a3ca7f06e5f710ddb1e58f209850dc2412",
+    "guid": "b78632c6e8b140140a9a9ae93b59de6b",
+    "size": 189
+  },
+  {
+    "path": "Assets/Resonator/AI/Data/Zombie_03_Feeding_Ground_Motion.asset",
+    "sha256": "3f6be450e3de5910943cc058db202fd4ad6dc4c17f458849fde273a07de72415",
+    "guid": "",
+    "size": 26217
+  },
+  {
+    "path": "Assets/Resonator/AI/Data/Zombie_03_Feeding_Ground_Motion.asset.meta",
+    "sha256": "fea182ab8f4adbaa1a20ec456131b24920f2e416857001fc0e8dc183d64c99f7",
+    "guid": "56c2496cb39e07647a668ea9a822b28e",
+    "size": 189
+  },
+  {
+    "path": "Assets/Resonator/AI/Data/Zombie_04_Idle_Restless_Motion.asset",
+    "sha256": "a75c45a46d9f859d94a8df604a85ac3c5d02db5390a4fa5ad84c73a9f0486519",
+    "guid": "",
+    "size": 54161
+  },
+  {
+    "path": "Assets/Resonator/AI/Data/Zombie_04_Idle_Restless_Motion.asset.meta",
+    "sha256": "39c4c60d0446cb0e77916a2ee96882ab0679606904ffd771241878da04c579f5",
+    "guid": "3dd46d840a1c29c44ab6b0985cb13170",
+    "size": 189
+  },
+  {
+    "path": "Assets/Resonator/AI/Data/Zombie_05_Idle_Slow_Motion.asset",
+    "sha256": "a8862df4c5eaf211c644f88d6f13060e9c9abd9609a591960f4f66a7c229d21a",
+    "guid": "",
+    "size": 45434
+  },
+  {
+    "path": "Assets/Resonator/AI/Data/Zombie_05_Idle_Slow_Motion.asset.meta",
+    "sha256": "5bea8e41b45fc6948963d54fab0f55fa9c6d8d061bc344bb9e216968698619e5",
+    "guid": "19e30da27e94ec546920b5a0b201b6eb",
+    "size": 189
+  },
+  {
+    "path": "Assets/Resonator/AI/Data/Zombie_06_WakeUp_Transform_Motion.asset",
+    "sha256": "33039afd31160da8a14dfa05e0b2f302a47bf84ec59e8add4f7f58705235b12b",
+    "guid": "",
+    "size": 34975
+  },
+  {
+    "path": "Assets/Resonator/AI/Data/Zombie_06_WakeUp_Transform_Motion.asset.meta",
+    "sha256": "cc85ab86237071689d5053cac60793ba4464d617467de32cedff9485fb0000be",
+    "guid": "fc147bc5d2885214eafb36d94cfe7f34",
+    "size": 189
+  },
+  {
+    "path": "Assets/Resonator/AI/Data/Zombie_07_Walk_Motion.asset",
+    "sha256": "b7dcbc51a592ca080e16fd5a6b3d7580fc31d6e3ea22dcb619c4c59b31ce945a",
+    "guid": "",
+    "size": 26727
+  },
+  {
+    "path": "Assets/Resonator/AI/Data/Zombie_07_Walk_Motion.asset.meta",
+    "sha256": "10b8c780a7d7168db21fd15d7d245bfb42f99b54d29933aea0b5b8568c244257",
+    "guid": "7fee28aca4a205f4ab2664bfa58ab3a8",
+    "size": 189
+  },
+  {
+    "path": "Assets/Resonator/AI/Data/Zombie_08_Walk_Slow_Motion.asset",
+    "sha256": "8ef46723522eb602690caf80321e3f7bc9d65a2f59a30b6f055bc8f3cb317baf",
+    "guid": "",
+    "size": 36496
+  },
+  {
+    "path": "Assets/Resonator/AI/Data/Zombie_08_Walk_Slow_Motion.asset.meta",
+    "sha256": "e93d856ad68dad58d8d81458ca9b88435aeaefc60a24d2853b23ab088f346312",
+    "guid": "17f543dc935632f4182c489c22d4e1a0",
+    "size": 189
+  },
+  {
+    "path": "Assets/Resonator/AI/Data.meta",
+    "sha256": "908485898e3fed70e681234b0f76441f18fe39d36b8a646d853bc02cb2018bb5",
+    "guid": "154d80b32d0a9f441a7f94e62b6f6741",
+    "size": 172
+  },
+  {
+    "path": "Assets/Resonator/AI/Editor/ResonatorAIBuilder.cs",
+    "sha256": "a69f1cc2d01b294b92cc80b1ff016c2b5119ee3632044a52494a4dbe48d7aa70",
+    "guid": "",
+    "size": 15612
+  },
+  {
+    "path": "Assets/Resonator/AI/Editor/ResonatorAIBuilder.cs.meta",
+    "sha256": "e3e59d99ca78492d7e91aae3d810d88ef697df954b3fb576f8a876e27d840827",
+    "guid": "8efb3f827d6c00045a4f98e58b49e4e4",
+    "size": 59
+  },
+  {
+    "path": "Assets/Resonator/AI/Editor/ResonatorAnimationWorkbench.cs",
+    "sha256": "5655889a353e42bf8d05e6913ad4ffbaa392a9ac8b43eca948d75ef752558064",
+    "guid": "",
+    "size": 37651
+  },
+  {
+    "path": "Assets/Resonator/AI/Editor/ResonatorAnimationWorkbench.cs.meta",
+    "sha256": "cb69c9c9c802e14f1b1a956aaac031613e444477fc9c2836d790478746686356",
+    "guid": "5356f012ea25c374884a089a167b9c4b",
+    "size": 59
+  },
+  {
+    "path": "Assets/Resonator/AI/Editor/ResonatorAnimationWorkbench.Movement.cs",
+    "sha256": "b5c729f5d0e442eb6bb22d39b8ffa1c70d294b4129413d153b6e56e7e65b9d5d",
+    "guid": "",
+    "size": 8893
+  },
+  {
+    "path": "Assets/Resonator/AI/Editor/ResonatorAnimationWorkbench.Movement.cs.meta",
+    "sha256": "2aa67326dc35ea43ccf76ff9bfe4c72c8dee2aaf2476105ba605b44522fe7364",
+    "guid": "f523942d05d573f4081c837ecddea5a2",
+    "size": 59
+  },
+  {
+    "path": "Assets/Resonator/AI/Editor/ResonatorAnimationWorkbench.Shared.cs",
+    "sha256": "8aaf53272a57b8b55448b74afb18447e65d538a10c69531dd2cb3fd8ad91165d",
+    "guid": "",
+    "size": 10072
+  },
+  {
+    "path": "Assets/Resonator/AI/Editor/ResonatorAnimationWorkbench.Shared.cs.meta",
+    "sha256": "a7fb1b9712fbe9ecd7da59db25bdbbed4eeb71c978fd20645383c01599704c8c",
+    "guid": "f14908039f7af134fb6c0a9d61d60150",
+    "size": 59
+  },
+  {
+    "path": "Assets/Resonator/AI/Editor/ResonatorAttackExitSetup.cs",
+    "sha256": "9d57c8ff550f024ec5f133f101f1adb616be99976660bf772f79279853560827",
+    "guid": "",
+    "size": 1672
+  },
+  {
+    "path": "Assets/Resonator/AI/Editor/ResonatorAttackExitSetup.cs.meta",
+    "sha256": "eeabb1c4d7ef502be7c735e4a076a5a25b3fb528fbb3562cd827f80fb8d68dcf",
+    "guid": "3cde9d0bc3d6b0f489a6ae0ef1fe1620",
+    "size": 59
+  },
+  {
+    "path": "Assets/Resonator/AI/Editor/ResonatorAttackMotionSetup.cs",
+    "sha256": "ab50ebafb010752cb96fa619a74c8462f99471f83e12bf4998225dcaa103ffa2",
+    "guid": "",
+    "size": 977
+  },
+  {
+    "path": "Assets/Resonator/AI/Editor/ResonatorAttackMotionSetup.cs.meta",
+    "sha256": "0d722da12a5c79b61ef224e2c5a704789754b25d7051a728dfe1a59dd8f6b728",
+    "guid": "be74c42c5ccf5a64689bac690df8c5d8",
+    "size": 59
+  },
+  {
+    "path": "Assets/Resonator/AI/Editor/ResonatorEnemyInspector.cs",
+    "sha256": "34cf786e6384147f37d063783c5d9d47aab7a013edd74339f929081ab3f2c49d",
+    "guid": "",
+    "size": 2885
+  },
+  {
+    "path": "Assets/Resonator/AI/Editor/ResonatorEnemyInspector.cs.meta",
+    "sha256": "0b9eaf820afefe45d7ae5bc6f4d0274ac0eacbd5cc6b992d6a719a71c169b8b1",
+    "guid": "ac73fb01eb69c804c8594b872a81769e",
+    "size": 59
+  },
+  {
+    "path": "Assets/Resonator/AI/Editor/ResonatorHitboxDefaults.cs",
+    "sha256": "df456e40236c93249e83e82f1b9981b2f4e20e31230ae11c29c4ffed5c4c75d3",
+    "guid": "",
+    "size": 3013
+  },
+  {
+    "path": "Assets/Resonator/AI/Editor/ResonatorHitboxDefaults.cs.meta",
+    "sha256": "720d809cc115cebb3245365a1ab14f6fc88e1d2cee2d904dc7867a13ba315358",
+    "guid": "e1a8693f64b59f84080763d270fbed8a",
+    "size": 59
+  },
+  {
+    "path": "Assets/Resonator/AI/Editor/ResonatorNavigationSetup.cs",
+    "sha256": "08c9b1906c1ed4bf81b715c77bc2317e95f976611731b2e8dd954187b441df49",
+    "guid": "",
+    "size": 905
+  },
+  {
+    "path": "Assets/Resonator/AI/Editor/ResonatorNavigationSetup.cs.meta",
+    "sha256": "4018a569e759eaa1da5fc5ea9974abe81e82582d0158ff8e271b040cd6cdfcd4",
+    "guid": "3e9035f1367cc0945a215642ed23ac1a",
+    "size": 59
+  },
+  {
+    "path": "Assets/Resonator/AI/Editor/ResonatorTransitionDrawer.cs",
+    "sha256": "4451696a496db1a0969b455624865e8be628f382bcf9954e73c3eb28009ebc6b",
+    "guid": "",
+    "size": 3062
+  },
+  {
+    "path": "Assets/Resonator/AI/Editor/ResonatorTransitionDrawer.cs.meta",
+    "sha256": "c7e29117001d5f03f1f1af7c32738f2905cae13cd678f803360602975ee7d288",
+    "guid": "7562e996a65244e49b34ed1818629da7",
+    "size": 59
+  },
+  {
+    "path": "Assets/Resonator/AI/Editor.meta",
+    "sha256": "b4a06c0370c75edf7a651c505fe6c32244898a0f5ab2e5fb02a7f230aa52c7f7",
+    "guid": "ee0d2f9abee672249b770decdd53b69d",
+    "size": 172
+  },
+  {
+    "path": "Assets/Resonator/AI/Prefabs/ResonatorAgent.prefab",
+    "sha256": "4fd953520e0cf6460951c87c3b77e3d8d35f280d24285d05793f41f2ca35bfaf",
+    "guid": "",
+    "size": 34094
+  },
+  {
+    "path": "Assets/Resonator/AI/Prefabs/ResonatorAgent.prefab.meta",
+    "sha256": "cbdb219f9acd14e248380d515cb3f95f28482128dc8d93b8fab789ce700f97d9",
+    "guid": "9a77a87cb9ef26e44b4ea7d66d2d094a",
+    "size": 154
+  },
+  {
+    "path": "Assets/Resonator/AI/Prefabs.meta",
+    "sha256": "3b7771fab89893f9ed3b5b143cc13be48d7e88dc6e4f3da4d1d26887f585e687",
+    "guid": "b91dccd17d8e2414dbab00ecc75bed5f",
+    "size": 172
+  },
+  {
+    "path": "Assets/Resonator/AI/README.md",
+    "sha256": "00164a4d95ad62e2d4d601ceabc55bc4d1fb2b41599cf734b7cb050f5f9252f5",
+    "guid": "",
+    "size": 16407
+  },
+  {
+    "path": "Assets/Resonator/AI/README.md.meta",
+    "sha256": "1aeb73eedec47fb5afe8d1588d9c8fc3d8e5782ae7c7397481742f7080add7dd",
+    "guid": "f543de1b532737242aa5e5934c841dd1",
+    "size": 158
+  },
+  {
+    "path": "Assets/Resonator/AI/Runtime/AttackDisplacement.cs",
+    "sha256": "78fb44c3c03f9614136a335ab0d98709c21254689be2a1995e6e35301816fd88",
+    "guid": "",
+    "size": 6266
+  },
+  {
+    "path": "Assets/Resonator/AI/Runtime/AttackDisplacement.cs.meta",
+    "sha256": "c82336249f63d1a21879ff8ad2dea9e006015600e6ac00aa336029d7e759357c",
+    "guid": "42bc0113c44c6744fa29ace38864c017",
+    "size": 59
+  },
+  {
+    "path": "Assets/Resonator/AI/Runtime/MotionFrameEvent.cs",
+    "sha256": "02ab4f99c6a21741206f533fd993da0870c28c94743cec6232ad49bfdaa3b40b",
+    "guid": "",
+    "size": 671
+  },
+  {
+    "path": "Assets/Resonator/AI/Runtime/MotionFrameEvent.cs.meta",
+    "sha256": "57ef46483d4112b709841c62d8f89f4cd6ea13bbe3f953c57505863c53b4ef23",
+    "guid": "d83b858532dfd8e48a36498bdc17e953",
+    "size": 59
+  },
+  {
+    "path": "Assets/Resonator/AI/Runtime/ResonatorArenaHUD.cs",
+    "sha256": "96619540933ed4ffabe2facc65c6c2d024e17991d9e6c279038c39d90f0e3f92",
+    "guid": "",
+    "size": 1157
+  },
+  {
+    "path": "Assets/Resonator/AI/Runtime/ResonatorArenaHUD.cs.meta",
+    "sha256": "59bd672cf4e8a20c3456a0a79bd2f7e1747c0e23d466ba3cf490a09c1639bee4",
+    "guid": "4b5c8451ea605aa41a6770bdd5e33b8a",
+    "size": 59
+  },
+  {
+    "path": "Assets/Resonator/AI/Runtime/ResonatorAttackMover.cs",
+    "sha256": "6c0894e4c5996224f866e5e85c6d4eb203818bd3d12b1a4bb84f32a40983a9a8",
+    "guid": "",
+    "size": 2877
+  },
+  {
+    "path": "Assets/Resonator/AI/Runtime/ResonatorAttackMover.cs.meta",
+    "sha256": "c6de23feab85132fee9208ae3883b99d824189f06defe2112e3d23f57e58fb6e",
+    "guid": "6a2c1300e6bedb44ba636363331b29bf",
+    "size": 59
+  },
+  {
+    "path": "Assets/Resonator/AI/Runtime/ResonatorCrowd.cs",
+    "sha256": "5f683cc52088358d49dcdd1c6c0dce66fa6db8968de0f94a372ae1451dd9dc27",
+    "guid": "",
+    "size": 3712
+  },
+  {
+    "path": "Assets/Resonator/AI/Runtime/ResonatorCrowd.cs.meta",
+    "sha256": "5cc2716064f19351a9e82c94cda08ad72e3deede146af768988dbc990f8a3191",
+    "guid": "50e23541de8d7ce48a7e2da4e907174d",
+    "size": 59
+  },
+  {
+    "path": "Assets/Resonator/AI/Runtime/ResonatorEnemy.cs",
+    "sha256": "48d3b77d9e8b9481c703643556826318d2859d7fd86b70c3097de5d8d0c030ae",
+    "guid": "",
+    "size": 26327
+  },
+  {
+    "path": "Assets/Resonator/AI/Runtime/ResonatorEnemy.cs.meta",
+    "sha256": "b66670f52071405fc8c243d9ff733a2e52040f25e9b5d32d73817cbf25599ab6",
+    "guid": "01da0eb6f6aa67e498a69cfc40731159",
+    "size": 59
+  },
+  {
+    "path": "Assets/Resonator/AI/Runtime/ResonatorHitbox.cs",
+    "sha256": "cf3022b978c8583f0cc1c530b98f01bf4376daa44ce1b74c503e09e487849455",
+    "guid": "",
+    "size": 829
+  },
+  {
+    "path": "Assets/Resonator/AI/Runtime/ResonatorHitbox.cs.meta",
+    "sha256": "b0d25ad26cbd9a523257fba693430e6098754efb6906edc5e757ddfdad6e8920",
+    "guid": "4a1cd0a6c8644ac41b03bc0ba4d4e886",
+    "size": 59
+  },
+  {
+    "path": "Assets/Resonator/AI/Runtime/ResonatorMotionPlayer.cs",
+    "sha256": "7098348519d5673947efe68a20314cd05398e66c69cf7d696067f634fd1365c6",
+    "guid": "",
+    "size": 282
+  },
+  {
+    "path": "Assets/Resonator/AI/Runtime/ResonatorMotionPlayer.cs.meta",
+    "sha256": "e84cbb01145b164b0244b199f9edb9f9a88bbbbb1eb344f24f0b787b7c2c55af",
+    "guid": "b822fc72ed58810499b913f88ed5fdaa",
+    "size": 59
+  },
+  {
+    "path": "Assets/Resonator/AI/Runtime/ResonatorMotionTrack.cs",
+    "sha256": "ad00f15d56c439584ae727125895a97b570013cdb051588d831be4e473a371f8",
+    "guid": "",
+    "size": 778
+  },
+  {
+    "path": "Assets/Resonator/AI/Runtime/ResonatorMotionTrack.cs.meta",
+    "sha256": "e3b37657518b9c4a4ba2c57ed25b0e1b76ab4ca9c36e2a216da3bf012fd0e20f",
+    "guid": "1f464a784a79d7646910e52ec6c98420",
+    "size": 59
+  },
+  {
+    "path": "Assets/Resonator/AI/Runtime/ResonatorMotor.cs",
+    "sha256": "5cf1ce8eec1575e5c47c280d5b93dc51a99315fdb3ecc84120085e21ac02da21",
+    "guid": "",
+    "size": 14138
+  },
+  {
+    "path": "Assets/Resonator/AI/Runtime/ResonatorMotor.cs.meta",
+    "sha256": "86ea6dd29e7fa78dedc271e0cdcdcfa40ddb777f68f1b479af7700462773ba24",
+    "guid": "eb055bd55ec7da24b956f5d61b40c1af",
+    "size": 59
+  },
+  {
+    "path": "Assets/Resonator/AI/Runtime/ResonatorPlayerBridge.cs",
+    "sha256": "56762a999ff7c252c5eae25940a094c59e6080829e41c29975e2647fc0e44ed0",
+    "guid": "",
+    "size": 2480
+  },
+  {
+    "path": "Assets/Resonator/AI/Runtime/ResonatorPlayerBridge.cs.meta",
+    "sha256": "c4e1b0601b94cdf7d8ade019a0cfda4054873d226e605fbf27b5d02122466e22",
+    "guid": "3473932edaae4524ca0ecebc52b74416",
+    "size": 59
+  },
+  {
+    "path": "Assets/Resonator/AI/Runtime/ResonatorRagdoll.cs",
+    "sha256": "90f89a39832906b81962f52e7aabc18d423b360c4af18f3e5a1640af7f948efd",
+    "guid": "",
+    "size": 2897
+  },
+  {
+    "path": "Assets/Resonator/AI/Runtime/ResonatorRagdoll.cs.meta",
+    "sha256": "8b4c323d9a64e3eedc1695b86b8eeabf81ae42d5b94fae74d48f656b2d044daf",
+    "guid": "16601fad4f0aaca499ebc1a52fd22729",
+    "size": 59
+  },
+  {
+    "path": "Assets/Resonator/AI/Runtime/ResonatorTarget.cs",
+    "sha256": "131b9b6770182c6ac8a7129ad565075132f402c94c9030f4f254ab6afbd1aa61",
+    "guid": "",
+    "size": 1948
+  },
+  {
+    "path": "Assets/Resonator/AI/Runtime/ResonatorTarget.cs.meta",
+    "sha256": "85c590646f3004cb8ebc4e8d8e2a7f48049c1ebda4c3307f1bdf2b6d7f0a4a8d",
+    "guid": "ba701f4fe7dc4d24fb21f23f9be9d341",
+    "size": 59
+  },
+  {
+    "path": "Assets/Resonator/AI/Runtime/ResonatorTransition.cs",
+    "sha256": "5b6d499a50007dd5a75c55e461478f69e53c4bd6130ae7ca2e40bf417fd1242d",
+    "guid": "",
+    "size": 1353
+  },
+  {
+    "path": "Assets/Resonator/AI/Runtime/ResonatorTransition.cs.meta",
+    "sha256": "185b9208ce77382c53126518053d143a7f78740c06c961284fe5c02abbe12f40",
+    "guid": "91f7523c574185c418336f61b6540a34",
+    "size": 59
+  },
+  {
+    "path": "Assets/Resonator/AI/Runtime/ResonatorTuning.cs",
+    "sha256": "30d4ccbe04e0df0e6eb755174d7da2cf5ad4c4bf2f143d1a2af87c4cc4e158d7",
+    "guid": "",
+    "size": 10088
+  },
+  {
+    "path": "Assets/Resonator/AI/Runtime/ResonatorTuning.cs.meta",
+    "sha256": "3b8422d5485ff34019a782dfbbf94926bb23090e04e5fbfca6a9593724f26233",
+    "guid": "f5a71cc6fc304f049abd015e4accc49e",
+    "size": 59
+  },
+  {
+    "path": "Assets/Resonator/AI/Runtime.meta",
+    "sha256": "647692cc7bd1466eefceb7d590225b2d9979f9049d702f1a4f1e33afded1686b",
+    "guid": "e5ebfc9f54db5e946a326e952cb10d3f",
+    "size": 172
+  },
+  {
+    "path": "Assets/Resonator/AI/Scenes/ResonatorArenaNav 1.asset",
+    "sha256": "2b8ae49974449a253afcfad54693e1410e0599d69658a85ee3aaf1eb6dc88060",
+    "guid": "",
+    "size": 9064
+  },
+  {
+    "path": "Assets/Resonator/AI/Scenes/ResonatorArenaNav 1.asset.meta",
+    "sha256": "b20ed52ce244af80c8d50bf395dfb236c8361e8d623437750333bed2ac6a0afe",
+    "guid": "0de8bdd08d94bd148acfd261a699cc50",
+    "size": 189
+  },
+  {
+    "path": "Assets/Resonator/AI/Scenes/ResonatorArenaNav.asset",
+    "sha256": "7a8b0884d6468719d70d81ba3a00e916c3850fd0d72b31ae2c96dc8bd4ff25b9",
+    "guid": "",
+    "size": 9064
+  },
+  {
+    "path": "Assets/Resonator/AI/Scenes/ResonatorArenaNav.asset.meta",
+    "sha256": "beffb227035bd636800001beb47980ea353e8d371a1433098490c1efcb66318a",
+    "guid": "9f925c5d21095ff4ab340738f6d64496",
+    "size": 189
+  },
+  {
+    "path": "Assets/Resonator/AI/Scenes/ResonatorArenaNavFinal 1.asset",
+    "sha256": "45da2ea592d418a12c363fa3feb45b281521706407f466e3868623114e4f7a1f",
+    "guid": "",
+    "size": 9376
+  },
+  {
+    "path": "Assets/Resonator/AI/Scenes/ResonatorArenaNavFinal 1.asset.meta",
+    "sha256": "87390f58a10fc3df99c12ae7e5ff401994979243224d36faa24e52334fa6000a",
+    "guid": "ea751ef1b1dea4e43b6f5ee410d48c3b",
+    "size": 189
+  },
+  {
+    "path": "Assets/Resonator/AI/Scenes/ResonatorCombatArena/NavMesh-Navigation World.asset",
+    "sha256": "d1ba09a02897f52f9d564065480a42ca261facabc794489f518d6130dd961509",
+    "guid": "",
+    "size": 9068
+  },
+  {
+    "path": "Assets/Resonator/AI/Scenes/ResonatorCombatArena/NavMesh-Navigation World.asset.meta",
+    "sha256": "3ca95d8169d77a74884a1971f4c31ddef4cb73aec61b71dab7febd33f9dfcc12",
+    "guid": "f2ef72cf6e8ec0c438b135728c49ae05",
+    "size": 189
+  },
+  {
+    "path": "Assets/Resonator/AI/Scenes/ResonatorCombatArena.meta",
+    "sha256": "e9892bf383f6a0e4dcc07d7ca5bb6ec30fa35a0ce7565f2924e38e68f7978491",
+    "guid": "857efc9c6922e6840a0b5426458053f2",
+    "size": 172
+  },
+  {
+    "path": "Assets/Resonator/AI/Scenes/ResonatorCombatArena.unity",
+    "sha256": "aef2f798d25d572175857b146423387b8910e912700bb9004338e329c99855a8",
+    "guid": "",
+    "size": 62749
+  },
+  {
+    "path": "Assets/Resonator/AI/Scenes/ResonatorCombatArena.unity.meta",
+    "sha256": "8402db46b8f5fd142f3dbcd36489b5acc889d187afa000ed239137f5f9ccee80",
+    "guid": "640ac571edd7fb04bbc33508052ddd02",
+    "size": 155
+  },
+  {
+    "path": "Assets/Resonator/AI/Scenes.meta",
+    "sha256": "b6fb20310fb81c7d56bd4caf1c93a40b771bce0cf520451c961e9efa63e4c891",
+    "guid": "7a8e8c3b51d32c14d99656f4203b1aa6",
+    "size": 172
+  },
+  {
+    "path": "Assets/Resonator/AI/Tests.meta",
+    "sha256": "fc8910911d1394b9e7bcfaf8edac321450e36455e9cad9a2e33835e8378ac38c",
+    "guid": "04eed131f07394c44854d988940be221",
+    "size": 172
+  },
+  {
+    "path": "Assets/Resonator/AI/Validation/Arena_PlayerView.png",
+    "sha256": "2b2f999ebd0d60b827064a35d5c51f5f93798cf271caa529bdcabcbbc40920f6",
+    "guid": "",
+    "size": 388181
+  },
+  {
+    "path": "Assets/Resonator/AI/Validation/Arena_PlayerView.png.meta",
+    "sha256": "acf75e5a0f0ece373813d897def058f66efdc3a0c95c379443690d633237cd19",
+    "guid": "33649f234f8b68744968b43d6be1113a",
+    "size": 2652
+  },
+  {
+    "path": "Assets/Resonator/AI/Validation/AttackDisplacementReport.json",
+    "sha256": "b18792c81d9e0f900feef0ec98a9322d667852689ae64ec12d423621c4ee5f5a",
+    "guid": "",
+    "size": 1190
+  },
+  {
+    "path": "Assets/Resonator/AI/Validation/AttackDisplacementReport.json.meta",
+    "sha256": "42d83ad1a971b6eb69911883db25fefb049b95f3b83a28ea2551d74bb1ec250e",
+    "guid": "9cdaa7640c79f224c95d335b5ac9cef4",
+    "size": 158
+  },
+  {
+    "path": "Assets/Resonator/AI/Validation/AttackExitReport.json",
+    "sha256": "8023d0fd17bc796f7751f98b9ba2bb78c0447c14c51ec724216c78851e087d83",
+    "guid": "",
+    "size": 1010
+  },
+  {
+    "path": "Assets/Resonator/AI/Validation/AttackExitReport.json.meta",
+    "sha256": "93e09d2686ce622c8f4d93cd5ed43b185bbf43f4e4ae921195de16c7e1513b21",
+    "guid": "2067b15fce16c144d87b99e43c704777",
+    "size": 158
+  },
+  {
+    "path": "Assets/Resonator/AI/Validation/AuthoringReport.json",
+    "sha256": "05f9b1db60b61dde980759e7cda3ca1650ff8ad80f82e9cf40ec9be4936f82a7",
+    "guid": "",
+    "size": 1058
+  },
+  {
+    "path": "Assets/Resonator/AI/Validation/AuthoringReport.json.meta",
+    "sha256": "14687b8aff0c8a635c960985b7a3904cd65f3c0b2ba71ac520fe3739e75f7845",
+    "guid": "a4f09976e2be0a640b645a4edd123d50",
+    "size": 158
+  },
+  {
+    "path": "Assets/Resonator/AI/Validation/BoneStabilityReport.json",
+    "sha256": "a7088ecd48bbe8e4e72d36b7ec5427a271979370e94817eae648121507e60ae2",
+    "guid": "",
+    "size": 352
+  },
+  {
+    "path": "Assets/Resonator/AI/Validation/BoneStabilityReport.json.meta",
+    "sha256": "1ff404f2dbcce4052e32f3faf0814afa78ae9c6b56130265670d979fe0c9c99b",
+    "guid": "a9e84d26ed1a7384c8c5e73ab33d78ea",
+    "size": 158
+  },
+  {
+    "path": "Assets/Resonator/AI/Validation/Combat_Kicking.png",
+    "sha256": "a184ea1440122735d3c33aab2116628a4ac808306751f3e2359e944d736ab194",
+    "guid": "",
+    "size": 147500
+  },
+  {
+    "path": "Assets/Resonator/AI/Validation/Combat_Kicking.png.meta",
+    "sha256": "45b28ae8f478d1fbf6c09b70edf8eb47599de17cf792a9c7eaf1ffcdec3346ef",
+    "guid": "9fbcd52a8449f1a44a22e61a6e334a16",
+    "size": 2652
+  },
+  {
+    "path": "Assets/Resonator/AI/Validation/Combat_Running.png",
+    "sha256": "1b856036e08faf000c3df45af333905376f9d563b8cd0a17cb8e6bb1c1ba77e2",
+    "guid": "",
+    "size": 147999
+  },
+  {
+    "path": "Assets/Resonator/AI/Validation/Combat_Running.png.meta",
+    "sha256": "7129577f165c0df7a11328fddb22c261e5dc8ee49bb42ee5ddacbfef0f7831a4",
+    "guid": "3d37bf3d85e7804429c2faa38e2b4c55",
+    "size": 2652
+  },
+  {
+    "path": "Assets/Resonator/AI/Validation/CrowdNavigationReport.json",
+    "sha256": "253cc61b739d22b4bd24821aa0fcd99b7aa1ac908197741c28c20a5fead34dbc",
+    "guid": "",
+    "size": 1440
+  },
+  {
+    "path": "Assets/Resonator/AI/Validation/CrowdNavigationReport.json.meta",
+    "sha256": "4f8f8d8dd523d5a2eb2a2571adeff11ad57291d1f6c4f0a65758990dfd55968c",
+    "guid": "f0fbb3764ae2c1d4daf5b935be88c645",
+    "size": 158
+  },
+  {
+    "path": "Assets/Resonator/AI/Validation/Death_Ragdoll.png",
+    "sha256": "ea3713786900af31f1fc17f044591f17020a1f4e3266900597a9a594918a79d4",
+    "guid": "",
+    "size": 133095
+  },
+  {
+    "path": "Assets/Resonator/AI/Validation/Death_Ragdoll.png.meta",
+    "sha256": "64b8b36a322dd8318d3aa7151bc615819dac6917aa50b5bc37a5b9aff28042ce",
+    "guid": "8c68914dea6b0c9439102662ecfae2c4",
+    "size": 2652
+  },
+  {
+    "path": "Assets/Resonator/AI/Validation/InitializationReport.json",
+    "sha256": "47415a93b62c96e4c29d0ada7b5abb22bd72e492b623958527c5ab151a9063ee",
+    "guid": "",
+    "size": 1019
+  },
+  {
+    "path": "Assets/Resonator/AI/Validation/InitializationReport.json.meta",
+    "sha256": "6254b0400adc9be4de4279cdca8eda566f81dc387009327289bf8b75e30f8d4e",
+    "guid": "ee86d40f2e768f94faf8c74102d91d51",
+    "size": 158
+  },
+  {
+    "path": "Assets/Resonator/AI/Validation/Preview_WorkingCopy_BeforeAI.unity",
+    "sha256": "a506c9b23a816ad8c86f36334d3ba67ecfe20e05eeae55a6941611b4007a940c",
+    "guid": "",
+    "size": 72927
+  },
+  {
+    "path": "Assets/Resonator/AI/Validation/Preview_WorkingCopy_BeforeAI.unity.meta",
+    "sha256": "52ca661a44b881a68522991448c26067501d02defeac1ceddc8090c4a84aca18",
+    "guid": "972223b353893bb42a303a375d81a1af",
+    "size": 155
+  },
+  {
+    "path": "Assets/Resonator/AI/Validation/Resonator_BeforeAttackDisplacement.asset",
+    "sha256": "cf15cefca0ca9fa27082b3e2d10a919428ca8b8877d4a9f75c57da7485919df0",
+    "guid": "",
+    "size": 10106
+  },
+  {
+    "path": "Assets/Resonator/AI/Validation/Resonator_BeforeAttackDisplacement.asset.meta",
+    "sha256": "025bbaadd01f784f8b8cbdb527160eb94fa844a33797577a7c0f789747b70aab",
+    "guid": "07d351e337dd6d143a21336ed0d70fa6",
+    "size": 189
+  },
+  {
+    "path": "Assets/Resonator/AI/Validation/Resonator_BeforeAttackExits.asset",
+    "sha256": "6c598fe5e08cbb1bd03758745c592ad1f34a9e118a96bc9f506e4b5dec93fb15",
+    "guid": "",
+    "size": 9788
+  },
+  {
+    "path": "Assets/Resonator/AI/Validation/Resonator_BeforeAttackExits.asset.meta",
+    "sha256": "bf1e5275ade1db43a3078e306c2acdd679672247e844851d4a65137f3c9095f5",
+    "guid": "b789f662e32ab6d4dbef196447058d4f",
+    "size": 189
+  },
+  {
+    "path": "Assets/Resonator/AI/Validation/Resonator_BeforeCrowdNavigation.asset",
+    "sha256": "59a8e3204a29fb7d0819d6fd856182a6090c1732051dec6e817b542c0f9dcc80",
+    "guid": "",
+    "size": 15953
+  },
+  {
+    "path": "Assets/Resonator/AI/Validation/Resonator_BeforeCrowdNavigation.asset.meta",
+    "sha256": "abdcaf14a27a80c3f17430d2895373f5ea711d5aac139d333bf06ad6d7423b44",
+    "guid": "d21e1f65795c0894686d84e28703712a",
+    "size": 189
+  },
+  {
+    "path": "Assets/Resonator/AI/Validation/Resonator_BeforeHitboxEditor 1.asset",
+    "sha256": "dbc992644e2c4fba9a9f17145e0a02d4fc765f01e824edb1a2becdfac6355d2d",
+    "guid": "",
+    "size": 10280
+  },
+  {
+    "path": "Assets/Resonator/AI/Validation/Resonator_BeforeHitboxEditor 1.asset.meta",
+    "sha256": "f90c58749be95dfedcd1fac1ba97b83af049f93bb271079528de05b1a49a78f3",
+    "guid": "023e01ff17863b246b89e400c47d04c0",
+    "size": 189
+  },
+  {
+    "path": "Assets/Resonator/AI/Validation/Resonator_BeforeHitboxEditor.asset",
+    "sha256": "bfe00f2d8bd7efde9a2c3f4fb50888dcc4fd25382023840be93bcebacd988fb4",
+    "guid": "",
+    "size": 10212
+  },
+  {
+    "path": "Assets/Resonator/AI/Validation/Resonator_BeforeHitboxEditor.asset.meta",
+    "sha256": "1a2ca95f9e37a6c9f02433dc6c993b44f85aa642530526dd66ec1efb30544b18",
+    "guid": "a75d6706f2047664a8064f12f9d3cb41",
+    "size": 189
+  },
+  {
+    "path": "Assets/Resonator/AI/Validation/Rest_Feeding.png",
+    "sha256": "a9d3d3dcaffdb4d8be9a66f2e41e108bc75366a84491944d7ba1b6f9c352b679",
+    "guid": "",
+    "size": 139886
+  },
+  {
+    "path": "Assets/Resonator/AI/Validation/Rest_Feeding.png.meta",
+    "sha256": "59e5d8e28aa9f1039ee21b75216f90bee6ba9225245740fd444832f3d9ab29cf",
+    "guid": "c0f25933f4c41ee4e99cec9ef9baaa91",
+    "size": 2652
+  },
+  {
+    "path": "Assets/Resonator/AI/Validation/Rest_FeignDeath.png",
+    "sha256": "00bb135414d413411d03c27eda59749eb5c3f3810be22340936b87620aef1b39",
+    "guid": "",
+    "size": 124183
+  },
+  {
+    "path": "Assets/Resonator/AI/Validation/Rest_FeignDeath.png.meta",
+    "sha256": "4d4d581a792acc13a03461d38a4bf409b9f9081a724f96104a5fb3cec01697eb",
+    "guid": "76c242df8e36ace4da632dce7555609d",
+    "size": 2652
+  },
+  {
+    "path": "Assets/Resonator/AI/Validation/Rest_Resonating.png",
+    "sha256": "6709cc9953793b1620e8d878e29d2842233a742323dfebb10e7c44bf97bc42c6",
+    "guid": "",
+    "size": 154695
+  },
+  {
+    "path": "Assets/Resonator/AI/Validation/Rest_Resonating.png.meta",
+    "sha256": "345a43511e24567ffd2b9dab69e31ea15707f9a42378b92491aed648fe59726c",
+    "guid": "202bd0da4c311e140b60e13025599f56",
+    "size": 2652
+  },
+  {
+    "path": "Assets/Resonator/AI/Validation/ScenarioReport.json",
+    "sha256": "0078b99a0032767342a36d0e3500d5524a9a7ad0dff950fcc70e150f03d5ec68",
+    "guid": "",
+    "size": 1857
+  },
+  {
+    "path": "Assets/Resonator/AI/Validation/ScenarioReport.json.meta",
+    "sha256": "2f262e6cc13ce83404159abec6bc0efa41d062492f7d6ef776ff6491f5803433",
+    "guid": "0ee80230de300d249aa3dcd5d267c13a",
+    "size": 158
+  },
+  {
+    "path": "Assets/Resonator/AI/Validation/Workbench_AttackDisplacement.png",
+    "sha256": "3a501f908c15b76509adfac707732f03eeba1a5f6cf8cc0dad33b55c700e251d",
+    "guid": "",
+    "size": 151156
+  },
+  {
+    "path": "Assets/Resonator/AI/Validation/Workbench_AttackDisplacement.png.meta",
+    "sha256": "a38e3d55f0686502758b01f575e53cd683472eb19ed9564b1987b52401a90b0f",
+    "guid": "13d6983ab62f54a4ca983911d762c234",
+    "size": 2652
+  },
+  {
+    "path": "Assets/Resonator/AI/Validation/Workbench_ComboBlend.png",
+    "sha256": "399421b3fb8ce28902aceaf9f36bf30bf6c65288330ebd5e20551653c47464cc",
+    "guid": "",
+    "size": 140439
+  },
+  {
+    "path": "Assets/Resonator/AI/Validation/Workbench_ComboBlend.png.meta",
+    "sha256": "43149eb966454209d79bf1eb27afc3278e3350e686fd804c08823088aecc1637",
+    "guid": "e7459633491344343a69a35c30bfac92",
+    "size": 2652
+  },
+  {
+    "path": "Assets/Resonator/AI/Validation/Workbench_Kick24.png",
+    "sha256": "aabe38a0b37016042f6a8a812b78f0fb2699ddd449b91278b169e23eeaf68674",
+    "guid": "",
+    "size": 130261
+  },
+  {
+    "path": "Assets/Resonator/AI/Validation/Workbench_Kick24.png.meta",
+    "sha256": "ddb085af784531f3fb1b20b12ccd5af89e8a5d9f88aa222308b3316dd4f7a13f",
+    "guid": "1784858cecdfdeb49aef56209b5291fe",
+    "size": 2652
+  },
+  {
+    "path": "Assets/Resonator/AI/Validation/WorkbenchPreviewReport.json",
+    "sha256": "4abf8357692c9d1e07b2c7707588bd061323184be19f2c9fe90933e77473c757",
+    "guid": "",
+    "size": 464
+  },
+  {
+    "path": "Assets/Resonator/AI/Validation/WorkbenchPreviewReport.json.meta",
+    "sha256": "29301f9b22cc650f8bd806f179ea6a2c2f59c0f993ebb5f2127e6303744893f3",
+    "guid": "8e0a7f0d841c8c24a8bd9058b079bf5a",
+    "size": 158
+  },
+  {
+    "path": "Assets/Resonator/AI/Validation.meta",
+    "sha256": "7128dcadfdf6ae2a7257e30b93129988e380353b8dde27eb3f03f5e7d6e7d7b2",
+    "guid": "4adac2067a16f3d44aea9f87c4adde4a",
+    "size": 172
+  },
+  {
+    "path": "Assets/Resonator/AI.meta",
+    "sha256": "e931470b26eed5c1ffa39650b5534f8b9b648e37581302dbba81fc3cb3cef055",
+    "guid": "c832c2f6398af79458846a78fdfca8c4",
+    "size": 172
+  },
+  {
+    "path": "Assets/Resonator/Animations/Resonator_Walking.fbx",
+    "sha256": "51c779a271aebd256b62fc8268876e351123813481857e97b76f8826e6d00263",
+    "guid": "",
+    "size": 780220
+  },
+  {
+    "path": "Assets/Resonator/Animations/Resonator_Walking.fbx.meta",
+    "sha256": "1017a9fa4bf2342308cfe1c3ab0ad0b7c12ced77764c0942490513b46a79f022",
+    "guid": "35737f72de6780440961232c413fd164",
+    "size": 3754
+  },
+  {
+    "path": "Assets/Resonator/Animations/Resonator_Zombie_Agonizing.fbx",
+    "sha256": "7283b6410dbf3417fc1a973c7eef642372666044760fb348796b08cd90325993",
+    "guid": "",
+    "size": 2220172
+  },
+  {
+    "path": "Assets/Resonator/Animations/Resonator_Zombie_Agonizing.fbx.meta",
+    "sha256": "d072cf788bd61f766c4fe59f210680642d8a450725b501e523ef351d3e8e2058",
+    "guid": "c31fa0f97fb86a04db2fd2b9212b0740",
+    "size": 3764
+  },
+  {
+    "path": "Assets/Resonator/Animations/Resonator_Zombie_Attack.fbx",
+    "sha256": "97a3c6684e326a52f7eb143ed6712906ffb65f4374428c9b4a73cf87f6653602",
+    "guid": "",
+    "size": 1217404
+  },
+  {
+    "path": "Assets/Resonator/Animations/Resonator_Zombie_Attack.fbx.meta",
+    "sha256": "359a37392034a9c943a8793fa6d0c8e19f7b627b4cb1b38739bec277802022a4",
+    "guid": "79c5acb99c5ae834abbe21a24ca8850a",
+    "size": 3761
+  },
+  {
+    "path": "Assets/Resonator/Animations/Resonator_Zombie_Death.fbx",
+    "sha256": "3eb1f026a8bfd0f01ff93c9fc7501163e625ff9af721122a02ae06e7ab6fecc8",
+    "guid": "",
+    "size": 984780
+  },
+  {
+    "path": "Assets/Resonator/Animations/Resonator_Zombie_Death.fbx.meta",
+    "sha256": "9fd2420aded3074e4fee49cb0b781a5d5354d735e341841d0747e1f36b140a9a",
+    "guid": "c828f8c5b6659124689d9c0786f66d86",
+    "size": 3759
+  },
+  {
+    "path": "Assets/Resonator/Animations/Resonator_Zombie_Headbutt.fbx",
+    "sha256": "20f124c9ff33c4366f0cd913c4aa60f8abded43521482f7a88248d3b2552bd50",
+    "guid": "",
+    "size": 933292
+  },
+  {
+    "path": "Assets/Resonator/Animations/Resonator_Zombie_Headbutt.fbx.meta",
+    "sha256": "ab891d1e72a22559a1f7dd4c86c03cd68d800e127b296d4e9ce8aa954f1a6219",
+    "guid": "a404e684e46abaf41969754d19c5e272",
+    "size": 3762
+  },
+  {
+    "path": "Assets/Resonator/Animations/Resonator_Zombie_Kicking.fbx",
+    "sha256": "4803e721cef7a781072941ca422b7371615eb0affc912f9d82afb3139c2a08e7",
+    "guid": "",
+    "size": 1042828
+  },
+  {
+    "path": "Assets/Resonator/Animations/Resonator_Zombie_Kicking.fbx.meta",
+    "sha256": "864a930b449680b8d48fe2884398aa100a97f58ca27e46f5a11fee3accdf66f1",
+    "guid": "310424232d595374f87f0774694446bf",
+    "size": 3762
+  },
+  {
+    "path": "Assets/Resonator/Animations/Resonator_Zombie_Punching.fbx",
+    "sha256": "12ebe32e5e64bda99ecd888332bb2b024c17a9e615445577956c7bb76dc86f13",
+    "guid": "",
+    "size": 1099212
+  },
+  {
+    "path": "Assets/Resonator/Animations/Resonator_Zombie_Punching.fbx.meta",
+    "sha256": "95df3ba9a0b91247d6b0508e7b9f1edf2e31b6f90e918836e58fdd64027aa222",
+    "guid": "dce340848b660374bbae57030b9a14bd",
+    "size": 3763
+  },
+  {
+    "path": "Assets/Resonator/Animations/Resonator_Zombie_Reaction_Hit.fbx",
+    "sha256": "361dfaa025e86c61f099a5a7b047078044e7ba511b40529ab8ce2e1396f8d3fa",
+    "guid": "",
+    "size": 860652
+  },
+  {
+    "path": "Assets/Resonator/Animations/Resonator_Zombie_Reaction_Hit.fbx.meta",
+    "sha256": "45b18906425a72b42d1622ff040a3483dfc03458230ded54b623b45c4df3c32b",
+    "guid": "2d712db44ced8c64fbc2af7bd53b236f",
+    "size": 3766
+  },
+  {
+    "path": "Assets/Resonator/Animations/Resonator_Zombie_Running.fbx",
+    "sha256": "34fb1eedcdc5096d22498d53163733e01bab22e78b6c2bb830999403f4480cd8",
+    "guid": "",
+    "size": 654412
+  },
+  {
+    "path": "Assets/Resonator/Animations/Resonator_Zombie_Running.fbx.meta",
+    "sha256": "adbdad68745e4e3a7e6851bd499d427b466630b55a51d7d6f8a3b4f3c235b602",
+    "guid": "6168356f17f684e498f33c7af3edd078",
+    "size": 3761
+  },
+  {
+    "path": "Assets/Resonator/Animations/Resonator_Zombie_Scream.fbx",
+    "sha256": "34b01ef869a7c4b4a54b2a544145c1848787fc64c8e3f8e718b2ffcaa5858bf6",
+    "guid": "",
+    "size": 966092
+  },
+  {
+    "path": "Assets/Resonator/Animations/Resonator_Zombie_Scream.fbx.meta",
+    "sha256": "5f3c1f474230ef33918af00cda6a029c58def4f94995b236e15c4b54f9ff23be",
+    "guid": "2eb6a6d730eab5b429e56974966b7ad4",
+    "size": 3760
+  },
+  {
+    "path": "Assets/Resonator/Animations/Resonator_Zombie_Stumbling.fbx",
+    "sha256": "0ba7a6862c9305cfc9e0c373be6ed55794269689b2d8c33571ee111b4abacfe4",
+    "guid": "",
+    "size": 1266172
+  },
+  {
+    "path": "Assets/Resonator/Animations/Resonator_Zombie_Stumbling.fbx.meta",
+    "sha256": "8418a572d98f77b3e2352dd5f50ce02b17094b61663d8345f3cb0d9bed2aa185",
+    "guid": "7a4bdcb1bccecae4c85d76aa0efee2c9",
+    "size": 3764
+  },
+  {
+    "path": "Assets/Resonator/Animations/Zombie_01_Attack_Walking.fbx",
+    "sha256": "d46bef5a244f6e35e0afbb08295c86ee0b3ff153041680083df526e2fa481ec1",
+    "guid": "",
+    "size": 2867804
+  },
+  {
+    "path": "Assets/Resonator/Animations/Zombie_01_Attack_Walking.fbx.meta",
+    "sha256": "a7b5602c82f761693a2b7472e6ba3581d53210a6a4f8d14154e72f072f1de3e0",
+    "guid": "b53a6e2d98208c140b98132d68958560",
+    "size": 3762
+  },
+  {
+    "path": "Assets/Resonator/Animations/Zombie_02_Being_Shot.fbx",
+    "sha256": "1e53c05c67f0163c12be4ce7d68d694c8fec10d67dfd27f37e04e6f14d933377",
+    "guid": "",
+    "size": 3432428
+  },
+  {
+    "path": "Assets/Resonator/Animations/Zombie_02_Being_Shot.fbx.meta",
+    "sha256": "de2a211354beb01d8d400a1c5a431883d143adfb58c15c3a8c8d352ea8db7daf",
+    "guid": "91991012973f6cb4a90d0f73f23d42bc",
+    "size": 3758
+  },
+  {
+    "path": "Assets/Resonator/Animations/Zombie_03_Feeding_Ground.fbx",
+    "sha256": "5ca55d49f66c75715b441fbd7bf3b9f9fe99c4ad9f6d45dde9d3535d86934c24",
+    "guid": "",
+    "size": 3130172
+  },
+  {
+    "path": "Assets/Resonator/Animations/Zombie_03_Feeding_Ground.fbx.meta",
+    "sha256": "72e712ceedbf53eda8a7c0c9f9f44431e397eb702ec367e12fe6d81bb5596c61",
+    "guid": "457512903de03c842a218820db38f6d8",
+    "size": 3762
+  },
+  {
+    "path": "Assets/Resonator/Animations/Zombie_04_Idle_Restless.fbx",
+    "sha256": "adea3665af04ac28c335320f3828ed276ce60c8b2d3d0efb39b3718df8aefdb3",
+    "guid": "",
+    "size": 5570428
+  },
+  {
+    "path": "Assets/Resonator/Animations/Zombie_04_Idle_Restless.fbx.meta",
+    "sha256": "164c110d9e061e23aa4eef95827531f12b865030958b0d243352e15911d8c026",
+    "guid": "978dd0105f51d4149a7c5ed87fb319ec",
+    "size": 3762
+  },
+  {
+    "path": "Assets/Resonator/Animations/Zombie_05_Idle_Slow.fbx",
+    "sha256": "1ad76fc20c2cfbba0d57e09750d49fb56f3c756728e0cfa48643f9ee7b060a8c",
+    "guid": "",
+    "size": 4892876
+  },
+  {
+    "path": "Assets/Resonator/Animations/Zombie_05_Idle_Slow.fbx.meta",
+    "sha256": "c29bb5bf0944a39b499608e546f341b49dd9c04d0084622896d5d9a6c2333f16",
+    "guid": "5fbcddd4e47807a49ba64e9f4e40f046",
+    "size": 3757
+  },
+  {
+    "path": "Assets/Resonator/Animations/Zombie_06_WakeUp_Transform.fbx",
+    "sha256": "e49d5da017ecd0cca74ba0ad5132a809e09f485a5d35e67a26add8a7b0f0d9b9",
+    "guid": "",
+    "size": 3817388
+  },
+  {
+    "path": "Assets/Resonator/Animations/Zombie_06_WakeUp_Transform.fbx.meta",
+    "sha256": "d63e7e545e990369678be458b131b0f52923de2cb4a389482a045615f4287039",
+    "guid": "1145de7522c43104e88007e08e42d879",
+    "size": 3764
+  },
+  {
+    "path": "Assets/Resonator/Animations/Zombie_07_Walk.fbx",
+    "sha256": "b86e0697db8fba44ecbe4f4a34f53d0c46537840a2f7eac164d3406fa10c3647",
+    "guid": "",
+    "size": 3124716
+  },
+  {
+    "path": "Assets/Resonator/Animations/Zombie_07_Walk.fbx.meta",
+    "sha256": "64fb3c1920ab330fcbca108cb61d4de37ad93a010668754273ec959b2e5dc5d0",
+    "guid": "7b146427cf53c0a4db75d04c63c846b0",
+    "size": 3752
+  },
+  {
+    "path": "Assets/Resonator/Animations/Zombie_08_Walk_Slow.fbx",
+    "sha256": "a081dc55aaf38a06d82831d3632e3729ebf2905a51bb7eae84a48d56cae10a17",
+    "guid": "",
+    "size": 4111676
+  },
+  {
+    "path": "Assets/Resonator/Animations/Zombie_08_Walk_Slow.fbx.meta",
+    "sha256": "da0b30b7105aa9687a7be9688864547ee7682bd4e44f12cdf3fcec9b3ce85951",
+    "guid": "cb770ffd0ce1ed843b4614413fbfd532",
+    "size": 3757
+  },
+  {
+    "path": "Assets/Resonator/Animations.meta",
+    "sha256": "8a38f51b032426dc0d14f620ad69a95fc223c1e95998a759c76fb93057f481e9",
+    "guid": "0918c052d6c6da6449c6e38895aa527f",
+    "size": 172
+  },
+  {
+    "path": "Assets/Resonator/Editor/ResonatorImport.cs",
+    "sha256": "c24592cbd581429e6e76b6bba02d9adafc089f83f581a577b4825decfcfe1cba",
+    "guid": "",
+    "size": 7675
+  },
+  {
+    "path": "Assets/Resonator/Editor/ResonatorImport.cs.meta",
+    "sha256": "5a46c0304ea8d16e2cb418aeaecb07b4e224a532ac2291673d766552950ab52a",
+    "guid": "dafcbd2148a1a7b41bad833603f7bd9d",
+    "size": 59
+  },
+  {
+    "path": "Assets/Resonator/Editor.meta",
+    "sha256": "b5167aca15ad9706634b8543ff9e1a77a0a634c99f5216edb73925cb2fd74c18",
+    "guid": "bbc34ad294d6bdb448ff23189916c5ad",
+    "size": 172
+  },
+  {
+    "path": "Assets/Resonator/manifest.json",
+    "sha256": "a383d4b1862eded4c28005d2826f0f57639021094e5e5794e7ba03a8caaa2437",
+    "guid": "",
+    "size": 13752
+  },
+  {
+    "path": "Assets/Resonator/manifest.json.meta",
+    "sha256": "c90894661449298dfb45daa6fdeb152b23be5b78775487c808f19595460b0825",
+    "guid": "88022a89ae4b3df41a8c60d5abf706ac",
+    "size": 158
+  },
+  {
+    "path": "Assets/Resonator/Materials/Clothing_Unity.mat",
+    "sha256": "35b1fe591081b998cc66214d13ca28da333672abe4bebc3c3962f3fbb2deda7b",
+    "guid": "",
+    "size": 4066
+  },
+  {
+    "path": "Assets/Resonator/Materials/Clothing_Unity.mat.meta",
+    "sha256": "cbfc05edbabbf83f72bb4e5097db3a1da1cec7ef4cd8e0b96722b5f6a92c043a",
+    "guid": "593eb94650231ba4f9ae08c40caf3855",
+    "size": 188
+  },
+  {
+    "path": "Assets/Resonator/Materials/Crystal_Clothing_Unity.mat",
+    "sha256": "274211600e4c2a5b583cb169687b8dc7158e1853269f32acbe9dca7f237024a5",
+    "guid": "",
+    "size": 4073
+  },
+  {
+    "path": "Assets/Resonator/Materials/Crystal_Clothing_Unity.mat.meta",
+    "sha256": "43324264d9cbc576c1809c7e0ac8e5bad93500ac1d48e538b7f36c2903ef5420",
+    "guid": "7324099b23d8d114883b988f13839d70",
+    "size": 188
+  },
+  {
+    "path": "Assets/Resonator/Materials/Crystal_SculptedHeadSkin_Unity.mat",
+    "sha256": "e0a6d78d71641f4fdc8eb258b58ef635791483cb167982ff687d251454e69f59",
+    "guid": "",
+    "size": 4082
+  },
+  {
+    "path": "Assets/Resonator/Materials/Crystal_SculptedHeadSkin_Unity.mat.meta",
+    "sha256": "82b84c8bee4facd5da9cd7dfd543b2b3e8562725a41622ad43ae8980657bd6d3",
+    "guid": "499253d89ad46af49b0fec0ffb3c1934",
+    "size": 188
+  },
+  {
+    "path": "Assets/Resonator/Materials/Ground.mat",
+    "sha256": "3f7a6c68ad8603934d5c28df4bc8b9c1655389bd056094c266cd95f4a3707238",
+    "guid": "",
+    "size": 3836
+  },
+  {
+    "path": "Assets/Resonator/Materials/Ground.mat.meta",
+    "sha256": "29f832aab10215dd961e435971ae2b603c7b9813bf1e0dd05a4d0af5984ccf81",
+    "guid": "ee7bbf9106b683e45aebb386f429eaa7",
+    "size": 188
+  },
+  {
+    "path": "Assets/Resonator/Materials/SculptedHeadSkin_Unity.mat",
+    "sha256": "c6f6a0503c09814ea3639e0de99d32d9a4ae8f2c1a5bdb5a05e77f8e1976703a",
+    "guid": "",
+    "size": 4074
+  },
+  {
+    "path": "Assets/Resonator/Materials/SculptedHeadSkin_Unity.mat.meta",
+    "sha256": "0016d94c108f74c53737cb45a66058a9505e01b678141c3aa952717ae290c367",
+    "guid": "269563d297a96cb45a73d9d8f3599e29",
+    "size": 188
+  },
+  {
+    "path": "Assets/Resonator/Materials/StudioSky.mat",
+    "sha256": "10dc66354569d3dd5314cecae16892dd59b159bdda4de74449ede1ecda2455df",
+    "guid": "",
+    "size": 988
+  },
+  {
+    "path": "Assets/Resonator/Materials/StudioSky.mat.meta",
+    "sha256": "90d5c91b7fe9998bd340f64e19ebe94770a815ecae8ceb26615d47ac0f04110c",
+    "guid": "dca232845b3e80e4d85bc706c6c47ad9",
+    "size": 188
+  },
+  {
+    "path": "Assets/Resonator/Materials.meta",
+    "sha256": "7af491acd3963eb04e1ec66abadab526116f1fa79f1cd843c0bea4a7cacb8940",
+    "guid": "e6982dc6a750ba543ba70042daa67333",
+    "size": 172
+  },
+  {
+    "path": "Assets/Resonator/Models/Resonator.fbx",
+    "sha256": "5b2e961e817908c7f760f204eae136f2666c9340b4c47db077a17216bfd5fd7d",
+    "guid": "",
+    "size": 1618908
+  },
+  {
+    "path": "Assets/Resonator/Models/Resonator.fbx.meta",
+    "sha256": "cfb6b7787dc711fb84dd6de0797ba746fd199f8490e4272f908a213d94178fab",
+    "guid": "90ad1193285d0794281da4b11f55a2ca",
+    "size": 2891
+  },
+  {
+    "path": "Assets/Resonator/Models.meta",
+    "sha256": "c92501368f62e49b520aaf4e8bf5a8182b8204d03d58c689f72b88f667af8b55",
+    "guid": "0e8516d47e1c1324690e4ba648d69217",
+    "size": 172
+  },
+  {
+    "path": "Assets/Resonator/Prefabs/ResonatorScientist.prefab",
+    "sha256": "c9448e98865aa997d92dda68fa039d590d839f41948c89a8245d78e12b3f18a2",
+    "guid": "",
+    "size": 133985
+  },
+  {
+    "path": "Assets/Resonator/Prefabs/ResonatorScientist.prefab.meta",
+    "sha256": "cedf44915b60669f65e597873813a7cd018739558213f445fbb614bb5a5cab71",
+    "guid": "38805a82a20135f499759937372e22e1",
+    "size": 154
+  },
+  {
+    "path": "Assets/Resonator/Prefabs.meta",
+    "sha256": "781575398fe49549a263aeb8fe567972fe086bb9926f300291d12d4ec7953007",
+    "guid": "e688902d0da812e43b6d519080cd05e1",
+    "size": 172
+  },
+  {
+    "path": "Assets/Resonator/README.md",
+    "sha256": "e94e89733e454a913d673847a345abbb47765aad54e66d30536fa163a594e844",
+    "guid": "",
+    "size": 2083
+  },
+  {
+    "path": "Assets/Resonator/README.md.meta",
+    "sha256": "2c9c225fa62018ee00897ffac2a73fdd8342bca4eec31ea13917d6ded5d5021a",
+    "guid": "c8f7545a6515f2d4ea6a833916386569",
+    "size": 158
+  },
+  {
+    "path": "Assets/Resonator/Resonator.controller",
+    "sha256": "8b8175a6ca12c7078f70b5aedf8f335fed4daec6df86f96cbd27f2f28341392d",
+    "guid": "",
+    "size": 16862
+  },
+  {
+    "path": "Assets/Resonator/Resonator.controller.meta",
+    "sha256": "ed2aacb57a1a9c77757a27c4d2bb3740c9f37239c1c85b893797637981cd3460",
+    "guid": "304b1c3e027e5144c8fac2aa8543e935",
+    "size": 188
+  },
+  {
+    "path": "Assets/Resonator/Runtime/ResonatorAnimationPreview.cs",
+    "sha256": "dacf0d75ed7444d9d78e3f3c531a351fe59f028c24cb78318b1a1b8011df4fb0",
+    "guid": "",
+    "size": 876
+  },
+  {
+    "path": "Assets/Resonator/Runtime/ResonatorAnimationPreview.cs.meta",
+    "sha256": "4464486b3fe350204339516ac5f7d88fb8aa089136b633a2470e1de428cc6c8c",
+    "guid": "a9f7772663fa07940a79d94e535324a4",
+    "size": 59
+  },
+  {
+    "path": "Assets/Resonator/Runtime.meta",
+    "sha256": "30bb9200c333bb395195ed997dfac2ccb3af977c4e113bce494b4a22e7cf8065",
+    "guid": "c47642ab2832d9b4b9dd25d8aed5f2cf",
+    "size": 172
+  },
+  {
+    "path": "Assets/Resonator/Scenes/ResonatorPreview.unity",
+    "sha256": "f415b053ea8c1a2d8657d7f109272065d18be7389104015a44372c8b9839ebc8",
+    "guid": "",
+    "size": 24966
+  },
+  {
+    "path": "Assets/Resonator/Scenes/ResonatorPreview.unity.meta",
+    "sha256": "63d2fce51baf4c14dc66c557b4af145ac5df878b52e603ab9441a99ffffa1834",
+    "guid": "0dede7671cd358b4ea5e4617380dc09d",
+    "size": 155
+  },
+  {
+    "path": "Assets/Resonator/Scenes.meta",
+    "sha256": "f18ea97e774cbe14a43b3c9f3d784d2266a9cc8b353813705df1d0e3d53f5768",
+    "guid": "fcddc0e11f2dbda499723aa7bb7c401f",
+    "size": 172
+  },
+  {
+    "path": "Assets/Resonator/Textures/Clothing_BaseColor.png",
+    "sha256": "46ec78556d793b6179a21b7419cbf845948159ab8ecacf9426dea8d8400e3639",
+    "guid": "",
+    "size": 7378239
+  },
+  {
+    "path": "Assets/Resonator/Textures/Clothing_BaseColor.png.meta",
+    "sha256": "30d541a2ecd3f076b5a90263fb11a7483aadfe45860ce092c9e75dfb605e33e6",
+    "guid": "d76a98e145084f4408c14dfd3c086268",
+    "size": 2652
+  },
+  {
+    "path": "Assets/Resonator/Textures/Clothing_Normal.png",
+    "sha256": "909fae897c4a82f55da9e9ac25dc04f627d94cfdd63014d9e45a1cb893e4772f",
+    "guid": "",
+    "size": 21407488
+  },
+  {
+    "path": "Assets/Resonator/Textures/Clothing_Normal.png.meta",
+    "sha256": "a66ba9bbcf1e82d0d130c2b297bc71af2542132908b3bc8833d14d0ef2b18a42",
+    "guid": "154bf965f09ae314dbfac7f957b91943",
+    "size": 2652
+  },
+  {
+    "path": "Assets/Resonator/Textures/Clothing_Surface.png",
+    "sha256": "97d579be4cb592ac262c1ff5cb85646700dba88b2836f599b2cab1062d10fd06",
+    "guid": "",
+    "size": 8370176
+  },
+  {
+    "path": "Assets/Resonator/Textures/Clothing_Surface.png.meta",
+    "sha256": "1daf3ed7abd04688006b049a9f506d3cbdd0eb73007852fdf74ee692dc9d876e",
+    "guid": "8ebe300e75409bc4e9fd2fa014aa0fb5",
+    "size": 2652
+  },
+  {
+    "path": "Assets/Resonator/Textures/SculptedHeadSkin_BaseColor.png",
+    "sha256": "d3e2b5e82025b78eaf2c8d0b556e4e087fedb5c62285808228c5a8569ddfcf52",
+    "guid": "",
+    "size": 3337727
+  },
+  {
+    "path": "Assets/Resonator/Textures/SculptedHeadSkin_BaseColor.png.meta",
+    "sha256": "ee210adc021b924983d901e8890f2f7eb023ae64b653e9b880ff707ae5165143",
+    "guid": "0aa0a0151d132304f8148f045d420af3",
+    "size": 2652
+  },
+  {
+    "path": "Assets/Resonator/Textures/SculptedHeadSkin_Normal.png",
+    "sha256": "1cc359e286e987abb0d1c9b22e5651bfa2287f7c719968e10d61c3ce34bbd793",
+    "guid": "",
+    "size": 14433644
+  },
+  {
+    "path": "Assets/Resonator/Textures/SculptedHeadSkin_Normal.png.meta",
+    "sha256": "efc7cce0594f7d602fc6c1d0d3ea40599eddd6be8d4eb966894fac5c8676d764",
+    "guid": "c05465b92a35430448bbc9680790d685",
+    "size": 2652
+  },
+  {
+    "path": "Assets/Resonator/Textures/SculptedHeadSkin_Surface.png",
+    "sha256": "fa4b4eb242aba7807da58cedc604727616533f27d7eda03fa45f54ff79d5bb60",
+    "guid": "",
+    "size": 5217595
+  },
+  {
+    "path": "Assets/Resonator/Textures/SculptedHeadSkin_Surface.png.meta",
+    "sha256": "877d959a670a2133d1a6be9516fab00595588377edde46ed60129abd4b206855",
+    "guid": "fe12c92c733977f4e9e3c0d08736582c",
+    "size": 2652
+  },
+  {
+    "path": "Assets/Resonator/Textures.meta",
+    "sha256": "6131bab7c031f3ab1082ac2abb17ed392e985859a1aac0a2998c2fc4412cc009",
+    "guid": "57daf4222e3ab4549aa906e1c8529766",
+    "size": 172
+  },
+  {
+    "path": "Assets/Resonator/Validation/Final_Resonator_Walking.png",
+    "sha256": "805733ece4e14b06af2a65b3c7e58966806b4de6c8f5eaf2f32278f0a82ff5ad",
+    "guid": "",
+    "size": 208808
+  },
+  {
+    "path": "Assets/Resonator/Validation/Final_Resonator_Walking.png.meta",
+    "sha256": "d4d508a0d7023fd2cc2686f9f270c069707e2107cf9d5ce676ceda01fb1a6acb",
+    "guid": "17344119110c9184d8e9317c107b090e",
+    "size": 2652
+  },
+  {
+    "path": "Assets/Resonator/Validation/Final_Resonator_Zombie_Attack.png",
+    "sha256": "88842736e7dc9fe867163fd7e600370f6454a1419e98e646d36948d66ff6f673",
+    "guid": "",
+    "size": 183278
+  },
+  {
+    "path": "Assets/Resonator/Validation/Final_Resonator_Zombie_Attack.png.meta",
+    "sha256": "b78fb1b3bc0fb716747652e161193813ac000ab2b99e5805ca762348728c4e73",
+    "guid": "d4c199c589fbe504d9bdd4381455a7a4",
+    "size": 2652
+  },
+  {
+    "path": "Assets/Resonator/Validation/Final_Resonator_Zombie_Death.png",
+    "sha256": "d41c8dcf4d6e0f9162227b3d974a04fe1653884c4bb87aa49383ee617999a1fe",
+    "guid": "",
+    "size": 130907
+  },
+  {
+    "path": "Assets/Resonator/Validation/Final_Resonator_Zombie_Death.png.meta",
+    "sha256": "b2e2560b8ae2f1d0fc2c5258cb8131b2582dd6ac43b131dd6055a8c4ec2551fd",
+    "guid": "589c61d39407ec94a9b1848d3cc8fc97",
+    "size": 2652
+  },
+  {
+    "path": "Assets/Resonator/Validation/Final_Resonator_Zombie_Kicking.png",
+    "sha256": "c3f1e662b40739a0d7f65438bde71fc2e95160351b8fa0afbbc7a26ee47959a0",
+    "guid": "",
+    "size": 192744
+  },
+  {
+    "path": "Assets/Resonator/Validation/Final_Resonator_Zombie_Kicking.png.meta",
+    "sha256": "999b02ecf9d0d6ff4775a10696ea9a0cdf60e02c0a1eba65ea93f90140b019c7",
+    "guid": "8a0ed08935a9bc2439276f845ee2bbe8",
+    "size": 2652
+  },
+  {
+    "path": "Assets/Resonator/Validation/PlayValidation.cs.txt",
+    "sha256": "bc484713a95dbc4a026e43978f1243170b4ff60f21f9d136927666fb89872296",
+    "guid": "",
+    "size": 1167
+  },
+  {
+    "path": "Assets/Resonator/Validation/PlayValidation.cs.txt.meta",
+    "sha256": "beedd33833beb6552d70b3b8b2fe59b680ef5eb2f01a050196c4ad09be75ff27",
+    "guid": "fd7a510b11d89c340972652ab5fba091",
+    "size": 158
+  },
+  {
+    "path": "Assets/Resonator/Validation.meta",
+    "sha256": "62ec1a66be2f79a489b3129ee645f7fa1550bdd152385b9921f8666ed84506e8",
+    "guid": "32ddba3392303cf4ebc41b89734edb70",
+    "size": 172
+  },
+  {
+    "path": "Assets/Resonator.meta",
+    "sha256": "159b40a92404dbfbe059af57109397df95777dfe004463fa7115cc48e8f01451",
+    "guid": "396c52944d0f84e46b8b1d23a2030959",
+    "size": 172
+  },
+  {
+    "path": "Assets/Scenes/SampleScene.unity",
+    "sha256": "07fce8b04804ddccb3026db5b43d8dc41ba138e49d50d36a5c24877081eacdca",
+    "guid": "",
+    "size": 11413
+  },
+  {
+    "path": "Assets/Scenes/SampleScene.unity.meta",
+    "sha256": "b5815a6b12afaf810577bc89041c4ce46516c7cd6609693f8db616f8e5584d80",
+    "guid": "99c9720ab356a0642a771bea13969a05",
+    "size": 155
+  },
+  {
+    "path": "Assets/Scenes.meta",
+    "sha256": "cf02eba43c4e37c4ef42ff3742f78d808854bfa1279b171852847cce0852052e",
+    "guid": "47148f0d89f2175478b3f1a3e8f7aa2f",
+    "size": 172
+  },
+  {
+    "path": "Assets/Settings/DefaultVolumeProfile.asset",
+    "sha256": "3a6f825e8d07fe8b9f3b52e7d4e2dfa0e22c555b22335adb19f0ecc66dfa38dd",
+    "guid": "",
+    "size": 23987
+  },
+  {
+    "path": "Assets/Settings/DefaultVolumeProfile.asset.meta",
+    "sha256": "efbcb026cee6b8e32fdf27018c06b0515296a6ccbb43969e792fea270310700a",
+    "guid": "ab09877e2e707104187f6f83e2f62510",
+    "size": 189
+  },
+  {
+    "path": "Assets/Settings/Mobile_Renderer.asset",
+    "sha256": "aa93274c9521fa941170becec9e87c5fa36b8587eefd5eeb5c0eed0d1d4b1dbe",
+    "guid": "",
+    "size": 1713
+  },
+  {
+    "path": "Assets/Settings/Mobile_Renderer.asset.meta",
+    "sha256": "a148ee2b4987b05b8ff7ae5f9bf84916184f77aefddc821dceb551f5a69f8179",
+    "guid": "65bc7dbf4170f435aa868c779acfb082",
+    "size": 189
+  },
+  {
+    "path": "Assets/Settings/Mobile_RPAsset.asset",
+    "sha256": "2d5182d2b8884ac88bc6ed033a0a722c23cfb15a7bc8b7daa38db37227bafd09",
+    "guid": "",
+    "size": 4650
+  },
+  {
+    "path": "Assets/Settings/Mobile_RPAsset.asset.meta",
+    "sha256": "53ea46647712c615fd1a3f2e0dddfa8559eeedc649e9a1dbf93ff913de28544c",
+    "guid": "5e6cbd92db86f4b18aec3ed561671858",
+    "size": 189
+  },
+  {
+    "path": "Assets/Settings/PC_Renderer.asset",
+    "sha256": "3d0b01d8ded3327263b6690be128a3de58d17c514943ae42fe743a3e084a9c79",
+    "guid": "",
+    "size": 3439
+  },
+  {
+    "path": "Assets/Settings/PC_Renderer.asset.meta",
+    "sha256": "b5df8ddb2708c6ed4c133a5ff9ee95a75cc20e4ee3ed6181366a61aedbaf31ec",
+    "guid": "f288ae1f4751b564a96ac7587541f7a2",
+    "size": 189
+  },
+  {
+    "path": "Assets/Settings/PC_RPAsset.asset",
+    "sha256": "abf557dd6c27aac17ab0d2c2d6455605f32ec07f75fb55c3e9781509395fa3a7",
+    "guid": "",
+    "size": 4669
+  },
+  {
+    "path": "Assets/Settings/PC_RPAsset.asset.meta",
+    "sha256": "bb469b9b6f318e9e9bed29c3b2e73e79371c04743c6f95dd6603941f1cd3e53e",
+    "guid": "4b83569d67af61e458304325a23e5dfd",
+    "size": 189
+  },
+  {
+    "path": "Assets/Settings/SampleSceneProfile.asset",
+    "sha256": "a8677d4bac051d24caa11cd622e39f968155ee277bfce132274f1de225692fe9",
+    "guid": "",
+    "size": 3703
+  },
+  {
+    "path": "Assets/Settings/SampleSceneProfile.asset.meta",
+    "sha256": "2e23abc214069f0adbf2b2207f1db54be7876629ec2a3681d0f4aa5b61622ef0",
+    "guid": "10fc4df2da32a41aaa32d77bc913491c",
+    "size": 182
+  },
+  {
+    "path": "Assets/Settings/UniversalRenderPipelineGlobalSettings.asset",
+    "sha256": "18b81ea0862c66f3062ab1b32aa49859b219554fae0adbc4c8ffa640697a9708",
+    "guid": "",
+    "size": 25551
+  },
+  {
+    "path": "Assets/Settings/UniversalRenderPipelineGlobalSettings.asset.meta",
+    "sha256": "f61661d8bc8dbe531daf09f6211ef978c7ba145c9207c8e76524396ae0722d7c",
+    "guid": "18dc0cd2c080841dea60987a38ce93fa",
+    "size": 189
+  },
+  {
+    "path": "Assets/Settings.meta",
+    "sha256": "73c8e19843240273facb0af6bdbf430d719e397aded705629594060ce25ce7ad",
+    "guid": "709f11a7f3c4041caa4ef136ea32d874",
+    "size": 172
+  },
+  {
+    "path": "Assets/TutorialInfo/Icons/URP.png",
+    "sha256": "1d17a9ff3537859abe2c008603d29d90cf43191ae77aa386167cc65e53ba03d9",
+    "guid": "",
+    "size": 24069
+  },
+  {
+    "path": "Assets/TutorialInfo/Icons/URP.png.meta",
+    "sha256": "b330f1fcfc4e6ceccc95fc34a38434141603469b135633e1c4e8a03c19f9fdbc",
+    "guid": "727a75301c3d24613a3ebcec4a24c2c8",
+    "size": 3156
+  },
+  {
+    "path": "Assets/TutorialInfo/Icons.meta",
+    "sha256": "546e7d7af6b4d5e17d284c8f1188d05472e681911b8359905ee9b9e20769a106",
+    "guid": "8a0c9218a650547d98138cd835033977",
+    "size": 193
+  },
+  {
+    "path": "Assets/TutorialInfo/Layout.wlt",
+    "sha256": "0a18bf035aa7ce914f19f7ce6b60a5a2d33e2371af6f492a8ea7a1bc78755b8b",
+    "guid": "",
+    "size": 15479
+  },
+  {
+    "path": "Assets/TutorialInfo/Layout.wlt.meta",
+    "sha256": "b8745a251df078ffa75dbaac0c4c6debecb61ab306b5b119a490ce6c635a11d8",
+    "guid": "eabc9546105bf4accac1fd62a63e88e6",
+    "size": 176
+  },
+  {
+    "path": "Assets/TutorialInfo/Scripts/Editor/ReadmeEditor.cs",
+    "sha256": "d2023934bc2be23af69cd930ade85eff41c5db0a6f6666b05324b975befdb5b5",
+    "guid": "",
+    "size": 6677
+  },
+  {
+    "path": "Assets/TutorialInfo/Scripts/Editor/ReadmeEditor.cs.meta",
+    "sha256": "f59080b424c16fa13edd105bf006fdbad98c11fce0c921043e63c8877f144cd9",
+    "guid": "476cc7d7cd9874016adc216baab94a0a",
+    "size": 264
+  },
+  {
+    "path": "Assets/TutorialInfo/Scripts/Editor.meta",
+    "sha256": "7036bdbc8af05799b5fd508484343b35c28a68b390198da4673d34357d7d667f",
+    "guid": "3ad9b87dffba344c89909c6d1b1c17e1",
+    "size": 193
+  },
+  {
+    "path": "Assets/TutorialInfo/Scripts/Readme.cs",
+    "sha256": "c09c93844f93eb252a6fb39c222d169c63a63e96008fd040b9e7628c3e7ccc2e",
+    "guid": "",
+    "size": 302
+  },
+  {
+    "path": "Assets/TutorialInfo/Scripts/Readme.cs.meta",
+    "sha256": "80a3df9969fab6e656583ee9bbca884d0507e2b7de3417f6ea3118fba901cd60",
+    "guid": "fcf7219bab7fe46a1ad266029b2fee19",
+    "size": 317
+  },
+  {
+    "path": "Assets/TutorialInfo/Scripts.meta",
+    "sha256": "930d0c8276cea1559a3e315f8500ea6ca8b58d980eee3b44aaa1d461742c47e0",
+    "guid": "5a9bcd70e6a4b4b05badaa72e827d8e0",
+    "size": 193
+  },
+  {
+    "path": "Assets/TutorialInfo.meta",
+    "sha256": "07f022e5932c833d026e020b27d73452ebd781993b616d76003494af1e140946",
+    "guid": "ba062aa6c92b140379dbc06b43dd3b9b",
+    "size": 172
+  },
+  {
+    "path": "Assets/备份拳套/Gauntlet/Animations/Clips.json",
+    "sha256": "20cdd78162d53f8a9bff994dd0d133815c667b77eaf274ca5357d6fc21618be9",
+    "guid": "",
+    "size": 22869
+  },
+  {
+    "path": "Assets/备份拳套/Gauntlet/Animations/Clips.json.meta",
+    "sha256": "255f65f231c77ba27bf2866e60d89c4b310157a1150d7d64b7ff8bd485bd48d1",
+    "guid": "b10a8cba0a774b34390d65d46dfed6ce",
+    "size": 158
+  },
+  {
+    "path": "Assets/备份拳套/Gauntlet/Animations/Gauntlet.controller",
+    "sha256": "eaf6f4a095dfa8a9ae78f3ea10d30083b9f9a3d68be02266a7ec7ce3b7af10d0",
+    "guid": "",
+    "size": 10141
+  },
+  {
+    "path": "Assets/备份拳套/Gauntlet/Animations/Gauntlet.controller.meta",
+    "sha256": "35b943ff7fa90e3a1b7d8781e97863c04a422366464ad3017a1e525be8ebe451",
+    "guid": "2ed71912b63adee4b99c0201d26afdc3",
+    "size": 188
+  },
+  {
+    "path": "Assets/备份拳套/Gauntlet/Animations/Gauntlet_charge.fbx",
+    "sha256": "8b06782efa4fc714cfe17b975008f109e0872690e794baea0810dcb5ab2c3a22",
+    "guid": "",
+    "size": 784044
+  },
+  {
+    "path": "Assets/备份拳套/Gauntlet/Animations/Gauntlet_charge.fbx.meta",
+    "sha256": "d278f0afe2d49b1b0738ebdad5c4984c7a73f3d540a93d4faa1f661ff2678ecc",
+    "guid": "8cf1abb0154e24749a7d79d5cd3ef430",
+    "size": 3754
+  },
+  {
+    "path": "Assets/备份拳套/Gauntlet/Animations/Gauntlet_charge_full.fbx",
+    "sha256": "40f37c9454e90d6b40d5807d99baa85fdb6013586be92122f108948ce9d2c3eb",
+    "guid": "",
+    "size": 616316
+  },
+  {
+    "path": "Assets/备份拳套/Gauntlet/Animations/Gauntlet_charge_full.fbx.meta",
+    "sha256": "87817a37564b3622e11b6ca42daeb743fff7771947b1f4d5aa7b421829b7752a",
+    "guid": "b172ac8feff954b489e86ff0b63d10c1",
+    "size": 3758
+  },
+  {
+    "path": "Assets/备份拳套/Gauntlet/Animations/Gauntlet_Discard.fbx",
+    "sha256": "8664e1b1c9783b2d2c7b26728849d28c41f4b0da213467c1f3bc08417650fba7",
+    "guid": "",
+    "size": 687884
+  },
+  {
+    "path": "Assets/备份拳套/Gauntlet/Animations/Gauntlet_Discard.fbx.meta",
+    "sha256": "2e35a740d5a2e21fa81af3c545a6fc3f951e4674942931466480676e5a57d2e2",
+    "guid": "1a3be2c2f1c54df4bb7d58196651706c",
+    "size": 3762
+  },
+  {
+    "path": "Assets/备份拳套/Gauntlet/Animations/Gauntlet_Discard2.fbx",
+    "sha256": "911fda7e9720c5d94bcfe4282af7ba0c2df85fd12e3ccffffbd159f9a6df2889",
+    "guid": "",
+    "size": 687884
+  },
+  {
+    "path": "Assets/备份拳套/Gauntlet/Animations/Gauntlet_Discard2.fbx.meta",
+    "sha256": "9db47cec7b607c0466793e3b7c4a4fc8961c071e49ba459104e18b61392ecc38",
+    "guid": "e2c463a9f5f1b4c478ff1f94a7942c59",
+    "size": 3763
+  },
+  {
+    "path": "Assets/备份拳套/Gauntlet/Animations/Gauntlet_Discard3.fbx",
+    "sha256": "5002b4d8abd0622e78f2940e2fba018352b59d2857ef31bbcf0772306af56d9f",
+    "guid": "",
+    "size": 687884
+  },
+  {
+    "path": "Assets/备份拳套/Gauntlet/Animations/Gauntlet_Discard3.fbx.meta",
+    "sha256": "c7ce7d9c286d633fc0f03a1e84266ef33e2486071b30a504b45ce0134582a3bd",
+    "guid": "30db8b16b07806f47b78ee37965378c5",
+    "size": 3763
+  },
+  {
+    "path": "Assets/备份拳套/Gauntlet/Animations/Gauntlet_Idle.fbx",
+    "sha256": "968db3bbb2f8d3f09dc0e50a4a2e9cb036d8d991e2108b8ddc600d4695f07d64",
+    "guid": "",
+    "size": 691004
+  },
+  {
+    "path": "Assets/备份拳套/Gauntlet/Animations/Gauntlet_Idle.fbx.meta",
+    "sha256": "f6a930c25539ead8ebfba2100a763be0b43fcffa45c92f47c83aeb62584a08fb",
+    "guid": "daaa4170fe96b9f448208eb4e54d78ea",
+    "size": 3752
+  },
+  {
+    "path": "Assets/备份拳套/Gauntlet/Animations/Gauntlet_Parry-Hit.fbx",
+    "sha256": "b7643ea284666594a94429d5767152fce6dbc86d74a18d87d31e7a44ab682b38",
+    "guid": "",
+    "size": 435084
+  },
+  {
+    "path": "Assets/备份拳套/Gauntlet/Animations/Gauntlet_Parry-Hit.fbx.meta",
+    "sha256": "4cc415ba0b21e0ea95d457e013f67df027f3cdfc0abb15936a38ded5b907df40",
+    "guid": "0efe47bab58ef6b47a7375bdf2e5fb5a",
+    "size": 3756
+  },
+  {
+    "path": "Assets/备份拳套/Gauntlet/Animations/Gauntlet_Parry-Holster.fbx",
+    "sha256": "225166f8ce590afc56562644a6ac81c315727bc400884761bfd163d827463d53",
+    "guid": "",
+    "size": 435084
+  },
+  {
+    "path": "Assets/备份拳套/Gauntlet/Animations/Gauntlet_Parry-Holster.fbx.meta",
+    "sha256": "51a2cad22aa2fc206d4ba1581027ce82b5e1b02761f40bc0354567cafcbb0c6b",
+    "guid": "b0da204ccb48f38408d941f41556549e",
+    "size": 3760
+  },
+  {
+    "path": "Assets/备份拳套/Gauntlet/Animations/Gauntlet_Parry-Keep.fbx",
+    "sha256": "168aacd7ae413b022c1fe991cb923827bf16d5a7f845dd8836054f6e179fe657",
+    "guid": "",
+    "size": 668220
+  },
+  {
+    "path": "Assets/备份拳套/Gauntlet/Animations/Gauntlet_Parry-Keep.fbx.meta",
+    "sha256": "2ae2753468005c368accceaae893d296d5d394e72c7fd2fd2cda17701cd39dbc",
+    "guid": "b05805cff92f4904ea63269fb83c4096",
+    "size": 3758
+  },
+  {
+    "path": "Assets/备份拳套/Gauntlet/Animations/Gauntlet_Parry-Start.fbx",
+    "sha256": "2a48a5ac8d98d659d2222d45336bf28929691d6fc8a3e4350ab5ec42508ff3ce",
+    "guid": "",
+    "size": 435084
+  },
+  {
+    "path": "Assets/备份拳套/Gauntlet/Animations/Gauntlet_Parry-Start.fbx.meta",
+    "sha256": "2001d35d47e58b3ddf305d6b261e44ac50de31f413df1c15a76ad8129efb9b54",
+    "guid": "d4914ed103abb7145aad38b0bdfec6cf",
+    "size": 3758
+  },
+  {
+    "path": "Assets/备份拳套/Gauntlet/Animations/Gauntlet_punch1.fbx",
+    "sha256": "2605f3036caeb61b0cf08d9687c9bcdcf327f453ccc27657fc6249ff43ab01b0",
+    "guid": "",
+    "size": 559692
+  },
+  {
+    "path": "Assets/备份拳套/Gauntlet/Animations/Gauntlet_punch1.fbx.meta",
+    "sha256": "95b0d36a5cc3a3e8e4b37f9d7fc238d263919fc9ef2570c907a4378eb4e172cf",
+    "guid": "9671e1e070de6294e8eb5d32280bfb58",
+    "size": 3754
+  },
+  {
+    "path": "Assets/备份拳套/Gauntlet/Animations/Gauntlet_punch2.fbx",
+    "sha256": "6e9171805310baa85b45f90aad0431f95eabaf53931270efb8aa55158a7bf25e",
+    "guid": "",
+    "size": 488316
+  },
+  {
+    "path": "Assets/备份拳套/Gauntlet/Animations/Gauntlet_punch2.fbx.meta",
+    "sha256": "f52f4bae4e9db715b6f3f13516f857e134c21d1e1145c1c7c26e23d9c6e53e1b",
+    "guid": "65ba415dc8595bb459d7cf81308505a7",
+    "size": 3754
+  },
+  {
+    "path": "Assets/备份拳套/Gauntlet/Animations/Gauntlet_punch3.fbx",
+    "sha256": "af03f19c596cf4cc44e6545e2f4fe6669eea76281a10a1fbc944ae5f8b01d3b0",
+    "guid": "",
+    "size": 500012
+  },
+  {
+    "path": "Assets/备份拳套/Gauntlet/Animations/Gauntlet_punch3.fbx.meta",
+    "sha256": "7a7cba5f14efe6c21c1654aaa08d6c25787ebe0acc1eb30c12b7eb82bdf6faaf",
+    "guid": "f626cf474038c834ba96c0c545962b15",
+    "size": 3754
+  },
+  {
+    "path": "Assets/备份拳套/Gauntlet/Animations/Gauntlet_punch4.fbx",
+    "sha256": "5705153010de24889007030ee7c153bf6a10b786402f2b16f84cbd60a94ad9c6",
+    "guid": "",
+    "size": 500012
+  },
+  {
+    "path": "Assets/备份拳套/Gauntlet/Animations/Gauntlet_punch4.fbx.meta",
+    "sha256": "bc665eb82dd128f8eb776e2c5c42786fbd8741dbfd6d7eb99aa358fde2d3fddb",
+    "guid": "210f05dd16c5946408e53ddfec07273b",
+    "size": 3754
+  },
+  {
+    "path": "Assets/备份拳套/Gauntlet/Animations.meta",
+    "sha256": "86b3c1a564091bb523e326bfae53e5c9aeff3d3a16066566bf152f6a0d3500b7",
+    "guid": "8adaacc3c7649ce48a707b9215b12185",
+    "size": 172
+  },
+  {
+    "path": "Assets/备份拳套/Gauntlet/CINEMACHINE_CAMERA.md",
+    "sha256": "044d0a619ca0cdb145e29d0ee8aa159d723a88a47bbdd34e72f0197de7791ef2",
+    "guid": "",
+    "size": 891
+  },
+  {
+    "path": "Assets/备份拳套/Gauntlet/CINEMACHINE_CAMERA.md.meta",
+    "sha256": "d19fa3977784552dfae7a185d17550891881e86579875c0b67d0ca060fb3697d",
+    "guid": "ab725d388832d9148a27e2b8117fd3b9",
+    "size": 158
+  },
+  {
+    "path": "Assets/备份拳套/Gauntlet/Editor/GauntletAssetTools.cs",
+    "sha256": "b5719e62d54f08c623a5548daa3153843522e8350f7ca0c8752fbbdf2b216cc2",
+    "guid": "",
+    "size": 14496
+  },
+  {
+    "path": "Assets/备份拳套/Gauntlet/Editor/GauntletAssetTools.cs.meta",
+    "sha256": "5cbe0b24a6681e3e76ad90518f8e52bd44204622590ce7dcae4e440c72fef3a1",
+    "guid": "9e3d74127dc399c49b66b6615b6c1925",
+    "size": 59
+  },
+  {
+    "path": "Assets/备份拳套/Gauntlet/Editor/GauntletCinemachineSetup.cs",
+    "sha256": "874a21737d932d1f2c3cd2004b814cc42cd9cf64dd757f6c084b1b10c8de2be3",
+    "guid": "",
+    "size": 6041
+  },
+  {
+    "path": "Assets/备份拳套/Gauntlet/Editor/GauntletCinemachineSetup.cs.meta",
+    "sha256": "8f8ede94375b5e48e00c6046df7f334ac5e37be4cee321c6953f22b778eed968",
+    "guid": "cfe96b94d90176c40bfcc200a3018cdd",
+    "size": 59
+  },
+  {
+    "path": "Assets/备份拳套/Gauntlet/Editor.meta",
+    "sha256": "0f647cb6c90543f318fd4a673cb1cb7c077c0071af60e8566a7262c54821ef20",
+    "guid": "0257719be3ee5b34dbb73dd41317486b",
+    "size": 172
+  },
+  {
+    "path": "Assets/备份拳套/Gauntlet/GauntletAnimationPlayer.cs",
+    "sha256": "c56f83fdad9e18d53776c46763ae539b353bf367e061c8c4b51bf00fc668d2f7",
+    "guid": "",
+    "size": 3478
+  },
+  {
+    "path": "Assets/备份拳套/Gauntlet/GauntletAnimationPlayer.cs.meta",
+    "sha256": "af5f96ce30069555d3353f7d5e9e7066b7377696f1ab631c95b0ca4381317a1a",
+    "guid": "fd6e9c4b130ed1b4bad210b99f419516",
+    "size": 59
+  },
+  {
+    "path": "Assets/备份拳套/Gauntlet/GauntletCameraMotion.cs",
+    "sha256": "77ee30a4ef83a35b967ceddea1e056fbf76d00de76b817b808b52aeb9539bada",
+    "guid": "",
+    "size": 2835
+  },
+  {
+    "path": "Assets/备份拳套/Gauntlet/GauntletCameraMotion.cs.meta",
+    "sha256": "e6f10c6936ac10a386d7ebc3c0709466dd6f365ce5598def3ca20f3976d0b71f",
+    "guid": "8b3c9311190197c48b8a990a6ee8fc82",
+    "size": 59
+  },
+  {
+    "path": "Assets/备份拳套/Gauntlet/GauntletPreviewControls.cs",
+    "sha256": "efe85f975ffeb86a06dd26a435eedf4c5fd367f853a830453e745e445496389e",
+    "guid": "",
+    "size": 1888
+  },
+  {
+    "path": "Assets/备份拳套/Gauntlet/GauntletPreviewControls.cs.meta",
+    "sha256": "f3589f73a9e07ef36ac1c6169f478d85adaf3cedb71af841d8136f9b5c6ae71e",
+    "guid": "cc2471d48c8022f4184206df0cf8509e",
+    "size": 59
+  },
+  {
+    "path": "Assets/备份拳套/Gauntlet/Materials/Gauntlet_Atlas.mat",
+    "sha256": "61773800f30d142ff1c2eae1afcee26afda69577899ea4d5bb38cbb2a67e4738",
+    "guid": "",
+    "size": 1502
+  },
+  {
+    "path": "Assets/备份拳套/Gauntlet/Materials/Gauntlet_Atlas.mat.meta",
+    "sha256": "0939b411e566b9d9550df40af792f6bf834277871a0ae06f30b86c191b23a486",
+    "guid": "ffc2e12e1a438424997e216c28e3220a",
+    "size": 188
+  },
+  {
+    "path": "Assets/备份拳套/Gauntlet/Materials/Gauntlet_Glass.mat",
+    "sha256": "652a8a1d170820ec6510021579e74e72429f4486b036e3cec91364e334ea1ebc",
+    "guid": "",
+    "size": 3928
+  },
+  {
+    "path": "Assets/备份拳套/Gauntlet/Materials/Gauntlet_Glass.mat.meta",
+    "sha256": "e4a9e0a146633e50ebd36ea4d5ecd7828051b2f24a7c66f1b7b0060e523852ba",
+    "guid": "555cf1215e6586d418c369af4de2e2a9",
+    "size": 188
+  },
+  {
+    "path": "Assets/备份拳套/Gauntlet/Materials/GauntletAtlas.shader",
+    "sha256": "0bdeb70943c37519fb1b89e950cb4c50fe55c7b3ee311011fd09186da8fc2700",
+    "guid": "",
+    "size": 3862
+  },
+  {
+    "path": "Assets/备份拳套/Gauntlet/Materials/GauntletAtlas.shader.meta",
+    "sha256": "4382b735c5326b52bbc3c7511212ab92b435198cc62d839d4a37c11d77734c6f",
+    "guid": "aeb2eb0ff0da39b4aba0be9e11975449",
+    "size": 204
+  },
+  {
+    "path": "Assets/备份拳套/Gauntlet/Materials.meta",
+    "sha256": "a15e104600f09792c292e601ba8e1da840dc7567e52dd78331804bae3ae21d3d",
+    "guid": "d224f9683338e7e498bc88cf785e0c80",
+    "size": 172
+  },
+  {
+    "path": "Assets/备份拳套/Gauntlet/Models/Gauntlet_Model.fbx",
+    "sha256": "bb385d0cd274c40a73fb2ee389332e7dca8d0f9d4551779a6351e8322dc31cf5",
+    "guid": "",
+    "size": 2038108
+  },
+  {
+    "path": "Assets/备份拳套/Gauntlet/Models/Gauntlet_Model.fbx.meta",
+    "sha256": "91b93561bd8f03b15121d8c5deff6d5aaa61be7ec412cd692cecd1d15b600c95",
+    "guid": "50cf96c5d08f79143bacafd96bae9141",
+    "size": 2892
+  },
+  {
+    "path": "Assets/备份拳套/Gauntlet/Models.meta",
+    "sha256": "0a2ebc05fe58d8179211491b3deec0d432c368e0a1e9d42707fb8968fcf93861",
+    "guid": "48a63763a2395754c9991cff2b26aa36",
+    "size": 172
+  },
+  {
+    "path": "Assets/备份拳套/Gauntlet/Prefabs/GauntletViewModel.prefab",
+    "sha256": "2a4a0b2697e7dad7d6be40ce76ad1cb1f60eb461171e06ddc90b2f40c94bc8e3",
+    "guid": "",
+    "size": 108852
+  },
+  {
+    "path": "Assets/备份拳套/Gauntlet/Prefabs/GauntletViewModel.prefab.meta",
+    "sha256": "cae94fb49186d91c6eeb5ede2069b754dcb36f4c39f095bd7fadde5cf27a09d9",
+    "guid": "5b29a22175004c343a1ad604937b06dc",
+    "size": 154
+  },
+  {
+    "path": "Assets/备份拳套/Gauntlet/Prefabs.meta",
+    "sha256": "0c9c6a89afb5f110a0e398e64d12dd2c7d55b4295d3593b60b609b403f83b9e6",
+    "guid": "95bd68e5de576fc43a34871ac34b755e",
+    "size": 172
+  },
+  {
+    "path": "Assets/备份拳套/Gauntlet/README_拳套使用说明.md",
+    "sha256": "086882331e57a3648c21dbe252292fdd0d307bd91ac37d64ba0b78d7c7c3e6e7",
+    "guid": "",
+    "size": 8103
+  },
+  {
+    "path": "Assets/备份拳套/Gauntlet/README_拳套使用说明.md.meta",
+    "sha256": "73ccdce395a5e5803bb23f4e38958218acc690d9eae24950815ff3915d2b95e9",
+    "guid": "e2390fdcfe6f1ae45878f603582df655",
+    "size": 158
+  },
+  {
+    "path": "Assets/备份拳套/Gauntlet/Scenes/GauntletPreview.unity",
+    "sha256": "bafc70d20cc6af125c3c0a37f8f51876d8a5d2f7998ea027f2459f095c33467e",
+    "guid": "",
+    "size": 74600
+  },
+  {
+    "path": "Assets/备份拳套/Gauntlet/Scenes/GauntletPreview.unity.meta",
+    "sha256": "176f42adefa5ef7dc0f63f733bd6c3cd7a608968de936d0be7c2fb581c5a4a28",
+    "guid": "9d366e7ea4d57964dad2f7965ff21362",
+    "size": 155
+  },
+  {
+    "path": "Assets/备份拳套/Gauntlet/Scenes.meta",
+    "sha256": "8a0f66e0a66546d80579bdb7c1c3b7156a34f885776e6324e8a957851f827927",
+    "guid": "9cd6d07f9e505dc4abcc0a8c90007d82",
+    "size": 172
+  },
+  {
+    "path": "Assets/备份拳套/Gauntlet/Textures/Gauntlet_BaseColor.png",
+    "sha256": "92b4307237800b5fa5facad3aea12f0ae919579aa83aa9129c65d19b103c210e",
+    "guid": "",
+    "size": 3829476
+  },
+  {
+    "path": "Assets/备份拳套/Gauntlet/Textures/Gauntlet_BaseColor.png.meta",
+    "sha256": "2f7ba2453e857fb07b4d3594a4d29db4b1481216f942adbd7a8465ed7368d908",
+    "guid": "202521c0db5b60648a14f2900de52316",
+    "size": 2652
+  },
+  {
+    "path": "Assets/备份拳套/Gauntlet/Textures/Gauntlet_EmissionRegions.png",
+    "sha256": "c0de3808021557c6eaa0c3698d5040244cdfa3739388e78067a6fe7a8baa2e86",
+    "guid": "",
+    "size": 54308
+  },
+  {
+    "path": "Assets/备份拳套/Gauntlet/Textures/Gauntlet_EmissionRegions.png.meta",
+    "sha256": "c76ffd2d4095340b10faf30c31809615258cc79b11546ba5cf584a4b9737851c",
+    "guid": "7270358732bc0a04397265bb57b2d9a2",
+    "size": 2652
+  },
+  {
+    "path": "Assets/备份拳套/Gauntlet/Textures/Gauntlet_MetallicSmoothness.png",
+    "sha256": "c9c56cb28a255253efabf2d98c7a34f34537b5b16da7058ffd5e3be48f22267c",
+    "guid": "",
+    "size": 1157566
+  },
+  {
+    "path": "Assets/备份拳套/Gauntlet/Textures/Gauntlet_MetallicSmoothness.png.meta",
+    "sha256": "243fb331cd0e3217568dfacfaec90a06620c71147707c25d30feeb0a8ce97d70",
+    "guid": "573d62f56924bec4c89e1ded02ca733a",
+    "size": 2652
+  },
+  {
+    "path": "Assets/备份拳套/Gauntlet/Textures/Gauntlet_Normal.png",
+    "sha256": "027d7e220dbbdab3347d7ec1da4c465a0d3324d0ff675422072ae247ce0ba201",
+    "guid": "",
+    "size": 2291189
+  },
+  {
+    "path": "Assets/备份拳套/Gauntlet/Textures/Gauntlet_Normal.png.meta",
+    "sha256": "76534f7dedae1996fc1b74d99102db82cf82c54145d7265e3d5d7ce2c440f805",
+    "guid": "3f3e064864c33bf43b5008beb427eb57",
+    "size": 2652
+  },
+  {
+    "path": "Assets/备份拳套/Gauntlet/Textures.meta",
+    "sha256": "e2ef52fea94334bfe555f85ab363203c9c7e04e296aad136479aea8ea1d59f5d",
+    "guid": "7d02f513d3b936743b4db5873ffd889b",
+    "size": 172
+  },
+  {
+    "path": "Assets/备份拳套/Gauntlet.meta",
+    "sha256": "c9e24d45b6cbb9590c85808516f773098cd00d48f2b92b6410895987b53c0498",
+    "guid": "12fac1b0f38ef15488e446e28694d68c",
+    "size": 172
+  },
+  {
+    "path": "Assets/备份拳套.meta",
+    "sha256": "90e5cf602cb2c7d378bde127b2424707650035ac220899e0d87dfe290d5537db",
+    "guid": "343134a7f7611584ab517c60ea179d27",
+    "size": 172
+  }
+]

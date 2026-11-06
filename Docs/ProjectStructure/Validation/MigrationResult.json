@@ -1,0 +1,127 @@
+{
+  "moves": [
+    {
+      "from": "Assets/FirstPerson",
+      "to": "Assets/Game/Player"
+    },
+    {
+      "from": "Assets/备份拳套/Gauntlet",
+      "to": "Assets/Game/Player/Gauntlet"
+    },
+    {
+      "from": "Assets/Resonator",
+      "to": "Assets/Game/Enemies/Resonator"
+    },
+    {
+      "from": "Assets/GameActions",
+      "to": "Assets/Game/Shared/Actions"
+    },
+    {
+      "from": "Assets/ModernLab",
+      "to": "Assets/Game/Environment/ModernLab"
+    },
+    {
+      "from": "Assets/NullBoundaryDemo",
+      "to": "Assets/Game/Demo"
+    },
+    {
+      "from": "Assets/Scenes",
+      "to": "Assets/Game/Scenes"
+    },
+    {
+      "from": "Assets/Settings",
+      "to": "Assets/Game/Settings"
+    },
+    {
+      "from": "Assets/InputSystem_Actions.inputactions",
+      "to": "Assets/Game/Input/InputSystem_Actions.inputactions"
+    },
+    {
+      "from": "Assets/TutorialInfo",
+      "to": "Assets/Game/Documentation/TutorialInfo"
+    },
+    {
+      "from": "Assets/Readme.asset",
+      "to": "Assets/Game/Documentation/Readme.asset"
+    },
+    {
+      "from": "Assets/Resonator/AI/Editor/ResonatorAnimationWorkbench.cs",
+      "to": "Assets/Tools/AnimationWorkbench/Editor/ResonatorAnimationWorkbench.cs"
+    },
+    {
+      "from": "Assets/Resonator/AI/Editor/ResonatorAnimationWorkbench.Shared.cs",
+      "to": "Assets/Tools/AnimationWorkbench/Editor/ResonatorAnimationWorkbench.Shared.cs"
+    },
+    {
+      "from": "Assets/Resonator/AI/Editor/ResonatorAnimationWorkbench.Movement.cs",
+      "to": "Assets/Tools/AnimationWorkbench/Editor/ResonatorAnimationWorkbench.Movement.cs"
+    },
+    {
+      "from": "Assets/Resonator/AI/Editor/ResonatorTransitionDrawer.cs",
+      "to": "Assets/Tools/AnimationWorkbench/Editor/ResonatorTransitionDrawer.cs"
+    },
+    {
+      "from": "Assets/GameActions/Editor/ActionSetInspector.cs",
+      "to": "Assets/Tools/AnimationWorkbench/Editor/ActionSetInspector.cs"
+    },
+    {
+      "from": "Assets/GameActions/Editor/GauntletActionsSetup.cs",
+      "to": "Assets/Tools/AnimationWorkbench/Editor/GauntletActionsSetup.cs"
+    }
+  ],
+  "updatedFiles": [
+    "Assets/Game/Demo/README.md",
+    "Assets/Game/Demo/Editor/DemoSceneBuilder.cs",
+    "Assets/Game/Enemies/Resonator/README.md",
+    "Assets/Game/Player/Editor/FirstPersonSetup.cs",
+    "Assets/Game/Player/Editor/ParryTrainingSetup.cs",
+    "Assets/Game/Shared/Actions/README.md",
+    "Assets/Tools/AnimationWorkbench/Editor/GauntletActionsSetup.cs",
+    "Assets/Tools/AnimationWorkbench/Editor/ResonatorAnimationWorkbench.cs",
+    "Assets/Game/Enemies/Resonator/AI/README.md",
+    "Assets/Game/Enemies/Resonator/Editor/ResonatorImport.cs",
+    "Assets/Game/Environment/ModernLab/Editor/ModernLabLayeredShaderBuilder.cs",
+    "Assets/Game/Environment/ModernLab/Editor/ModernLabMaterialSetup.cs",
+    "Assets/Game/Environment/ModernLab/Editor/ModernLabSurfaceInspection.cs",
+    "Assets/Game/Environment/ModernLab/Editor/ModernLabSurfaceV2.cs",
+    "Assets/Game/Player/Gauntlet/Editor/GauntletAssetTools.cs",
+    "Assets/Game/Player/Gauntlet/Editor/GauntletCinemachineSetup.cs",
+    "Assets/Game/Documentation/TutorialInfo/Scripts/Editor/ReadmeEditor.cs",
+    "Assets/Game/Enemies/Resonator/AI/Editor/ResonatorAIBuilder.cs",
+    "Assets/Game/Enemies/Resonator/AI/Editor/ResonatorAttackExitSetup.cs",
+    "Assets/Game/Enemies/Resonator/AI/Editor/ResonatorAttackMotionSetup.cs",
+    "Assets/Game/Enemies/Resonator/AI/Editor/ResonatorHitboxDefaults.cs",
+    "Assets/Game/Enemies/Resonator/AI/Editor/ResonatorNavigationSetup.cs",
+    "Docs/Demo/Verification/实现与验证记录.md",
+    "Docs/FirstPerson/Validation/GauntletActionScenarios.cs",
+    "Docs/FirstPerson/Validation/GauntletLiveScenarios.cs",
+    "Docs/FirstPerson/Validation/SharedWorkbenchScenarios.cs",
+    "Docs/ModernLab/Validation/AdditionalSurfaceChecks.cs",
+    "Docs/ModernLab/Validation/InspectSurfaceChannels.cs",
+    "Docs/ModernLab/Validation/ModernLabMaterialChecks.cs",
+    "Docs/ModernLab/Validation/PreparePreview.cs",
+    "Docs/Resonator/Validation/AIPoseExamples.cs",
+    "Docs/Resonator/Validation/AnimationAuthoringScenarios.cs",
+    "Docs/Resonator/Validation/AttackDisplacementScenarios.cs",
+    "Docs/Resonator/Validation/AttackExitScenarios.cs",
+    "Docs/Resonator/Validation/BoneStability.cs",
+    "Docs/Resonator/Validation/CrowdNavigationScenarios.cs",
+    "Docs/Resonator/Validation/InitializationStability.cs",
+    "Docs/Resonator/Validation/InspectGauntlet.cs",
+    "Docs/Resonator/Validation/InspectGraphPose.cs",
+    "Docs/Resonator/Validation/PlayModeScenarios.cs",
+    "Docs/Resonator/Validation/WorkbenchPreviewScenarios.cs",
+    "ArtSource/ModernLab/build_report.json",
+    "ArtSource/ModernLab/MaterialRevisionPlan_V2.md",
+    "ArtSource/ModernLab/README.md",
+    "ArtSource/ModernLab/surface_v2_report.json",
+    "ArtSource/ModernLab/surface_v2_unity.json",
+    "ArtSource/Gauntlet/Tools/export_charge_full.py",
+    "ArtSource/Gauntlet/Validation/GameplayTest.cs",
+    "ArtSource/ModernLab/Tools/build_materials.py",
+    "ArtSource/ModernLab/Tools/reexport_modules.py",
+    "ArtSource/ModernLab/Tools/revise_surfaces_v2.py",
+    "ProjectSettings/EditorBuildSettings.asset",
+    "ProjectSettings/ProjectSettings.asset"
+  ]
+}

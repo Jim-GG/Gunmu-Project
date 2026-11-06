@@ -1,0 +1,15 @@
+{
+  "success": true,
+  "result": {
+    "output": null,
+    "diagnostics": [],
+    "success": true,
+    "result": {
+      "resourcesProfile": "Assets/Game/Shared/Actions/Resources/GauntletActions.asset",
+      "shaderErrors": [],
+      "scene": "Assets/Game/Environment/ModernLab/Scenes/ModernLabAdditionalSurfaces.unity",
+      "sceneDirty": false,
+      "compiling": false
+    }
+  }
+}

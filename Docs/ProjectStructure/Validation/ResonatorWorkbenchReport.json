@@ -1,0 +1,18 @@
+{
+  "success": true,
+  "result": {
+    "diagnostics": [],
+    "compileMs": 129,
+    "executeMs": 5121,
+    "assemblyName": "PipelineRunScript_ResonatorWorkbenchScenarios_baf2fabc2b8e4043b2f56f7e5a98f54c",
+    "success": true,
+    "result": {
+      "passed": true,
+      "bonePositionError": 0.0,
+      "rootPositionError": 0.0,
+      "blendAngleError": 0.0,
+      "scaledRootDrift": 1.27602124E-08,
+      "previewAttackTravel": 1.78395045
+    }
+  }
+}

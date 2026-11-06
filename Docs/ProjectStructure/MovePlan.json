@@ -1,0 +1,23 @@
+{
+  "folders": ["Assets/Game", "Assets/Game/Enemies", "Assets/Game/Environment", "Assets/Game/Shared", "Assets/Game/Input", "Assets/Game/Documentation", "Assets/Tools", "Assets/Tools/AnimationWorkbench", "Assets/Tools/AnimationWorkbench/Editor"],
+  "moves": [
+    {"from":"Assets/FirstPerson", "to":"Assets/Game/Player"},
+    {"from":"Assets/备份拳套/Gauntlet", "to":"Assets/Game/Player/Gauntlet"},
+    {"from":"Assets/Resonator", "to":"Assets/Game/Enemies/Resonator"},
+    {"from":"Assets/GameActions", "to":"Assets/Game/Shared/Actions"},
+    {"from":"Assets/ModernLab", "to":"Assets/Game/Environment/ModernLab"},
+    {"from":"Assets/NullBoundaryDemo", "to":"Assets/Game/Demo"},
+    {"from":"Assets/Scenes", "to":"Assets/Game/Scenes"},
+    {"from":"Assets/Settings", "to":"Assets/Game/Settings"},
+    {"from":"Assets/InputSystem_Actions.inputactions", "to":"Assets/Game/Input/InputSystem_Actions.inputactions"},
+    {"from":"Assets/TutorialInfo", "to":"Assets/Game/Documentation/TutorialInfo"},
+    {"from":"Assets/Readme.asset", "to":"Assets/Game/Documentation/Readme.asset"},
+    {"from":"Assets/Resonator/AI/Editor/ResonatorAnimationWorkbench.cs", "to":"Assets/Tools/AnimationWorkbench/Editor/ResonatorAnimationWorkbench.cs"},
+    {"from":"Assets/Resonator/AI/Editor/ResonatorAnimationWorkbench.Shared.cs", "to":"Assets/Tools/AnimationWorkbench/Editor/ResonatorAnimationWorkbench.Shared.cs"},
+    {"from":"Assets/Resonator/AI/Editor/ResonatorAnimationWorkbench.Movement.cs", "to":"Assets/Tools/AnimationWorkbench/Editor/ResonatorAnimationWorkbench.Movement.cs"},
+    {"from":"Assets/Resonator/AI/Editor/ResonatorTransitionDrawer.cs", "to":"Assets/Tools/AnimationWorkbench/Editor/ResonatorTransitionDrawer.cs"},
+    {"from":"Assets/GameActions/Editor/ActionSetInspector.cs", "to":"Assets/Tools/AnimationWorkbench/Editor/ActionSetInspector.cs"},
+    {"from":"Assets/GameActions/Editor/GauntletActionsSetup.cs", "to":"Assets/Tools/AnimationWorkbench/Editor/GauntletActionsSetup.cs"}
+  ],
+  "emptyContainer":"Assets/备份拳套"
+}

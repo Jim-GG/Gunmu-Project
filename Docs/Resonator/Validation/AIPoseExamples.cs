@@ -3,7 +3,7 @@ public static class AIPoseExamples
 {
  static void Capture(Camera camera,string filename,Vector3 focus)
  {
-  camera.transform.position=focus+new Vector3(2.8f,1.6f,3.3f);camera.transform.LookAt(focus);var rt=new RenderTexture(1000,800,24);camera.targetTexture=rt;camera.Render();var old=RenderTexture.active;RenderTexture.active=rt;var image=new Texture2D(1000,800,TextureFormat.RGB24,false);image.ReadPixels(new Rect(0,0,1000,800),0,0);image.Apply();File.WriteAllBytes("Assets/Resonator/AI/Validation/"+filename+".png",image.EncodeToPNG());RenderTexture.active=old;camera.targetTexture=null;UnityEngine.Object.DestroyImmediate(image);UnityEngine.Object.DestroyImmediate(rt);
+  camera.transform.position=focus+new Vector3(2.8f,1.6f,3.3f);camera.transform.LookAt(focus);var rt=new RenderTexture(1000,800,24);camera.targetTexture=rt;camera.Render();var old=RenderTexture.active;RenderTexture.active=rt;var image=new Texture2D(1000,800,TextureFormat.RGB24,false);image.ReadPixels(new Rect(0,0,1000,800),0,0);image.Apply();File.WriteAllBytes("Assets/Game/Enemies/Resonator/AI/Validation/"+filename+".png",image.EncodeToPNG());RenderTexture.active=old;camera.targetTexture=null;UnityEngine.Object.DestroyImmediate(image);UnityEngine.Object.DestroyImmediate(rt);
  }
  public static async Task<object> Run()
  {
@@ -11,7 +11,7 @@ public static class AIPoseExamples
   var originals=UnityEngine.Object.FindObjectsByType<ResonatorEnemy>(FindObjectsSortMode.None);foreach(var e in originals){e.enabled=false;e.motor.Stop();}
   var originalRenderers=originals.SelectMany(e=>e.GetComponentsInChildren<Renderer>()).Where(r=>r.enabled).ToArray();foreach(var r in originalRenderers)r.enabled=false;
   var actorGo=new GameObject("Pose target");actorGo.transform.position=new Vector3(0,0,15);var actor=actorGo.AddComponent<ResonatorTarget>();actor.invulnerableForTesting=true;
-  var go=UnityEngine.Object.Instantiate(AssetDatabase.LoadAssetAtPath<GameObject>("Assets/Resonator/AI/Prefabs/ResonatorAgent.prefab"),Vector3.zero,Quaternion.identity);var enemy=go.GetComponent<ResonatorEnemy>();enemy.enabled=false;enemy.target=actor;
+  var go=UnityEngine.Object.Instantiate(AssetDatabase.LoadAssetAtPath<GameObject>("Assets/Game/Enemies/Resonator/AI/Prefabs/ResonatorAgent.prefab"),Vector3.zero,Quaternion.identity);var enemy=go.GetComponent<ResonatorEnemy>();enemy.enabled=false;enemy.target=actor;
   var cameraGo=new GameObject("AI Pose Camera");var camera=cameraGo.AddComponent<Camera>();camera.enabled=false;camera.orthographic=true;camera.orthographicSize=1.35f;camera.clearFlags=CameraClearFlags.SolidColor;camera.backgroundColor=new Color(.07f,.08f,.10f);camera.nearClipPlane=.02f;
   try
   {

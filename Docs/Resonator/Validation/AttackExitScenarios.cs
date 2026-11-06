@@ -8,7 +8,7 @@ public static class AttackExitScenarios
   var originals=UnityEngine.Object.FindObjectsByType<ResonatorEnemy>(FindObjectsSortMode.None);foreach(var e in originals){e.enabled=false;e.motor.Stop();}
   var actorGo=new GameObject("Attack exit target");var actor=actorGo.AddComponent<ResonatorTarget>();actor.invulnerableForTesting=true;
   var collider=actorGo.AddComponent<CapsuleCollider>();collider.height=1.8f;collider.radius=.3f;collider.center=Vector3.up*.9f;
-  var go=UnityEngine.Object.Instantiate(AssetDatabase.LoadAssetAtPath<GameObject>("Assets/Resonator/AI/Prefabs/ResonatorAgent.prefab"));var enemy=go.GetComponent<ResonatorEnemy>();enemy.enabled=false;enemy.target=actor;
+  var go=UnityEngine.Object.Instantiate(AssetDatabase.LoadAssetAtPath<GameObject>("Assets/Game/Enemies/Resonator/AI/Prefabs/ResonatorAgent.prefab"));var enemy=go.GetComponent<ResonatorEnemy>();enemy.enabled=false;enemy.target=actor;
   var profile=UnityEngine.Object.Instantiate(enemy.tuning);enemy.tuning=profile;profile.recoverySeconds=Vector2.one*.6f;
   foreach(var a in new[]{profile.attack,profile.punch,profile.headbutt,profile.kick}){a.animation.speed=1;a.rootMotionScale=0;a.hits=new[]{new HitWindow{startFrame=20,endFrame=23,anchor=HitboxAnchor.Root,position=new Vector3(0,1,1),size=Vector3.one*.6f}};}
   var start=typeof(ResonatorEnemy).GetMethod("BeginAttack",BindingFlags.Instance|BindingFlags.NonPublic);

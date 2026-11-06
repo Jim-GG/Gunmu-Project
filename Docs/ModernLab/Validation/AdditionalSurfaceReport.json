@@ -1,0 +1,25 @@
+{
+  "success": true,
+  "result": {
+    "diagnostics": [],
+    "compileMs": 137,
+    "executeMs": 1561,
+    "assemblyName": "PipelineRunScript_AdditionalSurfaceChecks_3ebc9f22abdb4e1aa241f14db8964b94",
+    "success": true,
+    "result": {
+      "passed": true,
+      "ceilingMetres": [
+        6,
+        3
+      ],
+      "separateColourBands": [
+        "Lime",
+        "Red",
+        "Yellow"
+      ],
+      "greyWhiteChecker": true,
+      "ribbedNormal": true,
+      "renderErrors": 0
+    }
+  }
+}

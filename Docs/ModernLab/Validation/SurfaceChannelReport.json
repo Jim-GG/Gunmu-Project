@@ -1,0 +1,54 @@
+{
+  "success": true,
+  "result": {
+    "diagnostics": [],
+    "compileMs": 98,
+    "executeMs": 5618,
+    "assemblyName": "PipelineRunScript_InspectSurfaceChannels_fcfe1ed78dd54c22a480eb0b318afaec",
+    "success": true,
+    "result": [
+      {
+        "path": "Assets/ModernLab/Textures/Lab_Floor_Resin_Mask.png",
+        "alphaMin": 0.796078444,
+        "alphaMean": 0.819999158,
+        "alphaMax": 0.847058833
+      },
+      {
+        "path": "Assets/ModernLab/Scenes/ModernLabRoomReflection.cubemap",
+        "face": "PositiveX",
+        "mean": 0.3020186,
+        "max": 4.55078125
+      },
+      {
+        "path": "Assets/ModernLab/Scenes/ModernLabRoomReflection.cubemap",
+        "face": "NegativeX",
+        "mean": 0.435518175,
+        "max": 4.578125
+      },
+      {
+        "path": "Assets/ModernLab/Scenes/ModernLabRoomReflection.cubemap",
+        "face": "PositiveY",
+        "mean": 0.129720852,
+        "max": 4.19140625
+      },
+      {
+        "path": "Assets/ModernLab/Scenes/ModernLabRoomReflection.cubemap",
+        "face": "NegativeY",
+        "mean": 0.6259834,
+        "max": 24.3125
+      },
+      {
+        "path": "Assets/ModernLab/Scenes/ModernLabRoomReflection.cubemap",
+        "face": "PositiveZ",
+        "mean": 0.164613739,
+        "max": 4.19140625
+      },
+      {
+        "path": "Assets/ModernLab/Scenes/ModernLabRoomReflection.cubemap",
+        "face": "NegativeZ",
+        "mean": 0.4383483,
+        "max": 33.5
+      }
+    ]
+  }
+}

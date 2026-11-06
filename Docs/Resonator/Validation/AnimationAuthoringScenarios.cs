@@ -8,7 +8,7 @@ public static class AnimationAuthoringScenarios
   var originals=UnityEngine.Object.FindObjectsByType<ResonatorEnemy>(FindObjectsSortMode.None);foreach(var x in originals){x.enabled=false;x.motor.Stop();}
   var actorGo=new GameObject("Hitbox validation actor");actorGo.transform.position=new Vector3(0,0,1.05f);var actor=actorGo.AddComponent<ResonatorTarget>();actor.invulnerableForTesting=true;
   var collider=actorGo.AddComponent<CapsuleCollider>();collider.height=1.8f;collider.radius=.3f;collider.center=Vector3.up*.9f;
-  var go=UnityEngine.Object.Instantiate(AssetDatabase.LoadAssetAtPath<GameObject>("Assets/Resonator/AI/Prefabs/ResonatorAgent.prefab"));var enemy=go.GetComponent<ResonatorEnemy>();enemy.enabled=false;
+  var go=UnityEngine.Object.Instantiate(AssetDatabase.LoadAssetAtPath<GameObject>("Assets/Game/Enemies/Resonator/AI/Prefabs/ResonatorAgent.prefab"));var enemy=go.GetComponent<ResonatorEnemy>();enemy.enabled=false;
   var profile=UnityEngine.Object.Instantiate(enemy.tuning);enemy.tuning=profile;enemy.target=actor;var cases=new List<string>();int damageCount=0;enemy.StrikeResolved+=r=>{if(r!=StrikeResult.Miss)damageCount++;};
   Action reset=()=>{go.transform.SetPositionAndRotation(Vector3.zero,Quaternion.identity);enemy.Initialize(RestActivity.FeignDeath);profile.headbuttContinueChance=0;profile.headbutt.rootMotionScale=0;enemy.TakeDamage(1,Vector3.forward*2);enemy.Tick(profile.hit.EndSeconds+.1f);Physics.SyncTransforms();damageCount=0;};
   Func<HitWindow> box=()=>new HitWindow{startFrame=20,endFrame=23,shape=HitboxShape.Box,anchor=HitboxAnchor.Root,position=new Vector3(0,1,1.05f),size=Vector3.one*.4f,damage=7};
