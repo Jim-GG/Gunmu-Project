@@ -28,7 +28,7 @@
 
 | 分组 | 关键字段（默认值） |
 |---|---|
-| 物理 | 接地阻尼 `0.8` / 弹射后阻尼 `0.02` / 停止阈值 `0.15` / **自动设置刚体参数**（勾选：冻结旋转+插值+连续检测）/ 弹射低阻尼时长 `1.5` / 锁定可累积最高速度 `40` |
+| 物理 | 接地阻尼 `0.8` / **空中阻尼 `0.08`**（离地时用，越小坠落越重） / 弹射后阻尼 `0.02` / 停止阈值 `0.15` / **自动设置刚体参数**（勾选：冻结旋转+插值+连续检测）/ 弹射低阻尼时长 `1.5` / 锁定可累积最高速度 `40` |
 | 滑行物理材质 | 滑行材质（留空=按参数生成）/ 摩擦 `0.05` / 弹性 `0` |
 | 判定阈值 | 冲量间隔 `0.1` / 反射间隔 `0.12` / 撞玩家最低速度 `3.5` / 方块传力最低速度 `3.5` / 前瞻余量 `0.15` / 传力横向 `0.9` / 传力纵向 `1.0` / 对锁定方块纵向 `2.0` / 玩家碰撞体尺寸 `(0.95,1.9,0.95)` / 玩家中心高度 `0.9` / 玩家扫掠余量 `0.4` |
 | 外观（静态） | 静态材质（留空=场景材质）/ 静态贴图（留空=材质自带）/ 静态状态染色（默认勾选） |
@@ -132,7 +132,23 @@ Trigger 或实体碰撞都可以触发；被任意 `KineticBox` 击中也会激�
 
 ---
 
-### 1.8 `PunchTargetHealth` —— 可打击目标血量
+### 1.8 `KineticBoxDropper` —— 运输管道（按间隔冒方块）
+
+配套预制体：`Prefabs/KineticBoxDropper.prefab`（**只有末端一截管段 + 本脚本**），方块用 `Prefabs/KineticBox.prefab`。
+
+| 分组 | 关键字段（默认值） |
+|---|---|
+| 引用 | 动能方块预制体（拖 `Prefabs/KineticBox.prefab`） |
+| 生成 | 生成间隔 `4.5` 秒 / 首次延迟 `1.2` 秒 / 初速度 `(0,-12,0)`（**相对管口朝向**）/ 出生点偏移 `(0,0.4,0)`（本地）/ 同时最多 `2` 个 |
+| 回收 | 低于该世界高度自动销毁 `-25` / 单个最长存活 `30` 秒（0 = 不限） |
+
+- 脚本里没有任何关卡坐标：整个预制体摆到哪里、朝哪里，方块就从那里沿那个方向冒出来（旋转预制体就能改变喷射方向）。
+- 掉进深渊的方块会在低于“回收高度”时自动销毁，不会堆积。
+- 实现 `IPuzzleResettable`：R 复位时清空已冒出的方块；`GameplayGate.IsBlocked`（暂停 / 死亡）时不生成。
+
+---
+
+### 1.9 `PunchTargetHealth` —— 可打击目标血量
 
 | 字段 | 默认 |
 |---|---|
@@ -143,7 +159,7 @@ Trigger 或实体碰撞都可以触发；被任意 `KineticBox` 击中也会激�
 
 ---
 
-### 1.9 共鸣者敌人（`Assets/Resonator/`）
+### 1.10 共鸣者敌人（`Assets/Resonator/`）
 
 预制体：`Resonator/AI/Prefabs/ResonatorAgent.prefab`（根节点：`NavMeshAgent` + `CapsuleCollider` + `ResonatorMotor` + `ResonatorRagdoll` + `ResonatorEnemy` + **`ResonatorPunchTarget`**）。
 
@@ -336,10 +352,11 @@ BouncyWall（斜置、非 Trigger、倍率 1.1~1.2）
 | 场景 | 内容 | 用到的组件 |
 |---|---|---|
 | `Scenes/Soviet_1.unity` | **正式关卡（白模）**：坠落的电梯里出生 → 捡拳套 → 从破墙洞出去 → 深渊上方的 L 形钢走廊 → 轰开堵住门洞的动能方块 → 在房间里把方块从门禁室钢条下方打进去撞开关 → 抬门出口 | `GauntletPickup` + `PlayerGauntletEquipment` + `KineticBox` + `DashCrystal` + `PuzzleSwitch` + `LevelExit`（门禁 = Switch） |
+| `Scenes/Soviet_TheBridge.unity` | **正式关卡（白模）**：拳套能量 0 出生在房间里 → 进入 36×36 的高墙深渊大厅 → 沿“中”字竖笔的钢廊桥走 → 断口对面挂着塔塌桥体 → 右侧高处运输管道不时冒出带初速度的动能方块，落到斜向弹性墙上被弹向断口中央横飞而过 → `Q` 子弹时间 + `E` 锁定它做垫脚跳过去 → 走完对面廊桥，从墙上的门进入房间 | `KineticBoxDropper`（+`KineticBox` 预制体）+ `BouncyWall` + `LevelExit` |
 | `Scenes/Test_01_PunchThrough.unity` | 测试关卡：捡起拳套 → 一拳轰开堵住 1.6 米通道的方块 → 走到出口 | `GauntletPickup` + `PlayerGauntletEquipment` + `KineticBox` + `LevelExit` |
 | `Scenes/Test_02_Combat.unity` | 测试关卡：清掉三只共鸣者，门打开后出口生效 | `ResonatorEncounter` + `ResonatorAgent` + `NavMeshSurface` + `LevelExit`（门禁 = Encounter） |
 | `Scenes/Test_03_Billiards.unity` | 测试关卡：拿晶体充能 → 把方块横向顶到定位挡条对齐 → 从背后一拳送进窄缝 → 击开关抬门 | `KineticBox` + `DashCrystal` + `PuzzleSwitch` + `LevelExit`（门禁 = Switch） |
 
-- 链路：`Test_01_PunchThrough` → `Test_02_Combat` → `Test_03_Billiards`（最终关，`nextSceneName` 留空 = 通知通关）；`Soviet_1` 独立，出口同样留空（= 最终关）。
-- 四个场景都是直接在编辑器里堆基本体块 + 拖组件搭的，没有生成器；想改地图直接在场景里拖物体/改引用即可，不必改脚本。
-- `Test_02_Combat` 需要 `Navigation` 物体（`NavMeshSurface`）重新 Bake 才能让敌人正确寻路；`Soviet_1` 目前没有敌人，不需要 NavMesh。
+- 链路：`Test_01_PunchThrough` → `Test_02_Combat` → `Test_03_Billiards`（最终关）；正式关卡链路：`Soviet_1` → `Soviet_TheBridge`（`nextSceneName` 留空 = 通知通关，后续新增关卡再接上即可）。
+- 五个场景都是直接在编辑器里堆基本体块 + 拖组件搭的，没有生成器；想改地图直接在场景里拖物体/改引用即可，不必改脚本。
+- `Test_02_Combat` 需要 `Navigation` 物体（`NavMeshSurface`）重新 Bake 才能让敌人正确寻路；`Soviet_1` / `Soviet_TheBridge` 目前没有敌人，不需要 NavMesh。

@@ -12,6 +12,7 @@ public class KineticBox : MonoBehaviour, IPuzzleResettable
 {
     [Header("物理参数")]
     [SerializeField, Min(0f)] private float groundLinearDamping = 0.8f;
+    [SerializeField, Min(0f), InspectorName("空中阻尼（离地时）")] private float airborneLinearDamping = 0.08f;
     [SerializeField, Min(0f)] private float launchedLinearDamping = 0.02f;
     [SerializeField, Min(0f)] private float stopSpeedThreshold = 0.15f;
     [SerializeField, InspectorName("自动设置刚体参数（冻结旋转/插值/连续检测）")] private bool applyPhysicsDefaults = true;
@@ -72,6 +73,7 @@ public class KineticBox : MonoBehaviour, IPuzzleResettable
     private Vector3 lastImpulseDirection;
     private float lastImpulseTime = -10f;
     private float lastBouncyWallTime = -10f;
+    private float lastGroundContactTime = -10f;
     private Vector3 recentLinearVelocity;
 
     // Momentum Lock & trajectory mode state
@@ -269,7 +271,8 @@ public class KineticBox : MonoBehaviour, IPuzzleResettable
         }
         else
         {
-            SetDamping(groundLinearDamping);
+            // 离地时用很小的空气阻尼（否则坠落像羽毛），贴地滑行时才用高阻尼把方块刹住。
+            SetDamping(IsOnGround() ? groundLinearDamping : airborneLinearDamping);
         }
 
         // Enforce strict 6-direction horizontal snapping when driven by Player's 6-axis dash
@@ -392,6 +395,24 @@ public class KineticBox : MonoBehaviour, IPuzzleResettable
         normalTowardsPlayer = normalTowardsPlayer.sqrMagnitude > 0.001f ? normalTowardsPlayer.normalized : vel.normalized;
 
         cachedPlayer.ResolveBoxCollision(this, contactPoint, normalTowardsPlayer, vel);
+    }
+
+    /// <summary>最近是否踩在东西上：区分“贴地滑行”与“空中坠落”两种阻尼。</summary>
+    private bool IsOnGround()
+    {
+        return Time.time - lastGroundContactTime < 0.15f;
+    }
+
+    private void OnCollisionStay(Collision collision)
+    {
+        for (int i = 0; i < collision.contactCount; i++)
+        {
+            if (collision.GetContact(i).normal.y > 0.5f)
+            {
+                lastGroundContactTime = Time.time;
+                return;
+            }
+        }
     }
 
     private void OnCollisionEnter(Collision collision)
