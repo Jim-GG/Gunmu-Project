@@ -12,6 +12,7 @@ public class KineticBox : MonoBehaviour, IPuzzleResettable
 {
     [Header("物理参数")]
     [SerializeField, Min(0f)] private float groundLinearDamping = 0.8f;
+    [SerializeField, Min(0f), InspectorName("空中阻尼（离地时）")] private float airborneLinearDamping = 0.08f;
     [SerializeField, Min(0f)] private float launchedLinearDamping = 0.02f;
     [SerializeField, Min(0f)] private float stopSpeedThreshold = 0.15f;
     [SerializeField, InspectorName("自动设置刚体参数（冻结旋转/插值/连续检测）")] private bool applyPhysicsDefaults = true;
@@ -28,7 +29,7 @@ public class KineticBox : MonoBehaviour, IPuzzleResettable
     [SerializeField, InspectorName("反射间隔（秒）"), Min(0f)] private float reflectionInterval = 0.12f;
     [SerializeField, InspectorName("撞玩家判定的最低速度"), Min(0f)] private float minPlayerImpactSpeed = 3.5f;
     [SerializeField, InspectorName("方块之间传力的最低速度"), Min(0f)] private float minBoxTransferSpeed = 3.5f;
-    [SerializeField, InspectorName("前瞻距离余量（米）"), Min(0f)] private float castMargin = 0.15f;
+    [SerializeField, InspectorName("前瞻距离余量（米）"), Min(0f)] private float castMargin = 0.02f;
     [SerializeField, InspectorName("传力横向容差（米）"), Min(0f)] private float boxTransferLateralTolerance = 0.9f;
     [SerializeField, InspectorName("传力纵向容差（米）"), Min(0f)] private float boxTransferVerticalTolerance = 1.0f;
     [SerializeField, InspectorName("对锁定方块的纵向容差（米）"), Min(0f)] private float boxTransferLockedVerticalTolerance = 2.0f;
@@ -72,6 +73,7 @@ public class KineticBox : MonoBehaviour, IPuzzleResettable
     private Vector3 lastImpulseDirection;
     private float lastImpulseTime = -10f;
     private float lastBouncyWallTime = -10f;
+    private float lastGroundContactTime = -10f;
     private Vector3 recentLinearVelocity;
 
     // Momentum Lock & trajectory mode state
@@ -269,7 +271,8 @@ public class KineticBox : MonoBehaviour, IPuzzleResettable
         }
         else
         {
-            SetDamping(groundLinearDamping);
+            // 离地时用很小的空气阻尼（否则坠落像羽毛），贴地滑行时才用高阻尼把方块刹住。
+            SetDamping(IsOnGround() ? groundLinearDamping : airborneLinearDamping);
         }
 
         // Enforce strict 6-direction horizontal snapping when driven by Player's 6-axis dash
@@ -394,6 +397,24 @@ public class KineticBox : MonoBehaviour, IPuzzleResettable
         cachedPlayer.ResolveBoxCollision(this, contactPoint, normalTowardsPlayer, vel);
     }
 
+    /// <summary>最近是否踩在东西上：区分“贴地滑行”与“空中坠落”两种阻尼。</summary>
+    private bool IsOnGround()
+    {
+        return Time.time - lastGroundContactTime < 0.15f;
+    }
+
+    private void OnCollisionStay(Collision collision)
+    {
+        for (int i = 0; i < collision.contactCount; i++)
+        {
+            if (collision.GetContact(i).normal.y > 0.5f)
+            {
+                lastGroundContactTime = Time.time;
+                return;
+            }
+        }
+    }
+
     private void OnCollisionEnter(Collision collision)
     {
         if (isMomentumLocked)
@@ -485,6 +506,15 @@ public class KineticBox : MonoBehaviour, IPuzzleResettable
 
             if (forwardDist > 0f && forwardDist <= hitRadius && lateralDist <= boxTransferLateralTolerance && verticalDist <= maxVertTolerance)
             {
+                // 本帧还没真的贴上（判定前瞻会比接触早一帧），把方块推到接触面再停住，避免看上去“隔空碰撞”。
+                float surfaceGap = forwardDist - (boxCollider.bounds.extents.x + other.boxCollider.bounds.extents.x);
+                if (surfaceGap > 0f)
+                {
+                    float maxSnap = speed * Time.fixedDeltaTime + castMargin;
+                    Vector3 snapped = rb.position + moveDir * Mathf.Min(surfaceGap, maxSnap);
+                    rb.position = snapped;
+                }
+
                 // Transfer impulse strictly along the 6 cardinal axes of the struck box, and stop the Cue Ball box!
                 // 方块之间的传力（任意方块撞任意方块）
                 other.ApplyCardinalImpulse(-moveDir, moveDir, speed, allowVerticalAxis: false);
