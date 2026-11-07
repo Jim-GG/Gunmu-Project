@@ -1575,6 +1575,82 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 173761423}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &219619025
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 219619027}
+  - component: {fileID: 219619026}
+  m_Layer: 0
+  m_Name: "\u6309\u952E\u63D0\u793A"
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &219619026
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 219619025}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba0cce7fe6e8e9d41838f200a2c388b6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::KeyPromptHint
+  player: {fileID: 0}
+  tutorial: {fileID: 0}
+  steps:
+  - focus: {fileID: 254344760}
+    radius: 3.5
+    prefixText: "\u6309\u4E0B"
+    icon: {fileID: 2800000, guid: ebeff95db4bebc0488d54a9450ab4412, type: 3}
+    suffixText: "\u5F00\u542F\u6162\u52A8\u4F5C"
+    whitenIcon: 1
+    goal: 0
+    key: 31
+    areaTarget: {fileID: 0}
+    areaRadius: 3
+    button: {fileID: 0}
+  - focus: {fileID: 0}
+    radius: 3.5
+    prefixText: "\u6309\u4E0B"
+    icon: {fileID: 2800000, guid: 9c5e849f36b0077418fee90536bffbf8, type: 3}
+    suffixText: "\u9501\u5B9A\u5BF9\u51C6\u7684\u7269\u4F53"
+    whitenIcon: 1
+    goal: 0
+    key: 19
+    areaTarget: {fileID: 0}
+    areaRadius: 3
+    button: {fileID: 0}
+  margin: {x: 32, y: 26}
+  fontSize: 18
+  iconSize: 26
+  paddingX: 16
+  paddingY: 8
+  spacing: 8
+  stackBelowTutorial: 1
+--- !u!4 &219619027
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 219619025}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &222620679
 GameObject:
   m_ObjectHideFlags: 0
@@ -2298,6 +2374,37 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 253555757}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &254344759
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 254344760}
+  m_Layer: 0
+  m_Name: "\u63D0\u793A\u89E6\u53D1\u70B9_\u51FA\u623F\u95F4"
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &254344760
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 254344759}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 18, y: 1, z: 0.6}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &262075773
 GameObject:
   m_ObjectHideFlags: 0
@@ -5248,8 +5355,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b129c69e1dec1f438cfe5454e714286, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::LevelExit
-  nextSceneName: Soviet_GetTheBox
-  editorNextScene: {fileID: 102900000, guid: 0dd6c00f0e196d24cba6318b0ffc3044, type: 3}
+  nextSceneName: Soviet_MomentumShaft
+  editorNextScene: {fileID: 102900000, guid: 9e3d7d3868bfe414a8e40946871cf885, type: 3}
   gates: []
   onReached:
     m_PersistentCalls:
@@ -15408,3 +15515,5 @@ SceneRoots:
   - {fileID: 223226956}
   - {fileID: 235561461}
   - {fileID: 1193995318}
+  - {fileID: 254344760}
+  - {fileID: 219619027}

@@ -68,6 +68,8 @@ public class PlayerMovement : MonoBehaviour
     public bool IsDashing => dashTimer > 0f;
     public bool IsBulletTimeActive => isBulletTimeActive;
     public bool HasMomentumRemote { get; private set; }
+    /// <summary>当前是否有被锁定的动能方块（教学提示等只读查询用）。</summary>
+    public bool HasLockedBox => currentLockedBox != null;
 
     public void EquipMomentumRemote() => HasMomentumRemote = true;
     public Vector3 CurrentVelocity => new Vector3(currentHorizontalVelocity.x, verticalSpeed, currentHorizontalVelocity.z);
@@ -718,22 +720,6 @@ public class PlayerMovement : MonoBehaviour
         ChineseGameUI.EnsureFont();
         float cx = Screen.width * 0.5f;
         float cy = Screen.height * 0.5f;
-
-        if (isBulletTimeActive)
-        {
-            GUI.color = new Color(0f, 1f, 0.95f, 0.9f);
-            GUIStyle btStyle = new GUIStyle(GUI.skin.box)
-            {
-                fontSize = 18,
-                fontStyle = FontStyle.Bold,
-                alignment = TextAnchor.MiddleCenter
-            };
-            btStyle.normal.textColor = new Color(0.1f, 1f, 0.95f);
-            string btHint = hoveredBox != null
-                ? (hoveredBox.IsMomentumLocked ? "子弹时间｜按 E 释放目标方块" : "子弹时间｜按 E 锁定目标方块")
-                : "子弹时间已开启｜瞄准方块后按 E";
-            GUI.Box(new Rect(cx - 260f, cy + 42f, 520f, 40f), btHint, btStyle);
-        }
 
         bool hasEnergy = chargedPunch != null && chargedPunch.StoredEnergy > 0;
         GUI.color = hoveredBox != null ? Color.green : (hasEnergy ? Color.cyan : Color.gray);

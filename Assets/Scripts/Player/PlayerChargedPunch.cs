@@ -414,7 +414,5 @@ public class PlayerChargedPunch : MonoBehaviour
             GUI.DrawTexture(new Rect(cell.x, cell.y, cell.width * fill, cell.height), Texture2D.whiteTexture);
             GUI.color = old;
         }
-        if (Time.unscaledTime < feedbackUntil)
-            GUI.Label(new Rect(panel.x + 10f, panel.y + 70f, width - 20f, 25f), feedback);
     }
 }

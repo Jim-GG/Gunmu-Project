@@ -94,14 +94,4 @@ public class ResonatorEncounter : MonoBehaviour, ILevelExitGate
         if (exitDoor != null) exitDoor.SetActive(false);
         onCleared.Invoke();
     }
-
-    private void OnGUI()
-    {
-        if (GameplayGate.IsBlocked || !ready || IsCleared) return;
-        ChineseGameUI.EnsureFont();
-        string hint = equipment != null && !equipment.HasGauntlet
-            ? "按 E 拾取拳套，开启遭遇战。"
-            : $"共鸣者：{spawned}/{enemyCount}｜右键格挡攒充能，左键蓄力反击。";
-        GUI.Label(new Rect(15f, 18f, Screen.width - 30f, 50f), hint);
-    }
 }

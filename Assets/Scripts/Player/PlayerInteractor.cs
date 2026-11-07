@@ -129,11 +129,5 @@ public class PlayerInteractor : MonoBehaviour
             && Cursor.lockState == CursorLockMode.Locked)
             GUI.Label(new Rect(Screen.width / 2f - 12f, Screen.height / 2f - 18f, 24f, 36f),
                 "+", promptStyle);
-        if (target != null && Cursor.lockState == CursorLockMode.Locked)
-            GUI.Label(new Rect(10f, Screen.height - 190f, Screen.width - 20f, 35f),
-                target.Prompt, promptStyle);
-        if (Time.time < feedbackUntil)
-            GUI.Label(new Rect(10f, Screen.height - 230f, Screen.width - 20f, 35f),
-                feedback, promptStyle);
     }
 }
