@@ -75,7 +75,7 @@
 
 ## 四、 当前边界
 
-- 正式关卡目前有 `Soviet_1` → `Soviet_TheBridge`、`Soviet_GetTheBox`（大炮 + 弹性墙循环）与 `Soviet_Traffic`（“中”字形 + 可切角度弹性墙 + 升降廊桥），均为白模（在 `Assets/Scenes/`）；另有三关作为组件使用示例（`Test_01`~`Test_03`）。
+- 正式关卡目前有 `Soviet_1` → `Soviet_TheCatwalk`、`Soviet_GetTheBox`（大炮 + 弹性墙循环）与 `Soviet_Traffic`（“中”字形 + 可切角度弹性墙 + 升降廊桥），均为白模（在 `Assets/Scenes/`）；另有三关作为组件使用示例（`Test_01`~`Test_03`）。
 - 只有共鸣者一种敌人；没有音效。
 - 过场演出用 Timeline / Animator，或 `PuzzleSwitch` 的“移动目标 + 激活偏移”；暂无通用的位移组件。
 - 关卡切换、暂停、死亡重开由 `GameStateManager` 统一管理，新场景载入后自动回到 `Running`。

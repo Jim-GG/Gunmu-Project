@@ -371,13 +371,13 @@ BouncyWall（斜置、非 Trigger、倍率 1.1~1.2）
 1. **发光需要材质开启 Emission 关键字**。现成的有 `Materials/KineticBox_State.mat`、`Materials/BouncyWall_Glow.mat`；`KineticBox` 未指定特殊状态材质时会打警告，`BouncyWall` 会在运行期复制材质并自动打开发光。
 2. **弹性墙不能是 Trigger**，否则完全不生效。
 3. **摆锤/跷跷板的尺寸**：优先改 `摆长`、`板身长度`、`重物初始高度` 这类参数，而不是直接缩放预制体（缩放会让摆长/落点跟着变，虽然会自动测量但不好维护）。
-4. **Build Settings 必须勾选目标场景**，否则 `LevelExit` 的 `Awake` 会报错并禁用自己。当前已勾选：`Test_01_PunchThrough` / `Test_02_Combat` / `Test_03_Billiards` / `Soviet_1` / `Soviet_TheBridge` / `Soviet_GetTheBox` / `Soviet_Traffic`。
+4. **Build Settings 必须勾选目标场景**，否则 `LevelExit` 的 `Awake` 会报错并禁用自己。当前已勾选：`Test_01_PunchThrough` / `Test_02_Combat` / `Test_03_Billiards` / `Soviet_1` / `Soviet_TheCatwalk` / `Soviet_GetTheBox` / `Soviet_Traffic`。
 5. **两套 R 重置并存**：挂了 `RoomRestartController` → R 重载场景；没挂 → R 原位复位（`PuzzleResetUtility.ResetAll()`）。别在一个关卡里同时依赖两种语义。
 6. **KineticBox 的 6 轴吸附**：默认会把水平速度吸附到 ±X/±Z，斜向撞墙的反射方向以吸附后的速度为准。
 7. **箱体、门、抬升机关的自身位移**都是用 `PuzzleSwitch` 的“移动目标 + 激活偏移”实现的；没有专门的位移组件，需要更复杂的过场就用 Timeline / Animator。
 8. **拳套外观与规则分开**：改手感去 `PlayerChargedPunch`，换美术去 `PlayerGauntletView`（只需换 `viewModelPrefab`）。
 9. **拳套美术的预览场景**：`Assets/Gauntlet/Scenes/GauntletPreview.unity` 不依赖游戏玩法脚本，按 1-4 / C / I / P / K / H / O 或左侧按钮直接播片段；`GauntletCameraMotion` 只在预览里有意义，正式玩家由 `PlayerGauntletView` 自动禁用（避免和震屏抢相机）。
-10. **子弹时间高亮要能撑住“动态生成的方块”**：`PlayerMovement` 的 `allBoxes` 缓存会定期重扫（并且进入子弹时间、出现空槽时立即重扫）。早期版本只在 `Start()` 扫一次，导致 `Soviet_TheBridge` 这种全部由 `KineticBoxDropper` 运行时冒方块、旧方块又被回收的关卡完全不高亮。以后再加“运行时生成/销毁方块”的关卡不用改代码。
+10. **子弹时间高亮要能撑住“动态生成的方块”**：`PlayerMovement` 的 `allBoxes` 缓存会定期重扫（并且进入子弹时间、出现空槽时立即重扫）。早期版本只在 `Start()` 扫一次，导致 `Soviet_TheCatwalk` 这种全部由 `KineticBoxDropper` 运行时冒方块、旧方块又被回收的关卡完全不高亮。以后再加“运行时生成/销毁方块”的关卡不用改代码。
 
 ---
 
@@ -406,11 +406,11 @@ BouncyWall（斜置、非 Trigger、倍率 1.1~1.2）
 | `Scenes/Soviet_Traffic.unity` | **正式关卡（白模）**：“中”字形纵深关。出生平台（大炮 + 方块）—（升降廊桥A）—中央塔（同高度环绕钢走廊）—（升降廊桥B·卡死）—终点平台；东侧隔着空档是开关平台。中央塔南面挂一面**可在“斜放/平放”之间切换的弹性墙**，按钮就在墙边。流程：把方块塞进大炮打出 → 子弹时间锁定在半空当挡板 → 自己坐大炮飞过去撞在方块上落到钢走廊 → 按按钮把墙切成斜放 → 放掉方块，方块被弹到开关平台撞开关（两座廊桥一起触发，B 卡死）→ 再按按钮把墙复位成平放 → 沿升起的廊桥A走回出生平台 → 再坐大炮飞过去落在平放的墙上被弹起 → 飞过塔顶落到终点平台，穿过升起的终点门到达出口 | `BouncyWall` + `BouncyWallAngleToggler` + `PuzzleButton` + `Cannon` + `KineticBox` + `PuzzleSwitch`（同时抬起终点门）+ `RisingBridge`×2（其中一座 jammed）+ `LevelExit`（门后） |
 | `Scenes/Soviet_GetTheBox.unity` | **正式关卡（白模）**：从起点房间出来到窄平台（带坡塌廊桥残段）→ 坐起点大炮沿 +Z 射出 → 撞拐角那面**小、斜向上**的弹性墙 → 弹到终点的窄平台（同样是断桥残段）→ 把方块推进终点大炮、自己也坐进去 → 沿 −X 射出、再撞同一面弹性墙 → 回到起点平台 → 把方块轰进起点房间里触发开关（终点门打开）→ 再坐起点大炮飞回终点进门 | `Cannon`×2 + `BouncyWall`（小斜面板）+ `KineticBox` + `PuzzleSwitch` + `DashCrystal` + `LevelExit`（门禁 = Switch） |
 | `Scenes/Soviet_1.unity` | **正式关卡（白模）**：坠落的电梯里出生 → 捡拳套 → 从破墙洞出去 → 深渊上方的 L 形钢走廊 → 轰开堵住门洞的动能方块 → 在房间里把方块从门禁室钢条下方打进去撞开关 → 抬门出口 | `GauntletPickup` + `PlayerGauntletEquipment` + `KineticBox` + `DashCrystal` + `PuzzleSwitch` + `LevelExit`（门禁 = Switch） |
-| `Scenes/Soviet_TheBridge.unity` | **正式关卡（白模）**：拳套能量 0 出生在房间里 → 进入 36×36 的高墙深渊大厅 → 沿“中”字竖笔的钢廊桥走 → 断口对面挂着塔塌桥体 → 右侧高处运输管道不时冒出带初速度的动能方块，落到斜向弹性墙上被弹向断口中央横飞而过 → `Q` 子弹时间 + `E` 锁定它做垫脚跳过去 → 走完对面廊桥，从墙上的门进入房间 | `KineticBoxDropper`（+`KineticBox` 预制体）+ `BouncyWall` + `LevelExit` |
+| `Scenes/Soviet_TheCatwalk.unity` | **正式关卡（白模）**：拳套能量 0 出生在房间里 → 进入 36×36 的高墙深渊大厅 → 沿“中”字竖笔的钢廊桥走 → 断口对面挂着塔塌桥体 → 右侧高处运输管道不时冒出带初速度的动能方块，落到斜向弹性墙上被弹向断口中央横飞而过 → `Q` 子弹时间 + `E` 锁定它做垫脚跳过去 → 走完对面廊桥，从墙上的门进入房间 | `KineticBoxDropper`（+`KineticBox` 预制体）+ `BouncyWall` + `LevelExit` |
 | `Scenes/Test_01_PunchThrough.unity` | 测试关卡：捡起拳套 → 一拳轰开堵住 1.6 米通道的方块 → 走到出口 | `GauntletPickup` + `PlayerGauntletEquipment` + `KineticBox` + `LevelExit` |
 | `Scenes/Test_02_Combat.unity` | 测试关卡：清掉三只共鸣者，门打开后出口生效 | `ResonatorEncounter` + `ResonatorAgent` + `NavMeshSurface` + `LevelExit`（门禁 = Encounter） |
 | `Scenes/Test_03_Billiards.unity` | 测试关卡：拿晶体充能 → 把方块横向顶到定位挡条对齐 → 从背后一拳送进窄缝 → 击开关抬门 | `KineticBox` + `DashCrystal` + `PuzzleSwitch` + `LevelExit`（门禁 = Switch） |
 
-- 链路：`Test_01_PunchThrough` → `Test_02_Combat` → `Test_03_Billiards`（测试关链）；正式关卡 `Soviet_1` → `Soviet_TheBridge` 已接通，`Soviet_GetTheBox` 与 `Soviet_Traffic` 目前 `nextSceneName` 留空（= 通知通关，后续再接）。
+- 链路：`Test_01_PunchThrough` → `Test_02_Combat` → `Test_03_Billiards`（测试关链）；正式关卡 `Soviet_1` → `Soviet_TheCatwalk` 已接通，`Soviet_GetTheBox` 与 `Soviet_Traffic` 目前 `nextSceneName` 留空（= 通知通关，后续再接）。
 - 六个场景（含 `Soviet_Traffic`）都是直接在编辑器里堆基本体块 + 拖组件搭的，没有生成器；想改地图直接在场景里拖物体/改引用即可，不必改脚本。
-- `Test_02_Combat` 需要 `Navigation` 物体（`NavMeshSurface`）重新 Bake 才能让敌人正确寻路；`Soviet_1` / `Soviet_TheBridge` 目前没有敌人，不需要 NavMesh。
+- `Test_02_Combat` 需要 `Navigation` 物体（`NavMeshSurface`）重新 Bake 才能让敌人正确寻路；`Soviet_1` / `Soviet_TheCatwalk` 目前没有敌人，不需要 NavMesh。

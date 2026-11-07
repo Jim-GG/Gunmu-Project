@@ -18,7 +18,7 @@ EditorBuildSettings:
     path: Assets/Scenes/Soviet_1.unity
     guid: ae33451900b271748bb0298cacb0baac
   - enabled: 1
-    path: Assets/Scenes/Soviet_TheBridge.unity
+    path: Assets/Scenes/Soviet_TheCatwalk.unity
     guid: b19c7f20daa95e54b95846b916db1fa6
   - enabled: 1
     path: Assets/Scenes/Soviet_GetTheBox.unity

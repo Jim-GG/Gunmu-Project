@@ -12789,7 +12789,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b129c69e1dec1f438cfe5454e714286, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::LevelExit
-  nextSceneName: Soviet_TheBridge
+  nextSceneName: Soviet_TheCatwalk
   editorNextScene: {fileID: 102900000, guid: b19c7f20daa95e54b95846b916db1fa6, type: 3}
   gates:
   - {fileID: 2092810608}
