@@ -54,6 +54,8 @@ public class PlayerMovement : MonoBehaviour
     private KineticBox currentLockedBox;
     private KineticBox hoveredBox;
     private KineticBox[] allBoxes;
+    private int lastBoxScanFrame = -1000;
+    private const int BoxScanIntervalFrames = 20;
 
     private Collider ignoredBoxCollider;
     private float ignoreBoxTimer;
@@ -306,13 +308,17 @@ public class PlayerMovement : MonoBehaviour
         isBulletTimeActive = active;
         Time.timeScale = active ? bulletTimeScale : 1.0f;
         Time.fixedDeltaTime = 0.02f * Time.timeScale;
+
+        // 进入子弹时间时立即重扫一次，保证刚生成 / 刚回收过方块也能正确高亮。
+        if (active)
+            RefreshBoxCacheIfNeeded(true);
+
         UpdateBoxesHighlightState();
     }
 
     private void UpdateBoxesHighlightState()
     {
-        if (allBoxes == null || allBoxes.Length == 0)
-            allBoxes = FindObjectsByType<KineticBox>(FindObjectsSortMode.None);
+        RefreshBoxCacheIfNeeded();
 
         for (int i = 0; i < allBoxes.Length; i++)
         {
@@ -322,6 +328,36 @@ public class PlayerMovement : MonoBehaviour
                 allBoxes[i].SetBulletTimeHighlight(isBulletTimeActive, hovered);
             }
         }
+    }
+
+    /// <summary>
+    /// 重扫场景里的方块。不能用“只在 Start 扫一次”的缓存：
+    /// 运输管道（KineticBoxDropper）会在运行时不断生成/销毁方块，
+    /// 旧缓存里全是已销毁的 null，新方块永远进不来，子弹时间就再也不高亮了。
+    /// 所以：有空槽、或距上次扫描超过 <see cref="BoxScanIntervalFrames"/> 帧、或被强制要求时重扫。
+    /// </summary>
+    private void RefreshBoxCacheIfNeeded(bool force = false)
+    {
+        bool needsScan = force || allBoxes == null || allBoxes.Length == 0 ||
+                         Time.frameCount - lastBoxScanFrame >= BoxScanIntervalFrames;
+
+        if (!needsScan)
+        {
+            for (int i = 0; i < allBoxes.Length; i++)
+            {
+                if (allBoxes[i] == null)
+                {
+                    needsScan = true;
+                    break;
+                }
+            }
+        }
+
+        if (!needsScan)
+            return;
+
+        allBoxes = FindObjectsByType<KineticBox>(FindObjectsSortMode.None);
+        lastBoxScanFrame = Time.frameCount;
     }
 
     public void BeginPunchLunge(float distance)

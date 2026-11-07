@@ -371,12 +371,13 @@ BouncyWall（斜置、非 Trigger、倍率 1.1~1.2）
 1. **发光需要材质开启 Emission 关键字**。现成的有 `Materials/KineticBox_State.mat`、`Materials/BouncyWall_Glow.mat`；`KineticBox` 未指定特殊状态材质时会打警告，`BouncyWall` 会在运行期复制材质并自动打开发光。
 2. **弹性墙不能是 Trigger**，否则完全不生效。
 3. **摆锤/跷跷板的尺寸**：优先改 `摆长`、`板身长度`、`重物初始高度` 这类参数，而不是直接缩放预制体（缩放会让摆长/落点跟着变，虽然会自动测量但不好维护）。
-4. **Build Settings 必须勾选目标场景**，否则 `LevelExit` 的 `Awake` 会报错并禁用自己。当前已勾选 `Test_01_PunchThrough` / `Test_02_Combat` / `Test_03_Billiards` / `Soviet_1` 四条。
+4. **Build Settings 必须勾选目标场景**，否则 `LevelExit` 的 `Awake` 会报错并禁用自己。当前已勾选：`Test_01_PunchThrough` / `Test_02_Combat` / `Test_03_Billiards` / `Soviet_1` / `Soviet_TheBridge` / `Soviet_GetTheBox` / `Soviet_Traffic`。
 5. **两套 R 重置并存**：挂了 `RoomRestartController` → R 重载场景；没挂 → R 原位复位（`PuzzleResetUtility.ResetAll()`）。别在一个关卡里同时依赖两种语义。
 6. **KineticBox 的 6 轴吸附**：默认会把水平速度吸附到 ±X/±Z，斜向撞墙的反射方向以吸附后的速度为准。
 7. **箱体、门、抬升机关的自身位移**都是用 `PuzzleSwitch` 的“移动目标 + 激活偏移”实现的；没有专门的位移组件，需要更复杂的过场就用 Timeline / Animator。
 8. **拳套外观与规则分开**：改手感去 `PlayerChargedPunch`，换美术去 `PlayerGauntletView`（只需换 `viewModelPrefab`）。
 9. **拳套美术的预览场景**：`Assets/Gauntlet/Scenes/GauntletPreview.unity` 不依赖游戏玩法脚本，按 1-4 / C / I / P / K / H / O 或左侧按钮直接播片段；`GauntletCameraMotion` 只在预览里有意义，正式玩家由 `PlayerGauntletView` 自动禁用（避免和震屏抢相机）。
+10. **子弹时间高亮要能撑住“动态生成的方块”**：`PlayerMovement` 的 `allBoxes` 缓存会定期重扫（并且进入子弹时间、出现空槽时立即重扫）。早期版本只在 `Start()` 扫一次，导致 `Soviet_TheBridge` 这种全部由 `KineticBoxDropper` 运行时冒方块、旧方块又被回收的关卡完全不高亮。以后再加“运行时生成/销毁方块”的关卡不用改代码。
 
 ---
 
