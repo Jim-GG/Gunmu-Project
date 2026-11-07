@@ -36,6 +36,8 @@
 | **运输管道** | [`KineticBoxDropper`](file:///d:/Projects/Gunmu-Project/Assets/Scripts/Puzzle/KineticBoxDropper.cs) | 按间隔从管口冒出带初速度的动能方块，掉出界自动回收；预制体 `Prefabs/KineticBoxDropper.prefab` 只包含末端管段与脚本。 |
 | **大炮** | [`Cannon`](file:///d:/Projects/Gunmu-Project/Assets/Scripts/Puzzle/Cannon.cs) | 侧面填弹仓吸入玩家或动能方块，短暂蓄压后沿炮管方向（仰角/速度可配）发射；预制体 `Prefabs/Cannon.prefab`。 |
 | **弹性墙** | [`BouncyWall`](file:///d:/Projects/Gunmu-Project/Assets/Scripts/Puzzle/BouncyWall.cs) | 严格按碰撞法线反射。只有 `KineticBox` 与“按住右键格挡的玩家”会被弹，且玩家回满充能。 |
+| **可切换角度的弹性墙** | [`BouncyWallAngleToggler`](file:///d:/Projects/Gunmu-Project/Assets/Scripts/Puzzle/BouncyWallAngleToggler.cs) | 由按钮在“斜放/平放”两个预设欧拉角之间翻转一面弹性墙：斜放把方块弹向侧面，平放当弹床把玩家弹起来。 |
+| **升降廊桥** | [`RisingBridge`](file:///d:/Projects/Gunmu-Project/Assets/Scripts/Puzzle/RisingBridge.cs) | 被开关/按钮触发后把桥面从下方升到位；`jammed` 打勾时只抖一下升不起来，用来做“有座桥坏了”的关卡剧本。 |
 | **大摆锤** | [`PendulumMechanism`](file:///d:/Projects/Gunmu-Project/Assets/Scripts/Puzzle/PendulumMechanism.cs) | 物理单摆冲击机关。按真实摆角计算切线速度：最低点给水平冲击，上扬阶段给斜向上抛射。 |
 | **跷跷板 + 起重机** | [`SeesawMechanism`](file:///d:/Projects/Gunmu-Project/Assets/Scripts/Puzzle/SeesawMechanism.cs) | 高空重物砸落 → 另一端方块竖直弹射，落点按几何自动推算。 |
 | **充能晶体** | [`DashCrystal`](file:///d:/Projects/Gunmu-Project/Assets/Scripts/Puzzle/DashCrystal.cs) | 玩家触碰回满 3 格充能，冷却后再生。 |
@@ -73,7 +75,7 @@
 
 ## 四、 当前边界
 
-- 正式关卡目前有 `Soviet_1` → `Soviet_TheBridge`（白模，在 `Assets/Scenes/`），另有 `Soviet_GetTheBox`（大炮 + 弹性墙循环）；另有三关作为组件使用示例（`Test_01`~`Test_03`）。
+- 正式关卡目前有 `Soviet_1` → `Soviet_TheBridge`、`Soviet_GetTheBox`（大炮 + 弹性墙循环）与 `Soviet_Traffic`（“中”字形 + 可切角度弹性墙 + 升降廊桥），均为白模（在 `Assets/Scenes/`）；另有三关作为组件使用示例（`Test_01`~`Test_03`）。
 - 只有共鸣者一种敌人；没有音效。
 - 过场演出用 Timeline / Animator，或 `PuzzleSwitch` 的“移动目标 + 激活偏移”；暂无通用的位移组件。
 - 关卡切换、暂停、死亡重开由 `GameStateManager` 统一管理，新场景载入后自动回到 `Running`。
