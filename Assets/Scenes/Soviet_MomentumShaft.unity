@@ -9177,6 +9177,10 @@ PrefabInstance:
       propertyPath: fallDistance
       value: 7.5
       objectReference: {fileID: 0}
+    - target: {fileID: 4459638200585398466, guid: b32150f0ad164ab4493b1d9e799085c2, type: 3}
+      propertyPath: startsWithMomentumRemote
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8886367873197257864, guid: b32150f0ad164ab4493b1d9e799085c2, type: 3}
       propertyPath: m_Name
       value: Player

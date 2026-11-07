@@ -32,6 +32,7 @@ public class PlayerMovement : MonoBehaviour
     [Header("动量锁定与子弹时间")]
     [SerializeField, Range(0.05f, 0.5f)] private float bulletTimeScale = 0.12f;
     [SerializeField, Min(5f)] private float maxLockDistance = 60f;
+    [SerializeField, InspectorName("开局即拥有动量遥控（关掉 = 要先捡到 MomentumRemotePickup）")] private bool startsWithMomentumRemote = true;
 
     private CharacterController controller;
     private PlayerChargedPunch chargedPunch;
@@ -85,6 +86,10 @@ public class PlayerMovement : MonoBehaviour
         chargedPunch = GetComponent<PlayerChargedPunch>();
         if (chargedPunch == null)
             chargedPunch = gameObject.AddComponent<PlayerChargedPunch>();
+
+        // 默认开局就能用子弹时间/锁定（Soviet_1、TheCatwalk、Traffic 等关卡依赖它）；
+        // 需要“先捡遥控器”的关卡在场景里把这个开关关掉。
+        HasMomentumRemote = startsWithMomentumRemote;
     }
 
     private void Start()

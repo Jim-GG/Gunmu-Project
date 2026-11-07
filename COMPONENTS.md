@@ -39,6 +39,10 @@
 **事件 / 对外接口**：`onImpact`、`LastImpactPoint/Normal`；`ApplyCardinalImpulse`、`ApplyFreeImpulse`、`LockMomentum`、`ReleaseMomentum`、`ResetBox`、`SetBulletTimeHighlight`、`IsMomentumLocked`、`StoredSpeed/Direction`。
 
 > 注意：方块默认会把水平速度吸附到 6 个正交轴（"台球感"）。斜向撞弹性墙时，墙收到的是**吸附后**的速度。
+>
+> 子弹时间高亮色/矄准色默认是 **橙 / 近白**（故意与弹性墙的青绿区分）；方块是运行时生成/销毁的关卡（如 `Soviet_TheCatwalk` 的运输管道）——`PlayerMovement` 会定期重扫方块缓存，不需额外配置。
+
+> 子弹时间 / 动量锁定默认开局可用；`PlayerMovement` 的「开局即拥有动量遥控」（`startsWithMomentumRemote`，默认开）取消勾选后，需要场景里放 `MomentumRemotePickup` 捡到才生效（`Soviet_MomentumShaft` 就是这种教学关）。
 
 ---
 
