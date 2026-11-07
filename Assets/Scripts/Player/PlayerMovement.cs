@@ -66,6 +66,9 @@ public class PlayerMovement : MonoBehaviour
 
     public bool IsDashing => dashTimer > 0f;
     public bool IsBulletTimeActive => isBulletTimeActive;
+    public bool HasMomentumRemote { get; private set; }
+
+    public void EquipMomentumRemote() => HasMomentumRemote = true;
     public Vector3 CurrentVelocity => new Vector3(currentHorizontalVelocity.x, verticalSpeed, currentHorizontalVelocity.z);
     public bool IsIgnoringBox(Collider col) => col != null && ignoreBoxTimer > 0f && ignoredBoxCollider == col;
 
@@ -134,10 +137,10 @@ public class PlayerMovement : MonoBehaviour
         bool cursorLocked = Cursor.lockState == CursorLockMode.Locked;
 
         // 1. Update crosshair target detection for KineticBox
-        UpdateHoveredBox();
+        if (HasMomentumRemote) UpdateHoveredBox();
 
         // Right mouse is reserved for guarding; Q toggles bullet time.
-        if (cursorLocked && keyboard != null && keyboard.qKey.wasPressedThisFrame)
+        if (HasMomentumRemote && cursorLocked && keyboard != null && keyboard.qKey.wasPressedThisFrame)
         {
             SetBulletTime(!isBulletTimeActive);
         }
@@ -145,12 +148,12 @@ public class PlayerMovement : MonoBehaviour
         // 3. Handle Momentum Lock / Release inputs
         PlayerInteractor interactor = GetComponent<PlayerInteractor>();
         bool interactionOwnsE = interactor != null && interactor.isActiveAndEnabled && interactor.ConsumesInteractionKey;
-        if (cursorLocked && !interactionOwnsE && keyboard != null && keyboard.eKey.wasPressedThisFrame)
+        if (HasMomentumRemote && cursorLocked && !interactionOwnsE && keyboard != null && keyboard.eKey.wasPressedThisFrame)
         {
             HandleLockOrReleaseAction();
         }
 
-        UpdateBoxesHighlightState();
+        if (HasMomentumRemote) UpdateBoxesHighlightState();
 
         float dt = Time.deltaTime;
         bool grounded = controller.isGrounded;
@@ -258,14 +261,16 @@ public class PlayerMovement : MonoBehaviour
         if (cameraPivot == null)
             return;
 
-        if (Physics.Raycast(cameraPivot.position, cameraPivot.forward, out RaycastHit hit, maxLockDistance) &&
+        if (Physics.Raycast(cameraPivot.position, cameraPivot.forward, out RaycastHit hit, maxLockDistance,
+            Physics.DefaultRaycastLayers, QueryTriggerInteraction.Ignore) &&
             hit.collider.TryGetComponent(out KineticBox rayBox))
         {
             hoveredBox = rayBox;
             return;
         }
 
-        if (Physics.SphereCast(cameraPivot.position, 0.45f, cameraPivot.forward, out RaycastHit sphereHit, maxLockDistance) &&
+        if (Physics.SphereCast(cameraPivot.position, 0.45f, cameraPivot.forward, out RaycastHit sphereHit,
+            maxLockDistance, Physics.DefaultRaycastLayers, QueryTriggerInteraction.Ignore) &&
             sphereHit.collider.TryGetComponent(out KineticBox sphereBox))
         {
             hoveredBox = sphereBox;
@@ -720,9 +725,9 @@ public class PlayerMovement : MonoBehaviour
             };
             btStyle.normal.textColor = new Color(0.1f, 1f, 0.95f);
             string btHint = hoveredBox != null
-                ? (hoveredBox.IsMomentumLocked ? "⏱ 子弹时间 | [E] 释放目标方块" : "⏱ 子弹时间 | [E] 锁定高亮方块！")
-                : "⏱ 子弹时间已开启 | 瞄准高亮方块按 [E] 锁定或释放";
-            GUI.Box(new Rect(cx - 260f, 20f, 520f, 40f), btHint, btStyle);
+                ? (hoveredBox.IsMomentumLocked ? "子弹时间｜按 E 释放目标方块" : "子弹时间｜按 E 锁定目标方块")
+                : "子弹时间已开启｜瞄准方块后按 E";
+            GUI.Box(new Rect(cx - 260f, cy + 42f, 520f, 40f), btHint, btStyle);
         }
 
         bool hasEnergy = chargedPunch != null && chargedPunch.StoredEnergy > 0;

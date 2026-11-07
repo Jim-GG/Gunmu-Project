@@ -9,7 +9,7 @@ public class PlayerChargedPunch : MonoBehaviour
     [SerializeField, Min(0.02f)] private float tierOneTime = 0.5f;
     [SerializeField, Min(0.03f)] private float tierTwoTime = 1.25f;
     [SerializeField, Min(0.04f)] private float tierThreeTime = 2.5f;
-    [SerializeField, Min(0.1f)] private float reach = 0.9f;
+    [SerializeField, Min(0.1f), InspectorName("击打距离（距身体，米）")] private float reach = 1f;
     [SerializeField, Min(0f)] private float recovery = 0.3f;
     [Header("各档冲撞距离（米）")]
     [SerializeField, Min(0f)] private float tierOneLungeDistance = 2.5f;
@@ -62,6 +62,9 @@ public class PlayerChargedPunch : MonoBehaviour
     private PlayerMovement movement;
     private PlayerCombatController combat;
     private PlayerGauntletEquipment equipment;
+    private PlayerInteractor interactor;
+    private CharacterController controller;
+    private Camera aimCamera;
     private Transform aim;
 
     public bool CanGuard => isActiveAndEnabled
@@ -168,8 +171,10 @@ public class PlayerChargedPunch : MonoBehaviour
         movement = GetComponent<PlayerMovement>();
         combat = GetComponent<PlayerCombatController>();
         equipment = GetComponent<PlayerGauntletEquipment>();
-        Camera camera = GetComponentInChildren<Camera>();
-        aim = camera != null ? camera.transform : transform.Find("CameraPivot");
+        interactor = GetComponent<PlayerInteractor>();
+        controller = GetComponent<CharacterController>();
+        aimCamera = GetComponentInChildren<Camera>();
+        aim = aimCamera != null ? aimCamera.transform : transform.Find("CameraPivot");
         if (aim == null) aim = transform;
     }
 
@@ -241,7 +246,7 @@ public class PlayerChargedPunch : MonoBehaviour
         if (releaseQueued && elapsed >= minimumWindup)
         {
             int tier = CurrentTier;
-            CancelCharge();
+            ClearCharge();
             nextReady = Time.unscaledTime + recovery;
             storedEnergy -= tier;
             attackTier = tier;
@@ -253,8 +258,9 @@ public class PlayerChargedPunch : MonoBehaviour
                 : tier == 1 ? tierOneLungeDistance
                 : 0f;
             if (presentation != null) presentation.Swing(tier);
+            if (TryHitAimedTarget()) return;
             if (movement != null && distance > 0.0001f) movement.BeginPunchLunge(distance);
-            TryLungeHit();
+            FinishMissIfLungeEnded();
         }
     }
 
@@ -273,44 +279,73 @@ public class PlayerChargedPunch : MonoBehaviour
     public void CancelCharge()
     {
         bool wasCharging = charging;
-        charging = false;
-        releaseQueued = false;
-        elapsed = 0f;
+        ClearCharge();
         if (!wasCharging) return;
         ChargeChanged?.Invoke(0f);
         ChargeCanceled?.Invoke();
+    }
+
+    private void ClearCharge()
+    {
+        charging = false;
+        releaseQueued = false;
+        elapsed = 0f;
     }
     public void ResetPunchState() { CancelCharge(); attacking = false; storedEnergy = initialEnergy; nextReady = 0f; feedbackUntil = 0f; }
 
     private void TryLungeHit()
     {
-        // Near-body queries and actual controller contacts hit once during traversal.
-        Vector3[] origins = { aim.position, transform.position + Vector3.up * 0.8f };
-        RaycastHit? nearest = null;
-        foreach (Vector3 origin in origins)
-        foreach (RaycastHit hit in Physics.SphereCastAll(origin, 0.12f, aim.forward, reach,
-            Physics.DefaultRaycastLayers, QueryTriggerInteraction.Ignore))
-        {
-            if (hit.collider.transform.IsChildOf(transform)) continue;
-            if (hit.normal.y > 0.65f && aim.forward.y > -0.4f
-                && hit.collider.GetComponentInParent<KineticBox>() == null
-                && hit.collider.GetComponentInParent<PunchTargetHealth>() == null
-                && hit.collider.GetComponentInParent<IPunchReceiver>() == null) continue;
-            if (!nearest.HasValue || hit.distance < nearest.Value.distance) nearest = hit;
-        }
-        if (nearest.HasValue)
-        {
-            RaycastHit hit = nearest.Value;
-            ResolveLungeContact(hit.collider, hit.point, hit.normal);
-        }
+        if (!TryHitAimedTarget()) FinishMissIfLungeEnded();
+    }
+
+    private void FinishMissIfLungeEnded()
+    {
         if (attacking && (movement == null || !movement.IsPunchLunging))
         {
             attacking = false;
-            ChargedPunchPulse.Spawn(aim.position + aim.forward, -aim.forward, attackTier);
+            ChargedPunchPulse.Spawn(aim.position + aim.forward * reach, -aim.forward, attackTier);
             feedback = (attackTier == 0 ? "普攻未命中" : $"{attackTier} 档冲撞未命中") + $"｜剩余充能：{storedEnergy}/3 格";
             feedbackUntil = Time.unscaledTime + 1.5f;
             nextReady = Time.unscaledTime + recovery;
         }
+    }
+
+    private bool TryHitAimedTarget()
+    {
+        Camera camera = interactor != null && interactor.ViewCamera != null ? interactor.ViewCamera : aimCamera;
+        Ray ray = camera != null ? camera.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0f))
+            : new Ray(aim.position, aim.forward);
+        if (camera != null && !camera.orthographic) ray.origin = camera.transform.position;
+
+        Bounds body = controller != null ? controller.bounds : new Bounds(transform.position, Vector3.zero);
+        float searchDistance = reach + Vector3.Distance(ray.origin, body.center) + body.extents.magnitude;
+        RaycastHit? nearest = null;
+        foreach (RaycastHit hit in Physics.RaycastAll(ray, searchDistance,
+            Physics.DefaultRaycastLayers, QueryTriggerInteraction.Ignore))
+        {
+            if (hit.collider.transform.IsChildOf(transform)) continue;
+            if (!nearest.HasValue || hit.distance < nearest.Value.distance) nearest = hit;
+        }
+        if (!nearest.HasValue) return false;
+
+        RaycastHit target = nearest.Value;
+        // Measure from the player capsule, so looking down at a box does not shorten the reach.
+        float radius = Mathf.Min(body.extents.x, body.extents.y, body.extents.z);
+        float halfSegment = body.extents.y - radius;
+        Vector3 axisPoint = body.center;
+        axisPoint.y = Mathf.Clamp(target.point.y, axisPoint.y - halfSegment, axisPoint.y + halfSegment);
+        if ((target.point - axisPoint).sqrMagnitude > (reach + radius) * (reach + radius)) return false;
+
+        Collider collider = target.collider;
+        KineticBox box = collider.GetComponentInParent<KineticBox>();
+        IPunchReceiver receiver = collider.GetComponentInParent<IPunchReceiver>();
+        PunchTargetHealth health = collider.GetComponentInParent<PunchTargetHealth>();
+        Rigidbody rigidbody = collider.attachedRigidbody;
+        if (box == null && receiver == null && health == null && (rigidbody == null || rigidbody.isKinematic))
+            return false;
+
+        ResolvePunchHit(collider, target.point, target.normal, ray.direction, box, receiver, health);
+        return true;
     }
 
     public void ResolveLungeContact(Collider collider, Vector3 point, Vector3 normal)
@@ -318,28 +353,37 @@ public class PlayerChargedPunch : MonoBehaviour
         if (!attacking || collider.transform.IsChildOf(transform)) return;
         // Ignore ground support contact; walls/targets consume this attack exactly once.
         if (normal.y > 0.65f && aim.forward.y > -0.4f) return;
+        ResolvePunchHit(collider, point, normal, aim.forward, collider.GetComponentInParent<KineticBox>(),
+            collider.GetComponentInParent<IPunchReceiver>(), collider.GetComponentInParent<PunchTargetHealth>());
+    }
+
+    private void ResolvePunchHit(Collider collider, Vector3 point, Vector3 normal, Vector3 direction,
+        KineticBox box, IPunchReceiver receiver, PunchTargetHealth health)
+    {
         attacking = false;
         if (movement != null) movement.StopPunchLunge();
         int tier = attackTier;
         int damage = tier == 3 ? tierThreeDamage : tier == 2 ? tierTwoDamage : tier == 1 ? tierOneDamage : basicDamage;
         float impulse = tier == 3 ? tierThreeImpulse : tier == 2 ? tierTwoImpulse : tier == 1 ? tierOneImpulse : 0f;
-        KineticBox box = collider.GetComponentInParent<KineticBox>();
         if (box != null && tier > 0)
         {
-            Vector3 appliedDir = box.ApplyCardinalImpulse(normal, aim.forward, impulse);
+            // Aiming at the lid from beside a box should push it across the floor.
+            Vector3 horizontalAim = Vector3.ProjectOnPlane(direction, Vector3.up);
+            bool hitLidFromBeside = normal.y > 0.65f && controller != null
+                && controller.bounds.min.y < point.y - 0.15f && horizontalAim.sqrMagnitude > 0.01f;
+            Vector3 appliedDir = box.ApplyCardinalImpulse(hitLidFromBeside ? -horizontalAim.normalized : normal,
+                direction, impulse);
             if (movement != null) movement.ApplyBoxHitRecoil(appliedDir);
         }
-        PunchTargetHealth health = collider.GetComponentInParent<PunchTargetHealth>();
         if (health != null) health.TakeDamage(damage);
 
-        IPunchReceiver receiver = collider.GetComponentInParent<IPunchReceiver>();
-        if (receiver != null) receiver.OnPunched(point, normal, aim.forward, tier, impulse);
+        if (receiver != null) receiver.OnPunched(point, normal, direction, tier, impulse);
         if (receiver != null && tier > 0 && liftOnEnemyHit && movement != null)
             movement.LiftAfterCombatPunch(tier == 3 ? combatLiftSpeeds.z : tier == 2 ? combatLiftSpeeds.y : combatLiftSpeeds.x);
         if (presentation != null) presentation.Impact(point, normal, tier, receiver != null && receiver.IsFlesh);
         Rigidbody body = collider.attachedRigidbody;
         if (box == null && tier > 0 && body != null && !body.isKinematic)
-            body.AddForce(aim.forward * impulse, ForceMode.VelocityChange);
+            body.AddForce(direction * impulse, ForceMode.VelocityChange);
         ChargedPunchPulse.Spawn(point + normal * 0.03f, normal, tier);
         feedback = (tier == 0 ? "普攻命中" : $"{tier} 档攻击命中") + $"｜剩余充能：{storedEnergy}/3 格";
         feedbackUntil = Time.unscaledTime + 1.5f;

@@ -13,6 +13,7 @@ public class PunchPresentation : MonoBehaviour
     private Camera view;
     private PlayerChargedPunch punch;
     private PlayerGauntletEquipment equipment;
+    private PlayerGauntletView gauntletView;
     private Vector3 cameraHome;
     private Quaternion cameraRotation;
     private float freezeUntil, shakeUntil, shakeDuration, shakeAmplitude;
@@ -26,6 +27,7 @@ public class PunchPresentation : MonoBehaviour
         view = GetComponentInChildren<Camera>();
         punch = GetComponent<PlayerChargedPunch>();
         equipment = GetComponent<PlayerGauntletEquipment>();
+        gauntletView = GetComponent<PlayerGauntletView>();
         if (view == null) { enabled = false; return; }
         cameraHome = view.transform.localPosition;
         cameraRotation = view.transform.localRotation;
@@ -72,8 +74,10 @@ public class PunchPresentation : MonoBehaviour
         float envelope = allowFeedback ? Mathf.Clamp01((shakeUntil - Time.unscaledTime) / Mathf.Max(.01f, shakeDuration)) : 0f;
         float t = Time.unscaledTime * 95f;
         Vector3 offset = new Vector3(Mathf.Sin(t * 1.13f), Mathf.Sin(t * 1.71f), Mathf.Cos(t * 1.37f)) * shakeAmplitude * envelope * shakeStrength;
-        view.transform.localPosition = cameraHome + offset;
-        view.transform.localRotation = cameraRotation * Quaternion.Euler(offset.y * 26f, offset.x * 20f, offset.x * 35f);
+        Vector3 position = cameraHome + offset;
+        Quaternion rotation = cameraRotation * Quaternion.Euler(offset.y * 26f, offset.x * 20f, offset.x * 35f);
+        if (gauntletView == null || !gauntletView.ApplyCameraPose(view.transform, position, rotation))
+            view.transform.SetLocalPositionAndRotation(position, rotation);
     }
 
     private void OnDisable()

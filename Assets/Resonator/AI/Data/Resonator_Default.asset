@@ -457,7 +457,7 @@ MonoBehaviour:
   feedingResumeFrame: 421
   feedingRevealFrame: 490
   ragdollFrame: 50
-  sightRange: 14
+  sightRange: 10
   sightAngle: 105
   hearingMultiplier: 1
   sensorInterval: 0.12

@@ -433,7 +433,7 @@ MonoBehaviour:
   tierOneTime: 0.5
   tierTwoTime: 1.25
   tierThreeTime: 2.5
-  reach: 0.9
+  reach: 1
   recovery: 0.3
   tierOneLungeDistance: 2.5
   tierTwoLungeDistance: 4.5

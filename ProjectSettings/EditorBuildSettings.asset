@@ -26,6 +26,18 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Soviet_Traffic.unity
     guid: bc2265a0b46e0f144925e0c51f482a36
+  - enabled: 1
+    path: Assets/Scenes/Soviet_TheBridge.unity
+    guid: e0980e5415c441e99f2074e2a51061a6
+  - enabled: 1
+    path: Assets/Scenes/Soviet_Workstations.unity
+    guid: 114861c868643e44997ff716a8b91705
+  - enabled: 1
+    path: Assets/Scenes/Soviet_MomentumShaft.unity
+    guid: 9e3d7d3868bfe414a8e40946871cf885
+  - enabled: 1
+    path: Assets/Scenes/ModernFacility_Chapter2.unity
+    guid: 33d1b8062e23a6a458609e787ffad9ff
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   m_UseUCBPForAssetBundles: 0
