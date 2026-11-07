@@ -622,7 +622,7 @@ public class PlayerMovement : MonoBehaviour
                     chargedPunch.RefillEnergyByGuard(hit.point, hit.normal);
                     currentHorizontalVelocity = new Vector3(reflectedVel.x, 0f, reflectedVel.z);
                     verticalSpeed = reflectedVel.y;
-                    bouncyWall.NotifyReflected(hit.point, hit.normal, reflectedVel);
+                    bouncyWall.NotifyReflectedPlayer(hit.point, hit.normal, reflectedVel);
                 }
                 else
                 {

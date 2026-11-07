@@ -48,6 +48,8 @@ public class Cannon : MonoBehaviour, IPuzzleResettable
 
     /// <summary>当前是否装着东西（调试用）。</summary>
     public bool IsLoaded => state == State.Charging || state == State.Sucking;
+    /// <summary>当前是否把玩家吸在炮膛里（教学提示等只读查询用）。</summary>
+    public bool HasPlayer => heldPlayer != null;
     /// <summary>发射方向（含仰角）。</summary>
     public Vector3 LaunchDirection => barrel != null ? barrel.forward : transform.forward;
 

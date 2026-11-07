@@ -8,6 +8,9 @@ public class PlayerLook : MonoBehaviour
     [SerializeField, Min(0.001f)] private float mouseSensitivity = 0.1f;
     [SerializeField, Range(1f, 89f)] private float pitchLimit = 85f;
 
+    /// <summary>鼠标灵敏度倍率（<see cref="PlayerZoom"/> 等放大视野时临时下调，默认 1 = 不改变）。</summary>
+    public float SensitivityScale { get; set; } = 1f;
+
     private float pitch;
 
     private void Start()
@@ -42,7 +45,7 @@ public class PlayerLook : MonoBehaviour
         }
 
         // Mouse delta is displacement this frame, so do not multiply by deltaTime.
-        Vector2 mouseDelta = Mouse.current.delta.ReadValue() * mouseSensitivity;
+        Vector2 mouseDelta = Mouse.current.delta.ReadValue() * (mouseSensitivity * SensitivityScale);
 
         // Turn the whole player left/right, but only the camera pivot up/down.
         transform.Rotate(Vector3.up, mouseDelta.x, Space.World);

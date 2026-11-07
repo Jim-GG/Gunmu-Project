@@ -190,6 +190,7 @@ GameObject:
   - component: {fileID: 6743337849494353427}
   - component: {fileID: 7398332742189900834}
   - component: {fileID: 2310124353051374048}
+  - component: {fileID: 8118778348460007633}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -287,6 +288,7 @@ MonoBehaviour:
   minObjectCollisionSpeed: 3.5
   bulletTimeScale: 0.12
   maxLockDistance: 60
+  startsWithMomentumRemote: 1
 --- !u!114 &9178383069150783004
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -399,6 +401,7 @@ MonoBehaviour:
   viewModelPrefab: {fileID: 388306111364748650, guid: 5b29a22175004c343a1ad604937b06dc, type: 3}
   mount: {fileID: 3432550702921839812}
   nearClipPlane: 0.01
+  cameraMotionStrength: 0.55
   animationFps: 30
   tierOneFrame: 32
   tierTwoFrame: 62
@@ -450,3 +453,23 @@ MonoBehaviour:
   guardAngle: 120
   initialEnergy: 0
   storedEnergy: 0
+--- !u!114 &8118778348460007633
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8886367873197257864}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f2d9742f1afa3d449184ad62c555626, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerZoom
+  viewCamera: {fileID: 5601234802905729116}
+  playerLook: {fileID: 3246180585310966953}
+  gauntletView: {fileID: 6743337849494353427}
+  zoomFieldOfView: 20
+  transitionTime: 0.12
+  toggleKey: 17
+  zoomSensitivityScale: 0.35
+  hideGauntletWhileZoomed: 1

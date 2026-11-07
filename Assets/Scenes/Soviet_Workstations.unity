@@ -608,10 +608,13 @@ MonoBehaviour:
     suffixText: "\u84C4\u529B\u51FB\u98DE\u5171\u9E23\u8005\uFF0C\u8BA9\u4ED6\u4EEC\u56DE\u5230\u5DE5\u4F5C\u5C97\u4F4D\u53BB"
     whitenIcon: 1
     goal: 6
+    extraGoal: 9
     key: 0
     areaTarget: {fileID: 0}
     areaRadius: 0
     button: {fileID: 0}
+    cannon: {fileID: 0}
+    bouncyWall: {fileID: 0}
     gate: {fileID: 30161797}
     showProgress: 1
   margin: {x: 32, y: 26}
@@ -7528,8 +7531,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b129c69e1dec1f438cfe5454e714286, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::LevelExit
-  nextSceneName: 
-  editorNextScene: {fileID: 0}
+  nextSceneName: Soviet_GetTheBox
+  editorNextScene: {fileID: 102900000, guid: 0dd6c00f0e196d24cba6318b0ffc3044, type: 3}
   gates:
   - {fileID: 30161797}
   onReached:

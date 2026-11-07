@@ -11,6 +11,9 @@ public enum KeyPromptGoal
     [InspectorName("按钮已被按下")] ButtonPressed,
     [InspectorName("已锁定动能方块")] MomentumLocked,
     [InspectorName("目标已达成（ILevelExitGate）")] GateSatisfied,
+    [InspectorName("已坐上大炮")] CannonLoaded,
+    [InspectorName("已被弹性墙弹射")] BouncyWallReflected,
+    [InspectorName("（不启用）")] None,
 }
 
 /// <summary>一条按键提示：显示内容 + 开始显示的范围 + 完成条件。</summary>
@@ -29,10 +32,13 @@ public sealed class KeyPromptStep
 
     [Header("完成条件")]
     [SerializeField, InspectorName("完成方式")] private KeyPromptGoal goal = KeyPromptGoal.PressKey;
+    [SerializeField, InspectorName("附加完成条件（任一满足即可，不启用 = None）")] private KeyPromptGoal extraGoal = KeyPromptGoal.None;
     [SerializeField, InspectorName("按键（完成方式 = 按下指定按键）")] private Key key = Key.None;
     [SerializeField, InspectorName("区域中心（完成方式 = 进入指定区域）")] private Transform areaTarget;
     [SerializeField, Min(0.1f), InspectorName("区域半径（米）")] private float areaRadius = 3f;
     [SerializeField, InspectorName("目标按钮（完成方式 = 按钮已被按下）")] private PuzzleButton button;
+    [SerializeField, InspectorName("目标大炮（完成方式 = 已坐上大炮）")] private Cannon cannon;
+    [SerializeField, InspectorName("目标弹性墙（完成方式 = 已被弹性墙弹射）")] private BouncyWall bouncyWall;
     [SerializeField, InspectorName("目标门禁（完成方式 = 目标已达成）")] private MonoBehaviour gate;
     [SerializeField, InspectorName("末尾显示进度 n/m（需引用 DemoTutorialGate）")] private bool showProgress;
 
@@ -56,31 +62,45 @@ public sealed class KeyPromptStep
     }
     public bool HasContent => icon != null || !string.IsNullOrEmpty(prefixText) || !string.IsNullOrEmpty(suffixText);
 
-    /// <summary>这一帧是否已经满足完成条件。</summary>
+    /// <summary>这一帧是否已经满足完成条件（附加条件任一满足即可）。</summary>
     public bool IsSatisfied(PlayerGauntletEquipment gauntlet, PlayerMovement movement, Transform player)
     {
-        if (goal == KeyPromptGoal.GauntletEquipped)
+        if (IsGoalSatisfied(goal, gauntlet, movement, player)) return true;
+        return extraGoal != KeyPromptGoal.None && IsGoalSatisfied(extraGoal, gauntlet, movement, player);
+    }
+
+    private bool IsGoalSatisfied(KeyPromptGoal which, PlayerGauntletEquipment gauntlet, PlayerMovement movement, Transform player)
+    {
+        if (which == KeyPromptGoal.None) return false;
+
+        if (which == KeyPromptGoal.GauntletEquipped)
             return gauntlet != null && gauntlet.HasGauntlet;
 
-        if (goal == KeyPromptGoal.MouseLeftPressed)
+        if (which == KeyPromptGoal.MouseLeftPressed)
         {
             Mouse mouse = Mouse.current;
             return mouse != null && mouse.leftButton.wasPressedThisFrame;
         }
 
-        if (goal == KeyPromptGoal.ButtonPressed)
+        if (which == KeyPromptGoal.ButtonPressed)
             return button != null && button.HasBeenPressed;
 
-        if (goal == KeyPromptGoal.MomentumLocked)
+        if (which == KeyPromptGoal.MomentumLocked)
             return movement != null && movement.HasLockedBox;
 
-        if (goal == KeyPromptGoal.GateSatisfied)
+        if (which == KeyPromptGoal.CannonLoaded)
+            return cannon != null && cannon.HasPlayer;
+
+        if (which == KeyPromptGoal.BouncyWallReflected)
+            return bouncyWall != null && bouncyWall.HasReflectedPlayer;
+
+        if (which == KeyPromptGoal.GateSatisfied)
         {
             ILevelExitGate exitGate = gate as ILevelExitGate;
             return exitGate != null && exitGate.IsSatisfied;
         }
 
-        if (goal == KeyPromptGoal.EnterArea)
+        if (which == KeyPromptGoal.EnterArea)
         {
             if (areaTarget == null || player == null) return false;
             float radius = Mathf.Max(0.1f, areaRadius);

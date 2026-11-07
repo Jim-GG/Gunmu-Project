@@ -38,6 +38,9 @@ public class PlayerGauntletView : MonoBehaviour
 
     public bool IsVisible => model != null && model.gameObject.activeSelf;
 
+    /// <summary>临时隐藏外观（望远镜等放大视野时用，不影响装备/玩法状态）。</summary>
+    public bool Hidden { get; set; }
+
     public bool ApplyCameraPose(Transform cameraTransform, Vector3 position, Quaternion rotation)
     {
         return isActiveAndEnabled && IsVisible && cameraMotion != null
@@ -164,7 +167,8 @@ public class PlayerGauntletView : MonoBehaviour
     {
         if (model == null) return;
         bool equipped = equipment == null || equipment.HasGauntlet;
-        if (model.gameObject.activeSelf != equipped) model.gameObject.SetActive(equipped);
+        bool visible = equipped && !Hidden;
+        if (model.gameObject.activeSelf != visible) model.gameObject.SetActive(visible);
     }
 
     // ---- 状态机 ----
