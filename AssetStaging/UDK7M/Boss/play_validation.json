@@ -1,0 +1,122 @@
+{
+  "passed": true,
+  "error": null,
+  "checks": [
+    {
+      "name": "Perfect/imperfect guard",
+      "passed": true,
+      "details": {
+        "perfectDamage": 0,
+        "imperfectDamage": 10.2,
+        "energy": 2
+      }
+    },
+    {
+      "name": "15 second shared energy charge skip",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "Resonator Attack knockback",
+      "passed": true,
+      "details": {
+        "metres": 0.799999237
+      }
+    },
+    {
+      "name": "Knockback stops at solid wall",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "Slam braking",
+      "passed": true,
+      "details": {
+        "metres": 3.98222351
+      }
+    },
+    {
+      "name": "Slam two-second timeout",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "Slam front band crossing",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "Rear aiming remains stationary",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "Charge 2.5 second timeout",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "Boss full punch damage",
+      "passed": true,
+      "details": {
+        "damage": 8.0
+      }
+    },
+    {
+      "name": "One-use crystal pillar",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "Hidden population and four-second wake",
+      "passed": true,
+      "details": {
+        "living": 3
+      }
+    },
+    {
+      "name": "Tier-three physical launch",
+      "passed": true,
+      "details": {
+        "metres": 10.3397236
+      }
+    },
+    {
+      "name": "Normal frame-50 death ragdoll",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "Separate resonance respawn cooldown",
+      "passed": true,
+      "details": {
+        "seconds": 15.7726307
+      }
+    },
+    {
+      "name": "Physical corpse vacuum and single consumption",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "Eight resonances defeat boss without destroying root",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "Eight physical corpse ingestions across repeated population reuse",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "Pool reuse resets physics, health and navigation",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "Live encounter render",
+      "passed": true,
+      "details": null
+    }
+  ]
+}

@@ -16,12 +16,15 @@ MonoBehaviour:
   firstPersonPreview: 1
   previewCameraBone: ViewCameraMotion
   previewFieldOfView: 65
+  previewFocus: {x: 0, y: 0, z: 0}
+  previewDistance: 0
   sockets: []
   minimumSeparation: 0.85
   inputBufferSeconds: 0.22
   actions:
   - id: charge
     isAttack: 0
+    chargeLevel: 0
     action:
       animation:
         track: {fileID: 11400000, guid: f66830cbf11c3c94290aed7c0698b7fc, type: 2}
@@ -51,6 +54,7 @@ MonoBehaviour:
     groundedAssistanceOnly: 1
   - id: Idle
     isAttack: 0
+    chargeLevel: 0
     action:
       animation:
         track: {fileID: 11400000, guid: f0b0801f9f092f449ba75be9fb0fee46, type: 2}
@@ -80,6 +84,7 @@ MonoBehaviour:
     groundedAssistanceOnly: 1
   - id: Parry-Hit
     isAttack: 0
+    chargeLevel: 0
     action:
       animation:
         track: {fileID: 11400000, guid: f76028c5caa834c428ea82a2cd572135, type: 2}
@@ -109,6 +114,7 @@ MonoBehaviour:
     groundedAssistanceOnly: 1
   - id: Parry-Holster
     isAttack: 0
+    chargeLevel: 0
     action:
       animation:
         track: {fileID: 11400000, guid: 6e66cc63f08f38d4ca3249b710a76558, type: 2}
@@ -138,6 +144,7 @@ MonoBehaviour:
     groundedAssistanceOnly: 1
   - id: Parry-Keep
     isAttack: 0
+    chargeLevel: 0
     action:
       animation:
         track: {fileID: 11400000, guid: 7591f810aa273c542abcb517e0fef4e8, type: 2}
@@ -167,6 +174,7 @@ MonoBehaviour:
     groundedAssistanceOnly: 1
   - id: Parry-Start
     isAttack: 0
+    chargeLevel: 0
     action:
       animation:
         track: {fileID: 11400000, guid: 164a032237be10646933f8bfa256a50a, type: 2}
@@ -196,6 +204,7 @@ MonoBehaviour:
     groundedAssistanceOnly: 1
   - id: punch1
     isAttack: 1
+    chargeLevel: 0
     action:
       animation:
         track: {fileID: 11400000, guid: eb8d010e135fe60489d4864f47316b65, type: 2}
@@ -226,6 +235,19 @@ MonoBehaviour:
           serializedVersion: 2
           m_Bits: 4294967295
         minimumBlendWeight: 0.2
+        repeat: 0
+        sampleEveryFrames: 1
+        damageCooldown: 0.25
+        effectCooldown: 0.1
+        onlyWhileRotating: 0
+        contactEffects: 0
+        rotationAxis: {x: 0, y: 1, z: 0}
+        rotationThreshold: 5
+        blockable: 1
+        knockbackDistance: -1
+        knockbackPerDamage: 0.012
+        knockbackDuration: 0.2
+        blockedKnockbackMultiplier: 0
       rootMotionScale: 1
       lockFacingFrame: 20
       displacement:
@@ -276,6 +298,7 @@ MonoBehaviour:
     groundedAssistanceOnly: 1
   - id: punch2
     isAttack: 1
+    chargeLevel: 1
     action:
       animation:
         track: {fileID: 11400000, guid: 69606fa96beaf824d938e750237c75b2, type: 2}
@@ -306,6 +329,19 @@ MonoBehaviour:
           serializedVersion: 2
           m_Bits: 4294967295
         minimumBlendWeight: 0.2
+        repeat: 0
+        sampleEveryFrames: 1
+        damageCooldown: 0.25
+        effectCooldown: 0.1
+        onlyWhileRotating: 0
+        contactEffects: 0
+        rotationAxis: {x: 0, y: 1, z: 0}
+        rotationThreshold: 5
+        blockable: 1
+        knockbackDistance: -1
+        knockbackPerDamage: 0.012
+        knockbackDuration: 0.2
+        blockedKnockbackMultiplier: 0
       rootMotionScale: 1
       lockFacingFrame: 20
       displacement:
@@ -356,6 +392,7 @@ MonoBehaviour:
     groundedAssistanceOnly: 1
   - id: punch3
     isAttack: 1
+    chargeLevel: 2
     action:
       animation:
         track: {fileID: 11400000, guid: ec233d0b38c95904cb93344b481c993b, type: 2}
@@ -386,6 +423,19 @@ MonoBehaviour:
           serializedVersion: 2
           m_Bits: 4294967295
         minimumBlendWeight: 0.2
+        repeat: 0
+        sampleEveryFrames: 1
+        damageCooldown: 0.25
+        effectCooldown: 0.1
+        onlyWhileRotating: 0
+        contactEffects: 0
+        rotationAxis: {x: 0, y: 1, z: 0}
+        rotationThreshold: 5
+        blockable: 1
+        knockbackDistance: -1
+        knockbackPerDamage: 0.012
+        knockbackDuration: 0.2
+        blockedKnockbackMultiplier: 0
       rootMotionScale: 1
       lockFacingFrame: 20
       displacement:
@@ -436,6 +486,7 @@ MonoBehaviour:
     groundedAssistanceOnly: 1
   - id: punch4
     isAttack: 1
+    chargeLevel: 3
     action:
       animation:
         track: {fileID: 11400000, guid: c20f920ef300aa84997ab65095561a05, type: 2}
@@ -451,7 +502,7 @@ MonoBehaviour:
         enabled: 1
         startFrame: 6
         endFrame: 11
-        damage: 110
+        damage: 160
         reach: 1.45
         halfAngle: 65
         shape: 0
@@ -466,6 +517,19 @@ MonoBehaviour:
           serializedVersion: 2
           m_Bits: 4294967295
         minimumBlendWeight: 0.2
+        repeat: 0
+        sampleEveryFrames: 1
+        damageCooldown: 0.25
+        effectCooldown: 0.1
+        onlyWhileRotating: 0
+        contactEffects: 0
+        rotationAxis: {x: 0, y: 1, z: 0}
+        rotationThreshold: 5
+        blockable: 1
+        knockbackDistance: -1
+        knockbackPerDamage: 0.012
+        knockbackDuration: 0.2
+        blockedKnockbackMultiplier: 0
       rootMotionScale: 1
       lockFacingFrame: 20
       displacement:
@@ -516,6 +580,7 @@ MonoBehaviour:
     groundedAssistanceOnly: 1
   - id: charge full
     isAttack: 0
+    chargeLevel: 0
     action:
       animation:
         track: {fileID: 11400000, guid: 474a0a771f771fd4384649efe62ca2e3, type: 2}

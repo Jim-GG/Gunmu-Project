@@ -1,0 +1,9 @@
+{
+  "passed": true,
+  "scene": "Assets/Game/Scene/UDK7MBossArena.unity",
+  "bossPrefab": "Assets/Game/Enemies/UDK7M/AI/Prefabs/UDK7MBoss.prefab",
+  "pillars": 4,
+  "spawns": 20,
+  "bossAgent": -1372625422,
+  "bone": "Visual/UDK7M/UDK7M_RIG/Root/Turret/Boom/Forearm/Tool/DrillRoll"
+}

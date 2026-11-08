@@ -144,7 +144,7 @@ namespace Resonator.AI.Editor
                 {
                     var p=array.GetArrayElementAtIndex(selectedHit);
                     EditorGUILayout.PropertyField(p.FindPropertyRelative("label"),new GUIContent("名称"));EditorGUILayout.PropertyField(p.FindPropertyRelative("enabled"),new GUIContent("启用"));
-                    EditorGUILayout.PropertyField(p.FindPropertyRelative("hitGroup"),new GUIContent("命中组（可留空）","相同组的多个盒体，每次动作合计只会命中一次。"));
+                    EditorGUILayout.PropertyField(p.FindPropertyRelative("hitGroup"),new GUIContent("命中组（可留空）","Once 模式同组只结算一次；Cooldown 模式同组共用目标冷却。"));
                     EditorGUILayout.PropertyField(p.FindPropertyRelative("startFrame"),new GUIContent("开始帧"));EditorGUILayout.PropertyField(p.FindPropertyRelative("endFrame"),new GUIContent("结束帧（包含）"));
                     EditorGUILayout.BeginHorizontal();
                     if(GUILayout.Button("当前帧 → 开始"))p.FindPropertyRelative("startFrame").floatValue=frame;
@@ -152,12 +152,14 @@ namespace Resonator.AI.Editor
                     if(GUILayout.Button("定位开始"))frame=p.FindPropertyRelative("startFrame").floatValue;
                     EditorGUILayout.EndHorizontal();
                     foreach(var item in new[]{("damage","伤害"),("shape","形状"),("anchor","跟随部位"),("customBone","自定义骨骼名称"),("position","位置偏移（米）"),("rotation","局部旋转（度）")})EditorGUILayout.PropertyField(p.FindPropertyRelative(item.Item1),new GUIContent(item.Item2));
+                    DrawBonePicker(p);
+                    foreach(var field in new[]{"repeat","sampleEveryFrames","damageCooldown","contactEffects","contactEffect","contactSound","contactEffectLifetime","effectCooldown","onlyWhileRotating","rotationAxis","rotationThreshold","blockable","knockbackDistance","knockbackPerDamage","knockbackDuration","blockedKnockbackMultiplier"})EditorGUILayout.PropertyField(p.FindPropertyRelative(field));
                     var shape=(HitboxShape)p.FindPropertyRelative("shape").enumValueIndex;
                     if(shape==HitboxShape.Box)EditorGUILayout.PropertyField(p.FindPropertyRelative("size"),new GUIContent("完整尺寸（米）"));
                     else{EditorGUILayout.PropertyField(p.FindPropertyRelative("radius"),new GUIContent("半径（米）"));if(shape==HitboxShape.Capsule)EditorGUILayout.PropertyField(p.FindPropertyRelative("height"),new GUIContent("完整高度（米）"));}
                     EditorGUILayout.PropertyField(p.FindPropertyRelative("targetLayers"),new GUIContent("目标碰撞层"));EditorGUILayout.PropertyField(p.FindPropertyRelative("minimumBlendWeight"),new GUIContent("目标动作最小混合权重"));
                     if(geometry!=null&&!geometry.HasAnchor((HitboxAnchor)p.FindPropertyRelative("anchor").enumValueIndex,p.FindPropertyRelative("customBone").stringValue))EditorGUILayout.HelpBox("找不到绑定骨骼，请检查 Custom Bone 名称。此盒体不会造成伤害。",MessageType.Warning);
-                    EditorGUILayout.HelpBox("拖拽预览中的黄色中心点移动盒体，彩色尺寸点调整大小。骨骼偏移沿骨骼自身坐标，尺寸始终以米计。每个命中盒在一次动作中只命中当前目标一次。",MessageType.None);
+                    EditorGUILayout.HelpBox("黄色中心点拖动位置；彩色点拖动尺寸，按住 Shift 拖动彩色点可绕对应轴旋转。尺寸以米计，Repeat 决定单次命中或重复接触规则。",MessageType.None);
                     if(p.FindPropertyRelative("endFrame").floatValue<p.FindPropertyRelative("startFrame").floatValue)EditorGUILayout.HelpBox("结束帧小于开始帧，这个盒体不会生效。",MessageType.Warning);
                 }
             }
@@ -169,7 +171,9 @@ namespace Resonator.AI.Editor
             {
                 var p=markers.GetArrayElementAtIndex(selectedEvent);
                 foreach(var field in new[]{"name","frame","kind","payload","value","anchor","customBone","position","rotation","followAnchor"})EditorGUILayout.PropertyField(p.FindPropertyRelative(field));
+                DrawBonePicker(p);
                 var kind=(MotionEventKind)p.FindPropertyRelative("kind").enumValueIndex;
+                if(kind!=MotionEventKind.Signal&&geometry!=null&&!geometry.HasAnchor((HitboxAnchor)p.FindPropertyRelative("anchor").enumValueIndex,p.FindPropertyRelative("customBone").stringValue))EditorGUILayout.HelpBox("找不到事件绑定的骨骼；声音或特效不会播放，请重新选择。",MessageType.Warning);
                 if(kind==MotionEventKind.Sound)EditorGUILayout.PropertyField(p.FindPropertyRelative("sound"));
                 if(kind==MotionEventKind.Effect){EditorGUILayout.PropertyField(p.FindPropertyRelative("effect"));EditorGUILayout.PropertyField(p.FindPropertyRelative("effectLifetime"));}
                 EditorGUILayout.BeginHorizontal();if(GUILayout.Button("事件放在当前帧"))p.FindPropertyRelative("frame").floatValue=frame;
@@ -300,7 +304,7 @@ namespace Resonator.AI.Editor
                 preview.BeginPreview(r,GUIStyle.none);preview.Render(true);GUI.DrawTexture(r,preview.EndPreview(),ScaleMode.StretchToFill,false);
             }
             DrawOverlay(r);DrawManipulators(r);
-            GUI.Label(new Rect(r.x+8,r.y+8,r.width-16,35),$"{(shownBeat?.track?shownBeat.track.clip.name:"")}   帧 {shownFrame:0.0}\n左键拖动旋转 · 滚轮缩放 · 黄色中心拖动位置 · 彩色点拖动尺寸",EditorStyles.whiteMiniLabel);
+            GUI.Label(new Rect(r.x+8,r.y+8,r.width-16,35),$"{(shownBeat?.track?shownBeat.track.clip.name:"")}   帧 {shownFrame:0.0}\n左键旋转视角 · 滚轮缩放 · 黄色点移动 · 彩色点改尺寸 / Shift+拖动改旋转",EditorStyles.whiteMiniLabel);
             var ev=Event.current;
             if(r.Contains(ev.mousePosition))
             {
@@ -351,7 +355,7 @@ namespace Resonator.AI.Editor
         {
             if(mode!=0||!IsAttackAction||shownAttack==null||selectedHit<0||selectedHit>=shownAttack.hits.Length)return;
             var h=shownAttack.hits[selectedHit];if(h==null)return;var pose=geometry.Pose(h);var p=Project(r,pose.centre);
-            var anchor=geometry.Anchor(h.anchor,h.customBone);var ev=Event.current;
+            var anchor=geometry.Anchor(h.anchor,h.customBone);if(!anchor)return;var ev=Event.current;
             int id=GUIUtility.GetControlID(FocusType.Passive);var centerRect=new Rect(p.x-6,p.y-6,12,12);
             if(p.z>0)EditorGUI.DrawRect(centerRect,Color.yellow);
             var axes=new[]{pose.rotation*Vector3.right,pose.rotation*Vector3.up,pose.rotation*Vector3.forward};
@@ -365,7 +369,7 @@ namespace Resonator.AI.Editor
             {
                 int kind=centerRect.Contains(ev.mousePosition)?0:-1;
                 if(kind<0)for(int i=0;i<3;i++)if(new Rect(ends[i].x-7,ends[i].y-7,14,14).Contains(ev.mousePosition)){kind=i+1;break;}
-                if(kind>=0){Undo.RecordObject(Profile,"Move / resize hitbox");GUIUtility.hotControl=id;dragKind=kind;dragPoint=pose.centre;dragOffset=h.position;playing=false;ev.Use();}
+                if(kind>=0){Undo.RecordObject(Profile,"Move / resize / rotate hitbox");GUIUtility.hotControl=id;dragKind=kind>0&&ev.shift?kind+3:kind;dragPoint=pose.centre;dragOffset=h.position;playing=false;ev.Use();}
             }
             if(GUIUtility.hotControl==id)
             {
@@ -375,6 +379,11 @@ namespace Resonator.AI.Editor
                     {
                         var plane=new Plane(preview.camera.transform.forward,dragPoint);var ray=preview.camera.ViewportPointToRay(new Vector3((ev.mousePosition.x-r.x)/r.width,1-(ev.mousePosition.y-r.y)/r.height,0));
                         if(plane.Raycast(ray,out float enter))h.position=dragOffset+Quaternion.Inverse(anchor.rotation)*(ray.GetPoint(enter)-dragPoint);
+                    }
+                    else if(dragKind>=4)
+                    {
+                        var localAxis=dragKind==4?Vector3.right:dragKind==5?Vector3.up:Vector3.forward;
+                        h.rotation=(Quaternion.Euler(h.rotation)*Quaternion.AngleAxis((ev.delta.x-ev.delta.y)*.7f,localAxis)).eulerAngles;
                     }
                     else
                     {

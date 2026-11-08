@@ -4,7 +4,7 @@ using UnityEngine.Events;
 namespace Resonator.AI
 {
     [RequireComponent(typeof(ResonatorMotor))]
-    public sealed class ResonatorEnemy : MonoBehaviour, GameActions.IActionTarget
+    public sealed class ResonatorEnemy : MonoBehaviour, GameActions.IActionTarget,GameActions.IActionDamageReceiver
     {
         public ResonatorTuning tuning;
         public RestActivity initialActivity=RestActivity.RestlessIdle;
@@ -29,6 +29,18 @@ namespace Resonator.AI
         public event Action<EnemyState> StateChanged;
         public event Action<StrikeResult> StrikeResolved;
         public event Action Died;
+        public event Action<GameActions.DamageCause> Killed;
+        public GameActions.DamageCause LastDeathCause {get;private set;}
+        public bool Absorbed {get;set;}
+        public void ReceiveActionDamage(GameActions.ActionDamage hit)=>ApplyDamage(hit);
+        public void BeginBossWake(){aware=true;Enter(EnemyState.Waking);}
+        public void Agonize(){if(ActionTargetAlive){aware=true;if(target)LastKnownPosition=target.transform.position;Enter(EnemyState.Agonizing);}}
+        public void ResetForPool()
+        {
+            if(motion){motion.ReleaseGraph();if(motion.animator)motion.animator.enabled=true;}
+            if(ragdoll)ragdoll.ResetForReuse();if(motor&&motor.agent)motor.agent.enabled=true;
+            started=false;Absorbed=false;aware=false;state=EnemyState.Dormant;
+        }
         public event Action<MotionFrameEvent> FrameEventReceived;
         public UnityEvent<string> onAnimationEvent=new UnityEvent<string>();
         public bool drawHitboxes=true;
@@ -38,6 +50,8 @@ namespace Resonator.AI
         float nextSight, recoveryDuration;
         bool[] visitedWindows=Array.Empty<bool>();
         readonly System.Collections.Generic.HashSet<string> hitGroups=new System.Collections.Generic.HashSet<string>();
+        readonly GameActions.ActionContact sharedContacts=new GameActions.ActionContact();
+        GameActions.ActionDefinition runtimeAttack;bool contactSubscribed;
         ResonatorHitbox hitbox;
         ResonatorMotionPlayer subscribedMotion;
         readonly GameActions.ActionEventDispatcher eventDispatcher=new GameActions.ActionEventDispatcher();
@@ -61,11 +75,14 @@ namespace Resonator.AI
         {
             if(!tuning||!motion){Debug.LogError("Resonator requires tuning and motion player",this);enabled=false;return;}
             initialActivity=activity;started=true;health=tuning.maxHealth;aware=false;
+            Absorbed=false;LastDeathCause=GameActions.DamageCause.Ordinary;
             if(!motor)motor=GetComponent<ResonatorMotor>();motor.tuning=tuning;
             if(!target)target=FindFirstObjectByType<ResonatorTarget>();
             velocitySource=null;targetVelocity=Vector3.zero;plannedAttack=EnemyState.Headbutt;
             motor.PlaceOnMesh();
             hitbox=new ResonatorHitbox(transform);
+            sharedContacts.TargetFilter=t=>target&&t.ActionRoot==target.transform;
+            if(!contactSubscribed){sharedContacts.HitDelivered+=SharedHit;contactSubscribed=true;}
             if(subscribedMotion!=motion){if(subscribedMotion)subscribedMotion.FrameEventRaised-=ReceiveFrameEvent;motion.FrameEventRaised+=ReceiveFrameEvent;subscribedMotion=motion;}
             feedingRise=tuning.BeatFor(EnemyState.FeedingRise);
             Enter(EnemyState.Dormant,true);
@@ -75,6 +92,7 @@ namespace Resonator.AI
         {
             if(!started||state==EnemyState.Dead||!motion||dt<=0)return;
             StateSeconds+=dt;
+            motor.AdvanceKnockback(dt);
             nextSight-=dt;
             bool living=target&&target.Alive;
             UpdateTargetVelocity(dt,living);
@@ -229,26 +247,30 @@ namespace Resonator.AI
         {
             Enter(next);
         }
-        void ResolveWindows(AttackBeat attack)
+        void SharedHit(int index,GameActions.IActionTarget recipient)
+        {
+            var h=runtimeAttack.action.hits[index];var result=target?target.LastStrike:StrikeResult.Miss;
+            if(h.repeat==GameActions.HitRepeat.Once&&index<visitedWindows.Length)visitedWindows[index]=true;
+            if(!string.IsNullOrEmpty(h.hitGroup))hitGroups.Add(h.hitGroup);DamageWindowsResolved++;
+            if(result==StrikeResult.Damaged||result==StrikeResult.Blocked&&tuning.blockedCountsAsHit)currentActionHit=true;StrikeResolved?.Invoke(result);
+        }
+        void ResolveWindows(AttackBeat attack,float dt)
         {
             if(!target||!target.Alive)return;
             if(attack.hits==null)return;
             if(visitedWindows.Length!=attack.hits.Length)Array.Resize(ref visitedWindows,attack.hits.Length);
+            if(runtimeAttack==null||runtimeAttack.action!=attack)runtimeAttack=new GameActions.ActionDefinition{id=state.ToString(),isAttack=true,action=attack};
+            sharedContacts.Resolve(runtimeAttack,motion,hitbox,transform,transform.position+Vector3.up, tuning.obstructionMask,0,dt);
             for(int i=0;i<attack.hits.Length;i++)
             {
                 var window=attack.hits[i];
-                if(window==null||!window.enabled||visitedWindows[i]||CurrentFrame+.0001f<window.startFrame)continue;
+                if(window==null||!window.enabled||window.repeat!=GameActions.HitRepeat.Once||visitedWindows[i]||CurrentFrame+.0001f<window.startFrame)continue;
                 if(!string.IsNullOrEmpty(window.hitGroup)&&hitGroups.Contains(window.hitGroup)){visitedWindows[i]=true;continue;}
                 if(CurrentFrame>window.endFrame+.0001f){visitedWindows[i]=true;DamageWindowsResolved++;StrikeResolved?.Invoke(StrikeResult.Miss);continue;}
-                StrikeResult result=StrikeResult.Miss;
-                if(motion.DestinationWeight>=window.minimumBlendWeight&&hitbox.Contains(window,target)&&LineClear(transform.position+Vector3.up*1.0f,target.ChestPosition))
-                    result=target.ReceiveStrike(window.damage,transform.position);
-                if(result!=StrikeResult.Miss||CurrentFrame>=window.endFrame)
+                if(CurrentFrame>=window.endFrame)
                 {
                     visitedWindows[i]=true;DamageWindowsResolved++;
-                    if(result!=StrikeResult.Miss&&!string.IsNullOrEmpty(window.hitGroup))hitGroups.Add(window.hitGroup);
-                    if(result==StrikeResult.Damaged||(result==StrikeResult.Blocked&&tuning.blockedCountsAsHit))currentActionHit=true;
-                    StrikeResolved?.Invoke(result);
+                    StrikeResolved?.Invoke(StrikeResult.Miss);
                 }
             }
         }
@@ -287,7 +309,7 @@ namespace Resonator.AI
                 attackMover.Aim(attack,CurrentFrame+step*motion.Beat.track.framesPerSecond*motion.Beat.speed,step,motor,target);
                 motion.Advance(step);if(state!=entered)return;
                 attackMover.Move(attack,motion.PreviousFrame,CurrentFrame,step,motor,target,motion.RootDelta,currentActionHit,ActiveHitboxTouches(attack));
-                ResolveWindows(attack);if(state!=entered)return;
+                ResolveWindows(attack,step);if(state!=entered)return;
                 if(TryAutomaticCombo())return;
                 if(TryAttackExit())return;
                 if(motion.Finished){FinishAttack();return;}
@@ -373,10 +395,30 @@ namespace Resonator.AI
         }
         void BeginRecovery(){recoveryDuration=UnityEngine.Random.Range(tuning.recoverySeconds.x,tuning.recoverySeconds.y);Enter(EnemyState.CombatIdle);}
         public void TakeDamage(float damage,Vector3 source,float force=0)
+        {ApplyDamage(new GameActions.ActionDamage(damage,source),force);}
+        void ApplyDamage(GameActions.ActionDamage hit,float force=0)
         {
+            float damage=hit.damage;Vector3 source=hit.source;
             if(!started||damage<=0||state==EnemyState.Dead||state==EnemyState.Dying)return;
             health=Mathf.Max(0,health-damage);lastImpulse=Vector3.ProjectOnPlane(transform.position-source,Vector3.up).normalized*Mathf.Max(force,tuning.ragdollImpulse);
-            if(health<=0){Enter(EnemyState.Dying);return;}
+            if(health<=0)
+            {
+                LastDeathCause=hit.cause;
+                if(hit.chargeLevel>=3)
+                {
+                    // Preserve the standing hit pose. Playing even frame zero of
+                    // Death here can put the new ragdoll into the floor first.
+                    var away=Vector3.ProjectOnPlane(hit.direction,Vector3.up).normalized;
+                    if(away.sqrMagnitude<.01f)away=Vector3.ProjectOnPlane(transform.position-source,Vector3.up).normalized;
+                    if(away.sqrMagnitude<.01f)away=-transform.forward;
+                    lastImpulse=Vector3.zero;BecomeRagdoll();
+                    if(ragdoll)ragdoll.LaunchOnDeath(away*tuning.tierThreeLaunchSpeed+Vector3.up*tuning.tierThreeLaunchUp);
+                }
+                else Enter(EnemyState.Dying);
+                Killed?.Invoke(hit.cause);
+                return;
+            }
+            if(hit.knockback>0)motor.Push(source,hit.knockback,hit.duration);
             aware=true;if(target)LastKnownPosition=target.transform.position;
             Vector3 to=Vector3.ProjectOnPlane(source-transform.position,Vector3.up).normalized;
             Enter(Vector3.Dot(transform.forward,to)>=tuning.frontHitDot?EnemyState.Hit:EnemyState.Stumbling);
@@ -384,6 +426,7 @@ namespace Resonator.AI
         void Enter(EnemyState next,bool immediate=false)
         {
             var previous=state;state=next;StateSeconds=0;hitGroups.Clear();visitedWindows=IsAttack(next)?new bool[tuning.AttackFor(next).hits?.Length??0]:Array.Empty<bool>();currentActionHit=false;motor.Stop();
+            sharedContacts.Reset();runtimeAttack=null;
             if(next==EnemyState.Headbutt)headWantsChain=UnityEngine.Random.value<tuning.headbuttContinueChance;
             if(next==EnemyState.Running)plannedAttack=EnemyState.Kicking;
             MotionBeat beat=null;

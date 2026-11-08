@@ -11,17 +11,26 @@ namespace GameActions
         readonly Dictionary<HitboxAnchor,Transform> bindings=new Dictionary<HitboxAnchor,Transform>();
         public void Bind(HitboxAnchor anchor,Transform value){if(value)bindings[anchor]=value;else bindings.Remove(anchor);}
         readonly Dictionary<string,Transform> bones=new Dictionary<string,Transform>();
+        readonly HashSet<string> ambiguous=new HashSet<string>();
         readonly Collider[] overlaps=new Collider[128];
         public ActionHitbox(Transform root)
-        {this.root=root;foreach(var t in root.GetComponentsInChildren<Transform>(true))if(!bones.ContainsKey(t.name))bones.Add(t.name,t);}
+        {this.root=root;foreach(var t in root.GetComponentsInChildren<Transform>(true)){if(bones.ContainsKey(t.name))ambiguous.Add(t.name);else bones.Add(t.name,t);}}
+        public Transform FindBone(string path)
+        {
+            if(string.IsNullOrEmpty(path))return null;
+            var exact=root.Find(path);if(exact)return exact;
+            if(path.Contains("/")){Transform found=null;foreach(var t in root.GetComponentsInChildren<Transform>(true)){string relative="";var p=t;while(p&&p!=root){relative=p.name+(relative.Length>0?"/"+relative:"");p=p.parent;}if(!relative.EndsWith("/"+path))continue;if(found)return null;found=t;}return found;}
+            return !ambiguous.Contains(path)&&bones.TryGetValue(path,out var bone)?bone:null;
+        }
         public void BindProfile(ActionSet profile)
         {
             if(!profile||profile.sockets==null)return;
             foreach(var socket in profile.sockets)if(socket!=null&&!string.IsNullOrEmpty(socket.transformName))
-            {var t=root.Find(socket.transformName);if(!t)bones.TryGetValue(socket.transformName,out t);if(t)Bind(socket.role,t);}
+            {var t=FindBone(socket.transformName);if(t)Bind(socket.role,t);}
         }
         public Transform Anchor(HitboxAnchor anchor,string custom=null)
         {
+            if(anchor==HitboxAnchor.CustomBone&&!string.IsNullOrEmpty(custom))return FindBone(custom);
             if(bindings.TryGetValue(anchor,out var binding)&&binding)return binding;
             string name=null;
             switch(anchor)
@@ -34,14 +43,15 @@ namespace GameActions
                 case HitboxAnchor.RightFoot:name="ValveBiped.Bip01_R_Foot";break;
                 case HitboxAnchor.CustomBone:name=custom;break;
             }
-            return !string.IsNullOrEmpty(name)&&bones.TryGetValue(name,out var t)&&t?t:root;
+            return anchor==HitboxAnchor.Root?root:FindBone(name);
         }
-        public bool HasAnchor(HitboxAnchor anchor,string custom)=>anchor==HitboxAnchor.Root||Anchor(anchor,custom)!=root;
+        public bool HasAnchor(HitboxAnchor anchor,string custom)=>Anchor(anchor,custom)!=null;
         public Vector3 Point(HitboxAnchor anchor,string custom,Vector3 offset)
-        {var a=Anchor(anchor,custom);return a.position+a.rotation*offset;}
+        {var a=Anchor(anchor,custom);return a?a.position+a.rotation*offset:root.position;}
         public HitboxPose Pose(HitWindow hit)
         {
             var a=Anchor(hit.anchor,hit.customBone);
+            if(!a)return new HitboxPose(root.position,Quaternion.identity,Vector3.zero,0,0);
             return new HitboxPose(a.position+a.rotation*hit.position,a.rotation*Quaternion.Euler(hit.rotation),
                 new Vector3(Mathf.Max(.005f,Mathf.Abs(hit.size.x)),Mathf.Max(.005f,Mathf.Abs(hit.size.y)),Mathf.Max(.005f,Mathf.Abs(hit.size.z))),
                 Mathf.Max(.005f,hit.radius),Mathf.Max(hit.radius*2,hit.height));

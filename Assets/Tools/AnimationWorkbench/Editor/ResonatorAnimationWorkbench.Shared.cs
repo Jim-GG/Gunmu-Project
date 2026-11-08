@@ -97,7 +97,7 @@ namespace Resonator.AI.Editor
             var anchor=model.GetComponentsInChildren<Transform>(true).FirstOrDefault(t=>t.name=="ViewCameraAnchor");
             if(anchor)previewAim.SetPositionAndRotation(anchor.position,Quaternion.LookRotation(-anchor.forward,anchor.up));
             else previewAim.SetPositionAndRotation(previewRoot.transform.position+Vector3.up*1.65f,previewRoot.transform.rotation);
-            geometry.Bind(HitboxAnchor.Root,previewAim);
+            geometry.Bind(HitboxAnchor.Root,actionSet.firstPersonPreview?previewAim:model.transform);
             foreach(var t in model.GetComponentsInChildren<Transform>(true))
             {if(t.name=="hand_L.R")geometry.Bind(HitboxAnchor.RightHand,t);if(t.name=="hand_L.L")geometry.Bind(HitboxAnchor.LeftHand,t);}
             geometry.BindProfile(actionSet);

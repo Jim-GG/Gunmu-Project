@@ -26,12 +26,12 @@ namespace GameActions.Editor
                     string file=s.state.name.Replace(' ','_');AssetDatabase.CreateAsset(track,"Assets/Game/Shared/Actions/Resources/Tracks/"+file+".asset");
                     return new ActionDefinition{id=s.state.name,action=new AttackBeat{hits=Array.Empty<HitWindow>(),animation=new MotionBeat{track=track,speed=s.state.speed,blend=.07f,loop=clip.isLooping}}};
                 }).ToArray();
-                var damage=new[]{24f,40f,65f,110f};var starts=new[]{14f,2f,4f,6f};var ends=new[]{17f,5f,8f,11f};var pulls=new[]{.65f,.85f,1f,1.15f};
+                var damage=new[]{24f,40f,65f,160f};var starts=new[]{14f,2f,4f,6f};var ends=new[]{17f,5f,8f,11f};var pulls=new[]{.65f,.85f,1f,1.15f};
                 var bridge=UnityEngine.Object.FindFirstObjectByType<ResonatorPlayerBridge>();
                 for(int i=0;i<4;i++)
                 {
-                    var a=set.Find("punch"+(i+1));a.isAttack=true;a.Motion.startFrame=i==0?10:0;
-                    a.action.hits=new[]{new HitWindow{label="拳套有效帧",hitGroup="fist",startFrame=starts[i],endFrame=ends[i],damage=bridge?bridge.punchDamage[i]:damage[i],anchor=HitboxAnchor.Root,shape=HitboxShape.Box,position=new Vector3(0,-.25f,1.05f),size=new Vector3(.7f,.9f,.7f),minimumBlendWeight=.2f}};
+                    var a=set.Find("punch"+(i+1));a.isAttack=true;a.chargeLevel=i;a.Motion.startFrame=i==0?10:0;
+                    a.action.hits=new[]{new HitWindow{label="拳套有效帧",hitGroup="fist",startFrame=starts[i],endFrame=ends[i],damage=i==3?160:bridge?bridge.punchDamage[i]:damage[i],knockbackPerDamage=.012f,anchor=HitboxAnchor.Root,shape=HitboxShape.Box,position=new Vector3(0,-.25f,1.05f),size=new Vector3(.7f,.9f,.7f),minimumBlendWeight=.2f}};
                     a.action.displacement=new AttackDisplacement{enabled=true,stopOnHit=true,trackTarget=true,trackingStartFrame=starts[i],trackingEndFrame=ends[i],maxTrackingAngle=32,segments=new[]{new AttackMoveSegment{label="有效帧爆发吸附",startFrame=starts[i],endFrame=ends[i],maxDistance=pulls[i],maxSpeed=12,contactDistance=1.05f,progress=AnimationCurve.Linear(0,0,1,1)}}};
                     a.acquisitionRange=3.1f;a.acquisitionHalfAngle=32;
                 }

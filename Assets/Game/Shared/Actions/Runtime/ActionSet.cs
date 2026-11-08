@@ -13,6 +13,7 @@ namespace GameActions
     {
         public string id="New Action";
         public bool isAttack;
+        [Range(0,3)] public int chargeLevel;
         // Reuse the existing serialized beat/window/curve formats, including legacy profiles.
         public AttackBeat action=new AttackBeat{hits=Array.Empty<HitWindow>()};
         [Header("Target assistance / movement only, never rotates the camera")]

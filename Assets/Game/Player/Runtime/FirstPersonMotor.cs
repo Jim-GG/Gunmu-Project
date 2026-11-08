@@ -14,6 +14,15 @@ namespace FirstPerson
         private Vector3 carried;
         private float momentumProtection;
         private Vector3 windDrift;
+        Vector3 knockDirection;
+        float knockDistance,knockDuration,knockElapsed;
+        public void Knockback(Vector3 source,float distance,float duration)
+        {
+            if(distance<=0)return;
+            var traversal=GetComponent<CrystalParkour.CrystalTraversal>();if(traversal&&traversal.State!=CrystalParkour.CrystalTraversal.Mode.Free)traversal.Drop("受到冲击，牵引中断");
+            knockDirection=Vector3.ProjectOnPlane(transform.position-source,Vector3.up).normalized;if(knockDirection.sqrMagnitude<.001f)knockDirection=-transform.forward;
+            knockDistance=distance;knockDuration=Mathf.Max(.02f,duration);knockElapsed=0;
+        }
         [Header("Traversal air control")]
         public float airSpeed=5.2f,airAcceleration=18f;
         public bool TraversalAirControl {get;set;}
@@ -31,7 +40,7 @@ namespace FirstPerson
         public CharacterController Body=>motor?motor:GetComponent<CharacterController>();
         public void Launch(Vector3 velocity,float controlProtection=.1f)
         {MovementSuspended=false;horizontal=Vector3.zero;carried=Vector3.ProjectOnPlane(velocity,Vector3.up);vertical=velocity.y;momentumProtection=Mathf.Max(0,controlProtection);}
-        public void StopMomentum(){horizontal=carried=windDrift=Vector3.zero;vertical=0;momentumProtection=0;}
+        public void StopMomentum(){horizontal=carried=windDrift=Vector3.zero;vertical=0;momentumProtection=0;knockDistance=0;}
         public void SetLookRotation(Quaternion rotation)
         {transform.rotation=Quaternion.Euler(0,rotation.eulerAngles.y,0);pitch=Mathf.DeltaAngle(0,rotation.eulerAngles.x);if(viewPivot)viewPivot.localRotation=Quaternion.Euler(pitch,0,0);}
         private void Awake() => motor = GetComponent<CharacterController>();
@@ -55,7 +64,9 @@ namespace FirstPerson
             carried+=Vector3.ProjectOnPlane(ExternalAcceleration,Vector3.up)*dt;vertical+=ExternalAcceleration.y*dt;
             if(ExternalAcceleration.y>0)vertical=Mathf.Min(vertical,ExternalRiseSpeedLimit);
             carried=Vector3.MoveTowards(carried,Vector3.zero,(motor.isGrounded&&momentumProtection<=0?carriedGroundDrag:carriedAirDrag)*dt);
-            var flags=motor.Move(Velocity*dt);
+            Vector3 forced=Vector3.zero;
+            if(knockDistance>0&&knockElapsed<knockDuration){float a=knockElapsed/knockDuration;knockElapsed=Mathf.Min(knockDuration,knockElapsed+dt);float b=knockElapsed/knockDuration;forced=knockDirection*knockDistance*((2*b-b*b)-(2*a-a*a));}
+            var flags=motor.Move(Velocity*dt+forced);
             if((flags&CollisionFlags.Above)!=0 && vertical>0)vertical=0;
         }
     }

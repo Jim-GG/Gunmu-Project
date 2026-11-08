@@ -1,0 +1,593 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 717b0fdfb7092024984f95b6546f7d51, type: 3}
+  m_Name: UDK7M_BeforeBoss
+  m_EditorClassIdentifier: Assembly-CSharp::GameActions.ActionSet
+  previewModel: {fileID: 1108679594097476378, guid: 8c0f1ce528a719643b05486329ccdc25, type: 3}
+  firstPersonPreview: 0
+  previewCameraBone: ViewCameraMotion
+  previewFieldOfView: 65
+  previewFocus: {x: 0, y: 2.5, z: 0}
+  previewDistance: 19
+  sockets: []
+  minimumSeparation: 0.85
+  inputBufferSeconds: 0.22
+  actions:
+  - id: Idle
+    isAttack: 0
+    chargeLevel: 0
+    action:
+      animation:
+        track: {fileID: 11400000, guid: ab1d4c28754624b418205b6ea0abcbd4, type: 2}
+        startFrame: 0
+        endFrame: -1
+        loop: 1
+        speed: 1
+        blend: 0.08
+        events: []
+      hits: []
+      rootMotionScale: 1
+      lockFacingFrame: 20
+      displacement:
+        enabled: 0
+        includeAuthoredRootMotion: 0
+        stopOnHit: 1
+        trackTarget: 1
+        trackingStartFrame: 0
+        trackingEndFrame: 32
+        turnSpeed: 140
+        maxTrackingAngle: 110
+        segments: []
+      startDistance: 0
+    acquisitionRange: 3
+    acquisitionHalfAngle: 32
+    maxHeightDifference: 1.25
+    groundedAssistanceOnly: 1
+  - id: TripleSlam
+    isAttack: 1
+    chargeLevel: 0
+    action:
+      animation:
+        track: {fileID: 11400000, guid: 540a2bea9433ca249b3d19127f29fbcc, type: 2}
+        startFrame: 0
+        endFrame: -1
+        loop: 0
+        speed: 1
+        blend: 0.08
+        events: []
+      hits: []
+      rootMotionScale: 1
+      lockFacingFrame: 20
+      displacement:
+        enabled: 0
+        includeAuthoredRootMotion: 0
+        stopOnHit: 1
+        trackTarget: 1
+        trackingStartFrame: 0
+        trackingEndFrame: 32
+        turnSpeed: 140
+        maxTrackingAngle: 110
+        segments: []
+      startDistance: 0
+    acquisitionRange: 3
+    acquisitionHalfAngle: 32
+    maxHeightDifference: 1.25
+    groundedAssistanceOnly: 1
+  - id: SlamPrepare
+    isAttack: 0
+    chargeLevel: 0
+    action:
+      animation:
+        track: {fileID: 11400000, guid: 627a546ecd62d634a8d67d07c7e8b049, type: 2}
+        startFrame: 0
+        endFrame: -1
+        loop: 0
+        speed: 1
+        blend: 0.08
+        events: []
+      hits: []
+      rootMotionScale: 1
+      lockFacingFrame: 20
+      displacement:
+        enabled: 0
+        includeAuthoredRootMotion: 0
+        stopOnHit: 1
+        trackTarget: 1
+        trackingStartFrame: 0
+        trackingEndFrame: 32
+        turnSpeed: 140
+        maxTrackingAngle: 110
+        segments: []
+      startDistance: 0
+    acquisitionRange: 3
+    acquisitionHalfAngle: 32
+    maxHeightDifference: 1.25
+    groundedAssistanceOnly: 1
+  - id: SlamRecover
+    isAttack: 1
+    chargeLevel: 0
+    action:
+      animation:
+        track: {fileID: 11400000, guid: 50afc3f3d6359d24ba4e79bb8bdef9fe, type: 2}
+        startFrame: 0
+        endFrame: -1
+        loop: 0
+        speed: 1
+        blend: 0.08
+        events: []
+      hits:
+      - label: Hitbox 1
+        hitGroup: 
+        enabled: 1
+        startFrame: 2
+        endFrame: 3
+        damage: 15
+        reach: 1.45
+        halfAngle: 65
+        shape: 2
+        anchor: 0
+        customBone: 
+        position: {x: 0, y: 2.75, z: 4.55}
+        rotation: {x: -45.64, y: 0, z: 0}
+        size: {x: 0.65, y: 0.7, z: 0.65}
+        radius: 0.67
+        height: 2.319707
+        targetLayers:
+          serializedVersion: 2
+          m_Bits: 4294967295
+        minimumBlendWeight: 0
+        repeat: 0
+        sampleEveryFrames: 1
+        damageCooldown: 0.25
+        effectCooldown: 0.1
+        onlyWhileRotating: 0
+        contactEffects: 0
+        rotationAxis: {x: 0, y: 1, z: 0}
+        rotationThreshold: 5
+        blockable: 1
+        knockbackDistance: -1
+        knockbackPerDamage: 0
+        knockbackDuration: 0.2
+        blockedKnockbackMultiplier: 0
+      - label: Hitbox 2
+        hitGroup: 
+        enabled: 1
+        startFrame: 3
+        endFrame: 4
+        damage: 15
+        reach: 1.45
+        halfAngle: 65
+        shape: 0
+        anchor: 0
+        customBone: 
+        position: {x: 0, y: 0, z: 0}
+        rotation: {x: 0, y: 0, z: 0}
+        size: {x: 0.65, y: 0.7, z: 0.65}
+        radius: 0.25
+        height: 0.7
+        targetLayers:
+          serializedVersion: 2
+          m_Bits: 4294967295
+        minimumBlendWeight: 0
+        repeat: 0
+        sampleEveryFrames: 1
+        damageCooldown: 0.25
+        effectCooldown: 0.1
+        onlyWhileRotating: 0
+        contactEffects: 0
+        rotationAxis: {x: 0, y: 1, z: 0}
+        rotationThreshold: 5
+        blockable: 1
+        knockbackDistance: -1
+        knockbackPerDamage: 0
+        knockbackDuration: 0.2
+        blockedKnockbackMultiplier: 0
+      - label: Hitbox 3
+        hitGroup: 
+        enabled: 1
+        startFrame: 4
+        endFrame: 5
+        damage: 15
+        reach: 1.45
+        halfAngle: 65
+        shape: 0
+        anchor: 0
+        customBone: 
+        position: {x: 0, y: 0, z: 0}
+        rotation: {x: 0, y: 0, z: 0}
+        size: {x: 0.65, y: 0.7, z: 0.65}
+        radius: 0.25
+        height: 0.7
+        targetLayers:
+          serializedVersion: 2
+          m_Bits: 4294967295
+        minimumBlendWeight: 0
+        repeat: 0
+        sampleEveryFrames: 1
+        damageCooldown: 0.25
+        effectCooldown: 0.1
+        onlyWhileRotating: 0
+        contactEffects: 0
+        rotationAxis: {x: 0, y: 1, z: 0}
+        rotationThreshold: 5
+        blockable: 1
+        knockbackDistance: -1
+        knockbackPerDamage: 0
+        knockbackDuration: 0.2
+        blockedKnockbackMultiplier: 0
+      - label: Hitbox 4
+        hitGroup: 
+        enabled: 1
+        startFrame: 5
+        endFrame: 6
+        damage: 15
+        reach: 1.45
+        halfAngle: 65
+        shape: 0
+        anchor: 0
+        customBone: 
+        position: {x: 0, y: 0, z: 0}
+        rotation: {x: 0, y: 0, z: 0}
+        size: {x: 0.65, y: 0.7, z: 0.65}
+        radius: 0.25
+        height: 0.7
+        targetLayers:
+          serializedVersion: 2
+          m_Bits: 4294967295
+        minimumBlendWeight: 0
+        repeat: 0
+        sampleEveryFrames: 1
+        damageCooldown: 0.25
+        effectCooldown: 0.1
+        onlyWhileRotating: 0
+        contactEffects: 0
+        rotationAxis: {x: 0, y: 1, z: 0}
+        rotationThreshold: 5
+        blockable: 1
+        knockbackDistance: -1
+        knockbackPerDamage: 0
+        knockbackDuration: 0.2
+        blockedKnockbackMultiplier: 0
+      - label: Hitbox 5
+        hitGroup: 
+        enabled: 1
+        startFrame: 6
+        endFrame: 7
+        damage: 15
+        reach: 1.45
+        halfAngle: 65
+        shape: 0
+        anchor: 0
+        customBone: 
+        position: {x: 0, y: 0, z: 0}
+        rotation: {x: 0, y: 0, z: 0}
+        size: {x: 0.65, y: 0.7, z: 0.65}
+        radius: 0.25
+        height: 0.7
+        targetLayers:
+          serializedVersion: 2
+          m_Bits: 4294967295
+        minimumBlendWeight: 0
+        repeat: 0
+        sampleEveryFrames: 1
+        damageCooldown: 0.25
+        effectCooldown: 0.1
+        onlyWhileRotating: 0
+        contactEffects: 0
+        rotationAxis: {x: 0, y: 1, z: 0}
+        rotationThreshold: 5
+        blockable: 1
+        knockbackDistance: -1
+        knockbackPerDamage: 0
+        knockbackDuration: 0.2
+        blockedKnockbackMultiplier: 0
+      rootMotionScale: 1
+      lockFacingFrame: 20
+      displacement:
+        enabled: 0
+        includeAuthoredRootMotion: 0
+        stopOnHit: 1
+        trackTarget: 1
+        trackingStartFrame: 0
+        trackingEndFrame: 32
+        turnSpeed: 140
+        maxTrackingAngle: 110
+        segments: []
+      startDistance: 0
+    acquisitionRange: 3
+    acquisitionHalfAngle: 32
+    maxHeightDifference: 1.25
+    groundedAssistanceOnly: 1
+  - id: SlamHold
+    isAttack: 1
+    chargeLevel: 0
+    action:
+      animation:
+        track: {fileID: 11400000, guid: f8fa4bb82e02fd74688d0a3ee5f3a77d, type: 2}
+        startFrame: 0
+        endFrame: -1
+        loop: 1
+        speed: 1
+        blend: 0.08
+        events: []
+      hits: []
+      rootMotionScale: 1
+      lockFacingFrame: 20
+      displacement:
+        enabled: 0
+        includeAuthoredRootMotion: 0
+        stopOnHit: 1
+        trackTarget: 1
+        trackingStartFrame: 0
+        trackingEndFrame: 32
+        turnSpeed: 140
+        maxTrackingAngle: 110
+        segments: []
+      startDistance: 0
+    acquisitionRange: 3
+    acquisitionHalfAngle: 32
+    maxHeightDifference: 1.25
+    groundedAssistanceOnly: 1
+  - id: ChargePrepare
+    isAttack: 0
+    chargeLevel: 0
+    action:
+      animation:
+        track: {fileID: 11400000, guid: 28ca396a1b699e84ba3b347623b86fbb, type: 2}
+        startFrame: 0
+        endFrame: -1
+        loop: 0
+        speed: 1
+        blend: 0.08
+        events: []
+      hits: []
+      rootMotionScale: 1
+      lockFacingFrame: 20
+      displacement:
+        enabled: 0
+        includeAuthoredRootMotion: 0
+        stopOnHit: 1
+        trackTarget: 1
+        trackingStartFrame: 0
+        trackingEndFrame: 32
+        turnSpeed: 140
+        maxTrackingAngle: 110
+        segments: []
+      startDistance: 0
+    acquisitionRange: 3
+    acquisitionHalfAngle: 32
+    maxHeightDifference: 1.25
+    groundedAssistanceOnly: 1
+  - id: ChargeRecover
+    isAttack: 0
+    chargeLevel: 0
+    action:
+      animation:
+        track: {fileID: 11400000, guid: 6966a513b5082c84a8bb71813a9499bc, type: 2}
+        startFrame: 0
+        endFrame: -1
+        loop: 0
+        speed: 1
+        blend: 0.08
+        events: []
+      hits: []
+      rootMotionScale: 1
+      lockFacingFrame: 20
+      displacement:
+        enabled: 0
+        includeAuthoredRootMotion: 0
+        stopOnHit: 1
+        trackTarget: 1
+        trackingStartFrame: 0
+        trackingEndFrame: 32
+        turnSpeed: 140
+        maxTrackingAngle: 110
+        segments: []
+      startDistance: 0
+    acquisitionRange: 3
+    acquisitionHalfAngle: 32
+    maxHeightDifference: 1.25
+    groundedAssistanceOnly: 1
+  - id: ChargeHold
+    isAttack: 1
+    chargeLevel: 0
+    action:
+      animation:
+        track: {fileID: 11400000, guid: 50bb3d29a8ef79448ab4330dda5a2c7e, type: 2}
+        startFrame: 0
+        endFrame: -1
+        loop: 1
+        speed: 1
+        blend: 0.08
+        events: []
+      hits:
+      - label: Hitbox 1
+        hitGroup: 
+        enabled: 1
+        startFrame: 0
+        endFrame: 3
+        damage: 15
+        reach: 1.45
+        halfAngle: 65
+        shape: 0
+        anchor: 0
+        customBone: 
+        position: {x: 0, y: 0, z: 0}
+        rotation: {x: 0, y: 0, z: 0}
+        size: {x: 0.65, y: 0.7, z: 0.65}
+        radius: 0.25
+        height: 0.7
+        targetLayers:
+          serializedVersion: 2
+          m_Bits: 4294967295
+        minimumBlendWeight: 0
+        repeat: 0
+        sampleEveryFrames: 1
+        damageCooldown: 0.25
+        effectCooldown: 0.1
+        onlyWhileRotating: 0
+        contactEffects: 0
+        rotationAxis: {x: 0, y: 1, z: 0}
+        rotationThreshold: 5
+        blockable: 1
+        knockbackDistance: -1
+        knockbackPerDamage: 0
+        knockbackDuration: 0.2
+        blockedKnockbackMultiplier: 0
+      rootMotionScale: 1
+      lockFacingFrame: 20
+      displacement:
+        enabled: 0
+        includeAuthoredRootMotion: 0
+        stopOnHit: 1
+        trackTarget: 1
+        trackingStartFrame: 0
+        trackingEndFrame: 32
+        turnSpeed: 140
+        maxTrackingAngle: 110
+        segments: []
+      startDistance: 0
+    acquisitionRange: 3
+    acquisitionHalfAngle: 32
+    maxHeightDifference: 1.25
+    groundedAssistanceOnly: 1
+  - id: OriginalDemo
+    isAttack: 0
+    chargeLevel: 0
+    action:
+      animation:
+        track: {fileID: 11400000, guid: 0a9f4a28d7222454fba8cf85fc47afff, type: 2}
+        startFrame: 0
+        endFrame: -1
+        loop: 0
+        speed: 1
+        blend: 0.08
+        events: []
+      hits: []
+      rootMotionScale: 1
+      lockFacingFrame: 20
+      displacement:
+        enabled: 0
+        includeAuthoredRootMotion: 0
+        stopOnHit: 1
+        trackTarget: 1
+        trackingStartFrame: 0
+        trackingEndFrame: 32
+        turnSpeed: 140
+        maxTrackingAngle: 110
+        segments: []
+      startDistance: 0
+    acquisitionRange: 3
+    acquisitionHalfAngle: 32
+    maxHeightDifference: 1.25
+    groundedAssistanceOnly: 1
+  transitions:
+  - label: "Idle \u2192 SlamPrepare"
+    from: Idle
+    to: SlamPrepare
+    enabled: 1
+    anySource: 0
+    blend: 0.08
+    entryFrame: -1
+    cancelFrame: 0
+    cancelEndFrame: -1
+    bufferStartFrame: -1
+  - label: "SlamPrepare \u2192 SlamHold"
+    from: SlamPrepare
+    to: SlamHold
+    enabled: 1
+    anySource: 0
+    blend: 0.08
+    entryFrame: -1
+    cancelFrame: -1
+    cancelEndFrame: -1
+    bufferStartFrame: -1
+  - label: "SlamHold \u2192 SlamRecover"
+    from: SlamHold
+    to: SlamRecover
+    enabled: 1
+    anySource: 0
+    blend: 0.08
+    entryFrame: -1
+    cancelFrame: 0
+    cancelEndFrame: -1
+    bufferStartFrame: -1
+  - label: "SlamRecover \u2192 Idle"
+    from: SlamRecover
+    to: Idle
+    enabled: 1
+    anySource: 0
+    blend: 0
+    entryFrame: -1
+    cancelFrame: -1
+    cancelEndFrame: -1
+    bufferStartFrame: -1
+  - label: "Idle \u2192 TripleSlam"
+    from: Idle
+    to: TripleSlam
+    enabled: 1
+    anySource: 0
+    blend: 0.08
+    entryFrame: -1
+    cancelFrame: 0
+    cancelEndFrame: -1
+    bufferStartFrame: -1
+  - label: "TripleSlam \u2192 Idle"
+    from: TripleSlam
+    to: Idle
+    enabled: 1
+    anySource: 0
+    blend: 0.08
+    entryFrame: -1
+    cancelFrame: -1
+    cancelEndFrame: -1
+    bufferStartFrame: -1
+  - label: "Idle \u2192 ChargePrepare"
+    from: Idle
+    to: ChargePrepare
+    enabled: 1
+    anySource: 0
+    blend: 0.08
+    entryFrame: -1
+    cancelFrame: 0
+    cancelEndFrame: -1
+    bufferStartFrame: -1
+  - label: "ChargePrepare \u2192 ChargeHold"
+    from: ChargePrepare
+    to: ChargeHold
+    enabled: 1
+    anySource: 0
+    blend: 0.08
+    entryFrame: -1
+    cancelFrame: -1
+    cancelEndFrame: -1
+    bufferStartFrame: -1
+  - label: "ChargeHold \u2192 ChargeRecover"
+    from: ChargeHold
+    to: ChargeRecover
+    enabled: 1
+    anySource: 0
+    blend: 0.08
+    entryFrame: -1
+    cancelFrame: 0
+    cancelEndFrame: -1
+    bufferStartFrame: -1
+  - label: "ChargeRecover \u2192 Idle"
+    from: ChargeRecover
+    to: Idle
+    enabled: 1
+    anySource: 0
+    blend: 0
+    entryFrame: -1
+    cancelFrame: -1
+    cancelEndFrame: -1
+    bufferStartFrame: -1

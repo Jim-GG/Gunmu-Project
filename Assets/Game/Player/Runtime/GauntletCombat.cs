@@ -50,6 +50,11 @@ namespace FirstPerson
         public float ChargeSeconds {get;private set;}
         public int ChargeTier=>policy.Tier(ChargeSeconds);
         public int BlockEnergy {get;private set;}
+        public float ResonanceRemaining=>Mathf.Max(0,resonanceUntil-Time.time);
+        float resonanceUntil;
+        public void GrantResonance(float seconds){resonanceUntil=Mathf.Max(resonanceUntil,Time.time+seconds);SetEnergy(3);}
+        public void AddEnergy(int amount)=>SetEnergy(BlockEnergy+amount);
+        public void ResetResonance(){resonanceUntil=0;SetEnergy(0);}
         public int ActivePunch=>State==Phase.Punching?activePunch:0;
         public float CurrentFrame=>actions&&actions.motion?actions.motion.SourceFrame:0;
         public bool HasBufferedInput=>buffer.Valid(clock);
@@ -147,11 +152,14 @@ namespace FirstPerson
         public void EndBlock()
         {blockHeld=false;if(IsBlocking)EnterParry(Phase.ParryHolster,"Parry-Holster");}
         public bool TryBlock(Vector3 attackerPosition)
+        {return ResolveGuard(attackerPosition)!=GameActions.GuardKind.None;}
+        public GameActions.GuardKind ResolveGuard(Vector3 attackerPosition)
         {
-            if(!CanAct||!IsBlocking)return false;
+            if(!CanAct||!IsBlocking)return GameActions.GuardKind.None;
             var direction=Vector3.ProjectOnPlane(attackerPosition-transform.position,Vector3.up);
-            if(direction.sqrMagnitude>.0001f&&Vector3.Angle(transform.forward,direction)>blockAngle*.5f)return false;
-            SetEnergy(BlockEnergy+1);EnterParry(Phase.ParryHit,"Parry-Hit");AttackBlocked?.Invoke();return true;
+            if(direction.sqrMagnitude>.0001f&&Vector3.Angle(transform.forward,direction)>blockAngle*.5f)return GameActions.GuardKind.None;
+            var result=State==Phase.ParryStart?GameActions.GuardKind.Perfect:GameActions.GuardKind.Imperfect;
+            SetEnergy(BlockEnergy+1);EnterParry(Phase.ParryHit,"Parry-Hit");AttackBlocked?.Invoke();return result;
         }
         void EnterParry(Phase phase,string clip)
         {assist.Clear();State=phase;actions.Play(clip);animationPlayer.SetCharge(0);}
@@ -180,7 +188,7 @@ namespace FirstPerson
                 {
                     assist.Step(definition,previous,motion.SourceFrame,step,transform,attackOrigin,body,obstructionMask,profile.minimumSeparation,connected);
                     Physics.SyncTransforms();
-                    connected|=contacts.Resolve(definition,motion,boxes,transform,attackOrigin.position,obstructionMask,activePunch*1.5f);
+                    connected|=contacts.Resolve(definition,motion,boxes,transform,attackOrigin.position,obstructionMask,activePunch*1.5f,step,Mathf.Clamp(activePunch-1,0,3),attackOrigin.forward);
                     if(!TryBuffered()&&State==Phase.Punching&&motion.Finished)
                     {
                         FinishAttack(false);ReturnIdle();
@@ -200,9 +208,9 @@ namespace FirstPerson
                     heldSeconds+=step;
                     if(State==Phase.Charging)
                     {
-                        int energy=BlockEnergy;float seconds=policy.Advance(ChargeSeconds,step*speed,ref energy,ref visitedSkips,out int skipped);
+                        int energy=ResonanceRemaining>0?3:BlockEnergy;float seconds=policy.Advance(ChargeSeconds,step*speed,ref energy,ref visitedSkips,out int skipped);
                         ChargeSeconds=seconds;
-                        if(skipped>0){SetEnergy(energy);motion.Seek(seconds*fps);ChargeSkipped?.Invoke(skipped);}
+                        if(skipped>0){SetEnergy(ResonanceRemaining>0?3:energy);motion.Seek(seconds*fps);ChargeSkipped?.Invoke(skipped);}
                     }
                     else ChargeSeconds=motion.SourceSeconds;
                     animationPlayer.SetCharge(Mathf.Clamp01(ChargeSeconds*policy.framesPerSecond/policy.full));

@@ -23,7 +23,8 @@ MonoBehaviour:
   inputBufferSeconds: 0.22
   actions:
   - id: Idle
-    isAttack: 0
+    isAttack: 1
+    chargeLevel: 0
     action:
       animation:
         track: {fileID: 11400000, guid: ab1d4c28754624b418205b6ea0abcbd4, type: 2}
@@ -33,7 +34,43 @@ MonoBehaviour:
         speed: 1
         blend: 0.08
         events: []
-      hits: []
+      hits:
+      - label: Drill Contact
+        hitGroup: drill-contact
+        enabled: 1
+        startFrame: 0
+        endFrame: 100000
+        damage: 3
+        reach: 1.45
+        halfAngle: 65
+        shape: 2
+        anchor: 7
+        customBone: Visual/UDK7M/UDK7M_RIG/Root/Turret/Boom/Forearm/Tool/DrillRoll
+        position: {x: 0, y: 0.28, z: 0}
+        rotation: {x: 0, y: 0, z: 0}
+        size: {x: 0.65, y: 0.7, z: 0.65}
+        radius: 0.5
+        height: 2.67
+        targetLayers:
+          serializedVersion: 2
+          m_Bits: 4294967295
+        minimumBlendWeight: 0
+        repeat: 2
+        sampleEveryFrames: 2
+        damageCooldown: 0.25
+        effectCooldown: 0.1
+        onlyWhileRotating: 1
+        contactEffects: 1
+        contactEffect: {fileID: 0}
+        contactSound: {fileID: 0}
+        contactEffectLifetime: 2
+        rotationAxis: {x: 0, y: 1, z: 0}
+        rotationThreshold: 5
+        blockable: 1
+        knockbackDistance: 0.15
+        knockbackPerDamage: 0
+        knockbackDuration: 0.2
+        blockedKnockbackMultiplier: 0
       rootMotionScale: 1
       lockFacingFrame: 20
       displacement:
@@ -53,6 +90,7 @@ MonoBehaviour:
     groundedAssistanceOnly: 1
   - id: TripleSlam
     isAttack: 1
+    chargeLevel: 0
     action:
       animation:
         track: {fileID: 11400000, guid: 540a2bea9433ca249b3d19127f29fbcc, type: 2}
@@ -61,8 +99,165 @@ MonoBehaviour:
         loop: 0
         speed: 1
         blend: 0.08
-        events: []
-      hits: []
+        events:
+        - name: ThirdSlam
+          frame: 59
+          kind: 0
+          payload: 
+          value: 1
+          sound: {fileID: 0}
+          effect: {fileID: 0}
+          effectLifetime: 3
+          anchor: 0
+          customBone: 
+          position: {x: 0, y: 0, z: 0}
+          rotation: {x: 0, y: 0, z: 0}
+          followAnchor: 0
+      hits:
+      - label: "\u7B2C\u4E00\u7838"
+        hitGroup: triple-1
+        enabled: 1
+        startFrame: 12
+        endFrame: 19
+        damage: 35
+        reach: 1.45
+        halfAngle: 65
+        shape: 2
+        anchor: 7
+        customBone: Visual/UDK7M/UDK7M_RIG/Root/Turret/Boom/Forearm/Tool/DrillRoll
+        position: {x: 0, y: 0.28, z: 0}
+        rotation: {x: 0, y: 0, z: 0}
+        size: {x: 0.65, y: 0.7, z: 0.65}
+        radius: 0.5
+        height: 2.67
+        targetLayers:
+          serializedVersion: 2
+          m_Bits: 4294967295
+        minimumBlendWeight: 0
+        repeat: 0
+        sampleEveryFrames: 1
+        damageCooldown: 0.25
+        effectCooldown: 0.1
+        onlyWhileRotating: 0
+        contactEffects: 1
+        contactEffect: {fileID: 0}
+        contactSound: {fileID: 0}
+        contactEffectLifetime: 2
+        rotationAxis: {x: 0, y: 1, z: 0}
+        rotationThreshold: 5
+        blockable: 1
+        knockbackDistance: 2
+        knockbackPerDamage: 0
+        knockbackDuration: 0.2
+        blockedKnockbackMultiplier: 0.6
+      - label: "\u7B2C\u4E8C\u7838"
+        hitGroup: triple-2
+        enabled: 1
+        startFrame: 30
+        endFrame: 37
+        damage: 35
+        reach: 1.45
+        halfAngle: 65
+        shape: 2
+        anchor: 7
+        customBone: Visual/UDK7M/UDK7M_RIG/Root/Turret/Boom/Forearm/Tool/DrillRoll
+        position: {x: 0, y: 0.28, z: 0}
+        rotation: {x: 0, y: 0, z: 0}
+        size: {x: 0.65, y: 0.7, z: 0.65}
+        radius: 0.5
+        height: 2.67
+        targetLayers:
+          serializedVersion: 2
+          m_Bits: 4294967295
+        minimumBlendWeight: 0
+        repeat: 0
+        sampleEveryFrames: 1
+        damageCooldown: 0.25
+        effectCooldown: 0.1
+        onlyWhileRotating: 0
+        contactEffects: 1
+        contactEffect: {fileID: 0}
+        contactSound: {fileID: 0}
+        contactEffectLifetime: 2
+        rotationAxis: {x: 0, y: 1, z: 0}
+        rotationThreshold: 5
+        blockable: 1
+        knockbackDistance: 2
+        knockbackPerDamage: 0
+        knockbackDuration: 0.2
+        blockedKnockbackMultiplier: 0.6
+      - label: "\u7B2C\u4E09\u7838"
+        hitGroup: triple-3
+        enabled: 1
+        startFrame: 54
+        endFrame: 63
+        damage: 45
+        reach: 1.45
+        halfAngle: 65
+        shape: 2
+        anchor: 7
+        customBone: Visual/UDK7M/UDK7M_RIG/Root/Turret/Boom/Forearm/Tool/DrillRoll
+        position: {x: 0, y: 0.28, z: 0}
+        rotation: {x: 0, y: 0, z: 0}
+        size: {x: 0.65, y: 0.7, z: 0.65}
+        radius: 0.5
+        height: 2.67
+        targetLayers:
+          serializedVersion: 2
+          m_Bits: 4294967295
+        minimumBlendWeight: 0
+        repeat: 0
+        sampleEveryFrames: 1
+        damageCooldown: 0.25
+        effectCooldown: 0.1
+        onlyWhileRotating: 0
+        contactEffects: 1
+        contactEffect: {fileID: 0}
+        contactSound: {fileID: 0}
+        contactEffectLifetime: 2
+        rotationAxis: {x: 0, y: 1, z: 0}
+        rotationThreshold: 5
+        blockable: 1
+        knockbackDistance: 3
+        knockbackPerDamage: 0
+        knockbackDuration: 0.2
+        blockedKnockbackMultiplier: 0.6
+      - label: Drill Contact
+        hitGroup: drill-contact
+        enabled: 1
+        startFrame: 0
+        endFrame: 100000
+        damage: 3
+        reach: 1.45
+        halfAngle: 65
+        shape: 2
+        anchor: 7
+        customBone: Visual/UDK7M/UDK7M_RIG/Root/Turret/Boom/Forearm/Tool/DrillRoll
+        position: {x: 0, y: 0.28, z: 0}
+        rotation: {x: 0, y: 0, z: 0}
+        size: {x: 0.65, y: 0.7, z: 0.65}
+        radius: 0.5
+        height: 2.67
+        targetLayers:
+          serializedVersion: 2
+          m_Bits: 4294967295
+        minimumBlendWeight: 0
+        repeat: 2
+        sampleEveryFrames: 2
+        damageCooldown: 0.25
+        effectCooldown: 0.1
+        onlyWhileRotating: 1
+        contactEffects: 1
+        contactEffect: {fileID: 0}
+        contactSound: {fileID: 0}
+        contactEffectLifetime: 2
+        rotationAxis: {x: 0, y: 1, z: 0}
+        rotationThreshold: 5
+        blockable: 1
+        knockbackDistance: 0.15
+        knockbackPerDamage: 0
+        knockbackDuration: 0.2
+        blockedKnockbackMultiplier: 0
       rootMotionScale: 1
       lockFacingFrame: 20
       displacement:
@@ -81,7 +276,8 @@ MonoBehaviour:
     maxHeightDifference: 1.25
     groundedAssistanceOnly: 1
   - id: SlamPrepare
-    isAttack: 0
+    isAttack: 1
+    chargeLevel: 0
     action:
       animation:
         track: {fileID: 11400000, guid: 627a546ecd62d634a8d67d07c7e8b049, type: 2}
@@ -91,7 +287,43 @@ MonoBehaviour:
         speed: 1
         blend: 0.08
         events: []
-      hits: []
+      hits:
+      - label: Drill Contact
+        hitGroup: drill-contact
+        enabled: 1
+        startFrame: 0
+        endFrame: 100000
+        damage: 3
+        reach: 1.45
+        halfAngle: 65
+        shape: 2
+        anchor: 7
+        customBone: Visual/UDK7M/UDK7M_RIG/Root/Turret/Boom/Forearm/Tool/DrillRoll
+        position: {x: 0, y: 0.28, z: 0}
+        rotation: {x: 0, y: 0, z: 0}
+        size: {x: 0.65, y: 0.7, z: 0.65}
+        radius: 0.5
+        height: 2.67
+        targetLayers:
+          serializedVersion: 2
+          m_Bits: 4294967295
+        minimumBlendWeight: 0
+        repeat: 2
+        sampleEveryFrames: 2
+        damageCooldown: 0.25
+        effectCooldown: 0.1
+        onlyWhileRotating: 1
+        contactEffects: 1
+        contactEffect: {fileID: 0}
+        contactSound: {fileID: 0}
+        contactEffectLifetime: 2
+        rotationAxis: {x: 0, y: 1, z: 0}
+        rotationThreshold: 5
+        blockable: 1
+        knockbackDistance: 0.15
+        knockbackPerDamage: 0
+        knockbackDuration: 0.2
+        blockedKnockbackMultiplier: 0
       rootMotionScale: 1
       lockFacingFrame: 20
       displacement:
@@ -111,6 +343,7 @@ MonoBehaviour:
     groundedAssistanceOnly: 1
   - id: SlamRecover
     isAttack: 1
+    chargeLevel: 0
     action:
       animation:
         track: {fileID: 11400000, guid: 50afc3f3d6359d24ba4e79bb8bdef9fe, type: 2}
@@ -121,106 +354,78 @@ MonoBehaviour:
         blend: 0.08
         events: []
       hits:
-      - label: Hitbox 1
-        hitGroup: 
+      - label: "\u4E0B\u7838\u6709\u6548\u5E27"
+        hitGroup: slam-main
         enabled: 1
-        startFrame: 2
-        endFrame: 3
-        damage: 15
+        startFrame: 3
+        endFrame: 8
+        damage: 40
         reach: 1.45
         halfAngle: 65
         shape: 2
-        anchor: 0
-        customBone: 
-        position: {x: 0, y: 2.75, z: 4.55}
-        rotation: {x: -45.64, y: 0, z: 0}
-        size: {x: 0.65, y: 0.7, z: 0.65}
-        radius: 0.67
-        height: 2.319707
-        targetLayers:
-          serializedVersion: 2
-          m_Bits: 4294967295
-        minimumBlendWeight: 0
-      - label: Hitbox 2
-        hitGroup: 
-        enabled: 1
-        startFrame: 3
-        endFrame: 4
-        damage: 15
-        reach: 1.45
-        halfAngle: 65
-        shape: 0
-        anchor: 0
-        customBone: 
-        position: {x: 0, y: 0, z: 0}
+        anchor: 7
+        customBone: Visual/UDK7M/UDK7M_RIG/Root/Turret/Boom/Forearm/Tool/DrillRoll
+        position: {x: 0, y: 0.28, z: 0}
         rotation: {x: 0, y: 0, z: 0}
         size: {x: 0.65, y: 0.7, z: 0.65}
-        radius: 0.25
-        height: 0.7
+        radius: 0.5
+        height: 2.67
         targetLayers:
           serializedVersion: 2
           m_Bits: 4294967295
         minimumBlendWeight: 0
-      - label: Hitbox 3
-        hitGroup: 
+        repeat: 0
+        sampleEveryFrames: 1
+        damageCooldown: 0.25
+        effectCooldown: 0.1
+        onlyWhileRotating: 0
+        contactEffects: 1
+        contactEffect: {fileID: 0}
+        contactSound: {fileID: 0}
+        contactEffectLifetime: 2
+        rotationAxis: {x: 0, y: 1, z: 0}
+        rotationThreshold: 5
+        blockable: 1
+        knockbackDistance: 3
+        knockbackPerDamage: 0
+        knockbackDuration: 0.2
+        blockedKnockbackMultiplier: 0.6
+      - label: Drill Contact
+        hitGroup: drill-contact
         enabled: 1
-        startFrame: 4
-        endFrame: 5
-        damage: 15
+        startFrame: 0
+        endFrame: 100000
+        damage: 3
         reach: 1.45
         halfAngle: 65
-        shape: 0
-        anchor: 0
-        customBone: 
-        position: {x: 0, y: 0, z: 0}
+        shape: 2
+        anchor: 7
+        customBone: Visual/UDK7M/UDK7M_RIG/Root/Turret/Boom/Forearm/Tool/DrillRoll
+        position: {x: 0, y: 0.77, z: 0}
         rotation: {x: 0, y: 0, z: 0}
         size: {x: 0.65, y: 0.7, z: 0.65}
-        radius: 0.25
-        height: 0.7
+        radius: 0.28
+        height: 1.7
         targetLayers:
           serializedVersion: 2
           m_Bits: 4294967295
         minimumBlendWeight: 0
-      - label: Hitbox 4
-        hitGroup: 
-        enabled: 1
-        startFrame: 5
-        endFrame: 6
-        damage: 15
-        reach: 1.45
-        halfAngle: 65
-        shape: 0
-        anchor: 0
-        customBone: 
-        position: {x: 0, y: 0, z: 0}
-        rotation: {x: 0, y: 0, z: 0}
-        size: {x: 0.65, y: 0.7, z: 0.65}
-        radius: 0.25
-        height: 0.7
-        targetLayers:
-          serializedVersion: 2
-          m_Bits: 4294967295
-        minimumBlendWeight: 0
-      - label: Hitbox 5
-        hitGroup: 
-        enabled: 1
-        startFrame: 6
-        endFrame: 7
-        damage: 15
-        reach: 1.45
-        halfAngle: 65
-        shape: 0
-        anchor: 0
-        customBone: 
-        position: {x: 0, y: 0, z: 0}
-        rotation: {x: 0, y: 0, z: 0}
-        size: {x: 0.65, y: 0.7, z: 0.65}
-        radius: 0.25
-        height: 0.7
-        targetLayers:
-          serializedVersion: 2
-          m_Bits: 4294967295
-        minimumBlendWeight: 0
+        repeat: 2
+        sampleEveryFrames: 2
+        damageCooldown: 0.25
+        effectCooldown: 0.1
+        onlyWhileRotating: 1
+        contactEffects: 1
+        contactEffect: {fileID: 0}
+        contactSound: {fileID: 0}
+        contactEffectLifetime: 2
+        rotationAxis: {x: 0, y: 1, z: 0}
+        rotationThreshold: 5
+        blockable: 1
+        knockbackDistance: 0.15
+        knockbackPerDamage: 0
+        knockbackDuration: 0.2
+        blockedKnockbackMultiplier: 0
       rootMotionScale: 1
       lockFacingFrame: 20
       displacement:
@@ -240,6 +445,7 @@ MonoBehaviour:
     groundedAssistanceOnly: 1
   - id: SlamHold
     isAttack: 1
+    chargeLevel: 0
     action:
       animation:
         track: {fileID: 11400000, guid: f8fa4bb82e02fd74688d0a3ee5f3a77d, type: 2}
@@ -249,7 +455,79 @@ MonoBehaviour:
         speed: 1
         blend: 0.08
         events: []
-      hits: []
+      hits:
+      - label: Tracked chassis impact
+        hitGroup: chassis
+        enabled: 1
+        startFrame: 0
+        endFrame: 100000
+        damage: 20
+        reach: 1.45
+        halfAngle: 65
+        shape: 0
+        anchor: 0
+        customBone: 
+        position: {x: 0, y: 1.1, z: 0}
+        rotation: {x: 0, y: 0, z: 0}
+        size: {x: 4.57, y: 2.3, z: 5}
+        radius: 0.25
+        height: 0.7
+        targetLayers:
+          serializedVersion: 2
+          m_Bits: 4294967295
+        minimumBlendWeight: 0
+        repeat: 2
+        sampleEveryFrames: 1
+        damageCooldown: 0.7
+        effectCooldown: 0.1
+        onlyWhileRotating: 0
+        contactEffects: 0
+        contactEffect: {fileID: 0}
+        contactSound: {fileID: 0}
+        contactEffectLifetime: 2
+        rotationAxis: {x: 0, y: 1, z: 0}
+        rotationThreshold: 5
+        blockable: 1
+        knockbackDistance: 2
+        knockbackPerDamage: 0
+        knockbackDuration: 0.2
+        blockedKnockbackMultiplier: 0.7
+      - label: Drill Contact
+        hitGroup: drill-contact
+        enabled: 1
+        startFrame: 0
+        endFrame: 100000
+        damage: 3
+        reach: 1.45
+        halfAngle: 65
+        shape: 2
+        anchor: 7
+        customBone: Visual/UDK7M/UDK7M_RIG/Root/Turret/Boom/Forearm/Tool/DrillRoll
+        position: {x: 0, y: 0.28, z: 0}
+        rotation: {x: 0, y: 0, z: 0}
+        size: {x: 0.65, y: 0.7, z: 0.65}
+        radius: 0.5
+        height: 2.67
+        targetLayers:
+          serializedVersion: 2
+          m_Bits: 4294967295
+        minimumBlendWeight: 0
+        repeat: 2
+        sampleEveryFrames: 2
+        damageCooldown: 0.25
+        effectCooldown: 0.1
+        onlyWhileRotating: 1
+        contactEffects: 1
+        contactEffect: {fileID: 0}
+        contactSound: {fileID: 0}
+        contactEffectLifetime: 2
+        rotationAxis: {x: 0, y: 1, z: 0}
+        rotationThreshold: 5
+        blockable: 1
+        knockbackDistance: 0.15
+        knockbackPerDamage: 0
+        knockbackDuration: 0.2
+        blockedKnockbackMultiplier: 0
       rootMotionScale: 1
       lockFacingFrame: 20
       displacement:
@@ -268,7 +546,8 @@ MonoBehaviour:
     maxHeightDifference: 1.25
     groundedAssistanceOnly: 1
   - id: ChargePrepare
-    isAttack: 0
+    isAttack: 1
+    chargeLevel: 0
     action:
       animation:
         track: {fileID: 11400000, guid: 28ca396a1b699e84ba3b347623b86fbb, type: 2}
@@ -278,7 +557,43 @@ MonoBehaviour:
         speed: 1
         blend: 0.08
         events: []
-      hits: []
+      hits:
+      - label: Drill Contact
+        hitGroup: drill-contact
+        enabled: 1
+        startFrame: 0
+        endFrame: 100000
+        damage: 3
+        reach: 1.45
+        halfAngle: 65
+        shape: 2
+        anchor: 7
+        customBone: Visual/UDK7M/UDK7M_RIG/Root/Turret/Boom/Forearm/Tool/DrillRoll
+        position: {x: 0, y: 0.28, z: 0}
+        rotation: {x: 0, y: 0, z: 0}
+        size: {x: 0.65, y: 0.7, z: 0.65}
+        radius: 0.5
+        height: 2.67
+        targetLayers:
+          serializedVersion: 2
+          m_Bits: 4294967295
+        minimumBlendWeight: 0
+        repeat: 2
+        sampleEveryFrames: 2
+        damageCooldown: 0.25
+        effectCooldown: 0.1
+        onlyWhileRotating: 1
+        contactEffects: 1
+        contactEffect: {fileID: 0}
+        contactSound: {fileID: 0}
+        contactEffectLifetime: 2
+        rotationAxis: {x: 0, y: 1, z: 0}
+        rotationThreshold: 5
+        blockable: 1
+        knockbackDistance: 0.15
+        knockbackPerDamage: 0
+        knockbackDuration: 0.2
+        blockedKnockbackMultiplier: 0
       rootMotionScale: 1
       lockFacingFrame: 20
       displacement:
@@ -297,7 +612,8 @@ MonoBehaviour:
     maxHeightDifference: 1.25
     groundedAssistanceOnly: 1
   - id: ChargeRecover
-    isAttack: 0
+    isAttack: 1
+    chargeLevel: 0
     action:
       animation:
         track: {fileID: 11400000, guid: 6966a513b5082c84a8bb71813a9499bc, type: 2}
@@ -307,7 +623,43 @@ MonoBehaviour:
         speed: 1
         blend: 0.08
         events: []
-      hits: []
+      hits:
+      - label: Drill Contact
+        hitGroup: drill-contact
+        enabled: 1
+        startFrame: 0
+        endFrame: 100000
+        damage: 3
+        reach: 1.45
+        halfAngle: 65
+        shape: 2
+        anchor: 7
+        customBone: Visual/UDK7M/UDK7M_RIG/Root/Turret/Boom/Forearm/Tool/DrillRoll
+        position: {x: 0, y: 0.28, z: 0}
+        rotation: {x: 0, y: 0, z: 0}
+        size: {x: 0.65, y: 0.7, z: 0.65}
+        radius: 0.5
+        height: 2.67
+        targetLayers:
+          serializedVersion: 2
+          m_Bits: 4294967295
+        minimumBlendWeight: 0
+        repeat: 2
+        sampleEveryFrames: 2
+        damageCooldown: 0.25
+        effectCooldown: 0.1
+        onlyWhileRotating: 1
+        contactEffects: 1
+        contactEffect: {fileID: 0}
+        contactSound: {fileID: 0}
+        contactEffectLifetime: 2
+        rotationAxis: {x: 0, y: 1, z: 0}
+        rotationThreshold: 5
+        blockable: 1
+        knockbackDistance: 0.15
+        knockbackPerDamage: 0
+        knockbackDuration: 0.2
+        blockedKnockbackMultiplier: 0
       rootMotionScale: 1
       lockFacingFrame: 20
       displacement:
@@ -327,6 +679,7 @@ MonoBehaviour:
     groundedAssistanceOnly: 1
   - id: ChargeHold
     isAttack: 1
+    chargeLevel: 0
     action:
       animation:
         track: {fileID: 11400000, guid: 50bb3d29a8ef79448ab4330dda5a2c7e, type: 2}
@@ -336,7 +689,79 @@ MonoBehaviour:
         speed: 1
         blend: 0.08
         events: []
-      hits: []
+      hits:
+      - label: Tracked chassis impact
+        hitGroup: chassis
+        enabled: 1
+        startFrame: 0
+        endFrame: 100000
+        damage: 20
+        reach: 1.45
+        halfAngle: 65
+        shape: 0
+        anchor: 0
+        customBone: 
+        position: {x: 0, y: 1.1, z: 0}
+        rotation: {x: 0, y: 0, z: 0}
+        size: {x: 4.57, y: 2.3, z: 5}
+        radius: 0.25
+        height: 0.7
+        targetLayers:
+          serializedVersion: 2
+          m_Bits: 4294967295
+        minimumBlendWeight: 0
+        repeat: 2
+        sampleEveryFrames: 1
+        damageCooldown: 0.7
+        effectCooldown: 0.1
+        onlyWhileRotating: 0
+        contactEffects: 0
+        contactEffect: {fileID: 0}
+        contactSound: {fileID: 0}
+        contactEffectLifetime: 2
+        rotationAxis: {x: 0, y: 1, z: 0}
+        rotationThreshold: 5
+        blockable: 1
+        knockbackDistance: 2
+        knockbackPerDamage: 0
+        knockbackDuration: 0.2
+        blockedKnockbackMultiplier: 0.7
+      - label: Drill Contact
+        hitGroup: drill-contact
+        enabled: 1
+        startFrame: 0
+        endFrame: 100000
+        damage: 3
+        reach: 1.45
+        halfAngle: 65
+        shape: 2
+        anchor: 7
+        customBone: Visual/UDK7M/UDK7M_RIG/Root/Turret/Boom/Forearm/Tool/DrillRoll
+        position: {x: 0, y: 0.28, z: 0}
+        rotation: {x: 0, y: 0, z: 0}
+        size: {x: 0.65, y: 0.7, z: 0.65}
+        radius: 0.5
+        height: 2.67
+        targetLayers:
+          serializedVersion: 2
+          m_Bits: 4294967295
+        minimumBlendWeight: 0
+        repeat: 2
+        sampleEveryFrames: 2
+        damageCooldown: 0.25
+        effectCooldown: 0.1
+        onlyWhileRotating: 1
+        contactEffects: 1
+        contactEffect: {fileID: 0}
+        contactSound: {fileID: 0}
+        contactEffectLifetime: 2
+        rotationAxis: {x: 0, y: 1, z: 0}
+        rotationThreshold: 5
+        blockable: 1
+        knockbackDistance: 0.15
+        knockbackPerDamage: 0
+        knockbackDuration: 0.2
+        blockedKnockbackMultiplier: 0
       rootMotionScale: 1
       lockFacingFrame: 20
       displacement:
@@ -356,6 +781,7 @@ MonoBehaviour:
     groundedAssistanceOnly: 1
   - id: OriginalDemo
     isAttack: 0
+    chargeLevel: 0
     action:
       animation:
         track: {fileID: 11400000, guid: 0a9f4a28d7222454fba8cf85fc47afff, type: 2}

@@ -138,6 +138,19 @@ MonoBehaviour:
         serializedVersion: 2
         m_Bits: 4294967295
       minimumBlendWeight: 0
+      repeat: 0
+      sampleEveryFrames: 1
+      damageCooldown: 0.25
+      effectCooldown: 0.1
+      onlyWhileRotating: 0
+      contactEffects: 0
+      rotationAxis: {x: 0, y: 1, z: 0}
+      rotationThreshold: 5
+      blockable: 1
+      knockbackDistance: -1
+      knockbackPerDamage: 0.026666667
+      knockbackDuration: 0.2
+      blockedKnockbackMultiplier: 0
     rootMotionScale: 1
     lockFacingFrame: 20
     displacement:
@@ -243,6 +256,19 @@ MonoBehaviour:
         serializedVersion: 2
         m_Bits: 4294967295
       minimumBlendWeight: 0
+      repeat: 0
+      sampleEveryFrames: 1
+      damageCooldown: 0.25
+      effectCooldown: 0.1
+      onlyWhileRotating: 0
+      contactEffects: 0
+      rotationAxis: {x: 0, y: 1, z: 0}
+      rotationThreshold: 5
+      blockable: 1
+      knockbackDistance: -1
+      knockbackPerDamage: 0.026666667
+      knockbackDuration: 0.2
+      blockedKnockbackMultiplier: 0
     rootMotionScale: 1
     lockFacingFrame: 20
     displacement:
@@ -335,6 +361,19 @@ MonoBehaviour:
         serializedVersion: 2
         m_Bits: 4294967295
       minimumBlendWeight: 0
+      repeat: 0
+      sampleEveryFrames: 1
+      damageCooldown: 0.25
+      effectCooldown: 0.1
+      onlyWhileRotating: 0
+      contactEffects: 0
+      rotationAxis: {x: 0, y: 1, z: 0}
+      rotationThreshold: 5
+      blockable: 1
+      knockbackDistance: -1
+      knockbackPerDamage: 0.026666667
+      knockbackDuration: 0.2
+      blockedKnockbackMultiplier: 0.5
     rootMotionScale: 1
     lockFacingFrame: 20
     displacement:
@@ -409,6 +448,19 @@ MonoBehaviour:
         serializedVersion: 2
         m_Bits: 4294967295
       minimumBlendWeight: 0
+      repeat: 0
+      sampleEveryFrames: 1
+      damageCooldown: 0.25
+      effectCooldown: 0.1
+      onlyWhileRotating: 0
+      contactEffects: 0
+      rotationAxis: {x: 0, y: 1, z: 0}
+      rotationThreshold: 5
+      blockable: 1
+      knockbackDistance: -1
+      knockbackPerDamage: 0.026666667
+      knockbackDuration: 0.2
+      blockedKnockbackMultiplier: 0
     rootMotionScale: 1
     lockFacingFrame: 20
     displacement:

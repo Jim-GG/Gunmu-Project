@@ -1,0 +1,55 @@
+{
+  "passed": true,
+  "error": null,
+  "checks": [
+    {
+      "name": "Third-slam five locked warnings, including two near player",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "Physical falling rocks and two landed crystal pickups",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "Landed crystal grants shared gauntlet energy",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "Liquid applies continuous damage",
+      "passed": true,
+      "details": {
+        "loss": 13.1998825
+      }
+    },
+    {
+      "name": "Lower liquid basin escapes through crystal rebound",
+      "passed": true,
+      "details": {
+        "peakFeetHeight": 2.02875471
+      }
+    },
+    {
+      "name": "Resonance slot remains vacant before cooldown",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "Actual resonance cooldown replenishes the slot",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "Actual ordinary cooldown replenishes the slot",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "Environmental hazards and population reset",
+      "passed": true,
+      "details": null
+    }
+  ]
+}

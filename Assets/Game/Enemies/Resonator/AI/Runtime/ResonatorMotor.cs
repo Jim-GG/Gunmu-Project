@@ -18,6 +18,12 @@ namespace Resonator.AI
         Vector3 attackDestination;
         float attackRepath;
         Collider bodyCollider;
+        Vector3 pushDirection;float pushDistance,pushDuration,pushElapsed;
+        public void Push(Vector3 source,float distance,float duration){pushDirection=Vector3.ProjectOnPlane(transform.position-source,Vector3.up).normalized;pushDistance=distance;pushDuration=Mathf.Max(.02f,duration);pushElapsed=0;}
+        public void AdvanceKnockback(float dt)
+        {
+            if(pushElapsed>=pushDuration||pushDistance<=0)return;float a=pushElapsed/pushDuration;pushElapsed=Mathf.Min(pushDuration,pushElapsed+dt);float b=pushElapsed/pushDuration;Commit(pushDirection*pushDistance*((2*b-b*b)-(2*a-a*a)),null,0,dt);
+        }
         public Collider BodyCollider=>bodyCollider?bodyCollider:bodyCollider=GetComponent<Collider>();
         public bool IsCrowdBody=>isActiveAndEnabled&&agent&&agent.enabled;
         Vector3 navigationGoal,unstuckGoal;

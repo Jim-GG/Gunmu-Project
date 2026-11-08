@@ -1,0 +1,37 @@
+{
+  "passed": true,
+  "checks": [
+    {
+      "test": "All action bone paths, poses and blend",
+      "passed": true
+    },
+    {
+      "test": "Tracks follow physical travel and turning, stop when blocked",
+      "passed": true
+    },
+    {
+      "test": "Contact Once",
+      "health": 97.0,
+      "passed": true
+    },
+    {
+      "test": "Contact EffectsOnly",
+      "health": 100.0,
+      "passed": true
+    },
+    {
+      "test": "Contact Cooldown",
+      "health": 94.0,
+      "passed": true
+    },
+    {
+      "test": "Contact EverySample",
+      "health": 85.0,
+      "passed": true
+    },
+    {
+      "test": "Local rotation excludes parent turning",
+      "passed": true
+    }
+  ]
+}

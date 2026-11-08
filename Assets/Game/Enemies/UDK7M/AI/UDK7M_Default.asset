@@ -1,0 +1,79 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f083e0b9d8071bf4fb1b80c541f497fa, type: 3}
+  m_Name: UDK7M_Default
+  m_EditorClassIdentifier: Assembly-CSharp::UDK7M.UDK7MTuning
+  maxHealth: 1000
+  directDamageMultiplier: 0.05
+  corpseDamage: 140
+  turnSpeed: 25
+  holdTurnSpeed: 35
+  rearTurnSpeed: 50
+  aimTolerance: 5
+  rearAngle: 110
+  nearDistance: 6
+  chargeSpeed: 8
+  slamSeconds: 2
+  chargeSeconds: 2.5
+  slamRange: 5
+  slamMinimumRange: 3
+  slamFrontAngle: 35
+  slamBrakeSeconds: 1
+  chargeBrakeSeconds: 0.6
+  braking:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: -1
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: -1
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  ambientInterval: {x: 4, y: 7}
+  decisionInterval: {x: 0.35, y: 0.6}
+  farWeights: {x: 55, y: 45}
+  rearWeights: {x: 40, y: 30, z: 30}
+  bodyRadius: 2.1
+  bodyHeight: 4
+  collisionSkin: 0.06
+  vacuumRadius: 5
+  vacuumSpeed: 18
+  consumeRadius: 0.75
+  rotationThreshold: 5
+  drillLocalTip: {x: 0, y: 1.57, z: 0}
+  resonanceRadius: 6
+  resonanceDamage: 130
+  chargedModeSeconds: 15
+  livingMinions: 3
+  maximumCorpses: 6
+  ordinaryRespawn: {x: 3, y: 5}
+  resonanceRespawn: {x: 15, y: 20}
+  corpseLifetime: 30
+  spawnMinimumDistance: 9
+  rockWarningSeconds: 1
+  rockDamage: 20
+  liquidDps: 12

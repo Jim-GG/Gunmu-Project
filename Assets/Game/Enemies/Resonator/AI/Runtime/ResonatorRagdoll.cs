@@ -15,7 +15,27 @@ namespace Resonator.AI
         public Collider[] boneColliders=Array.Empty<Collider>();
         public Collider livingCollider;
         public bool Active {get;private set;}
-        void Awake()=>SetDormant();
+        public Vector3 Centre=>bodies.Length>0&&bodies[0]?bodies[0].worldCenterOfMass:transform.position+Vector3.up;
+        Vector3[] restPositions;Quaternion[] restRotations;
+        void Awake(){restPositions=new Vector3[definitions.Length];restRotations=new Quaternion[definitions.Length];for(int i=0;i<definitions.Length;i++){restPositions[i]=definitions[i].bone.localPosition;restRotations[i]=definitions[i].bone.localRotation;}SetDormant();}
+        public void ResetForReuse()
+        {
+            SetDormant();
+            foreach(var d in definitions)if(d.bone){foreach(var j in d.bone.GetComponents<CharacterJoint>())Destroy(j);foreach(var b in d.bone.GetComponents<Rigidbody>())Destroy(b);}
+            bodies=Array.Empty<Rigidbody>();
+            if(restPositions!=null)for(int i=0;i<definitions.Length;i++)if(definitions[i].bone){definitions[i].bone.localPosition=restPositions[i];definitions[i].bone.localRotation=restRotations[i];}
+            if(livingCollider)livingCollider.enabled=true;
+        }
+        public void Launch(Vector3 velocity){foreach(var b in bodies)if(b)b.linearVelocity=velocity;}
+        public void LaunchOnDeath(Vector3 velocityChange)
+        {
+            foreach(var b in bodies)if(b){b.collisionDetectionMode=CollisionDetectionMode.ContinuousDynamic;b.AddForce(velocityChange,ForceMode.VelocityChange);b.WakeUp();}
+        }
+        public void Attract(Vector3 destination,float speed,float dt)
+        {
+            if(!Active)return;Vector3 direction=destination-Centre;
+            foreach(var b in bodies)if(b){var wanted=direction.normalized*Mathf.Min(speed,direction.magnitude/Mathf.Max(.01f,dt));b.linearVelocity=Vector3.MoveTowards(b.linearVelocity,wanted,50*dt);b.collisionDetectionMode=CollisionDetectionMode.ContinuousDynamic;}
+        }
         void OnEnable(){if(Active)ResonatorCrowd.RegisterCorpse(this);}
         void OnDisable()=>ResonatorCrowd.UnregisterCorpse(this);
         public void SetDormant()

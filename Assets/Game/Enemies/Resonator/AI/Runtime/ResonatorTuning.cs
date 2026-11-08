@@ -23,6 +23,22 @@ namespace Resonator.AI
         [Min(.01f)] public float height=.7f;
         public LayerMask targetLayers=~0;
         [Range(0,1)] public float minimumBlendWeight;
+        [Header("Contact sampling / old windows remain single-hit")]
+        public GameActions.HitRepeat repeat;
+        [Min(1)] public int sampleEveryFrames=1;
+        [Min(.01f)] public float damageCooldown=.25f,effectCooldown=.1f;
+        public bool onlyWhileRotating,contactEffects;
+        public GameObject contactEffect;
+        public AudioClip contactSound;
+        [Min(.05f)] public float contactEffectLifetime=2;
+        public Vector3 rotationAxis=Vector3.up;
+        [Min(0)] public float rotationThreshold=5;
+        [Header("Guard and knockback")]
+        public bool blockable=true;
+        [Tooltip("-1 calculates distance from original damage.")] public float knockbackDistance=-1;
+        [Min(0)] public float knockbackPerDamage;
+        [Min(.01f)] public float knockbackDuration=.2f;
+        [Range(0,1)] public float blockedKnockbackMultiplier;
     }
     [Serializable] public sealed class MotionBeat
     {
@@ -102,6 +118,8 @@ namespace Resonator.AI
         public float hitRootMotionScale=0, stumbleRootMotionScale=.5f, deathRootMotionScale=.25f;
         public float maxActionSpeed=5, collisionSkin=.025f, navSampleRadius=.25f;
         public float ragdollImpulse=2.5f;
+        [Header("Tier-three lethal launch")]
+        [Min(0)] public float tierThreeLaunchSpeed=9,tierThreeLaunchUp=4.2f;
         [HideInInspector] public int hitboxSchemaVersion;
         [Header("Per-edge transitions and combo cancels")]
         [Tooltip("Exact From/To rules take precedence over Any Source. Entry/cancel values are SOURCE frames, not percentages.")]

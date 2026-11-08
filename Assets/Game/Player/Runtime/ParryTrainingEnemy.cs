@@ -47,9 +47,10 @@ namespace FirstPerson
             if (Physics.Linecast(from, to, out var obstruction, ~0, QueryTriggerInteraction.Ignore) && !obstruction.transform.IsChildOf(target.transform))
                 return false;
             AttacksLanded++;
-            bool blocked = target.TryBlock(transform.position);
-            if (blocked) { AttacksBlocked++; LastResult = "BLOCKED +1 energy"; Paint(Color.cyan); }
-            else { vitals.ReceiveDamage(damage); LastResult = "HIT -" + damage + " HP"; Paint(Color.red); }
+            var guard=target.ResolveGuard(transform.position);bool blocked=guard!=GameActions.GuardKind.None;
+            float applied=damage*(guard==GameActions.GuardKind.Perfect?0:guard==GameActions.GuardKind.Imperfect?.34f:1);if(applied>0)vitals.ReceiveDamage(applied);
+            if (blocked) { AttacksBlocked++; LastResult = guard==GameActions.GuardKind.Perfect?"PERFECT +1 energy":"GUARD -"+applied.ToString("0.0")+" HP +1 energy"; Paint(Color.cyan); }
+            else { LastResult = "HIT -" + damage + " HP"; Paint(Color.red); }
             return blocked;
         }
         private void Paint(Color color)
