@@ -1,0 +1,15 @@
+{
+  "success": true,
+  "result": {
+    "output": null,
+    "diagnostics": [],
+    "success": true,
+    "result": {
+      "scene": "Assets/Game/Scene/CrystalImpactParkour.unity",
+      "playing": false,
+      "compiling": false,
+      "dirty": false,
+      "player": true
+    }
+  }
+}

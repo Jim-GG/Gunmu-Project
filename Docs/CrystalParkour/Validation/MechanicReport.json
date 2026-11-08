@@ -1,0 +1,17 @@
+{
+  "passed": true,
+  "cases": [
+    "Component detection accepts crystal surfaces and stops at ordinary occluders",
+    "Pull does not consume the timer; contact expires after two seconds and requires a fresh charge",
+    "Release at 1.95 seconds waits for native hitboxes, then launches once and preserves momentum",
+    "Floor growth occurs at the real punch frame, lifts the attacker and enables colliders only when ready",
+    "Wall impact grows a horizontal shelf and lifts the attacker clear of the final collider",
+    "Wind cancels most gravity inside the volume and blends out after leaving",
+    "The moving drone carries a player standing on its metal deck",
+    "CharacterController collision constrains launched movement",
+    "Checkpoint reset clears momentum and all five mechanics unlock completion"
+  ],
+  "launchVelocity": "(0, 5, -8)",
+  "windVerticalSpeed": -0.5,
+  "crystalModels": 12
+}

@@ -1,0 +1,54 @@
+{
+  "prefab": "Assets/Game/Environment/Drone/Prefabs/Drone_MCU7A.prefab",
+  "meshParts": [
+    {
+      "name": "Drone_Body",
+      "vertices": 17439,
+      "triangles": 12215,
+      "submeshes": 2,
+      "centre": [
+        0.0,
+        0.0992703438,
+        0.234671652
+      ],
+      "size": [
+        4.09464455,
+        1.49720323,
+        2.3540554
+      ]
+    },
+    {
+      "name": "Rotor_Left",
+      "vertices": 132,
+      "triangles": 96,
+      "submeshes": 1,
+      "centre": [
+        -0.00760197639,
+        0.0,
+        0.1311183
+      ],
+      "size": [
+        1.01976633,
+        0.01666665,
+        0.8954061
+      ]
+    },
+    {
+      "name": "Rotor_Right",
+      "vertices": 132,
+      "triangles": 96,
+      "submeshes": 1,
+      "centre": [
+        0.007602066,
+        -2.98023224E-08,
+        0.1311183
+      ],
+      "size": [
+        1.01976657,
+        0.0166666713,
+        0.8954061
+      ]
+    }
+  ],
+  "shaderErrors": []
+}

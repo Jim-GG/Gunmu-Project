@@ -1,0 +1,12 @@
+{
+  "passed": true,
+  "scene": "Assets/Game/Scene/CrystalTraversalLab_V2.unity",
+  "sceneObjects": 540,
+  "missingScripts": 0,
+  "missingMaterials": [],
+  "shaderErrors": [],
+  "crystalVariants": 12,
+  "modules": 6,
+  "sourceBlend": "ArtSource/Crystal/V2/Crystal_Environmental_GeometryNodes.blend",
+  "guide": "Docs/CrystalParkour/V2/关卡搭建与参数指南.md"
+}

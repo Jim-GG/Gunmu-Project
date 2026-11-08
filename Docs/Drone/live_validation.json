@@ -1,0 +1,12 @@
+{
+  "passed": true,
+  "liveSeconds": 1.2,
+  "droneTravel": 1.20410156,
+  "playerTravel": 1.20410156,
+  "carryHorizontalError": 0.0,
+  "rotorRotationDegrees": 63.8917274,
+  "streamVisible": true,
+  "streamHidden": true,
+  "streamRespawned": true,
+  "errors": []
+}

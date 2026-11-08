@@ -1,0 +1,61 @@
+{
+  "passed": true,
+  "drones": [
+    {
+      "scene": "Assets/Game/Scene/CrystalImpactParkour.unity",
+      "drone": "Disaster response drone / placeholder",
+      "route": "Shuttle",
+      "renderers": 3,
+      "materials": 2,
+      "triangles": 12407,
+      "deckTop": 4.91,
+      "startAnchor": null,
+      "endAnchor": null
+    },
+    {
+      "scene": "Assets/Game/Scene/CrystalTraversalLab_V2.unity",
+      "drone": "TraversalDronePlaceholder",
+      "route": "DescendingStream",
+      "renderers": 3,
+      "materials": 2,
+      "triangles": 12407,
+      "deckTop": 32.3099976,
+      "startAnchor": "Top / spawn",
+      "endAnchor": "Bottom / repair destination"
+    },
+    {
+      "scene": "Assets/Game/Scene/CrystalTraversalLab_V2.unity",
+      "drone": "TraversalDronePlaceholder",
+      "route": "DescendingStream",
+      "renderers": 3,
+      "materials": 2,
+      "triangles": 12407,
+      "deckTop": 26.71,
+      "startAnchor": "Top / spawn",
+      "endAnchor": "Bottom / repair destination"
+    },
+    {
+      "scene": "Assets/Game/Scene/CrystalTraversalLab_V2.unity",
+      "drone": "TraversalDronePlaceholder",
+      "route": "DescendingStream",
+      "renderers": 3,
+      "materials": 2,
+      "triangles": 12407,
+      "deckTop": 21.1099987,
+      "startAnchor": "Top / spawn",
+      "endAnchor": "Bottom / repair destination"
+    },
+    {
+      "scene": "Assets/Game/Scene/MCU7A_Drone_Review.unity",
+      "drone": "Drone_MCU7A",
+      "route": "DescendingStream",
+      "renderers": 3,
+      "materials": 2,
+      "triangles": 12407,
+      "deckTop": 1.41,
+      "startAnchor": null,
+      "endAnchor": null
+    }
+  ],
+  "shaderMessages": []
+}

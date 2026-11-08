@@ -11,6 +11,8 @@
 | `Shared/Actions` | 玩家与敌人共用的动作运行系统，以及 `Resources/GauntletActions.asset` 和事件轨道 |
 | `Demo` | 首次坠落 Demo 的流程、交互、Timeline 和场景 |
 | `Scenes` | 通用场景；各系统的专用预览和测试场景仍放在对应系统的 `Scenes` 中 |
+| `Scene` | 用户指定的新晶体跑酷试玩关卡 `CrystalImpactParkour.unity` |
+| `CrystalParkour` | 晶体牵引反弹、风场、生长平台与无人机借力组件、配置和说明 |
 | `Settings` | 渲染管线与相关配置 |
 | `Input` | Input System 输入动作资源 |
 | `Documentation` | Unity 模板原有说明与教程资源 |

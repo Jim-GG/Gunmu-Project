@@ -1,0 +1,19 @@
+{
+  "success": true,
+  "result": {
+    "diagnostics": [],
+    "compileMs": 2047,
+    "executeMs": 28022,
+    "assemblyName": "PipelineRunScript_BuildDemo_cf3543e53ccc4544ad866001738f7689",
+    "success": true,
+    "result": {
+      "scene": "Assets/Game/Scene/CrystalImpactParkour.unity",
+      "crystalModels": 12,
+      "anchors": 6,
+      "growthSites": 2,
+      "windVolumes": 2,
+      "drone": true,
+      "player": "Assets/Game/CrystalParkour/Prefabs/CrystalParkourPlayer.prefab"
+    }
+  }
+}

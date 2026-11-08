@@ -1,0 +1,107 @@
+{
+  "passed": true,
+  "cases": [
+    "Real motor input moves horizontally in vertical wind; gravity remains negative",
+    "Overlapping vertical winds retain 42% gravity rather than cancelling it",
+    "Horizontal airflow adds drift while perpendicular WASD remains available",
+    "Both silo valves have real timed off windows",
+    "All crystal surfaces lie outside the two updrafts and three horizontal wind volumes",
+    "All consecutive silo ledges are reachable with the actual CharacterController under active wind",
+    "Three phased drones descend, carry riders down and recycle without teleporting the rider",
+    "A real hit on the wall marker grows a remote anchor; tether is gated until completion",
+    "The newly grown crystal can actually be pulled to and rebounded from using native animation hitboxes",
+    "Twelve imported crystal prefabs preserve the facet shader and normalize FBX coordinates through a wrapper"
+  ],
+  "metrics": {
+    "verticalWindAfter1sec": -8.399999,
+    "crosswindControl": "(0.00, 0.00, 5.20)",
+    "crosswindDrift": "(-4.00, 0.00, 0.00)",
+    "siloJumps": [
+      {
+        "silo": "01 Pulse Silo A",
+        "from": 1,
+        "to": 2,
+        "landed": true,
+        "peakRise": 2.67101526
+      },
+      {
+        "silo": "01 Pulse Silo A",
+        "from": 2,
+        "to": 3,
+        "landed": true,
+        "peakRise": 2.671015
+      },
+      {
+        "silo": "01 Pulse Silo A",
+        "from": 3,
+        "to": 4,
+        "landed": true,
+        "peakRise": 2.67101526
+      },
+      {
+        "silo": "01 Pulse Silo A",
+        "from": 4,
+        "to": 5,
+        "landed": true,
+        "peakRise": 2.67101526
+      },
+      {
+        "silo": "01 Pulse Silo A",
+        "from": 5,
+        "to": 6,
+        "landed": true,
+        "peakRise": 2.67101479
+      },
+      {
+        "silo": "01 Pulse Silo A",
+        "from": 6,
+        "to": 7,
+        "landed": true,
+        "peakRise": 2.67101479
+      },
+      {
+        "silo": "01 Pulse Silo A",
+        "from": 7,
+        "to": 8,
+        "landed": true,
+        "peakRise": 2.67101479
+      },
+      {
+        "silo": "02 Pulse Silo B",
+        "from": 1,
+        "to": 2,
+        "landed": true,
+        "peakRise": 2.69710064
+      },
+      {
+        "silo": "02 Pulse Silo B",
+        "from": 2,
+        "to": 3,
+        "landed": true,
+        "peakRise": 2.69708061
+      },
+      {
+        "silo": "02 Pulse Silo B",
+        "from": 3,
+        "to": 4,
+        "landed": true,
+        "peakRise": 2.69708633
+      },
+      {
+        "silo": "02 Pulse Silo B",
+        "from": 4,
+        "to": 5,
+        "landed": true,
+        "peakRise": 2.697094
+      },
+      {
+        "silo": "02 Pulse Silo B",
+        "from": 5,
+        "to": 6,
+        "landed": true,
+        "peakRise": 2.69709015
+      }
+    ],
+    "remoteGrowthDistance": 13.73366
+  }
+}

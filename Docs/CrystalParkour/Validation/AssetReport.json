@@ -1,0 +1,11 @@
+{
+  "passed": true,
+  "path": "Assets/Game/Scene/CrystalImpactParkour.unity",
+  "models": 12,
+  "prefabs": 14,
+  "crystalMaterials": 3,
+  "missingScripts": 0,
+  "shaderErrors": [],
+  "sceneObjects": 257,
+  "inputProfile": "Assets/Game/CrystalParkour/Data/ParkourGauntletActions.asset"
+}
