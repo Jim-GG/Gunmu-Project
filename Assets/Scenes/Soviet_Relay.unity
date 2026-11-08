@@ -278,8 +278,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b129c69e1dec1f438cfe5454e714286, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::LevelExit
-  nextSceneName: 
-  editorNextScene: {fileID: 0}
+  nextSceneName: Soviet_Multi
+  editorNextScene: {fileID: 102900000, guid: a68f0e39268b94f46830b04faa7dd392, type: 3}
   gates: []
   onReached:
     m_PersistentCalls:

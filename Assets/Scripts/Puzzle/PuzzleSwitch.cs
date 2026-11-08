@@ -13,6 +13,9 @@ public class PuzzleSwitch : MonoBehaviour, IPuzzleResettable, ILevelExitGate
     [SerializeField] private Transform doorOrIndicatorToMove;
     [SerializeField] private Vector3 activatedOffset = new Vector3(0f, 2.5f, 0f);
     [SerializeField, InspectorName("允许玩家碰触触发")] private bool allowPlayerActivation = true;
+    [SerializeField, InspectorName("仅在按住时激活（离开即复位）")] private bool holdToActivate = false;
+    [SerializeField, Min(0f), InspectorName("松开后保持时长（秒）")] private float holdReleaseDelay = 1.0f;
+    [SerializeField, Min(0.01f), InspectorName("按住接触判定余量（米）")] private float holdContactMargin = 0.12f;
 
     [Header("触发目标")]
     [SerializeField, InspectorName("激活时触发的机关（需实现 IPuzzleTriggerable）")] private MonoBehaviour[] targets;
@@ -22,13 +25,16 @@ public class PuzzleSwitch : MonoBehaviour, IPuzzleResettable, ILevelExitGate
     [SerializeField, InspectorName("开关被复位时")] private UnityEvent onReset = new UnityEvent();
 
     private Renderer switchRenderer;
+    private Collider switchCollider;
     private MaterialPropertyBlock propBlock;
     private readonly List<IPuzzleTriggerable> resolvedTargets = new List<IPuzzleTriggerable>();
     private Vector3 doorInitialPos;
     private bool isActivated;
+    private float releaseTimer;
 
     public bool IsActivated => isActivated;
     public bool AllowPlayerActivation => allowPlayerActivation;
+    public bool HoldToActivate => holdToActivate;
 
     /// <summary>ILevelExitGate：开关激活后，挂着它的出口才能放行。</summary>
     public bool IsSatisfied => isActivated;
@@ -36,6 +42,7 @@ public class PuzzleSwitch : MonoBehaviour, IPuzzleResettable, ILevelExitGate
     private void Awake()
     {
         switchRenderer = GetComponent<Renderer>();
+        switchCollider = GetComponent<Collider>();
         propBlock = new MaterialPropertyBlock();
         PuzzleTriggerUtility.Collect(targets, resolvedTargets, this);
 
@@ -45,16 +52,72 @@ public class PuzzleSwitch : MonoBehaviour, IPuzzleResettable, ILevelExitGate
         UpdateVisuals();
     }
 
+    private void Update()
+    {
+        if (!holdToActivate || GameplayGate.IsBlocked)
+            return;
+
+        bool pressedNow = CheckHoldOverlap();
+        if (pressedNow)
+        {
+            releaseTimer = holdReleaseDelay;
+            if (!isActivated)
+                Activate();
+        }
+        else if (isActivated)
+        {
+            releaseTimer -= Time.deltaTime;
+            if (releaseTimer <= 0f)
+                ResetSwitch();
+        }
+    }
+
+    private bool CheckHoldOverlap()
+    {
+        if (switchCollider == null)
+            return false;
+
+        Bounds bounds = switchCollider.bounds;
+        Vector3 halfExtents = bounds.extents + Vector3.one * holdContactMargin;
+        Collider[] hits = Physics.OverlapBox(
+            bounds.center,
+            halfExtents,
+            Quaternion.identity,
+            Physics.AllLayers,
+            QueryTriggerInteraction.Collide);
+
+        for (int i = 0; i < hits.Length; i++)
+        {
+            Collider hit = hits[i];
+            if (hit == null || hit == switchCollider || hit.transform.IsChildOf(transform))
+                continue;
+
+            if (hit.GetComponentInParent<KineticBox>() != null)
+                return true;
+
+            if (allowPlayerActivation && hit.GetComponentInParent<PlayerMovement>() != null)
+                return true;
+        }
+
+        return false;
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.GetComponentInParent<KineticBox>() != null || (allowPlayerActivation && other.GetComponentInParent<PlayerMovement>() != null))
+        {
+            releaseTimer = holdReleaseDelay;
             Activate();
+        }
     }
 
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.collider.GetComponentInParent<KineticBox>() != null || (allowPlayerActivation && collision.collider.GetComponentInParent<PlayerMovement>() != null))
+        {
+            releaseTimer = holdReleaseDelay;
             Activate();
+        }
     }
 
     public void Activate()
@@ -63,6 +126,7 @@ public class PuzzleSwitch : MonoBehaviour, IPuzzleResettable, ILevelExitGate
             return;
 
         isActivated = true;
+        releaseTimer = holdReleaseDelay;
         UpdateVisuals();
 
         if (doorOrIndicatorToMove != null)
@@ -78,6 +142,7 @@ public class PuzzleSwitch : MonoBehaviour, IPuzzleResettable, ILevelExitGate
     public void ResetSwitch()
     {
         isActivated = false;
+        releaseTimer = 0f;
         UpdateVisuals();
 
         if (doorOrIndicatorToMove != null)
