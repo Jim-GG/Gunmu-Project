@@ -1,0 +1,74 @@
+{
+  "passed": true,
+  "prefab": "Assets/Game/Enemies/UDK7M/Prefabs/UDK7M.prefab",
+  "actionSet": "Assets/Game/Enemies/UDK7M/Actions/UDK7MActions.asset",
+  "clips": [
+    {
+      "id": "Idle",
+      "seconds": 1.0,
+      "max_position_error_metres": 6.20346646E-06,
+      "max_skin_vertex_error_metres": 5.766576E-06,
+      "curves": 2780
+    },
+    {
+      "id": "TripleSlam",
+      "seconds": 3.00000024,
+      "max_position_error_metres": 5.26683834E-06,
+      "max_skin_vertex_error_metres": 5.582509E-06,
+      "curves": 2780
+    },
+    {
+      "id": "SlamPrepare",
+      "seconds": 0.5,
+      "max_position_error_metres": 5.26683834E-06,
+      "max_skin_vertex_error_metres": 6.031566E-06,
+      "curves": 2780
+    },
+    {
+      "id": "SlamRecover",
+      "seconds": 1.0,
+      "max_position_error_metres": 4.82171754E-06,
+      "max_skin_vertex_error_metres": 5.348989E-06,
+      "curves": 2780
+    },
+    {
+      "id": "SlamHold",
+      "seconds": 0.5,
+      "max_position_error_metres": 3.05324761E-06,
+      "max_skin_vertex_error_metres": 5.96093E-06,
+      "curves": 2780
+    },
+    {
+      "id": "ChargePrepare",
+      "seconds": 0.5,
+      "max_position_error_metres": 6.19889261E-06,
+      "max_skin_vertex_error_metres": 6.26274368E-06,
+      "curves": 2780
+    },
+    {
+      "id": "ChargeRecover",
+      "seconds": 0.6,
+      "max_position_error_metres": 5.58125839E-06,
+      "max_skin_vertex_error_metres": 4.79224673E-06,
+      "curves": 2780
+    },
+    {
+      "id": "ChargeHold",
+      "seconds": 0.5,
+      "max_position_error_metres": 1.71926081E-06,
+      "max_skin_vertex_error_metres": 5.23037261E-06,
+      "curves": 2780
+    },
+    {
+      "id": "OriginalDemo",
+      "seconds": 4.766667,
+      "max_position_error_metres": 4.82171754E-06,
+      "max_skin_vertex_error_metres": 5.58123565E-06,
+      "curves": 2780
+    }
+  ],
+  "triangles": 38289,
+  "skinGroups": 3,
+  "bones": 276,
+  "workbenchPreview": true
+}

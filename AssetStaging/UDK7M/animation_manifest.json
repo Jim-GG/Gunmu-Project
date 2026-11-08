@@ -1,0 +1,3547 @@
+{
+  "source_snapshot": "D:\\UNITY工程\\棍木项目\\棍木项目\\AssetStaging\\UDK7M\\UDK7M_UserAnimation_Source.blend",
+  "fps": 30.0,
+  "bone_count": 276,
+  "groups": [
+    {
+      "object": "UDK7M_Hull",
+      "vertices": 19186,
+      "triangles": 30929,
+      "skin_bones": 34
+    },
+    {
+      "object": "UDK7M_Tracks",
+      "vertices": 4000,
+      "triangles": 6400,
+      "skin_bones": 100
+    },
+    {
+      "object": "UDK7M_Hoses",
+      "vertices": 496,
+      "triangles": 960,
+      "skin_bones": 124
+    }
+  ],
+  "clips": [
+    {
+      "id": "Idle",
+      "name": "UDK7M_Idle",
+      "start": 0,
+      "end": 30,
+      "fps": 30.0,
+      "loop": true,
+      "frames": 31,
+      "decomposition_checks": [
+        {
+          "frame": 0,
+          "object": "TRACK · L / 程序化履带",
+          "max_vertex_error": 6.507119679575578e-07
+        },
+        {
+          "frame": 0,
+          "object": "TRACK · R / 程序化履带",
+          "max_vertex_error": 6.507119679575578e-07
+        },
+        {
+          "frame": 0,
+          "object": "Primary hydraulic hose -1",
+          "max_vertex_error": 1.109412117731196e-06
+        },
+        {
+          "frame": 0,
+          "object": "Primary hydraulic hose 1",
+          "max_vertex_error": 1.0873404520091922e-06
+        },
+        {
+          "frame": 0,
+          "object": "Secondary hydraulic hose -1",
+          "max_vertex_error": 9.86858395839578e-07
+        },
+        {
+          "frame": 0,
+          "object": "Secondary hydraulic hose 1",
+          "max_vertex_error": 1.2231131042754704e-06
+        },
+        {
+          "frame": 15,
+          "object": "TRACK · L / 程序化履带",
+          "max_vertex_error": 6.507119679575578e-07
+        },
+        {
+          "frame": 15,
+          "object": "TRACK · R / 程序化履带",
+          "max_vertex_error": 6.507119679575578e-07
+        },
+        {
+          "frame": 15,
+          "object": "Primary hydraulic hose -1",
+          "max_vertex_error": 8.146490668214521e-07
+        },
+        {
+          "frame": 15,
+          "object": "Primary hydraulic hose 1",
+          "max_vertex_error": 1.61708000814251e-06
+        },
+        {
+          "frame": 15,
+          "object": "Secondary hydraulic hose -1",
+          "max_vertex_error": 8.723061583406223e-07
+        },
+        {
+          "frame": 15,
+          "object": "Secondary hydraulic hose 1",
+          "max_vertex_error": 8.544295566178813e-07
+        },
+        {
+          "frame": 30,
+          "object": "TRACK · L / 程序化履带",
+          "max_vertex_error": 6.507119679575578e-07
+        },
+        {
+          "frame": 30,
+          "object": "TRACK · R / 程序化履带",
+          "max_vertex_error": 6.507119679575578e-07
+        },
+        {
+          "frame": 30,
+          "object": "Primary hydraulic hose -1",
+          "max_vertex_error": 8.121184719203084e-07
+        },
+        {
+          "frame": 30,
+          "object": "Primary hydraulic hose 1",
+          "max_vertex_error": 1.0225345216526837e-06
+        },
+        {
+          "frame": 30,
+          "object": "Secondary hydraulic hose -1",
+          "max_vertex_error": 1.4712450928987863e-06
+        },
+        {
+          "frame": 30,
+          "object": "Secondary hydraulic hose 1",
+          "max_vertex_error": 1.035559265680024e-06
+        }
+      ],
+      "sample_bones": [],
+      "baked_action": "UDK7M_Idle.001",
+      "benchmarks": [
+        {
+          "frame": 0,
+          "positions": [
+            {
+              "bone": "Root",
+              "position": [
+                0.0,
+                0.0,
+                -0.08750000596046448
+              ]
+            },
+            {
+              "bone": "Turret",
+              "position": [
+                0.0,
+                0.0,
+                1.9924999475479126
+              ]
+            },
+            {
+              "bone": "Boom",
+              "position": [
+                -1.509903313490213e-14,
+                -0.27999961376190186,
+                4.372500419616699
+              ]
+            },
+            {
+              "bone": "Forearm",
+              "position": [
+                -2.473742277686597e-08,
+                -1.940598964691162,
+                5.741774559020996
+              ]
+            },
+            {
+              "bone": "Tool",
+              "position": [
+                4.25508517309936e-11,
+                -3.7518200874328613,
+                4.874319553375244
+              ]
+            },
+            {
+              "bone": "DrillRoll",
+              "position": [
+                4.255012661658064e-11,
+                -4.313713550567627,
+                3.4619908332824707
+              ]
+            },
+            {
+              "bone": "Tread_L_00",
+              "position": [
+                -1.659999966621399,
+                -2.5789761543273926,
+                0.36490875482559204
+              ]
+            },
+            {
+              "bone": "Tread_R_00",
+              "position": [
+                1.659999966621399,
+                -2.5789761543273926,
+                0.36490875482559204
+              ]
+            },
+            {
+              "bone": "Hose_0_00",
+              "position": [
+                -1.1200000047683716,
+                0.5199999809265137,
+                3.8125
+              ]
+            },
+            {
+              "bone": "Hose_0_30",
+              "position": [
+                -0.38999998569488525,
+                -3.9418182373046875,
+                4.414318084716797
+              ]
+            }
+          ]
+        },
+        {
+          "frame": 15,
+          "positions": [
+            {
+              "bone": "Root",
+              "position": [
+                0.0,
+                0.0,
+                -0.08750000596046448
+              ]
+            },
+            {
+              "bone": "Turret",
+              "position": [
+                0.0,
+                0.0,
+                1.9924999475479126
+              ]
+            },
+            {
+              "bone": "Boom",
+              "position": [
+                -1.509903313490213e-14,
+                -0.27999961376190186,
+                4.372500419616699
+              ]
+            },
+            {
+              "bone": "Forearm",
+              "position": [
+                -2.4301845868990313e-08,
+                -1.934300422668457,
+                5.749377250671387
+              ]
+            },
+            {
+              "bone": "Tool",
+              "position": [
+                -3.162572426163024e-10,
+                -3.73610782623291,
+                4.862534523010254
+              ]
+            },
+            {
+              "bone": "DrillRoll",
+              "position": [
+                -3.162579642612684e-10,
+                -4.298001289367676,
+                3.4502058029174805
+              ]
+            },
+            {
+              "bone": "Tread_L_00",
+              "position": [
+                -1.659999966621399,
+                -2.5789761543273926,
+                0.36490875482559204
+              ]
+            },
+            {
+              "bone": "Tread_R_00",
+              "position": [
+                1.659999966621399,
+                -2.5789761543273926,
+                0.36490875482559204
+              ]
+            },
+            {
+              "bone": "Hose_0_00",
+              "position": [
+                -1.1200000047683716,
+                0.5199999809265137,
+                3.8125
+              ]
+            },
+            {
+              "bone": "Hose_0_30",
+              "position": [
+                -0.38999998569488525,
+                -3.9261062145233154,
+                4.402533054351807
+              ]
+            }
+          ]
+        },
+        {
+          "frame": 30,
+          "positions": [
+            {
+              "bone": "Root",
+              "position": [
+                0.0,
+                0.0,
+                -0.08750000596046448
+              ]
+            },
+            {
+              "bone": "Turret",
+              "position": [
+                0.0,
+                0.0,
+                1.9924999475479126
+              ]
+            },
+            {
+              "bone": "Boom",
+              "position": [
+                -1.509903313490213e-14,
+                -0.27999961376190186,
+                4.372500419616699
+              ]
+            },
+            {
+              "bone": "Forearm",
+              "position": [
+                -2.448894953488434e-08,
+                -1.935499906539917,
+                5.7479352951049805
+              ]
+            },
+            {
+              "bone": "Tool",
+              "position": [
+                -1.7346479808111326e-10,
+                -3.741854190826416,
+                4.870391368865967
+              ]
+            },
+            {
+              "bone": "DrillRoll",
+              "position": [
+                -1.7346551972607926e-10,
+                -4.303747653961182,
+                3.4580624103546143
+              ]
+            },
+            {
+              "bone": "Tread_L_00",
+              "position": [
+                -1.659999966621399,
+                -2.5789761543273926,
+                0.36490875482559204
+              ]
+            },
+            {
+              "bone": "Tread_R_00",
+              "position": [
+                1.659999966621399,
+                -2.5789761543273926,
+                0.36490875482559204
+              ]
+            },
+            {
+              "bone": "Hose_0_00",
+              "position": [
+                -1.1200000047683716,
+                0.5199999809265137,
+                3.8125
+              ]
+            },
+            {
+              "bone": "Hose_0_30",
+              "position": [
+                -0.38999998569488525,
+                -3.931852340698242,
+                4.4103899002075195
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "TripleSlam",
+      "name": "UDK7M_三连下砸",
+      "start": 0,
+      "end": 90,
+      "fps": 30.0,
+      "loop": false,
+      "frames": 91,
+      "decomposition_checks": [
+        {
+          "frame": 0,
+          "object": "TRACK · L / 程序化履带",
+          "max_vertex_error": 6.507119679575578e-07
+        },
+        {
+          "frame": 0,
+          "object": "TRACK · R / 程序化履带",
+          "max_vertex_error": 6.507119679575578e-07
+        },
+        {
+          "frame": 0,
+          "object": "Primary hydraulic hose -1",
+          "max_vertex_error": 1.109412117731196e-06
+        },
+        {
+          "frame": 0,
+          "object": "Primary hydraulic hose 1",
+          "max_vertex_error": 1.0873404520091922e-06
+        },
+        {
+          "frame": 0,
+          "object": "Secondary hydraulic hose -1",
+          "max_vertex_error": 9.86858395839578e-07
+        },
+        {
+          "frame": 0,
+          "object": "Secondary hydraulic hose 1",
+          "max_vertex_error": 1.2231131042754704e-06
+        },
+        {
+          "frame": 45,
+          "object": "TRACK · L / 程序化履带",
+          "max_vertex_error": 5.572257173506913e-07
+        },
+        {
+          "frame": 45,
+          "object": "TRACK · R / 程序化履带",
+          "max_vertex_error": 5.572257173506913e-07
+        },
+        {
+          "frame": 45,
+          "object": "Primary hydraulic hose -1",
+          "max_vertex_error": 9.283268868735612e-07
+        },
+        {
+          "frame": 45,
+          "object": "Primary hydraulic hose 1",
+          "max_vertex_error": 1.085916603711177e-06
+        },
+        {
+          "frame": 45,
+          "object": "Secondary hydraulic hose -1",
+          "max_vertex_error": 1.1342007212756815e-06
+        },
+        {
+          "frame": 45,
+          "object": "Secondary hydraulic hose 1",
+          "max_vertex_error": 1.3150913983550822e-06
+        },
+        {
+          "frame": 90,
+          "object": "TRACK · L / 程序化履带",
+          "max_vertex_error": 6.507119679575578e-07
+        },
+        {
+          "frame": 90,
+          "object": "TRACK · R / 程序化履带",
+          "max_vertex_error": 6.507119679575578e-07
+        },
+        {
+          "frame": 90,
+          "object": "Primary hydraulic hose -1",
+          "max_vertex_error": 9.460304899399816e-07
+        },
+        {
+          "frame": 90,
+          "object": "Primary hydraulic hose 1",
+          "max_vertex_error": 1.0920264232239605e-06
+        },
+        {
+          "frame": 90,
+          "object": "Secondary hydraulic hose -1",
+          "max_vertex_error": 9.724523835546194e-07
+        },
+        {
+          "frame": 90,
+          "object": "Secondary hydraulic hose 1",
+          "max_vertex_error": 9.136879042900536e-07
+        }
+      ],
+      "sample_bones": [],
+      "baked_action": "UDK7M_TripleSlam",
+      "benchmarks": [
+        {
+          "frame": 0,
+          "positions": [
+            {
+              "bone": "Root",
+              "position": [
+                0.0,
+                0.0,
+                -0.08750000596046448
+              ]
+            },
+            {
+              "bone": "Turret",
+              "position": [
+                0.0,
+                0.0,
+                1.9924999475479126
+              ]
+            },
+            {
+              "bone": "Boom",
+              "position": [
+                -1.509903313490213e-14,
+                -0.27999961376190186,
+                4.372500419616699
+              ]
+            },
+            {
+              "bone": "Forearm",
+              "position": [
+                -2.473742277686597e-08,
+                -1.940598964691162,
+                5.741774559020996
+              ]
+            },
+            {
+              "bone": "Tool",
+              "position": [
+                4.25508517309936e-11,
+                -3.7518200874328613,
+                4.874319553375244
+              ]
+            },
+            {
+              "bone": "DrillRoll",
+              "position": [
+                4.255012661658064e-11,
+                -4.313713550567627,
+                3.4619908332824707
+              ]
+            },
+            {
+              "bone": "Tread_L_00",
+              "position": [
+                -1.659999966621399,
+                -2.5789761543273926,
+                0.36490875482559204
+              ]
+            },
+            {
+              "bone": "Tread_R_00",
+              "position": [
+                1.659999966621399,
+                -2.5789761543273926,
+                0.36490875482559204
+              ]
+            },
+            {
+              "bone": "Hose_0_00",
+              "position": [
+                -1.1200000047683716,
+                0.5199999809265137,
+                3.8125
+              ]
+            },
+            {
+              "bone": "Hose_0_30",
+              "position": [
+                -0.38999998569488525,
+                -3.9418182373046875,
+                4.414318084716797
+              ]
+            }
+          ]
+        },
+        {
+          "frame": 45,
+          "positions": [
+            {
+              "bone": "Root",
+              "position": [
+                0.0032566164154559374,
+                0.014593219384551048,
+                -0.08750000596046448
+              ]
+            },
+            {
+              "bone": "Turret",
+              "position": [
+                0.0032566164154559374,
+                0.014593219384551048,
+                1.9924999475479126
+              ]
+            },
+            {
+              "bone": "Boom",
+              "position": [
+                0.0032566164154559374,
+                -0.26540639996528625,
+                4.372500419616699
+              ]
+            },
+            {
+              "bone": "Forearm",
+              "position": [
+                -0.14877690374851227,
+                -0.11041320860385895,
+                6.513845920562744
+              ]
+            },
+            {
+              "bone": "Tool",
+              "position": [
+                -0.5231545567512512,
+                -2.0157968997955322,
+                7.026048183441162
+              ]
+            },
+            {
+              "bone": "DrillRoll",
+              "position": [
+                -0.5231545567512512,
+                -3.3563830852508545,
+                6.309648036956787
+              ]
+            },
+            {
+              "bone": "Tread_L_00",
+              "position": [
+                -1.6567434072494507,
+                -2.564382791519165,
+                0.36490875482559204
+              ]
+            },
+            {
+              "bone": "Tread_R_00",
+              "position": [
+                1.6632565259933472,
+                -2.564382791519165,
+                0.36490875482559204
+              ]
+            },
+            {
+              "bone": "Hose_0_00",
+              "position": [
+                -1.1167434453964233,
+                0.5345932245254517,
+                3.8125
+              ]
+            },
+            {
+              "bone": "Hose_0_30",
+              "position": [
+                -0.9131545424461365,
+                -2.4577698707580566,
+                6.797222137451172
+              ]
+            }
+          ]
+        },
+        {
+          "frame": 90,
+          "positions": [
+            {
+              "bone": "Root",
+              "position": [
+                0.0,
+                0.0,
+                -0.08750000596046448
+              ]
+            },
+            {
+              "bone": "Turret",
+              "position": [
+                0.0,
+                0.0,
+                1.9924999475479126
+              ]
+            },
+            {
+              "bone": "Boom",
+              "position": [
+                -1.509903313490213e-14,
+                -0.27999961376190186,
+                4.372500419616699
+              ]
+            },
+            {
+              "bone": "Forearm",
+              "position": [
+                -1.741790889298045e-08,
+                -1.9400010108947754,
+                5.742499351501465
+              ]
+            },
+            {
+              "bone": "Tool",
+              "position": [
+                1.7053025658242404e-13,
+                -3.750002145767212,
+                4.872501373291016
+              ]
+            },
+            {
+              "bone": "DrillRoll",
+              "position": [
+                1.6980491177650409e-13,
+                -4.311895847320557,
+                3.460172414779663
+              ]
+            },
+            {
+              "bone": "Tread_L_00",
+              "position": [
+                -1.659999966621399,
+                -2.5789761543273926,
+                0.36490875482559204
+              ]
+            },
+            {
+              "bone": "Tread_R_00",
+              "position": [
+                1.659999966621399,
+                -2.5789761543273926,
+                0.36490875482559204
+              ]
+            },
+            {
+              "bone": "Hose_0_00",
+              "position": [
+                -1.1200000047683716,
+                0.5199999809265137,
+                3.8125
+              ]
+            },
+            {
+              "bone": "Hose_0_30",
+              "position": [
+                -0.38999998569488525,
+                -3.940000057220459,
+                4.41249942779541
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "SlamPrepare",
+      "name": "UDK7M_下砸准备",
+      "start": 0,
+      "end": 15,
+      "fps": 30.0,
+      "loop": false,
+      "frames": 16,
+      "decomposition_checks": [
+        {
+          "frame": 0,
+          "object": "TRACK · L / 程序化履带",
+          "max_vertex_error": 6.507119679575578e-07
+        },
+        {
+          "frame": 0,
+          "object": "TRACK · R / 程序化履带",
+          "max_vertex_error": 6.507119679575578e-07
+        },
+        {
+          "frame": 0,
+          "object": "Primary hydraulic hose -1",
+          "max_vertex_error": 1.109412117731196e-06
+        },
+        {
+          "frame": 0,
+          "object": "Primary hydraulic hose 1",
+          "max_vertex_error": 1.0873404520091922e-06
+        },
+        {
+          "frame": 0,
+          "object": "Secondary hydraulic hose -1",
+          "max_vertex_error": 9.86858395839578e-07
+        },
+        {
+          "frame": 0,
+          "object": "Secondary hydraulic hose 1",
+          "max_vertex_error": 1.2231131042754704e-06
+        },
+        {
+          "frame": 7,
+          "object": "TRACK · L / 程序化履带",
+          "max_vertex_error": 6.507119679575578e-07
+        },
+        {
+          "frame": 7,
+          "object": "TRACK · R / 程序化履带",
+          "max_vertex_error": 6.507119679575578e-07
+        },
+        {
+          "frame": 7,
+          "object": "Primary hydraulic hose -1",
+          "max_vertex_error": 1.0404207662827792e-06
+        },
+        {
+          "frame": 7,
+          "object": "Primary hydraulic hose 1",
+          "max_vertex_error": 9.918177656534124e-07
+        },
+        {
+          "frame": 7,
+          "object": "Secondary hydraulic hose -1",
+          "max_vertex_error": 1.4207319698835374e-06
+        },
+        {
+          "frame": 7,
+          "object": "Secondary hydraulic hose 1",
+          "max_vertex_error": 1.3827761807129444e-06
+        },
+        {
+          "frame": 15,
+          "object": "TRACK · L / 程序化履带",
+          "max_vertex_error": 6.507119679575578e-07
+        },
+        {
+          "frame": 15,
+          "object": "TRACK · R / 程序化履带",
+          "max_vertex_error": 6.507119679575578e-07
+        },
+        {
+          "frame": 15,
+          "object": "Primary hydraulic hose -1",
+          "max_vertex_error": 9.375173334085655e-07
+        },
+        {
+          "frame": 15,
+          "object": "Primary hydraulic hose 1",
+          "max_vertex_error": 1.0396735670142798e-06
+        },
+        {
+          "frame": 15,
+          "object": "Secondary hydraulic hose -1",
+          "max_vertex_error": 1.2725033690273815e-06
+        },
+        {
+          "frame": 15,
+          "object": "Secondary hydraulic hose 1",
+          "max_vertex_error": 1.0954857067526614e-06
+        }
+      ],
+      "sample_bones": [],
+      "baked_action": "UDK7M_SlamPrepare",
+      "benchmarks": [
+        {
+          "frame": 0,
+          "positions": [
+            {
+              "bone": "Root",
+              "position": [
+                0.0,
+                0.0,
+                -0.08750000596046448
+              ]
+            },
+            {
+              "bone": "Turret",
+              "position": [
+                0.0,
+                0.0,
+                1.9924999475479126
+              ]
+            },
+            {
+              "bone": "Boom",
+              "position": [
+                -1.509903313490213e-14,
+                -0.27999961376190186,
+                4.372500419616699
+              ]
+            },
+            {
+              "bone": "Forearm",
+              "position": [
+                -2.473742277686597e-08,
+                -1.940598964691162,
+                5.741774559020996
+              ]
+            },
+            {
+              "bone": "Tool",
+              "position": [
+                4.25508517309936e-11,
+                -3.7518200874328613,
+                4.874319553375244
+              ]
+            },
+            {
+              "bone": "DrillRoll",
+              "position": [
+                4.255012661658064e-11,
+                -4.313713550567627,
+                3.4619908332824707
+              ]
+            },
+            {
+              "bone": "Tread_L_00",
+              "position": [
+                -1.659999966621399,
+                -2.5789761543273926,
+                0.36490875482559204
+              ]
+            },
+            {
+              "bone": "Tread_R_00",
+              "position": [
+                1.659999966621399,
+                -2.5789761543273926,
+                0.36490875482559204
+              ]
+            },
+            {
+              "bone": "Hose_0_00",
+              "position": [
+                -1.1200000047683716,
+                0.5199999809265137,
+                3.8125
+              ]
+            },
+            {
+              "bone": "Hose_0_30",
+              "position": [
+                -0.38999998569488525,
+                -3.9418182373046875,
+                4.414318084716797
+              ]
+            }
+          ]
+        },
+        {
+          "frame": 7,
+          "positions": [
+            {
+              "bone": "Root",
+              "position": [
+                0.0,
+                0.0,
+                -0.08750000596046448
+              ]
+            },
+            {
+              "bone": "Turret",
+              "position": [
+                0.0,
+                0.0,
+                1.9924999475479126
+              ]
+            },
+            {
+              "bone": "Boom",
+              "position": [
+                -1.509903313490213e-14,
+                -0.27999961376190186,
+                4.372500419616699
+              ]
+            },
+            {
+              "bone": "Forearm",
+              "position": [
+                -2.220315664658301e-08,
+                -0.7437053918838501,
+                6.474279403686523
+              ]
+            },
+            {
+              "bone": "Tool",
+              "position": [
+                2.5066793085670724e-09,
+                -2.631960391998291,
+                7.158013343811035
+              ]
+            },
+            {
+              "bone": "DrillRoll",
+              "position": [
+                2.5066786424332577e-09,
+                -3.7776782512664795,
+                6.159149169921875
+              ]
+            },
+            {
+              "bone": "Tread_L_00",
+              "position": [
+                -1.659999966621399,
+                -2.5789761543273926,
+                0.36490875482559204
+              ]
+            },
+            {
+              "bone": "Tread_R_00",
+              "position": [
+                1.659999966621399,
+                -2.5789761543273926,
+                0.36490875482559204
+              ]
+            },
+            {
+              "bone": "Hose_0_00",
+              "position": [
+                -1.1200000047683716,
+                0.5199999809265137,
+                3.8125
+              ]
+            },
+            {
+              "bone": "Hose_0_30",
+              "position": [
+                -0.38999998569488525,
+                -3.011338949203491,
+                6.835875034332275
+              ]
+            }
+          ]
+        },
+        {
+          "frame": 15,
+          "positions": [
+            {
+              "bone": "Root",
+              "position": [
+                0.0,
+                0.0,
+                -0.08750000596046448
+              ]
+            },
+            {
+              "bone": "Turret",
+              "position": [
+                0.0,
+                0.0,
+                1.9924999475479126
+              ]
+            },
+            {
+              "bone": "Boom",
+              "position": [
+                -1.509903313490213e-14,
+                -0.27999961376190186,
+                4.372500419616699
+              ]
+            },
+            {
+              "bone": "Forearm",
+              "position": [
+                -9.967964231805126e-09,
+                -0.36034464836120605,
+                6.523324012756348
+              ]
+            },
+            {
+              "bone": "Tool",
+              "position": [
+                -8.063313572392872e-09,
+                -2.3514766693115234,
+                6.784836769104004
+              ]
+            },
+            {
+              "bone": "DrillRoll",
+              "position": [
+                -8.063314460571291e-09,
+                -3.636204957962036,
+                5.972511291503906
+              ]
+            },
+            {
+              "bone": "Tread_L_00",
+              "position": [
+                -1.659999966621399,
+                -2.5789761543273926,
+                0.36490875482559204
+              ]
+            },
+            {
+              "bone": "Tread_R_00",
+              "position": [
+                1.659999966621399,
+                -2.5789761543273926,
+                0.36490875482559204
+              ]
+            },
+            {
+              "bone": "Hose_0_00",
+              "position": [
+                -1.1200000047683716,
+                0.5199999809265137,
+                3.8125
+              ]
+            },
+            {
+              "bone": "Hose_0_30",
+              "position": [
+                -0.38999998569488525,
+                -2.775571823120117,
+                6.524365425109863
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "SlamRecover",
+      "name": "UDK7M_下砸收势",
+      "start": 0,
+      "end": 30,
+      "fps": 30.0,
+      "loop": false,
+      "frames": 31,
+      "decomposition_checks": [
+        {
+          "frame": 0,
+          "object": "TRACK · L / 程序化履带",
+          "max_vertex_error": 6.507119679575578e-07
+        },
+        {
+          "frame": 0,
+          "object": "TRACK · R / 程序化履带",
+          "max_vertex_error": 6.507119679575578e-07
+        },
+        {
+          "frame": 0,
+          "object": "Primary hydraulic hose -1",
+          "max_vertex_error": 1.0079266189130955e-06
+        },
+        {
+          "frame": 0,
+          "object": "Primary hydraulic hose 1",
+          "max_vertex_error": 8.611582275430638e-07
+        },
+        {
+          "frame": 0,
+          "object": "Secondary hydraulic hose -1",
+          "max_vertex_error": 9.12914410811581e-07
+        },
+        {
+          "frame": 0,
+          "object": "Secondary hydraulic hose 1",
+          "max_vertex_error": 1.0572691063189704e-06
+        },
+        {
+          "frame": 15,
+          "object": "TRACK · L / 程序化履带",
+          "max_vertex_error": 6.026162645692654e-07
+        },
+        {
+          "frame": 15,
+          "object": "TRACK · R / 程序化履带",
+          "max_vertex_error": 6.026162645692654e-07
+        },
+        {
+          "frame": 15,
+          "object": "Primary hydraulic hose -1",
+          "max_vertex_error": 8.354243205383847e-07
+        },
+        {
+          "frame": 15,
+          "object": "Primary hydraulic hose 1",
+          "max_vertex_error": 8.730535363529681e-07
+        },
+        {
+          "frame": 15,
+          "object": "Secondary hydraulic hose -1",
+          "max_vertex_error": 1.3643737065696207e-06
+        },
+        {
+          "frame": 15,
+          "object": "Secondary hydraulic hose 1",
+          "max_vertex_error": 9.500259018239713e-07
+        },
+        {
+          "frame": 30,
+          "object": "TRACK · L / 程序化履带",
+          "max_vertex_error": 6.013044879102027e-07
+        },
+        {
+          "frame": 30,
+          "object": "TRACK · R / 程序化履带",
+          "max_vertex_error": 6.013044879102027e-07
+        },
+        {
+          "frame": 30,
+          "object": "Primary hydraulic hose -1",
+          "max_vertex_error": 9.460304899399816e-07
+        },
+        {
+          "frame": 30,
+          "object": "Primary hydraulic hose 1",
+          "max_vertex_error": 1.0920264232239605e-06
+        },
+        {
+          "frame": 30,
+          "object": "Secondary hydraulic hose -1",
+          "max_vertex_error": 9.724523835546194e-07
+        },
+        {
+          "frame": 30,
+          "object": "Secondary hydraulic hose 1",
+          "max_vertex_error": 9.136879042900536e-07
+        }
+      ],
+      "sample_bones": [],
+      "baked_action": "UDK7M_SlamRecover",
+      "benchmarks": [
+        {
+          "frame": 0,
+          "positions": [
+            {
+              "bone": "Root",
+              "position": [
+                0.0,
+                0.0,
+                -0.08750000596046448
+              ]
+            },
+            {
+              "bone": "Turret",
+              "position": [
+                0.0,
+                0.0,
+                1.9924999475479126
+              ]
+            },
+            {
+              "bone": "Boom",
+              "position": [
+                -1.509903313490213e-14,
+                -0.27999961376190186,
+                4.372500419616699
+              ]
+            },
+            {
+              "bone": "Forearm",
+              "position": [
+                -1.1686482892514505e-08,
+                -0.41404521465301514,
+                6.520645618438721
+              ]
+            },
+            {
+              "bone": "Tool",
+              "position": [
+                -6.0852345384887485e-09,
+                -2.396407127380371,
+                6.841950416564941
+              ]
+            },
+            {
+              "bone": "DrillRoll",
+              "position": [
+                -6.085235426667168e-09,
+                -3.666762351989746,
+                6.007327079772949
+              ]
+            },
+            {
+              "bone": "Tread_L_00",
+              "position": [
+                -1.659999966621399,
+                -2.5789761543273926,
+                0.36490875482559204
+              ]
+            },
+            {
+              "bone": "Tread_R_00",
+              "position": [
+                1.659999966621399,
+                -2.5789761543273926,
+                0.36490875482559204
+              ]
+            },
+            {
+              "bone": "Hose_0_00",
+              "position": [
+                -1.1200000047683716,
+                0.5199999809265137,
+                3.8125
+              ]
+            },
+            {
+              "bone": "Hose_0_30",
+              "position": [
+                -0.38999998569488525,
+                -2.8158905506134033,
+                6.574117183685303
+              ]
+            }
+          ]
+        },
+        {
+          "frame": 15,
+          "positions": [
+            {
+              "bone": "Root",
+              "position": [
+                0.0,
+                0.0,
+                -0.08750000596046448
+              ]
+            },
+            {
+              "bone": "Turret",
+              "position": [
+                0.0,
+                0.0,
+                1.9924999475479126
+              ]
+            },
+            {
+              "bone": "Boom",
+              "position": [
+                -1.509903313490213e-14,
+                -0.27999961376190186,
+                4.372500419616699
+              ]
+            },
+            {
+              "bone": "Forearm",
+              "position": [
+                -3.078205068618445e-08,
+                -2.432253360748291,
+                4.390134811401367
+              ]
+            },
+            {
+              "bone": "Tool",
+              "position": [
+                2.9009399327151186e-09,
+                -3.567894458770752,
+                2.7338383197784424
+              ]
+            },
+            {
+              "bone": "DrillRoll",
+              "position": [
+                2.900939266581304e-09,
+                -3.9611730575561523,
+                1.2655980587005615
+              ]
+            },
+            {
+              "bone": "Tread_L_00",
+              "position": [
+                -1.659999966621399,
+                1.2477679252624512,
+                0.09369999915361404
+              ]
+            },
+            {
+              "bone": "Tread_R_00",
+              "position": [
+                1.659999966621399,
+                1.1877083778381348,
+                0.09369999915361404
+              ]
+            },
+            {
+              "bone": "Hose_0_00",
+              "position": [
+                -1.1200000047683716,
+                0.5199999809265137,
+                3.8125
+              ]
+            },
+            {
+              "bone": "Hose_0_30",
+              "position": [
+                -0.38999998569488525,
+                -3.7029263973236084,
+                2.2548108100891113
+              ]
+            }
+          ]
+        },
+        {
+          "frame": 30,
+          "positions": [
+            {
+              "bone": "Root",
+              "position": [
+                0.0,
+                0.0,
+                -0.08750000596046448
+              ]
+            },
+            {
+              "bone": "Turret",
+              "position": [
+                0.0,
+                0.0,
+                1.9924999475479126
+              ]
+            },
+            {
+              "bone": "Boom",
+              "position": [
+                -1.509903313490213e-14,
+                -0.27999961376190186,
+                4.372500419616699
+              ]
+            },
+            {
+              "bone": "Forearm",
+              "position": [
+                -1.741790889298045e-08,
+                -1.9400010108947754,
+                5.742499351501465
+              ]
+            },
+            {
+              "bone": "Tool",
+              "position": [
+                1.7053025658242404e-13,
+                -3.750002145767212,
+                4.872501373291016
+              ]
+            },
+            {
+              "bone": "DrillRoll",
+              "position": [
+                1.6980491177650409e-13,
+                -4.311895847320557,
+                3.460172414779663
+              ]
+            },
+            {
+              "bone": "Tread_L_00",
+              "position": [
+                -1.659999966621399,
+                1.315590500831604,
+                0.09369999915361404
+              ]
+            },
+            {
+              "bone": "Tread_R_00",
+              "position": [
+                1.659999966621399,
+                1.315590500831604,
+                0.09369999915361404
+              ]
+            },
+            {
+              "bone": "Hose_0_00",
+              "position": [
+                -1.1200000047683716,
+                0.5199999809265137,
+                3.8125
+              ]
+            },
+            {
+              "bone": "Hose_0_30",
+              "position": [
+                -0.38999998569488525,
+                -3.940000057220459,
+                4.41249942779541
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "SlamHold",
+      "name": "UDK7M_下砸维持",
+      "start": 0,
+      "end": 15,
+      "fps": 30.0,
+      "loop": true,
+      "frames": 16,
+      "decomposition_checks": [
+        {
+          "frame": 0,
+          "object": "TRACK · L / 程序化履带",
+          "max_vertex_error": 6.507119679575578e-07
+        },
+        {
+          "frame": 0,
+          "object": "TRACK · R / 程序化履带",
+          "max_vertex_error": 6.507119679575578e-07
+        },
+        {
+          "frame": 0,
+          "object": "Primary hydraulic hose -1",
+          "max_vertex_error": 1.0079266189130955e-06
+        },
+        {
+          "frame": 0,
+          "object": "Primary hydraulic hose 1",
+          "max_vertex_error": 8.611582275430638e-07
+        },
+        {
+          "frame": 0,
+          "object": "Secondary hydraulic hose -1",
+          "max_vertex_error": 9.12914410811581e-07
+        },
+        {
+          "frame": 0,
+          "object": "Secondary hydraulic hose 1",
+          "max_vertex_error": 1.0572691063189704e-06
+        },
+        {
+          "frame": 7,
+          "object": "TRACK · L / 程序化履带",
+          "max_vertex_error": 6.026162645692654e-07
+        },
+        {
+          "frame": 7,
+          "object": "TRACK · R / 程序化履带",
+          "max_vertex_error": 6.026162645692654e-07
+        },
+        {
+          "frame": 7,
+          "object": "Primary hydraulic hose -1",
+          "max_vertex_error": 7.726592713978021e-07
+        },
+        {
+          "frame": 7,
+          "object": "Primary hydraulic hose 1",
+          "max_vertex_error": 1.133248335727853e-06
+        },
+        {
+          "frame": 7,
+          "object": "Secondary hydraulic hose -1",
+          "max_vertex_error": 1.1671098297748558e-06
+        },
+        {
+          "frame": 7,
+          "object": "Secondary hydraulic hose 1",
+          "max_vertex_error": 1.1516800868431422e-06
+        },
+        {
+          "frame": 15,
+          "object": "TRACK · L / 程序化履带",
+          "max_vertex_error": 6.013044879102027e-07
+        },
+        {
+          "frame": 15,
+          "object": "TRACK · R / 程序化履带",
+          "max_vertex_error": 6.013044879102027e-07
+        },
+        {
+          "frame": 15,
+          "object": "Primary hydraulic hose -1",
+          "max_vertex_error": 7.487019062452331e-07
+        },
+        {
+          "frame": 15,
+          "object": "Primary hydraulic hose 1",
+          "max_vertex_error": 1.114746650753248e-06
+        },
+        {
+          "frame": 15,
+          "object": "Secondary hydraulic hose -1",
+          "max_vertex_error": 1.237919049845039e-06
+        },
+        {
+          "frame": 15,
+          "object": "Secondary hydraulic hose 1",
+          "max_vertex_error": 1.1347677666844984e-06
+        }
+      ],
+      "sample_bones": [],
+      "baked_action": "UDK7M_SlamHold",
+      "benchmarks": [
+        {
+          "frame": 0,
+          "positions": [
+            {
+              "bone": "Root",
+              "position": [
+                0.0,
+                0.0,
+                -0.08750000596046448
+              ]
+            },
+            {
+              "bone": "Turret",
+              "position": [
+                0.0,
+                0.0,
+                1.9924999475479126
+              ]
+            },
+            {
+              "bone": "Boom",
+              "position": [
+                -1.509903313490213e-14,
+                -0.27999961376190186,
+                4.372500419616699
+              ]
+            },
+            {
+              "bone": "Forearm",
+              "position": [
+                -1.1686482892514505e-08,
+                -0.41404521465301514,
+                6.520645618438721
+              ]
+            },
+            {
+              "bone": "Tool",
+              "position": [
+                -6.0852345384887485e-09,
+                -2.396407127380371,
+                6.841950416564941
+              ]
+            },
+            {
+              "bone": "DrillRoll",
+              "position": [
+                -6.085235426667168e-09,
+                -3.666762351989746,
+                6.007327079772949
+              ]
+            },
+            {
+              "bone": "Tread_L_00",
+              "position": [
+                -1.659999966621399,
+                -2.5789761543273926,
+                0.36490875482559204
+              ]
+            },
+            {
+              "bone": "Tread_R_00",
+              "position": [
+                1.659999966621399,
+                -2.5789761543273926,
+                0.36490875482559204
+              ]
+            },
+            {
+              "bone": "Hose_0_00",
+              "position": [
+                -1.1200000047683716,
+                0.5199999809265137,
+                3.8125
+              ]
+            },
+            {
+              "bone": "Hose_0_30",
+              "position": [
+                -0.38999998569488525,
+                -2.8158905506134033,
+                6.574117183685303
+              ]
+            }
+          ]
+        },
+        {
+          "frame": 7,
+          "positions": [
+            {
+              "bone": "Root",
+              "position": [
+                0.0,
+                0.0,
+                -0.08750000596046448
+              ]
+            },
+            {
+              "bone": "Turret",
+              "position": [
+                0.0,
+                0.0,
+                1.9924999475479126
+              ]
+            },
+            {
+              "bone": "Boom",
+              "position": [
+                -1.509903313490213e-14,
+                -0.27999961376190186,
+                4.372500419616699
+              ]
+            },
+            {
+              "bone": "Forearm",
+              "position": [
+                -1.1094233087760585e-08,
+                -0.3932337164878845,
+                6.521842956542969
+              ]
+            },
+            {
+              "bone": "Tool",
+              "position": [
+                -6.7608842968525096e-09,
+                -2.37858510017395,
+                6.824127674102783
+              ]
+            },
+            {
+              "bone": "DrillRoll",
+              "position": [
+                -6.760885185030929e-09,
+                -3.6489405632019043,
+                5.989503860473633
+              ]
+            },
+            {
+              "bone": "Tread_L_00",
+              "position": [
+                -1.659999966621399,
+                -0.8177448511123657,
+                0.09369999915361404
+              ]
+            },
+            {
+              "bone": "Tread_R_00",
+              "position": [
+                1.659999966621399,
+                -0.8177448511123657,
+                0.09369999915361404
+              ]
+            },
+            {
+              "bone": "Hose_0_00",
+              "position": [
+                -1.1200000047683716,
+                0.5199999809265137,
+                3.8125
+              ]
+            },
+            {
+              "bone": "Hose_0_30",
+              "position": [
+                -0.38999998569488525,
+                -2.7980690002441406,
+                6.556294918060303
+              ]
+            }
+          ]
+        },
+        {
+          "frame": 15,
+          "positions": [
+            {
+              "bone": "Root",
+              "position": [
+                0.0,
+                0.0,
+                -0.08750000596046448
+              ]
+            },
+            {
+              "bone": "Turret",
+              "position": [
+                0.0,
+                0.0,
+                1.9924999475479126
+              ]
+            },
+            {
+              "bone": "Boom",
+              "position": [
+                -1.509903313490213e-14,
+                -0.27999961376190186,
+                4.372500419616699
+              ]
+            },
+            {
+              "bone": "Forearm",
+              "position": [
+                -1.1242129005495372e-08,
+                -0.396297812461853,
+                6.521679401397705
+              ]
+            },
+            {
+              "bone": "Tool",
+              "position": [
+                -6.5997314280252795e-09,
+                -2.380695104598999,
+                6.830165863037109
+              ]
+            },
+            {
+              "bone": "DrillRoll",
+              "position": [
+                -6.599732316203699e-09,
+                -3.651050567626953,
+                5.995542049407959
+              ]
+            },
+            {
+              "bone": "Tread_L_00",
+              "position": [
+                -1.659999966621399,
+                1.315590500831604,
+                0.09369999915361404
+              ]
+            },
+            {
+              "bone": "Tread_R_00",
+              "position": [
+                1.659999966621399,
+                1.315590500831604,
+                0.09369999915361404
+              ]
+            },
+            {
+              "bone": "Hose_0_00",
+              "position": [
+                -1.1200000047683716,
+                0.5199999809265137,
+                3.8125
+              ]
+            },
+            {
+              "bone": "Hose_0_30",
+              "position": [
+                -0.38999998569488525,
+                -2.8001792430877686,
+                6.562332630157471
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ChargePrepare",
+      "name": "UDK7M_冲刺准备",
+      "start": 0,
+      "end": 15,
+      "fps": 30.0,
+      "loop": false,
+      "frames": 16,
+      "decomposition_checks": [
+        {
+          "frame": 0,
+          "object": "TRACK · L / 程序化履带",
+          "max_vertex_error": 6.507119679575578e-07
+        },
+        {
+          "frame": 0,
+          "object": "TRACK · R / 程序化履带",
+          "max_vertex_error": 6.507119679575578e-07
+        },
+        {
+          "frame": 0,
+          "object": "Primary hydraulic hose -1",
+          "max_vertex_error": 1.109412117731196e-06
+        },
+        {
+          "frame": 0,
+          "object": "Primary hydraulic hose 1",
+          "max_vertex_error": 1.0873404520091922e-06
+        },
+        {
+          "frame": 0,
+          "object": "Secondary hydraulic hose -1",
+          "max_vertex_error": 9.86858395839578e-07
+        },
+        {
+          "frame": 0,
+          "object": "Secondary hydraulic hose 1",
+          "max_vertex_error": 1.2231131042754704e-06
+        },
+        {
+          "frame": 7,
+          "object": "TRACK · L / 程序化履带",
+          "max_vertex_error": 6.507119679575578e-07
+        },
+        {
+          "frame": 7,
+          "object": "TRACK · R / 程序化履带",
+          "max_vertex_error": 6.507119679575578e-07
+        },
+        {
+          "frame": 7,
+          "object": "Primary hydraulic hose -1",
+          "max_vertex_error": 8.603920152641774e-07
+        },
+        {
+          "frame": 7,
+          "object": "Primary hydraulic hose 1",
+          "max_vertex_error": 1.2570325533412887e-06
+        },
+        {
+          "frame": 7,
+          "object": "Secondary hydraulic hose -1",
+          "max_vertex_error": 9.62784039063478e-07
+        },
+        {
+          "frame": 7,
+          "object": "Secondary hydraulic hose 1",
+          "max_vertex_error": 1.1394132128711794e-06
+        },
+        {
+          "frame": 15,
+          "object": "TRACK · L / 程序化履带",
+          "max_vertex_error": 6.507119679575578e-07
+        },
+        {
+          "frame": 15,
+          "object": "TRACK · R / 程序化履带",
+          "max_vertex_error": 6.507119679575578e-07
+        },
+        {
+          "frame": 15,
+          "object": "Primary hydraulic hose -1",
+          "max_vertex_error": 8.999295382282098e-07
+        },
+        {
+          "frame": 15,
+          "object": "Primary hydraulic hose 1",
+          "max_vertex_error": 9.348465416822518e-07
+        },
+        {
+          "frame": 15,
+          "object": "Secondary hydraulic hose -1",
+          "max_vertex_error": 1.133047903308003e-06
+        },
+        {
+          "frame": 15,
+          "object": "Secondary hydraulic hose 1",
+          "max_vertex_error": 1.255686934436409e-06
+        }
+      ],
+      "sample_bones": [],
+      "baked_action": "UDK7M_ChargePrepare",
+      "benchmarks": [
+        {
+          "frame": 0,
+          "positions": [
+            {
+              "bone": "Root",
+              "position": [
+                0.0,
+                0.0,
+                -0.08750000596046448
+              ]
+            },
+            {
+              "bone": "Turret",
+              "position": [
+                0.0,
+                0.0,
+                1.9924999475479126
+              ]
+            },
+            {
+              "bone": "Boom",
+              "position": [
+                -1.509903313490213e-14,
+                -0.27999961376190186,
+                4.372500419616699
+              ]
+            },
+            {
+              "bone": "Forearm",
+              "position": [
+                -2.473742277686597e-08,
+                -1.940598964691162,
+                5.741774559020996
+              ]
+            },
+            {
+              "bone": "Tool",
+              "position": [
+                4.25508517309936e-11,
+                -3.7518200874328613,
+                4.874319553375244
+              ]
+            },
+            {
+              "bone": "DrillRoll",
+              "position": [
+                4.255012661658064e-11,
+                -4.313713550567627,
+                3.4619908332824707
+              ]
+            },
+            {
+              "bone": "Tread_L_00",
+              "position": [
+                -1.659999966621399,
+                -2.5789761543273926,
+                0.36490875482559204
+              ]
+            },
+            {
+              "bone": "Tread_R_00",
+              "position": [
+                1.659999966621399,
+                -2.5789761543273926,
+                0.36490875482559204
+              ]
+            },
+            {
+              "bone": "Hose_0_00",
+              "position": [
+                -1.1200000047683716,
+                0.5199999809265137,
+                3.8125
+              ]
+            },
+            {
+              "bone": "Hose_0_30",
+              "position": [
+                -0.38999998569488525,
+                -3.9418182373046875,
+                4.414318084716797
+              ]
+            }
+          ]
+        },
+        {
+          "frame": 7,
+          "positions": [
+            {
+              "bone": "Root",
+              "position": [
+                0.0,
+                0.0,
+                -0.08750000596046448
+              ]
+            },
+            {
+              "bone": "Turret",
+              "position": [
+                0.0,
+                0.0,
+                1.9924999475479126
+              ]
+            },
+            {
+              "bone": "Boom",
+              "position": [
+                -1.509903313490213e-14,
+                -0.27999961376190186,
+                4.372500419616699
+              ]
+            },
+            {
+              "bone": "Forearm",
+              "position": [
+                -3.167456341657271e-08,
+                -2.3953428268432617,
+                4.769776821136475
+              ]
+            },
+            {
+              "bone": "Tool",
+              "position": [
+                4.12600797972118e-09,
+                -4.086872577667236,
+                3.6873116493225098
+              ]
+            },
+            {
+              "bone": "DrillRoll",
+              "position": [
+                4.1260070915427605e-09,
+                -5.336025714874268,
+                2.8212761878967285
+              ]
+            },
+            {
+              "bone": "Tread_L_00",
+              "position": [
+                -1.659999966621399,
+                -2.5789761543273926,
+                0.36490875482559204
+              ]
+            },
+            {
+              "bone": "Tread_R_00",
+              "position": [
+                1.659999966621399,
+                -2.5789761543273926,
+                0.36490875482559204
+              ]
+            },
+            {
+              "bone": "Hose_0_00",
+              "position": [
+                -1.1200000047683716,
+                0.5199999809265137,
+                3.8125
+              ]
+            },
+            {
+              "bone": "Hose_0_30",
+              "position": [
+                -0.38999998569488525,
+                -4.49954891204834,
+                3.4091038703918457
+              ]
+            }
+          ]
+        },
+        {
+          "frame": 15,
+          "positions": [
+            {
+              "bone": "Root",
+              "position": [
+                0.0,
+                0.0,
+                -0.08750000596046448
+              ]
+            },
+            {
+              "bone": "Turret",
+              "position": [
+                0.0,
+                0.0,
+                1.9924999475479126
+              ]
+            },
+            {
+              "bone": "Boom",
+              "position": [
+                -1.509903313490213e-14,
+                -0.27999961376190186,
+                4.372500419616699
+              ]
+            },
+            {
+              "bone": "Forearm",
+              "position": [
+                -3.7156596022214217e-08,
+                -2.328498125076294,
+                3.7120754718780518
+              ]
+            },
+            {
+              "bone": "Tool",
+              "position": [
+                1.762099799407224e-09,
+                -3.6731338500976562,
+                2.220446825027466
+              ]
+            },
+            {
+              "bone": "DrillRoll",
+              "position": [
+                1.7620990222511068e-09,
+                -5.177195072174072,
+                2.000896453857422
+              ]
+            },
+            {
+              "bone": "Tread_L_00",
+              "position": [
+                -1.659999966621399,
+                -2.5789761543273926,
+                0.36490875482559204
+              ]
+            },
+            {
+              "bone": "Tread_R_00",
+              "position": [
+                1.659999966621399,
+                -2.5789761543273926,
+                0.36490875482559204
+              ]
+            },
+            {
+              "bone": "Hose_0_00",
+              "position": [
+                -1.1200000047683716,
+                0.5199999809265137,
+                3.8125
+              ]
+            },
+            {
+              "bone": "Hose_0_30",
+              "position": [
+                -0.38999998569488525,
+                -4.166507244110107,
+                2.154989004135132
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ChargeRecover",
+      "name": "UDK7M_冲刺收势",
+      "start": 0,
+      "end": 18,
+      "fps": 30.0,
+      "loop": false,
+      "frames": 19,
+      "decomposition_checks": [
+        {
+          "frame": 0,
+          "object": "TRACK · L / 程序化履带",
+          "max_vertex_error": 6.507119679575578e-07
+        },
+        {
+          "frame": 0,
+          "object": "TRACK · R / 程序化履带",
+          "max_vertex_error": 6.507119679575578e-07
+        },
+        {
+          "frame": 0,
+          "object": "Primary hydraulic hose -1",
+          "max_vertex_error": 9.46016858149413e-07
+        },
+        {
+          "frame": 0,
+          "object": "Primary hydraulic hose 1",
+          "max_vertex_error": 8.816411708564258e-07
+        },
+        {
+          "frame": 0,
+          "object": "Secondary hydraulic hose -1",
+          "max_vertex_error": 8.272588604476304e-07
+        },
+        {
+          "frame": 0,
+          "object": "Secondary hydraulic hose 1",
+          "max_vertex_error": 1.0854370243202783e-06
+        },
+        {
+          "frame": 9,
+          "object": "TRACK · L / 程序化履带",
+          "max_vertex_error": 6.013044879102027e-07
+        },
+        {
+          "frame": 9,
+          "object": "TRACK · R / 程序化履带",
+          "max_vertex_error": 6.017353319550247e-07
+        },
+        {
+          "frame": 9,
+          "object": "Primary hydraulic hose -1",
+          "max_vertex_error": 9.60861077357478e-07
+        },
+        {
+          "frame": 9,
+          "object": "Primary hydraulic hose 1",
+          "max_vertex_error": 9.742445330526365e-07
+        },
+        {
+          "frame": 9,
+          "object": "Secondary hydraulic hose -1",
+          "max_vertex_error": 1.3177852629439907e-06
+        },
+        {
+          "frame": 9,
+          "object": "Secondary hydraulic hose 1",
+          "max_vertex_error": 1.1353869457606455e-06
+        },
+        {
+          "frame": 18,
+          "object": "TRACK · L / 程序化履带",
+          "max_vertex_error": 6.013044879102027e-07
+        },
+        {
+          "frame": 18,
+          "object": "TRACK · R / 程序化履带",
+          "max_vertex_error": 6.013044879102027e-07
+        },
+        {
+          "frame": 18,
+          "object": "Primary hydraulic hose -1",
+          "max_vertex_error": 8.891632574191116e-07
+        },
+        {
+          "frame": 18,
+          "object": "Primary hydraulic hose 1",
+          "max_vertex_error": 1.0243868918000712e-06
+        },
+        {
+          "frame": 18,
+          "object": "Secondary hydraulic hose -1",
+          "max_vertex_error": 9.553188327186493e-07
+        },
+        {
+          "frame": 18,
+          "object": "Secondary hydraulic hose 1",
+          "max_vertex_error": 9.056040785108642e-07
+        }
+      ],
+      "sample_bones": [],
+      "baked_action": "UDK7M_ChargeRecover",
+      "benchmarks": [
+        {
+          "frame": 0,
+          "positions": [
+            {
+              "bone": "Root",
+              "position": [
+                0.0,
+                0.0,
+                -0.08750000596046448
+              ]
+            },
+            {
+              "bone": "Turret",
+              "position": [
+                0.0,
+                0.0,
+                1.9924999475479126
+              ]
+            },
+            {
+              "bone": "Boom",
+              "position": [
+                -1.509903313490213e-14,
+                -0.27999961376190186,
+                4.372500419616699
+              ]
+            },
+            {
+              "bone": "Forearm",
+              "position": [
+                -3.7477633441085345e-08,
+                -2.327332019805908,
+                3.7084696292877197
+              ]
+            },
+            {
+              "bone": "Tool",
+              "position": [
+                1.5143335474476771e-09,
+                -3.6888461112976074,
+                2.232231616973877
+              ]
+            },
+            {
+              "bone": "DrillRoll",
+              "position": [
+                1.5143327702915599e-09,
+                -5.192907333374023,
+                2.012681245803833
+              ]
+            },
+            {
+              "bone": "Tread_L_00",
+              "position": [
+                -1.659999966621399,
+                -2.5789761543273926,
+                0.36490875482559204
+              ]
+            },
+            {
+              "bone": "Tread_R_00",
+              "position": [
+                1.659999966621399,
+                -2.5789761543273926,
+                0.36490875482559204
+              ]
+            },
+            {
+              "bone": "Hose_0_00",
+              "position": [
+                -1.1200000047683716,
+                0.5199999809265137,
+                3.8125
+              ]
+            },
+            {
+              "bone": "Hose_0_30",
+              "position": [
+                -0.38999998569488525,
+                -4.182219505310059,
+                2.166773796081543
+              ]
+            }
+          ]
+        },
+        {
+          "frame": 9,
+          "positions": [
+            {
+              "bone": "Root",
+              "position": [
+                0.0,
+                0.0,
+                -0.08750000596046448
+              ]
+            },
+            {
+              "bone": "Turret",
+              "position": [
+                0.0,
+                0.0,
+                1.9924999475479126
+              ]
+            },
+            {
+              "bone": "Boom",
+              "position": [
+                -1.509903313490213e-14,
+                -0.27999961376190186,
+                4.372500419616699
+              ]
+            },
+            {
+              "bone": "Forearm",
+              "position": [
+                -2.2884810491063945e-08,
+                -2.265026092529297,
+                5.204470157623291
+              ]
+            },
+            {
+              "bone": "Tool",
+              "position": [
+                1.0146035123170805e-09,
+                -3.8083324432373047,
+                3.919477939605713
+              ]
+            },
+            {
+              "bone": "DrillRoll",
+              "position": [
+                1.0146027351609632e-09,
+                -4.988851547241211,
+                2.961996078491211
+              ]
+            },
+            {
+              "bone": "Tread_L_00",
+              "position": [
+                -1.659999966621399,
+                0.6102639436721802,
+                0.09369999915361404
+              ]
+            },
+            {
+              "bone": "Tread_R_00",
+              "position": [
+                1.659999966621399,
+                0.2891940474510193,
+                0.09369999915361404
+              ]
+            },
+            {
+              "bone": "Hose_0_00",
+              "position": [
+                -1.1200000047683716,
+                0.5199999809265137,
+                3.8125
+              ]
+            },
+            {
+              "bone": "Hose_0_30",
+              "position": [
+                -0.38999998569488525,
+                -4.1989288330078125,
+                3.611037254333496
+              ]
+            }
+          ]
+        },
+        {
+          "frame": 18,
+          "positions": [
+            {
+              "bone": "Root",
+              "position": [
+                0.0,
+                0.0,
+                -0.08750000596046448
+              ]
+            },
+            {
+              "bone": "Turret",
+              "position": [
+                0.0,
+                0.0,
+                1.9924999475479126
+              ]
+            },
+            {
+              "bone": "Boom",
+              "position": [
+                -1.509903313490213e-14,
+                -0.27999961376190186,
+                4.372500419616699
+              ]
+            },
+            {
+              "bone": "Forearm",
+              "position": [
+                -2.5154518468184506e-08,
+                -1.9513499736785889,
+                5.728631019592285
+              ]
+            },
+            {
+              "bone": "Tool",
+              "position": [
+                4.1227288249956473e-10,
+                -3.7699341773986816,
+                4.876720905303955
+              ]
+            },
+            {
+              "bone": "DrillRoll",
+              "position": [
+                4.122721608545987e-10,
+                -4.331827640533447,
+                3.4643921852111816
+              ]
+            },
+            {
+              "bone": "Tread_L_00",
+              "position": [
+                -1.659999966621399,
+                1.315590500831604,
+                0.09369999915361404
+              ]
+            },
+            {
+              "bone": "Tread_R_00",
+              "position": [
+                1.659999966621399,
+                1.315590500831604,
+                0.09369999915361404
+              ]
+            },
+            {
+              "bone": "Hose_0_00",
+              "position": [
+                -1.1200000047683716,
+                0.5199999809265137,
+                3.8125
+              ]
+            },
+            {
+              "bone": "Hose_0_30",
+              "position": [
+                -0.38999998569488525,
+                -3.959932327270508,
+                4.416719436645508
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ChargeHold",
+      "name": "UDK7M_冲刺维持",
+      "start": 0,
+      "end": 15,
+      "fps": 30.0,
+      "loop": true,
+      "frames": 16,
+      "decomposition_checks": [
+        {
+          "frame": 0,
+          "object": "TRACK · L / 程序化履带",
+          "max_vertex_error": 6.507119679575578e-07
+        },
+        {
+          "frame": 0,
+          "object": "TRACK · R / 程序化履带",
+          "max_vertex_error": 6.507119679575578e-07
+        },
+        {
+          "frame": 0,
+          "object": "Primary hydraulic hose -1",
+          "max_vertex_error": 9.46016858149413e-07
+        },
+        {
+          "frame": 0,
+          "object": "Primary hydraulic hose 1",
+          "max_vertex_error": 8.816411708564258e-07
+        },
+        {
+          "frame": 0,
+          "object": "Secondary hydraulic hose -1",
+          "max_vertex_error": 8.272588604476304e-07
+        },
+        {
+          "frame": 0,
+          "object": "Secondary hydraulic hose 1",
+          "max_vertex_error": 1.0854370243202783e-06
+        },
+        {
+          "frame": 7,
+          "object": "TRACK · L / 程序化履带",
+          "max_vertex_error": 6.026162645692654e-07
+        },
+        {
+          "frame": 7,
+          "object": "TRACK · R / 程序化履带",
+          "max_vertex_error": 6.026162645692654e-07
+        },
+        {
+          "frame": 7,
+          "object": "Primary hydraulic hose -1",
+          "max_vertex_error": 8.253082707945259e-07
+        },
+        {
+          "frame": 7,
+          "object": "Primary hydraulic hose 1",
+          "max_vertex_error": 1.43345388549022e-06
+        },
+        {
+          "frame": 7,
+          "object": "Secondary hydraulic hose -1",
+          "max_vertex_error": 1.2416164485552507e-06
+        },
+        {
+          "frame": 7,
+          "object": "Secondary hydraulic hose 1",
+          "max_vertex_error": 1.0014528332271376e-06
+        },
+        {
+          "frame": 15,
+          "object": "TRACK · L / 程序化履带",
+          "max_vertex_error": 6.013044879102027e-07
+        },
+        {
+          "frame": 15,
+          "object": "TRACK · R / 程序化履带",
+          "max_vertex_error": 6.013044879102027e-07
+        },
+        {
+          "frame": 15,
+          "object": "Primary hydraulic hose -1",
+          "max_vertex_error": 8.999295382282098e-07
+        },
+        {
+          "frame": 15,
+          "object": "Primary hydraulic hose 1",
+          "max_vertex_error": 9.348465416822518e-07
+        },
+        {
+          "frame": 15,
+          "object": "Secondary hydraulic hose -1",
+          "max_vertex_error": 1.133047903308003e-06
+        },
+        {
+          "frame": 15,
+          "object": "Secondary hydraulic hose 1",
+          "max_vertex_error": 1.255686934436409e-06
+        }
+      ],
+      "sample_bones": [],
+      "baked_action": "UDK7M_ChargeHold",
+      "benchmarks": [
+        {
+          "frame": 0,
+          "positions": [
+            {
+              "bone": "Root",
+              "position": [
+                0.0,
+                0.0,
+                -0.08750000596046448
+              ]
+            },
+            {
+              "bone": "Turret",
+              "position": [
+                0.0,
+                0.0,
+                1.9924999475479126
+              ]
+            },
+            {
+              "bone": "Boom",
+              "position": [
+                -1.509903313490213e-14,
+                -0.27999961376190186,
+                4.372500419616699
+              ]
+            },
+            {
+              "bone": "Forearm",
+              "position": [
+                -3.7477633441085345e-08,
+                -2.327332019805908,
+                3.7084696292877197
+              ]
+            },
+            {
+              "bone": "Tool",
+              "position": [
+                1.5143335474476771e-09,
+                -3.6888461112976074,
+                2.232231616973877
+              ]
+            },
+            {
+              "bone": "DrillRoll",
+              "position": [
+                1.5143327702915599e-09,
+                -5.192907333374023,
+                2.012681245803833
+              ]
+            },
+            {
+              "bone": "Tread_L_00",
+              "position": [
+                -1.659999966621399,
+                -2.5789761543273926,
+                0.36490875482559204
+              ]
+            },
+            {
+              "bone": "Tread_R_00",
+              "position": [
+                1.659999966621399,
+                -2.5789761543273926,
+                0.36490875482559204
+              ]
+            },
+            {
+              "bone": "Hose_0_00",
+              "position": [
+                -1.1200000047683716,
+                0.5199999809265137,
+                3.8125
+              ]
+            },
+            {
+              "bone": "Hose_0_30",
+              "position": [
+                -0.38999998569488525,
+                -4.182219505310059,
+                2.166773796081543
+              ]
+            }
+          ]
+        },
+        {
+          "frame": 7,
+          "positions": [
+            {
+              "bone": "Root",
+              "position": [
+                0.0,
+                0.0,
+                -0.08750000596046448
+              ]
+            },
+            {
+              "bone": "Turret",
+              "position": [
+                0.0,
+                0.0,
+                1.9924999475479126
+              ]
+            },
+            {
+              "bone": "Boom",
+              "position": [
+                -1.509903313490213e-14,
+                -0.27999961376190186,
+                4.372500419616699
+              ]
+            },
+            {
+              "bone": "Forearm",
+              "position": [
+                -3.722573538311735e-08,
+                -2.3266053199768066,
+                3.706233024597168
+              ]
+            },
+            {
+              "bone": "Tool",
+              "position": [
+                1.7120136419634946e-09,
+                -3.6710240840911865,
+                2.2144088745117188
+              ]
+            },
+            {
+              "bone": "DrillRoll",
+              "position": [
+                1.7120128648073774e-09,
+                -5.175085067749023,
+                1.9948583841323853
+              ]
+            },
+            {
+              "bone": "Tread_L_00",
+              "position": [
+                -1.659999966621399,
+                -0.8177448511123657,
+                0.09369999915361404
+              ]
+            },
+            {
+              "bone": "Tread_R_00",
+              "position": [
+                1.659999966621399,
+                -0.8177448511123657,
+                0.09369999915361404
+              ]
+            },
+            {
+              "bone": "Hose_0_00",
+              "position": [
+                -1.1200000047683716,
+                0.5199999809265137,
+                3.8125
+              ]
+            },
+            {
+              "bone": "Hose_0_30",
+              "position": [
+                -0.38999998569488525,
+                -4.164397716522217,
+                2.1489510536193848
+              ]
+            }
+          ]
+        },
+        {
+          "frame": 15,
+          "positions": [
+            {
+              "bone": "Root",
+              "position": [
+                0.0,
+                0.0,
+                -0.08750000596046448
+              ]
+            },
+            {
+              "bone": "Turret",
+              "position": [
+                0.0,
+                0.0,
+                1.9924999475479126
+              ]
+            },
+            {
+              "bone": "Boom",
+              "position": [
+                -1.509903313490213e-14,
+                -0.27999961376190186,
+                4.372500419616699
+              ]
+            },
+            {
+              "bone": "Forearm",
+              "position": [
+                -3.7156596022214217e-08,
+                -2.328498125076294,
+                3.7120754718780518
+              ]
+            },
+            {
+              "bone": "Tool",
+              "position": [
+                1.762099799407224e-09,
+                -3.6731338500976562,
+                2.220446825027466
+              ]
+            },
+            {
+              "bone": "DrillRoll",
+              "position": [
+                1.7620990222511068e-09,
+                -5.177195072174072,
+                2.000896453857422
+              ]
+            },
+            {
+              "bone": "Tread_L_00",
+              "position": [
+                -1.659999966621399,
+                1.315590500831604,
+                0.09369999915361404
+              ]
+            },
+            {
+              "bone": "Tread_R_00",
+              "position": [
+                1.659999966621399,
+                1.315590500831604,
+                0.09369999915361404
+              ]
+            },
+            {
+              "bone": "Hose_0_00",
+              "position": [
+                -1.1200000047683716,
+                0.5199999809265137,
+                3.8125
+              ]
+            },
+            {
+              "bone": "Hose_0_30",
+              "position": [
+                -0.38999998569488525,
+                -4.166507244110107,
+                2.154989004135132
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "OriginalDemo",
+      "name": "UDK7M_动作示例_全部控制骨",
+      "start": 1,
+      "end": 144,
+      "fps": 30.0,
+      "loop": false,
+      "frames": 144,
+      "decomposition_checks": [
+        {
+          "frame": 1,
+          "object": "TRACK · L / 程序化履带",
+          "max_vertex_error": 6.507119679575578e-07
+        },
+        {
+          "frame": 1,
+          "object": "TRACK · R / 程序化履带",
+          "max_vertex_error": 6.507119679575578e-07
+        },
+        {
+          "frame": 1,
+          "object": "Primary hydraulic hose -1",
+          "max_vertex_error": 7.082349183626408e-07
+        },
+        {
+          "frame": 1,
+          "object": "Primary hydraulic hose 1",
+          "max_vertex_error": 1.5928082918182462e-06
+        },
+        {
+          "frame": 1,
+          "object": "Secondary hydraulic hose -1",
+          "max_vertex_error": 8.296208555019912e-07
+        },
+        {
+          "frame": 1,
+          "object": "Secondary hydraulic hose 1",
+          "max_vertex_error": 9.9058996409269e-07
+        },
+        {
+          "frame": 72,
+          "object": "TRACK · L / 程序化履带",
+          "max_vertex_error": 6.026162645692654e-07
+        },
+        {
+          "frame": 72,
+          "object": "TRACK · R / 程序化履带",
+          "max_vertex_error": 6.026162645692654e-07
+        },
+        {
+          "frame": 72,
+          "object": "Primary hydraulic hose -1",
+          "max_vertex_error": 8.855979686628289e-07
+        },
+        {
+          "frame": 72,
+          "object": "Primary hydraulic hose 1",
+          "max_vertex_error": 9.838876485753443e-07
+        },
+        {
+          "frame": 72,
+          "object": "Secondary hydraulic hose -1",
+          "max_vertex_error": 1.1839882914569427e-06
+        },
+        {
+          "frame": 72,
+          "object": "Secondary hydraulic hose 1",
+          "max_vertex_error": 1.139393247301493e-06
+        },
+        {
+          "frame": 144,
+          "object": "TRACK · L / 程序化履带",
+          "max_vertex_error": 6.013044879102027e-07
+        },
+        {
+          "frame": 144,
+          "object": "TRACK · R / 程序化履带",
+          "max_vertex_error": 6.013044879102027e-07
+        },
+        {
+          "frame": 144,
+          "object": "Primary hydraulic hose -1",
+          "max_vertex_error": 7.082349183626408e-07
+        },
+        {
+          "frame": 144,
+          "object": "Primary hydraulic hose 1",
+          "max_vertex_error": 1.5928082918182462e-06
+        },
+        {
+          "frame": 144,
+          "object": "Secondary hydraulic hose -1",
+          "max_vertex_error": 8.296208555019912e-07
+        },
+        {
+          "frame": 144,
+          "object": "Secondary hydraulic hose 1",
+          "max_vertex_error": 9.9058996409269e-07
+        }
+      ],
+      "sample_bones": [],
+      "baked_action": "UDK7M_OriginalDemo",
+      "benchmarks": [
+        {
+          "frame": 0,
+          "positions": [
+            {
+              "bone": "Root",
+              "position": [
+                0.0,
+                0.0,
+                -0.08750000596046448
+              ]
+            },
+            {
+              "bone": "Turret",
+              "position": [
+                0.0,
+                0.0,
+                1.9924999475479126
+              ]
+            },
+            {
+              "bone": "Boom",
+              "position": [
+                -1.509903313490213e-14,
+                -0.27999961376190186,
+                4.372500419616699
+              ]
+            },
+            {
+              "bone": "Forearm",
+              "position": [
+                -2.4683261656832656e-08,
+                -1.9400010108947754,
+                5.742499351501465
+              ]
+            },
+            {
+              "bone": "Tool",
+              "position": [
+                1.5987211554602254e-13,
+                -3.750002145767212,
+                4.872501373291016
+              ]
+            },
+            {
+              "bone": "DrillRoll",
+              "position": [
+                1.5914677074010258e-13,
+                -4.311895847320557,
+                3.460172414779663
+              ]
+            },
+            {
+              "bone": "Tread_L_00",
+              "position": [
+                -1.659999966621399,
+                -2.5789761543273926,
+                0.36490875482559204
+              ]
+            },
+            {
+              "bone": "Tread_R_00",
+              "position": [
+                1.659999966621399,
+                -2.5789761543273926,
+                0.36490875482559204
+              ]
+            },
+            {
+              "bone": "Hose_0_00",
+              "position": [
+                -1.1200000047683716,
+                0.5199999809265137,
+                3.8125
+              ]
+            },
+            {
+              "bone": "Hose_0_30",
+              "position": [
+                -0.38999998569488525,
+                -3.940000057220459,
+                4.41249942779541
+              ]
+            }
+          ]
+        },
+        {
+          "frame": 71,
+          "positions": [
+            {
+              "bone": "Root",
+              "position": [
+                0.0,
+                0.0,
+                -0.08750000596046448
+              ]
+            },
+            {
+              "bone": "Turret",
+              "position": [
+                0.0,
+                0.0,
+                1.9924999475479126
+              ]
+            },
+            {
+              "bone": "Boom",
+              "position": [
+                -1.509903313490213e-14,
+                -0.27999961376190186,
+                4.372500419616699
+              ]
+            },
+            {
+              "bone": "Forearm",
+              "position": [
+                -2.778135765879597e-08,
+                -2.431659698486328,
+                4.426035404205322
+              ]
+            },
+            {
+              "bone": "Tool",
+              "position": [
+                3.85965037708047e-09,
+                -3.750002861022949,
+                2.911118984222412
+              ]
+            },
+            {
+              "bone": "DrillRoll",
+              "position": [
+                3.8596494889020505e-09,
+                -4.326683521270752,
+                1.4616233110427856
+              ]
+            },
+            {
+              "bone": "Tread_L_00",
+              "position": [
+                -1.659999966621399,
+                -0.6431613564491272,
+                0.09369999915361404
+              ]
+            },
+            {
+              "bone": "Tread_R_00",
+              "position": [
+                1.659999966621399,
+                -0.6431613564491272,
+                0.09369999915361404
+              ]
+            },
+            {
+              "bone": "Hose_0_00",
+              "position": [
+                -1.1200000047683716,
+                0.5199999809265137,
+                3.8125
+              ]
+            },
+            {
+              "bone": "Hose_0_30",
+              "position": [
+                -0.38999998569488525,
+                -3.9400012493133545,
+                2.4511172771453857
+              ]
+            }
+          ]
+        },
+        {
+          "frame": 143,
+          "positions": [
+            {
+              "bone": "Root",
+              "position": [
+                0.0,
+                0.0,
+                -0.08750000596046448
+              ]
+            },
+            {
+              "bone": "Turret",
+              "position": [
+                0.0,
+                0.0,
+                1.9924999475479126
+              ]
+            },
+            {
+              "bone": "Boom",
+              "position": [
+                -1.509903313490213e-14,
+                -0.27999961376190186,
+                4.372500419616699
+              ]
+            },
+            {
+              "bone": "Forearm",
+              "position": [
+                -2.4683261656832656e-08,
+                -1.9400010108947754,
+                5.742499351501465
+              ]
+            },
+            {
+              "bone": "Tool",
+              "position": [
+                1.5987211554602254e-13,
+                -3.750002145767212,
+                4.872501373291016
+              ]
+            },
+            {
+              "bone": "DrillRoll",
+              "position": [
+                1.5914677074010258e-13,
+                -4.311895847320557,
+                3.460172414779663
+              ]
+            },
+            {
+              "bone": "Tread_L_00",
+              "position": [
+                -1.659999966621399,
+                1.4268393516540527,
+                0.09369999915361404
+              ]
+            },
+            {
+              "bone": "Tread_R_00",
+              "position": [
+                1.659999966621399,
+                1.4268393516540527,
+                0.09369999915361404
+              ]
+            },
+            {
+              "bone": "Hose_0_00",
+              "position": [
+                -1.1200000047683716,
+                0.5199999809265137,
+                3.8125
+              ]
+            },
+            {
+              "bone": "Hose_0_30",
+              "position": [
+                -0.38999998569488525,
+                -3.940000057220459,
+                4.41249942779541
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "bone_names": [
+    "Root",
+    "Turret",
+    "Control_Tip",
+    "Mechanism_03",
+    "Mechanism_04",
+    "Control_Pole",
+    "Boom",
+    "Forearm",
+    "Tool",
+    "DrillRoll",
+    "Mechanism_10",
+    "Mechanism_11",
+    "Mechanism_12",
+    "Mechanism_13",
+    "Mechanism_14",
+    "Mechanism_15",
+    "Mechanism_16",
+    "Mechanism_17",
+    "Mechanism_18",
+    "Mechanism_19",
+    "Mechanism_20",
+    "Mechanism_21",
+    "Mechanism_22",
+    "Mechanism_23",
+    "Mechanism_24",
+    "Mechanism_25",
+    "Mechanism_26",
+    "Mechanism_27",
+    "Mechanism_28",
+    "Mechanism_29",
+    "Control_Track_L",
+    "Control_Track_R",
+    "Mechanism_32",
+    "Mechanism_33",
+    "Mechanism_34",
+    "Mechanism_35",
+    "Mechanism_36",
+    "Mechanism_37",
+    "Mechanism_38",
+    "Mechanism_39",
+    "Mechanism_40",
+    "Mechanism_41",
+    "Mechanism_42",
+    "Mechanism_43",
+    "Mechanism_44",
+    "Mechanism_45",
+    "Mechanism_46",
+    "Mechanism_47",
+    "Mechanism_48",
+    "Mechanism_49",
+    "Mechanism_50",
+    "Mechanism_51",
+    "Tread_L_00",
+    "Tread_L_01",
+    "Tread_L_02",
+    "Tread_L_03",
+    "Tread_L_04",
+    "Tread_L_05",
+    "Tread_L_06",
+    "Tread_L_07",
+    "Tread_L_08",
+    "Tread_L_09",
+    "Tread_L_10",
+    "Tread_L_11",
+    "Tread_L_12",
+    "Tread_L_13",
+    "Tread_L_14",
+    "Tread_L_15",
+    "Tread_L_16",
+    "Tread_L_17",
+    "Tread_L_18",
+    "Tread_L_19",
+    "Tread_L_20",
+    "Tread_L_21",
+    "Tread_L_22",
+    "Tread_L_23",
+    "Tread_L_24",
+    "Tread_L_25",
+    "Tread_L_26",
+    "Tread_L_27",
+    "Tread_L_28",
+    "Tread_L_29",
+    "Tread_L_30",
+    "Tread_L_31",
+    "Tread_L_32",
+    "Tread_L_33",
+    "Tread_L_34",
+    "Tread_L_35",
+    "Tread_L_36",
+    "Tread_L_37",
+    "Tread_L_38",
+    "Tread_L_39",
+    "Tread_L_40",
+    "Tread_L_41",
+    "Tread_L_42",
+    "Tread_L_43",
+    "Tread_L_44",
+    "Tread_L_45",
+    "Tread_L_46",
+    "Tread_L_47",
+    "Tread_L_48",
+    "Tread_L_49",
+    "Tread_R_00",
+    "Tread_R_01",
+    "Tread_R_02",
+    "Tread_R_03",
+    "Tread_R_04",
+    "Tread_R_05",
+    "Tread_R_06",
+    "Tread_R_07",
+    "Tread_R_08",
+    "Tread_R_09",
+    "Tread_R_10",
+    "Tread_R_11",
+    "Tread_R_12",
+    "Tread_R_13",
+    "Tread_R_14",
+    "Tread_R_15",
+    "Tread_R_16",
+    "Tread_R_17",
+    "Tread_R_18",
+    "Tread_R_19",
+    "Tread_R_20",
+    "Tread_R_21",
+    "Tread_R_22",
+    "Tread_R_23",
+    "Tread_R_24",
+    "Tread_R_25",
+    "Tread_R_26",
+    "Tread_R_27",
+    "Tread_R_28",
+    "Tread_R_29",
+    "Tread_R_30",
+    "Tread_R_31",
+    "Tread_R_32",
+    "Tread_R_33",
+    "Tread_R_34",
+    "Tread_R_35",
+    "Tread_R_36",
+    "Tread_R_37",
+    "Tread_R_38",
+    "Tread_R_39",
+    "Tread_R_40",
+    "Tread_R_41",
+    "Tread_R_42",
+    "Tread_R_43",
+    "Tread_R_44",
+    "Tread_R_45",
+    "Tread_R_46",
+    "Tread_R_47",
+    "Tread_R_48",
+    "Tread_R_49",
+    "Hose_0_00",
+    "Hose_0_01",
+    "Hose_0_02",
+    "Hose_0_03",
+    "Hose_0_04",
+    "Hose_0_05",
+    "Hose_0_06",
+    "Hose_0_07",
+    "Hose_0_08",
+    "Hose_0_09",
+    "Hose_0_10",
+    "Hose_0_11",
+    "Hose_0_12",
+    "Hose_0_13",
+    "Hose_0_14",
+    "Hose_0_15",
+    "Hose_0_16",
+    "Hose_0_17",
+    "Hose_0_18",
+    "Hose_0_19",
+    "Hose_0_20",
+    "Hose_0_21",
+    "Hose_0_22",
+    "Hose_0_23",
+    "Hose_0_24",
+    "Hose_0_25",
+    "Hose_0_26",
+    "Hose_0_27",
+    "Hose_0_28",
+    "Hose_0_29",
+    "Hose_0_30",
+    "Hose_1_00",
+    "Hose_1_01",
+    "Hose_1_02",
+    "Hose_1_03",
+    "Hose_1_04",
+    "Hose_1_05",
+    "Hose_1_06",
+    "Hose_1_07",
+    "Hose_1_08",
+    "Hose_1_09",
+    "Hose_1_10",
+    "Hose_1_11",
+    "Hose_1_12",
+    "Hose_1_13",
+    "Hose_1_14",
+    "Hose_1_15",
+    "Hose_1_16",
+    "Hose_1_17",
+    "Hose_1_18",
+    "Hose_1_19",
+    "Hose_1_20",
+    "Hose_1_21",
+    "Hose_1_22",
+    "Hose_1_23",
+    "Hose_1_24",
+    "Hose_1_25",
+    "Hose_1_26",
+    "Hose_1_27",
+    "Hose_1_28",
+    "Hose_1_29",
+    "Hose_1_30",
+    "Hose_2_00",
+    "Hose_2_01",
+    "Hose_2_02",
+    "Hose_2_03",
+    "Hose_2_04",
+    "Hose_2_05",
+    "Hose_2_06",
+    "Hose_2_07",
+    "Hose_2_08",
+    "Hose_2_09",
+    "Hose_2_10",
+    "Hose_2_11",
+    "Hose_2_12",
+    "Hose_2_13",
+    "Hose_2_14",
+    "Hose_2_15",
+    "Hose_2_16",
+    "Hose_2_17",
+    "Hose_2_18",
+    "Hose_2_19",
+    "Hose_2_20",
+    "Hose_2_21",
+    "Hose_2_22",
+    "Hose_2_23",
+    "Hose_2_24",
+    "Hose_2_25",
+    "Hose_2_26",
+    "Hose_2_27",
+    "Hose_2_28",
+    "Hose_2_29",
+    "Hose_2_30",
+    "Hose_3_00",
+    "Hose_3_01",
+    "Hose_3_02",
+    "Hose_3_03",
+    "Hose_3_04",
+    "Hose_3_05",
+    "Hose_3_06",
+    "Hose_3_07",
+    "Hose_3_08",
+    "Hose_3_09",
+    "Hose_3_10",
+    "Hose_3_11",
+    "Hose_3_12",
+    "Hose_3_13",
+    "Hose_3_14",
+    "Hose_3_15",
+    "Hose_3_16",
+    "Hose_3_17",
+    "Hose_3_18",
+    "Hose_3_19",
+    "Hose_3_20",
+    "Hose_3_21",
+    "Hose_3_22",
+    "Hose_3_23",
+    "Hose_3_24",
+    "Hose_3_25",
+    "Hose_3_26",
+    "Hose_3_27",
+    "Hose_3_28",
+    "Hose_3_29",
+    "Hose_3_30"
+  ],
+  "source_action_count": 9,
+  "passed": true
+}

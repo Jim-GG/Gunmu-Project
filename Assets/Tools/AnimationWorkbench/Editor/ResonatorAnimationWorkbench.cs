@@ -284,6 +284,7 @@ namespace Resonator.AI.Editor
             if(actionSet){UpdateSharedPreviewBindings();if(firstPersonView){SetupFirstPersonCamera(camera);return;}}camera.fieldOfView=32;camera.nearClipPlane=.02f;camera.farClipPlane=100;camera.clearFlags=CameraClearFlags.SolidColor;camera.backgroundColor=new Color(.10f,.12f,.15f);
             var focus=new Vector3(0,.95f*(model?Mathf.Abs(model.transform.localScale.y):1),0);
             float cameraDistance=distance*(model?Mathf.Max(1,model.transform.localScale.magnitude/Mathf.Sqrt(3)):1);
+            if(actionSet&&actionSet.previewDistance>0){focus=actionSet.previewFocus;cameraDistance=actionSet.previewDistance*distance/4.5f;}
             if(mode==0&&previewRootMotion&&previewRoot)
             {
                 focus.z=showTarget?(previewRoot.transform.position.z+previewTargetDistance)*.5f:previewRoot.transform.position.z;

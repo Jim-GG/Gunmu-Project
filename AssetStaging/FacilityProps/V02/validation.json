@@ -1,0 +1,69 @@
+{
+  "passed": true,
+  "awaiting_user_approval": true,
+  "unity_imported": false,
+  "models": 10,
+  "sign_designs": 6,
+  "checks": [
+    "Soviet metal crate: black iron replaces every yellow/orange trim slot",
+    "Two wooden crates; no font geometry or label textures assigned",
+    "Modern exit uses supplied pictogram; all Soviet variants have no pictogram",
+    "Side, double-sided ceiling-forward and arrowless door variants for both facilities",
+    "Ceiling mounting-plane pivots and opposite readable lens normals",
+    "Both left/right side-arrow materials retained",
+    "Single UV0, applied scale, finite mesh data, packed images",
+    "All 10 FBX files round-tripped with under 1mm metric bounds error"
+  ],
+  "meshes": [
+    {
+      "name": "ML_Crate_1m",
+      "triangles": 1896,
+      "fbx_bounds_error_metres": 1.1920928955078125e-07
+    },
+    {
+      "name": "SV_Crate_1m",
+      "triangles": 2144,
+      "fbx_bounds_error_metres": 1.1920928955078125e-07
+    },
+    {
+      "name": "ML_WoodCrate_1m",
+      "triangles": 2240,
+      "fbx_bounds_error_metres": 1.7881393432617188e-07
+    },
+    {
+      "name": "SV_WoodCrate_Old",
+      "triangles": 3056,
+      "fbx_bounds_error_metres": 1.1920928955078125e-07
+    },
+    {
+      "name": "ML_Exit_Side",
+      "triangles": 302,
+      "fbx_bounds_error_metres": 1.862645149230957e-08
+    },
+    {
+      "name": "ML_Exit_Ceiling",
+      "triangles": 492,
+      "fbx_bounds_error_metres": 1.0058283805847168e-07
+    },
+    {
+      "name": "ML_Exit_Door",
+      "triangles": 390,
+      "fbx_bounds_error_metres": 1.862645149230957e-08
+    },
+    {
+      "name": "SV_Exit_Side",
+      "triangles": 302,
+      "fbx_bounds_error_metres": 1.4901161193847656e-08
+    },
+    {
+      "name": "SV_Exit_Ceiling",
+      "triangles": 524,
+      "fbx_bounds_error_metres": 6.705522537231445e-08
+    },
+    {
+      "name": "SV_Exit_Door",
+      "triangles": 390,
+      "fbx_bounds_error_metres": 1.4901161193847656e-08
+    }
+  ]
+}

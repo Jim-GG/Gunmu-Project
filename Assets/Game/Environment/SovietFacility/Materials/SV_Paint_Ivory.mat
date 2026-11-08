@@ -78,7 +78,7 @@ Material:
     - _QueueOffset: 0
     - _RoughnessBias: 0
     - _SpotAmount: 1
-    - _SurfaceTiling: 1
+    - _SurfaceTiling: 0.24
     m_Colors:
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _DustColour: {r: 0.2, g: 0.205, b: 0.19, a: 1}

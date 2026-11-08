@@ -1,0 +1,112 @@
+{
+  "passed": true,
+  "prefabs": [
+    "Assets/Game/Environment/ModernLab/Prefabs/Props/ML_Crate_1m.prefab",
+    "Assets/Game/Environment/SovietFacility/Prefabs/Props/SV_Crate_1m.prefab",
+    "Assets/Game/Environment/ModernLab/Prefabs/Props/ML_WoodCrate_1m.prefab",
+    "Assets/Game/Environment/SovietFacility/Prefabs/Props/SV_WoodCrate_Old.prefab",
+    "Assets/Game/Environment/ModernLab/Prefabs/Props/ML_Exit_Side.prefab",
+    "Assets/Game/Environment/ModernLab/Prefabs/Props/ML_Exit_Ceiling.prefab",
+    "Assets/Game/Environment/ModernLab/Prefabs/Props/ML_Exit_Door.prefab",
+    "Assets/Game/Environment/SovietFacility/Prefabs/Props/SV_Exit_Side.prefab",
+    "Assets/Game/Environment/SovietFacility/Prefabs/Props/SV_Exit_Ceiling.prefab",
+    "Assets/Game/Environment/SovietFacility/Prefabs/Props/SV_Exit_Door.prefab"
+  ],
+  "materials": 24,
+  "meshChecks": [
+    {
+      "name": "ML_Crate_1m",
+      "triangles": 1864,
+      "size": [
+        1.026,
+        1.00000012,
+        1.022
+      ]
+    },
+    {
+      "name": "SV_Crate_1m",
+      "triangles": 2144,
+      "size": [
+        1.014,
+        1.00000012,
+        1.04
+      ]
+    },
+    {
+      "name": "ML_WoodCrate_1m",
+      "triangles": 2240,
+      "size": [
+        1.016,
+        0.9925001,
+        1.016
+      ]
+    },
+    {
+      "name": "SV_WoodCrate_Old",
+      "triangles": 3056,
+      "size": [
+        1.176,
+        0.8320001,
+        1.004
+      ]
+    },
+    {
+      "name": "ML_Exit_Side",
+      "triangles": 302,
+      "size": [
+        0.96,
+        0.28,
+        0.127000019
+      ]
+    },
+    {
+      "name": "ML_Exit_Ceiling",
+      "triangles": 492,
+      "size": [
+        0.96,
+        0.647999942,
+        0.1200001
+      ]
+    },
+    {
+      "name": "ML_Exit_Door",
+      "triangles": 390,
+      "size": [
+        0.96,
+        0.329,
+        0.127000034
+      ]
+    },
+    {
+      "name": "SV_Exit_Side",
+      "triangles": 302,
+      "size": [
+        0.96,
+        0.28,
+        0.135500014
+      ]
+    },
+    {
+      "name": "SV_Exit_Ceiling",
+      "triangles": 524,
+      "size": [
+        0.96,
+        0.647999942,
+        0.128500089
+      ]
+    },
+    {
+      "name": "SV_Exit_Door",
+      "triangles": 390,
+      "size": [
+        0.96,
+        0.329,
+        0.135500029
+      ]
+    }
+  ],
+  "scene": "Assets/Game/Scene/FacilityPropsReview.unity",
+  "existingMaterialsPreserved": true,
+  "leftRightSwitchValidated": true,
+  "ceilingPivotsPreserved": true
+}

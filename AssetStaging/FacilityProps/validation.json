@@ -1,0 +1,64 @@
+{
+  "passed": true,
+  "stage": "Awaiting visual approval; no Unity Assets writes",
+  "models": 8,
+  "checks": [
+    {
+      "model": "ML_Crate_1m",
+      "triangles": 1896,
+      "FBX_metric_bounds_error_metres": 1.1920928955078125e-07,
+      "single_UV0": true
+    },
+    {
+      "model": "SV_Crate_1m",
+      "triangles": 2144,
+      "FBX_metric_bounds_error_metres": 1.1920928955078125e-07,
+      "single_UV0": true
+    },
+    {
+      "model": "ML_Exit_Right",
+      "triangles": 302,
+      "FBX_metric_bounds_error_metres": 2.2351741790771484e-08,
+      "single_UV0": true
+    },
+    {
+      "model": "ML_Exit_Left",
+      "triangles": 302,
+      "FBX_metric_bounds_error_metres": 2.2351741790771484e-08,
+      "single_UV0": true
+    },
+    {
+      "model": "ML_Exit_Forward",
+      "triangles": 302,
+      "FBX_metric_bounds_error_metres": 2.2351741790771484e-08,
+      "single_UV0": true
+    },
+    {
+      "model": "SV_Exit_Right",
+      "triangles": 302,
+      "FBX_metric_bounds_error_metres": 2.2351741790771484e-08,
+      "single_UV0": true
+    },
+    {
+      "model": "SV_Exit_Left",
+      "triangles": 302,
+      "FBX_metric_bounds_error_metres": 2.2351741790771484e-08,
+      "single_UV0": true
+    },
+    {
+      "model": "SV_Exit_Forward",
+      "triangles": 302,
+      "FBX_metric_bounds_error_metres": 2.2351741790771484e-08,
+      "single_UV0": true
+    }
+  ],
+  "total_triangles": 5852,
+  "textures_max_resolution": 1024,
+  "Russian_exit": "ВЫХОД",
+  "arrow_variants": [
+    "Left",
+    "Right",
+    "Forward"
+  ],
+  "all_assigned_images_packed": true
+}

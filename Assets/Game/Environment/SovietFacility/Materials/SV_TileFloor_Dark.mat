@@ -58,7 +58,7 @@ Material:
     - _DustColourStrength: 0.045
     - _DustRoughness: 0.78
     - _DustTiling: 2.5
-    - _MicroStrength: 0.18
+    - _MicroStrength: 6.7
     - _MicroTiling: 8
     - _NormalStrength: 1
     - _QueueControl: 0

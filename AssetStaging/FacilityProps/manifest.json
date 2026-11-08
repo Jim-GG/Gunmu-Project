@@ -1,0 +1,591 @@
+{
+  "status": "AWAITING_USER_APPROVAL_NOT_IMPORTED",
+  "units": "metres",
+  "materials": {
+    "Lab_Paint_WhiteSteel": {
+      "source_material": "Assets\\Game\\Environment\\ModernLab\\Materials\\Lab_Paint_WhiteSteel.mat",
+      "name": "Lab_Paint_WhiteSteel",
+      "textures": {
+        "BaseMap": "Assets\\Game\\Environment\\ModernLab\\Textures\\Lab_Paint_WhiteSteel_BaseColor.png",
+        "BumpMap": "Assets\\Game\\Environment\\ModernLab\\Textures\\Lab_Paint_WhiteSteel_Normal.png",
+        "SurfaceMask": "Assets\\Game\\Environment\\ModernLab\\Textures\\Lab_Paint_WhiteSteel_Mask.png",
+        "MicroNormal": "Assets\\Game\\Environment\\ModernLab\\Textures\\Lab_Detail_Coating_Normal.png"
+      },
+      "values": {
+        "DustAmount": 0.09,
+        "DustColourStrength": 0.01,
+        "DustRoughness": 0.55,
+        "DustTiling": 2.0,
+        "SpotAmount": 1.0,
+        "NormalStrength": 1.0,
+        "MicroStrength": 0.16,
+        "MicroTiling": 8.0,
+        "RoughnessBias": 0.0,
+        "SurfaceTiling": 1.0
+      },
+      "colors": {
+        "BaseColor": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "DustColour": [
+          0.56,
+          0.57,
+          0.56,
+          1.0
+        ]
+      }
+    },
+    "Lab_Dark_Panel": {
+      "source_material": "Assets\\Game\\Environment\\ModernLab\\Materials\\Lab_Dark_Panel.mat",
+      "name": "Lab_Dark_Panel",
+      "textures": {
+        "BaseMap": "Assets\\Game\\Environment\\ModernLab\\Textures\\Lab_Dark_Panel_BaseColor.png",
+        "BumpMap": "Assets\\Game\\Environment\\ModernLab\\Textures\\Lab_Dark_Panel_Normal.png",
+        "SurfaceMask": "Assets\\Game\\Environment\\ModernLab\\Textures\\Lab_Dark_Panel_Mask.png",
+        "MicroNormal": "Assets\\Game\\Environment\\ModernLab\\Textures\\Lab_Detail_Coating_Normal.png"
+      },
+      "values": {
+        "DustAmount": 5.0,
+        "DustColourStrength": 0.01,
+        "DustRoughness": 0.33,
+        "DustTiling": 2.0,
+        "SpotAmount": 1.0,
+        "NormalStrength": 1.0,
+        "MicroStrength": 0.16,
+        "MicroTiling": 8.0,
+        "RoughnessBias": 0.0,
+        "SurfaceTiling": 1.0
+      },
+      "colors": {
+        "BaseColor": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "DustColour": [
+          0.56,
+          0.57,
+          0.56,
+          1.0
+        ]
+      }
+    },
+    "Lab_Rail_BrushedSteel": {
+      "source_material": "Assets\\Game\\Environment\\ModernLab\\Materials\\Lab_Rail_BrushedSteel.mat",
+      "name": "Lab_Rail_BrushedSteel",
+      "textures": {
+        "BaseMap": "Assets\\Game\\Environment\\ModernLab\\Textures\\Lab_Rail_BrushedSteel_BaseColor.png",
+        "BumpMap": "Assets\\Game\\Environment\\ModernLab\\Textures\\Lab_Rail_BrushedSteel_Normal.png",
+        "SurfaceMask": "Assets\\Game\\Environment\\ModernLab\\Textures\\Lab_Rail_BrushedSteel_Mask.png",
+        "MicroNormal": "Assets\\Game\\Environment\\ModernLab\\Textures\\Lab_Detail_Coating_Normal.png"
+      },
+      "values": {
+        "DustAmount": 0.12,
+        "DustColourStrength": 0.01,
+        "DustRoughness": 0.55,
+        "DustTiling": 2.0,
+        "SpotAmount": 1.0,
+        "NormalStrength": 1.0,
+        "MicroStrength": 0.16,
+        "MicroTiling": 8.0,
+        "RoughnessBias": 0.0,
+        "SurfaceTiling": 1.0
+      },
+      "colors": {
+        "BaseColor": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "DustColour": [
+          0.56,
+          0.57,
+          0.56,
+          1.0
+        ]
+      }
+    },
+    "Lab_Paint_Yellow": {
+      "source_material": "Assets\\Game\\Environment\\ModernLab\\Materials\\Lab_Paint_Yellow.mat",
+      "name": "Lab_Paint_Yellow",
+      "textures": {
+        "BaseMap": "Assets\\Game\\Environment\\ModernLab\\Textures\\Lab_Paint_GlossWhite_BaseColor.png",
+        "BumpMap": "Assets\\Game\\Environment\\ModernLab\\Textures\\Lab_Paint_GlossWhite_Normal.png",
+        "SurfaceMask": "Assets\\Game\\Environment\\ModernLab\\Textures\\Lab_Paint_GlossWhite_Mask.png",
+        "MicroNormal": "Assets\\Game\\Environment\\ModernLab\\Textures\\Lab_Detail_Coating_Normal.png"
+      },
+      "values": {
+        "DustAmount": 0.18,
+        "DustColourStrength": 0.01,
+        "DustRoughness": 0.45,
+        "DustTiling": 2.0,
+        "SpotAmount": 1.0,
+        "NormalStrength": 0.67,
+        "MicroStrength": 3.67,
+        "MicroTiling": 8.0,
+        "RoughnessBias": 0.0,
+        "SurfaceTiling": 0.1
+      },
+      "colors": {
+        "BaseColor": [
+          0.99,
+          0.79,
+          0.025,
+          1.0
+        ],
+        "DustColour": [
+          0.56,
+          0.57,
+          0.56,
+          1.0
+        ]
+      }
+    },
+    "SV_Paint_Green": {
+      "source_material": "Assets\\Game\\Environment\\SovietFacility\\Materials\\SV_Paint_Green.mat",
+      "name": "SV_Paint_Green",
+      "textures": {
+        "BaseMap": "Assets\\Game\\Environment\\SovietFacility\\Textures\\SV_Paint_Green_BaseColor.png",
+        "BumpMap": "Assets\\Game\\Environment\\SovietFacility\\Textures\\SV_Paint_Green_Normal.png",
+        "SurfaceMask": "Assets\\Game\\Environment\\SovietFacility\\Textures\\SV_Paint_Green_Mask.png",
+        "MicroNormal": "Assets\\Game\\Environment\\ModernLab\\Textures\\Lab_Detail_Coating_Normal.png"
+      },
+      "values": {
+        "DustAmount": 0.65,
+        "DustColourStrength": 0.045,
+        "DustRoughness": 0.78,
+        "DustTiling": 2.5,
+        "SpotAmount": 1.0,
+        "NormalStrength": 1.0,
+        "MicroStrength": 0.18,
+        "MicroTiling": 8.0,
+        "RoughnessBias": 0.0,
+        "SurfaceTiling": 1.0
+      },
+      "colors": {
+        "BaseColor": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "DustColour": [
+          0.2,
+          0.205,
+          0.19,
+          1.0
+        ]
+      }
+    },
+    "SV_Paint_Yellow": {
+      "source_material": "Assets\\Game\\Environment\\SovietFacility\\Materials\\SV_Paint_Yellow.mat",
+      "name": "SV_Paint_Yellow",
+      "textures": {
+        "BaseMap": "Assets\\Game\\Environment\\SovietFacility\\Textures\\SV_Paint_Yellow_BaseColor.png",
+        "BumpMap": "Assets\\Game\\Environment\\SovietFacility\\Textures\\SV_Paint_Green_Normal.png",
+        "SurfaceMask": "Assets\\Game\\Environment\\SovietFacility\\Textures\\SV_Paint_Green_Mask.png",
+        "MicroNormal": "Assets\\Game\\Environment\\ModernLab\\Textures\\Lab_Detail_Coating_Normal.png"
+      },
+      "values": {
+        "DustAmount": 0.65,
+        "DustColourStrength": 0.045,
+        "DustRoughness": 0.78,
+        "DustTiling": 2.5,
+        "SpotAmount": 1.0,
+        "NormalStrength": 1.0,
+        "MicroStrength": 0.18,
+        "MicroTiling": 8.0,
+        "RoughnessBias": 0.0,
+        "SurfaceTiling": 1.0
+      },
+      "colors": {
+        "BaseColor": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "DustColour": [
+          0.2,
+          0.205,
+          0.19,
+          1.0
+        ]
+      }
+    },
+    "SV_Paint_Ivory": {
+      "source_material": "Assets\\Game\\Environment\\SovietFacility\\Materials\\SV_Paint_Ivory.mat",
+      "name": "SV_Paint_Ivory",
+      "textures": {
+        "BaseMap": "Assets\\Game\\Environment\\SovietFacility\\Textures\\SV_Paint_Ivory_BaseColor.png",
+        "BumpMap": "Assets\\Game\\Environment\\SovietFacility\\Textures\\SV_Paint_Green_Normal.png",
+        "SurfaceMask": "Assets\\Game\\Environment\\SovietFacility\\Textures\\SV_Paint_Green_Mask.png",
+        "MicroNormal": "Assets\\Game\\Environment\\ModernLab\\Textures\\Lab_Detail_Coating_Normal.png"
+      },
+      "values": {
+        "DustAmount": 0.65,
+        "DustColourStrength": 0.045,
+        "DustRoughness": 0.78,
+        "DustTiling": 2.5,
+        "SpotAmount": 1.0,
+        "NormalStrength": 1.0,
+        "MicroStrength": 0.18,
+        "MicroTiling": 8.0,
+        "RoughnessBias": 0.0,
+        "SurfaceTiling": 1.0
+      },
+      "colors": {
+        "BaseColor": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "DustColour": [
+          0.2,
+          0.205,
+          0.19,
+          1.0
+        ]
+      }
+    },
+    "SV_Metal_Rust": {
+      "source_material": "Assets\\Game\\Environment\\SovietFacility\\Materials\\SV_Metal_Rust.mat",
+      "name": "SV_Metal_Rust",
+      "textures": {
+        "BaseMap": "Assets\\Game\\Environment\\SovietFacility\\Textures\\SV_Metal_Rust_BaseColor.png",
+        "BumpMap": "Assets\\Game\\Environment\\SovietFacility\\Textures\\SV_Metal_Rust_Normal.png",
+        "SurfaceMask": "Assets\\Game\\Environment\\SovietFacility\\Textures\\SV_Metal_Rust_Mask.png",
+        "MicroNormal": "Assets\\Game\\Environment\\ModernLab\\Textures\\Lab_Detail_Mineral_Normal.png"
+      },
+      "values": {
+        "DustAmount": 0.65,
+        "DustColourStrength": 0.045,
+        "DustRoughness": 0.88,
+        "DustTiling": 2.5,
+        "SpotAmount": 1.0,
+        "NormalStrength": 1.0,
+        "MicroStrength": 26.7,
+        "MicroTiling": 8.0,
+        "RoughnessBias": 0.0,
+        "SurfaceTiling": 1.0
+      },
+      "colors": {
+        "BaseColor": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "DustColour": [
+          0.2,
+          0.205,
+          0.19,
+          1.0
+        ]
+      }
+    },
+    "FP_Rubber_Gasket": {
+      "kind": "lit",
+      "color": [
+        0.014,
+        0.019,
+        0.021,
+        1
+      ],
+      "roughness": 0.74,
+      "metallic": 0,
+      "emission": 0
+    },
+    "FP_Cyan_Status": {
+      "kind": "lit",
+      "color": [
+        0.02,
+        0.65,
+        0.75,
+        1
+      ],
+      "roughness": 0.3,
+      "metallic": 0,
+      "emission": 2
+    },
+    "FP_Modern_Cargo_Label": {
+      "name": "FP_Modern_Cargo_Label",
+      "textures": {
+        "BaseMap": "AssetStaging\\FacilityProps\\Textures\\ML_Cargo_Label.png",
+        "BumpMap": "Assets\\Game\\Environment\\ModernLab\\Textures\\Lab_Paint_WhiteSteel_Normal.png",
+        "SurfaceMask": "Assets\\Game\\Environment\\ModernLab\\Textures\\Lab_Paint_WhiteSteel_Mask.png",
+        "MicroNormal": "Assets\\Game\\Environment\\ModernLab\\Textures\\Lab_Detail_Coating_Normal.png"
+      },
+      "values": {
+        "DustAmount": 0.09,
+        "DustColourStrength": 0.01,
+        "DustRoughness": 0.55,
+        "DustTiling": 2.0,
+        "SpotAmount": 0,
+        "NormalStrength": 1.0,
+        "MicroStrength": 0.16,
+        "MicroTiling": 8.0,
+        "RoughnessBias": 0.0,
+        "SurfaceTiling": 1.0
+      },
+      "colors": {
+        "BaseColor": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "DustColour": [
+          0.56,
+          0.57,
+          0.56,
+          1.0
+        ]
+      }
+    },
+    "FP_Soviet_Cargo_Label": {
+      "name": "FP_Soviet_Cargo_Label",
+      "textures": {
+        "BaseMap": "AssetStaging\\FacilityProps\\Textures\\SV_Cargo_Label.png",
+        "BumpMap": "Assets\\Game\\Environment\\SovietFacility\\Textures\\SV_Paint_Green_Normal.png",
+        "SurfaceMask": "Assets\\Game\\Environment\\SovietFacility\\Textures\\SV_Paint_Green_Mask.png",
+        "MicroNormal": "Assets\\Game\\Environment\\ModernLab\\Textures\\Lab_Detail_Coating_Normal.png"
+      },
+      "values": {
+        "DustAmount": 0.65,
+        "DustColourStrength": 0.045,
+        "DustRoughness": 0.78,
+        "DustTiling": 2.5,
+        "SpotAmount": 0,
+        "NormalStrength": 1.0,
+        "MicroStrength": 0.18,
+        "MicroTiling": 8.0,
+        "RoughnessBias": 0.0,
+        "SurfaceTiling": 1.0
+      },
+      "colors": {
+        "BaseColor": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "DustColour": [
+          0.2,
+          0.205,
+          0.19,
+          1.0
+        ]
+      }
+    },
+    "FP_ML_Exit_right": {
+      "kind": "sign_lit",
+      "texture": "AssetStaging\\FacilityProps\\Textures\\ML_Exit_right.png",
+      "roughness": 0.25,
+      "emission": 1.5
+    },
+    "FP_ML_Exit_left": {
+      "kind": "sign_lit",
+      "texture": "AssetStaging\\FacilityProps\\Textures\\ML_Exit_left.png",
+      "roughness": 0.25,
+      "emission": 1.5
+    },
+    "FP_ML_Exit_forward": {
+      "kind": "sign_lit",
+      "texture": "AssetStaging\\FacilityProps\\Textures\\ML_Exit_forward.png",
+      "roughness": 0.25,
+      "emission": 1.5
+    },
+    "FP_SV_Exit_right": {
+      "kind": "sign_lit",
+      "texture": "AssetStaging\\FacilityProps\\Textures\\SV_Exit_right.png",
+      "roughness": 0.36,
+      "emission": 1.1
+    },
+    "FP_SV_Exit_left": {
+      "kind": "sign_lit",
+      "texture": "AssetStaging\\FacilityProps\\Textures\\SV_Exit_left.png",
+      "roughness": 0.36,
+      "emission": 1.1
+    },
+    "FP_SV_Exit_forward": {
+      "kind": "sign_lit",
+      "texture": "AssetStaging\\FacilityProps\\Textures\\SV_Exit_forward.png",
+      "roughness": 0.36,
+      "emission": 1.1
+    },
+    "PREVIEW_Ground": {
+      "kind": "lit",
+      "color": [
+        0.075,
+        0.085,
+        0.095,
+        1
+      ],
+      "roughness": 0.52,
+      "metallic": 0,
+      "emission": 0
+    }
+  },
+  "models": [
+    {
+      "family": "ModernLab",
+      "description": "1m stackable facility cargo crate; printed 042 panel; enamel and dark protective corners",
+      "collider": [
+        1,
+        1,
+        1
+      ],
+      "triangles": 1896,
+      "materials": [
+        "Lab_Dark_Panel",
+        "Lab_Paint_WhiteSteel",
+        "FP_Rubber_Gasket",
+        "Lab_Rail_BrushedSteel",
+        "FP_Modern_Cargo_Label",
+        "Lab_Paint_Yellow",
+        "FP_Cyan_Status"
+      ],
+      "name": "ML_Crate_1m"
+    },
+    {
+      "family": "SovietFacility",
+      "description": "1m reinforced painted steel cargo crate; Russian stencil; sparse paint loss and UV-locked dirt",
+      "collider": [
+        1,
+        1,
+        1
+      ],
+      "triangles": 2144,
+      "materials": [
+        "SV_Paint_Green",
+        "FP_Rubber_Gasket",
+        "SV_Paint_Yellow",
+        "SV_Metal_Rust",
+        "FP_Soviet_Cargo_Label"
+      ],
+      "name": "SV_Crate_1m"
+    },
+    {
+      "family": "ModernLab",
+      "description": "Modern EXIT",
+      "collider": [
+        0.96,
+        0.1,
+        0.28
+      ],
+      "triangles": 302,
+      "materials": [
+        "FP_Rubber_Gasket",
+        "Lab_Paint_WhiteSteel",
+        "FP_ML_Exit_right",
+        "Lab_Rail_BrushedSteel",
+        "Lab_Dark_Panel",
+        "FP_Cyan_Status"
+      ],
+      "name": "ML_Exit_Right"
+    },
+    {
+      "family": "ModernLab",
+      "description": "Modern EXIT",
+      "collider": [
+        0.96,
+        0.1,
+        0.28
+      ],
+      "triangles": 302,
+      "materials": [
+        "FP_Rubber_Gasket",
+        "Lab_Paint_WhiteSteel",
+        "FP_ML_Exit_left",
+        "Lab_Rail_BrushedSteel",
+        "Lab_Dark_Panel",
+        "FP_Cyan_Status"
+      ],
+      "name": "ML_Exit_Left"
+    },
+    {
+      "family": "ModernLab",
+      "description": "Modern EXIT",
+      "collider": [
+        0.96,
+        0.1,
+        0.28
+      ],
+      "triangles": 302,
+      "materials": [
+        "FP_Rubber_Gasket",
+        "Lab_Paint_WhiteSteel",
+        "FP_ML_Exit_forward",
+        "Lab_Rail_BrushedSteel",
+        "Lab_Dark_Panel",
+        "FP_Cyan_Status"
+      ],
+      "name": "ML_Exit_Forward"
+    },
+    {
+      "family": "SovietFacility",
+      "description": "Russian ВЫХОД",
+      "collider": [
+        0.96,
+        0.1,
+        0.28
+      ],
+      "triangles": 302,
+      "materials": [
+        "SV_Metal_Rust",
+        "SV_Paint_Green",
+        "FP_SV_Exit_right",
+        "SV_Paint_Ivory"
+      ],
+      "name": "SV_Exit_Right"
+    },
+    {
+      "family": "SovietFacility",
+      "description": "Russian ВЫХОД",
+      "collider": [
+        0.96,
+        0.1,
+        0.28
+      ],
+      "triangles": 302,
+      "materials": [
+        "SV_Metal_Rust",
+        "SV_Paint_Green",
+        "FP_SV_Exit_left",
+        "SV_Paint_Ivory"
+      ],
+      "name": "SV_Exit_Left"
+    },
+    {
+      "family": "SovietFacility",
+      "description": "Russian ВЫХОД",
+      "collider": [
+        0.96,
+        0.1,
+        0.28
+      ],
+      "triangles": 302,
+      "materials": [
+        "SV_Metal_Rust",
+        "SV_Paint_Green",
+        "FP_SV_Exit_forward",
+        "SV_Paint_Ivory"
+      ],
+      "name": "SV_Exit_Forward"
+    }
+  ],
+  "total_triangles": 5852,
+  "notes": [
+    "Two 1m cubes, six exit sign direction variants",
+    "All lettering and pictograms baked to 1024px atlases; no text geometry exported",
+    "One UV0 layer per mesh; same coating textures and parameters as current Unity materials",
+    "FBX exports are staged only; no Assets changes"
+  ]
+}

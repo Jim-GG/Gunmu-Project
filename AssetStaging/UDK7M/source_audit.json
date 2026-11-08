@@ -1,0 +1,3411 @@
+{
+  "source": "D:\\UNITY工程\\棍木项目\\棍木项目\\AssetStaging\\UDK7M\\UDK7M_UserAnimation_Source.blend",
+  "scene": "УДК-7М · Collision test installation",
+  "frames": [
+    0,
+    90
+  ],
+  "fps": 30.0,
+  "actions": [
+    {
+      "name": "UDK7M_Idle",
+      "frame_range": [
+        0.0,
+        30.0
+      ],
+      "users": 2,
+      "fake_user": true,
+      "slots": [
+        "OBUDK7M_RIG · 选我进入姿态模式"
+      ],
+      "fcurves": 42,
+      "paths": [
+        "pose.bones[\"07_TRACK_右履带\"].rotation_euler",
+        "pose.bones[\"03_IK_钻尖\"].location",
+        "pose.bones[\"02_TURRET_回转\"].rotation_euler",
+        "pose.bones[\"04_POLE_肘朝向\"].location",
+        "pose.bones[\"03_IK_钻尖\"].rotation_euler",
+        "pose.bones[\"01_ROOT_整机\"].rotation_euler",
+        "pose.bones[\"05_ROLL_钻芯\"].rotation_euler",
+        "pose.bones[\"04_POLE_肘朝向\"].rotation_euler",
+        "pose.bones[\"01_ROOT_整机\"].location",
+        "pose.bones[\"06_TRACK_左履带\"].rotation_euler",
+        "pose.bones[\"05_ROLL_钻芯\"].location",
+        "pose.bones[\"06_TRACK_左履带\"].location",
+        "pose.bones[\"07_TRACK_右履带\"].location",
+        "pose.bones[\"02_TURRET_回转\"].location"
+      ]
+    },
+    {
+      "name": "UDK7M_三连下砸",
+      "frame_range": [
+        0.0,
+        90.0
+      ],
+      "users": 2,
+      "fake_user": true,
+      "slots": [
+        "OBUDK7M_RIG · 选我进入姿态模式"
+      ],
+      "fcurves": 42,
+      "paths": [
+        "pose.bones[\"07_TRACK_右履带\"].rotation_euler",
+        "pose.bones[\"03_IK_钻尖\"].location",
+        "pose.bones[\"02_TURRET_回转\"].rotation_euler",
+        "pose.bones[\"04_POLE_肘朝向\"].location",
+        "pose.bones[\"03_IK_钻尖\"].rotation_euler",
+        "pose.bones[\"01_ROOT_整机\"].rotation_euler",
+        "pose.bones[\"05_ROLL_钻芯\"].rotation_euler",
+        "pose.bones[\"04_POLE_肘朝向\"].rotation_euler",
+        "pose.bones[\"01_ROOT_整机\"].location",
+        "pose.bones[\"06_TRACK_左履带\"].rotation_euler",
+        "pose.bones[\"05_ROLL_钻芯\"].location",
+        "pose.bones[\"06_TRACK_左履带\"].location",
+        "pose.bones[\"07_TRACK_右履带\"].location",
+        "pose.bones[\"02_TURRET_回转\"].location"
+      ]
+    },
+    {
+      "name": "UDK7M_下砸准备",
+      "frame_range": [
+        0.0,
+        15.0
+      ],
+      "users": 2,
+      "fake_user": true,
+      "slots": [
+        "OBUDK7M_RIG · 选我进入姿态模式"
+      ],
+      "fcurves": 42,
+      "paths": [
+        "pose.bones[\"07_TRACK_右履带\"].rotation_euler",
+        "pose.bones[\"03_IK_钻尖\"].location",
+        "pose.bones[\"02_TURRET_回转\"].rotation_euler",
+        "pose.bones[\"04_POLE_肘朝向\"].location",
+        "pose.bones[\"03_IK_钻尖\"].rotation_euler",
+        "pose.bones[\"01_ROOT_整机\"].rotation_euler",
+        "pose.bones[\"05_ROLL_钻芯\"].rotation_euler",
+        "pose.bones[\"04_POLE_肘朝向\"].rotation_euler",
+        "pose.bones[\"01_ROOT_整机\"].location",
+        "pose.bones[\"06_TRACK_左履带\"].rotation_euler",
+        "pose.bones[\"05_ROLL_钻芯\"].location",
+        "pose.bones[\"06_TRACK_左履带\"].location",
+        "pose.bones[\"07_TRACK_右履带\"].location",
+        "pose.bones[\"02_TURRET_回转\"].location"
+      ]
+    },
+    {
+      "name": "UDK7M_下砸收势",
+      "frame_range": [
+        0.0,
+        30.0
+      ],
+      "users": 1,
+      "fake_user": true,
+      "slots": [
+        "OBUDK7M_RIG · 选我进入姿态模式"
+      ],
+      "fcurves": 42,
+      "paths": [
+        "pose.bones[\"07_TRACK_右履带\"].rotation_euler",
+        "pose.bones[\"03_IK_钻尖\"].location",
+        "pose.bones[\"02_TURRET_回转\"].rotation_euler",
+        "pose.bones[\"04_POLE_肘朝向\"].location",
+        "pose.bones[\"03_IK_钻尖\"].rotation_euler",
+        "pose.bones[\"01_ROOT_整机\"].rotation_euler",
+        "pose.bones[\"05_ROLL_钻芯\"].rotation_euler",
+        "pose.bones[\"04_POLE_肘朝向\"].rotation_euler",
+        "pose.bones[\"01_ROOT_整机\"].location",
+        "pose.bones[\"06_TRACK_左履带\"].rotation_euler",
+        "pose.bones[\"05_ROLL_钻芯\"].location",
+        "pose.bones[\"06_TRACK_左履带\"].location",
+        "pose.bones[\"07_TRACK_右履带\"].location",
+        "pose.bones[\"02_TURRET_回转\"].location"
+      ]
+    },
+    {
+      "name": "UDK7M_下砸维持",
+      "frame_range": [
+        0.0,
+        15.0
+      ],
+      "users": 2,
+      "fake_user": true,
+      "slots": [
+        "OBUDK7M_RIG · 选我进入姿态模式"
+      ],
+      "fcurves": 42,
+      "paths": [
+        "pose.bones[\"07_TRACK_右履带\"].rotation_euler",
+        "pose.bones[\"03_IK_钻尖\"].location",
+        "pose.bones[\"02_TURRET_回转\"].rotation_euler",
+        "pose.bones[\"04_POLE_肘朝向\"].location",
+        "pose.bones[\"03_IK_钻尖\"].rotation_euler",
+        "pose.bones[\"01_ROOT_整机\"].rotation_euler",
+        "pose.bones[\"05_ROLL_钻芯\"].rotation_euler",
+        "pose.bones[\"04_POLE_肘朝向\"].rotation_euler",
+        "pose.bones[\"01_ROOT_整机\"].location",
+        "pose.bones[\"06_TRACK_左履带\"].rotation_euler",
+        "pose.bones[\"05_ROLL_钻芯\"].location",
+        "pose.bones[\"06_TRACK_左履带\"].location",
+        "pose.bones[\"07_TRACK_右履带\"].location",
+        "pose.bones[\"02_TURRET_回转\"].location"
+      ]
+    },
+    {
+      "name": "UDK7M_冲刺准备",
+      "frame_range": [
+        0.0,
+        15.0
+      ],
+      "users": 2,
+      "fake_user": true,
+      "slots": [
+        "OBUDK7M_RIG · 选我进入姿态模式"
+      ],
+      "fcurves": 42,
+      "paths": [
+        "pose.bones[\"07_TRACK_右履带\"].rotation_euler",
+        "pose.bones[\"03_IK_钻尖\"].location",
+        "pose.bones[\"02_TURRET_回转\"].rotation_euler",
+        "pose.bones[\"04_POLE_肘朝向\"].location",
+        "pose.bones[\"03_IK_钻尖\"].rotation_euler",
+        "pose.bones[\"01_ROOT_整机\"].rotation_euler",
+        "pose.bones[\"05_ROLL_钻芯\"].rotation_euler",
+        "pose.bones[\"04_POLE_肘朝向\"].rotation_euler",
+        "pose.bones[\"01_ROOT_整机\"].location",
+        "pose.bones[\"06_TRACK_左履带\"].rotation_euler",
+        "pose.bones[\"05_ROLL_钻芯\"].location",
+        "pose.bones[\"06_TRACK_左履带\"].location",
+        "pose.bones[\"07_TRACK_右履带\"].location",
+        "pose.bones[\"02_TURRET_回转\"].location"
+      ]
+    },
+    {
+      "name": "UDK7M_冲刺收势",
+      "frame_range": [
+        0.0,
+        18.0
+      ],
+      "users": 1,
+      "fake_user": true,
+      "slots": [
+        "OBUDK7M_RIG · 选我进入姿态模式"
+      ],
+      "fcurves": 42,
+      "paths": [
+        "pose.bones[\"07_TRACK_右履带\"].rotation_euler",
+        "pose.bones[\"03_IK_钻尖\"].location",
+        "pose.bones[\"02_TURRET_回转\"].rotation_euler",
+        "pose.bones[\"04_POLE_肘朝向\"].location",
+        "pose.bones[\"03_IK_钻尖\"].rotation_euler",
+        "pose.bones[\"01_ROOT_整机\"].rotation_euler",
+        "pose.bones[\"05_ROLL_钻芯\"].rotation_euler",
+        "pose.bones[\"04_POLE_肘朝向\"].rotation_euler",
+        "pose.bones[\"01_ROOT_整机\"].location",
+        "pose.bones[\"06_TRACK_左履带\"].rotation_euler",
+        "pose.bones[\"05_ROLL_钻芯\"].location",
+        "pose.bones[\"06_TRACK_左履带\"].location",
+        "pose.bones[\"07_TRACK_右履带\"].location",
+        "pose.bones[\"02_TURRET_回转\"].location"
+      ]
+    },
+    {
+      "name": "UDK7M_冲刺维持",
+      "frame_range": [
+        0.0,
+        15.0
+      ],
+      "users": 2,
+      "fake_user": true,
+      "slots": [
+        "OBUDK7M_RIG · 选我进入姿态模式"
+      ],
+      "fcurves": 42,
+      "paths": [
+        "pose.bones[\"07_TRACK_右履带\"].rotation_euler",
+        "pose.bones[\"03_IK_钻尖\"].location",
+        "pose.bones[\"02_TURRET_回转\"].rotation_euler",
+        "pose.bones[\"04_POLE_肘朝向\"].location",
+        "pose.bones[\"03_IK_钻尖\"].rotation_euler",
+        "pose.bones[\"01_ROOT_整机\"].rotation_euler",
+        "pose.bones[\"05_ROLL_钻芯\"].rotation_euler",
+        "pose.bones[\"04_POLE_肘朝向\"].rotation_euler",
+        "pose.bones[\"01_ROOT_整机\"].location",
+        "pose.bones[\"06_TRACK_左履带\"].rotation_euler",
+        "pose.bones[\"05_ROLL_钻芯\"].location",
+        "pose.bones[\"06_TRACK_左履带\"].location",
+        "pose.bones[\"07_TRACK_右履带\"].location",
+        "pose.bones[\"02_TURRET_回转\"].location"
+      ]
+    },
+    {
+      "name": "UDK7M_动作示例_全部控制骨",
+      "frame_range": [
+        1.0,
+        144.0
+      ],
+      "users": 2,
+      "fake_user": true,
+      "slots": [
+        "OBUDK7M_RIG · 选我进入姿态模式"
+      ],
+      "fcurves": 42,
+      "paths": [
+        "pose.bones[\"07_TRACK_右履带\"].rotation_euler",
+        "pose.bones[\"03_IK_钻尖\"].location",
+        "pose.bones[\"02_TURRET_回转\"].rotation_euler",
+        "pose.bones[\"04_POLE_肘朝向\"].location",
+        "pose.bones[\"03_IK_钻尖\"].rotation_euler",
+        "pose.bones[\"01_ROOT_整机\"].rotation_euler",
+        "pose.bones[\"05_ROLL_钻芯\"].rotation_euler",
+        "pose.bones[\"04_POLE_肘朝向\"].rotation_euler",
+        "pose.bones[\"01_ROOT_整机\"].location",
+        "pose.bones[\"06_TRACK_左履带\"].rotation_euler",
+        "pose.bones[\"05_ROLL_钻芯\"].location",
+        "pose.bones[\"06_TRACK_左履带\"].location",
+        "pose.bones[\"07_TRACK_右履带\"].location",
+        "pose.bones[\"02_TURRET_回转\"].location"
+      ]
+    }
+  ],
+  "objects": [
+    {
+      "name": "UDK7M_RIG · 选我进入姿态模式",
+      "type": "ARMATURE",
+      "hidden_render": false,
+      "collections": [
+        "01 · 骨架与动作"
+      ],
+      "parent": null,
+      "parent_bone": "",
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "modifiers": [],
+      "materials": [],
+      "action": "UDK7M_三连下砸",
+      "nla": [
+        {
+          "name": "[动作存放]",
+          "mute": true,
+          "strips": [
+            {
+              "name": "UDK7M_动作示例_全部控制骨",
+              "action": "UDK7M_动作示例_全部控制骨",
+              "start": 1.0,
+              "end": 144.0
+            }
+          ]
+        },
+        {
+          "name": "[动作存放].001",
+          "mute": true,
+          "strips": [
+            {
+              "name": "UDK7M_Idle",
+              "action": "UDK7M_Idle",
+              "start": 0.0,
+              "end": 30.0
+            }
+          ]
+        },
+        {
+          "name": "[动作存放].002",
+          "mute": true,
+          "strips": [
+            {
+              "name": "UDK7M_下砸起始",
+              "action": "UDK7M_下砸准备",
+              "start": 0.0,
+              "end": 15.0
+            }
+          ]
+        },
+        {
+          "name": "[动作存放].003",
+          "mute": true,
+          "strips": [
+            {
+              "name": "UDK7M_下砸准备",
+              "action": "UDK7M_下砸维持",
+              "start": 0.0,
+              "end": 15.0
+            }
+          ]
+        },
+        {
+          "name": "[动作存放].004",
+          "mute": true,
+          "strips": [
+            {
+              "name": "UDK7M_冲刺准备",
+              "action": "UDK7M_冲刺准备",
+              "start": 0.0,
+              "end": 15.0
+            }
+          ]
+        },
+        {
+          "name": "[动作存放].005",
+          "mute": true,
+          "strips": [
+            {
+              "name": "UDK7M_冲刺维持",
+              "action": "UDK7M_冲刺维持",
+              "start": 0.0,
+              "end": 15.0
+            }
+          ]
+        }
+      ],
+      "bones": [
+        {
+          "name": "01_ROOT_整机",
+          "parent": null,
+          "deform": false
+        },
+        {
+          "name": "02_TURRET_回转",
+          "parent": "01_ROOT_整机",
+          "deform": false
+        },
+        {
+          "name": "03_IK_钻尖",
+          "parent": "02_TURRET_回转",
+          "deform": false
+        },
+        {
+          "name": "MCH_腕部目标",
+          "parent": "03_IK_钻尖",
+          "deform": false
+        },
+        {
+          "name": "MCH_钻具朝向",
+          "parent": "03_IK_钻尖",
+          "deform": false
+        },
+        {
+          "name": "04_POLE_肘朝向",
+          "parent": "02_TURRET_回转",
+          "deform": false
+        },
+        {
+          "name": "MCH_大臂",
+          "parent": "02_TURRET_回转",
+          "deform": false
+        },
+        {
+          "name": "MCH_前臂",
+          "parent": "MCH_大臂",
+          "deform": false
+        },
+        {
+          "name": "MCH_钻具",
+          "parent": "MCH_前臂",
+          "deform": false
+        },
+        {
+          "name": "05_ROLL_钻芯",
+          "parent": "MCH_钻具",
+          "deform": false
+        },
+        {
+          "name": "MCH_液压_4_活动端",
+          "parent": "MCH_钻具",
+          "deform": false
+        },
+        {
+          "name": "MCH_液压_4_活塞",
+          "parent": "MCH_液压_4_活动端",
+          "deform": false
+        },
+        {
+          "name": "MCH_液压_3_活动端",
+          "parent": "MCH_前臂",
+          "deform": false
+        },
+        {
+          "name": "MCH_液压_3_活塞",
+          "parent": "MCH_液压_3_活动端",
+          "deform": false
+        },
+        {
+          "name": "MCH_液压_4_固定端",
+          "parent": "MCH_前臂",
+          "deform": false
+        },
+        {
+          "name": "MCH_液压_4_缸体",
+          "parent": "MCH_液压_4_固定端",
+          "deform": false
+        },
+        {
+          "name": "MCH_液压_4_内端",
+          "parent": "MCH_液压_4_缸体",
+          "deform": false
+        },
+        {
+          "name": "MCH_液压_1_活动端",
+          "parent": "MCH_大臂",
+          "deform": false
+        },
+        {
+          "name": "MCH_液压_1_活塞",
+          "parent": "MCH_液压_1_活动端",
+          "deform": false
+        },
+        {
+          "name": "MCH_液压_2_活动端",
+          "parent": "MCH_大臂",
+          "deform": false
+        },
+        {
+          "name": "MCH_液压_2_活塞",
+          "parent": "MCH_液压_2_活动端",
+          "deform": false
+        },
+        {
+          "name": "MCH_液压_3_固定端",
+          "parent": "MCH_大臂",
+          "deform": false
+        },
+        {
+          "name": "MCH_液压_3_缸体",
+          "parent": "MCH_液压_3_固定端",
+          "deform": false
+        },
+        {
+          "name": "MCH_液压_3_内端",
+          "parent": "MCH_液压_3_缸体",
+          "deform": false
+        },
+        {
+          "name": "MCH_液压_1_固定端",
+          "parent": "02_TURRET_回转",
+          "deform": false
+        },
+        {
+          "name": "MCH_液压_1_缸体",
+          "parent": "MCH_液压_1_固定端",
+          "deform": false
+        },
+        {
+          "name": "MCH_液压_1_内端",
+          "parent": "MCH_液压_1_缸体",
+          "deform": false
+        },
+        {
+          "name": "MCH_液压_2_固定端",
+          "parent": "02_TURRET_回转",
+          "deform": false
+        },
+        {
+          "name": "MCH_液压_2_缸体",
+          "parent": "MCH_液压_2_固定端",
+          "deform": false
+        },
+        {
+          "name": "MCH_液压_2_内端",
+          "parent": "MCH_液压_2_缸体",
+          "deform": false
+        },
+        {
+          "name": "06_TRACK_左履带",
+          "parent": "01_ROOT_整机",
+          "deform": false
+        },
+        {
+          "name": "07_TRACK_右履带",
+          "parent": "01_ROOT_整机",
+          "deform": false
+        },
+        {
+          "name": "MCH_轮组_01",
+          "parent": "01_ROOT_整机",
+          "deform": false
+        },
+        {
+          "name": "MCH_轮组_02",
+          "parent": "01_ROOT_整机",
+          "deform": false
+        },
+        {
+          "name": "MCH_轮组_03",
+          "parent": "01_ROOT_整机",
+          "deform": false
+        },
+        {
+          "name": "MCH_轮组_04",
+          "parent": "01_ROOT_整机",
+          "deform": false
+        },
+        {
+          "name": "MCH_轮组_05",
+          "parent": "01_ROOT_整机",
+          "deform": false
+        },
+        {
+          "name": "MCH_轮组_06",
+          "parent": "01_ROOT_整机",
+          "deform": false
+        },
+        {
+          "name": "MCH_轮组_07",
+          "parent": "01_ROOT_整机",
+          "deform": false
+        },
+        {
+          "name": "MCH_轮组_08",
+          "parent": "01_ROOT_整机",
+          "deform": false
+        },
+        {
+          "name": "MCH_轮组_09",
+          "parent": "01_ROOT_整机",
+          "deform": false
+        },
+        {
+          "name": "MCH_轮组_10",
+          "parent": "01_ROOT_整机",
+          "deform": false
+        },
+        {
+          "name": "MCH_轮组_11",
+          "parent": "01_ROOT_整机",
+          "deform": false
+        },
+        {
+          "name": "MCH_轮组_12",
+          "parent": "01_ROOT_整机",
+          "deform": false
+        },
+        {
+          "name": "MCH_轮组_13",
+          "parent": "01_ROOT_整机",
+          "deform": false
+        },
+        {
+          "name": "MCH_轮组_14",
+          "parent": "01_ROOT_整机",
+          "deform": false
+        },
+        {
+          "name": "MCH_轮组_15",
+          "parent": "01_ROOT_整机",
+          "deform": false
+        },
+        {
+          "name": "MCH_轮组_16",
+          "parent": "01_ROOT_整机",
+          "deform": false
+        },
+        {
+          "name": "MCH_轮组_17",
+          "parent": "01_ROOT_整机",
+          "deform": false
+        },
+        {
+          "name": "MCH_轮组_18",
+          "parent": "01_ROOT_整机",
+          "deform": false
+        },
+        {
+          "name": "MCH_轮组_19",
+          "parent": "01_ROOT_整机",
+          "deform": false
+        },
+        {
+          "name": "MCH_轮组_20",
+          "parent": "01_ROOT_整机",
+          "deform": false
+        }
+      ]
+    },
+    {
+      "name": "MESH_02_回转主体与平台",
+      "type": "MESH",
+      "hidden_render": false,
+      "collections": [
+        "02 · 模型部件"
+      ],
+      "parent": "UDK7M_RIG · 选我进入姿态模式",
+      "parent_bone": "02_TURRET_回转",
+      "location": [
+        0.0,
+        -0.699999988079071,
+        -1.9924999475479126
+      ],
+      "modifiers": [],
+      "materials": [
+        "09 · Carbon stencil",
+        "04 · Exposed worn steel",
+        "08 · Oil resistant hose",
+        "05 · Dark cast steel",
+        "03 · Ochre safety yellow",
+        "02 · Oxide red identification paint",
+        "16 · Muted ochre service armour",
+        "11 · Restrained cyan resonance indicators",
+        "10 · Dial ivory and pale stencil",
+        "01 · Aged warm grey industrial paint",
+        "07 · Polished piston chrome",
+        "13 · Red amber beacon"
+      ],
+      "triangles": 14353,
+      "uv": [
+        "UVMap",
+        "UV贴图"
+      ]
+    },
+    {
+      "name": "MESH_03_大臂",
+      "type": "MESH",
+      "hidden_render": false,
+      "collections": [
+        "02 · 模型部件"
+      ],
+      "parent": "UDK7M_RIG · 选我进入姿态模式",
+      "parent_bone": "MCH_大臂",
+      "location": [
+        4.505644213281812e-08,
+        -5.151468276977539,
+        3.1941123008728027
+      ],
+      "modifiers": [],
+      "materials": [
+        "05 · Dark cast steel",
+        "04 · Exposed worn steel",
+        "07 · Polished piston chrome",
+        "01 · Aged warm grey industrial paint",
+        "09 · Carbon stencil",
+        "03 · Ochre safety yellow"
+      ],
+      "triangles": 1442,
+      "uv": [
+        "UVMap"
+      ]
+    },
+    {
+      "name": "MESH_01_底盘与护甲",
+      "type": "MESH",
+      "hidden_render": false,
+      "collections": [
+        "02 · 模型部件"
+      ],
+      "parent": "UDK7M_RIG · 选我进入姿态模式",
+      "parent_bone": "01_ROOT_整机",
+      "location": [
+        0.0,
+        -1.0,
+        0.08750000596046448
+      ],
+      "modifiers": [],
+      "materials": [
+        "08 · Oil resistant hose",
+        "05 · Dark cast steel",
+        "12 · Warm worklight glass",
+        "02 · Oxide red identification paint",
+        "03 · Ochre safety yellow",
+        "01 · Aged warm grey industrial paint",
+        "04 · Exposed worn steel",
+        "10 · Dial ivory and pale stencil",
+        "09 · Carbon stencil",
+        "16 · Muted ochre service armour"
+      ],
+      "triangles": 6032,
+      "uv": [
+        "UVMap"
+      ]
+    },
+    {
+      "name": "MESH_轮组_05",
+      "type": "MESH",
+      "hidden_render": false,
+      "collections": [
+        "02 · 模型部件"
+      ],
+      "parent": "UDK7M_RIG · 选我进入姿态模式",
+      "parent_bone": "MCH_轮组_05",
+      "location": [
+        1.659999966621399,
+        1.320000171661377,
+        -0.4025000035762787
+      ],
+      "modifiers": [],
+      "materials": [
+        "04 · Exposed worn steel",
+        "05 · Dark cast steel"
+      ],
+      "triangles": 180,
+      "uv": []
+    },
+    {
+      "name": "MESH_轮组_20",
+      "type": "MESH",
+      "hidden_render": false,
+      "collections": [
+        "02 · 模型部件"
+      ],
+      "parent": "UDK7M_RIG · 选我进入姿态模式",
+      "parent_bone": "MCH_轮组_20",
+      "location": [
+        -1.659999966621399,
+        -1.4800000190734863,
+        -0.4025000035762787
+      ],
+      "modifiers": [],
+      "materials": [
+        "04 · Exposed worn steel",
+        "05 · Dark cast steel"
+      ],
+      "triangles": 180,
+      "uv": []
+    },
+    {
+      "name": "MESH_轮组_11",
+      "type": "MESH",
+      "hidden_render": false,
+      "collections": [
+        "02 · 模型部件"
+      ],
+      "parent": "UDK7M_RIG · 选我进入姿态模式",
+      "parent_bone": "MCH_轮组_11",
+      "location": [
+        -1.659999966621399,
+        1.9100000858306885,
+        -0.5325000286102295
+      ],
+      "modifiers": [],
+      "materials": [
+        "04 · Exposed worn steel",
+        "05 · Dark cast steel"
+      ],
+      "triangles": 560,
+      "uv": [
+        "UVMap"
+      ]
+    },
+    {
+      "name": "MESH_轮组_18",
+      "type": "MESH",
+      "hidden_render": false,
+      "collections": [
+        "02 · 模型部件"
+      ],
+      "parent": "UDK7M_RIG · 选我进入姿态模式",
+      "parent_bone": "MCH_轮组_18",
+      "location": [
+        -1.659999966621399,
+        -0.36000001430511475,
+        -0.4025000035762787
+      ],
+      "modifiers": [],
+      "materials": [
+        "04 · Exposed worn steel",
+        "05 · Dark cast steel"
+      ],
+      "triangles": 180,
+      "uv": []
+    },
+    {
+      "name": "MESH_轮组_12",
+      "type": "MESH",
+      "hidden_render": false,
+      "collections": [
+        "02 · 模型部件"
+      ],
+      "parent": "UDK7M_RIG · 选我进入姿态模式",
+      "parent_bone": "MCH_轮组_12",
+      "location": [
+        -1.659999966621399,
+        -2.390000104904175,
+        -0.5325000286102295
+      ],
+      "modifiers": [],
+      "materials": [
+        "05 · Dark cast steel",
+        "04 · Exposed worn steel"
+      ],
+      "triangles": 368,
+      "uv": [
+        "UVMap"
+      ]
+    },
+    {
+      "name": "MESH_轮组_10",
+      "type": "MESH",
+      "hidden_render": false,
+      "collections": [
+        "02 · 模型部件"
+      ],
+      "parent": "UDK7M_RIG · 选我进入姿态模式",
+      "parent_bone": "MCH_轮组_10",
+      "location": [
+        1.659999966621399,
+        -1.4800000190734863,
+        -0.4025000035762787
+      ],
+      "modifiers": [],
+      "materials": [
+        "04 · Exposed worn steel",
+        "05 · Dark cast steel"
+      ],
+      "triangles": 180,
+      "uv": []
+    },
+    {
+      "name": "MESH_04_前臂",
+      "type": "MESH",
+      "hidden_render": false,
+      "collections": [
+        "02 · 模型部件"
+      ],
+      "parent": "UDK7M_RIG · 选我进入姿态模式",
+      "parent_bone": "MCH_前臂",
+      "location": [
+        1.610627293757716e-07,
+        -1.2689828872680664,
+        6.0161004066467285
+      ],
+      "modifiers": [],
+      "materials": [
+        "05 · Dark cast steel",
+        "03 · Ochre safety yellow",
+        "04 · Exposed worn steel",
+        "09 · Carbon stencil",
+        "01 · Aged warm grey industrial paint",
+        "07 · Polished piston chrome"
+      ],
+      "triangles": 1806,
+      "uv": [
+        "UVMap"
+      ]
+    },
+    {
+      "name": "MESH_05_钻具外壳",
+      "type": "MESH",
+      "hidden_render": false,
+      "collections": [
+        "02 · 模型部件"
+      ],
+      "parent": "UDK7M_RIG · 选我进入姿态模式",
+      "parent_bone": "MCH_钻具",
+      "location": [
+        -1.5987211554602254e-13,
+        0.05110280588269234,
+        5.285567760467529
+      ],
+      "modifiers": [],
+      "materials": [
+        "04 · Exposed worn steel",
+        "03 · Ochre safety yellow",
+        "07 · Polished piston chrome",
+        "05 · Dark cast steel",
+        "02 · Oxide red identification paint"
+      ],
+      "triangles": 1622,
+      "uv": [
+        "UVMap"
+      ]
+    },
+    {
+      "name": "MESH_06_钻芯与螺旋刃",
+      "type": "MESH",
+      "hidden_render": false,
+      "collections": [
+        "02 · 模型部件"
+      ],
+      "parent": "UDK7M_RIG · 选我进入姿态模式",
+      "parent_bone": "05_ROLL_钻芯",
+      "location": [
+        -1.4928179135551e-13,
+        0.8211014866828918,
+        5.285568714141846
+      ],
+      "modifiers": [],
+      "materials": [
+        "04 · Exposed worn steel",
+        "05 · Dark cast steel"
+      ],
+      "triangles": 938,
+      "uv": [
+        "UVMap"
+      ]
+    },
+    {
+      "name": "MESH_液压_1_缸体",
+      "type": "MESH",
+      "hidden_render": false,
+      "collections": [
+        "02 · 模型部件"
+      ],
+      "parent": "UDK7M_RIG · 选我进入姿态模式",
+      "parent_bone": "MCH_液压_1_缸体",
+      "location": [
+        0.9980829358100891,
+        -4.968162536621094,
+        0.0770409107208252
+      ],
+      "modifiers": [],
+      "materials": [
+        "02 · Oxide red identification paint",
+        "04 · Exposed worn steel"
+      ],
+      "triangles": 108,
+      "uv": []
+    },
+    {
+      "name": "MESH_轮组_09",
+      "type": "MESH",
+      "hidden_render": false,
+      "collections": [
+        "02 · 模型部件"
+      ],
+      "parent": "UDK7M_RIG · 选我进入姿态模式",
+      "parent_bone": "MCH_轮组_09",
+      "location": [
+        1.659999966621399,
+        -0.9200000166893005,
+        -0.4025000035762787
+      ],
+      "modifiers": [],
+      "materials": [
+        "04 · Exposed worn steel",
+        "05 · Dark cast steel"
+      ],
+      "triangles": 180,
+      "uv": []
+    },
+    {
+      "name": "MESH_轮组_16",
+      "type": "MESH",
+      "hidden_render": false,
+      "collections": [
+        "02 · 模型部件"
+      ],
+      "parent": "UDK7M_RIG · 选我进入姿态模式",
+      "parent_bone": "MCH_轮组_16",
+      "location": [
+        -1.659999966621399,
+        0.7599999904632568,
+        -0.4025000035762787
+      ],
+      "modifiers": [],
+      "materials": [
+        "05 · Dark cast steel",
+        "04 · Exposed worn steel"
+      ],
+      "triangles": 180,
+      "uv": []
+    },
+    {
+      "name": "MESH_液压_2_缸体",
+      "type": "MESH",
+      "hidden_render": false,
+      "collections": [
+        "02 · 模型部件"
+      ],
+      "parent": "UDK7M_RIG · 选我进入姿态模式",
+      "parent_bone": "MCH_液压_2_缸体",
+      "location": [
+        -0.9980831742286682,
+        -4.968162536621094,
+        0.07704091817140579
+      ],
+      "modifiers": [],
+      "materials": [
+        "04 · Exposed worn steel",
+        "02 · Oxide red identification paint"
+      ],
+      "triangles": 108,
+      "uv": []
+    },
+    {
+      "name": "MESH_液压_1_活塞",
+      "type": "MESH",
+      "hidden_render": false,
+      "collections": [
+        "02 · 模型部件"
+      ],
+      "parent": "UDK7M_RIG · 选我进入姿态模式",
+      "parent_bone": "MCH_液压_1_活塞",
+      "location": [
+        0.9980674982070923,
+        4.83817195892334,
+        -0.0772438570857048
+      ],
+      "modifiers": [],
+      "materials": [
+        "07 · Polished piston chrome"
+      ],
+      "triangles": 28,
+      "uv": []
+    },
+    {
+      "name": "MESH_轮组_14",
+      "type": "MESH",
+      "hidden_render": false,
+      "collections": [
+        "02 · 模型部件"
+      ],
+      "parent": "UDK7M_RIG · 选我进入姿态模式",
+      "parent_bone": "MCH_轮组_14",
+      "location": [
+        -1.659999966621399,
+        -1.0,
+        -1.6924999952316284
+      ],
+      "modifiers": [],
+      "materials": [
+        "04 · Exposed worn steel"
+      ],
+      "triangles": 44,
+      "uv": []
+    },
+    {
+      "name": "MESH_轮组_01",
+      "type": "MESH",
+      "hidden_render": false,
+      "collections": [
+        "02 · 模型部件"
+      ],
+      "parent": "UDK7M_RIG · 选我进入姿态模式",
+      "parent_bone": "MCH_轮组_01",
+      "location": [
+        1.659999966621399,
+        1.9100000858306885,
+        -0.5325000286102295
+      ],
+      "modifiers": [],
+      "materials": [
+        "04 · Exposed worn steel",
+        "05 · Dark cast steel"
+      ],
+      "triangles": 560,
+      "uv": [
+        "UVMap"
+      ]
+    },
+    {
+      "name": "MESH_轮组_19",
+      "type": "MESH",
+      "hidden_render": false,
+      "collections": [
+        "02 · 模型部件"
+      ],
+      "parent": "UDK7M_RIG · 选我进入姿态模式",
+      "parent_bone": "MCH_轮组_19",
+      "location": [
+        -1.659999966621399,
+        -0.9200000166893005,
+        -0.4025000035762787
+      ],
+      "modifiers": [],
+      "materials": [
+        "04 · Exposed worn steel",
+        "05 · Dark cast steel"
+      ],
+      "triangles": 180,
+      "uv": []
+    },
+    {
+      "name": "MESH_轮组_15",
+      "type": "MESH",
+      "hidden_render": false,
+      "collections": [
+        "02 · 模型部件"
+      ],
+      "parent": "UDK7M_RIG · 选我进入姿态模式",
+      "parent_bone": "MCH_轮组_15",
+      "location": [
+        -1.659999966621399,
+        1.320000171661377,
+        -0.4025000035762787
+      ],
+      "modifiers": [],
+      "materials": [
+        "04 · Exposed worn steel",
+        "05 · Dark cast steel"
+      ],
+      "triangles": 180,
+      "uv": []
+    },
+    {
+      "name": "MESH_轮组_02",
+      "type": "MESH",
+      "hidden_render": false,
+      "collections": [
+        "02 · 模型部件"
+      ],
+      "parent": "UDK7M_RIG · 选我进入姿态模式",
+      "parent_bone": "MCH_轮组_02",
+      "location": [
+        1.659999966621399,
+        -2.390000104904175,
+        -0.5325000286102295
+      ],
+      "modifiers": [],
+      "materials": [
+        "05 · Dark cast steel",
+        "04 · Exposed worn steel"
+      ],
+      "triangles": 368,
+      "uv": [
+        "UVMap"
+      ]
+    },
+    {
+      "name": "MESH_液压_2_活塞",
+      "type": "MESH",
+      "hidden_render": false,
+      "collections": [
+        "02 · 模型部件"
+      ],
+      "parent": "UDK7M_RIG · 选我进入姿态模式",
+      "parent_bone": "MCH_液压_2_活塞",
+      "location": [
+        -0.9980676174163818,
+        4.838172435760498,
+        -0.07724400609731674
+      ],
+      "modifiers": [],
+      "materials": [
+        "07 · Polished piston chrome"
+      ],
+      "triangles": 28,
+      "uv": []
+    },
+    {
+      "name": "MESH_轮组_08",
+      "type": "MESH",
+      "hidden_render": false,
+      "collections": [
+        "02 · 模型部件"
+      ],
+      "parent": "UDK7M_RIG · 选我进入姿态模式",
+      "parent_bone": "MCH_轮组_08",
+      "location": [
+        1.659999966621399,
+        -0.36000001430511475,
+        -0.4025000035762787
+      ],
+      "modifiers": [],
+      "materials": [
+        "04 · Exposed worn steel",
+        "05 · Dark cast steel"
+      ],
+      "triangles": 180,
+      "uv": []
+    },
+    {
+      "name": "MESH_轮组_13",
+      "type": "MESH",
+      "hidden_render": false,
+      "collections": [
+        "02 · 模型部件"
+      ],
+      "parent": "UDK7M_RIG · 选我进入姿态模式",
+      "parent_bone": "MCH_轮组_13",
+      "location": [
+        -1.659999966621399,
+        0.6100000143051147,
+        -1.6924999952316284
+      ],
+      "modifiers": [],
+      "materials": [
+        "04 · Exposed worn steel"
+      ],
+      "triangles": 44,
+      "uv": []
+    },
+    {
+      "name": "MESH_轮组_17",
+      "type": "MESH",
+      "hidden_render": false,
+      "collections": [
+        "02 · 模型部件"
+      ],
+      "parent": "UDK7M_RIG · 选我进入姿态模式",
+      "parent_bone": "MCH_轮组_17",
+      "location": [
+        -1.659999966621399,
+        0.20000004768371582,
+        -0.4025000035762787
+      ],
+      "modifiers": [],
+      "materials": [
+        "04 · Exposed worn steel",
+        "05 · Dark cast steel"
+      ],
+      "triangles": 180,
+      "uv": []
+    },
+    {
+      "name": "MESH_液压_4_缸体",
+      "type": "MESH",
+      "hidden_render": false,
+      "collections": [
+        "02 · 模型部件"
+      ],
+      "parent": "UDK7M_RIG · 选我进入姿态模式",
+      "parent_bone": "MCH_液压_4_缸体",
+      "location": [
+        -0.4199998080730438,
+        -0.8176583051681519,
+        5.934537887573242
+      ],
+      "modifiers": [],
+      "materials": [
+        "02 · Oxide red identification paint",
+        "04 · Exposed worn steel"
+      ],
+      "triangles": 108,
+      "uv": []
+    },
+    {
+      "name": "MESH_液压_4_活塞",
+      "type": "MESH",
+      "hidden_render": false,
+      "collections": [
+        "02 · 模型部件"
+      ],
+      "parent": "UDK7M_RIG · 选我进入姿态模式",
+      "parent_bone": "MCH_液压_4_活塞",
+      "location": [
+        -0.41999998688697815,
+        0.6876721382141113,
+        -5.934536457061768
+      ],
+      "modifiers": [],
+      "materials": [
+        "07 · Polished piston chrome"
+      ],
+      "triangles": 28,
+      "uv": []
+    },
+    {
+      "name": "MESH_轮组_06",
+      "type": "MESH",
+      "hidden_render": false,
+      "collections": [
+        "02 · 模型部件"
+      ],
+      "parent": "UDK7M_RIG · 选我进入姿态模式",
+      "parent_bone": "MCH_轮组_06",
+      "location": [
+        1.659999966621399,
+        0.7599999904632568,
+        -0.4025000035762787
+      ],
+      "modifiers": [],
+      "materials": [
+        "04 · Exposed worn steel",
+        "05 · Dark cast steel"
+      ],
+      "triangles": 180,
+      "uv": []
+    },
+    {
+      "name": "MESH_轮组_04",
+      "type": "MESH",
+      "hidden_render": false,
+      "collections": [
+        "02 · 模型部件"
+      ],
+      "parent": "UDK7M_RIG · 选我进入姿态模式",
+      "parent_bone": "MCH_轮组_04",
+      "location": [
+        1.659999966621399,
+        -1.0,
+        -1.6924999952316284
+      ],
+      "modifiers": [],
+      "materials": [
+        "04 · Exposed worn steel"
+      ],
+      "triangles": 44,
+      "uv": []
+    },
+    {
+      "name": "MESH_轮组_07",
+      "type": "MESH",
+      "hidden_render": false,
+      "collections": [
+        "02 · 模型部件"
+      ],
+      "parent": "UDK7M_RIG · 选我进入姿态模式",
+      "parent_bone": "MCH_轮组_07",
+      "location": [
+        1.659999966621399,
+        0.20000004768371582,
+        -0.4025000035762787
+      ],
+      "modifiers": [],
+      "materials": [
+        "04 · Exposed worn steel",
+        "05 · Dark cast steel"
+      ],
+      "triangles": 180,
+      "uv": []
+    },
+    {
+      "name": "MESH_轮组_03",
+      "type": "MESH",
+      "hidden_render": false,
+      "collections": [
+        "02 · 模型部件"
+      ],
+      "parent": "UDK7M_RIG · 选我进入姿态模式",
+      "parent_bone": "MCH_轮组_03",
+      "location": [
+        1.659999966621399,
+        0.6100000143051147,
+        -1.6924999952316284
+      ],
+      "modifiers": [],
+      "materials": [
+        "04 · Exposed worn steel"
+      ],
+      "triangles": 44,
+      "uv": []
+    },
+    {
+      "name": "MESH_液压_3_缸体",
+      "type": "MESH",
+      "hidden_render": false,
+      "collections": [
+        "02 · 模型部件"
+      ],
+      "parent": "UDK7M_RIG · 选我进入姿态模式",
+      "parent_bone": "MCH_液压_3_缸体",
+      "location": [
+        1.2792781944881426e-07,
+        -3.580549716949463,
+        4.430002212524414
+      ],
+      "modifiers": [],
+      "materials": [
+        "04 · Exposed worn steel",
+        "02 · Oxide red identification paint"
+      ],
+      "triangles": 108,
+      "uv": []
+    },
+    {
+      "name": "MESH_液压_3_活塞",
+      "type": "MESH",
+      "hidden_render": false,
+      "collections": [
+        "02 · 模型部件"
+      ],
+      "parent": "UDK7M_RIG · 选我进入姿态模式",
+      "parent_bone": "MCH_液压_3_活塞",
+      "location": [
+        1.2792771997283126e-07,
+        3.450546979904175,
+        -4.4300031661987305
+      ],
+      "modifiers": [],
+      "materials": [
+        "07 · Polished piston chrome"
+      ],
+      "triangles": 28,
+      "uv": []
+    },
+    {
+      "name": "Secondary hydraulic hose -1",
+      "type": "CURVE",
+      "hidden_render": false,
+      "collections": [
+        "02 · 模型部件"
+      ],
+      "parent": "UDK7M_RIG · 选我进入姿态模式",
+      "parent_bone": "01_ROOT_整机",
+      "location": [
+        0.0,
+        -1.0,
+        0.0
+      ],
+      "modifiers": [
+        {
+          "name": "Hose attached to CTRL · Slew bearing Z",
+          "type": "HOOK"
+        },
+        {
+          "name": "Hose attached to CTRL · Slew bearing Z.001",
+          "type": "HOOK"
+        },
+        {
+          "name": "Hose attached to CTRL · Main boom X",
+          "type": "HOOK"
+        },
+        {
+          "name": "Hose attached to CTRL · Main boom X.001",
+          "type": "HOOK"
+        },
+        {
+          "name": "Hose attached to CTRL · Elbow X",
+          "type": "HOOK"
+        },
+        {
+          "name": "Hose attached to CTRL · Elbow X.001",
+          "type": "HOOK"
+        },
+        {
+          "name": "Hose attached to CTRL · Tool pitch X",
+          "type": "HOOK"
+        }
+      ],
+      "materials": [
+        "08 · Oil resistant hose"
+      ]
+    },
+    {
+      "name": "Secondary hydraulic hose 1",
+      "type": "CURVE",
+      "hidden_render": false,
+      "collections": [
+        "02 · 模型部件"
+      ],
+      "parent": "UDK7M_RIG · 选我进入姿态模式",
+      "parent_bone": "01_ROOT_整机",
+      "location": [
+        0.0,
+        -1.0,
+        0.0
+      ],
+      "modifiers": [
+        {
+          "name": "Hose attached to CTRL · Slew bearing Z",
+          "type": "HOOK"
+        },
+        {
+          "name": "Hose attached to CTRL · Slew bearing Z.001",
+          "type": "HOOK"
+        },
+        {
+          "name": "Hose attached to CTRL · Main boom X",
+          "type": "HOOK"
+        },
+        {
+          "name": "Hose attached to CTRL · Main boom X.001",
+          "type": "HOOK"
+        },
+        {
+          "name": "Hose attached to CTRL · Elbow X",
+          "type": "HOOK"
+        },
+        {
+          "name": "Hose attached to CTRL · Elbow X.001",
+          "type": "HOOK"
+        },
+        {
+          "name": "Hose attached to CTRL · Tool pitch X",
+          "type": "HOOK"
+        }
+      ],
+      "materials": [
+        "08 · Oil resistant hose"
+      ]
+    },
+    {
+      "name": "Primary hydraulic hose -1",
+      "type": "CURVE",
+      "hidden_render": false,
+      "collections": [
+        "02 · 模型部件"
+      ],
+      "parent": "UDK7M_RIG · 选我进入姿态模式",
+      "parent_bone": "01_ROOT_整机",
+      "location": [
+        0.0,
+        -1.0,
+        0.0
+      ],
+      "modifiers": [
+        {
+          "name": "Hose attached to CTRL · Slew bearing Z",
+          "type": "HOOK"
+        },
+        {
+          "name": "Hose attached to CTRL · Slew bearing Z.001",
+          "type": "HOOK"
+        },
+        {
+          "name": "Hose attached to CTRL · Main boom X",
+          "type": "HOOK"
+        },
+        {
+          "name": "Hose attached to CTRL · Main boom X.001",
+          "type": "HOOK"
+        },
+        {
+          "name": "Hose attached to CTRL · Elbow X",
+          "type": "HOOK"
+        },
+        {
+          "name": "Hose attached to CTRL · Elbow X.001",
+          "type": "HOOK"
+        },
+        {
+          "name": "Hose attached to CTRL · Tool pitch X",
+          "type": "HOOK"
+        }
+      ],
+      "materials": [
+        "08 · Oil resistant hose"
+      ]
+    },
+    {
+      "name": "Primary hydraulic hose 1",
+      "type": "CURVE",
+      "hidden_render": false,
+      "collections": [
+        "02 · 模型部件"
+      ],
+      "parent": "UDK7M_RIG · 选我进入姿态模式",
+      "parent_bone": "01_ROOT_整机",
+      "location": [
+        0.0,
+        -1.0,
+        0.0
+      ],
+      "modifiers": [
+        {
+          "name": "Hose attached to CTRL · Slew bearing Z",
+          "type": "HOOK"
+        },
+        {
+          "name": "Hose attached to CTRL · Slew bearing Z.001",
+          "type": "HOOK"
+        },
+        {
+          "name": "Hose attached to CTRL · Main boom X",
+          "type": "HOOK"
+        },
+        {
+          "name": "Hose attached to CTRL · Main boom X.001",
+          "type": "HOOK"
+        },
+        {
+          "name": "Hose attached to CTRL · Elbow X",
+          "type": "HOOK"
+        },
+        {
+          "name": "Hose attached to CTRL · Elbow X.001",
+          "type": "HOOK"
+        },
+        {
+          "name": "Hose attached to CTRL · Tool pitch X",
+          "type": "HOOK"
+        }
+      ],
+      "materials": [
+        "08 · Oil resistant hose"
+      ]
+    },
+    {
+      "name": "TRACK · L / 程序化履带",
+      "type": "MESH",
+      "hidden_render": false,
+      "collections": [
+        "02 · 模型部件"
+      ],
+      "parent": "UDK7M_RIG · 选我进入姿态模式",
+      "parent_bone": "01_ROOT_整机",
+      "location": [
+        -1.659999966621399,
+        -1.0,
+        0.0
+      ],
+      "modifiers": [
+        {
+          "name": "Rigid Array + Closed Curve / 刚性阵列",
+          "type": "NODES"
+        }
+      ],
+      "materials": [
+        "06 · Track shoe dark steel · Tread normal",
+        "15 · Rubbed track contact ridges · Tread normal",
+        "05 · Dark cast steel · Tread normal",
+        "04 · Exposed worn steel · Tread normal"
+      ],
+      "triangles": 64,
+      "uv": [
+        "TreadDetailUV"
+      ]
+    },
+    {
+      "name": "TRACK · R / 程序化履带",
+      "type": "MESH",
+      "hidden_render": false,
+      "collections": [
+        "02 · 模型部件"
+      ],
+      "parent": "UDK7M_RIG · 选我进入姿态模式",
+      "parent_bone": "01_ROOT_整机",
+      "location": [
+        1.659999966621399,
+        -1.0,
+        0.0
+      ],
+      "modifiers": [
+        {
+          "name": "Rigid Array + Closed Curve / 刚性阵列",
+          "type": "NODES"
+        }
+      ],
+      "materials": [
+        "06 · Track shoe dark steel · Tread normal",
+        "15 · Rubbed track contact ridges · Tread normal",
+        "05 · Dark cast steel · Tread normal",
+        "04 · Exposed worn steel · Tread normal"
+      ],
+      "triangles": 64,
+      "uv": [
+        "TreadDetailUV"
+      ]
+    },
+    {
+      "name": "PATH · Track L / 闭合路径",
+      "type": "CURVE",
+      "hidden_render": false,
+      "collections": [
+        "90 · 内部随动（无需操作）"
+      ],
+      "parent": "UDK7M_RIG · 选我进入姿态模式",
+      "parent_bone": "01_ROOT_整机",
+      "location": [
+        -1.659999966621399,
+        -1.0,
+        0.0
+      ],
+      "modifiers": [],
+      "materials": []
+    },
+    {
+      "name": "PATH · Track R / 闭合路径",
+      "type": "CURVE",
+      "hidden_render": false,
+      "collections": [
+        "90 · 内部随动（无需操作）"
+      ],
+      "parent": "UDK7M_RIG · 选我进入姿态模式",
+      "parent_bone": "01_ROOT_整机",
+      "location": [
+        1.659999966621399,
+        -1.0,
+        0.0
+      ],
+      "modifiers": [],
+      "materials": []
+    },
+    {
+      "name": "SHAPE_圆环",
+      "type": "MESH",
+      "hidden_render": true,
+      "collections": [
+        "91 · 控制器形状（无需操作）"
+      ],
+      "parent": null,
+      "parent_bone": "",
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "modifiers": [],
+      "materials": [],
+      "triangles": 0,
+      "uv": []
+    },
+    {
+      "name": "SHAPE_方框",
+      "type": "MESH",
+      "hidden_render": true,
+      "collections": [
+        "91 · 控制器形状（无需操作）"
+      ],
+      "parent": null,
+      "parent_bone": "",
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "modifiers": [],
+      "materials": [],
+      "triangles": 0,
+      "uv": []
+    },
+    {
+      "name": "SHAPE_滑杆",
+      "type": "MESH",
+      "hidden_render": true,
+      "collections": [
+        "91 · 控制器形状（无需操作）"
+      ],
+      "parent": null,
+      "parent_bone": "",
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "modifiers": [],
+      "materials": [],
+      "triangles": 0,
+      "uv": []
+    },
+    {
+      "name": "Studio concrete floor",
+      "type": "MESH",
+      "hidden_render": false,
+      "collections": [
+        "99 · 灯光相机与参考"
+      ],
+      "parent": null,
+      "parent_bone": "",
+      "location": [
+        0.0,
+        0.0,
+        -0.07500000298023224
+      ],
+      "modifiers": [],
+      "materials": [
+        "Studio · neutral concrete"
+      ],
+      "triangles": 12,
+      "uv": [
+        "UVMap"
+      ]
+    }
+  ],
+  "materials": [
+    {
+      "name": "01 · Aged warm grey industrial paint",
+      "users": 4,
+      "nodes": [
+        {
+          "name": "Principled BSDF",
+          "type": "BSDF_PRINCIPLED",
+          "image": null
+        },
+        {
+          "name": "Material Output",
+          "type": "OUTPUT_MATERIAL",
+          "image": null
+        },
+        {
+          "name": "Group",
+          "type": "GROUP",
+          "image": null
+        },
+        {
+          "name": "Texture Coordinate",
+          "type": "TEX_COORD",
+          "image": null
+        },
+        {
+          "name": "Attribute",
+          "type": "ATTRIBUTE",
+          "image": null
+        },
+        {
+          "name": "Attribute.001",
+          "type": "ATTRIBUTE",
+          "image": null
+        },
+        {
+          "name": "Mix (Legacy)",
+          "type": "MIX_RGB",
+          "image": null
+        },
+        {
+          "name": "Object Info",
+          "type": "OBJECT_INFO",
+          "image": null
+        },
+        {
+          "name": "Math",
+          "type": "MATH",
+          "image": null
+        },
+        {
+          "name": "Math.001",
+          "type": "MATH",
+          "image": null
+        },
+        {
+          "name": "Vector Math",
+          "type": "VECT_MATH",
+          "image": null
+        },
+        {
+          "name": "Vector Math.001",
+          "type": "VECT_MATH",
+          "image": null
+        }
+      ],
+      "bsdf": [
+        {
+          "Base Color": "LINKED"
+        },
+        {
+          "Metallic": "LINKED"
+        },
+        {
+          "Roughness": "LINKED"
+        },
+        {
+          "Normal": "LINKED"
+        },
+        {
+          "Emission Color": "<bpy_float[4], NodeSocketColor.default_value>"
+        },
+        {
+          "Emission Strength": "0.0"
+        }
+      ]
+    },
+    {
+      "name": "02 · Oxide red identification paint",
+      "users": 7,
+      "nodes": [
+        {
+          "name": "Principled BSDF",
+          "type": "BSDF_PRINCIPLED",
+          "image": null
+        },
+        {
+          "name": "Material Output",
+          "type": "OUTPUT_MATERIAL",
+          "image": null
+        },
+        {
+          "name": "Group",
+          "type": "GROUP",
+          "image": null
+        },
+        {
+          "name": "Texture Coordinate",
+          "type": "TEX_COORD",
+          "image": null
+        },
+        {
+          "name": "Attribute",
+          "type": "ATTRIBUTE",
+          "image": null
+        },
+        {
+          "name": "Attribute.001",
+          "type": "ATTRIBUTE",
+          "image": null
+        },
+        {
+          "name": "Mix (Legacy)",
+          "type": "MIX_RGB",
+          "image": null
+        },
+        {
+          "name": "Object Info",
+          "type": "OBJECT_INFO",
+          "image": null
+        },
+        {
+          "name": "Math",
+          "type": "MATH",
+          "image": null
+        },
+        {
+          "name": "Math.001",
+          "type": "MATH",
+          "image": null
+        },
+        {
+          "name": "Vector Math",
+          "type": "VECT_MATH",
+          "image": null
+        },
+        {
+          "name": "Vector Math.001",
+          "type": "VECT_MATH",
+          "image": null
+        },
+        {
+          "name": "转接点",
+          "type": "REROUTE",
+          "image": null
+        },
+        {
+          "name": "转接点.001",
+          "type": "REROUTE",
+          "image": null
+        }
+      ],
+      "bsdf": [
+        {
+          "Base Color": "LINKED"
+        },
+        {
+          "Metallic": "LINKED"
+        },
+        {
+          "Roughness": "LINKED"
+        },
+        {
+          "Normal": "LINKED"
+        },
+        {
+          "Emission Color": "<bpy_float[4], NodeSocketColor.default_value>"
+        },
+        {
+          "Emission Strength": "0.0"
+        }
+      ]
+    },
+    {
+      "name": "03 · Ochre safety yellow",
+      "users": 5,
+      "nodes": [
+        {
+          "name": "Principled BSDF",
+          "type": "BSDF_PRINCIPLED",
+          "image": null
+        },
+        {
+          "name": "Material Output",
+          "type": "OUTPUT_MATERIAL",
+          "image": null
+        },
+        {
+          "name": "Group",
+          "type": "GROUP",
+          "image": null
+        },
+        {
+          "name": "Texture Coordinate",
+          "type": "TEX_COORD",
+          "image": null
+        },
+        {
+          "name": "Attribute",
+          "type": "ATTRIBUTE",
+          "image": null
+        },
+        {
+          "name": "Attribute.001",
+          "type": "ATTRIBUTE",
+          "image": null
+        },
+        {
+          "name": "Mix (Legacy)",
+          "type": "MIX_RGB",
+          "image": null
+        },
+        {
+          "name": "Object Info",
+          "type": "OBJECT_INFO",
+          "image": null
+        },
+        {
+          "name": "Math",
+          "type": "MATH",
+          "image": null
+        },
+        {
+          "name": "Math.001",
+          "type": "MATH",
+          "image": null
+        },
+        {
+          "name": "Vector Math",
+          "type": "VECT_MATH",
+          "image": null
+        },
+        {
+          "name": "Vector Math.001",
+          "type": "VECT_MATH",
+          "image": null
+        }
+      ],
+      "bsdf": [
+        {
+          "Base Color": "LINKED"
+        },
+        {
+          "Metallic": "LINKED"
+        },
+        {
+          "Roughness": "LINKED"
+        },
+        {
+          "Normal": "LINKED"
+        },
+        {
+          "Emission Color": "<bpy_float[4], NodeSocketColor.default_value>"
+        },
+        {
+          "Emission Strength": "0.0"
+        }
+      ]
+    },
+    {
+      "name": "04 · Exposed worn steel",
+      "users": 30,
+      "nodes": [
+        {
+          "name": "Principled BSDF",
+          "type": "BSDF_PRINCIPLED",
+          "image": null
+        },
+        {
+          "name": "Material Output",
+          "type": "OUTPUT_MATERIAL",
+          "image": null
+        },
+        {
+          "name": "Group",
+          "type": "GROUP",
+          "image": null
+        },
+        {
+          "name": "Texture Coordinate",
+          "type": "TEX_COORD",
+          "image": null
+        },
+        {
+          "name": "Attribute",
+          "type": "ATTRIBUTE",
+          "image": null
+        },
+        {
+          "name": "Attribute.001",
+          "type": "ATTRIBUTE",
+          "image": null
+        },
+        {
+          "name": "Mix (Legacy)",
+          "type": "MIX_RGB",
+          "image": null
+        },
+        {
+          "name": "Object Info",
+          "type": "OBJECT_INFO",
+          "image": null
+        },
+        {
+          "name": "Math",
+          "type": "MATH",
+          "image": null
+        },
+        {
+          "name": "Math.001",
+          "type": "MATH",
+          "image": null
+        },
+        {
+          "name": "Vector Math",
+          "type": "VECT_MATH",
+          "image": null
+        },
+        {
+          "name": "Vector Math.001",
+          "type": "VECT_MATH",
+          "image": null
+        }
+      ],
+      "bsdf": [
+        {
+          "Base Color": "LINKED"
+        },
+        {
+          "Metallic": "LINKED"
+        },
+        {
+          "Roughness": "LINKED"
+        },
+        {
+          "Normal": "LINKED"
+        },
+        {
+          "Emission Color": "<bpy_float[4], NodeSocketColor.default_value>"
+        },
+        {
+          "Emission Strength": "0.0"
+        }
+      ]
+    },
+    {
+      "name": "04 · Exposed worn steel · Tread normal",
+      "users": 1,
+      "nodes": [
+        {
+          "name": "Principled BSDF",
+          "type": "BSDF_PRINCIPLED",
+          "image": null
+        },
+        {
+          "name": "Material Output",
+          "type": "OUTPUT_MATERIAL",
+          "image": null
+        },
+        {
+          "name": "Group",
+          "type": "GROUP",
+          "image": null
+        },
+        {
+          "name": "Texture Coordinate",
+          "type": "TEX_COORD",
+          "image": null
+        },
+        {
+          "name": "Attribute",
+          "type": "ATTRIBUTE",
+          "image": null
+        },
+        {
+          "name": "Attribute.001",
+          "type": "ATTRIBUTE",
+          "image": null
+        },
+        {
+          "name": "Mix (Legacy)",
+          "type": "MIX_RGB",
+          "image": null
+        },
+        {
+          "name": "Object Info",
+          "type": "OBJECT_INFO",
+          "image": null
+        },
+        {
+          "name": "Math",
+          "type": "MATH",
+          "image": null
+        },
+        {
+          "name": "Math.001",
+          "type": "MATH",
+          "image": null
+        },
+        {
+          "name": "Vector Math",
+          "type": "VECT_MATH",
+          "image": null
+        },
+        {
+          "name": "Vector Math.001",
+          "type": "VECT_MATH",
+          "image": null
+        },
+        {
+          "name": "UV Map",
+          "type": "UVMAP",
+          "image": null
+        },
+        {
+          "name": "Image Texture",
+          "type": "TEX_IMAGE",
+          "image": "UDK7M · Shared tread detail normal"
+        },
+        {
+          "name": "Normal Map",
+          "type": "NORMAL_MAP",
+          "image": null
+        }
+      ],
+      "bsdf": [
+        {
+          "Base Color": "LINKED"
+        },
+        {
+          "Metallic": "LINKED"
+        },
+        {
+          "Roughness": "LINKED"
+        },
+        {
+          "Normal": "LINKED"
+        },
+        {
+          "Emission Color": "<bpy_float[4], NodeSocketColor.default_value>"
+        },
+        {
+          "Emission Strength": "0.0"
+        }
+      ]
+    },
+    {
+      "name": "05 · Dark cast steel",
+      "users": 22,
+      "nodes": [
+        {
+          "name": "Principled BSDF",
+          "type": "BSDF_PRINCIPLED",
+          "image": null
+        },
+        {
+          "name": "Material Output",
+          "type": "OUTPUT_MATERIAL",
+          "image": null
+        },
+        {
+          "name": "Group",
+          "type": "GROUP",
+          "image": null
+        },
+        {
+          "name": "Texture Coordinate",
+          "type": "TEX_COORD",
+          "image": null
+        },
+        {
+          "name": "Attribute",
+          "type": "ATTRIBUTE",
+          "image": null
+        },
+        {
+          "name": "Attribute.001",
+          "type": "ATTRIBUTE",
+          "image": null
+        },
+        {
+          "name": "Mix (Legacy)",
+          "type": "MIX_RGB",
+          "image": null
+        },
+        {
+          "name": "Object Info",
+          "type": "OBJECT_INFO",
+          "image": null
+        },
+        {
+          "name": "Math",
+          "type": "MATH",
+          "image": null
+        },
+        {
+          "name": "Math.001",
+          "type": "MATH",
+          "image": null
+        },
+        {
+          "name": "Vector Math",
+          "type": "VECT_MATH",
+          "image": null
+        },
+        {
+          "name": "Vector Math.001",
+          "type": "VECT_MATH",
+          "image": null
+        }
+      ],
+      "bsdf": [
+        {
+          "Base Color": "LINKED"
+        },
+        {
+          "Metallic": "LINKED"
+        },
+        {
+          "Roughness": "LINKED"
+        },
+        {
+          "Normal": "LINKED"
+        },
+        {
+          "Emission Color": "<bpy_float[4], NodeSocketColor.default_value>"
+        },
+        {
+          "Emission Strength": "0.0"
+        }
+      ]
+    },
+    {
+      "name": "05 · Dark cast steel · Tread normal",
+      "users": 1,
+      "nodes": [
+        {
+          "name": "Principled BSDF",
+          "type": "BSDF_PRINCIPLED",
+          "image": null
+        },
+        {
+          "name": "Material Output",
+          "type": "OUTPUT_MATERIAL",
+          "image": null
+        },
+        {
+          "name": "Group",
+          "type": "GROUP",
+          "image": null
+        },
+        {
+          "name": "Texture Coordinate",
+          "type": "TEX_COORD",
+          "image": null
+        },
+        {
+          "name": "Attribute",
+          "type": "ATTRIBUTE",
+          "image": null
+        },
+        {
+          "name": "Attribute.001",
+          "type": "ATTRIBUTE",
+          "image": null
+        },
+        {
+          "name": "Mix (Legacy)",
+          "type": "MIX_RGB",
+          "image": null
+        },
+        {
+          "name": "Object Info",
+          "type": "OBJECT_INFO",
+          "image": null
+        },
+        {
+          "name": "Math",
+          "type": "MATH",
+          "image": null
+        },
+        {
+          "name": "Math.001",
+          "type": "MATH",
+          "image": null
+        },
+        {
+          "name": "Vector Math",
+          "type": "VECT_MATH",
+          "image": null
+        },
+        {
+          "name": "Vector Math.001",
+          "type": "VECT_MATH",
+          "image": null
+        },
+        {
+          "name": "UV Map",
+          "type": "UVMAP",
+          "image": null
+        },
+        {
+          "name": "Image Texture",
+          "type": "TEX_IMAGE",
+          "image": "UDK7M · Shared tread detail normal"
+        },
+        {
+          "name": "Normal Map",
+          "type": "NORMAL_MAP",
+          "image": null
+        }
+      ],
+      "bsdf": [
+        {
+          "Base Color": "LINKED"
+        },
+        {
+          "Metallic": "LINKED"
+        },
+        {
+          "Roughness": "LINKED"
+        },
+        {
+          "Normal": "LINKED"
+        },
+        {
+          "Emission Color": "<bpy_float[4], NodeSocketColor.default_value>"
+        },
+        {
+          "Emission Strength": "0.0"
+        }
+      ]
+    },
+    {
+      "name": "06 · Track shoe dark steel · Tread normal",
+      "users": 1,
+      "nodes": [
+        {
+          "name": "Principled BSDF",
+          "type": "BSDF_PRINCIPLED",
+          "image": null
+        },
+        {
+          "name": "Material Output",
+          "type": "OUTPUT_MATERIAL",
+          "image": null
+        },
+        {
+          "name": "Group",
+          "type": "GROUP",
+          "image": null
+        },
+        {
+          "name": "Texture Coordinate",
+          "type": "TEX_COORD",
+          "image": null
+        },
+        {
+          "name": "Attribute",
+          "type": "ATTRIBUTE",
+          "image": null
+        },
+        {
+          "name": "Attribute.001",
+          "type": "ATTRIBUTE",
+          "image": null
+        },
+        {
+          "name": "Mix (Legacy)",
+          "type": "MIX_RGB",
+          "image": null
+        },
+        {
+          "name": "Object Info",
+          "type": "OBJECT_INFO",
+          "image": null
+        },
+        {
+          "name": "Math",
+          "type": "MATH",
+          "image": null
+        },
+        {
+          "name": "Math.001",
+          "type": "MATH",
+          "image": null
+        },
+        {
+          "name": "Vector Math",
+          "type": "VECT_MATH",
+          "image": null
+        },
+        {
+          "name": "Vector Math.001",
+          "type": "VECT_MATH",
+          "image": null
+        },
+        {
+          "name": "UV Map",
+          "type": "UVMAP",
+          "image": null
+        },
+        {
+          "name": "Image Texture",
+          "type": "TEX_IMAGE",
+          "image": "UDK7M · Shared tread detail normal"
+        },
+        {
+          "name": "Normal Map",
+          "type": "NORMAL_MAP",
+          "image": null
+        }
+      ],
+      "bsdf": [
+        {
+          "Base Color": "LINKED"
+        },
+        {
+          "Metallic": "LINKED"
+        },
+        {
+          "Roughness": "LINKED"
+        },
+        {
+          "Normal": "LINKED"
+        },
+        {
+          "Emission Color": "<bpy_float[4], NodeSocketColor.default_value>"
+        },
+        {
+          "Emission Strength": "0.0"
+        }
+      ]
+    },
+    {
+      "name": "07 · Polished piston chrome",
+      "users": 8,
+      "nodes": [
+        {
+          "name": "Principled BSDF",
+          "type": "BSDF_PRINCIPLED",
+          "image": null
+        },
+        {
+          "name": "Material Output",
+          "type": "OUTPUT_MATERIAL",
+          "image": null
+        },
+        {
+          "name": "Group",
+          "type": "GROUP",
+          "image": null
+        },
+        {
+          "name": "Texture Coordinate",
+          "type": "TEX_COORD",
+          "image": null
+        },
+        {
+          "name": "Attribute",
+          "type": "ATTRIBUTE",
+          "image": null
+        },
+        {
+          "name": "Attribute.001",
+          "type": "ATTRIBUTE",
+          "image": null
+        },
+        {
+          "name": "Mix (Legacy)",
+          "type": "MIX_RGB",
+          "image": null
+        },
+        {
+          "name": "Object Info",
+          "type": "OBJECT_INFO",
+          "image": null
+        },
+        {
+          "name": "Math",
+          "type": "MATH",
+          "image": null
+        },
+        {
+          "name": "Math.001",
+          "type": "MATH",
+          "image": null
+        },
+        {
+          "name": "Vector Math",
+          "type": "VECT_MATH",
+          "image": null
+        },
+        {
+          "name": "Vector Math.001",
+          "type": "VECT_MATH",
+          "image": null
+        }
+      ],
+      "bsdf": [
+        {
+          "Base Color": "LINKED"
+        },
+        {
+          "Metallic": "LINKED"
+        },
+        {
+          "Roughness": "LINKED"
+        },
+        {
+          "Normal": "LINKED"
+        },
+        {
+          "Emission Color": "<bpy_float[4], NodeSocketColor.default_value>"
+        },
+        {
+          "Emission Strength": "0.0"
+        }
+      ]
+    },
+    {
+      "name": "08 · Oil resistant hose",
+      "users": 6,
+      "nodes": [
+        {
+          "name": "Principled BSDF",
+          "type": "BSDF_PRINCIPLED",
+          "image": null
+        },
+        {
+          "name": "Material Output",
+          "type": "OUTPUT_MATERIAL",
+          "image": null
+        },
+        {
+          "name": "Group",
+          "type": "GROUP",
+          "image": null
+        },
+        {
+          "name": "Texture Coordinate",
+          "type": "TEX_COORD",
+          "image": null
+        },
+        {
+          "name": "Attribute",
+          "type": "ATTRIBUTE",
+          "image": null
+        },
+        {
+          "name": "Attribute.001",
+          "type": "ATTRIBUTE",
+          "image": null
+        },
+        {
+          "name": "Mix (Legacy)",
+          "type": "MIX_RGB",
+          "image": null
+        },
+        {
+          "name": "Object Info",
+          "type": "OBJECT_INFO",
+          "image": null
+        },
+        {
+          "name": "Math",
+          "type": "MATH",
+          "image": null
+        },
+        {
+          "name": "Math.001",
+          "type": "MATH",
+          "image": null
+        },
+        {
+          "name": "Vector Math",
+          "type": "VECT_MATH",
+          "image": null
+        },
+        {
+          "name": "Vector Math.001",
+          "type": "VECT_MATH",
+          "image": null
+        }
+      ],
+      "bsdf": [
+        {
+          "Base Color": "LINKED"
+        },
+        {
+          "Metallic": "LINKED"
+        },
+        {
+          "Roughness": "LINKED"
+        },
+        {
+          "Normal": "LINKED"
+        },
+        {
+          "Emission Color": "<bpy_float[4], NodeSocketColor.default_value>"
+        },
+        {
+          "Emission Strength": "0.0"
+        }
+      ]
+    },
+    {
+      "name": "09 · Carbon stencil",
+      "users": 4,
+      "nodes": [
+        {
+          "name": "Principled BSDF",
+          "type": "BSDF_PRINCIPLED",
+          "image": null
+        },
+        {
+          "name": "Material Output",
+          "type": "OUTPUT_MATERIAL",
+          "image": null
+        },
+        {
+          "name": "Group",
+          "type": "GROUP",
+          "image": null
+        },
+        {
+          "name": "Texture Coordinate",
+          "type": "TEX_COORD",
+          "image": null
+        },
+        {
+          "name": "Attribute",
+          "type": "ATTRIBUTE",
+          "image": null
+        },
+        {
+          "name": "Attribute.001",
+          "type": "ATTRIBUTE",
+          "image": null
+        },
+        {
+          "name": "Mix (Legacy)",
+          "type": "MIX_RGB",
+          "image": null
+        },
+        {
+          "name": "Object Info",
+          "type": "OBJECT_INFO",
+          "image": null
+        },
+        {
+          "name": "Math",
+          "type": "MATH",
+          "image": null
+        },
+        {
+          "name": "Math.001",
+          "type": "MATH",
+          "image": null
+        },
+        {
+          "name": "Vector Math",
+          "type": "VECT_MATH",
+          "image": null
+        },
+        {
+          "name": "Vector Math.001",
+          "type": "VECT_MATH",
+          "image": null
+        }
+      ],
+      "bsdf": [
+        {
+          "Base Color": "LINKED"
+        },
+        {
+          "Metallic": "LINKED"
+        },
+        {
+          "Roughness": "LINKED"
+        },
+        {
+          "Normal": "LINKED"
+        },
+        {
+          "Emission Color": "<bpy_float[4], NodeSocketColor.default_value>"
+        },
+        {
+          "Emission Strength": "0.0"
+        }
+      ]
+    },
+    {
+      "name": "10 · Dial ivory and pale stencil",
+      "users": 2,
+      "nodes": [
+        {
+          "name": "Principled BSDF",
+          "type": "BSDF_PRINCIPLED",
+          "image": null
+        },
+        {
+          "name": "Material Output",
+          "type": "OUTPUT_MATERIAL",
+          "image": null
+        },
+        {
+          "name": "Group",
+          "type": "GROUP",
+          "image": null
+        },
+        {
+          "name": "Texture Coordinate",
+          "type": "TEX_COORD",
+          "image": null
+        },
+        {
+          "name": "Attribute",
+          "type": "ATTRIBUTE",
+          "image": null
+        },
+        {
+          "name": "Attribute.001",
+          "type": "ATTRIBUTE",
+          "image": null
+        },
+        {
+          "name": "Mix (Legacy)",
+          "type": "MIX_RGB",
+          "image": null
+        },
+        {
+          "name": "Object Info",
+          "type": "OBJECT_INFO",
+          "image": null
+        },
+        {
+          "name": "Math",
+          "type": "MATH",
+          "image": null
+        },
+        {
+          "name": "Math.001",
+          "type": "MATH",
+          "image": null
+        },
+        {
+          "name": "Vector Math",
+          "type": "VECT_MATH",
+          "image": null
+        },
+        {
+          "name": "Vector Math.001",
+          "type": "VECT_MATH",
+          "image": null
+        }
+      ],
+      "bsdf": [
+        {
+          "Base Color": "LINKED"
+        },
+        {
+          "Metallic": "LINKED"
+        },
+        {
+          "Roughness": "LINKED"
+        },
+        {
+          "Normal": "LINKED"
+        },
+        {
+          "Emission Color": "<bpy_float[4], NodeSocketColor.default_value>"
+        },
+        {
+          "Emission Strength": "0.0"
+        }
+      ]
+    },
+    {
+      "name": "11 · Restrained cyan resonance indicators",
+      "users": 1,
+      "nodes": [
+        {
+          "name": "Principled BSDF",
+          "type": "BSDF_PRINCIPLED",
+          "image": null
+        },
+        {
+          "name": "Material Output",
+          "type": "OUTPUT_MATERIAL",
+          "image": null
+        },
+        {
+          "name": "Group",
+          "type": "GROUP",
+          "image": null
+        },
+        {
+          "name": "Texture Coordinate",
+          "type": "TEX_COORD",
+          "image": null
+        },
+        {
+          "name": "Attribute",
+          "type": "ATTRIBUTE",
+          "image": null
+        },
+        {
+          "name": "Attribute.001",
+          "type": "ATTRIBUTE",
+          "image": null
+        },
+        {
+          "name": "Mix (Legacy)",
+          "type": "MIX_RGB",
+          "image": null
+        },
+        {
+          "name": "Object Info",
+          "type": "OBJECT_INFO",
+          "image": null
+        },
+        {
+          "name": "Math",
+          "type": "MATH",
+          "image": null
+        },
+        {
+          "name": "Math.001",
+          "type": "MATH",
+          "image": null
+        },
+        {
+          "name": "Vector Math",
+          "type": "VECT_MATH",
+          "image": null
+        },
+        {
+          "name": "Vector Math.001",
+          "type": "VECT_MATH",
+          "image": null
+        },
+        {
+          "name": "Mix (Legacy).001",
+          "type": "MIX_RGB",
+          "image": null
+        }
+      ],
+      "bsdf": [
+        {
+          "Base Color": "LINKED"
+        },
+        {
+          "Metallic": "LINKED"
+        },
+        {
+          "Roughness": "LINKED"
+        },
+        {
+          "Normal": "LINKED"
+        },
+        {
+          "Emission Color": "LINKED"
+        },
+        {
+          "Emission Strength": "0.8500000238418579"
+        }
+      ]
+    },
+    {
+      "name": "12 · Warm worklight glass",
+      "users": 1,
+      "nodes": [
+        {
+          "name": "Principled BSDF",
+          "type": "BSDF_PRINCIPLED",
+          "image": null
+        },
+        {
+          "name": "Material Output",
+          "type": "OUTPUT_MATERIAL",
+          "image": null
+        },
+        {
+          "name": "Group",
+          "type": "GROUP",
+          "image": null
+        },
+        {
+          "name": "Texture Coordinate",
+          "type": "TEX_COORD",
+          "image": null
+        },
+        {
+          "name": "Attribute",
+          "type": "ATTRIBUTE",
+          "image": null
+        },
+        {
+          "name": "Attribute.001",
+          "type": "ATTRIBUTE",
+          "image": null
+        },
+        {
+          "name": "Mix (Legacy)",
+          "type": "MIX_RGB",
+          "image": null
+        },
+        {
+          "name": "Object Info",
+          "type": "OBJECT_INFO",
+          "image": null
+        },
+        {
+          "name": "Math",
+          "type": "MATH",
+          "image": null
+        },
+        {
+          "name": "Math.001",
+          "type": "MATH",
+          "image": null
+        },
+        {
+          "name": "Vector Math",
+          "type": "VECT_MATH",
+          "image": null
+        },
+        {
+          "name": "Vector Math.001",
+          "type": "VECT_MATH",
+          "image": null
+        },
+        {
+          "name": "Mix (Legacy).001",
+          "type": "MIX_RGB",
+          "image": null
+        }
+      ],
+      "bsdf": [
+        {
+          "Base Color": "LINKED"
+        },
+        {
+          "Metallic": "LINKED"
+        },
+        {
+          "Roughness": "LINKED"
+        },
+        {
+          "Normal": "LINKED"
+        },
+        {
+          "Emission Color": "LINKED"
+        },
+        {
+          "Emission Strength": "0.699999988079071"
+        }
+      ]
+    },
+    {
+      "name": "13 · Red amber beacon",
+      "users": 1,
+      "nodes": [
+        {
+          "name": "Principled BSDF",
+          "type": "BSDF_PRINCIPLED",
+          "image": null
+        },
+        {
+          "name": "Material Output",
+          "type": "OUTPUT_MATERIAL",
+          "image": null
+        },
+        {
+          "name": "Group",
+          "type": "GROUP",
+          "image": null
+        },
+        {
+          "name": "Texture Coordinate",
+          "type": "TEX_COORD",
+          "image": null
+        },
+        {
+          "name": "Attribute",
+          "type": "ATTRIBUTE",
+          "image": null
+        },
+        {
+          "name": "Attribute.001",
+          "type": "ATTRIBUTE",
+          "image": null
+        },
+        {
+          "name": "Mix (Legacy)",
+          "type": "MIX_RGB",
+          "image": null
+        },
+        {
+          "name": "Object Info",
+          "type": "OBJECT_INFO",
+          "image": null
+        },
+        {
+          "name": "Math",
+          "type": "MATH",
+          "image": null
+        },
+        {
+          "name": "Math.001",
+          "type": "MATH",
+          "image": null
+        },
+        {
+          "name": "Vector Math",
+          "type": "VECT_MATH",
+          "image": null
+        },
+        {
+          "name": "Vector Math.001",
+          "type": "VECT_MATH",
+          "image": null
+        },
+        {
+          "name": "Mix (Legacy).001",
+          "type": "MIX_RGB",
+          "image": null
+        }
+      ],
+      "bsdf": [
+        {
+          "Base Color": "LINKED"
+        },
+        {
+          "Metallic": "LINKED"
+        },
+        {
+          "Roughness": "LINKED"
+        },
+        {
+          "Normal": "LINKED"
+        },
+        {
+          "Emission Color": "LINKED"
+        },
+        {
+          "Emission Strength": "0.699999988079071"
+        }
+      ]
+    },
+    {
+      "name": "15 · Rubbed track contact ridges · Tread normal",
+      "users": 1,
+      "nodes": [
+        {
+          "name": "Principled BSDF",
+          "type": "BSDF_PRINCIPLED",
+          "image": null
+        },
+        {
+          "name": "Material Output",
+          "type": "OUTPUT_MATERIAL",
+          "image": null
+        },
+        {
+          "name": "Group",
+          "type": "GROUP",
+          "image": null
+        },
+        {
+          "name": "Texture Coordinate",
+          "type": "TEX_COORD",
+          "image": null
+        },
+        {
+          "name": "Attribute",
+          "type": "ATTRIBUTE",
+          "image": null
+        },
+        {
+          "name": "Attribute.001",
+          "type": "ATTRIBUTE",
+          "image": null
+        },
+        {
+          "name": "Mix (Legacy)",
+          "type": "MIX_RGB",
+          "image": null
+        },
+        {
+          "name": "Object Info",
+          "type": "OBJECT_INFO",
+          "image": null
+        },
+        {
+          "name": "Math",
+          "type": "MATH",
+          "image": null
+        },
+        {
+          "name": "Math.001",
+          "type": "MATH",
+          "image": null
+        },
+        {
+          "name": "Vector Math",
+          "type": "VECT_MATH",
+          "image": null
+        },
+        {
+          "name": "Vector Math.001",
+          "type": "VECT_MATH",
+          "image": null
+        },
+        {
+          "name": "UV Map",
+          "type": "UVMAP",
+          "image": null
+        },
+        {
+          "name": "Image Texture",
+          "type": "TEX_IMAGE",
+          "image": "UDK7M · Shared tread detail normal"
+        },
+        {
+          "name": "Normal Map",
+          "type": "NORMAL_MAP",
+          "image": null
+        }
+      ],
+      "bsdf": [
+        {
+          "Base Color": "LINKED"
+        },
+        {
+          "Metallic": "LINKED"
+        },
+        {
+          "Roughness": "LINKED"
+        },
+        {
+          "Normal": "LINKED"
+        },
+        {
+          "Emission Color": "<bpy_float[4], NodeSocketColor.default_value>"
+        },
+        {
+          "Emission Strength": "0.0"
+        }
+      ]
+    },
+    {
+      "name": "16 · Muted ochre service armour",
+      "users": 2,
+      "nodes": [
+        {
+          "name": "Principled BSDF",
+          "type": "BSDF_PRINCIPLED",
+          "image": null
+        },
+        {
+          "name": "Material Output",
+          "type": "OUTPUT_MATERIAL",
+          "image": null
+        },
+        {
+          "name": "Group",
+          "type": "GROUP",
+          "image": null
+        },
+        {
+          "name": "Texture Coordinate",
+          "type": "TEX_COORD",
+          "image": null
+        },
+        {
+          "name": "Attribute",
+          "type": "ATTRIBUTE",
+          "image": null
+        },
+        {
+          "name": "Attribute.001",
+          "type": "ATTRIBUTE",
+          "image": null
+        },
+        {
+          "name": "Mix (Legacy)",
+          "type": "MIX_RGB",
+          "image": null
+        },
+        {
+          "name": "Object Info",
+          "type": "OBJECT_INFO",
+          "image": null
+        },
+        {
+          "name": "Math",
+          "type": "MATH",
+          "image": null
+        },
+        {
+          "name": "Math.001",
+          "type": "MATH",
+          "image": null
+        },
+        {
+          "name": "Vector Math",
+          "type": "VECT_MATH",
+          "image": null
+        },
+        {
+          "name": "Vector Math.001",
+          "type": "VECT_MATH",
+          "image": null
+        }
+      ],
+      "bsdf": [
+        {
+          "Base Color": "LINKED"
+        },
+        {
+          "Metallic": "LINKED"
+        },
+        {
+          "Roughness": "LINKED"
+        },
+        {
+          "Normal": "LINKED"
+        },
+        {
+          "Emission Color": "<bpy_float[4], NodeSocketColor.default_value>"
+        },
+        {
+          "Emission Strength": "0.0"
+        }
+      ]
+    },
+    {
+      "name": "Studio · neutral concrete",
+      "users": 1,
+      "nodes": [
+        {
+          "name": "Principled BSDF",
+          "type": "BSDF_PRINCIPLED",
+          "image": null
+        },
+        {
+          "name": "Material Output",
+          "type": "OUTPUT_MATERIAL",
+          "image": null
+        },
+        {
+          "name": "Texture Coordinate",
+          "type": "TEX_COORD",
+          "image": null
+        },
+        {
+          "name": "Object Info",
+          "type": "OBJECT_INFO",
+          "image": null
+        },
+        {
+          "name": "Vector Math",
+          "type": "VECT_MATH",
+          "image": null
+        },
+        {
+          "name": "Vector Math.001",
+          "type": "VECT_MATH",
+          "image": null
+        },
+        {
+          "name": "Noise Texture",
+          "type": "TEX_NOISE",
+          "image": null
+        },
+        {
+          "name": "Map Range",
+          "type": "MAP_RANGE",
+          "image": null
+        },
+        {
+          "name": "Noise Texture.001",
+          "type": "TEX_NOISE",
+          "image": null
+        },
+        {
+          "name": "Bump",
+          "type": "BUMP",
+          "image": null
+        }
+      ],
+      "bsdf": [
+        {
+          "Base Color": "<bpy_float[4], NodeSocketColor.default_value>"
+        },
+        {
+          "Metallic": "0.0"
+        },
+        {
+          "Roughness": "LINKED"
+        },
+        {
+          "Normal": "LINKED"
+        },
+        {
+          "Emission Color": "<bpy_float[4], NodeSocketColor.default_value>"
+        },
+        {
+          "Emission Strength": "0.0"
+        }
+      ]
+    }
+  ]
+}

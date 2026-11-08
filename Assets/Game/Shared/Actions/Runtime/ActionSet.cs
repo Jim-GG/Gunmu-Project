@@ -52,6 +52,10 @@ namespace GameActions
         public bool firstPersonPreview;
         public string previewCameraBone="ViewCameraMotion";
         public float previewFieldOfView=65;
+        [Tooltip("Optional third-person preview focus, in model metres. Used when Preview Distance is greater than zero.")]
+        public Vector3 previewFocus;
+        [Min(0), Tooltip("0 keeps the existing preview framing. Larger units can set their own starting camera distance; scrolling still zooms.")]
+        public float previewDistance;
         public ActionSocketBinding[] sockets=Array.Empty<ActionSocketBinding>();
         [Min(.05f)] public float minimumSeparation=.85f;
         [Range(.03f,.5f)] public float inputBufferSeconds=.22f;
