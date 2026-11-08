@@ -38,6 +38,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/ModernFacility_Chapter2.unity
     guid: 33d1b8062e23a6a458609e787ffad9ff
+  - enabled: 1
+    path: Assets/Scenes/Soviet_Seesaw.unity
+    guid: d94d0bad67fa795408a702d2edca5c53
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   m_UseUCBPForAssetBundles: 0
