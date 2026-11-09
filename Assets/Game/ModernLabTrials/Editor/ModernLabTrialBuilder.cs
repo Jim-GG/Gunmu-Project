@@ -112,6 +112,7 @@ namespace ModernLabTrials.Editor
             CreateFolder(Root, "Scenes");
             CreateFolder(Root, "Prefabs");
             CreateFolder(Root, "NavMesh");
+            CreateFolder(Root, "Materials");
             CreateFolder(Root, "Runtime");
             CreateFolder(Root, "Editor");
         }
@@ -477,6 +478,7 @@ namespace ModernLabTrials.Editor
                 if (skip != null && skip(center)) continue;
                 GameObject floor = Visual(world, FloorPrefab, center, Quaternion.identity, "Floor");
                 ApplyFloorMaterial(floor);
+                AddFloorSurface(world, center, 0f);
                 AddBox(world, "FloorCollider", center + Vector3.down * .5f, new Vector3(6f, 1f, 6f));
             }
             for (int x = 0; x < tilesX; x++)
@@ -517,6 +519,7 @@ namespace ModernLabTrials.Editor
                 Vector3 center = new Vector3(x, y, z);
                 GameObject mezzanine = Visual(world, FloorPrefab, center, Quaternion.identity, "MezzanineFloor");
                 ApplyFloorMaterial(mezzanine);
+                AddFloorSurface(world, center, y);
                 AddBox(world, "MezzanineCollider", center + Vector3.down * .5f, new Vector3(6f, 1f, 6f));
             }
         }
@@ -530,6 +533,45 @@ namespace ModernLabTrials.Editor
             rail.transform.localScale = alongX ? new Vector3(stretch, scale.y, scale.z) : new Vector3(scale.x, scale.y, stretch);
             AddBox(world, "RailCollider", position + Vector3.up * .6f,
                 alongX ? new Vector3(length, 1.2f, .12f) : new Vector3(.12f, 1.2f, length));
+        }
+
+        private static void AddFloorSurface(Transform world, Vector3 center, float y)
+        {
+            GameObject plane = GameObject.CreatePrimitive(PrimitiveType.Plane);
+            plane.name = "FloorSurface";
+            plane.transform.SetParent(world, false);
+            plane.transform.position = new Vector3(center.x, y + .012f, center.z);
+            plane.transform.localScale = new Vector3(.6f, 1f, .6f);
+            Collider collider = plane.GetComponent<Collider>();
+            if (collider != null) Object.DestroyImmediate(collider);
+            MeshRenderer renderer = plane.GetComponent<MeshRenderer>();
+            renderer.sharedMaterial = FloorSurfaceMaterial();
+            renderer.shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.Off;
+            renderer.receiveShadows = false;
+        }
+
+        private static Material floorSurfaceMaterial;
+
+        private static Material FloorSurfaceMaterial()
+        {
+            if (floorSurfaceMaterial != null) return floorSurfaceMaterial;
+            const string path = "Assets/Game/ModernLabTrials/Materials/MLT_FloorSurface.mat";
+            floorSurfaceMaterial = AssetDatabase.LoadAssetAtPath<Material>(path);
+            if (floorSurfaceMaterial != null) return floorSurfaceMaterial;
+            Shader shader = Shader.Find("Universal Render Pipeline/Unlit");
+            if (shader == null) shader = Shader.Find("Unlit/Color");
+            floorSurfaceMaterial = new Material(shader) { name = "MLT_FloorSurface" };
+            floorSurfaceMaterial.SetColor("_BaseColor", new Color(.42f, .48f, .52f, 1f));
+            Material checker = AssetDatabase.LoadAssetAtPath<Material>(
+                "Assets/Game/Environment/ModernLab/Materials/Lab_Floor_Checker.mat");
+            if (checker != null && checker.HasProperty("_BaseMap"))
+            {
+                floorSurfaceMaterial.SetTexture("_BaseMap", checker.GetTexture("_BaseMap"));
+                floorSurfaceMaterial.SetTextureScale("_BaseMap", new Vector2(3f, 3f));
+            }
+            AssetDatabase.CreateAsset(floorSurfaceMaterial, path);
+            AssetDatabase.SaveAssets();
+            return floorSurfaceMaterial;
         }
 
         private static void ApplyFloorMaterial(GameObject floor)

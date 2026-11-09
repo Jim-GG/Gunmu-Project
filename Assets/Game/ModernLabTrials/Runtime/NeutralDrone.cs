@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using FirstPerson;
 using UnityEngine;
 
@@ -89,6 +89,7 @@ namespace ModernLabTrials
             if (viewCamera == null) viewCamera = FindFirstObjectByType<Camera>();
             BuildLabel();
             lastPosition = transform.position;
+            nextApproach = Time.time + 4f;
             state = State.Patrol;
         }
 
@@ -111,13 +112,13 @@ namespace ModernLabTrials
         {
             GameObject go = new GameObject("Drone Number");
             go.transform.SetParent(transform, false);
-            go.transform.localPosition = new Vector3(0f, 1.35f, 0f);
+            go.transform.localPosition = new Vector3(0f, 1.1f, 0f);
             label = go.AddComponent<TextMesh>();
             label.text = droneNumber;
             label.anchor = TextAnchor.MiddleCenter;
             label.alignment = TextAlignment.Center;
-            label.fontSize = 64;
-            label.characterSize = .045f;
+            label.fontSize = 48;
+            label.characterSize = .012f;
             label.color = new Color(.45f, .95f, 1f);
             Font font = Resources.GetBuiltinResource<Font>("LegacyRuntime.ttf");
             if (font == null) font = Resources.GetBuiltinResource<Font>("Arial.ttf");
@@ -134,7 +135,12 @@ namespace ModernLabTrials
             if (Time.timeScale <= 0f) return;
             RotateRotors();
             if (viewCamera != null && label != null)
+            {
+                float labelDistance = Vector3.Distance(viewCamera.transform.position, label.transform.position);
+                label.gameObject.SetActive(labelDistance > 3.5f);
                 label.transform.rotation = viewCamera.transform.rotation;
+                label.transform.localScale = Vector3.one * (labelDistance > 8f ? 1f : .7f);
+            }
 
             bool onDeck = IsRiderOnDeck();
             if (onDeck && !riderWasOnDeck)
@@ -193,7 +199,7 @@ namespace ModernLabTrials
                 return;
             }
             Vector3 forward = rider.transform.forward;
-            Vector3 target = rider.transform.position + forward * 1.4f + Vector3.up * .85f;
+            Vector3 target = rider.transform.position + forward * 4.2f + Vector3.up * .45f;
             MoveTowards(target, approachSpeed);
             if (Vector3.Distance(transform.position, target) < .45f)
             {
