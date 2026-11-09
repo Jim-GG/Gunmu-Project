@@ -537,6 +537,11 @@ namespace ModernLabTrials.Editor
             Vector3 scale = rail.transform.localScale;
             rail.transform.localScale = alongX ? new Vector3(stretch, scale.y, scale.z) : new Vector3(scale.x, scale.y, stretch);
             rail.transform.position = position + Vector3.up * .95f;
+            foreach (MeshRenderer railRenderer in rail.GetComponentsInChildren<MeshRenderer>(true))
+            {
+                railRenderer.shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.Off;
+                railRenderer.receiveShadows = false;
+            }
             AddBox(world, "RailCollider", position + Vector3.up * .6f,
                 alongX ? new Vector3(length, 1.2f, .12f) : new Vector3(.12f, 1.2f, length));
             AddShellBox(world, "RailBar", position + Vector3.up * 1.05f,
