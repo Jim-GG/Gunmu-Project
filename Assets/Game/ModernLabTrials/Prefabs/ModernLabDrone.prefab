@@ -1,0 +1,111 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &6902403458583788453
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1395632588227670948, guid: 620db8eb4e341934fb0ecea0996ddecd, type: 3}
+      propertyPath: m_Name
+      value: ModernLabDrone
+      objectReference: {fileID: 0}
+    - target: {fileID: 2795214309284157654, guid: 620db8eb4e341934fb0ecea0996ddecd, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2795214309284157654, guid: 620db8eb4e341934fb0ecea0996ddecd, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2795214309284157654, guid: 620db8eb4e341934fb0ecea0996ddecd, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2795214309284157654, guid: 620db8eb4e341934fb0ecea0996ddecd, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2795214309284157654, guid: 620db8eb4e341934fb0ecea0996ddecd, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2795214309284157654, guid: 620db8eb4e341934fb0ecea0996ddecd, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2795214309284157654, guid: 620db8eb4e341934fb0ecea0996ddecd, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2795214309284157654, guid: 620db8eb4e341934fb0ecea0996ddecd, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2795214309284157654, guid: 620db8eb4e341934fb0ecea0996ddecd, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2795214309284157654, guid: 620db8eb4e341934fb0ecea0996ddecd, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 2775446179187016511, guid: 620db8eb4e341934fb0ecea0996ddecd, type: 3}
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 1395632588227670948, guid: 620db8eb4e341934fb0ecea0996ddecd, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 127812059406723067}
+  m_SourcePrefab: {fileID: 100100000, guid: 620db8eb4e341934fb0ecea0996ddecd, type: 3}
+--- !u!4 &3724373664073122041 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7810897057555053404, guid: 620db8eb4e341934fb0ecea0996ddecd, type: 3}
+  m_PrefabInstance: {fileID: 6902403458583788453}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &4399537477424281420 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7116830244609461481, guid: 620db8eb4e341934fb0ecea0996ddecd, type: 3}
+  m_PrefabInstance: {fileID: 6902403458583788453}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &5518047614686496769 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1395632588227670948, guid: 620db8eb4e341934fb0ecea0996ddecd, type: 3}
+  m_PrefabInstance: {fileID: 6902403458583788453}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &127812059406723067
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5518047614686496769}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a264ee16ae02c7a4799478ba239800dd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ModernLabTrials.NeutralDrone
+  patrolPoints: []
+  home: {fileID: 0}
+  liftTop: {fileID: 0}
+  patrolSpeed: 2.2
+  approachSpeed: 3.2
+  returnSpeed: 2.5
+  approachRange: 18
+  approachCooldown: 6
+  liftDuration: 2.2
+  holdSeconds: 2.6
+  launchBoost: 7.5
+  hoverAmplitude: 0.08
+  deck: {fileID: 7621850354408558758}
+  rotorLeft: {fileID: 4399537477424281420}
+  rotorRight: {fileID: 3724373664073122041}
+  droneNumber: MCU-7A / 01
+--- !u!65 &7621850354408558758 stripped
+BoxCollider:
+  m_CorrespondingSourceObject: {fileID: 3894492054967118595, guid: 620db8eb4e341934fb0ecea0996ddecd, type: 3}
+  m_PrefabInstance: {fileID: 6902403458583788453}
+  m_PrefabAsset: {fileID: 0}

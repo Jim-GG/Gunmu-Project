@@ -1,0 +1,154 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &3198317674748406874
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 685935977718059512, guid: 7c605cafd1b7a2940a727cd5575481f0, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 685935977718059512, guid: 7c605cafd1b7a2940a727cd5575481f0, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 685935977718059512, guid: 7c605cafd1b7a2940a727cd5575481f0, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 685935977718059512, guid: 7c605cafd1b7a2940a727cd5575481f0, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 685935977718059512, guid: 7c605cafd1b7a2940a727cd5575481f0, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 685935977718059512, guid: 7c605cafd1b7a2940a727cd5575481f0, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 685935977718059512, guid: 7c605cafd1b7a2940a727cd5575481f0, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 685935977718059512, guid: 7c605cafd1b7a2940a727cd5575481f0, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 685935977718059512, guid: 7c605cafd1b7a2940a727cd5575481f0, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 685935977718059512, guid: 7c605cafd1b7a2940a727cd5575481f0, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4778637752270604192, guid: 7c605cafd1b7a2940a727cd5575481f0, type: 3}
+      propertyPath: m_Name
+      value: ModernLabPlayer
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 4778637752270604192, guid: 7c605cafd1b7a2940a727cd5575481f0, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 5207132619800337036}
+    - targetCorrespondingSourceObject: {fileID: 4778637752270604192, guid: 7c605cafd1b7a2940a727cd5575481f0, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 3656276059188290177}
+  m_SourcePrefab: {fileID: 100100000, guid: 7c605cafd1b7a2940a727cd5575481f0, type: 3}
+--- !u!114 &321137693932638216 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2888599552899464274, guid: 7c605cafd1b7a2940a727cd5575481f0, type: 3}
+  m_PrefabInstance: {fileID: 3198317674748406874}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7940854727882255354}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a6d1e3810ea90154d970975ac66f5b9a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::FirstPerson.FirstPersonVitals
+--- !u!4 &2456279714192753328 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1041670272598306538, guid: 7c605cafd1b7a2940a727cd5575481f0, type: 3}
+  m_PrefabInstance: {fileID: 3198317674748406874}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &4542094399982226862 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1399060584879628788, guid: 7c605cafd1b7a2940a727cd5575481f0, type: 3}
+  m_PrefabInstance: {fileID: 3198317674748406874}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7940854727882255354}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9bf10256a9b0ed6419d69a9f782d4db4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::FirstPerson.GauntletCombat
+--- !u!1 &7940854727882255354 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4778637752270604192, guid: 7c605cafd1b7a2940a727cd5575481f0, type: 3}
+  m_PrefabInstance: {fileID: 3198317674748406874}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &5207132619800337036
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7940854727882255354}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba701f4fe7dc4d24fb21f23f9be9d341, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Resonator.AI.ResonatorTarget
+  eyes: {fileID: 2456279714192753328}
+  vitals: {fileID: 321137693932638216}
+  gauntlet: {fileID: 4542094399982226862}
+  demoPlayer: {fileID: 0}
+  invulnerableForTesting: 0
+--- !u!114 &3656276059188290177
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7940854727882255354}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3473932edaae4524ca0ecebc52b74416, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Resonator.AI.ResonatorPlayerBridge
+  actor: {fileID: 5207132619800337036}
+  motor: {fileID: 8970971961485498273}
+  combat: {fileID: 4542094399982226862}
+  attackOrigin: {fileID: 2456279714192753328}
+  walkNoise: 7
+  runNoise: 13
+  attackNoise: 16
+  chargeNoise: 9
+  walkStepDistance: 1.3
+  runStepDistance: 1.6
+  reach: 2.2
+  radius: 0.24
+  impactSeconds: {x: 0.18, y: 0.15, z: 0.18, w: 0.2}
+  punchDamage: {x: 24, y: 40, z: 65, w: 110}
+  hitMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+--- !u!114 &8970971961485498273 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5773051279159753723, guid: 7c605cafd1b7a2940a727cd5575481f0, type: 3}
+  m_PrefabInstance: {fileID: 3198317674748406874}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7940854727882255354}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 42b488a3f61e0b54c89970802a0327df, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::FirstPerson.FirstPersonMotor
