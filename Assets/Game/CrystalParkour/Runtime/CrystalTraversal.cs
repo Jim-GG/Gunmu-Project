@@ -14,6 +14,7 @@ namespace CrystalParkour
         public float maximumPullDistance=12,pullSpeed=14,attachmentReach=1.1f,attachmentSeconds=2,pullTimeout=1.8f,reattachCooldown=.55f,impactGrace=1.4f;
         public float surfaceDetectionRadius=.12f,launchSteering=1.5f,launchControlProtection=.1f;
         public float fallResetHeight=-12;
+        public bool respawnKeyEnabled=true;
         public Mode State{get;private set;}
         public CrystalSurface Target{get;private set;}
         public Vector3 SurfaceNormal{get;private set;}
@@ -50,7 +51,7 @@ namespace CrystalParkour
         bool ChargeHeld=>Mouse.current!=null&&Mouse.current.leftButton.isPressed&&combat&&(combat.State==GauntletCombat.Phase.Charging||combat.State==GauntletCombat.Phase.Full);
         void Update()
         {
-            if(Keyboard.current!=null&&Keyboard.current.rKey.wasPressedThisFrame){Respawn();return;}
+            if(respawnKeyEnabled&&Keyboard.current!=null&&Keyboard.current.rKey.wasPressedThisFrame){Respawn();return;}
             Tick(Time.deltaTime,ChargeHeld,Cursor.lockState==CursorLockMode.Locked);
         }
         public void Tick(float dt,bool chargeHeld,bool controlsActive=true)

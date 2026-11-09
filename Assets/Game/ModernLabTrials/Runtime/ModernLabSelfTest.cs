@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections;
-using System.Linq;
+using System;
 using System.Reflection;
 using FirstPerson;
 using UnityEngine;
@@ -9,6 +7,9 @@ using UnityEngine.SceneManagement;
 namespace ModernLabTrials
 {
     // Standalone smoke test. Enabled only by the -modernLabSelfTest command line.
+    // It walks ML-01 -> ML-04, completes every objective (receivers, crystal
+    // growth, drone rides and resonator kills), fires one drone bolt and checks
+    // that the exit chain still reaches the final screen.
     [UnityEngine.Scripting.Preserve]
     public sealed class ModernLabSelfTest : MonoBehaviour
     {
@@ -26,13 +27,13 @@ namespace ModernLabTrials
             runner.AddComponent<ModernLabSelfTest>();
         }
 
-        private IEnumerator Start()
+        private System.Collections.IEnumerator Start()
         {
             yield return new WaitForSecondsRealtime(2f);
             string[] expected =
             {
-                "MLT_01_ImpactCalibration", "MLT_02_CrosswindGallery",
-                "MLT_03_VerticalShaft", "MLT_04_SynthesisCore",
+                "MLT_01_CrystalIntake", "MLT_02_CrystalAscent",
+                "MLT_03_ResonanceArena", "MLT_04_CoreBreach",
             };
             for (int i = 0; i < expected.Length; i++)
             {
@@ -43,14 +44,20 @@ namespace ModernLabTrials
                     yield break;
                 }
                 Debug.Log($"SELFTEST: scene={SceneManager.GetActiveScene().name} code={level.levelCode} " +
-                          $"receivers={level.receivers.Length} enemies={level.enemies.Length} drones={level.drones.Length}");
+                          $"receivers={level.RequiredReceivers} enemies={level.RequiredEnemies} " +
+                          $"growth={level.RequiredGrowths} rides={level.RequiredRides}");
                 Check(level);
-                foreach (ImpactReceiver receiver in level.receivers) receiver.Activate();
-                foreach (var enemy in level.enemies)
-                    enemy.TakeDamage(9999f, enemy.transform.position + Vector3.forward, 0f);
-                level.NotifyDroneRide(level.drones[0]);
+                CompleteObjectives(level);
                 yield return new WaitForSecondsRealtime(4f);
-                Debug.Log($"SELFTEST: completed receivers={level.DebugReceivers} enemies={level.DebugEnemies} rides={level.DebugRides} complete={level.DebugComplete}");
+                Debug.Log($"SELFTEST: completed receivers={level.DebugReceivers}/{level.RequiredReceivers} " +
+                          $"enemies={level.DebugEnemies}/{level.RequiredEnemies} " +
+                          $"growth={level.DebugGrowths}/{level.RequiredGrowths} " +
+                          $"rides={level.DebugRides}/{level.RequiredRides} complete={level.DebugComplete}");
+                if (!level.DebugComplete)
+                {
+                    Fail("level did not complete: " + level.levelCode);
+                    yield break;
+                }
                 level.TryExit();
                 yield return new WaitForSecondsRealtime(2.0f);
 
@@ -80,14 +87,29 @@ namespace ModernLabTrials
             Application.Quit(failures == 0 ? 0 : 1);
         }
 
+        private void CompleteObjectives(TrialLevel level)
+        {
+            foreach (ImpactReceiver receiver in level.receivers) receiver.Activate();
+            foreach (Resonator.AI.ResonatorEnemy enemy in level.enemies)
+                enemy.TakeDamage(9999f, enemy.transform.position + Vector3.forward, 0f);
+
+            // A crystal growth site needs a registered CrystalTraversal striker;
+            // sending the hit from the player position mimics a real punch.
+            Vector3 striker = level.motor != null ? level.motor.transform.position : Vector3.zero;
+            foreach (CrystalParkour.CrystalGrowthSite site in level.growthSites)
+                if (site != null) site.ReceiveActionHit(10f, striker, 0f);
+
+            foreach (NeutralDrone drone in level.drones) level.NotifyDroneRide(drone);
+        }
+
         private void Check(TrialLevel level)
         {
             Expect(level.vitals != null && level.motor != null && level.combat != null, "player components");
-            Expect(level.receivers != null && level.receivers.Length > 0, "receivers");
-            Expect(level.enemies != null && level.enemies.Length > 0, "enemies");
+            Expect(level.vitals != null && level.vitals.Health > 0, "player alive");
             Expect(level.drones != null && level.drones.Length > 0, "drones");
             Expect(level.exitDoor != null, "exit door");
-            Expect(level.vitals != null && level.vitals.Health > 0, "player alive");
+            Expect(level.RequiredReceivers + level.RequiredEnemies + level.RequiredGrowths + level.RequiredRides > 0,
+                "at least one objective");
             foreach (var enemy in level.enemies)
             {
                 var agent = enemy.GetComponent<UnityEngine.AI.NavMeshAgent>();
@@ -95,6 +117,15 @@ namespace ModernLabTrials
             }
             if (level.motor != null)
                 Expect(level.motor.GetComponent<FirstPersonInput>() != null, "player input");
+
+            if (level.drones != null && level.drones.Length > 0 && level.drones[0] != null)
+            {
+                NeutralDrone drone = level.drones[0];
+                Expect(drone.AttackEnabled, "drone attack enabled");
+                DroneBolt bolt = drone.FireForTest();
+                Expect(bolt != null && bolt.Damage > 0f, "drone fired a damaging bolt");
+                if (bolt != null) Destroy(bolt.gameObject);
+            }
         }
 
         private void Expect(bool condition, string message)

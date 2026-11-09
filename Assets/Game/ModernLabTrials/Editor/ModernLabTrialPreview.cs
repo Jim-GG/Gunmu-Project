@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.IO;
 using System.Linq;
 using UnityEditor;
@@ -13,10 +13,10 @@ namespace ModernLabTrials.Editor
     {
         private static readonly string[] Scenes =
         {
-            "Assets/Game/ModernLabTrials/Scenes/MLT_01_ImpactCalibration.unity",
-            "Assets/Game/ModernLabTrials/Scenes/MLT_02_CrosswindGallery.unity",
-            "Assets/Game/ModernLabTrials/Scenes/MLT_03_VerticalShaft.unity",
-            "Assets/Game/ModernLabTrials/Scenes/MLT_04_SynthesisCore.unity",
+            "Assets/Game/ModernLabTrials/Scenes/MLT_01_CrystalIntake.unity",
+            "Assets/Game/ModernLabTrials/Scenes/MLT_02_CrystalAscent.unity",
+            "Assets/Game/ModernLabTrials/Scenes/MLT_03_ResonanceArena.unity",
+            "Assets/Game/ModernLabTrials/Scenes/MLT_04_CoreBreach.unity",
         };
 
         [MenuItem("Tools/Modern Lab Trials/Capture Previews")]

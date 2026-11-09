@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using FirstPerson;
 using UnityEngine;
 
@@ -25,6 +25,15 @@ namespace ModernLabTrials
         [SerializeField] private float launchBoost = 7.5f;
         [SerializeField] private float hoverAmplitude = .08f;
 
+        [Header("Attack")]
+        [SerializeField] private bool attackEnabled = true;
+        [SerializeField] private bool approachPlayer = true;
+        [SerializeField] private float attackRange = 17f;
+        [SerializeField] private float attackCooldown = 3.6f;
+        [SerializeField] private float telegraphSeconds = .8f;
+        [SerializeField] private float boltSpeed = 15f;
+        [SerializeField] private float boltDamage = 9f;
+
         [Header("Model")]
         [SerializeField] private BoxCollider deck;
         [SerializeField] private Transform rotorLeft;
@@ -44,6 +53,11 @@ namespace ModernLabTrials
         private Camera viewCamera;
         private BoxCollider rideDeck;
         private TextMesh label;
+        private Transform muzzle;
+        private Light muzzleLight;
+        private GameObject muzzleCore;
+        private float nextAttackAt;
+        private bool charging;
 
         public event Action<NeutralDrone> RideStarted;
         public event Action<NeutralDrone> RideCompleted;
@@ -64,6 +78,22 @@ namespace ModernLabTrials
             rotorLeft = leftRotor;
             rotorRight = rightRotor;
         }
+
+        public void ConfigureAttack(bool enabled, float cooldown, float damage)
+        {
+            attackEnabled = enabled;
+            attackCooldown = Mathf.Max(.6f, cooldown);
+            boltDamage = Mathf.Max(1f, damage);
+        }
+
+        public void ConfigureApproach(bool enabled)
+        {
+            approachPlayer = enabled;
+        }
+
+        public bool AttackEnabled => attackEnabled;
+        public float BoltDamage => boltDamage;
+        public bool IsChargingAttack => charging;
 
         private void Start()
         {
@@ -88,8 +118,10 @@ namespace ModernLabTrials
             viewCamera = Camera.main;
             if (viewCamera == null) viewCamera = FindFirstObjectByType<Camera>();
             BuildLabel();
+            BuildMuzzle();
             lastPosition = transform.position;
             nextApproach = Time.time + 4f;
+            nextAttackAt = Time.time + 2.5f;
             state = State.Patrol;
         }
 
@@ -138,6 +170,43 @@ namespace ModernLabTrials
             }
         }
 
+        private void BuildMuzzle()
+        {
+            GameObject go = new GameObject("Drone Muzzle");
+            go.transform.SetParent(transform, false);
+            go.transform.localPosition = new Vector3(0f, ModelTopLocal() * .45f, .55f);
+            muzzle = go.transform;
+
+            muzzleCore = GameObject.CreatePrimitive(PrimitiveType.Sphere);
+            muzzleCore.name = "Muzzle Core";
+            muzzleCore.transform.SetParent(muzzle, false);
+            muzzleCore.transform.localScale = Vector3.one * .12f;
+            Collider collider = muzzleCore.GetComponent<Collider>();
+            if (collider != null) Destroy(collider);
+            MeshRenderer renderer = muzzleCore.GetComponent<MeshRenderer>();
+            Shader shader = Shader.Find("Universal Render Pipeline/Unlit");
+            if (shader == null) shader = Shader.Find("Unlit/Color");
+            if (shader != null)
+            {
+                Material material = new Material(shader) { name = "DroneMuzzle" };
+                if (material.HasProperty("_BaseColor")) material.SetColor("_BaseColor", new Color(1f, .38f, .18f));
+                if (material.HasProperty("_Color")) material.SetColor("_Color", new Color(1f, .38f, .18f));
+                renderer.sharedMaterial = material;
+            }
+            renderer.shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.Off;
+            renderer.receiveShadows = false;
+
+            GameObject lightObject = new GameObject("Muzzle Light");
+            lightObject.transform.SetParent(muzzle, false);
+            muzzleLight = lightObject.AddComponent<Light>();
+            muzzleLight.type = LightType.Point;
+            muzzleLight.color = new Color(1f, .42f, .2f);
+            muzzleLight.range = 3.2f;
+            muzzleLight.intensity = 0f;
+            muzzleLight.shadows = LightShadows.None;
+            muzzleCore.SetActive(false);
+        }
+
         private void Update()
         {
             if (Time.timeScale <= 0f) return;
@@ -173,6 +242,7 @@ namespace ModernLabTrials
             }
 
             if (state == State.Lift || state == State.Hold) return;
+            UpdateAttack();
             switch (state)
             {
                 case State.Patrol: Patrol(); break;
@@ -183,7 +253,7 @@ namespace ModernLabTrials
 
         private void Patrol()
         {
-            if (rider != null && !riderWasOnDeck && Time.time >= nextApproach &&
+            if (approachPlayer && rider != null && !riderWasOnDeck && Time.time >= nextApproach &&
                 Vector3.Distance(transform.position, rider.transform.position) < approachRange)
             {
                 nextApproach = Time.time + Mathf.Max(2f, approachCooldown);
@@ -226,6 +296,88 @@ namespace ModernLabTrials
             }
             MoveTowards(target, returnSpeed);
         }
+
+        // ---------------------------------------------------------------- attack
+
+        private void UpdateAttack()
+        {
+            if (!attackEnabled || rider == null || riderWasOnDeck || charging)
+            {
+                if (!charging) SetMuzzleCharging(false);
+                return;
+            }
+            if (Time.time < nextAttackAt) return;
+            Vector3 chest = ChestPoint();
+            if ((chest - transform.position).sqrMagnitude > attackRange * attackRange) return;
+            if (!HasLineOfSight(chest)) return;
+            StartCoroutine(AttackRoutine());
+        }
+
+        private Vector3 ChestPoint()
+        {
+            return rider != null ? rider.transform.position + Vector3.up * .9f : transform.position;
+        }
+
+        private bool HasLineOfSight(Vector3 target)
+        {
+            Vector3 origin = muzzle != null ? muzzle.position : transform.position;
+            Vector3 direction = target - origin;
+            float distance = direction.magnitude;
+            if (distance < .01f) return true;
+            if (!Physics.Raycast(origin, direction / distance, out RaycastHit hit, distance - .05f,
+                    ~0, QueryTriggerInteraction.Ignore))
+                return true;
+            return hit.collider.transform.IsChildOf(transform);
+        }
+
+        private System.Collections.IEnumerator AttackRoutine()
+        {
+            charging = true;
+            SetMuzzleCharging(true);
+            float time = 0f;
+            while (time < telegraphSeconds)
+            {
+                time += Time.deltaTime;
+                if (rider == null || riderWasOnDeck) break;
+                if (muzzleLight != null)
+                {
+                    float pulse = .65f + Mathf.PingPong(time * 6f, .9f);
+                    muzzleLight.intensity = pulse * 3.2f;
+                    if (muzzleCore != null)
+                        muzzleCore.transform.localScale = Vector3.one * (.1f + pulse * .1f);
+                }
+                yield return null;
+            }
+            bool fire = rider != null && !riderWasOnDeck && time >= telegraphSeconds * .85f;
+            SetMuzzleCharging(false);
+            charging = false;
+            nextAttackAt = Time.time + Mathf.Max(.8f, attackCooldown);
+            if (fire) FireBolt();
+        }
+
+        private void SetMuzzleCharging(bool on)
+        {
+            if (muzzleCore != null) muzzleCore.SetActive(on);
+            if (muzzleLight != null) muzzleLight.intensity = on ? 2.2f : 0f;
+        }
+
+        public DroneBolt FireBolt()
+        {
+            if (muzzle == null) BuildMuzzle();
+            Vector3 target = rider != null ? ChestPoint() : transform.position + transform.forward * 6f;
+            if (rider != null) target += rider.Velocity * .12f;
+            Vector3 direction = target - muzzle.position;
+            if (direction.sqrMagnitude < .0004f) direction = transform.forward;
+            GameObject boltObject = new GameObject("DroneBolt");
+            boltObject.transform.position = muzzle.position;
+            DroneBolt bolt = boltObject.AddComponent<DroneBolt>();
+            bolt.Init(gameObject, direction, boltSpeed, boltDamage);
+            return bolt;
+        }
+
+        // Entry point for the automated smoke test: exercises the attack path
+        // without waiting for a real cooldown window.
+        public DroneBolt FireForTest() => FireBolt();
 
         private void MoveTowards(Vector3 target, float speed)
         {

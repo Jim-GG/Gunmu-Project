@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using FirstPerson;
@@ -17,10 +17,10 @@ namespace ModernLabTrials.Editor
     {
         private static readonly string[] Scenes =
         {
-            "Assets/Game/ModernLabTrials/Scenes/MLT_01_ImpactCalibration.unity",
-            "Assets/Game/ModernLabTrials/Scenes/MLT_02_CrosswindGallery.unity",
-            "Assets/Game/ModernLabTrials/Scenes/MLT_03_VerticalShaft.unity",
-            "Assets/Game/ModernLabTrials/Scenes/MLT_04_SynthesisCore.unity",
+            "Assets/Game/ModernLabTrials/Scenes/MLT_01_CrystalIntake.unity",
+            "Assets/Game/ModernLabTrials/Scenes/MLT_02_CrystalAscent.unity",
+            "Assets/Game/ModernLabTrials/Scenes/MLT_03_ResonanceArena.unity",
+            "Assets/Game/ModernLabTrials/Scenes/MLT_04_CoreBreach.unity",
         };
 
         private static int failures;
@@ -80,6 +80,14 @@ namespace ModernLabTrials.Editor
                 Expect(bridge.actor != null && bridge.motor != null && bridge.combat != null,
                     "Player: bridge references");
             }
+            CrystalParkour.CrystalTraversal traversal = prefab.GetComponent<CrystalParkour.CrystalTraversal>();
+            Expect(traversal != null, "Player: crystal traversal component");
+            if (traversal != null)
+            {
+                Expect(traversal.motor != null && traversal.combat != null && traversal.aim != null,
+                    "Player: crystal traversal references");
+                Expect(!traversal.respawnKeyEnabled, "Player: traversal R key disabled");
+            }
         }
 
         private static void CheckDronePrefab()
@@ -116,7 +124,8 @@ namespace ModernLabTrials.Editor
                 Expect(floor, label + ": spawn above floor" + (floor ? " (" + hit.collider.name + ")" : ""));
             }
 
-            Expect(level.receivers != null && level.receivers.Length > 0, label + ": receivers");
+            Expect(level.RequiredReceivers > 0 || level.receivers.Length == 0,
+                label + ": receivers only on puzzle levels");
             foreach (ImpactReceiver receiver in level.receivers ?? Array.Empty<ImpactReceiver>())
             {
                 Expect(receiver != null, label + ": receiver not null");
@@ -127,7 +136,20 @@ namespace ModernLabTrials.Editor
                 }
             }
 
+            Expect(level.RequiredGrowths > 0 || level.growthSites.Length == 0,
+                label + ": crystal growth only on puzzle levels");
+            foreach (CrystalParkour.CrystalGrowthSite site in level.growthSites ?? Array.Empty<CrystalParkour.CrystalGrowthSite>())
+            {
+                Expect(site != null, label + ": growth site not null");
+                if (site == null) continue;
+                SerializedObject data = new SerializedObject(site);
+                Expect(data.FindProperty("growthRoot").objectReferenceValue != null, label + ": growth root");
+                Expect(data.FindProperty("strikeCollider").objectReferenceValue != null, label + ": growth strike collider");
+            }
+
             Expect(level.enemies != null && level.enemies.Length > 0, label + ": enemies");
+            Expect(level.RequiredEnemies > 0, label + ": enemy quota");
+            Expect(level.enemies.Length == level.RequiredEnemies, label + ": every listed enemy counts");
             foreach (ResonatorEnemy enemy in level.enemies ?? Array.Empty<ResonatorEnemy>())
             {
                 Expect(enemy != null, label + ": enemy not null");
@@ -145,7 +167,9 @@ namespace ModernLabTrials.Editor
                 if (drone == null) continue;
                 SerializedObject data = new SerializedObject(drone);
                 Expect(data.FindProperty("home").objectReferenceValue != null, label + ": drone home");
-                if (!label.Contains("Crosswind")) Expect(data.FindProperty("liftTop").objectReferenceValue != null, label + ": drone liftTop");
+                Expect(data.FindProperty("attackEnabled").boolValue, label + ": drone attack enabled");
+                if (label.Contains("CrystalIntake"))
+                    Expect(data.FindProperty("liftTop").objectReferenceValue != null, label + ": drone liftTop");
                 SerializedProperty route = data.FindProperty("patrolPoints");
                 Expect(route != null && route.arraySize > 0, label + ": drone patrol points");
                 Expect(data.FindProperty("deck").objectReferenceValue != null, label + ": drone deck");

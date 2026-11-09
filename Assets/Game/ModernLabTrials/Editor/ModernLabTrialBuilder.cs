@@ -1,7 +1,8 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using CrystalParkour;
 using FirstPerson;
 using Resonator.AI;
 using Unity.AI.Navigation;
@@ -94,6 +95,7 @@ namespace ModernLabTrials.Editor
                 EditorSceneManager.OpenScene(baseScene, OpenSceneMode.Single);
             }
             EnsureFolders();
+            RemoveObsoleteScenes();
             BuildPlayerPrefab();
             BuildDronePrefab();
 
@@ -105,7 +107,25 @@ namespace ModernLabTrials.Editor
 
             AssetDatabase.SaveAssets();
             AssetDatabase.Refresh();
-            Debug.Log("MODERNLAB_TRIALS_BUILD: four levels built. Open MLT_01_ImpactCalibration and press Play.");
+            Debug.Log("MODERNLAB_TRIALS_BUILD: four levels built. Open MLT_01_CrystalIntake and press Play.");
+        }
+
+        // One-shot entry point used by the batch pipeline: rebuild, verify and
+        // capture previews in a single editor launch.
+        public static void BuildVerifyCaptureBatch()
+        {
+            try
+            {
+                Build();
+                ModernLabTrialVerify.Verify();
+                ModernLabTrialPreview.Capture();
+                EditorApplication.Exit(0);
+            }
+            catch (Exception exception)
+            {
+                Debug.LogException(exception);
+                EditorApplication.Exit(1);
+            }
         }
 
         private static void EnsureFolders()
@@ -124,6 +144,30 @@ namespace ModernLabTrials.Editor
         {
             string path = parent + "/" + child;
             if (!AssetDatabase.IsValidFolder(path)) AssetDatabase.CreateFolder(parent, child);
+        }
+
+        // The first pass built four impact-calibration scenes; the client asked
+        // for two puzzle and two combat levels instead, so the old scenes and
+        // their baked NavMesh assets are retired.
+        private static void RemoveObsoleteScenes()
+        {
+            string[] obsolete =
+            {
+                ScenesFolder + "/MLT_01_ImpactCalibration.unity",
+                ScenesFolder + "/MLT_02_CrosswindGallery.unity",
+                ScenesFolder + "/MLT_03_VerticalShaft.unity",
+                ScenesFolder + "/MLT_04_SynthesisCore.unity",
+                NavMeshFolder + "/MLT_01_ImpactCalibration.asset",
+                NavMeshFolder + "/MLT_02_CrosswindGallery.asset",
+                NavMeshFolder + "/MLT_03_VerticalShaft.asset",
+                NavMeshFolder + "/MLT_04_SynthesisCore.asset",
+            };
+            foreach (string path in obsolete)
+            {
+                if (!File.Exists(path)) continue;
+                if (AssetDatabase.DeleteAsset(path)) Debug.Log("MODERNLAB_TRIALS: removed obsolete " + path);
+                else Debug.LogWarning("MODERNLAB_TRIALS: could not remove obsolete " + path + " (still open?)");
+            }
         }
 
         // ------------------------------------------------------------------ prefabs
@@ -154,6 +198,11 @@ namespace ModernLabTrials.Editor
                 bridge.motor = motor;
                 bridge.combat = combat;
                 bridge.attackOrigin = camera.transform;
+                CrystalTraversal traversal = player.AddComponent<CrystalTraversal>();
+                traversal.motor = motor;
+                traversal.combat = combat;
+                traversal.aim = camera.transform;
+                traversal.respawnKeyEnabled = false;
                 PrefabUtility.SaveAsPrefabAsset(player, PlayerPrefab);
                 Object.DestroyImmediate(player);
                 Debug.Log("MODERNLAB_TRIALS: player prefab written.");
@@ -199,162 +248,171 @@ namespace ModernLabTrials.Editor
 
         private static void BuildLevel01()
         {
-            LevelContext context = Begin("MLT_01_ImpactCalibration", "ML-01", "冲击校准",
-                "用冲量把载荷送进接收器，再清除守卫；最后借无人机升上出口高台。", "MLT_02_CrosswindGallery",
-                new Vector3(0f, .1f, -7f), 0f);
+            LevelContext context = Begin("MLT_01_CrystalIntake", "ML-01", "晶体取料",
+                "无人机悬停在跳跃高度之上：敲裂地面让晶体平台长出来，踩上去借力升空，再完成冲击校准。",
+                "MLT_02_CrystalAscent", new Vector3(0f, .1f, -7f), 0f);
             Room room = BuildRoom(context.World, 4, 3, 8f, null);
             BuildMezzanine(context.World, new Rect(-9f, 3f, 18f, 6f), 4f);
-            AddRail(context.World, new Vector3(-5.5f, 4f, 3f), 7f, true);
-            AddRail(context.World, new Vector3(5.5f, 4f, 3f), 7f, true);
+            AddRail(context.World, new Vector3(-6f, 4f, 3f), 6f, true);
+            AddRail(context.World, new Vector3(6f, 4f, 3f), 6f, true);
             AddRail(context.World, new Vector3(-9f, 4f, 6f), 6f, false);
-            AddStairs(context.World, new Vector3(9f, 0f, -4f), 180f);
-            AddLighting(context.World, room, new Color(.42f, .64f, .9f));
-            BakeNavMesh(context, "MLT_01_ImpactCalibration");
+            AddLighting(context.World, room, new Color(.4f, .66f, .92f));
+            BakeNavMesh(context, "MLT_01_CrystalIntake");
 
-            ImpactReceiver receiver = AddReceiver(context.World, room, Side.East, 0f, 1.5f);
-            AddCrate(context.World, new Vector3(4f, .55f, 0f), receiver);
-            AddCrate(context.World, new Vector3(1f, .55f, -2f), receiver);
-            AddEnemy(context, new Vector3(-5f, .1f, -1f));
-            AddEnemy(context, new Vector3(5f, .1f, 5f));
+            ImpactReceiver east = AddReceiver(context.World, room, Side.East, 2f, 1.5f);
+            AddCrate(context.World, new Vector3(8f, .55f, 1f), east);
+            AddCrate(context.World, new Vector3(5f, .55f, 3.5f), east);
+            CrystalGrowthSite growth = AddGrowthSite(context.World, new Vector3(0f, 0f, -.5f), 0f);
+            AddEnemy(context, new Vector3(-7f, .1f, -2f));
+            AddEnemy(context, new Vector3(6f, .1f, -3f));
 
-            NeutralDrone drone = AddDrone(context.World, new Vector3(0f, .35f, 1.4f),
-                new Vector3(0f, 4.35f, 1.4f), new[]
+            NeutralDrone drone = AddDrone(context.World, new Vector3(0f, 1.15f, .6f),
+                new Vector3(0f, 4.4f, 1.7f), new[]
                 {
-                    new Vector3(-3f, .35f, 0f), new Vector3(3f, .35f, 0f),
-                }, "MCU-7A / 01");
+                    new Vector3(-3.5f, 1.15f, .6f), new Vector3(3.5f, 1.15f, .6f),
+                }, "MCU-7A / 01", 4.2f, 8f, false);
             ExitAssembly exit = AddExit(context.World, new Vector3(0f, 4f, 8.2f), 180f, context.Level, false);
 
-            context.Level.receivers = new[] { receiver };
+            context.Level.receivers = new[] { east };
             context.Level.enemies = context.Enemies.ToArray();
             context.Level.drones = new[] { drone };
+            context.Level.growthSites = new[] { growth };
+            context.Level.requiredDroneRides = 1;
             context.Level.exitDoor = exit.Door;
             context.Level.exitPoint = exit.Point;
             context.Level.spawn = context.Spawn;
-            Finish(context, "MLT_01_ImpactCalibration");
+            Finish(context, "MLT_01_CrystalIntake");
         }
 
         private static void BuildLevel02()
         {
-            LevelContext context = Begin("MLT_02_CrosswindGallery", "ML-02", "横风长廊",
-                "长廊中央被切开：借编号无人机越过缺口，同时用碰撞打开两侧接收器并清场。", "MLT_03_VerticalShaft",
-                new Vector3(-15f, .1f, -2f), 90f);
+            LevelContext context = Begin("MLT_02_CrystalAscent", "ML-02", "晶体攀升",
+                "中央裂谷把长廊切成两半：在两侧敲出晶体台阶登上巡航无人机，往返取证并清场。",
+                "MLT_03_ResonanceArena", new Vector3(-15f, .1f, -2f), 90f);
             Room room = BuildRoom(context.World, 6, 2, 8f,
                 center => Mathf.Abs(center.x) < 6.1f);
             AddRail(context.World, new Vector3(-6f, 0f, -5.7f), 12f, false);
             AddRail(context.World, new Vector3(6f, 0f, -5.7f), 12f, false);
             AddRail(context.World, new Vector3(-6f, 0f, 5.7f), 12f, false);
             AddRail(context.World, new Vector3(6f, 0f, 5.7f), 12f, false);
-            AddStairs(context.World, new Vector3(-16f, 0f, 4f), 0f);
+            AddRail(context.World, new Vector3(-12f, 0f, -5.7f), 12f, false);
+            AddRail(context.World, new Vector3(12f, 0f, -5.7f), 12f, false);
+            AddPitLiner(context.World, 6f, 12f);
             AddLighting(context.World, room, new Color(.34f, .7f, .92f));
-            BakeNavMesh(context, "MLT_02_CrosswindGallery");
+            BakeNavMesh(context, "MLT_02_CrystalAscent");
 
             ImpactReceiver northA = AddReceiver(context.World, room, Side.North, -10f, 1.5f);
             ImpactReceiver northB = AddReceiver(context.World, room, Side.North, 10f, 1.5f);
             AddCrate(context.World, new Vector3(-11f, .55f, -.5f), northA);
             AddCrate(context.World, new Vector3(11f, .55f, -.5f), northB);
+            CrystalGrowthSite west = AddGrowthSite(context.World, new Vector3(-7.6f, 0f, 2.4f), 90f);
+            CrystalGrowthSite east = AddGrowthSite(context.World, new Vector3(7.6f, 0f, -2.4f), -90f);
             AddEnemy(context, new Vector3(-13f, .1f, 2.5f));
             AddEnemy(context, new Vector3(13f, .1f, 2.5f));
             AddEnemy(context, new Vector3(15f, .1f, -2.5f));
 
-            NeutralDrone drone = AddDrone(context.World, new Vector3(-6f, .6f, 0f), null,
+            NeutralDrone drone = AddDrone(context.World, new Vector3(-7f, 1.15f, 0f), null,
                 new[]
                 {
-                    new Vector3(-7f, .6f, 0f), new Vector3(7f, .6f, 0f),
-                }, "MCU-7A / 02");
+                    new Vector3(-7f, 1.15f, 0f), new Vector3(7f, 1.15f, 0f),
+                }, "MCU-7A / 02", 3.8f, 9f, false);
             ExitAssembly exit = AddExit(context.World, new Vector3(17f, 0f, 0f), -90f, context.Level, false);
 
             context.Level.receivers = new[] { northA, northB };
             context.Level.enemies = context.Enemies.ToArray();
             context.Level.drones = new[] { drone };
+            context.Level.growthSites = new[] { west, east };
+            context.Level.requiredDroneRides = 1;
             context.Level.exitDoor = exit.Door;
             context.Level.exitPoint = exit.Point;
             context.Level.spawn = context.Spawn;
-            Finish(context, "MLT_02_CrosswindGallery");
+            Finish(context, "MLT_02_CrystalAscent");
         }
 
         private static void BuildLevel03()
         {
-            LevelContext context = Begin("MLT_03_VerticalShaft", "ML-03", "垂直竖井",
-                "三层竖井只留下断梯；用无人机把实验员送上西侧高台，并从三个方向完成碰撞校准。", "MLT_04_SynthesisCore",
-                new Vector3(0f, .1f, -7f), 0f);
-            Room room = BuildRoom(context.World, 4, 4, 8f, null);
-            BakeNavMesh(context, "MLT_03_VerticalShaft");
-            AddLighting(context.World, room, new Color(.48f, .74f, 1f));
+            LevelContext context = Begin("MLT_03_ResonanceArena", "ML-03", "共鸣竞技场",
+                "战斗关：清空场地内的全部共鸣者。编号无人机在头顶巡逻开火，可借它的甲板重新站位。",
+                "MLT_04_CoreBreach", new Vector3(0f, .1f, -10f), 0f);
+            context.Level.levelKind = "战斗关";
+            Room room = BuildRoom(context.World, 6, 4, 8f, null);
+            AddPillar(context.World, new Vector3(-6f, 2f, -2f), new Vector3(1.4f, 4f, 1.4f));
+            AddPillar(context.World, new Vector3(6f, 2f, -2f), new Vector3(1.4f, 4f, 1.4f));
+            AddPillar(context.World, new Vector3(-6f, 2f, 4f), new Vector3(1.4f, 4f, 1.4f));
+            AddPillar(context.World, new Vector3(6f, 2f, 4f), new Vector3(1.4f, 4f, 1.4f));
+            AddLighting(context.World, room, new Color(.5f, .72f, .98f));
+            BakeNavMesh(context, "MLT_03_ResonanceArena");
 
-            ImpactReceiver north = AddReceiver(context.World, room, Side.North, -4f, 1.5f);
-            ImpactReceiver east = AddReceiver(context.World, room, Side.East, -4f, 1.5f);
-            ImpactReceiver south = AddReceiver(context.World, room, Side.South, 4f, 1.5f);
-            AddCrate(context.World, new Vector3(-4f, .55f, 8f), north);
-            AddCrate(context.World, new Vector3(8f, .55f, -4f), east);
-            AddCrate(context.World, new Vector3(4f, .55f, -8f), south);
-            AddEnemy(context, new Vector3(-8f, .1f, -4f));
-            AddEnemy(context, new Vector3(0f, .1f, 5f));
-            AddEnemy(context, new Vector3(8f, .1f, 4f));
+            AddCrate(context.World, new Vector3(-2f, .55f, -4f), null);
+            AddCrate(context.World, new Vector3(2f, .55f, -4f), null);
+            AddEnemy(context, new Vector3(-12f, .1f, -4f));
+            AddEnemy(context, new Vector3(12f, .1f, -4f));
+            AddEnemy(context, new Vector3(-8f, .1f, 5f));
+            AddEnemy(context, new Vector3(8f, .1f, 5f));
+            AddEnemy(context, new Vector3(2f, .1f, 1f));
+            AddEnemy(context, new Vector3(-2f, .1f, 8f));
 
-            BuildMezzanine(context.World, new Rect(-12f, -10f, 6f, 20f), 4f);
-            AddRail(context.World, new Vector3(-6f, 4f, -6.5f), 7f, false);
-            AddRail(context.World, new Vector3(-6f, 4f, 6.5f), 7f, false);
-            AddRail(context.World, new Vector3(-9f, 4f, -10f), 6f, true);
-            AddRail(context.World, new Vector3(-9f, 4f, 10f), 6f, true);
-            AddStairs(context.World, new Vector3(9f, 0f, -8f), 180f);
-            AddStairs(context.World, new Vector3(9f, 0f, 8f), 0f);
-
-            NeutralDrone drone = AddDrone(context.World, new Vector3(0f, .35f, 0f),
-                new Vector3(-4.4f, 4.35f, 0f), new[]
+            NeutralDrone drone = AddDrone(context.World, new Vector3(0f, 1.2f, -3f), null,
+                new[]
                 {
-                    new Vector3(-2f, .35f, -3f), new Vector3(2f, .35f, 3f),
-                }, "MCU-7A / 03");
-            ExitAssembly exit = AddExit(context.World, new Vector3(-9f, 4f, 8f), 180f, context.Level, false);
+                    new Vector3(-10f, 1.2f, 0f), new Vector3(10f, 1.2f, 2f),
+                }, "MCU-7A / 03", 3f, 10f, true);
+            ExitAssembly exit = AddExit(context.World, new Vector3(0f, 0f, 11.2f), 180f, context.Level, false);
 
-            context.Level.receivers = new[] { north, east, south };
+            context.Level.receivers = Array.Empty<ImpactReceiver>();
             context.Level.enemies = context.Enemies.ToArray();
             context.Level.drones = new[] { drone };
+            context.Level.growthSites = Array.Empty<CrystalGrowthSite>();
+            context.Level.requiredDroneRides = 0;
             context.Level.exitDoor = exit.Door;
             context.Level.exitPoint = exit.Point;
             context.Level.spawn = context.Spawn;
-            Finish(context, "MLT_03_VerticalShaft");
+            Finish(context, "MLT_03_ResonanceArena");
         }
 
         private static void BuildLevel04()
         {
-            LevelContext context = Begin("MLT_04_SynthesisCore", "ML-04", "合成核心",
-                "中央塌陷成巨坑；两侧碰撞接收器与四名共鸣者共同封锁核心。借无人机越过深渊，完成全部记录。", "",
+            LevelContext context = Begin("MLT_04_CoreBreach", "ML-04", "核心突入",
+                "终局战斗关：核心区八名共鸣者全部清除后出口才会开启。编号无人机火力更密集。", "",
                 new Vector3(0f, .1f, -11f), 0f);
             context.Level.finalLevel = true;
-            Room room = BuildRoom(context.World, 5, 4, 8f,
-                center => Mathf.Abs(center.x) < 6.1f && Mathf.Abs(center.z) < 6.1f);
-            BakeNavMesh(context, "MLT_04_SynthesisCore");
+            context.Level.levelKind = "战斗关";
+            Room room = BuildRoom(context.World, 6, 4, 8f, null);
+            AddPillar(context.World, new Vector3(-6f, 2f, -3f), new Vector3(1.6f, 4f, 1.6f));
+            AddPillar(context.World, new Vector3(6f, 2f, -3f), new Vector3(1.6f, 4f, 1.6f));
+            AddPillar(context.World, new Vector3(-6f, 2f, 4f), new Vector3(1.6f, 4f, 1.6f));
+            AddPillar(context.World, new Vector3(6f, 2f, 4f), new Vector3(1.6f, 4f, 1.6f));
+            AddPillar(context.World, new Vector3(0f, 1.4f, 1f), new Vector3(3.2f, 2.8f, 1.2f));
             AddLighting(context.World, room, new Color(.55f, .78f, 1f));
+            BakeNavMesh(context, "MLT_04_CoreBreach");
 
-            ImpactReceiver west = AddReceiver(context.World, room, Side.West, 0f, 1.5f);
-            ImpactReceiver east = AddReceiver(context.World, room, Side.East, 0f, 1.5f);
-            AddCrate(context.World, new Vector3(-10.5f, .55f, -1f), west);
-            AddCrate(context.World, new Vector3(10.5f, .55f, -1f), east);
-            AddEnemy(context, new Vector3(-11f, .1f, -8f));
-            AddEnemy(context, new Vector3(11f, .1f, -8f));
-            AddEnemy(context, new Vector3(-11f, .1f, 8f));
-            AddEnemy(context, new Vector3(11f, .1f, 8f));
+            AddCrate(context.World, new Vector3(-3f, .55f, -6f), null);
+            AddCrate(context.World, new Vector3(3f, .55f, -6f), null);
+            AddEnemy(context, new Vector3(-12f, .1f, -6f));
+            AddEnemy(context, new Vector3(12f, .1f, -6f));
+            AddEnemy(context, new Vector3(-12f, .1f, 2f));
+            AddEnemy(context, new Vector3(12f, .1f, 2f));
+            AddEnemy(context, new Vector3(-9f, .1f, 8f));
+            AddEnemy(context, new Vector3(9f, .1f, 8f));
+            AddEnemy(context, new Vector3(-2f, .1f, 6f));
+            AddEnemy(context, new Vector3(4f, .1f, -1f));
 
-            BuildMezzanine(context.World, new Rect(-6f, -6f, 12f, 12f), 5f);
-            AddRail(context.World, new Vector3(-6f, 5f, 0f), 8f, false);
-            AddRail(context.World, new Vector3(6f, 5f, 0f), 8f, false);
-            AddRail(context.World, new Vector3(0f, 5f, 6f), 8f, true);
-            AddStairs(context.World, new Vector3(-12f, 0f, -10f), 0f);
-
-            NeutralDrone drone = AddDrone(context.World, new Vector3(0f, .35f, -9f),
-                new Vector3(0f, 5.35f, -7.2f), new[]
+            NeutralDrone drone = AddDrone(context.World, new Vector3(0f, 1.2f, -8f), null,
+                new[]
                 {
-                    new Vector3(-6f, .35f, -9f), new Vector3(6f, .35f, -9f),
-                }, "MCU-7A / 04");
-            ExitAssembly exit = AddExit(context.World, new Vector3(0f, 5f, 2.8f), 180f, context.Level, true);
+                    new Vector3(-9f, 1.2f, 0f), new Vector3(9f, 1.2f, 3f),
+                }, "MCU-7A / 04", 2.4f, 12f, true);
+            ExitAssembly exit = AddExit(context.World, new Vector3(0f, 0f, 11.4f), 180f, context.Level, true);
 
-            context.Level.receivers = new[] { west, east };
+            context.Level.receivers = Array.Empty<ImpactReceiver>();
             context.Level.enemies = context.Enemies.ToArray();
             context.Level.drones = new[] { drone };
+            context.Level.growthSites = Array.Empty<CrystalGrowthSite>();
+            context.Level.requiredDroneRides = 0;
             context.Level.exitDoor = exit.Door;
             context.Level.exitPoint = exit.Point;
             context.Level.spawn = context.Spawn;
-            Finish(context, "MLT_04_SynthesisCore");
+            Finish(context, "MLT_04_CoreBreach");
         }
 
         // ------------------------------------------------------------------ context
@@ -396,7 +454,7 @@ namespace ModernLabTrials.Editor
             level.levelTitle = title;
             level.subtitle = subtitle;
             level.nextSceneName = next;
-            level.firstSceneName = "MLT_01_ImpactCalibration";
+            level.firstSceneName = "MLT_01_CrystalIntake";
             level.spawn = spawn.transform;
             context.Level = level;
 
@@ -444,14 +502,14 @@ namespace ModernLabTrials.Editor
         {
             string[] mine =
             {
-                "Assets/Game/ModernLabTrials/Scenes/MLT_01_ImpactCalibration.unity",
-                "Assets/Game/ModernLabTrials/Scenes/MLT_02_CrosswindGallery.unity",
-                "Assets/Game/ModernLabTrials/Scenes/MLT_03_VerticalShaft.unity",
-                "Assets/Game/ModernLabTrials/Scenes/MLT_04_SynthesisCore.unity",
+                "Assets/Game/ModernLabTrials/Scenes/MLT_01_CrystalIntake.unity",
+                "Assets/Game/ModernLabTrials/Scenes/MLT_02_CrystalAscent.unity",
+                "Assets/Game/ModernLabTrials/Scenes/MLT_03_ResonanceArena.unity",
+                "Assets/Game/ModernLabTrials/Scenes/MLT_04_CoreBreach.unity",
             };
             var list = mine.Select(path => new EditorBuildSettingsScene(path, true)).ToList();
             foreach (EditorBuildSettingsScene existing in EditorBuildSettings.scenes)
-                if (!mine.Contains(existing.path))
+                if (!mine.Contains(existing.path) && File.Exists(existing.path))
                     list.Add(new EditorBuildSettingsScene(existing.path, existing.enabled));
             EditorBuildSettings.scenes = list.ToArray();
             Debug.Log("MODERNLAB_TRIALS: build settings updated.");
@@ -856,7 +914,8 @@ namespace ModernLabTrials.Editor
         }
 
         private static NeutralDrone AddDrone(Transform world, Vector3 home, Vector3? lift,
-            Vector3[] route, string number)
+            Vector3[] route, string number, float attackCooldown = 3.6f, float attackDamage = 9f,
+            bool approachPlayer = true)
         {
             GameObject prefab = AssetDatabase.LoadAssetAtPath<GameObject>(DronePrefab);
             Vector3 droneLiftOffset = Vector3.up * .2f;
@@ -876,7 +935,49 @@ namespace ModernLabTrials.Editor
             for (int i = 0; i < route.Length; i++)
                 points[i] = NewPoint(world, "DronePatrol" + i, route[i]);
             drone.Configure(homePoint, liftPoint, points, number);
+            drone.ConfigureAttack(true, attackCooldown, attackDamage);
+            drone.ConfigureApproach(approachPlayer);
             return drone;
+        }
+
+        private static CrystalGrowthSite AddGrowthSite(Transform world, Vector3 position, float yaw)
+        {
+            GameObject site = Prop(world, "Assets/Game/CrystalParkour/Prefabs/CrystalGrowth_Ground.prefab",
+                position, Quaternion.Euler(0f, yaw, 0f), "CrystalGrowthSite");
+            CrystalGrowthSite growth = site.GetComponent<CrystalGrowthSite>();
+            if (growth == null)
+                throw new InvalidOperationException("CrystalGrowth_Ground prefab is missing CrystalGrowthSite.");
+            return growth;
+        }
+
+        private static void AddPillar(Transform world, Vector3 position, Vector3 size)
+        {
+            AddShellBox(world, "ArenaPillar", position, size, WallSurfaceMaterial());
+            AddBox(world, "ArenaPillarCollider", position, size);
+        }
+
+        // The 12 m slot in ML-02 otherwise renders as an unlit black rectangle;
+        // a dark liner turns it into a readable shaft and the two hazard lights
+        // mark the edge during play.
+        private static void AddPitLiner(Transform world, float halfWidth, float depth)
+        {
+            Material dark = DarkSurfaceMaterial();
+            AddShellBox(world, "PitWallWest", new Vector3(-halfWidth - .1f, -5f, 0f), new Vector3(.3f, 10f, depth), dark);
+            AddShellBox(world, "PitWallEast", new Vector3(halfWidth + .1f, -5f, 0f), new Vector3(.3f, 10f, depth), dark);
+            AddShellBox(world, "PitWallSouth", new Vector3(0f, -5f, -depth * .5f), new Vector3(halfWidth * 2f, 10f, .3f), dark);
+            AddShellBox(world, "PitWallNorth", new Vector3(0f, -5f, depth * .5f), new Vector3(halfWidth * 2f, 10f, .3f), dark);
+            for (int i = -1; i <= 1; i += 2)
+            {
+                GameObject hazard = new GameObject("Pit Hazard Light");
+                hazard.transform.SetParent(world, false);
+                hazard.transform.position = new Vector3(halfWidth * .62f * i, -1.2f, 0f);
+                Light light = hazard.AddComponent<Light>();
+                light.type = LightType.Point;
+                light.color = new Color(1f, .42f, .28f);
+                light.range = 11f;
+                light.intensity = 1.5f;
+                light.shadows = LightShadows.None;
+            }
         }
 
         private static Transform NewPoint(Transform world, string name, Vector3 position)

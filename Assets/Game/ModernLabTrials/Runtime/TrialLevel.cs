@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using FirstPerson;
@@ -19,9 +19,10 @@ namespace ModernLabTrials
         [Header("Identity")]
         public string levelCode = "ML-01";
         public string levelTitle = "冲击校准";
+        public string levelKind = "解谜关";
         public string subtitle = "用冲量把载荷送进接收器，并清除守卫。";
         public string nextSceneName = "";
-        public string firstSceneName = "MLT_01_ImpactCalibration";
+        public string firstSceneName = "MLT_01_CrystalIntake";
         public bool finalLevel;
 
         [Header("Player / spawn")]
@@ -36,12 +37,21 @@ namespace ModernLabTrials
         public ResonatorEnemy[] enemies;
         public NeutralDrone[] drones;
         [Min(0)] public int requiredDroneRides = 1;
+        public CrystalParkour.CrystalGrowthSite[] growthSites;
+        [Tooltip("-1 means every entry in the matching array is required.")]
+        public int requiredReceivers = -1;
+        public int requiredEnemyKills = -1;
+        public int requiredGrowths = -1;
+
+        [Header("Crystal traversal")]
+        public CrystalParkour.CrystalTraversal traversal;
+        public bool enableCrystalTraversal = true;
 
         [Header("Exit")]
         public TrialDoor exitDoor;
         public Transform exitPoint;
 
-        private int receiverDone, enemyDone, rideDone;
+        private int receiverDone, enemyDone, rideDone, growthDone;
         private readonly HashSet<ImpactReceiver> receiverSet = new HashSet<ImpactReceiver>();
         private readonly HashSet<ResonatorEnemy> enemySet = new HashSet<ResonatorEnemy>();
         private readonly HashSet<NeutralDrone> rideSet = new HashSet<NeutralDrone>();
@@ -53,10 +63,20 @@ namespace ModernLabTrials
         public int DebugReceivers => receiverDone;
         public int DebugEnemies => enemyDone;
         public int DebugRides => rideDone;
+        public int DebugGrowths => growthDone;
         public bool DebugComplete => complete;
 
-        private int RequiredReceivers => receivers == null ? 0 : receivers.Length;
-        private int RequiredEnemies => enemies == null ? 0 : enemies.Length;
+        public int RequiredReceivers => Quota(requiredReceivers, receivers);
+        public int RequiredEnemies => Quota(requiredEnemyKills, enemies);
+        public int RequiredGrowths => Quota(requiredGrowths, growthSites);
+        public int RequiredRides => Mathf.Max(0, requiredDroneRides);
+
+        private static int Quota<T>(int requested, T[] entries)
+        {
+            int available = entries == null ? 0 : entries.Length;
+            if (requested < 0) return available;
+            return Mathf.Min(requested, available);
+        }
 
         private void Awake()
         {
@@ -67,6 +87,13 @@ namespace ModernLabTrials
 
         private void Start()
         {
+            if (traversal != null)
+            {
+                traversal.enabled = enableCrystalTraversal;
+                // R already reloads the whole trial, so the parkour demo's
+                // checkpoint respawn must not swallow the key.
+                traversal.respawnKeyEnabled = false;
+            }
             EnsureNavigation();
             if (spawn != null && motor != null)
             {
@@ -143,6 +170,7 @@ namespace ModernLabTrials
                 OnPlayerDied();
                 return;
             }
+            PollGrowthSites();
             if (Time.unscaledTime > messageUntil) message = null;
         }
 
@@ -188,7 +216,20 @@ namespace ModernLabTrials
         private void OnDroneRide(NeutralDrone drone)
         {
             if (drone != null && rideSet.Add(drone)) rideDone = rideSet.Count;
-            ShowMessage("无人机借力完成 · " + rideDone + "/" + requiredDroneRides, 2.2f);
+            if (RequiredRides > 0)
+                ShowMessage("无人机借力完成 · " + rideDone + "/" + RequiredRides, 2.2f);
+            Evaluate();
+        }
+
+        private void PollGrowthSites()
+        {
+            if (growthSites == null || growthSites.Length == 0) return;
+            int grown = 0;
+            foreach (CrystalParkour.CrystalGrowthSite site in growthSites)
+                if (site != null && site.HasGrown) grown++;
+            if (grown == growthDone) return;
+            growthDone = grown;
+            ShowMessage("晶体平台生长 · " + growthDone + "/" + RequiredGrowths, 2.2f);
             Evaluate();
         }
 
@@ -199,7 +240,8 @@ namespace ModernLabTrials
         private void Evaluate()
         {
             if (complete) return;
-            if (receiverDone < RequiredReceivers || enemyDone < RequiredEnemies || rideDone < requiredDroneRides)
+            if (receiverDone < RequiredReceivers || enemyDone < RequiredEnemies ||
+                growthDone < RequiredGrowths || rideDone < RequiredRides)
                 return;
             complete = true;
             if (exitDoor != null) exitDoor.SetOpen(true);
@@ -210,7 +252,7 @@ namespace ModernLabTrials
         {
             if (!complete)
             {
-                ShowMessage("出口尚未开启：先完成接收器、战斗与无人机借力", 2.5f);
+                ShowMessage("出口尚未开启：先完成本关全部目标", 2.5f);
                 return;
             }
             if (transitioning || finalShown) return;
@@ -272,12 +314,27 @@ namespace ModernLabTrials
             GUI.matrix = Matrix4x4.TRS(new Vector3((Screen.width - 1280f * scale) * .5f,
                 (Screen.height - 720f * scale) * .5f, 0f), Quaternion.identity, Vector3.one * scale);
 
-            GUI.Label(new Rect(30, 22, 760, 34), "零界 · 现代实验室 / " + levelCode, title);
+            GUI.Label(new Rect(30, 22, 760, 34), "零界 · 现代实验室 / " + levelCode +
+                (string.IsNullOrEmpty(levelKind) ? "" : " · " + levelKind), title);
             GUI.Label(new Rect(30, 58, 900, 30), levelTitle, body);
             float y = 96f;
-            DrawObjective(new Rect(30, y, 420, 24), "碰撞接收器", receiverDone, RequiredReceivers, small); y += 26;
-            DrawObjective(new Rect(30, y, 420, 24), "清除共鸣者", enemyDone, RequiredEnemies, small); y += 26;
-            DrawObjective(new Rect(30, y, 420, 24), "无人机借力", rideDone, requiredDroneRides, small);
+            if (RequiredReceivers > 0)
+            {
+                DrawObjective(new Rect(30, y, 420, 24), "碰撞接收器", receiverDone, RequiredReceivers, small);
+                y += 26;
+            }
+            if (RequiredEnemies > 0)
+            {
+                DrawObjective(new Rect(30, y, 420, 24), "清除共鸣者", enemyDone, RequiredEnemies, small);
+                y += 26;
+            }
+            if (RequiredGrowths > 0)
+            {
+                DrawObjective(new Rect(30, y, 420, 24), "晶体平台生长", growthDone, RequiredGrowths, small);
+                y += 26;
+            }
+            if (RequiredRides > 0)
+                DrawObjective(new Rect(30, y, 420, 24), "无人机借力", rideDone, RequiredRides, small);
 
             if (vitals != null)
             {
@@ -323,7 +380,7 @@ namespace ModernLabTrials
             {
                 Fill(new Rect(0, 0, 1280, 720), new Color(.01f, .04f, .05f, .94f));
                 GUI.Label(new Rect(330, 210, 700, 60), "现代实验室 · 全部测试完成", title);
-                GUI.Label(new Rect(330, 280, 700, 60), "四组碰撞实验、无人机借力与共鸣者战斗均已记录。", body);
+                GUI.Label(new Rect(330, 280, 700, 60), "晶体、碰撞、无人机与共鸣者战斗的测试均已记录。", body);
                 if (GUI.Button(new Rect(470, 380, 340, 48), "从第一关重新开始")) SceneManager.LoadScene(firstSceneName);
             }
 
