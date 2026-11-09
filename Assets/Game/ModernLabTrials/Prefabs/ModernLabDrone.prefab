@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1001 &4468916320068120929
+--- !u!1001 &1651761570069726704
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -59,25 +59,20 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 1395632588227670948, guid: 620db8eb4e341934fb0ecea0996ddecd, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 4897962666682257876}
+      addedObject: {fileID: 3166656398162706637}
   m_SourcePrefab: {fileID: 100100000, guid: 620db8eb4e341934fb0ecea0996ddecd, type: 3}
---- !u!65 &578928420939782754 stripped
-BoxCollider:
-  m_CorrespondingSourceObject: {fileID: 3894492054967118595, guid: 620db8eb4e341934fb0ecea0996ddecd, type: 3}
-  m_PrefabInstance: {fileID: 4468916320068120929}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &3268082564184654533 stripped
+--- !u!1 &410518146766681684 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1395632588227670948, guid: 620db8eb4e341934fb0ecea0996ddecd, type: 3}
-  m_PrefabInstance: {fileID: 4468916320068120929}
+  m_PrefabInstance: {fileID: 1651761570069726704}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &4897962666682257876
+--- !u!114 &3166656398162706637
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3268082564184654533}
+  m_GameObject: {fileID: 410518146766681684}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a264ee16ae02c7a4799478ba239800dd, type: 3}
@@ -95,17 +90,22 @@ MonoBehaviour:
   holdSeconds: 2.6
   launchBoost: 7.5
   hoverAmplitude: 0.08
-  deck: {fileID: 578928420939782754}
-  rotorLeft: {fileID: 6683562649611877768}
-  rotorRight: {fileID: 5936068434221419069}
+  deck: {fileID: 2368963250252459763}
+  rotorLeft: {fileID: 8369995996067907865}
+  rotorRight: {fileID: 8829831643495906988}
   droneNumber: MCU-7A / 01
---- !u!4 &5936068434221419069 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 7810897057555053404, guid: 620db8eb4e341934fb0ecea0996ddecd, type: 3}
-  m_PrefabInstance: {fileID: 4468916320068120929}
+--- !u!65 &2368963250252459763 stripped
+BoxCollider:
+  m_CorrespondingSourceObject: {fileID: 3894492054967118595, guid: 620db8eb4e341934fb0ecea0996ddecd, type: 3}
+  m_PrefabInstance: {fileID: 1651761570069726704}
   m_PrefabAsset: {fileID: 0}
---- !u!4 &6683562649611877768 stripped
+--- !u!4 &8369995996067907865 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7116830244609461481, guid: 620db8eb4e341934fb0ecea0996ddecd, type: 3}
-  m_PrefabInstance: {fileID: 4468916320068120929}
+  m_PrefabInstance: {fileID: 1651761570069726704}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &8829831643495906988 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7810897057555053404, guid: 620db8eb4e341934fb0ecea0996ddecd, type: 3}
+  m_PrefabInstance: {fileID: 1651761570069726704}
   m_PrefabAsset: {fileID: 0}

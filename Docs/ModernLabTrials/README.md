@@ -65,6 +65,7 @@
 - 无人机编号文字过大：已缩小到可读尺寸，距离 3.5 米内自动隐藏；无人机靠近时停在约 4.2 米外，不再贴脸。
 - 修复后实际窗口运行截图确认：地面可见，编号不再遮挡画面；四关自动冒烟仍为 PASS。
 - 共鸣者贴镜头穿模：新增 `Assets/Game/ModernLabTrials/Data/MLT_ResonatorTuning.asset`，把停步距离设为 `minimumSeparation 1.5`、攻击起手距离 `attackEnterDistance 2.2`，现代实验室敌人统一使用该调参。
+- 房间不再依赖单面模块裸拼：新增墙面/天花封闭外壳（`MLT_WallSurface`、`MLT_CeilingSurface`），高台补浅色底板和四角支撑柱，护栏补可见横杆与立柱，避免黑色背面和悬空板块。
 
 ## 验证结果
 

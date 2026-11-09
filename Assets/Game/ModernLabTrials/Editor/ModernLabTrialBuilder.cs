@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -511,6 +511,7 @@ namespace ModernLabTrials.Editor
                 new Vector3(.6f, height, room.maxZ - room.minZ + .8f));
             AddBox(world, "WallEast", new Vector3(room.maxX + .3f, wallY, 0f),
                 new Vector3(.6f, height, room.maxZ - room.minZ + .8f));
+            AddRoomShell(world, room, height);
             return room;
         }
 
@@ -525,6 +526,7 @@ namespace ModernLabTrials.Editor
                 AddFloorSurface(world, center, y);
                 AddBox(world, "MezzanineCollider", center + Vector3.down * .5f, new Vector3(6f, 1f, 6f));
             }
+            AddMezzanineShell(world, area, y);
         }
 
         private static void AddRail(Transform world, Vector3 position, float length, bool alongX)
@@ -534,8 +536,113 @@ namespace ModernLabTrials.Editor
             float stretch = Mathf.Max(.2f, length / 6f);
             Vector3 scale = rail.transform.localScale;
             rail.transform.localScale = alongX ? new Vector3(stretch, scale.y, scale.z) : new Vector3(scale.x, scale.y, stretch);
+            rail.transform.position = position + Vector3.up * .95f;
             AddBox(world, "RailCollider", position + Vector3.up * .6f,
                 alongX ? new Vector3(length, 1.2f, .12f) : new Vector3(.12f, 1.2f, length));
+            AddShellBox(world, "RailBar", position + Vector3.up * 1.05f,
+                alongX ? new Vector3(length, .08f, .08f) : new Vector3(.08f, .08f, length), DarkSurfaceMaterial());
+            int posts = Mathf.Max(2, Mathf.RoundToInt(length / 2.2f) + 1);
+            for (int i = 0; i < posts; i++)
+            {
+                float t = posts == 1 ? .5f : i / (float)(posts - 1);
+                Vector3 post = position + (alongX ? Vector3.right : Vector3.forward) * (Mathf.Lerp(-length * .5f, length * .5f, t));
+                AddShellBox(world, "RailPost", post + Vector3.up * .58f,
+                    new Vector3(.09f, 1.16f, .09f), DarkSurfaceMaterial());
+            }
+        }
+
+        private static Material wallSurfaceMaterial, ceilingSurfaceMaterial, darkSurfaceMaterial;
+
+        private static Material UnlitSurfaceMaterial(string path, string name, Color color, string sourcePath)
+        {
+            Material existing = AssetDatabase.LoadAssetAtPath<Material>(path);
+            if (existing != null) return existing;
+            Shader shader = Shader.Find("Universal Render Pipeline/Unlit");
+            if (shader == null) shader = Shader.Find("Unlit/Color");
+            Material material = new Material(shader) { name = name };
+            material.SetColor("_BaseColor", color);
+            Material source = AssetDatabase.LoadAssetAtPath<Material>(sourcePath);
+            if (source != null && source.HasProperty("_BaseMap"))
+            {
+                material.SetTexture("_BaseMap", source.GetTexture("_BaseMap"));
+                material.SetTextureScale("_BaseMap", new Vector2(2f, 2f));
+            }
+            AssetDatabase.CreateAsset(material, path);
+            AssetDatabase.SaveAssets();
+            return material;
+        }
+
+        private static Material WallSurfaceMaterial()
+        {
+            if (wallSurfaceMaterial == null)
+                wallSurfaceMaterial = UnlitSurfaceMaterial(
+                    "Assets/Game/ModernLabTrials/Materials/MLT_WallSurface.mat", "MLT_WallSurface",
+                    new Color(.68f, .73f, .76f, 1f),
+                    "Assets/Game/Environment/ModernLab/Materials/Lab_White_Coursed.mat");
+            return wallSurfaceMaterial;
+        }
+
+        private static Material CeilingSurfaceMaterial()
+        {
+            if (ceilingSurfaceMaterial == null)
+                ceilingSurfaceMaterial = UnlitSurfaceMaterial(
+                    "Assets/Game/ModernLabTrials/Materials/MLT_CeilingSurface.mat", "MLT_CeilingSurface",
+                    new Color(.52f, .58f, .62f, 1f),
+                    "Assets/Game/Environment/ModernLab/Materials/Lab_Ceiling_Acoustic.mat");
+            return ceilingSurfaceMaterial;
+        }
+
+        private static Material DarkSurfaceMaterial()
+        {
+            if (darkSurfaceMaterial == null)
+                darkSurfaceMaterial = UnlitSurfaceMaterial(
+                    "Assets/Game/ModernLabTrials/Materials/MLT_DarkSurface.mat", "MLT_DarkSurface",
+                    new Color(.34f, .38f, .41f, 1f),
+                    "Assets/Game/Environment/ModernLab/Materials/Lab_Dark_Panel.mat");
+            return darkSurfaceMaterial;
+        }
+
+        private static void AddShellBox(Transform world, string name, Vector3 position, Vector3 size, Material material)
+        {
+            GameObject box = GameObject.CreatePrimitive(PrimitiveType.Cube);
+            box.name = name;
+            box.transform.SetParent(world, false);
+            box.transform.position = position;
+            box.transform.localScale = size;
+            Collider collider = box.GetComponent<Collider>();
+            if (collider != null) Object.DestroyImmediate(collider);
+            MeshRenderer renderer = box.GetComponent<MeshRenderer>();
+            if (material != null) renderer.sharedMaterial = material;
+            renderer.shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.Off;
+            renderer.receiveShadows = false;
+        }
+
+        private static void AddRoomShell(Transform world, Room room, float height)
+        {
+            float width = room.maxX - room.minX, depth = room.maxZ - room.minZ;
+            Material wall = WallSurfaceMaterial();
+            AddShellBox(world, "ShellSouth", new Vector3(0f, height * .5f, room.minZ - .45f),
+                new Vector3(width + 2f, height, .4f), wall);
+            AddShellBox(world, "ShellNorth", new Vector3(0f, height * .5f, room.maxZ + .45f),
+                new Vector3(width + 2f, height, .4f), wall);
+            AddShellBox(world, "ShellWest", new Vector3(room.minX - .45f, height * .5f, 0f),
+                new Vector3(.4f, height, depth + 2f), wall);
+            AddShellBox(world, "ShellEast", new Vector3(room.maxX + .45f, height * .5f, 0f),
+                new Vector3(.4f, height, depth + 2f), wall);
+            AddShellBox(world, "ShellCeiling", new Vector3(0f, height + .25f, 0f),
+                new Vector3(width + 2f, .4f, depth + 2f), CeilingSurfaceMaterial());
+        }
+
+        private static void AddMezzanineShell(Transform world, Rect area, float y)
+        {
+            AddShellBox(world, "MezzanineUnder", new Vector3(area.center.x, y - .12f, area.center.y),
+                new Vector3(area.width, .2f, area.height), WallSurfaceMaterial());
+            float[] xs = { area.xMin + .7f, area.xMax - .7f };
+            float[] zs = { area.yMin + .7f, area.yMax - .7f };
+            foreach (float x in xs)
+            foreach (float z in zs)
+                AddShellBox(world, "MezzanineColumn", new Vector3(x, y * .5f, z),
+                    new Vector3(.28f, y, .28f), WallSurfaceMaterial());
         }
 
         private static void AddFloorSurface(Transform world, Vector3 center, float y)
