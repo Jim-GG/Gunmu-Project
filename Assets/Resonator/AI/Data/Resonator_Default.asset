@@ -212,7 +212,7 @@ MonoBehaviour:
           m_PreInfinity: 2
           m_PostInfinity: 2
           m_RotationOrder: 4
-    startDistance: 1.6
+    startDistance: 1.3
   kick:
     animation:
       track: {fileID: 11400000, guid: 2262a8bf734087949a6aadd036dfc2e0, type: 2}
@@ -304,7 +304,7 @@ MonoBehaviour:
           m_PreInfinity: 2
           m_PostInfinity: 2
           m_RotationOrder: 4
-    startDistance: 1.75
+    startDistance: 1.67
   attack:
     animation:
       track: {fileID: 11400000, guid: 19db1f1ea2c95214fa28e2026977111f, type: 2}
@@ -452,7 +452,7 @@ MonoBehaviour:
           m_PreInfinity: 2
           m_PostInfinity: 2
           m_RotationOrder: 4
-    startDistance: 1.7
+    startDistance: 1.5
   wakeRevealFrame: 520
   feedingResumeFrame: 421
   feedingRevealFrame: 490

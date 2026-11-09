@@ -8,7 +8,7 @@ using UnityEditor.SceneManagement;
 using UnityEngine.Rendering;
 namespace Resonator.Editor {
  public static class ResonatorImport {
-  const string R="Assets/Resonator/";
+  const string R="Assets/Game/Enemies/Resonator/";
   static Material Material(string label,bool crystal){
    string name=(crystal?"Crystal_":"")+label+"_Unity";string path=R+"Materials/"+name+".mat";
    var m=AssetDatabase.LoadAssetAtPath<Material>(path);if(!m){m=new Material(Shader.Find("Universal Render Pipeline/Lit"));AssetDatabase.CreateAsset(m,path);}

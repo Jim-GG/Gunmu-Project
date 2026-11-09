@@ -18,7 +18,7 @@ public class ChargedPunchPulse : MonoBehaviour
         ChargedPunchPulse pulse = effect.AddComponent<ChargedPunchPulse>();
         pulse.tier = level;
         pulse.born = Time.unscaledTime;
-        pulse.color = level == 0 ? Color.white : level == 1 ? Color.cyan
+        pulse.color = level == 0 ? Color.white : level == 1 ? new Color(0.81f, 0.55f, 1f)
             : level == 2 ? new Color(1f, 0.7f, 0.1f) : new Color(1f, 0.25f, 0.05f);
         pulse.line = effect.AddComponent<LineRenderer>();
         pulse.line.useWorldSpace = false;

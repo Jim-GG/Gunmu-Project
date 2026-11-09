@@ -46,7 +46,7 @@ public class KineticBox : MonoBehaviour, IPuzzleResettable
     [SerializeField, InspectorName("特殊状态材质（留空 = 直接在静态材质上染色）")] private Material stateMaterial;
     [SerializeField, InspectorName("发光强度"), Min(0f)] private float stateEmissionIntensity = 1.5f;
     [SerializeField, InspectorName("静态颜色")] private Color normalColor = new Color(0.95f, 0.75f, 0.15f, 1f);
-    [SerializeField, InspectorName("子弹时间高亮色")] private Color bulletTimeHighlightColor = new Color(0.0f, 1.0f, 0.95f, 1f);
+    [SerializeField, InspectorName("子弹时间高亮色")] private Color bulletTimeHighlightColor = new Color(0.76f, 0.48f, 1f, 1f);
     [SerializeField, InspectorName("子弹时间瞄准色")] private Color bulletTimeHoverColor = new Color(0.35f, 1.0f, 0.2f, 1f);
     [SerializeField, InspectorName("锁定基础色")] private Color lockedBaseColor = new Color(0.85f, 0.15f, 1.0f, 1f);
     [SerializeField, InspectorName("锁定充能色")] private Color lockedChargedColor = new Color(1.0f, 0.15f, 0.05f, 1f);

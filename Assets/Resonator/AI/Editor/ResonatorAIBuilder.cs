@@ -12,7 +12,7 @@ namespace Resonator.AI.Editor
 {
     public static class ResonatorAIBuilder
     {
-        const string Root="Assets/Resonator/AI/";
+        const string Root="Assets/Game/Enemies/Resonator/AI/";
         static T Asset<T>(string path) where T:UnityEngine.Object=>AssetDatabase.LoadAssetAtPath<T>(path);
         static Transform Bone(GameObject go,string suffix)=>go.GetComponentsInChildren<Transform>(true).First(t=>t.name=="ValveBiped.Bip01_"+suffix);
         static T Component<T>(GameObject go) where T:Component {var c=go.GetComponent<T>();if(!c)c=go.AddComponent<T>();return c;}
@@ -35,18 +35,18 @@ namespace Resonator.AI.Editor
             Directory.CreateDirectory(Root+"Data");Directory.CreateDirectory(Root+"Prefabs");AssetDatabase.Refresh();
             // These older converted FBXs include a bind-pose key before the motion.
             // Keep it out of loops and out of the feign-death opening pose.
-            foreach(var path in Directory.GetFiles("Assets/Resonator/Animations","Zombie_*.fbx"))
+            foreach(var path in Directory.GetFiles("Assets/Game/Enemies/Resonator/Animations","Zombie_*.fbx"))
             {
                 var importer=(ModelImporter)AssetImporter.GetAtPath(path);var clips=importer.clipAnimations;bool changed=false;
                 foreach(var clip in clips)if(clip.firstFrame<2){clip.firstFrame=2;changed=true;}
                 if(changed){importer.clipAnimations=clips;importer.SaveAndReimport();}
             }
-            var model=Asset<GameObject>("Assets/Resonator/Models/Resonator.fbx");var probe=(GameObject)PrefabUtility.InstantiatePrefab(model);probe.name="Motion extraction temporary";
+            var model=Asset<GameObject>("Assets/Game/Enemies/Resonator/Models/Resonator.fbx");var probe=(GameObject)PrefabUtility.InstantiatePrefab(model);probe.name="Motion extraction temporary";
             Dictionary<string,ResonatorMotionTrack> tracks;
             try
             {
                 Vector3 reference=probe.transform.InverseTransformPoint(Bone(probe,"Pelvis").position);
-                var paths=Directory.GetFiles("Assets/Resonator/Animations","*.fbx");
+                var paths=Directory.GetFiles("Assets/Game/Enemies/Resonator/Animations","*.fbx");
                 tracks=paths.Select(p=>AssetDatabase.LoadAllAssetsAtPath(p).OfType<AnimationClip>().First(c=>!c.name.StartsWith("__"))).ToDictionary(c=>c.name,c=>Extract(probe,c,reference));
             }
             finally{UnityEngine.Object.DestroyImmediate(probe);}
@@ -73,7 +73,7 @@ namespace Resonator.AI.Editor
             var root=new GameObject("Resonator Agent");
             try
             {
-                var visual=(GameObject)PrefabUtility.InstantiatePrefab(Asset<GameObject>("Assets/Resonator/Prefabs/ResonatorScientist.prefab"));visual.name="Visual";visual.transform.SetParent(root.transform,false);
+                var visual=(GameObject)PrefabUtility.InstantiatePrefab(Asset<GameObject>("Assets/Game/Enemies/Resonator/Prefabs/ResonatorScientist.prefab"));visual.name="Visual";visual.transform.SetParent(root.transform,false);
                 // Revert transient editor pose: the FBX bind transforms are the reference.
                 using(var bind=new BindPose(model))
                 {
@@ -132,7 +132,7 @@ namespace Resonator.AI.Editor
             var scene=EditorSceneManager.NewScene(NewSceneSetup.EmptyScene,NewSceneMode.Additive);SceneManager.SetActiveScene(scene);
             var world=new GameObject("Navigation World");
             var ground=Box("Floor",new Vector3(0,-.2f,2),new Vector3(34,.4f,34),world.transform);
-            var material=Asset<Material>("Assets/Resonator/Materials/Ground.mat");if(material)ground.GetComponent<Renderer>().sharedMaterial=material;
+            var material=Asset<Material>("Assets/Game/Enemies/Resonator/Materials/Ground.mat");if(material)ground.GetComponent<Renderer>().sharedMaterial=material;
             Box("Path obstacle",new Vector3(-3,1.25f,2),new Vector3(1,2.5f,4),world.transform);
             Box("Crystal wall",new Vector3(10,1.5f,9),new Vector3(.6f,3,5),world.transform);
             foreach(var p in new[]{new Vector3(-16,1.5f,2),new Vector3(16,1.5f,2)})Box("Boundary",p,new Vector3(.5f,3,33),world.transform);
@@ -141,11 +141,9 @@ namespace Resonator.AI.Editor
             string navPath=Root+"Scenes/ResonatorArenaNav.asset";
             // A new asset path is generated on rebuild so a loaded NavMeshData is never destroyed.
             navPath=AssetDatabase.GenerateUniqueAssetPath(navPath);AssetDatabase.CreateAsset(surface.navMeshData,navPath);
-            var playerPrefab=Asset<GameObject>("Assets/Prefabs/Player.prefab");
-            if(!playerPrefab)throw new InvalidOperationException("Missing Assets/Prefabs/Player.prefab");
-            var player=(GameObject)PrefabUtility.InstantiatePrefab(playerPrefab,scene);player.name="Arena Player";player.transform.position=new Vector3(0,0,-7);
-            var target=Component<ResonatorTarget>(player);target.eyes=player.transform.Find("CameraPivot/Main Camera");target.combat=player.GetComponent<PlayerCombatController>();
-            var bridge=Component<ResonatorPlayerBridge>(player);bridge.actor=target;bridge.movement=player.GetComponent<PlayerMovement>();bridge.punch=player.GetComponent<PlayerChargedPunch>();
+            var player=(GameObject)PrefabUtility.InstantiatePrefab(Asset<GameObject>("Assets/Game/Player/Prefabs/FirstPersonPlayer.prefab"),scene);player.name="Arena Player";player.transform.position=new Vector3(0,0,-7);
+            var target=Component<ResonatorTarget>(player);target.vitals=Component<FirstPerson.FirstPersonVitals>(player);target.gauntlet=player.GetComponent<FirstPerson.GauntletCombat>();target.eyes=player.transform.Find("View Pivot");
+            var bridge=Component<ResonatorPlayerBridge>(player);bridge.actor=target;bridge.motor=player.GetComponent<FirstPerson.FirstPersonMotor>();bridge.combat=target.gauntlet;bridge.attackOrigin=target.eyes;
             var positions=new[]{new Vector3(-9,0,4),new Vector3(-5,0,10),new Vector3(0,0,9),new Vector3(5,0,5),new Vector3(8.7f,0,9)};
             var enemies=new List<ResonatorEnemy>();
             for(int i=0;i<5;i++)
@@ -155,7 +153,7 @@ namespace Resonator.AI.Editor
                 if(i==4)
                 {
                     var crystal=GameObject.CreatePrimitive(PrimitiveType.Cube);crystal.name="Resonance Crystal";crystal.transform.SetParent(world.transform);crystal.transform.position=new Vector3(9.7f,1.5f,9);crystal.transform.localScale=new Vector3(.35f,.8f,.45f);crystal.transform.rotation=Quaternion.Euler(10,20,30);
-                    var cm=Asset<Material>("Assets/Resonator/Materials/Crystal_Clothing_Unity.mat");if(cm)crystal.GetComponent<Renderer>().sharedMaterial=cm;
+                    var cm=Asset<Material>("Assets/Game/Enemies/Resonator/Materials/Crystal_Clothing_Unity.mat");if(cm)crystal.GetComponent<Renderer>().sharedMaterial=cm;
                     enemy.crystalFocus=crystal.transform;go.transform.LookAt(new Vector3(crystal.transform.position.x,0,crystal.transform.position.z));
                 }
             }
@@ -163,7 +161,7 @@ namespace Resonator.AI.Editor
             surface.BuildNavMesh();var finalData=surface.navMeshData;AssetDatabase.CreateAsset(finalData,AssetDatabase.GenerateUniqueAssetPath(Root+"Scenes/ResonatorArenaNavFinal.asset"));
             var hud=new GameObject("AI Arena HUD").AddComponent<ResonatorArenaHUD>();hud.player=bridge;hud.enemies=enemies.ToArray();
             foreach(var d in new[]{new Vector3(-3,5,-5),new Vector3(4,4,5)}){var l=new GameObject("Arena Light",typeof(Light));l.transform.rotation=Quaternion.LookRotation(-d);l.GetComponent<Light>().type=LightType.Directional;l.GetComponent<Light>().intensity=.85f;}
-            RenderSettings.ambientLight=new Color(.35f,.37f,.43f);RenderSettings.skybox=Asset<Material>("Assets/Resonator/Materials/StudioSky.mat");
+            RenderSettings.ambientLight=new Color(.35f,.37f,.43f);RenderSettings.skybox=Asset<Material>("Assets/Game/Enemies/Resonator/Materials/StudioSky.mat");
             var probe=new GameObject("Arena Reflections").AddComponent<ReflectionProbe>();probe.transform.position=Vector3.up*2;probe.size=Vector3.one*40;probe.mode=UnityEngine.Rendering.ReflectionProbeMode.Realtime;probe.refreshMode=UnityEngine.Rendering.ReflectionProbeRefreshMode.OnAwake;probe.resolution=128;
             EditorSceneManager.SaveScene(scene,Root+"Scenes/ResonatorCombatArena.unity");AssetDatabase.SaveAssets();Selection.activeGameObject=enemies[0].gameObject;
         }

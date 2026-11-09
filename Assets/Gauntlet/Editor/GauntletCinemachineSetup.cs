@@ -20,7 +20,7 @@ namespace Gauntlet.Editor
             if (!player) player = UnityEngine.Object.FindObjectsByType<GauntletAnimationPlayer>(FindObjectsInactive.Include, FindObjectsSortMode.None)
                 .First(p => p.gameObject.scene == camera.gameObject.scene);
             Directory.CreateDirectory("Temp/GauntletCameraFix");
-            const string temporaryBackup = "Assets/Gauntlet/Scenes/CameraConstraint_Before.unity";
+            const string temporaryBackup = "Assets/Game/Player/Gauntlet/Scenes/CameraConstraint_Before.unity";
             EditorSceneManager.SaveScene(camera.gameObject.scene, temporaryBackup, true);
             File.Copy(temporaryBackup, "Temp/GauntletCameraFix/BeforeCameraConstraint.unity", true);
             AssetDatabase.DeleteAsset(temporaryBackup);

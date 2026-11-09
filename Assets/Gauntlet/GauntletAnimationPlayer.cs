@@ -49,6 +49,9 @@ namespace Gauntlet
             meshRenderer.SetPropertyBlock(properties, 0);
         }
 
+        public void SuspendAutomaticPlayback()
+        {if(returnToIdle!=null)StopCoroutine(returnToIdle);returnToIdle=null;}
+
         public void PlayControlled(string state, float blend = .025f)
         {
             if (returnToIdle != null) StopCoroutine(returnToIdle);

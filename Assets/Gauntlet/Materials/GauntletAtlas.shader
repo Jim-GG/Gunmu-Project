@@ -57,7 +57,9 @@ Shader "Gauntlet/Atlas URP"
     InputData input=(InputData)0;input.positionWS=v.positionWS;input.normalWS=NormalizeNormalPerPixel(mul(normalTS,half3x3(t,b,n)));input.viewDirectionWS=GetWorldSpaceNormalizeViewDir(v.positionWS);input.shadowCoord=TransformWorldToShadowCoord(v.positionWS);input.fogCoord=v.fog;input.vertexLighting=VertexLighting(v.positionWS,input.normalWS);input.bakedGI=SampleSH(input.normalWS);input.normalizedScreenSpaceUV=GetNormalizedScreenSpaceUV(v.positionCS);input.shadowMask=half4(1,1,1,1);
     half energy=1-smoothstep(.05,.13,abs(emit.a-.33));half lamp=1-smoothstep(.05,.13,abs(emit.a-.66));
     half pulse=1+energy*(sin(_Time.y*7+v.uv.y*80)*_PulseAmount+_Charge*2)+lamp*sin(_Time.y*1.7)*_PulseAmount;
-    SurfaceData s=(SurfaceData)0;s.albedo=albedo.rgb;s.metallic=mask.r;s.smoothness=mask.a;s.normalTS=normalTS;s.occlusion=1;s.alpha=1;s.emission=emit.rgb*_EmissionStrength*pulse;
+    SurfaceData s=(SurfaceData)0;s.albedo=albedo.rgb;s.metallic=mask.r;s.smoothness=mask.a;s.normalTS=normalTS;s.occlusion=1;s.alpha=1;half energyIntensity=max(emit.r,max(emit.g,emit.b));
+    half3 energyTint=lerp(half3(.48,.24,.76),half3(.81,.55,1),_Charge);
+    s.emission=lerp(emit.rgb,energyIntensity*energyTint,energy)*_EmissionStrength*pulse;
     half4 color=UniversalFragmentPBR(input,s);color.rgb=MixFog(color.rgb,input.fogCoord);return color;
    }
    ENDHLSL

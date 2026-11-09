@@ -3,6 +3,7 @@ using System.Linq;
 using UnityEditor;
 using UnityEditorInternal;
 using UnityEngine;
+using GameActions;
 
 namespace Resonator.AI.Editor
 {
@@ -11,6 +12,11 @@ namespace Resonator.AI.Editor
         static readonly string[] Keys={"headbutt","kick","attack","punch","wake","feeding","idleSlow","idleRestless","resonance","agonizing","scream","walk","run","hit","stumble","death"};
         static readonly string[] Names={"Headbutt / 头槌","Kicking / 踢击","Attack / 双手砸击","Punching / 挥击","Wake / 装死起身","Feeding / 进食","Idle Slow","Idle Restless","Resonance / 共鸣","Agonizing","Scream","Walking","Running","Reaction Hit","Stumbling","Death"};
         [SerializeField] ResonatorTuning tuning;
+        [SerializeField] ActionSet actionSet;
+        ScriptableObject Profile=>actionSet?(ScriptableObject)actionSet:tuning;
+        bool IsAttackAction=>ActionAttack()!=null;
+        string[] ActionNames=>actionSet?actionSet.actions.Select(a=>a.id).ToArray():Names;
+        float TransitionBlend=>actionSet?(SharedRule()?.blend??0):(Rule()?.blend??0);
         [SerializeField] int mode,actionIndex,transitionIndex,selectedHit,selectedEvent;
         [SerializeField] float frame,transitionTime,sourceExitFrame=40,rate=1;
         [SerializeField] bool hitBranch=true,showInactive=true,showTarget=true,loop=true,previewRootMotion;
@@ -22,7 +28,7 @@ namespace Resonator.AI.Editor
         ReorderableList hits,events;
         PreviewRenderUtility preview;
         GameObject model,previewRoot;
-        ResonatorMotionPlayer player;
+        ActionMotionPlayer player;
         ResonatorHitbox geometry;
         bool playing,previewSuspended;
         double lastTime;
@@ -34,11 +40,13 @@ namespace Resonator.AI.Editor
         int dragKind=-1;
 
         [MenuItem("Tools/Resonator/Animation Workbench 动画与命中盒")]
-        public static void OpenMenu()=>Open(Selection.activeObject as ResonatorTuning);
+        public static void OpenMenu(){if(Selection.activeObject is ActionSet set)OpenShared(set);else Open(Selection.activeObject as ResonatorTuning);}
+        [MenuItem("Tools/Game Actions/Animation Workbench 动画工作台")]
+        public static void OpenUnified()=>OpenMenu();
         public static ResonatorAnimationWorkbench Open(ResonatorTuning profile)
         {
-            var w=GetWindow<ResonatorAnimationWorkbench>();w.titleContent=new GUIContent("共鸣者动画工作台");w.minSize=new Vector2(930,680);
-            w.SetProfile(profile?profile:AssetDatabase.LoadAssetAtPath<ResonatorTuning>("Assets/Resonator/AI/Data/Resonator_Default.asset"));w.Show();return w;
+            var w=GetWindow<ResonatorAnimationWorkbench>();w.titleContent=new GUIContent("动作工作台");w.minSize=new Vector2(930,680);
+            w.SetProfile(profile?profile:AssetDatabase.LoadAssetAtPath<ResonatorTuning>("Assets/Game/Enemies/Resonator/AI/Data/Resonator_Default.asset"));w.Show();return w;
         }
         void OnEnable(){EditorApplication.update+=Tick;EditorApplication.playModeStateChanged+=PlayModeChanged;Undo.undoRedoPerformed+=Repaint;lastTime=EditorApplication.timeSinceStartup;}
         void OnDisable(){EditorApplication.update-=Tick;EditorApplication.playModeStateChanged-=PlayModeChanged;Undo.undoRedoPerformed-=Repaint;Cleanup();}
@@ -48,13 +56,13 @@ namespace Resonator.AI.Editor
             if(previewSuspended)Cleanup();else Repaint();
         }
         void Cleanup(){if(player)player.StopForRagdoll();if(previewRoot)DestroyImmediate(previewRoot);else if(model)DestroyImmediate(model);previewRoot=null;model=null;player=null;geometry=null;if(preview!=null)preview.Cleanup();preview=null;}
-        void SetProfile(ResonatorTuning profile){tuning=profile;data=profile?new SerializedObject(profile):null;hits=events=moves=null;playing=false;Repaint();}
-        public void ShowAction(int index,float atFrame){mode=0;actionIndex=Mathf.Clamp(index,0,Keys.Length-1);frame=atFrame;hits=events=moves=null;Repaint();}
+        void SetProfile(ResonatorTuning profile){Cleanup();actionSet=null;tuning=profile;data=profile?new SerializedObject(profile):null;hits=events=moves=null;playing=false;Repaint();}
+        public void ShowAction(int index,float atFrame){mode=0;actionIndex=Mathf.Clamp(index,0,ActionNames.Length-1);frame=atFrame;hits=events=moves=null;Repaint();}
         public void ShowTransition(int index,float atSeconds){mode=1;transitionIndex=index;transitionTime=atSeconds;Repaint();}
         void Tick()
         {
             double now=EditorApplication.timeSinceStartup;float dt=Mathf.Min(.05f,(float)(now-lastTime));lastTime=now;
-            if(!playing||!tuning)return;
+            if(!playing||!Profile)return;
             if(mode==0)
             {
                 var beat=ActionBeat();if(beat==null||!beat.track)return;
@@ -63,13 +71,14 @@ namespace Resonator.AI.Editor
             }
             else
             {
-                var rule=Rule();if(rule==null)return;transitionTime+=dt*rate;
-                if(transitionTime>Mathf.Max(.5f,rule.blend)+.65f){transitionTime=loop?-.5f:Mathf.Max(.5f,rule.blend)+.65f;if(!loop)playing=false;}
+                if(actionSet?SharedRule()==null:Rule()==null)return;transitionTime+=dt*rate;
+                if(transitionTime>Mathf.Max(.5f,TransitionBlend)+.65f){transitionTime=loop?-.5f:Mathf.Max(.5f,TransitionBlend)+.65f;if(!loop)playing=false;}
             }
             Repaint();
         }
         MotionBeat ActionBeat()
         {
+            if(actionSet)return SharedAction()?.Motion;
             if(!tuning)return null;
             switch(actionIndex)
             {
@@ -79,19 +88,28 @@ namespace Resonator.AI.Editor
                 case 13:return tuning.hit;case 14:return tuning.stumble;default:return tuning.death;
             }
         }
-        AttackBeat ActionAttack()=>actionIndex==0?tuning.headbutt:actionIndex==1?tuning.kick:actionIndex==2?tuning.attack:actionIndex==3?tuning.punch:null;
+        AttackBeat ActionAttack()=>actionSet?(SharedAction()?.isAttack==true?SharedAction().action:null):actionIndex==0?tuning.headbutt:actionIndex==1?tuning.kick:actionIndex==2?tuning.attack:actionIndex==3?tuning.punch:null;
         ResonatorTransition Rule()=>tuning&&tuning.transitions!=null&&tuning.transitions.Length>0?tuning.transitions[Mathf.Clamp(transitionIndex,0,tuning.transitions.Length-1)]:null;
         SerializedProperty BeatProperty()
-        {var p=data.FindProperty(Keys[actionIndex]);return actionIndex<4?p.FindPropertyRelative("animation"):p;}
+        {if(actionSet)return SharedActionProperty().FindPropertyRelative("action").FindPropertyRelative("animation");var p=data.FindProperty(Keys[actionIndex]);return actionIndex<4?p.FindPropertyRelative("animation"):p;}
+        SerializedProperty AttackProperty()=>actionSet?SharedActionProperty().FindPropertyRelative("action"):data.FindProperty(Keys[actionIndex]);
         void OnGUI()
         {
             EditorGUILayout.BeginHorizontal(EditorStyles.toolbar);
-            var profile=(ResonatorTuning)EditorGUILayout.ObjectField(tuning,typeof(ResonatorTuning),false,GUILayout.MinWidth(180));if(profile!=tuning)SetProfile(profile);
-            if(GUILayout.Button("保存资产",EditorStyles.toolbarButton,GUILayout.Width(70))&&tuning){EditorUtility.SetDirty(tuning);AssetDatabase.SaveAssetIfDirty(tuning);}
+            var profile=EditorGUILayout.ObjectField(Profile,typeof(ScriptableObject),false,GUILayout.MinWidth(180));if(profile!=Profile){if(profile is ActionSet set)SetSharedProfile(set);else if(profile is ResonatorTuning legacy)SetProfile(legacy);}
+            if(GUILayout.Button("拳套",EditorStyles.toolbarButton,GUILayout.Width(45)))SetSharedProfile(AssetDatabase.LoadAssetAtPath<ActionSet>("Assets/Game/Shared/Actions/Resources/GauntletActions.asset"));
+            if(GUILayout.Button("共鸣者",EditorStyles.toolbarButton,GUILayout.Width(55)))SetProfile(AssetDatabase.LoadAssetAtPath<ResonatorTuning>("Assets/Game/Enemies/Resonator/AI/Data/Resonator_Default.asset"));
+            if(GUILayout.Button("保存资产",EditorStyles.toolbarButton,GUILayout.Width(70))&&Profile){EditorUtility.SetDirty(Profile);AssetDatabase.SaveAssetIfDirty(Profile);}
             if(GUILayout.Button("重置视角",EditorStyles.toolbarButton,GUILayout.Width(70))){orbit=new Vector2(140,12);distance=4.5f;}
             EditorGUILayout.EndHorizontal();
-            if(!tuning){EditorGUILayout.HelpBox("指定一个 Resonator Tuning 资产。",MessageType.Info);return;}
-            if(data==null||data.targetObject!=tuning)data=new SerializedObject(tuning);data.Update();
+            if(!Profile){EditorGUILayout.HelpBox("指定一个 Action Set 或 Resonator Tuning 资产。",MessageType.Info);return;}
+            if(data==null||data.targetObject!=Profile)data=new SerializedObject(Profile);data.Update();
+            if(actionSet&&(actionSet.actions==null||actionSet.actions.Length==0))
+            {
+                EditorGUILayout.PropertyField(data.FindProperty("previewModel"));EditorGUILayout.PropertyField(data.FindProperty("firstPersonPreview"));EditorGUILayout.PropertyField(data.FindProperty("sockets"),true);
+                if(GUILayout.Button("创建第一个动作")){Undo.RecordObject(Profile,"Add first action");actionSet.actions=new[]{new ActionDefinition{id="Idle"}};EditorUtility.SetDirty(Profile);data.Update();}
+                data.ApplyModifiedProperties();return;
+            }
             int newMode=GUILayout.Toolbar(mode,new[]{"动作 · Hitbox · 逐帧事件","两段动画混合预览"});if(newMode!=mode){mode=newMode;playing=false;hits=events=moves=null;}
             EditorGUILayout.BeginHorizontal();
             EditorGUILayout.BeginVertical(GUILayout.Width(355));scroll=EditorGUILayout.BeginScrollView(scroll);
@@ -107,18 +125,19 @@ namespace Resonator.AI.Editor
         }
         void DrawActionControls()
         {
-            EditorGUI.BeginChangeCheck();int next=EditorGUILayout.Popup("动作",actionIndex,Names);
+            EditorGUI.BeginChangeCheck();int next=EditorGUILayout.Popup("动作",actionIndex,ActionNames);
             if(EditorGUI.EndChangeCheck()){actionIndex=next;frame=ActionBeat().startFrame;selectedHit=selectedEvent=0;hits=events=moves=null;playing=false;}
+            if(actionSet)DrawSharedActionOptions();
             var beat=BeatProperty();EditorGUILayout.PropertyField(beat.FindPropertyRelative("track"));
             foreach(var field in new[]{"startFrame","endFrame","speed","loop","blend"})EditorGUILayout.PropertyField(beat.FindPropertyRelative(field));
-            if(actionIndex<4)DrawMovementControls();
+            if(IsAttackAction)DrawMovementControls();
             EditorGUILayout.Space();EditorGUILayout.LabelField("命中盒 / 真实物理碰撞",EditorStyles.boldLabel);
             showInactive=EditorGUILayout.Toggle("显示未激活的盒体",showInactive);showTarget=EditorGUILayout.Toggle("显示玩家参考体",showTarget);
             previewTargetDistance=EditorGUILayout.Slider("玩家初始距离（米）",previewTargetDistance,.6f,5);
             previewRootMotion=EditorGUILayout.Toggle("预览完整位移（无碰撞）",previewRootMotion);
-            if(actionIndex<4)
+            if(IsAttackAction)
             {
-                var array=data.FindProperty(Keys[actionIndex]).FindPropertyRelative("hits");
+                var array=AttackProperty().FindPropertyRelative("hits");
                 if(hits==null||hits.serializedProperty.propertyPath!=array.propertyPath)hits=MakeList(array,true);
                 hits.DoLayoutList();selectedHit=hits.index;
                 if(selectedHit>=0&&selectedHit<array.arraySize)
@@ -142,20 +161,21 @@ namespace Resonator.AI.Editor
                     if(p.FindPropertyRelative("endFrame").floatValue<p.FindPropertyRelative("startFrame").floatValue)EditorGUILayout.HelpBox("结束帧小于开始帧，这个盒体不会生效。",MessageType.Warning);
                 }
             }
-            else EditorGUILayout.HelpBox("只有四个攻击动作会执行伤害检测；共鸣时的 Headbutt 不会伤害玩家。",MessageType.Info);
+            else EditorGUILayout.HelpBox(actionSet?"将动作设为攻击后，可以编辑有效帧和命中盒。":"只有四个攻击动作会执行伤害检测；共鸣时的 Headbutt 不会伤害玩家。",MessageType.Info);
             EditorGUILayout.Space();EditorGUILayout.LabelField("逐帧事件",EditorStyles.boldLabel);
             var markers=beat.FindPropertyRelative("events");if(events==null||events.serializedProperty.propertyPath!=markers.propertyPath)events=MakeList(markers,false);
             events.DoLayoutList();selectedEvent=events.index;
             if(selectedEvent>=0&&selectedEvent<markers.arraySize)
             {
                 var p=markers.GetArrayElementAtIndex(selectedEvent);
-                foreach(var field in new[]{"name","frame","kind","payload","value","anchor","customBone","position"})EditorGUILayout.PropertyField(p.FindPropertyRelative(field));
+                foreach(var field in new[]{"name","frame","kind","payload","value","anchor","customBone","position","rotation","followAnchor"})EditorGUILayout.PropertyField(p.FindPropertyRelative(field));
                 var kind=(MotionEventKind)p.FindPropertyRelative("kind").enumValueIndex;
+                if(kind==MotionEventKind.Sound)EditorGUILayout.PropertyField(p.FindPropertyRelative("sound"));
                 if(kind==MotionEventKind.Effect){EditorGUILayout.PropertyField(p.FindPropertyRelative("effect"));EditorGUILayout.PropertyField(p.FindPropertyRelative("effectLifetime"));}
                 EditorGUILayout.BeginHorizontal();if(GUILayout.Button("事件放在当前帧"))p.FindPropertyRelative("frame").floatValue=frame;
                 if(GUILayout.Button("定位事件"))frame=p.FindPropertyRelative("frame").floatValue;EditorGUILayout.EndHorizontal();
             }
-            EditorGUILayout.HelpBox("Signal：运行时触发敌人的 On Animation Event 和 C# FrameEventReceived。Effect：生成特效。Sound 类型仅保留作用序列化兼容，不再播放。编辑预览只显示标记，不执行事件或造成伤害。",MessageType.Info);
+            EditorGUILayout.HelpBox("Signal：运行时触发敌人的 On Animation Event 和 C# FrameEventReceived。Sound / Effect：播放音效或生成特效。编辑预览只显示标记，不执行事件或造成伤害。",MessageType.Info);
         }
         ReorderableList MakeList(SerializedProperty array,bool isHit)
         {
@@ -170,15 +190,16 @@ namespace Resonator.AI.Editor
             };
             list.onAddCallback=l=>
             {
-                data.ApplyModifiedProperties();Undo.RecordObject(tuning,isHit?"Add hitbox":"Add frame event");
-                if(isHit){var attack=ActionAttack();var hit=new HitWindow{label="Hitbox "+(attack.hits.Length+1),startFrame=frame,endFrame=Mathf.Min(ActionBeat().End,frame+3),anchor=actionIndex==0?HitboxAnchor.Head:actionIndex==1?HitboxAnchor.RightFoot:HitboxAnchor.RightHand,position=Vector3.zero};attack.hits=attack.hits.Concat(new[]{hit}).ToArray();l.index=attack.hits.Length-1;}
+                data.ApplyModifiedProperties();Undo.RecordObject(Profile,isHit?"Add hitbox":"Add frame event");
+                if(isHit){var attack=ActionAttack();var hit=new HitWindow{label="Hitbox "+(attack.hits.Length+1),startFrame=frame,endFrame=Mathf.Min(ActionBeat().End,frame+3),anchor=actionSet?HitboxAnchor.Root:actionIndex==0?HitboxAnchor.Head:actionIndex==1?HitboxAnchor.RightFoot:HitboxAnchor.RightHand,position=Vector3.zero};attack.hits=attack.hits.Concat(new[]{hit}).ToArray();l.index=attack.hits.Length-1;}
                 else{var b=ActionBeat();b.events=(b.events??Array.Empty<MotionFrameEvent>()).Concat(new[]{new MotionFrameEvent{frame=frame}}).ToArray();l.index=b.events.Length-1;}
-                EditorUtility.SetDirty(tuning);data.Update();Repaint();
+                EditorUtility.SetDirty(Profile);data.Update();Repaint();
             };
             return list;
         }
         void DrawTransitionControls()
         {
+            if(actionSet){DrawSharedTransitionControls();return;}
             var rules=tuning.transitions;if(rules==null||rules.Length==0){EditorGUILayout.HelpBox("先在 Tuning 中添加衔接规则。",MessageType.Info);return;}
             transitionIndex=EditorGUILayout.Popup("衔接",Mathf.Clamp(transitionIndex,0,rules.Length-1),rules.Select(r=>r.label).ToArray());var rule=Rule();
             if(rule.anySource)anySource=(EnemyState)EditorGUILayout.EnumPopup("预览来源动作",anySource);
@@ -223,19 +244,20 @@ namespace Resonator.AI.Editor
             if(preview!=null&&model)return;
             Cleanup();preview=new PreviewRenderUtility();preview.cameraFieldOfView=32;preview.ambientColor=new Color(.38f,.4f,.46f);
             preview.lights[0].intensity=1.6f;preview.lights[0].transform.rotation=Quaternion.Euler(35,25,0);preview.lights[1].intensity=1.4f;preview.lights[1].transform.rotation=Quaternion.Euler(315,215,0);
-            var prefab=AssetDatabase.LoadAssetAtPath<GameObject>("Assets/Resonator/Prefabs/ResonatorScientist.prefab");
-            var agentPrefab=AssetDatabase.LoadAssetAtPath<GameObject>("Assets/Resonator/AI/Prefabs/ResonatorAgent.prefab");
+            var prefab=actionSet?actionSet.previewModel:AssetDatabase.LoadAssetAtPath<GameObject>("Assets/Game/Enemies/Resonator/Prefabs/ResonatorScientist.prefab");
+            var agentPrefab=AssetDatabase.LoadAssetAtPath<GameObject>("Assets/Game/Enemies/Resonator/AI/Prefabs/ResonatorAgent.prefab");
             var agentVisual=agentPrefab?agentPrefab.transform.Find("Visual"):null;
-            if(agentVisual)prefab=agentVisual.gameObject;
+            if(!actionSet&&agentVisual)prefab=agentVisual.gameObject;
             if(!prefab)throw new Exception("Missing Resonator visual prefab");
             model=Instantiate(prefab);model.name="Animation workbench isolated preview";model.hideFlags=HideFlags.HideAndDontSave;
             foreach(var b in model.GetComponentsInChildren<MonoBehaviour>(true))DestroyImmediate(b);
             foreach(var c in model.GetComponentsInChildren<Collider>())c.enabled=false;
-            var animator=model.GetComponent<Animator>();animator.runtimeAnimatorController=null;animator.applyRootMotion=false;
+            var animator=model.GetComponentInChildren<Animator>();animator.runtimeAnimatorController=null;animator.applyRootMotion=false;
             foreach(var renderer in model.GetComponentsInChildren<SkinnedMeshRenderer>())renderer.updateWhenOffscreen=true;
             previewRoot=new GameObject("Preview actor root"){hideFlags=HideFlags.HideAndDontSave};model.transform.SetParent(previewRoot.transform,false);
-            preview.AddSingleGO(previewRoot);player=model.AddComponent<ResonatorMotionPlayer>();player.animator=animator;player.hips=model.GetComponentsInChildren<Transform>().First(t=>t.name=="ValveBiped.Bip01_Pelvis");
+            preview.AddSingleGO(previewRoot);player=actionSet?(ActionMotionPlayer)animator.gameObject.AddComponent<ActionMotionPlayer>():model.AddComponent<ResonatorMotionPlayer>();player.animator=animator;player.hips=actionSet?null:model.GetComponentsInChildren<Transform>().First(t=>t.name=="ValveBiped.Bip01_Pelvis");
             geometry=new ResonatorHitbox(previewRoot.transform);
+            if(actionSet)geometry.Bind(HitboxAnchor.Root,preview.camera.transform);
         }
         void Sample()
         {
@@ -248,6 +270,7 @@ namespace Resonator.AI.Editor
             }
             else
             {
+                if(actionSet){SampleSharedTransition();return;}
                 var rule=Rule();if(rule==null)return;var from=tuning.BeatFor(rule.anySource?anySource:rule.from);var to=tuning.BeatFor(rule.to);if(from==null||to==null||!from.track||!to.track)return;
                 float exit=PreviewExitFrame(rule,from);
                 float entry=rule.entryFrame<0?to.startFrame:rule.entryFrame;
@@ -257,9 +280,11 @@ namespace Resonator.AI.Editor
         }
         void CameraSetup(float aspect)
         {
-            var camera=preview.camera;camera.aspect=aspect;camera.fieldOfView=32;camera.nearClipPlane=.02f;camera.farClipPlane=100;camera.clearFlags=CameraClearFlags.SolidColor;camera.backgroundColor=new Color(.10f,.12f,.15f);
+            var camera=preview.camera;camera.aspect=aspect;
+            if(actionSet){UpdateSharedPreviewBindings();if(firstPersonView){SetupFirstPersonCamera(camera);return;}}camera.fieldOfView=32;camera.nearClipPlane=.02f;camera.farClipPlane=100;camera.clearFlags=CameraClearFlags.SolidColor;camera.backgroundColor=new Color(.10f,.12f,.15f);
             var focus=new Vector3(0,.95f*(model?Mathf.Abs(model.transform.localScale.y):1),0);
             float cameraDistance=distance*(model?Mathf.Max(1,model.transform.localScale.magnitude/Mathf.Sqrt(3)):1);
+            if(actionSet&&actionSet.previewDistance>0){focus=actionSet.previewFocus;cameraDistance=actionSet.previewDistance*distance/4.5f;}
             if(mode==0&&previewRootMotion&&previewRoot)
             {
                 focus.z=showTarget?(previewRoot.transform.position.z+previewTargetDistance)*.5f:previewRoot.transform.position.z;
@@ -309,9 +334,10 @@ namespace Resonator.AI.Editor
         void DrawOverlay(Rect r)
         {
             Handles.BeginGUI();var old=Handles.color;
-            for(int i=-3;i<=3;i++){Segment(r,new Vector3(i,0,-3),new Vector3(i,0,3),new Color(.3f,.35f,.4f,.45f));Segment(r,new Vector3(-3,0,i),new Vector3(3,0,i),new Color(.3f,.35f,.4f,.45f));}
+            float floorY=actionSet&&actionSet.firstPersonPreview?-1.65f:0;
+            for(int i=-3;i<=3;i++){Segment(r,new Vector3(i,floorY,-3),new Vector3(i,floorY,3),new Color(.3f,.35f,.4f,.45f));Segment(r,new Vector3(-3,floorY,i),new Vector3(3,floorY,i),new Color(.3f,.35f,.4f,.45f));}
             DrawMovementOverlay(r);
-            if(showTarget)Volume(r,new HitWindow{shape=HitboxShape.Capsule},new HitboxPose(new Vector3(0,.9f,previewTargetDistance),Quaternion.identity,Vector3.one,.3f,1.8f),new Color(.3f,.8f,1,.7f));
+            if(showTarget)Volume(r,new HitWindow{shape=HitboxShape.Capsule},new HitboxPose(new Vector3(0,.9f+floorY,previewTargetDistance),Quaternion.identity,Vector3.one,.3f,1.8f),new Color(.3f,.8f,1,.7f));
             if(shownAttack!=null)for(int i=0;i<shownAttack.hits.Length;i++)
             {
                 var h=shownAttack.hits[i];if(h==null||!h.enabled)continue;bool active=shownFrame>=h.startFrame&&shownFrame<=h.endFrame&&player.DestinationWeight>=h.minimumBlendWeight;
@@ -323,7 +349,7 @@ namespace Resonator.AI.Editor
         }
         void DrawManipulators(Rect r)
         {
-            if(mode!=0||actionIndex>=4||shownAttack==null||selectedHit<0||selectedHit>=shownAttack.hits.Length)return;
+            if(mode!=0||!IsAttackAction||shownAttack==null||selectedHit<0||selectedHit>=shownAttack.hits.Length)return;
             var h=shownAttack.hits[selectedHit];if(h==null)return;var pose=geometry.Pose(h);var p=Project(r,pose.centre);
             var anchor=geometry.Anchor(h.anchor,h.customBone);var ev=Event.current;
             int id=GUIUtility.GetControlID(FocusType.Passive);var centerRect=new Rect(p.x-6,p.y-6,12,12);
@@ -339,7 +365,7 @@ namespace Resonator.AI.Editor
             {
                 int kind=centerRect.Contains(ev.mousePosition)?0:-1;
                 if(kind<0)for(int i=0;i<3;i++)if(new Rect(ends[i].x-7,ends[i].y-7,14,14).Contains(ev.mousePosition)){kind=i+1;break;}
-                if(kind>=0){Undo.RecordObject(tuning,"Move / resize hitbox");GUIUtility.hotControl=id;dragKind=kind;dragPoint=pose.centre;dragOffset=h.position;playing=false;ev.Use();}
+                if(kind>=0){Undo.RecordObject(Profile,"Move / resize hitbox");GUIUtility.hotControl=id;dragKind=kind;dragPoint=pose.centre;dragOffset=h.position;playing=false;ev.Use();}
             }
             if(GUIUtility.hotControl==id)
             {
@@ -358,7 +384,7 @@ namespace Resonator.AI.Editor
                         else if(h.shape==HitboxShape.Capsule&&axis==1)h.height=Mathf.Max(h.radius*2,h.height+delta*2);
                         else h.radius=Mathf.Max(.005f,h.radius+delta);
                     }
-                    EditorUtility.SetDirty(tuning);data.Update();ev.Use();Repaint();
+                    EditorUtility.SetDirty(Profile);data.Update();ev.Use();Repaint();
                 }
                 if(ev.type==EventType.MouseUp){GUIUtility.hotControl=0;dragKind=-1;ev.Use();}
             }
@@ -367,9 +393,9 @@ namespace Resonator.AI.Editor
         {
             if(mode==1)
             {
-                var rule=Rule();if(rule==null)return;transitionTime=EditorGUILayout.Slider("过渡时间（秒）",transitionTime,-.5f,Mathf.Max(.5f,rule.blend)+.65f);
+                if(actionSet?SharedRule()==null:Rule()==null)return;transitionTime=EditorGUILayout.Slider("过渡时间（秒）",transitionTime,-.5f,Mathf.Max(.5f,TransitionBlend)+.65f);
                 var r=GUILayoutUtility.GetRect(200,55,GUILayout.ExpandWidth(true));EditorGUI.DrawRect(r,new Color(.09f,.1f,.13f));
-                float span=Mathf.Max(.5f,rule.blend)+1.15f;float zero=r.x+.5f/span*r.width;float end=zero+rule.blend/span*r.width;
+                float span=Mathf.Max(.5f,TransitionBlend)+1.15f;float zero=r.x+.5f/span*r.width;float end=zero+TransitionBlend/span*r.width;
                 EditorGUI.DrawRect(new Rect(r.x,r.y+6,Mathf.Max(0,end-r.x),17),new Color(.2f,.4f,.65f));EditorGUI.DrawRect(new Rect(zero,r.y+28,r.xMax-zero,17),new Color(.2f,.6f,.4f));
                 GUI.Label(new Rect(r.x+5,r.y+6,300,18),"来源 → 淡出",EditorStyles.whiteMiniLabel);GUI.Label(new Rect(zero+5,r.y+28,300,18),"目标 → 淡入",EditorStyles.whiteMiniLabel);
                 float x=r.x+(transitionTime+.5f)/span*r.width;EditorGUI.DrawRect(new Rect(x,r.y,2,r.height),Color.white);return;
@@ -380,6 +406,7 @@ namespace Resonator.AI.Editor
             int increment=beat.End>250?50:10;for(int f=0;f<=beat.End;f+=increment){float x=at(f);EditorGUI.DrawRect(new Rect(x,rect.y,1,rect.height),new Color(.22f,.24f,.28f));GUI.Label(new Rect(x+2,rect.y,50,18),f.ToString(),EditorStyles.whiteMiniLabel);}
             var attack=ActionAttack();if(attack!=null)for(int i=0;i<count;i++){var h=attack.hits[i];var r=new Rect(at(h.startFrame),rect.y+23+i*21,Mathf.Max(4,at(h.endFrame)-at(h.startFrame)),17);EditorGUI.DrawRect(r,i==selectedHit?new Color(.9f,.25f,.15f):new Color(.55f,.2f,.18f));GUI.Label(r,h.label,EditorStyles.whiteMiniLabel);}
             DrawMovementTimeline(rect,count,at);
+            if(actionSet)DrawSharedCancelMarkers(rect,at);
             if(beat.events!=null)foreach(var e in beat.events){float x=at(e.frame);EditorGUI.DrawRect(new Rect(x,rect.yMax-22,2,18),Color.yellow);GUI.Label(new Rect(x+3,rect.yMax-22,150,18),e.name,EditorStyles.whiteMiniLabel);}
             EditorGUI.DrawRect(new Rect(at(frame),rect.y,2,rect.height),Color.white);
             var ev=Event.current;int id=GUIUtility.GetControlID(FocusType.Passive);

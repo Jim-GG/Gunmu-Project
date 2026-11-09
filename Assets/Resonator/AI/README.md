@@ -1,6 +1,6 @@
 # 共鸣者 AI 与动画调节
 
-测试场景：`Assets/Resonator/AI/Scenes/ResonatorCombatArena.unity`。包含五种初始行为、已烘焙 NavMesh、拳套玩家、障碍物和状态 HUD。N 发出测试声音，R 恢复玩家生命值。敌人预制体：`AI/Prefabs/ResonatorAgent.prefab`。
+测试场景：`Assets/Game/Enemies/Resonator/AI/Scenes/ResonatorCombatArena.unity`。包含五种初始行为、已烘焙 NavMesh、拳套玩家、障碍物和状态 HUD。N 发出测试声音，R 恢复玩家生命值。敌人预制体：`AI/Prefabs/ResonatorAgent.prefab`。
 
 ## 群体寻路、尸体与攻击起手
 

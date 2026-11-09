@@ -10,7 +10,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField, Min(1f)] private float groundAcceleration = 45f;
     [SerializeField, Min(1f)] private float groundDeceleration = 35f;
     [SerializeField, Min(0f)] private float airAcceleration = 6f;
-    [SerializeField, Min(0f)] private float airDrag = 0.25f;
+    [SerializeField, Min(0f)] private float airDrag = 0.05f;
     [SerializeField, Min(0f)] private float jumpHeight = 1.3f;
     [SerializeField, Min(0.1f)] private float gravity = 20f;
 
@@ -32,6 +32,7 @@ public class PlayerMovement : MonoBehaviour
     [Header("动量锁定与子弹时间")]
     [SerializeField, Range(0.05f, 0.5f)] private float bulletTimeScale = 0.12f;
     [SerializeField, Min(5f)] private float maxLockDistance = 60f;
+    [SerializeField, InspectorName("开局已拥有动量遥控器")] private bool startsWithMomentumRemote = true;
 
     private CharacterController controller;
     private PlayerChargedPunch chargedPunch;
@@ -65,13 +66,13 @@ public class PlayerMovement : MonoBehaviour
     public bool IsDashing => dashTimer > 0f;
     public bool IsBulletTimeActive => isBulletTimeActive;
     public bool HasMomentumRemote { get; private set; }
-
     public void EquipMomentumRemote() => HasMomentumRemote = true;
     public Vector3 CurrentVelocity => new Vector3(currentHorizontalVelocity.x, verticalSpeed, currentHorizontalVelocity.z);
     public bool IsIgnoringBox(Collider col) => col != null && ignoreBoxTimer > 0f && ignoredBoxCollider == col;
 
     private void Awake()
     {
+        HasMomentumRemote = startsWithMomentumRemote;
         controller = GetComponent<CharacterController>();
         if (cameraPivot == null)
         {
@@ -381,6 +382,18 @@ public class PlayerMovement : MonoBehaviour
     }
 
     /// <summary>
+    /// 外部装置（大炮 / 弹射器等）直接把玩家当弹体发射：接管当前速度，保留原有惯性规则。
+    /// </summary>
+    public void LaunchAsProjectile(Vector3 velocity)
+    {
+        punchLunging = false;
+        dashTimer = 0f;
+        activeLungeSpeed = 0f;
+        currentHorizontalVelocity = new Vector3(velocity.x, 0f, velocity.z);
+        verticalSpeed = velocity.y;
+    }
+
+    /// <summary>
     /// Unified handler for any incoming high-speed impact (e.g., Giant Pendulum hammer or incoming box):
     /// - Guarding toward the impact: Player fully inherits the incoming momentum + refills gauntlet energy to 3/3.
     /// - Not guarding: Plastic collision (player only retains a small damped fraction of the incoming velocity and does not refill energy).
@@ -668,14 +681,14 @@ public class PlayerMovement : MonoBehaviour
 
         if (isBulletTimeActive)
         {
-            GUI.color = new Color(0f, 1f, 0.95f, 0.9f);
+            GUI.color = new Color(0.81f, 0.55f, 1f, 0.9f);
             GUIStyle btStyle = new GUIStyle(GUI.skin.box)
             {
                 fontSize = 18,
                 fontStyle = FontStyle.Bold,
                 alignment = TextAnchor.MiddleCenter
             };
-            btStyle.normal.textColor = new Color(0.1f, 1f, 0.95f);
+            btStyle.normal.textColor = new Color(0.81f, 0.55f, 1f);
             string btHint = hoveredBox != null
                 ? (hoveredBox.IsMomentumLocked ? "子弹时间｜按 E 释放目标方块" : "子弹时间｜按 E 锁定目标方块")
                 : "子弹时间已开启｜瞄准方块后按 E";
@@ -683,7 +696,7 @@ public class PlayerMovement : MonoBehaviour
         }
 
         bool hasEnergy = chargedPunch != null && chargedPunch.StoredEnergy > 0;
-        GUI.color = hoveredBox != null ? Color.green : (hasEnergy ? Color.cyan : Color.gray);
+        GUI.color = hoveredBox != null ? Color.green : (hasEnergy ? new Color(0.81f, 0.55f, 1f) : Color.gray);
         float size = hoveredBox != null ? 12f : 8f;
         GUI.Box(new Rect(cx - size * 0.5f, cy - size * 0.5f, size, size), GUIContent.none);
         GUI.color = Color.white;

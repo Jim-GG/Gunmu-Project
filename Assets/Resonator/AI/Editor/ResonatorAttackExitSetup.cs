@@ -8,7 +8,7 @@ namespace Resonator.AI.Editor
         public static void Connect(ResonatorTuning tuning)
         {
             string path=AssetDatabase.GetAssetPath(tuning);
-            AssetDatabase.CopyAsset(path,AssetDatabase.GenerateUniqueAssetPath("Assets/Resonator/AI/Validation/Resonator_BeforeAttackExits.asset"));
+            AssetDatabase.CopyAsset(path,AssetDatabase.GenerateUniqueAssetPath("Assets/Game/Enemies/Resonator/AI/Validation/Resonator_BeforeAttackExits.asset"));
             Undo.RecordObject(tuning,"Connect authored attack exits");
             var rules=(tuning.transitions??Array.Empty<ResonatorTransition>()).ToList();
             var scream=rules.FirstOrDefault(r=>r!=null&&r.from==EnemyState.Attack&&r.to==EnemyState.Screaming);

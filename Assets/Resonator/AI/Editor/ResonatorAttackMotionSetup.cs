@@ -5,7 +5,7 @@ namespace Resonator.AI.Editor
     {
         public static void ApplyPresets(ResonatorTuning tuning,bool backup=true)
         {
-            if(backup)AssetDatabase.CopyAsset(AssetDatabase.GetAssetPath(tuning),AssetDatabase.GenerateUniqueAssetPath("Assets/Resonator/AI/Validation/Resonator_BeforeAttackDisplacement.asset"));
+            if(backup)AssetDatabase.CopyAsset(AssetDatabase.GetAssetPath(tuning),AssetDatabase.GenerateUniqueAssetPath("Assets/Game/Enemies/Resonator/AI/Validation/Resonator_BeforeAttackDisplacement.asset"));
             Undo.RecordObject(tuning,"Configure attack pursuit movement");
             foreach(var state in new[]{EnemyState.Headbutt,EnemyState.Kicking,EnemyState.Attack,EnemyState.Punching})
             {

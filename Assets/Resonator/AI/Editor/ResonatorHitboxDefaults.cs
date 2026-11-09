@@ -11,7 +11,7 @@ namespace Resonator.AI.Editor
             if(backup)
             {
                 string path=AssetDatabase.GetAssetPath(tuning);
-                if(!string.IsNullOrEmpty(path))AssetDatabase.CopyAsset(path,AssetDatabase.GenerateUniqueAssetPath("Assets/Resonator/AI/Validation/Resonator_BeforeHitboxEditor.asset"));
+                if(!string.IsNullOrEmpty(path))AssetDatabase.CopyAsset(path,AssetDatabase.GenerateUniqueAssetPath("Assets/Game/Enemies/Resonator/AI/Validation/Resonator_BeforeHitboxEditor.asset"));
             }
             Undo.RecordObject(tuning,"Upgrade to spatial hitboxes");
             // Migrate each untouched legacy beat independently, so tuning the kick

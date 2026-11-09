@@ -404,13 +404,13 @@ public class PlayerChargedPunch : MonoBehaviour
         {
             float from = i == 0 ? 0f : i == 1 ? tierOneTime : tierTwoTime;
             float to = i == 0 ? tierOneTime : i == 1 ? tierTwoTime : tierThreeTime;
-            float fill = charging ? Mathf.Clamp01((elapsed - from) / (to - from)) : 0f;
+            float fill = charging && i < storedEnergy ? Mathf.Clamp01((elapsed - from) / (to - from)) : 0f;
             float cellWidth = (width - 40f) / 3f;
             Rect cell = new Rect(panel.x + 10f + i * (cellWidth + 10f), panel.y + 35f, cellWidth, 20f);
             Color old = GUI.color;
-            GUI.color = i < storedEnergy ? new Color(0.1f, 0.35f, 0.45f) : Color.gray;
+            GUI.color = i < storedEnergy ? new Color(0.48f, 0.24f, 0.76f) : Color.gray;
             GUI.DrawTexture(cell, Texture2D.whiteTexture);
-            GUI.color = fill >= 1f ? Color.cyan : new Color(0.9f, 0.65f, 0.15f);
+            GUI.color = new Color(0.81f, 0.55f, 1f);
             GUI.DrawTexture(new Rect(cell.x, cell.y, cell.width * fill, cell.height), Texture2D.whiteTexture);
             GUI.color = old;
         }

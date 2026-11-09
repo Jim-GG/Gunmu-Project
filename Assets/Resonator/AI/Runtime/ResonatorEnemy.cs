@@ -4,7 +4,7 @@ using UnityEngine.Events;
 namespace Resonator.AI
 {
     [RequireComponent(typeof(ResonatorMotor))]
-    public sealed class ResonatorEnemy : MonoBehaviour
+    public sealed class ResonatorEnemy : MonoBehaviour, GameActions.IActionTarget
     {
         public ResonatorTuning tuning;
         public RestActivity initialActivity=RestActivity.RestlessIdle;
@@ -18,6 +18,10 @@ namespace Resonator.AI
         [SerializeField] bool aware;
         public EnemyState State=>state;
         public float Health=>health;
+        public bool ActionTargetAlive=>gameObject.activeInHierarchy&&health>0&&state!=EnemyState.Dying&&state!=EnemyState.Dead;
+        public Transform ActionRoot=>transform;
+        public Vector3 ActionAimPoint=>transform.position+Vector3.up*1.05f;
+        public void ReceiveActionHit(float damage,Vector3 source,float impulse)=>TakeDamage(damage,source,impulse);
         public bool Aware=>aware;
         public float StateSeconds {get;private set;}
         public float CurrentFrame=>motion?motion.SourceFrame:0;
@@ -36,6 +40,7 @@ namespace Resonator.AI
         readonly System.Collections.Generic.HashSet<string> hitGroups=new System.Collections.Generic.HashSet<string>();
         ResonatorHitbox hitbox;
         ResonatorMotionPlayer subscribedMotion;
+        readonly GameActions.ActionEventDispatcher eventDispatcher=new GameActions.ActionEventDispatcher();
         readonly ResonatorAttackMover attackMover=new ResonatorAttackMover();
         public float AttackAddedTravel=>attackMover.AddedTravel;
         public bool AttackAimLocked=>attackMover.AimLocked;
@@ -304,11 +309,7 @@ namespace Resonator.AI
         void ReceiveFrameEvent(MotionFrameEvent marker)
         {
             if(hitbox==null)return;
-            Vector3 point=hitbox.Point(marker.anchor,marker.customBone,marker.position);
-            switch(marker.kind)
-            {
-                case MotionEventKind.Effect:if(marker.effect){var fx=Instantiate(marker.effect,point,hitbox.Anchor(marker.anchor,marker.customBone).rotation);Destroy(fx,Mathf.Max(.01f,marker.effectLifetime));}break;
-            }
+            eventDispatcher.Dispatch(marker,hitbox);
             FrameEventReceived?.Invoke(marker);onAnimationEvent?.Invoke(marker.name);
         }
         void OnDestroy(){if(subscribedMotion)subscribedMotion.FrameEventRaised-=ReceiveFrameEvent;}

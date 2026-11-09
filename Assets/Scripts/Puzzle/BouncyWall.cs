@@ -16,8 +16,8 @@ public class BouncyWall : MonoBehaviour
     [SerializeField, Min(0f), InspectorName("最低垂直入射分量（m/s）")] private float minIntoWallSpeed = 1f;
 
     [Header("外观颜色")]
-    [SerializeField, InspectorName("表面颜色")] private Color surfaceColor = new Color(0.15f, 0.95f, 0.85f, 1f);
-    [SerializeField, InspectorName("发光颜色")] private Color emissionColor = new Color(0.08f, 0.65f, 0.6f, 1f);
+    [SerializeField, InspectorName("表面颜色")] private Color surfaceColor = new Color(0.76f, 0.48f, 1f, 1f);
+    [SerializeField, InspectorName("发光颜色")] private Color emissionColor = new Color(0.56f, 0.27f, 0.82f, 1f);
     [SerializeField, InspectorName("发光强度"), Min(0f)] private float emissionIntensity = 2f;
 
     [Header("事件")]

@@ -1,0 +1,14 @@
+{
+  "name": "NullBoundary.Demo.Editor",
+  "rootNamespace": "NullBoundary.Demo.Editor",
+  "references": [
+    "NullBoundary.Demo",
+    "Unity.InputSystem",
+    "Unity.Timeline",
+    "Unity.AI.Navigation"
+  ],
+  "includePlatforms": [
+    "Editor"
+  ],
+  "autoReferenced": true
+}

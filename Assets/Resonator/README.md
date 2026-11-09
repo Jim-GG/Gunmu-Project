@@ -6,7 +6,7 @@
 
 模型在 `Models/Resonator.fbx`，动作在 `Animations`，URP 材质在 `Materials`。服装 4K、头部/皮肤 2K，分别使用颜色、切线法线、金属度/光滑度三张图。雕刻头部轮廓保留在低模几何中，高模雕刻法线与 AO 已合入烘焙贴图。水晶使用独立材质子网格，保留棱面、高光和环境反射；当前是 URP 不透明实时近似，透射/折射与 Blender Cycles 不会完全一致。
 
-源工程另存到 `F:/3D Assets/Resonator_Scientist_Workshop/UnityTransfer_20261104/Resonator_Unity_Ready.blend`，保留原高模、雕刻烘焙源、原材质及导出副本。`Source/Input_Current.blend` 是工作开始时当前未保存修改的完整快照。
+源工程另存到 `F:/3D Assets/Game/Enemies/Resonator_Scientist_Workshop/UnityTransfer_20261104/Resonator_Unity_Ready.blend`，保留原高模、雕刻烘焙源、原材质及导出副本。`Source/Input_Current.blend` 是工作开始时当前未保存修改的完整快照。
 
 本轮修复过的关键问题：不能把所有小连通拓扑块当成晶体。服装、手脚恢复原有逐顶点多骨骼权重；只有真正的晶体子网格使用根部固定权重。映射按父子层级明确计算局部矩阵，并补偿 Mixamo T 姿态与 Valve A 姿态。输出预先三角化，避免 Unity 丢弃复杂多边形。
 

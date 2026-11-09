@@ -34,9 +34,9 @@ namespace Resonator.AI
         [Min(.05f)] public float speed=1;
         [Range(0,.6f)] public float blend=.15f;
         public MotionFrameEvent[] events=Array.Empty<MotionFrameEvent>();
-        public float End => endFrame<0 ? track.Duration*track.framesPerSecond : Mathf.Min(endFrame,track.Duration*track.framesPerSecond);
-        public float StartSeconds => startFrame/track.framesPerSecond;
-        public float EndSeconds => End/track.framesPerSecond;
+        public float End => !track?0:endFrame<0 ? track.Duration*track.framesPerSecond : Mathf.Min(endFrame,track.Duration*track.framesPerSecond);
+        public float StartSeconds => startFrame/Mathf.Max(1,track?track.framesPerSecond:30);
+        public float EndSeconds => End/Mathf.Max(1,track?track.framesPerSecond:30);
     }
     [Serializable] public sealed class AttackBeat
     {

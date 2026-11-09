@@ -12,7 +12,7 @@ namespace Gauntlet.Editor
 {
     public static class GauntletAssetTools
     {
-        public const string Root = "Assets/Gauntlet/";
+        public const string Root = "Assets/Game/Player/Gauntlet/";
         [Serializable] public class ClipData { public string name, fbx; public int frames, fps; public float seconds; public float[] camera_angles_deg, camera_translation_m; }
         [Serializable] public class Manifest { public ClipData[] clips; }
         public static Manifest ReadClips() => JsonUtility.FromJson<Manifest>(File.ReadAllText(Root + "Animations/Clips.json"));

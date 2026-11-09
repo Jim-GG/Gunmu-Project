@@ -103,7 +103,7 @@ public class PlayerInteractor : MonoBehaviour
         PlayerCombatController combat = GetComponent<PlayerCombatController>();
         bool alive = !GameplayGate.IsBlocked && gameObject.activeInHierarchy && (combat == null || !combat.IsDefeated);
         for (int i = 0; i < suspendedControls.Length; i++)
-            if (suspendedControls[i] == null)
+            if (suspendedControls[i] != null)
                 suspendedControls[i].enabled = alive && previousEnabled[i];
         modalOwner = null;
         closingUI = false;

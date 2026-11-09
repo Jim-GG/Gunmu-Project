@@ -180,7 +180,7 @@ MonoBehaviour:
   stateMaterial: {fileID: 2100000, guid: 44d95a649908af8438f44c6089065375, type: 2}
   stateEmissionIntensity: 1.5
   normalColor: {r: 0.95, g: 0.75, b: 0.15, a: 1}
-  bulletTimeHighlightColor: {r: 0, g: 1, b: 0.95, a: 1}
+  bulletTimeHighlightColor: {r: 0.77, g: 0.13, b: 1, a: 1}
   bulletTimeHoverColor: {r: 0.35, g: 1, b: 0.2, a: 1}
   lockedBaseColor: {r: 0.85, g: 0.15, b: 1, a: 1}
   lockedChargedColor: {r: 1, g: 0.15, b: 0.05, a: 1}
