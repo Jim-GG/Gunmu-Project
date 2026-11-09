@@ -47,6 +47,9 @@ public sealed class PlayerGauntletChargeEffects : MonoBehaviour
     private int previousEnergy;
     private int previousTier;
     private bool subscribed;
+    [SerializeField, Range(0f, 1f), InspectorName("蓄力音量")]
+    private float chargeVolume = .55f;
+    private AudioSource chargeAudio;
 
     public void Initialize(PlayerChargedPunch source, SkinnedMeshRenderer renderer, Transform viewModel)
     {
@@ -96,6 +99,7 @@ public sealed class PlayerGauntletChargeEffects : MonoBehaviour
     private void Subscribe()
     {
         if (subscribed || punch == null) return;
+        punch.ChargeStarted += PlayChargeAudio;
         punch.PunchReleased += OnPunch;
         punch.GuardSucceeded += OnGuard;
         punch.ChargeCanceled += OnCancel;
@@ -104,19 +108,48 @@ public sealed class PlayerGauntletChargeEffects : MonoBehaviour
     private void Unsubscribe()
     {
         if (!subscribed || punch == null) return;
+        punch.ChargeStarted -= PlayChargeAudio;
         punch.PunchReleased -= OnPunch;
         punch.GuardSucceeded -= OnGuard;
         punch.ChargeCanceled -= OnCancel;
         subscribed = false;
     }
-    private void OnPunch(int tier) { flash = .4f + tier * .2f; previousTier = 0; }
+    private void OnPunch(int tier) { StopChargeAudio(); flash = .4f + tier * .2f; previousTier = 0; }
     private void OnGuard() { flash = .65f; }
-    private void OnCancel() { flash = 0f; previousTier = 0; }
+    private void OnCancel() { StopChargeAudio(); flash = 0f; previousTier = 0; }
+
+    private void PlayChargeAudio()
+    {
+        if (punch.StoredEnergy == 0 || GameplayGate.IsBlocked) return;
+        if (!chargeAudio)
+        {
+            var clip = Resources.Load<AudioClip>("DemoPresentation/GauntletCharge");
+            if (!clip) return;
+            var emitter = new GameObject("拳套蓄力音效");
+            emitter.transform.SetParent(transform, false);
+            chargeAudio = emitter.AddComponent<AudioSource>();
+            chargeAudio.playOnAwake = false;
+            chargeAudio.spatialBlend = 0f;
+            chargeAudio.clip = clip;
+        }
+        chargeAudio.Stop();
+        chargeAudio.pitch = Mathf.Clamp(chargeAudio.clip.length / punch.TierThreeTime, .5f, 2f);
+        chargeAudio.volume = chargeVolume;
+        chargeAudio.Play();
+    }
+
+    private void StopChargeAudio()
+    {
+        if (chargeAudio && chargeAudio.isPlaying) chargeAudio.Stop();
+    }
 
     private void LateUpdate()
     {
         if (punch == null || mesh == null || model == null) return;
         bool visible = model.gameObject.activeInHierarchy && (equipment == null || equipment.HasGauntlet);
+        if (!visible || GameplayGate.IsBlocked || !punch.isActiveAndEnabled ||
+            !punch.IsCharging || punch.IsChargeCapped)
+            StopChargeAudio();
         if (!visible || GameplayGate.IsBlocked || !punch.isActiveAndEnabled)
         {
             flash = 0;
@@ -218,6 +251,7 @@ public sealed class PlayerGauntletChargeEffects : MonoBehaviour
     }
     private void OnDisable()
     {
+        StopChargeAudio();
         Unsubscribe();
         flash = 0;
         SetArcsVisible(false);
