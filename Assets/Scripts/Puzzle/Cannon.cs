@@ -220,13 +220,16 @@ public class Cannon : MonoBehaviour, IPuzzleResettable
         {
             KineticBox box = heldBox;
             heldBox = null;
-            box.transform.position = firePoint;
             if (box.Body != null)
             {
+                // Teleport the physics body as well as its visual pose before
+                // releasing it from inside the barrel.
+                box.Body.position = firePoint;
                 box.Body.isKinematic = false;
                 box.Body.linearVelocity = Vector3.zero;
                 box.Body.angularVelocity = Vector3.zero;
             }
+            else box.transform.position = firePoint;
             // 自由轨迹发射：不做 6 轴吸附，保留仰角。
             // 方块重力（9.81）比玩家（20）小，同样速度会飞两倍远，所以方块单独乘一个倍率（默认 0.7 ≈ sqrt(9.81/20)）。
             box.ApplyFreeImpulse(direction, launchSpeed * Mathf.Max(0.1f, boxSpeedMultiplier));

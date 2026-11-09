@@ -12031,7 +12031,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4604096246613127006, guid: c9c0b392c913eb34fb9ffbf121d21a3a, type: 3}
       propertyPath: elevation
-      value: 11
+      value: 15.2
       objectReference: {fileID: 0}
     - target: {fileID: 4604096246613127006, guid: c9c0b392c913eb34fb9ffbf121d21a3a, type: 3}
       propertyPath: reloadTime
@@ -12043,7 +12043,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4604096246613127006, guid: c9c0b392c913eb34fb9ffbf121d21a3a, type: 3}
       propertyPath: boxSpeedMultiplier
-      value: 1
+      value: 0.64
       objectReference: {fileID: 0}
     - target: {fileID: 5404116424172760563, guid: c9c0b392c913eb34fb9ffbf121d21a3a, type: 3}
       propertyPath: m_Name
@@ -12055,11 +12055,11 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 433318411019bb449adb3c262f32c1db, type: 2}
     - target: {fileID: 5617107391720849116, guid: c9c0b392c913eb34fb9ffbf121d21a3a, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.9953962
+      value: 0.9912155
       objectReference: {fileID: 0}
     - target: {fileID: 5617107391720849116, guid: c9c0b392c913eb34fb9ffbf121d21a3a, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0.09584575
+      value: -0.1322564
       objectReference: {fileID: 0}
     - target: {fileID: 7916992234288090473, guid: c9c0b392c913eb34fb9ffbf121d21a3a, type: 3}
       propertyPath: m_LocalPosition.x
@@ -48072,6 +48072,7 @@ MonoBehaviour:
   arcEnd: {x: 0.0047423597, y: 0.09408288, z: -0.005406834}
   arcSpread: 0.015
   arcWidth: 0.0025
+  chargeVolume: 0.55
 --- !u!1 &1063138724
 GameObject:
   m_ObjectHideFlags: 0
@@ -51036,8 +51037,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b129c69e1dec1f438cfe5454e714286, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::LevelExit
-  nextSceneName: ModernFacility_Chapter2
-  editorNextScene: {fileID: 102900000, guid: 33d1b8062e23a6a458609e787ffad9ff, type: 3}
+  nextSceneName: Modern_01_Cargo
+  editorNextScene: {fileID: 102900000, guid: b2e7390f68fd4f74da7ae876da4006e2, type: 3}
   gates:
   - {fileID: 954420864}
   onReached:
@@ -94270,6 +94271,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BouncyWall
   speedRetentionMultiplier: 0.85
+  boxReflectionMultiplier: 1.08
   minImpactSpeed: 3.5
   minIntoWallSpeed: 1
   surfaceColor: {r: 0.766, g: 0.254, b: 0.95, a: 1}

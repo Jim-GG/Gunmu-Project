@@ -12,6 +12,7 @@ public class BouncyWall : MonoBehaviour
 {
     [Header("反弹参数")]
     [SerializeField, Range(0.5f, 2.0f), InspectorName("反射速度倍率")] private float speedRetentionMultiplier = 1.0f;
+    [SerializeField, Min(0.1f), InspectorName("方块额外反射倍率")] private float boxReflectionMultiplier = 1f;
     [SerializeField, Min(0f), InspectorName("最低入射速度（m/s）")] private float minImpactSpeed = 3.5f;
     [SerializeField, Min(0f), InspectorName("最低垂直入射分量（m/s）")] private float minIntoWallSpeed = 1f;
 
@@ -101,7 +102,7 @@ public class BouncyWall : MonoBehaviour
     /// 纯查询：这次碰撞是否算“弹性反弹”。算的话输出反射速度，倍率与阈值由本墙统一决定。
     /// 不产生任何副作用（特效/事件由真正应用反弹的一方调用 <see cref="NotifyReflected"/> 触发）。
     /// </summary>
-    public bool TryReflect(Vector3 incomingVelocity, Vector3 normal, out Vector3 reflectedVelocity)
+    public bool TryReflect(Vector3 incomingVelocity, Vector3 normal, out Vector3 reflectedVelocity, bool isBox = false)
     {
         reflectedVelocity = Vector3.zero;
 
@@ -114,6 +115,7 @@ public class BouncyWall : MonoBehaviour
             return false;
 
         reflectedVelocity = ComputeReflectedVelocity(incomingVelocity, surfaceNormal);
+        if (isBox) reflectedVelocity *= boxReflectionMultiplier;
         return true;
     }
 

@@ -91,6 +91,7 @@ namespace Resonator.AI.Editor
                 var motor=root.AddComponent<ResonatorMotor>();motor.agent=agent;motor.tuning=tuning;
                 var ragdoll=root.AddComponent<ResonatorRagdoll>();ragdoll.livingCollider=capsule;BuildRagdoll(visual,ragdoll);
                 var enemy=root.AddComponent<ResonatorEnemy>();enemy.tuning=tuning;enemy.motion=motion;enemy.motor=motor;enemy.ragdoll=ragdoll;
+                root.AddComponent<ResonatorPunchTarget>();
                 PrefabUtility.SaveAsPrefabAsset(root,Root+"Prefabs/ResonatorAgent.prefab");
             }
             finally{UnityEngine.Object.DestroyImmediate(root);}

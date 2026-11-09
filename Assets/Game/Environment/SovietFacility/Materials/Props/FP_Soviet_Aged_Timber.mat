@@ -9,12 +9,12 @@ Material:
   m_PrefabAsset: {fileID: 0}
   m_Name: FP_Soviet_Aged_Timber
   m_Shader: {fileID: -6465566751694194690, guid: 92880611376477d4db29df9f63cdd692, type: 3}
-  m_Parent: {fileID: 2100000, guid: 9163b756d2107ea4da759540dbf99db8, type: 2}
+  m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords: []
   m_InvalidKeywords: []
-  m_LightmapFlags: 4
-  m_EnableInstancingVariants: 0
+  m_LightmapFlags: 2
+  m_EnableInstancingVariants: 1
   m_DoubleSidedGI: 0
   m_CustomRenderQueue: -1
   stringTagMap: {}
@@ -32,15 +32,43 @@ Material:
         m_Texture: {fileID: 2800000, guid: 9995a0cf85802ff4c83d5311d12fd5d0, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _MicroNormal:
+        m_Texture: {fileID: 2800000, guid: ff2f01231d9870e4a94fd9812aa95890, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _SurfaceMask:
         m_Texture: {fileID: 2800000, guid: eed401f986744e04db9f8bff9ccb75e9, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - unity_Lightmaps:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_LightmapsInd:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_ShadowMasks:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
+    - _DustAmount: 0.3
+    - _DustColourStrength: 0.025
+    - _DustRoughness: 0.8
+    - _DustTiling: 2.5
     - _MicroStrength: 0.12
+    - _MicroTiling: 8
+    - _NormalStrength: 1
+    - _QueueControl: 0
+    - _QueueOffset: 0
+    - _RoughnessBias: 0
+    - _SpotAmount: 1
     - _SurfaceTiling: 1
-    m_Colors: []
+    m_Colors:
+    - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
+    - _DustColour: {r: 0.2, g: 0.205, b: 0.19, a: 1}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
 --- !u!114 &3600217947506440127

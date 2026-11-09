@@ -20,12 +20,12 @@ RenderSettings:
   m_FogDensity: 0.007
   m_LinearFogStart: 0
   m_LinearFogEnd: 300
-  m_AmbientSkyColor: {r: 0.4278, g: 0.3382, b: 0.46, a: 1}
-  m_AmbientEquatorColor: {r: 0.2416, g: 0.1904, b: 0.26, a: 1}
+  m_AmbientSkyColor: {r: 0.32, g: 0.37, b: 0.46, a: 1}
+  m_AmbientEquatorColor: {r: 0.18, g: 0.2, b: 0.26, a: 1}
   m_AmbientGroundColor: {r: 0.08, g: 0.09, b: 0.12, a: 1}
   m_AmbientIntensity: 1
   m_AmbientMode: 1
-  m_SubtractiveShadowColor: {r: 0.57939, g: 0.44691, b: 0.627, a: 1}
+  m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
   m_SkyboxMaterial: {fileID: 0}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
@@ -3267,7 +3267,7 @@ TextMesh:
   m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
   m_Color:
     serializedVersion: 2
-    rgba: 4294950382
+    rgba: 4294957491
 --- !u!23 &347352647
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -5180,7 +5180,7 @@ TextMesh:
   m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
   m_Color:
     serializedVersion: 2
-    rgba: 4294950382
+    rgba: 4294957491
 --- !u!23 &616390076
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -7660,7 +7660,7 @@ TextMesh:
   m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
   m_Color:
     serializedVersion: 2
-    rgba: 4294950382
+    rgba: 4294957491
 --- !u!23 &843783753
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -8659,7 +8659,7 @@ ParticleSystem:
       serializedVersion: 2
       minMaxState: 0
       minColor: {r: 1, g: 1, b: 1, a: 1}
-      maxColor: {r: 0.862, g: 0.478, b: 1, a: 0.35}
+      maxColor: {r: 0.4, g: 0.8, b: 1, a: 0.35}
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}
@@ -14223,7 +14223,7 @@ TextMesh:
   m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
   m_Color:
     serializedVersion: 2
-    rgba: 4294950382
+    rgba: 4294957491
 --- !u!23 &1102842309
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -15626,7 +15626,7 @@ TextMesh:
   m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
   m_Color:
     serializedVersion: 2
-    rgba: 4294950382
+    rgba: 4294957491
 --- !u!23 &1289274315
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -18082,7 +18082,7 @@ TextMesh:
   m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
   m_Color:
     serializedVersion: 2
-    rgba: 4294950382
+    rgba: 4294957491
 --- !u!23 &1630534280
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -18626,7 +18626,7 @@ TextMesh:
   m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
   m_Color:
     serializedVersion: 2
-    rgba: 4294950382
+    rgba: 4294957491
 --- !u!23 &1671694623
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -21138,7 +21138,7 @@ TextMesh:
   m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
   m_Color:
     serializedVersion: 2
-    rgba: 4294950382
+    rgba: 4294957491
 --- !u!23 &1989695262
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -21787,7 +21787,7 @@ ParticleSystem:
       serializedVersion: 2
       minMaxState: 0
       minColor: {r: 1, g: 1, b: 1, a: 1}
-      maxColor: {r: 0.862, g: 0.478, b: 1, a: 0.35}
+      maxColor: {r: 0.4, g: 0.8, b: 1, a: 0.35}
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}

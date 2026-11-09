@@ -62,6 +62,8 @@ public class KineticBox : MonoBehaviour, IPuzzleResettable
 
     private Rigidbody rb;
     private BoxCollider boxCollider;
+    [SerializeField, InspectorName("外观渲染器（留空 = 使用本物体）")]
+    private Renderer appearanceRenderer;
     private Renderer boxRenderer;
     private Material baseMaterial;
     private PhysicsMaterial generatedSurfaceMaterial;
@@ -108,7 +110,7 @@ public class KineticBox : MonoBehaviour, IPuzzleResettable
     {
         rb = GetComponent<Rigidbody>();
         boxCollider = GetComponent<BoxCollider>();
-        boxRenderer = GetComponent<Renderer>();
+        boxRenderer = appearanceRenderer ? appearanceRenderer : GetComponent<Renderer>();
         propBlock = new MaterialPropertyBlock();
 
         if (boxRenderer != null)
@@ -335,7 +337,7 @@ public class KineticBox : MonoBehaviour, IPuzzleResettable
             return;
 
         // 阈值与倍率统一由弹性墙决定，保证方块与玩家被弹射的结果一致。
-        if (!bouncy.TryReflect(incomingVel, hitNormal, out Vector3 reflectedVel))
+        if (!bouncy.TryReflect(incomingVel, hitNormal, out Vector3 reflectedVel, isBox: true))
             return;
 
         lastBouncyWallTime = Time.unscaledTime;
