@@ -175,8 +175,30 @@ namespace ModernLabTrials.Editor
                 Expect(data.FindProperty("deck").objectReferenceValue != null, label + ": drone deck");
             }
 
-            Expect(level.exitDoor != null, label + ": exit door");
-            TrialExit exit = Find<TrialExit>(scene);
+            // Puzzle gate check: the drone deck must sit above a plain jump but
+            // still be reachable from the crystal platform grown on the floor.
+            if (level.RequiredRides > 0 && level.growthSites.Length > 0 && level.drones.Length > 0)
+            {
+                SerializedObject droneData = new SerializedObject(level.drones[0]);
+                BoxCollider modelDeck = droneData.FindProperty("deck").objectReferenceValue as BoxCollider;
+                SerializedObject siteData = new SerializedObject(level.growthSites[0]);
+                GameObject growthRootObject = siteData.FindProperty("growthRoot").objectReferenceValue as GameObject;
+                Transform growthRoot = growthRootObject != null ? growthRootObject.transform : null;
+                float deckTop = modelDeck != null ? modelDeck.bounds.max.y + .07f : 0f;
+                float platformTop = 0f;
+                if (growthRoot != null)
+                    foreach (BoxCollider box in growthRoot.GetComponentsInChildren<BoxCollider>(true))
+                    {
+                        Vector3 top = box.transform.TransformPoint(box.center + Vector3.up * box.size.y * .5f);
+                        platformTop = Mathf.Max(platformTop, top.y);
+                    }
+                float rise = deckTop - platformTop;
+                Debug.Log($"--- {label}: deckTop={deckTop:F2} platformTop={platformTop:F2} rise={rise:F2} ---");
+                Expect(rise > .2f && rise < 1.1f, label + ": grown crystal platform reaches the drone deck");
+                Expect(deckTop > 1.15f, label + ": deck above a plain ground jump");
+            }
+
+            Expect(level.exitDoor != null, label + ": exit door");            TrialExit exit = Find<TrialExit>(scene);
             Expect(exit != null, label + ": exit trigger");
             if (exit != null)
             {

@@ -74,6 +74,7 @@
 ## 验证结果
 
 - 编辑模式场景校验：`MODERNLAB_VERIFY: PASS`（接收器/生长点/敌人/无人机/出口/NavMesh/缺失脚本逐项检查）。
+- 解谜登机高度校验：无人机甲板顶面 1.61 米、晶体平台顶面 0.75 米，落差 0.86 米（跳跃高度 1.1 米）；纯地面起跳够不到甲板，必须先敲出晶体台阶——两个解谜关均通过该断言。
 - 预览截图：`Docs/ModernLabTrials/Preview/*.png`，四关各一张玩家视角。
 - 独立开发包冒烟（`-modernLabSelfTest`）：`MODERNLAB_SELFTEST: PASS`，四关依次加载并通关，最终界面到达。
   - ML-01 receivers 1/1、enemies 2/2、growth 1/1、rides 1/1。
