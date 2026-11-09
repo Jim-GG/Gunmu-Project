@@ -64,6 +64,7 @@
 - 地板预制体原先只有碰撞体，可见地面没有生成；现已为每块地板/高台补上法线朝上的 `MLT_FloorSurface`，使用 ModernLab 棋盘格贴图，不再出现黑色空洞。
 - 无人机编号文字过大：已缩小到可读尺寸，距离 3.5 米内自动隐藏；无人机靠近时停在约 4.2 米外，不再贴脸。
 - 修复后实际窗口运行截图确认：地面可见，编号不再遮挡画面；四关自动冒烟仍为 PASS。
+- 共鸣者贴镜头穿模：新增 `Assets/Game/ModernLabTrials/Data/MLT_ResonatorTuning.asset`，把停步距离设为 `minimumSeparation 1.5`、攻击起手距离 `attackEnterDistance 2.2`，现代实验室敌人统一使用该调参。
 
 ## 验证结果
 

@@ -36,6 +36,8 @@ namespace ModernLabTrials.Editor
         private const string CratePrefab = ModernLab + "Props/ML_Crate_1m.prefab";
         private const string ExitSignPrefab = ModernLab + "Props/ML_Exit_Door.prefab";
         private const string FloorMaterialPath = "Assets/Game/Environment/ModernLab/Materials/Lab_White_Matte.mat";
+        private const string DefaultEnemyTuning = "Assets/Game/Enemies/Resonator/AI/Data/Resonator_Default.asset";
+        private const string EnemyTuningPath = "Assets/Game/ModernLabTrials/Data/MLT_ResonatorTuning.asset";
         private const string PlayerSource = "Assets/Game/Player/Prefabs/FirstPersonPlayer.prefab";
         private const string DroneSource = "Assets/Game/Environment/Drone/Prefabs/Drone_MCU7A.prefab";
         private static readonly string PlayerPrefab = PrefabsFolder + "/ModernLabPlayer.prefab";
@@ -113,6 +115,7 @@ namespace ModernLabTrials.Editor
             CreateFolder(Root, "Prefabs");
             CreateFolder(Root, "NavMesh");
             CreateFolder(Root, "Materials");
+            CreateFolder(Root, "Data");
             CreateFolder(Root, "Runtime");
             CreateFolder(Root, "Editor");
         }
@@ -550,6 +553,27 @@ namespace ModernLabTrials.Editor
             renderer.receiveShadows = false;
         }
 
+        private static ResonatorTuning enemyTuning;
+
+        private static ResonatorTuning ModernLabEnemyTuning()
+        {
+            if (enemyTuning != null) return enemyTuning;
+            enemyTuning = AssetDatabase.LoadAssetAtPath<ResonatorTuning>(EnemyTuningPath);
+            if (enemyTuning == null)
+            {
+                AssetDatabase.CopyAsset(DefaultEnemyTuning, EnemyTuningPath);
+                AssetDatabase.SaveAssets();
+                enemyTuning = AssetDatabase.LoadAssetAtPath<ResonatorTuning>(EnemyTuningPath);
+            }
+            if (enemyTuning != null)
+            {
+                enemyTuning.attackEnterDistance = 2.2f;
+                enemyTuning.minimumSeparation = 1.5f;
+                EditorUtility.SetDirty(enemyTuning);
+            }
+            return enemyTuning;
+        }
+
         private static Material floorSurfaceMaterial;
 
         private static Material FloorSurfaceMaterial()
@@ -705,6 +729,7 @@ namespace ModernLabTrials.Editor
             enemyObject.transform.position = position;
             ResonatorEnemy enemy = enemyObject.GetComponent<ResonatorEnemy>();
             enemy.initialActivity = RestActivity.RestlessIdle;
+            enemy.tuning = ModernLabEnemyTuning();
             enemy.target = target;
             enemy.gameObject.SetActive(true);
             NavMeshAgent agent = enemy.GetComponent<NavMeshAgent>();
