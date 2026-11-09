@@ -675,26 +675,14 @@ public class PlayerMovement : MonoBehaviour
     private void OnGUI()
     {
         if (GameplayGate.IsBlocked) return;
-        ChineseGameUI.EnsureFont();
         float cx = Screen.width * 0.5f;
         float cy = Screen.height * 0.5f;
 
-        if (isBulletTimeActive)
+        if (isBulletTimeActive && hoveredBox != null)
         {
-            GUI.color = new Color(0.81f, 0.55f, 1f, 0.9f);
-            GUIStyle btStyle = new GUIStyle(GUI.skin.box)
-            {
-                fontSize = 18,
-                fontStyle = FontStyle.Bold,
-                alignment = TextAnchor.MiddleCenter
-            };
-            btStyle.normal.textColor = new Color(0.81f, 0.55f, 1f);
-            string btHint = hoveredBox != null
-                ? (hoveredBox.IsMomentumLocked ? "子弹时间｜按 E 释放目标方块" : "子弹时间｜按 E 锁定目标方块")
-                : "子弹时间已开启｜瞄准方块后按 E";
-            GUI.Box(new Rect(cx - 260f, cy + 42f, 520f, 40f), btHint, btStyle);
+            ChineseGameUI.EnsureFont();
+            GUI.Label(new Rect(cx + 12f, cy + 8f, 90f, 24f), hoveredBox.IsMomentumLocked ? "E 释放" : "E 锁定");
         }
-
         bool hasEnergy = chargedPunch != null && chargedPunch.StoredEnergy > 0;
         GUI.color = hoveredBox != null ? Color.green : (hasEnergy ? new Color(0.81f, 0.55f, 1f) : Color.gray);
         float size = hoveredBox != null ? 12f : 8f;

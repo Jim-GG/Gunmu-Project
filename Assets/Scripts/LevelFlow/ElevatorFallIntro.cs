@@ -6,6 +6,8 @@ public sealed class ElevatorFallIntro : MonoBehaviour
     [SerializeField, InspectorName("演出相机")] private Camera shotCamera;
     [SerializeField, InspectorName("轿厢内镜头起点")] private Transform interiorShot;
     [SerializeField, InspectorName("竖井镜头起点")] private Transform shaftShot;
+    [SerializeField, InspectorName("轿厢内景组")] private GameObject cabinSet;
+    [SerializeField, InspectorName("竖井外景组")] private GameObject shaftSet;
     [SerializeField, InspectorName("竖井里的电梯轿厢")] private Transform fallingCar;
     [SerializeField, InspectorName("绷紧的钢缆")] private GameObject intactCable;
     [SerializeField, InspectorName("断裂火花")] private GameObject sparks;
@@ -108,6 +110,11 @@ public sealed class ElevatorFallIntro : MonoBehaviour
             int floor = -2 - Mathf.Clamp(Mathf.FloorToInt(time / .82f), 0, 6);
             floorDisplay.text = time >= SecondImpact ? "ERR" : floor.ToString();
         }
+
+        if (cabinSet != null && cabinSet.activeSelf == outside)
+            cabinSet.SetActive(!outside);
+        if (shaftSet != null && shaftSet.activeSelf != outside)
+            shaftSet.SetActive(outside);
 
         Transform anchor = outside ? shaftShot : interiorShot;
         if (shotCamera == null || anchor == null) return;

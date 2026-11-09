@@ -125,8 +125,6 @@ public class PlayerChargedPunch : MonoBehaviour
         if (equipment != null && !equipment.HasGauntlet) return false;
         if (amount <= 0 || storedEnergy >= 3) return false;
         storedEnergy = Mathf.Min(3, storedEnergy + amount);
-        feedback = $"充能：{storedEnergy}/3 格";
-        feedbackUntil = Time.unscaledTime + 1.5f;
         return true;
     }
 
@@ -159,8 +157,6 @@ public class PlayerChargedPunch : MonoBehaviour
     private float elapsed;
     private float chargeStartedAt;
     private float nextReady;
-    private float feedbackUntil;
-    private string feedback = "";
     public int CurrentTier => Mathf.Min(storedEnergy, elapsed >= tierThreeTime ? 3 : elapsed >= tierTwoTime ? 2 : elapsed >= tierOneTime ? 1 : 0);
 
     private void Awake()
@@ -291,7 +287,7 @@ public class PlayerChargedPunch : MonoBehaviour
         releaseQueued = false;
         elapsed = 0f;
     }
-    public void ResetPunchState() { CancelCharge(); attacking = false; storedEnergy = initialEnergy; nextReady = 0f; feedbackUntil = 0f; }
+    public void ResetPunchState() { CancelCharge(); attacking = false; storedEnergy = initialEnergy; nextReady = 0f; }
 
     private void TryLungeHit()
     {
@@ -304,8 +300,6 @@ public class PlayerChargedPunch : MonoBehaviour
         {
             attacking = false;
             ChargedPunchPulse.Spawn(aim.position + aim.forward * reach, -aim.forward, attackTier);
-            feedback = (attackTier == 0 ? "普攻未命中" : $"{attackTier} 档冲撞未命中") + $"｜剩余充能：{storedEnergy}/3 格";
-            feedbackUntil = Time.unscaledTime + 1.5f;
             nextReady = Time.unscaledTime + recovery;
         }
     }
@@ -385,36 +379,8 @@ public class PlayerChargedPunch : MonoBehaviour
         if (box == null && tier > 0 && body != null && !body.isKinematic)
             body.AddForce(direction * impulse, ForceMode.VelocityChange);
         ChargedPunchPulse.Spawn(point + normal * 0.03f, normal, tier);
-        feedback = (tier == 0 ? "普攻命中" : $"{tier} 档攻击命中") + $"｜剩余充能：{storedEnergy}/3 格";
-        feedbackUntil = Time.unscaledTime + 1.5f;
         nextReady = Time.unscaledTime + recovery;
     }
 
-    private void OnGUI()
-    {
-        if (GameplayGate.IsBlocked) return;
-        ChineseGameUI.EnsureFont();
-        float width = Mathf.Min(520f, Screen.width - 20f);
-        Rect panel = new Rect((Screen.width - width) * 0.5f, Screen.height - 125f, width, 105f);
-        GUI.Box(panel, "");
-        GUI.Label(new Rect(panel.x + 10f, panel.y + 5f, width - 20f, 25f),
-            charging ? $"充能：{storedEnergy}/3 格｜当前蓄力：{CurrentTier} 档｜{elapsed:0.00} 秒"
-                : $"充能：{storedEnergy}/3 格｜按住左键蓄力，松开后冲撞出拳");
-        for (int i = 0; i < 3; i++)
-        {
-            float from = i == 0 ? 0f : i == 1 ? tierOneTime : tierTwoTime;
-            float to = i == 0 ? tierOneTime : i == 1 ? tierTwoTime : tierThreeTime;
-            float fill = charging && i < storedEnergy ? Mathf.Clamp01((elapsed - from) / (to - from)) : 0f;
-            float cellWidth = (width - 40f) / 3f;
-            Rect cell = new Rect(panel.x + 10f + i * (cellWidth + 10f), panel.y + 35f, cellWidth, 20f);
-            Color old = GUI.color;
-            GUI.color = i < storedEnergy ? new Color(0.48f, 0.24f, 0.76f) : Color.gray;
-            GUI.DrawTexture(cell, Texture2D.whiteTexture);
-            GUI.color = new Color(0.81f, 0.55f, 1f);
-            GUI.DrawTexture(new Rect(cell.x, cell.y, cell.width * fill, cell.height), Texture2D.whiteTexture);
-            GUI.color = old;
-        }
-        if (Time.unscaledTime < feedbackUntil)
-            GUI.Label(new Rect(panel.x + 10f, panel.y + 70f, width - 20f, 25f), feedback);
-    }
+    // 储能与蓄力反馈由 PlayerGauntletChargeEffects 显示在拳套本体上。
 }

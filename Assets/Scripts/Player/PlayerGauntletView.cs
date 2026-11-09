@@ -106,6 +106,9 @@ public class PlayerGauntletView : MonoBehaviour
         if (view != null) view.nearClipPlane = Mathf.Min(view.nearClipPlane, nearClipPlane);
 
         PlayClip("Idle", 0f);
+        var chargeEffects = GetComponent<PlayerGauntletChargeEffects>();
+        if (chargeEffects == null) chargeEffects = gameObject.AddComponent<PlayerGauntletChargeEffects>();
+        chargeEffects.Initialize(punch, animationPlayer.meshRenderer, model);
         Subscribe(true);
         RefreshVisibility();
     }

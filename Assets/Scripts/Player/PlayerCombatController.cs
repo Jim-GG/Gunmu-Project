@@ -8,8 +8,6 @@ public class PlayerCombatController : MonoBehaviour
     [SerializeField, Min(0f)] private float hurtProtection = 0.6f;
     private int health;
     private float nextHurt;
-    private float feedbackUntil;
-    private string feedback;
     private PlayerChargedPunch punch;
     public bool IsDefeated => health <= 0;
     public int Health => health;
@@ -37,16 +35,12 @@ public class PlayerCombatController : MonoBehaviour
         if (IsGuarding && Vector3.Angle(transform.forward, direction) <= guardAngle * 0.5f)
         {
             punch.RefillEnergyByGuard(transform.position + Vector3.up * 1.0f + transform.forward * 0.6f, -transform.forward);
-            feedback = "格挡成功！充能 +1";
-            feedbackUntil = Time.unscaledTime + 1.2f;
             return true;
         }
         if (Time.time < nextHurt) return false;
         health = Mathf.Max(0, health - Mathf.Max(0, damage));
         GetComponent<PunchPresentation>()?.GuardFeedback(false);
         nextHurt = Time.time + hurtProtection;
-        feedback = "受到攻击！面向敌人并按住右键防御";
-        feedbackUntil = Time.unscaledTime + 1.2f;
         if (IsDefeated) GameStateManager.NotifyPlayerDied();
         return false;
     }
@@ -54,10 +48,12 @@ public class PlayerCombatController : MonoBehaviour
     private void OnGUI()
     {
         if (GameplayGate.IsBlocked) return;
-        ChineseGameUI.EnsureFont();
-        GUI.Label(new Rect(15f, Screen.height - 65f, 240f, 30f),
-            $"生命：{health}/{maxHealth} | {(IsGuarding ? "防御中" : "按住右键防御")}");
-        if (Time.unscaledTime < feedbackUntil)
-            GUI.Label(new Rect(15f, Screen.height - 195f, Screen.width - 30f, 30f), feedback);
+        Color old = GUI.color;
+        Rect track = new Rect(20f, Screen.height - 33f, 110f, 7f);
+        GUI.color = new Color(.19f, .14f, .18f);
+        GUI.DrawTexture(track, Texture2D.whiteTexture);
+        GUI.color = new Color(.8f, .24f, .29f);
+        GUI.DrawTexture(new Rect(track.x, track.y, track.width * health / maxHealth, track.height), Texture2D.whiteTexture);
+        GUI.color = old;
     }
 }
