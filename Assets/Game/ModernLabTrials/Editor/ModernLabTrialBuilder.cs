@@ -859,7 +859,13 @@ namespace ModernLabTrials.Editor
             Vector3[] route, string number)
         {
             GameObject prefab = AssetDatabase.LoadAssetAtPath<GameObject>(DronePrefab);
+            Vector3 droneLiftOffset = Vector3.up * .2f;
+            home += droneLiftOffset;
+            if (lift.HasValue) lift = lift.Value + droneLiftOffset;
+            for (int i = 0; i < route.Length; i++) route[i] += droneLiftOffset;
+
             GameObject droneObject = (GameObject)PrefabUtility.InstantiatePrefab(prefab, world.gameObject.scene);
+            droneObject.transform.localScale = Vector3.one * .6f;
             droneObject.name = "NeutralDrone_" + number;
             droneObject.transform.SetParent(world, true);
             droneObject.transform.position = home;

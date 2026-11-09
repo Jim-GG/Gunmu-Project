@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1001 &1485707865864995938
+--- !u!1001 &1390815012457852957
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -58,87 +58,87 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 4778637752270604192, guid: 7c605cafd1b7a2940a727cd5575481f0, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 4326536162113548670}
+      addedObject: {fileID: 7526755383378405845}
     - targetCorrespondingSourceObject: {fileID: 4778637752270604192, guid: 7c605cafd1b7a2940a727cd5575481f0, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 4484921484765740102}
+      addedObject: {fileID: 1530045342193633453}
   m_SourcePrefab: {fileID: 100100000, guid: 7c605cafd1b7a2940a727cd5575481f0, type: 3}
---- !u!114 &573150529973331350 stripped
+--- !u!114 &11079585145065961 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1399060584879628788, guid: 7c605cafd1b7a2940a727cd5575481f0, type: 3}
-  m_PrefabInstance: {fileID: 1485707865864995938}
+  m_PrefabInstance: {fileID: 1390815012457852957}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6255335888062989250}
+  m_GameObject: {fileID: 5844558876850583485}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9bf10256a9b0ed6419d69a9f782d4db4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FirstPerson.GauntletCombat
---- !u!4 &1939515381851712136 stripped
+--- !u!4 &2105973212249251575 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1041670272598306538, guid: 7c605cafd1b7a2940a727cd5575481f0, type: 3}
-  m_PrefabInstance: {fileID: 1485707865864995938}
+  m_PrefabInstance: {fileID: 1390815012457852957}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &4361761062275495984 stripped
+--- !u!114 &4277143248918023247 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2888599552899464274, guid: 7c605cafd1b7a2940a727cd5575481f0, type: 3}
-  m_PrefabInstance: {fileID: 1485707865864995938}
+  m_PrefabInstance: {fileID: 1390815012457852957}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6255335888062989250}
+  m_GameObject: {fileID: 5844558876850583485}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a6d1e3810ea90154d970975ac66f5b9a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FirstPerson.FirstPersonVitals
---- !u!114 &4936988506205290393 stripped
+--- !u!114 &4850611474109484006 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5773051279159753723, guid: 7c605cafd1b7a2940a727cd5575481f0, type: 3}
-  m_PrefabInstance: {fileID: 1485707865864995938}
+  m_PrefabInstance: {fileID: 1390815012457852957}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6255335888062989250}
+  m_GameObject: {fileID: 5844558876850583485}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 42b488a3f61e0b54c89970802a0327df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FirstPerson.FirstPersonMotor
---- !u!1 &6255335888062989250 stripped
+--- !u!1 &5844558876850583485 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4778637752270604192, guid: 7c605cafd1b7a2940a727cd5575481f0, type: 3}
-  m_PrefabInstance: {fileID: 1485707865864995938}
+  m_PrefabInstance: {fileID: 1390815012457852957}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &4326536162113548670
+--- !u!114 &7526755383378405845
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6255335888062989250}
+  m_GameObject: {fileID: 5844558876850583485}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ba701f4fe7dc4d24fb21f23f9be9d341, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Resonator.AI.ResonatorTarget
-  eyes: {fileID: 1939515381851712136}
-  vitals: {fileID: 4361761062275495984}
-  gauntlet: {fileID: 573150529973331350}
+  eyes: {fileID: 2105973212249251575}
+  vitals: {fileID: 4277143248918023247}
+  gauntlet: {fileID: 11079585145065961}
   demoPlayer: {fileID: 0}
   invulnerableForTesting: 0
---- !u!114 &4484921484765740102
+--- !u!114 &1530045342193633453
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6255335888062989250}
+  m_GameObject: {fileID: 5844558876850583485}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3473932edaae4524ca0ecebc52b74416, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Resonator.AI.ResonatorPlayerBridge
-  actor: {fileID: 4326536162113548670}
-  motor: {fileID: 4936988506205290393}
-  combat: {fileID: 573150529973331350}
-  attackOrigin: {fileID: 1939515381851712136}
+  actor: {fileID: 7526755383378405845}
+  motor: {fileID: 4850611474109484006}
+  combat: {fileID: 11079585145065961}
+  attackOrigin: {fileID: 2105973212249251575}
   walkNoise: 7
   runNoise: 13
   attackNoise: 16

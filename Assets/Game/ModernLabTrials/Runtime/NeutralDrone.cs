@@ -93,11 +93,19 @@ namespace ModernLabTrials
             state = State.Patrol;
         }
 
+        private float ModelTopLocal()
+        {
+            float top = .9f;
+            foreach (MeshRenderer renderer in GetComponentsInChildren<MeshRenderer>(true))
+                top = Mathf.Max(top, transform.InverseTransformPoint(renderer.bounds.max).y);
+            return top;
+        }
+
         private void BuildRideDeck()
         {
             GameObject go = new GameObject("Ride Deck");
             go.transform.SetParent(transform, false);
-            Vector3 localCenter = new Vector3(0f, .26f, 0f);
+            Vector3 localCenter = new Vector3(0f, ModelTopLocal() + .04f, 0f);
             if (deck != null)
             {
                 localCenter = transform.InverseTransformPoint(deck.bounds.center);
@@ -112,13 +120,13 @@ namespace ModernLabTrials
         {
             GameObject go = new GameObject("Drone Number");
             go.transform.SetParent(transform, false);
-            go.transform.localPosition = new Vector3(0f, 1.1f, 0f);
+            go.transform.localPosition = new Vector3(0f, ModelTopLocal() + .55f, 0f);
             label = go.AddComponent<TextMesh>();
             label.text = droneNumber;
             label.anchor = TextAnchor.MiddleCenter;
             label.alignment = TextAlignment.Center;
             label.fontSize = 48;
-            label.characterSize = .012f;
+            label.characterSize = .02f;
             label.color = new Color(.45f, .95f, 1f);
             Font font = Resources.GetBuiltinResource<Font>("LegacyRuntime.ttf");
             if (font == null) font = Resources.GetBuiltinResource<Font>("Arial.ttf");

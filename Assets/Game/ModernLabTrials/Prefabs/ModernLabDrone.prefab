@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1001 &5609595640216273149
+--- !u!1001 &601944193154965628
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -59,30 +59,20 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 1395632588227670948, guid: 620db8eb4e341934fb0ecea0996ddecd, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 7187435908553734457}
+      addedObject: {fileID: 311922518417747467}
   m_SourcePrefab: {fileID: 100100000, guid: 620db8eb4e341934fb0ecea0996ddecd, type: 3}
---- !u!4 &2431003711508429729 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 7810897057555053404, guid: 620db8eb4e341934fb0ecea0996ddecd, type: 3}
-  m_PrefabInstance: {fileID: 5609595640216273149}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &3394947644208958484 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 7116830244609461481, guid: 620db8eb4e341934fb0ecea0996ddecd, type: 3}
-  m_PrefabInstance: {fileID: 5609595640216273149}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &6811415101907612505 stripped
+--- !u!1 &1946893678288606168 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1395632588227670948, guid: 620db8eb4e341934fb0ecea0996ddecd, type: 3}
-  m_PrefabInstance: {fileID: 5609595640216273149}
+  m_PrefabInstance: {fileID: 601944193154965628}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &7187435908553734457
+--- !u!114 &311922518417747467
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6811415101907612505}
+  m_GameObject: {fileID: 1946893678288606168}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a264ee16ae02c7a4799478ba239800dd, type: 3}
@@ -100,12 +90,22 @@ MonoBehaviour:
   holdSeconds: 2.6
   launchBoost: 7.5
   hoverAmplitude: 0.08
-  deck: {fileID: 8923120014229154814}
-  rotorLeft: {fileID: 3394947644208958484}
-  rotorRight: {fileID: 2431003711508429729}
+  deck: {fileID: 4491930434019068799}
+  rotorLeft: {fileID: 7682725809788316821}
+  rotorRight: {fileID: 7223607159771765536}
   droneNumber: MCU-7A / 01
---- !u!65 &8923120014229154814 stripped
+--- !u!65 &4491930434019068799 stripped
 BoxCollider:
   m_CorrespondingSourceObject: {fileID: 3894492054967118595, guid: 620db8eb4e341934fb0ecea0996ddecd, type: 3}
-  m_PrefabInstance: {fileID: 5609595640216273149}
+  m_PrefabInstance: {fileID: 601944193154965628}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &7223607159771765536 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7810897057555053404, guid: 620db8eb4e341934fb0ecea0996ddecd, type: 3}
+  m_PrefabInstance: {fileID: 601944193154965628}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &7682725809788316821 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7116830244609461481, guid: 620db8eb4e341934fb0ecea0996ddecd, type: 3}
+  m_PrefabInstance: {fileID: 601944193154965628}
   m_PrefabAsset: {fileID: 0}
