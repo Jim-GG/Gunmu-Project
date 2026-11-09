@@ -1,0 +1,188 @@
+{
+  "passed": true,
+  "error": null,
+  "checks": [
+    {
+      "name": "72m sealed arena, wide navigation and Cinemachine listener",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "Four upper platforms have fitted guardrails and two clear exit gates each",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "Engine and drill own independent 3D loop sources; global audio manager removed",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "TripleSlam light/final mappings and moving drill sound ownership",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "Hitbox sounds use four attacker-owned voices; single-hit deduplication, repeats and pool reset",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "Stride/airborne/idle footstep timing, ground material lookup and reusable source beneath actor",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "Material contacts, fist override, contact rate limit, pool reset, footsteps and falling-object sounds configured",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "Wide boss navigation routes around all four columns",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "Moving tracks instantly ragdoll Resonators; stationary tracks remain safe",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "Both charge forms steer at 18 degrees/sec with 30-degree total budget",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "Collision-constrained boss push reflects at arena wall",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "Phase one 50/30/20 weights, two light/one heavy impulse, rocks without purple crystals",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "Cycle 1: overloaded 10/40/50 weights and population",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "Cycle 1: flying capture freezes machine and triggers phase three once",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "Cycle 1: TripleSlam freezes precisely at 64",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "Cycle 1: one large central tether/rebound crystal",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "Central crystal physically pulls and punches player above pillar platform height",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "Cycle 1: upper pure crystal grants shared 15-second resonance mode",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "Cycle 1: real downward Punch4 landing sends shockwave and regrows crystals",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "Cycle 1: boss pushed beyond 10m and returns to stable form",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "Cycle 2: overloaded 10/40/50 weights and population",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "Cycle 2: flying capture freezes machine and triggers phase three once",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "Cycle 2: TripleSlam freezes precisely at 64",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "Cycle 2: one large central tether/rebound crystal",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "Cycle 2: upper pure crystal grants shared 15-second resonance mode",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "Cycle 2: real downward Punch4 landing sends shockwave and regrows crystals",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "Cycle 2: boss pushed beyond 10m and returns to stable form",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "Cycle 3: overloaded 10/40/50 weights and population",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "Cycle 3: flying capture freezes machine and triggers phase three once",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "Cycle 3: TripleSlam freezes precisely at 64",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "Cycle 3: one large central tether/rebound crystal",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "Cycle 3: upper pure crystal grants shared 15-second resonance mode",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "Cycle 3: real downward Punch4 landing sends shockwave and regrows crystals",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "Three complete physical capture / slam / crystal / ground-impact cycles defeat boss",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "Three-phase encounter resets",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "Cinemachine listener position receives nonzero shake signal",
+      "passed": true,
+      "details": {
+        "amplitude": 0.06424017
+      }
+    }
+  ]
+}

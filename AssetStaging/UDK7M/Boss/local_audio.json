@@ -1,0 +1,95 @@
+{
+  "passed": true,
+  "environmentContactSources": 0,
+  "playerContactVoices": 4,
+  "bossFootstepComponents": 0,
+  "prepareLoop": "metal_scrape_loop",
+  "gauntletCharge": "三段蓄力",
+  "gauntletFull": "蓄力满循环音效",
+  "clips": 757,
+  "surfaces": [
+    {
+      "type": "Metal",
+      "contacts": [
+        "metal_clang5",
+        "metalgrate_land1",
+        "metalgrate_land2",
+        "metalgrate_land3"
+      ],
+      "steps": 8
+    },
+    {
+      "type": "Concrete",
+      "contacts": [
+        "stone_impact1",
+        "stone_impact2",
+        "stone_impact3",
+        "stone_impact4"
+      ],
+      "steps": 8
+    },
+    {
+      "type": "Wood",
+      "contacts": [
+        "wood_impact1",
+        "wood_impact2",
+        "wood_impact3",
+        "wood_impact4"
+      ],
+      "steps": 8
+    },
+    {
+      "type": "Crystal",
+      "contacts": [
+        "glass_break1",
+        "glass_break2",
+        "CrystalGenericCombined_02",
+        "CrystalGenericCombined_03",
+        "CrystalGenericCombined_04",
+        "CrystalGenericCombined_05",
+        "CrystalGenericCombined_06",
+        "CrystalGenericCombined_07",
+        "CrystalGenericCombined_08"
+      ],
+      "steps": 8
+    },
+    {
+      "type": "Flesh",
+      "contacts": [
+        "a_bloodsplat_01",
+        "a_bloodsplat_02",
+        "a_bloodsplat_03",
+        "a_bloodsplat_04"
+      ],
+      "steps": 8
+    },
+    {
+      "type": "Plastic",
+      "contacts": [
+        "bullet-impact-plastic-01",
+        "bullet-impact-plastic-02",
+        "bullet-impact-plastic-03",
+        "bullet-impact-plastic-04",
+        "bullet-impact-plastic-05",
+        "bullet-impact-plastic-06"
+      ],
+      "steps": 8
+    }
+  ],
+  "loops": [
+    {
+      "drill": true,
+      "clip": "电钻循环",
+      "spatialBlend": 0.6
+    },
+    {
+      "drill": false,
+      "clip": "机器轰鸣",
+      "spatialBlend": 0.6
+    }
+  ],
+  "decision": {
+    "minimum": 0.3,
+    "maximum": 0.55
+  }
+}

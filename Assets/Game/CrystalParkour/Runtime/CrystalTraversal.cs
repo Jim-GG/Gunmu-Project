@@ -26,6 +26,7 @@ namespace CrystalParkour
         public bool GrewFloor{get;set;}public bool GrewWall{get;set;}public bool RodeDrone{get;set;}public bool Completed{get;private set;}
         public string Hint{get;private set;}="按住左键对准晶体牵引；进入击打距离后 2 秒内松开";
         public Vector3 LastLaunchVelocity{get;private set;}
+        public event System.Action<CrystalSurface> TetherStarted,AttachedToSurface;
         Vector3 localPoint,incoming,checkpoint;Quaternion checkpointRotation;
         CrystalSurface lastSurface;float cooldown,stageTime,stalled,windExitBlend=.3f;bool reboundSpent,requireFreshCharge;
         public static CrystalTraversal Find(Vector3 source){CrystalTraversal closest=null;float distance=.25f;foreach(var p in players)if(p){float d=(p.transform.position-source).sqrMagnitude;if(d<distance){distance=d;closest=p;}}return closest;}
@@ -96,9 +97,10 @@ namespace CrystalParkour
             if(!surface||!surface.ActionTargetAlive||surface==lastSurface||cooldown>0||requireFreshCharge)return false;
             Target=surface;localPoint=surface.transform.InverseTransformPoint(point);SurfaceNormal=surface.useLaunchNormal?surface.WorldLaunchNormal:normal.normalized;incoming=motor.Velocity;AttachedElapsed=stageTime=stalled=0;reboundSpent=false;
             motor.StopMomentum();motor.MovementSuspended=true;State=Mode.Pulling;Hint="牵引中——计时尚未开始";
+            TetherStarted?.Invoke(surface);
             if(Vector3.Distance(aim.position,point)<=attachmentReach+.04f)Attach();return true;
         }
-        void Attach(){State=Mode.Attached;stageTime=AttachedElapsed=0;Hint="已攀附：2 秒内松开左键，命中时反弹";}
+        void Attach(){State=Mode.Attached;stageTime=AttachedElapsed=0;Hint="已攀附：2 秒内松开左键，命中时反弹";AttachedToSurface?.Invoke(Target);}
         void AttackBegan(int punch)
         {
             AttackSerial++;
@@ -112,6 +114,7 @@ namespace CrystalParkour
             var n=SurfaceNormal.normalized;var tangent=Vector3.ProjectOnPlane(incoming,n)*surface.tangentialRetention;
             var steering=Vector3.ProjectOnPlane(aim.forward,n);steering.y=0;if(steering.sqrMagnitude>1)steering.Normalize();
             LastLaunchVelocity=n*surface.normalLaunchSpeed+Vector3.up*surface.upwardLaunchSpeed+tangent+steering*launchSteering;
+            if(surface.horizontalAimLaunchSpeed>0){var direction=Vector3.ProjectOnPlane(aim.forward,Vector3.up).normalized;if(direction.sqrMagnitude<.01f)direction=transform.forward;LastLaunchVelocity+=direction*surface.horizontalAimLaunchSpeed;}
             lastSurface=surface;Target=null;State=Mode.Free;cooldown=reattachCooldown;motor.Launch(LastLaunchVelocity,launchControlProtection);Rebounds++;Hint="冲击反弹！空中用 WASD 调整，寻找下一块晶体";return true;
         }
         public void Drop(string reason){if(State!=Mode.Free)requireFreshCharge=true;if(motor)motor.MovementSuspended=false;Target=null;State=Mode.Free;cooldown=reattachCooldown;Hint=reason;}

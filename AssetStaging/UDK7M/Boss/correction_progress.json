@@ -1,0 +1,14 @@
+[
+  {
+    "name": "Actual level-view punch4 lethal strike immediately activates standing ragdoll",
+    "passed": true,
+    "details": null
+  },
+  {
+    "name": "Physical standing lethal launch without attacking corpse",
+    "passed": true,
+    "details": {
+      "metres": 11.6944695
+    }
+  }
+]

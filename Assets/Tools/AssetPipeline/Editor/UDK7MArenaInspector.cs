@@ -11,7 +11,8 @@ namespace AssetPipeline.Editor
         [MenuItem("Tools/UDK7M/Open Boss Animation Workbench")]
         public static void OpenWorkbench()
         {
-            var actions=AssetDatabase.LoadAssetAtPath<GameActions.ActionSet>("Assets/Game/Enemies/UDK7M/Actions/UDK7MActions.asset");
+            var actions=AssetDatabase.LoadAssetAtPath<GameActions.ActionSet>("Assets/Game/Enemies/UDK7M/Actions/UDK7M_ThreePhaseActions.asset");
+            if(!actions)actions=AssetDatabase.LoadAssetAtPath<GameActions.ActionSet>("Assets/Game/Enemies/UDK7M/Actions/UDK7MActions.asset");
             if(!actions)return;var window=Resonator.AI.Editor.ResonatorAnimationWorkbench.OpenShared(actions);window.ShowAction(System.Array.FindIndex(actions.actions,a=>a.id=="SlamRecover"),5);
         }
         public override void OnInspectorGUI()

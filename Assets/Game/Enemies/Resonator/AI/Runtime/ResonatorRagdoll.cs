@@ -16,6 +16,7 @@ namespace Resonator.AI
         public Collider livingCollider;
         public bool Active {get;private set;}
         public Vector3 Centre=>bodies.Length>0&&bodies[0]?bodies[0].worldCenterOfMass:transform.position+Vector3.up;
+        public float Speed=>bodies.Length>0&&bodies[0]?bodies[0].linearVelocity.magnitude:0;
         Vector3[] restPositions;Quaternion[] restRotations;
         void Awake(){restPositions=new Vector3[definitions.Length];restRotations=new Quaternion[definitions.Length];for(int i=0;i<definitions.Length;i++){restPositions[i]=definitions[i].bone.localPosition;restRotations[i]=definitions[i].bone.localRotation;}SetDormant();}
         public void ResetForReuse()
@@ -36,6 +37,12 @@ namespace Resonator.AI
             if(!Active)return;Vector3 direction=destination-Centre;
             foreach(var b in bodies)if(b){var wanted=direction.normalized*Mathf.Min(speed,direction.magnitude/Mathf.Max(.01f,dt));b.linearVelocity=Vector3.MoveTowards(b.linearVelocity,wanted,50*dt);b.collisionDetectionMode=CollisionDetectionMode.ContinuousDynamic;}
         }
+        public void CaptureTowards(Vector3 destination,float speed,float dt)
+        {
+            var delta=destination-Centre;var wanted=delta.normalized*Mathf.Min(speed,delta.magnitude*8);
+            foreach(var b in bodies)if(b){b.useGravity=false;b.linearDamping=2;b.linearVelocity=Vector3.MoveTowards(b.linearVelocity,wanted,100*dt);}
+        }
+        public void ReleaseCapture(){foreach(var b in bodies)if(b){b.useGravity=true;b.linearDamping=0;}}
         void OnEnable(){if(Active)ResonatorCrowd.RegisterCorpse(this);}
         void OnDisable()=>ResonatorCrowd.UnregisterCorpse(this);
         public void SetDormant()

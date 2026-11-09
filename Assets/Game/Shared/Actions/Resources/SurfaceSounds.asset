@@ -1,0 +1,142 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f7108aef0ddad946a855f669dc2aa01, type: 3}
+  m_Name: SurfaceSounds
+  m_EditorClassIdentifier: Assembly-CSharp::GameActions.SurfaceSoundLibrary
+  surfaces:
+  - surface: 1
+    contacts:
+    - {fileID: 8300000, guid: 08bdd0eaf8b9742499aebfed1175b1c5, type: 3}
+    - {fileID: 8300000, guid: b17d4f8f610b5b944891a9cad8e66b85, type: 3}
+    - {fileID: 8300000, guid: f3c5bfe6e32b94c4689b58198f587a61, type: 3}
+    - {fileID: 8300000, guid: 5e3f2ddd82e707043a792f94683d8aac, type: 3}
+    steps:
+    - {fileID: 8300000, guid: e01158bd8650bc243b419ab7625bef62, type: 3}
+    - {fileID: 8300000, guid: 262cb6efed907284f9572682e3269016, type: 3}
+    - {fileID: 8300000, guid: f8c4fa336f2d98a47a2dc158ac08e15d, type: 3}
+    - {fileID: 8300000, guid: 4c2140c5f9db0504b86f41aab381b90c, type: 3}
+    - {fileID: 8300000, guid: 187c5852e8fd91b4abeaa68e8f665315, type: 3}
+    - {fileID: 8300000, guid: 2169f942f5985524b8502e5f0c8cdf14, type: 3}
+    - {fileID: 8300000, guid: 5fa5be41a6a821840a264ec26e71862d, type: 3}
+    - {fileID: 8300000, guid: f7e99536c32838a4c88ad27c6d2545b5, type: 3}
+    landings:
+    - {fileID: 8300000, guid: b17d4f8f610b5b944891a9cad8e66b85, type: 3}
+    - {fileID: 8300000, guid: f3c5bfe6e32b94c4689b58198f587a61, type: 3}
+    - {fileID: 8300000, guid: 5e3f2ddd82e707043a792f94683d8aac, type: 3}
+    fist: {fileID: 8300000, guid: 71dd8704b932f3646b7d6583172e39ad, type: 3}
+  - surface: 0
+    contacts:
+    - {fileID: 8300000, guid: 238f8319cd3452744b88520b131865d4, type: 3}
+    - {fileID: 8300000, guid: 2d027a89bdfac8a49bb280b188158fb5, type: 3}
+    - {fileID: 8300000, guid: f926669abb820f14fa394d4eba89641a, type: 3}
+    - {fileID: 8300000, guid: 1ea62c04a23427243b1d5a0d97fc12a9, type: 3}
+    steps:
+    - {fileID: 8300000, guid: 53c2fbc68a1a17e4b8da8c36ad494890, type: 3}
+    - {fileID: 8300000, guid: 611c98264450bbd4fa2e523fe0f55d78, type: 3}
+    - {fileID: 8300000, guid: 319121c02b9849744a81f45232eb0d0e, type: 3}
+    - {fileID: 8300000, guid: 80e2e181a6f031145b64213b603d6d57, type: 3}
+    - {fileID: 8300000, guid: c10d158bce78b3b479c39b13aec3d23f, type: 3}
+    - {fileID: 8300000, guid: b6968d4206ef3c74db832447d75ee898, type: 3}
+    - {fileID: 8300000, guid: 372ac6385fdf3964d97ea855bd74d6c3, type: 3}
+    - {fileID: 8300000, guid: 57f1b258230085842ba00612faed417f, type: 3}
+    landings:
+    - {fileID: 8300000, guid: 18b1012e2a3d0ce42a76665c0e055054, type: 3}
+    - {fileID: 8300000, guid: 57d71a05043cf924186315d033818bec, type: 3}
+    - {fileID: 8300000, guid: a661b3e644109ee4cbf9fd3e92ea67ee, type: 3}
+    fist: {fileID: 0}
+  - surface: 2
+    contacts:
+    - {fileID: 8300000, guid: 3dabae00a97259a478cd055ab6cb2f4c, type: 3}
+    - {fileID: 8300000, guid: 47a7379baf828eb40a43cb24660c4e20, type: 3}
+    - {fileID: 8300000, guid: c21fb61471c56554cb898655e9e5abf7, type: 3}
+    - {fileID: 8300000, guid: fbd83c73425ba7f48b816628d2e33ebe, type: 3}
+    steps:
+    - {fileID: 8300000, guid: 76dc55fbeacbadd46a76e1f37ca3ccf3, type: 3}
+    - {fileID: 8300000, guid: bbfe4df2befb5e440b26e14d481bf22b, type: 3}
+    - {fileID: 8300000, guid: 3b56ac3142e84444188f9d0c6f8e055a, type: 3}
+    - {fileID: 8300000, guid: c987c7088a84c8e429c9c41bedc2dd22, type: 3}
+    - {fileID: 8300000, guid: 886c7b57f5fa5e84993826dcfff2dc76, type: 3}
+    - {fileID: 8300000, guid: 2108ea455c5671742a22480476c882cf, type: 3}
+    - {fileID: 8300000, guid: 3fe6e2770c7c6144997a0e03f59e0f9f, type: 3}
+    - {fileID: 8300000, guid: bf3a9c4195429a44f84bcbcd3f327f5d, type: 3}
+    landings:
+    - {fileID: 8300000, guid: e5288a310d7db9444addf93781bb124a, type: 3}
+    - {fileID: 8300000, guid: eb2bae82323148843b814a2b89dce544, type: 3}
+    - {fileID: 8300000, guid: d3e698a3a469abf498e29ac7689937d2, type: 3}
+    fist: {fileID: 0}
+  - surface: 3
+    contacts:
+    - {fileID: 8300000, guid: 37f185d40f266ea4093365f6c381dee8, type: 3}
+    - {fileID: 8300000, guid: ee75865826287184b87f89a7878a259d, type: 3}
+    - {fileID: 8300000, guid: 1bd8204ccbc71b840b104548be530549, type: 3}
+    - {fileID: 8300000, guid: a6095f3c203428d46935b21184892baf, type: 3}
+    - {fileID: 8300000, guid: 0d22af96c42288e4ea82d678db37e257, type: 3}
+    - {fileID: 8300000, guid: 798486978cf6e4346bbefcb5b7918b3c, type: 3}
+    - {fileID: 8300000, guid: 6c495d6d18a38a341a9fed5736a226c5, type: 3}
+    - {fileID: 8300000, guid: 82cb53ef9216d604d9aeb433b3b2592e, type: 3}
+    - {fileID: 8300000, guid: b1f5c434c709bf74c9bb629661b2ec72, type: 3}
+    steps:
+    - {fileID: 8300000, guid: 04c476db00cc69f4588f6ef884b5f517, type: 3}
+    - {fileID: 8300000, guid: 191b473b80fc2c848a67d9b745259e93, type: 3}
+    - {fileID: 8300000, guid: 42e0993dd5431de4baf7471190b9019f, type: 3}
+    - {fileID: 8300000, guid: 49ab266a33999d74ebadc475f9fffb43, type: 3}
+    - {fileID: 8300000, guid: 1ad446c69273d9d4fb8013cf3963f1ec, type: 3}
+    - {fileID: 8300000, guid: e389363f004371d43b46c1627583e5df, type: 3}
+    - {fileID: 8300000, guid: 77dfe019cd8169c4da23951cf631af14, type: 3}
+    - {fileID: 8300000, guid: a8f16e4f96acdbe40a288de47bd0dd36, type: 3}
+    landings:
+    - {fileID: 8300000, guid: 9d0504fa84ea9e1418041acace79184f, type: 3}
+    - {fileID: 8300000, guid: 6e20d50448edd9c44917a7efc2163506, type: 3}
+    - {fileID: 8300000, guid: f64dd2917a67a934bab325ed0284ad12, type: 3}
+    fist: {fileID: 0}
+  - surface: 4
+    contacts:
+    - {fileID: 8300000, guid: 64321555800db054b96d0c843e515426, type: 3}
+    - {fileID: 8300000, guid: 5102146b287dc324ba555279811e8804, type: 3}
+    - {fileID: 8300000, guid: 65bf799a7900e1f479c3d164f423110b, type: 3}
+    - {fileID: 8300000, guid: 0bb9e0ce71f7e5e41b1eaf88b58cfb9c, type: 3}
+    steps:
+    - {fileID: 8300000, guid: 53c2fbc68a1a17e4b8da8c36ad494890, type: 3}
+    - {fileID: 8300000, guid: 611c98264450bbd4fa2e523fe0f55d78, type: 3}
+    - {fileID: 8300000, guid: 319121c02b9849744a81f45232eb0d0e, type: 3}
+    - {fileID: 8300000, guid: 80e2e181a6f031145b64213b603d6d57, type: 3}
+    - {fileID: 8300000, guid: c10d158bce78b3b479c39b13aec3d23f, type: 3}
+    - {fileID: 8300000, guid: b6968d4206ef3c74db832447d75ee898, type: 3}
+    - {fileID: 8300000, guid: 372ac6385fdf3964d97ea855bd74d6c3, type: 3}
+    - {fileID: 8300000, guid: 57f1b258230085842ba00612faed417f, type: 3}
+    landings:
+    - {fileID: 8300000, guid: 18b1012e2a3d0ce42a76665c0e055054, type: 3}
+    - {fileID: 8300000, guid: 57d71a05043cf924186315d033818bec, type: 3}
+    - {fileID: 8300000, guid: a661b3e644109ee4cbf9fd3e92ea67ee, type: 3}
+    fist: {fileID: 0}
+  - surface: 5
+    contacts:
+    - {fileID: 8300000, guid: 92c5e9350f8ef064f9b885f0516f34c4, type: 3}
+    - {fileID: 8300000, guid: 1f83f5da362bb9d44a0f36c0a096d56c, type: 3}
+    - {fileID: 8300000, guid: f9fd79391e0b2db43b6bb0760cbf71a4, type: 3}
+    - {fileID: 8300000, guid: 876c4fa619a18bb4c8bb2e5c8e779db0, type: 3}
+    - {fileID: 8300000, guid: 5dea3bce7ba3ee94b9205d58923254f4, type: 3}
+    - {fileID: 8300000, guid: 4712dcca5df626d4687b3ae34f830431, type: 3}
+    steps:
+    - {fileID: 8300000, guid: 53c2fbc68a1a17e4b8da8c36ad494890, type: 3}
+    - {fileID: 8300000, guid: 611c98264450bbd4fa2e523fe0f55d78, type: 3}
+    - {fileID: 8300000, guid: 319121c02b9849744a81f45232eb0d0e, type: 3}
+    - {fileID: 8300000, guid: 80e2e181a6f031145b64213b603d6d57, type: 3}
+    - {fileID: 8300000, guid: c10d158bce78b3b479c39b13aec3d23f, type: 3}
+    - {fileID: 8300000, guid: b6968d4206ef3c74db832447d75ee898, type: 3}
+    - {fileID: 8300000, guid: 372ac6385fdf3964d97ea855bd74d6c3, type: 3}
+    - {fileID: 8300000, guid: 57f1b258230085842ba00612faed417f, type: 3}
+    landings:
+    - {fileID: 8300000, guid: 18b1012e2a3d0ce42a76665c0e055054, type: 3}
+    - {fileID: 8300000, guid: 57d71a05043cf924186315d033818bec, type: 3}
+    - {fileID: 8300000, guid: a661b3e644109ee4cbf9fd3e92ea67ee, type: 3}
+    fist: {fileID: 0}

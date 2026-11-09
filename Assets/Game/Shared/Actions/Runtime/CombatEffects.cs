@@ -18,7 +18,7 @@ namespace GameActions
             if(!lease){var go=prefab?Object.Instantiate(prefab,root):new GameObject("Pooled contact audio");go.transform.SetParent(root);lease=go.AddComponent<CombatEffectLease>();leases.Add(lease);}
             lease.gameObject.SetActive(false);lease.transform.position=point;lease.Until=Time.time+Mathf.Max(.05f,lifetime);lease.gameObject.SetActive(true);
             foreach(var p in lease.GetComponentsInChildren<ParticleSystem>()){p.Stop(true,ParticleSystemStopBehavior.StopEmittingAndClear);p.Play();}
-            if(sound){var source=lease.GetComponent<AudioSource>();if(!source)source=lease.gameObject.AddComponent<AudioSource>();source.spatialBlend=1;source.minDistance=1;source.maxDistance=25;source.playOnAwake=false;source.PlayOneShot(sound);lease.Until=Mathf.Max(lease.Until,Time.time+sound.length);}
+            if(sound){var source=lease.GetComponent<AudioSource>();if(!source)source=lease.gameObject.AddComponent<AudioSource>();source.spatialBlend=.6f;source.minDistance=3;source.maxDistance=80;source.playOnAwake=false;source.PlayOneShot(sound);lease.Until=Mathf.Max(lease.Until,Time.time+sound.length);}
         }
         public static void Emit(CombatEffect kind,Vector3 position,Vector3 normal,float size=1)
         {
@@ -43,3 +43,4 @@ namespace GameActions
         }
     }
 }
+

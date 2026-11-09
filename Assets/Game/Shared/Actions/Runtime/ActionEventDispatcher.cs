@@ -17,7 +17,7 @@ namespace GameActions
                 if(!sources.TryGetValue(anchor,out var source)||!source)
                 {
                     var go=new GameObject("Action Audio");go.transform.SetParent(anchor,false);
-                    source=go.AddComponent<AudioSource>();source.playOnAwake=false;source.spatialBlend=1;source.minDistance=1;source.maxDistance=25;sources[anchor]=source;
+                    source=go.AddComponent<AudioSource>();source.playOnAwake=false;source.spatialBlend=.5f;source.minDistance=5;source.maxDistance=80;sources[anchor]=source;
                 }
                 source.transform.localPosition=marker.position;source.PlayOneShot(marker.sound,Mathf.Clamp01(marker.value));
             }

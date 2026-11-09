@@ -63,8 +63,10 @@ namespace UDK7M
                     if(push.sqrMagnitude<.01f)push=owner.forward;
                     // Source just behind the victim gives both movement controllers
                     // the same outward direction, including while turning in place.
-                    ActionDamageDelivery.Deliver(target,new ActionDamage(tuning.crushDamage,target.ActionRoot.position-push,tuning.crushKnockback,tuning.crushPushSeconds,true,tuning.crushBlockedKnockback,direction:push));
+                    var enemy=target as ResonatorEnemy;float damage=enemy&&tuning.crushKillsMinions?Mathf.Max(enemy.Health,tuning.crushDamage):tuning.crushDamage;
+                    ActionDamageDelivery.Deliver(target,new ActionDamage(damage,target.ActionRoot.position-push,tuning.crushKnockback,tuning.crushPushSeconds,true,tuning.crushBlockedKnockback,cause:enemy?DamageCause.Crush:DamageCause.Ordinary,direction:push));
                     CombatEffects.Emit(CombatEffect.Sparks,collider.ClosestPoint(centre),Vector3.up);
+                    var boss=owner.GetComponent<UDK7MBoss>();if(boss&&boss.arena)boss.arena.feedback.Sound(UDK7MSound.Crush,collider.ClosestPoint(centre),owner);
                 }
             }
         }

@@ -32,6 +32,8 @@ namespace Resonator.AI
         public event Action<GameActions.DamageCause> Killed;
         public GameActions.DamageCause LastDeathCause {get;private set;}
         public bool Absorbed {get;set;}
+        public bool PlayerLaunched {get;private set;}
+        public float PlayerLaunchTime {get;private set;}
         public void ReceiveActionDamage(GameActions.ActionDamage hit)=>ApplyDamage(hit);
         public void BeginBossWake(){aware=true;Enter(EnemyState.Waking);}
         public void Agonize(){if(ActionTargetAlive){aware=true;if(target)LastKnownPosition=target.transform.position;Enter(EnemyState.Agonizing);}}
@@ -75,7 +77,7 @@ namespace Resonator.AI
         {
             if(!tuning||!motion){Debug.LogError("Resonator requires tuning and motion player",this);enabled=false;return;}
             initialActivity=activity;started=true;health=tuning.maxHealth;aware=false;
-            Absorbed=false;LastDeathCause=GameActions.DamageCause.Ordinary;
+            Absorbed=false;PlayerLaunched=false;PlayerLaunchTime=float.NegativeInfinity;LastDeathCause=GameActions.DamageCause.Ordinary;
             if(!motor)motor=GetComponent<ResonatorMotor>();motor.tuning=tuning;
             if(!target)target=FindFirstObjectByType<ResonatorTarget>();
             velocitySource=null;targetVelocity=Vector3.zero;plannedAttack=EnemyState.Headbutt;
@@ -404,7 +406,7 @@ namespace Resonator.AI
             if(health<=0)
             {
                 LastDeathCause=hit.cause;
-                if(hit.chargeLevel>=3)
+                if(hit.chargeLevel>=3||hit.cause==GameActions.DamageCause.Crush)
                 {
                     // Preserve the standing hit pose. Playing even frame zero of
                     // Death here can put the new ragdoll into the floor first.
@@ -412,7 +414,8 @@ namespace Resonator.AI
                     if(away.sqrMagnitude<.01f)away=Vector3.ProjectOnPlane(transform.position-source,Vector3.up).normalized;
                     if(away.sqrMagnitude<.01f)away=-transform.forward;
                     lastImpulse=Vector3.zero;BecomeRagdoll();
-                    if(ragdoll)ragdoll.LaunchOnDeath(away*tuning.tierThreeLaunchSpeed+Vector3.up*tuning.tierThreeLaunchUp);
+                    PlayerLaunched=hit.chargeLevel>=3;PlayerLaunchTime=Time.time;
+                    if(ragdoll)ragdoll.LaunchOnDeath(PlayerLaunched?away*tuning.tierThreeLaunchSpeed+Vector3.up*tuning.tierThreeLaunchUp:away*Mathf.Max(2,hit.knockback)+Vector3.up*1.2f);
                 }
                 else Enter(EnemyState.Dying);
                 Killed?.Invoke(hit.cause);

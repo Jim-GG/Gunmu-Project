@@ -451,7 +451,7 @@ MonoBehaviour:
         enabled: 1
         startFrame: 6
         endFrame: 11
-        damage: 110
+        damage: 160
         reach: 1.45
         halfAngle: 65
         shape: 0

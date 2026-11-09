@@ -4,7 +4,7 @@ namespace GameActions
 {
     public enum HitRepeat { Once, EffectsOnly, Cooldown, EverySample }
     public enum GuardKind { None, Imperfect, Perfect }
-    public enum DamageCause { Ordinary, Resonance }
+    public enum DamageCause { Ordinary, Resonance, Crush }
     public readonly struct ActionDamage
     {
         public readonly float damage,knockback,duration,blockedKnockback;

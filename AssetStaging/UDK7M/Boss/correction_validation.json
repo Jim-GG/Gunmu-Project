@@ -1,5 +1,18 @@
 {
-  "passed": false,
-  "error": "System.Exception: Level forward-facing fist did not kill and launch a standing enemy\r\n  at AssetPipeline.Editor.UDK7MBossValidation.RunCorrections () [0x00a48] in D:\\UNITY工程\\棍木项目\\棍木项目\\Assets\\Tools\\AssetPipeline\\Editor\\UDK7MBossValidation.Corrections.cs:50 \r\n  at AssetPipeline.Editor.UDK7MBossValidation.Poll () [0x00183] in D:\\UNITY工程\\棍木项目\\棍木项目\\Assets\\Tools\\AssetPipeline\\Editor\\UDK7MBossValidation.cs:42 ",
-  "checks": []
+  "passed": true,
+  "error": null,
+  "checks": [
+    {
+      "name": "Actual level-view punch4 lethal strike immediately activates standing ragdoll",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "Physical standing lethal launch without attacking corpse",
+      "passed": true,
+      "details": {
+        "metres": 11.6944695
+      }
+    }
+  ]
 }

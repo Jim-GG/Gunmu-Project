@@ -1,0 +1,235 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f5940a5634c9567429327d8b13640948, type: 3}
+  m_Name: UDK7M_Audio
+  m_EditorClassIdentifier: Assembly-CSharp::UDK7M.UDK7MAudioProfile
+  masterVolume: 1
+  maximumVoices: 16
+  sounds:
+  - cue: 0
+    clips:
+    - {fileID: 8300000, guid: 96e61eea2c47deb47b85a78d43177327, type: 3}
+    - {fileID: 8300000, guid: e7b96c1888f8ead478f84b84374dade1, type: 3}
+    volume: 0.8
+    pitch: {x: 0.95, y: 1.05}
+    cooldown: 0.08
+    followSource: 1
+    minDistance: 2
+    maxDistance: 65
+  - cue: 1
+    clips: []
+    volume: 0.8
+    pitch: {x: 0.95, y: 1.05}
+    cooldown: 0.08
+    followSource: 0
+    minDistance: 2
+    maxDistance: 65
+  - cue: 2
+    clips: []
+    volume: 0.8
+    pitch: {x: 0.95, y: 1.05}
+    cooldown: 0.08
+    followSource: 0
+    minDistance: 2
+    maxDistance: 65
+  - cue: 3
+    clips: []
+    volume: 0.8
+    pitch: {x: 0.95, y: 1.05}
+    cooldown: 0.08
+    followSource: 0
+    minDistance: 2
+    maxDistance: 65
+  - cue: 4
+    clips: []
+    volume: 0.8
+    pitch: {x: 0.95, y: 1.05}
+    cooldown: 0.08
+    followSource: 0
+    minDistance: 2
+    maxDistance: 65
+  - cue: 5
+    clips: []
+    volume: 0.8
+    pitch: {x: 0.95, y: 1.05}
+    cooldown: 0.08
+    followSource: 0
+    minDistance: 2
+    maxDistance: 65
+  - cue: 6
+    clips: []
+    volume: 0.8
+    pitch: {x: 0.95, y: 1.05}
+    cooldown: 0.08
+    followSource: 1
+    minDistance: 2
+    maxDistance: 65
+  - cue: 7
+    clips: []
+    volume: 0.8
+    pitch: {x: 0.95, y: 1.05}
+    cooldown: 0.08
+    followSource: 1
+    minDistance: 2
+    maxDistance: 65
+  - cue: 8
+    clips: []
+    volume: 0.8
+    pitch: {x: 0.95, y: 1.05}
+    cooldown: 0.08
+    followSource: 1
+    minDistance: 2
+    maxDistance: 65
+  - cue: 9
+    clips: []
+    volume: 0.8
+    pitch: {x: 0.95, y: 1.05}
+    cooldown: 0.08
+    followSource: 1
+    minDistance: 2
+    maxDistance: 65
+  - cue: 10
+    clips: []
+    volume: 0.8
+    pitch: {x: 0.95, y: 1.05}
+    cooldown: 0.08
+    followSource: 0
+    minDistance: 2
+    maxDistance: 65
+  - cue: 11
+    clips: []
+    volume: 0.8
+    pitch: {x: 0.95, y: 1.05}
+    cooldown: 0.08
+    followSource: 1
+    minDistance: 2
+    maxDistance: 65
+  - cue: 12
+    clips: []
+    volume: 0.8
+    pitch: {x: 0.95, y: 1.05}
+    cooldown: 0.08
+    followSource: 0
+    minDistance: 2
+    maxDistance: 65
+  - cue: 13
+    clips: []
+    volume: 0.8
+    pitch: {x: 0.95, y: 1.05}
+    cooldown: 0.08
+    followSource: 0
+    minDistance: 2
+    maxDistance: 65
+  - cue: 14
+    clips: []
+    volume: 0.8
+    pitch: {x: 0.95, y: 1.05}
+    cooldown: 0.08
+    followSource: 0
+    minDistance: 2
+    maxDistance: 65
+  - cue: 15
+    clips: []
+    volume: 0.8
+    pitch: {x: 0.95, y: 1.05}
+    cooldown: 0.08
+    followSource: 0
+    minDistance: 2
+    maxDistance: 65
+  - cue: 16
+    clips: []
+    volume: 0.8
+    pitch: {x: 0.95, y: 1.05}
+    cooldown: 0.08
+    followSource: 0
+    minDistance: 2
+    maxDistance: 65
+  - cue: 17
+    clips: []
+    volume: 0.8
+    pitch: {x: 0.95, y: 1.05}
+    cooldown: 0.08
+    followSource: 1
+    minDistance: 2
+    maxDistance: 65
+  - cue: 18
+    clips: []
+    volume: 0.8
+    pitch: {x: 0.95, y: 1.05}
+    cooldown: 0.08
+    followSource: 1
+    minDistance: 2
+    maxDistance: 65
+  - cue: 19
+    clips: []
+    volume: 0.8
+    pitch: {x: 0.95, y: 1.05}
+    cooldown: 0.08
+    followSource: 0
+    minDistance: 2
+    maxDistance: 65
+  - cue: 20
+    clips: []
+    volume: 0.8
+    pitch: {x: 0.95, y: 1.05}
+    cooldown: 0.08
+    followSource: 1
+    minDistance: 2
+    maxDistance: 65
+  - cue: 21
+    clips: []
+    volume: 0.8
+    pitch: {x: 0.95, y: 1.05}
+    cooldown: 0.08
+    followSource: 0
+    minDistance: 2
+    maxDistance: 65
+  - cue: 22
+    clips: []
+    volume: 0.8
+    pitch: {x: 0.95, y: 1.05}
+    cooldown: 0.08
+    followSource: 0
+    minDistance: 2
+    maxDistance: 65
+  - cue: 23
+    clips: []
+    volume: 0.8
+    pitch: {x: 0.95, y: 1.05}
+    cooldown: 0.08
+    followSource: 0
+    minDistance: 2
+    maxDistance: 65
+  - cue: 24
+    clips: []
+    volume: 0.8
+    pitch: {x: 0.95, y: 1.05}
+    cooldown: 0.08
+    followSource: 0
+    minDistance: 2
+    maxDistance: 65
+  - cue: 25
+    clips: []
+    volume: 0.8
+    pitch: {x: 0.95, y: 1.05}
+    cooldown: 0.08
+    followSource: 0
+    minDistance: 2
+    maxDistance: 65
+  - cue: 26
+    clips: []
+    volume: 0.8
+    pitch: {x: 0.95, y: 1.05}
+    cooldown: 0.08
+    followSource: 0
+    minDistance: 2
+    maxDistance: 65

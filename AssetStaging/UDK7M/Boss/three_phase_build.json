@@ -1,0 +1,9 @@
+{
+  "passed": true,
+  "scene": "Assets/Game/Scene/UDK7MBossArena_ThreePhase.unity",
+  "radius": 36,
+  "pillars": 4,
+  "holes": 0,
+  "agent": -334000983,
+  "sourceDirtyPreserved": true
+}

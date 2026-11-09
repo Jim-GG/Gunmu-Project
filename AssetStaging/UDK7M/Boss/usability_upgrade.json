@@ -1,0 +1,9 @@
+{
+  "passed": true,
+  "turn": 18,
+  "maximumCorrection": 30,
+  "rails": 32,
+  "audio": "Assets/Game/Enemies/UDK7M/AI/UDK7M_Audio.asset",
+  "cues": 27,
+  "clipsAssigned": 0
+}

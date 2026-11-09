@@ -1,0 +1,129 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f083e0b9d8071bf4fb1b80c541f497fa, type: 3}
+  m_Name: UDK7M_ThreePhase
+  m_EditorClassIdentifier: Assembly-CSharp::UDK7M.UDK7MTuning
+  maxHealth: 1000
+  directDamageMultiplier: 0.05
+  corpseDamage: 140
+  turnSpeed: 25
+  holdTurnSpeed: 18
+  rearTurnSpeed: 50
+  aimTolerance: 5
+  chargeTrackingAngle: 30
+  navigationRadius: 3.8
+  rearAngle: 110
+  turnBeforeChargeAngle: 60
+  nearDistance: 6
+  chargeSpeed: 8
+  slamSeconds: 2
+  chargeSeconds: 2.5
+  slamRange: 5
+  slamMinimumRange: 3
+  slamFrontAngle: 35
+  slamBrakeSeconds: 1
+  chargeBrakeSeconds: 0.6
+  braking:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: -1
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: -1
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  ambientInterval: {x: 4, y: 7}
+  decisionInterval: {x: 0.3, y: 0.55}
+  farWeights: {x: 55, y: 45}
+  rearWeights: {x: 40, y: 30, z: 30}
+  stableWeights: {x: 50, y: 30, z: 20}
+  overloadedWeights: {x: 10, y: 40, z: 50}
+  overloadChargeSeconds: 3
+  paralyzedFreezeFrame: 64
+  paralyzedCenterClearance: 8
+  paralyzedStaggerSeconds: 0.6
+  cyclesToDefeat: 3
+  captureFlyingOnly: 1
+  freezeDuringCapture: 1
+  captureRadius: 2.5
+  captureFrontAngle: 85
+  captureFlightAge: 3.5
+  captureMinimumSpeed: 1.5
+  captureHoldSeconds: 0.45
+  captureTimeout: 2
+  bodyRadius: 2.1
+  bodyHeight: 4
+  collisionSkin: 0.06
+  tracksFollowMovement: 1
+  trackDistanceMultiplier: 1
+  crushEnabled: 1
+  crushUseTrackBounds: 1
+  crushKillsMinions: 1
+  crushLeftCenter: {x: -1.8, y: 0.9, z: 0}
+  crushRightCenter: {x: 1.8, y: 0.9, z: 0}
+  crushBoxSize: {x: 1.3, y: 1.8, z: 6}
+  crushBoundsPadding: 0.16
+  crushMinimumSpeed: 0.2
+  crushDamage: 20
+  crushCooldown: 0.5
+  crushKnockback: 3
+  crushPushSeconds: 0.25
+  crushBlockedKnockback: 0.7
+  vacuumRadius: 5
+  vacuumSpeed: 18
+  consumeRadius: 0.75
+  rotationThreshold: 5
+  drillLocalTip: {x: 0, y: 1.57, z: 0}
+  resonanceRadius: 6
+  resonanceDamage: 130
+  chargedModeSeconds: 15
+  livingMinions: 3
+  maximumCorpses: 6
+  ordinaryRespawn: {x: 3, y: 5}
+  resonanceRespawn: {x: 15, y: 20}
+  corpseLifetime: 30
+  spawnMinimumDistance: 9
+  rockWarningSeconds: 1
+  rockDamage: 20
+  liquidDps: 12
+  arenaRadius: 36
+  centralCrystalScale: 2.2
+  centralLaunchSpeed: 25
+  pillarReboundSpeed: 19
+  pureCrystalHeight: 9
+  groundPoundMinimumHeight: 3
+  groundPoundFallSpeed: 35
+  groundPoundBossDamage: 0
+  groundPoundRadius: 40
+  groundPoundMinBossDistance: 10
+  groundPoundPushSpeed: 28
+  impulseChannel: 4
+  lightSlamShake: 0.12
+  heavySlamShake: 0.38
+  chargeImpactShake: 0.23
+  resonanceShake: 0.5
+  groundPoundShake: 0.8

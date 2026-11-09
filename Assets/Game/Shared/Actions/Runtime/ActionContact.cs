@@ -30,11 +30,12 @@ namespace GameActions
         readonly Dictionary<int,double> nextEffect=new Dictionary<int,double>();
         readonly Dictionary<HitWindow,float> lastSample=new Dictionary<HitWindow,float>();
         readonly Dictionary<HitWindow,Quaternion> rotations=new Dictionary<HitWindow,Quaternion>();
+        readonly HashSet<string> heardContacts=new HashSet<string>();
         public Func<IActionTarget,bool> TargetFilter;
         public event Action<int,IActionTarget> HitDelivered;
         double clock;
         public int HitCount {get;private set;}
-        public void Reset(bool keepCooldowns=false){struck.Clear();lastSample.Clear();rotations.Clear();HitCount=0;if(!keepCooldowns){nextDamage.Clear();nextEffect.Clear();clock=0;}}
+        public void Reset(bool keepCooldowns=false){struck.Clear();lastSample.Clear();rotations.Clear();heardContacts.Clear();HitCount=0;if(!keepCooldowns){nextDamage.Clear();nextEffect.Clear();clock=0;}}
         public bool Resolve(ActionDefinition action,ActionMotionPlayer motion,ActionHitbox boxes,Transform owner,Vector3 origin,LayerMask mask,float impulse,float stepSeconds=0,int chargeOverride=-1,Vector3 direction=default)
         {
             clock+=stepSeconds>0?stepSeconds:Time.deltaTime;
@@ -58,6 +59,11 @@ namespace GameActions
                 for(int i=0;i<count;i++)
                 {
                     var collider=hits[i];if(!collider||collider.transform.IsChildOf(owner))continue;
+                    if(!collider.isTrigger&&!h.contactSound)
+                    {
+                        var audio=owner.GetComponent<SurfaceContactAudio>();if(!audio)audio=owner.gameObject.AddComponent<SurfaceContactAudio>();string audioKey=group+":"+SurfaceAudio.Identity(collider);
+                        if((h.repeat!=HitRepeat.Once||!heardContacts.Contains(audioKey))&&audio.Contact(collider,collider.ClosestPoint(pose.centre),owner.GetComponent<FirstPerson.GauntletCombat>()!=null))heardContacts.Add(audioKey);
+                    }
                     if(h.contactEffects&&(!nextEffect.TryGetValue(collider.GetInstanceID(),out var at)||clock>=at))
                     {nextEffect[collider.GetInstanceID()]=clock+Mathf.Max(.02f,h.effectCooldown);var point=collider.ClosestPoint(pose.centre);if(h.contactEffect||h.contactSound)CombatEffects.Contact(h.contactEffect,h.contactSound,point,h.contactEffectLifetime);else CombatEffects.Emit(collider.GetComponentInParent<CrystalParkour.CrystalSurface>()?CombatEffect.CrystalShards:CombatEffect.Sparks,point,Vector3.up);}
                     if(h.repeat==HitRepeat.EffectsOnly)continue;

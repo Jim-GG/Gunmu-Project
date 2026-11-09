@@ -26,25 +26,26 @@ namespace AssetPipeline.Editor
             {EditorSceneManager.playModeStartScene=AssetDatabase.LoadAssetAtPath<SceneAsset>(SessionState.GetString(Key+"Previous",""));SessionState.SetBool(Key+"Restore",false);}
         }
         static void Assert(bool condition,string message){if(!condition)throw new Exception(message);}
-        static string ReportPrefix=>SessionState.GetBool(Key+"Correction",false)?"correction":SessionState.GetBool(Key+"Environment",false)?"environment":"play";
+        static string ReportPrefix=>SessionState.GetBool(Key+"ThreePhase",false)?"three_phase":SessionState.GetBool(Key+"Correction",false)?"correction":SessionState.GetBool(Key+"Environment",false)?"environment":"play";
         static void Pass(string name,object details=null){checks.Add(new{name,passed=true,details});File.WriteAllText(Stage+ReportPrefix+"_progress.json",JsonConvert.SerializeObject(checks,Formatting.Indented));}
         static void Poll()
         {
             if(EditorApplication.isCompiling||EditorApplication.isUpdating)return;
+            if(!Application.isPlaying&&File.Exists(Stage+"ThreePhaseCheck.request")){File.Delete(Stage+"ThreePhaseCheck.request");SessionState.SetBool(Key+"ThreePhase",true);File.WriteAllText(Stage+"PlayCheck.request","three complete cycles");}
             if(!Application.isPlaying&&File.Exists(Stage+"CorrectionCheck.request")){File.Delete(Stage+"CorrectionCheck.request");SessionState.SetBool(Key+"Correction",true);File.WriteAllText(Stage+"PlayCheck.request","live fist kill, tracks and unified turning");}
             if(!Application.isPlaying&&File.Exists(Stage+"EnvironmentCheck.request")){File.Delete(Stage+"EnvironmentCheck.request");SessionState.SetBool(Key+"Environment",true);File.WriteAllText(Stage+"PlayCheck.request","environment mechanics");}
             if(!Application.isPlaying&&File.Exists(Stage+"EditorCheck.request")){File.Delete(Stage+"EditorCheck.request");EditorChecks();return;}
             if(!Application.isPlaying&&!EditorApplication.isPlayingOrWillChangePlaymode&&File.Exists(Stage+"PlayCheck.request"))
             {
-                File.Delete(Stage+"PlayCheck.request");started=false;phase=0;checks.Clear();SessionState.SetBool(Key,true);SessionState.SetBool(Key+"Restore",true);SessionState.SetString(Key+"Previous",AssetDatabase.GetAssetPath(EditorSceneManager.playModeStartScene));EditorSceneManager.playModeStartScene=AssetDatabase.LoadAssetAtPath<SceneAsset>(UDK7MBossBuilder.ScenePath);EditorApplication.EnterPlaymode();return;
+                File.Delete(Stage+"PlayCheck.request");started=false;phase=0;checks.Clear();SessionState.SetBool(Key,true);SessionState.SetBool(Key+"Restore",true);SessionState.SetString(Key+"Previous",AssetDatabase.GetAssetPath(EditorSceneManager.playModeStartScene));EditorSceneManager.playModeStartScene=AssetDatabase.LoadAssetAtPath<SceneAsset>(SessionState.GetBool(Key+"ThreePhase",false)?UDK7MThreePhaseBuilder.ScenePath:UDK7MBossBuilder.ScenePath);EditorApplication.EnterPlaymode();return;
             }
             if(!Application.isPlaying||!SessionState.GetBool(Key,false)||Time.timeSinceLevelLoad<.5f)return;
-            try{if(!started){started=true;phase=0;checks.Clear();arena=UnityEngine.Object.FindFirstObjectByType<UDK7MArena>();Assert(arena,"Arena not loaded");}if(SessionState.GetBool(Key+"Correction",false))RunCorrections();else if(SessionState.GetBool(Key+"Environment",false))RunEnvironment();else RunPlay();}
+            try{if(!started){started=true;phase=0;checks.Clear();arena=UnityEngine.Object.FindFirstObjectByType<UDK7MArena>();Assert(arena,"Arena not loaded");}if(SessionState.GetBool(Key+"ThreePhase",false))RunThreePhase();else if(SessionState.GetBool(Key+"Correction",false))RunCorrections();else if(SessionState.GetBool(Key+"Environment",false))RunEnvironment();else RunPlay();}
             catch(Exception e){Finish(false,e.ToString());}
         }
         static void Finish(bool success,string error=null)
         {
-            File.WriteAllText(Stage+ReportPrefix+"_validation.json",JsonConvert.SerializeObject(new{passed=success,error,checks},Formatting.Indented));SessionState.SetBool(Key+"Environment",false);SessionState.SetBool(Key+"Correction",false);SessionState.SetBool(Key,false);Time.timeScale=1;EditorApplication.ExitPlaymode();
+            File.WriteAllText(Stage+ReportPrefix+"_validation.json",JsonConvert.SerializeObject(new{passed=success,error,checks},Formatting.Indented));SessionState.SetBool(Key+"Environment",false);SessionState.SetBool(Key+"Correction",false);SessionState.SetBool(Key+"ThreePhase",false);SessionState.SetBool(Key,false);Time.timeScale=1;EditorApplication.ExitPlaymode();
         }
         static void Player(Vector3 position)
         {

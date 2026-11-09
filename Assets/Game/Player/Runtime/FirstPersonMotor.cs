@@ -33,6 +33,7 @@ namespace FirstPerson
         public Vector3 WindVelocity=>windDrift;
         // Optional traversal inputs. With their defaults the original controller is unchanged.
         public bool MovementSuspended {get;set;}
+        public float? ForcedLookPitch {get;set;}
         public Vector3 ExternalAcceleration {get;set;}
         public float ExternalRiseSpeedLimit {get;set;}=float.PositiveInfinity;
         public float carriedAirDrag=.45f, carriedGroundDrag=18f;
@@ -49,7 +50,7 @@ namespace FirstPerson
         {
             if(!input || !viewPivot)return;
             transform.Rotate(0,input.Look.x*sensitivity,0);
-            pitch = Mathf.Clamp(pitch-input.Look.y*sensitivity,-85,85);viewPivot.localRotation=Quaternion.Euler(pitch,0,0);
+            pitch = ForcedLookPitch.HasValue?Mathf.Clamp(ForcedLookPitch.Value,-85,85):Mathf.Clamp(pitch-input.Look.y*sensitivity,-85,85);viewPivot.localRotation=Quaternion.Euler(pitch,0,0);
             if(MovementSuspended)return;
             bool controlledAir=TraversalAirControl&&!motor.isGrounded;
             float speed=controlledAir?airSpeed:input.Sprint?sprintSpeed:walkSpeed;
