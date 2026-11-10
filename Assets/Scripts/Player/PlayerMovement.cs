@@ -141,7 +141,7 @@ public class PlayerMovement : MonoBehaviour
         // Right mouse is reserved for guarding; Q toggles bullet time.
         if (HasMomentumRemote && cursorLocked && keyboard != null && keyboard.qKey.wasPressedThisFrame)
         {
-            SetBulletTime(!isBulletTimeActive);
+            ToggleBulletTime();
         }
 
         // 3. Handle Momentum Lock / Release inputs
@@ -305,6 +305,12 @@ public class PlayerMovement : MonoBehaviour
             currentLockedBox = null;
             SetBulletTime(false);
         }
+    }
+
+    public void ToggleBulletTime()
+    {
+        if (HasMomentumRemote && !GameplayGate.IsBlocked)
+            SetBulletTime(!isBulletTimeActive);
     }
 
     private void SetBulletTime(bool active)

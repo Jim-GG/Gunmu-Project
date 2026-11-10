@@ -51037,8 +51037,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b129c69e1dec1f438cfe5454e714286, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::LevelExit
-  nextSceneName: Modern_01_Cargo
-  editorNextScene: {fileID: 102900000, guid: b2e7390f68fd4f74da7ae876da4006e2, type: 3}
+  nextSceneName: Modern_01_UnloadingHall
+  editorNextScene: {fileID: 102900000, guid: 1613c473f377f8443b809dbe3b0e19db, type: 3}
   gates:
   - {fileID: 954420864}
   onReached:
