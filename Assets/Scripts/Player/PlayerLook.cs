@@ -11,6 +11,13 @@ public class PlayerLook : MonoBehaviour
     /// <summary>鼠标灵敏度倍率（<see cref="PlayerZoom"/> 等放大视野时临时下调，默认 1 = 不改变）。</summary>
     public float SensitivityScale { get; set; } = 1f;
 
+    /// <summary>Synchronizes the vertical camera angle when another controller temporarily owns the view.</summary>
+    public void SynchronizePitch(float value)
+    {
+        pitch = Mathf.Clamp(value, -pitchLimit, pitchLimit);
+        if (cameraPivot) cameraPivot.localRotation = Quaternion.Euler(pitch, 0f, 0f);
+    }
+
     private float pitch;
 
     private void Start()
