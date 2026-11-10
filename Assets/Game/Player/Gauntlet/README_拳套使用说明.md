@@ -4,7 +4,7 @@
 
 ## 先看效果
 
-打开 `Assets/Gauntlet/Scenes/GauntletPreview.unity`，进入 Play Mode。
+打开 `Assets/Game/Player/Gauntlet/Scenes/GauntletPreview.unity`，进入 Play Mode。
 
 - `1 / 2 / 3 / 4`：播放对应的 punch 动作。
 - `C`：charge；`I`：Idle。

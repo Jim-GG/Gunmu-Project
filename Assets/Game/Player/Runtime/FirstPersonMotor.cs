@@ -45,7 +45,7 @@ namespace FirstPerson
         public void SetLookRotation(Quaternion rotation)
         {transform.rotation=Quaternion.Euler(0,rotation.eulerAngles.y,0);pitch=Mathf.DeltaAngle(0,rotation.eulerAngles.x);if(viewPivot)viewPivot.localRotation=Quaternion.Euler(pitch,0,0);}
         private void Awake() => motor = GetComponent<CharacterController>();
-        private void Update()=>Tick(Time.deltaTime);
+        private void Update() { if (!GameplayGate.IsBlocked) Tick(Time.deltaTime); }
         public void Tick(float dt)
         {
             if(!input || !viewPivot)return;

@@ -1,0 +1,2101 @@
+{
+  "removed": [
+    {
+      "path": "Assets/Resonator/AI/Data/Resonator_Default.asset",
+      "bytes": 16368,
+      "sha256": "58027e555246b4db5c1846da1dad347548cf69ad287670d732b28bf11e8ef4cc",
+      "reason": "Consolidated at Assets/Game/Enemies/Resonator/AI/Data/Resonator_Default.asset"
+    },
+    {
+      "path": "Assets/Resonator/AI/Data/Resonator_Default.asset.meta",
+      "bytes": 189,
+      "sha256": "4e0d590e131d96526ce81a6607b81c882562d3ae2d2c26635eccf5c5f1caf81a",
+      "reason": "Consolidated at Assets/Game/Enemies/Resonator/AI/Data/Resonator_Default.asset.meta"
+    },
+    {
+      "path": "Assets/Resonator/AI/Data/Resonator_Walking_Motion.asset",
+      "bytes": 2815,
+      "sha256": "cf7a1eb3666712acac3b04f6ee8736e7ba52942f537e21fabddb85ef4e27c6eb",
+      "reason": "Consolidated at Assets/Game/Enemies/Resonator/AI/Data/Resonator_Walking_Motion.asset"
+    },
+    {
+      "path": "Assets/Resonator/AI/Data/Resonator_Walking_Motion.asset.meta",
+      "bytes": 189,
+      "sha256": "ab09a05fc84000ab2c5b10429bac1f7de6743e367f8007bf1be8a441b3238d15",
+      "reason": "Consolidated at Assets/Game/Enemies/Resonator/AI/Data/Resonator_Walking_Motion.asset.meta"
+    },
+    {
+      "path": "Assets/Resonator/AI/Data/Resonator_Zombie_Agonizing_Motion.asset",
+      "bytes": 15951,
+      "sha256": "e1da7dc4532a18f08121cf05d292778b4032bfdc7165eb71f944d8a920aa9edb",
+      "reason": "Consolidated at Assets/Game/Enemies/Resonator/AI/Data/Resonator_Zombie_Agonizing_Motion.asset"
+    },
+    {
+      "path": "Assets/Resonator/AI/Data/Resonator_Zombie_Agonizing_Motion.asset.meta",
+      "bytes": 189,
+      "sha256": "73d58d5e089d5584a5e0188cfac7ca169c4e0fca387e3541110685a0aec7dc13",
+      "reason": "Consolidated at Assets/Game/Enemies/Resonator/AI/Data/Resonator_Zombie_Agonizing_Motion.asset.meta"
+    },
+    {
+      "path": "Assets/Resonator/AI/Data/Resonator_Zombie_Attack_Motion.asset",
+      "bytes": 6731,
+      "sha256": "71ddaf4564728b6a78762e440e92c1331561a36e769d653a0ed79d81932f0d21",
+      "reason": "Consolidated at Assets/Game/Enemies/Resonator/AI/Data/Resonator_Zombie_Attack_Motion.asset"
+    },
+    {
+      "path": "Assets/Resonator/AI/Data/Resonator_Zombie_Attack_Motion.asset.meta",
+      "bytes": 189,
+      "sha256": "528fa09775f604f9e1db55a93f709848541f944ac74eb66e1a149b26d9a0c373",
+      "reason": "Consolidated at Assets/Game/Enemies/Resonator/AI/Data/Resonator_Zombie_Attack_Motion.asset.meta"
+    },
+    {
+      "path": "Assets/Resonator/AI/Data/Resonator_Zombie_Death_Motion.asset",
+      "bytes": 4495,
+      "sha256": "efc763907eec0cac892dc9a821210b20ad4b61655003f94979409f92f864e01a",
+      "reason": "Consolidated at Assets/Game/Enemies/Resonator/AI/Data/Resonator_Zombie_Death_Motion.asset"
+    },
+    {
+      "path": "Assets/Resonator/AI/Data/Resonator_Zombie_Death_Motion.asset.meta",
+      "bytes": 189,
+      "sha256": "3df9d35ea2f2d108170ed365525a8ada36767fecf26329c22d426bc77ac3d104",
+      "reason": "Consolidated at Assets/Game/Enemies/Resonator/AI/Data/Resonator_Zombie_Death_Motion.asset.meta"
+    },
+    {
+      "path": "Assets/Resonator/AI/Data/Resonator_Zombie_Headbutt_Motion.asset",
+      "bytes": 4164,
+      "sha256": "5c2619e46e997d2407d7117b88c2cceefb0a981e2a1b45473a3e3fcedc5e95d8",
+      "reason": "Consolidated at Assets/Game/Enemies/Resonator/AI/Data/Resonator_Zombie_Headbutt_Motion.asset"
+    },
+    {
+      "path": "Assets/Resonator/AI/Data/Resonator_Zombie_Headbutt_Motion.asset.meta",
+      "bytes": 189,
+      "sha256": "4839bd2edac0e2cc2bf6ce03c509cd14aa7409b1315278d64bd8e38c6a144304",
+      "reason": "Consolidated at Assets/Game/Enemies/Resonator/AI/Data/Resonator_Zombie_Headbutt_Motion.asset.meta"
+    },
+    {
+      "path": "Assets/Resonator/AI/Data/Resonator_Zombie_Kicking_Motion.asset",
+      "bytes": 5049,
+      "sha256": "d92b929784be59f24b137d6104b6af64881af452cd98140c86f9e09a00fadf98",
+      "reason": "Consolidated at Assets/Game/Enemies/Resonator/AI/Data/Resonator_Zombie_Kicking_Motion.asset"
+    },
+    {
+      "path": "Assets/Resonator/AI/Data/Resonator_Zombie_Kicking_Motion.asset.meta",
+      "bytes": 189,
+      "sha256": "29d269b893ca13c3514086efd1f5c499d8a63bb9b52e015ccabb2704334a0302",
+      "reason": "Consolidated at Assets/Game/Enemies/Resonator/AI/Data/Resonator_Zombie_Kicking_Motion.asset.meta"
+    },
+    {
+      "path": "Assets/Resonator/AI/Data/Resonator_Zombie_Punching_Motion.asset",
+      "bytes": 5704,
+      "sha256": "35d9300c2c7b502cf6995ba2653357ef7cf00104feb3be765468fea591de5eda",
+      "reason": "Consolidated at Assets/Game/Enemies/Resonator/AI/Data/Resonator_Zombie_Punching_Motion.asset"
+    },
+    {
+      "path": "Assets/Resonator/AI/Data/Resonator_Zombie_Punching_Motion.asset.meta",
+      "bytes": 189,
+      "sha256": "d30931abc09ec4d771669fca9b9de5cfe485909f975d7b9684b32b503e322f1e",
+      "reason": "Consolidated at Assets/Game/Enemies/Resonator/AI/Data/Resonator_Zombie_Punching_Motion.asset.meta"
+    },
+    {
+      "path": "Assets/Resonator/AI/Data/Resonator_Zombie_Reaction_Hit_Motion.asset",
+      "bytes": 3557,
+      "sha256": "e169ae049fe2428bd317971a7b612236461d89bea00574ae749c7bec2acb35b7",
+      "reason": "Consolidated at Assets/Game/Enemies/Resonator/AI/Data/Resonator_Zombie_Reaction_Hit_Motion.asset"
+    },
+    {
+      "path": "Assets/Resonator/AI/Data/Resonator_Zombie_Reaction_Hit_Motion.asset.meta",
+      "bytes": 189,
+      "sha256": "fa1245ce75dfc470132c551c280ce555daa5048cfb045492e67e27b553a491c8",
+      "reason": "Consolidated at Assets/Game/Enemies/Resonator/AI/Data/Resonator_Zombie_Reaction_Hit_Motion.asset.meta"
+    },
+    {
+      "path": "Assets/Resonator/AI/Data/Resonator_Zombie_Running_Motion.asset",
+      "bytes": 1752,
+      "sha256": "88af150319e7a24ac7f68ef7e7b5a5e29a600e83414d72c770724bcd276e9e26",
+      "reason": "Consolidated at Assets/Game/Enemies/Resonator/AI/Data/Resonator_Zombie_Running_Motion.asset"
+    },
+    {
+      "path": "Assets/Resonator/AI/Data/Resonator_Zombie_Running_Motion.asset.meta",
+      "bytes": 189,
+      "sha256": "df103efed088e3a1beb81d023ba4cf12e2fba47e63fbfbbd3cde5c7cf9da0533",
+      "reason": "Consolidated at Assets/Game/Enemies/Resonator/AI/Data/Resonator_Zombie_Running_Motion.asset.meta"
+    },
+    {
+      "path": "Assets/Resonator/AI/Data/Resonator_Zombie_Scream_Motion.asset",
+      "bytes": 4465,
+      "sha256": "3c4529c00b85a4b4abb2386d32e4948adf82291eece8209fcacbdc068d9e5bac",
+      "reason": "Consolidated at Assets/Game/Enemies/Resonator/AI/Data/Resonator_Zombie_Scream_Motion.asset"
+    },
+    {
+      "path": "Assets/Resonator/AI/Data/Resonator_Zombie_Scream_Motion.asset.meta",
+      "bytes": 189,
+      "sha256": "e146999054c75eeba8c27f43f31006f1062b9c4bedb0ea82f397873c9ba2ac29",
+      "reason": "Consolidated at Assets/Game/Enemies/Resonator/AI/Data/Resonator_Zombie_Scream_Motion.asset.meta"
+    },
+    {
+      "path": "Assets/Resonator/AI/Data/Resonator_Zombie_Stumbling_Motion.asset",
+      "bytes": 6665,
+      "sha256": "27bce7b2284daf9cfe8419619fbb1f1e9b54367e5e2f19d86afa10b6602c3fdb",
+      "reason": "Consolidated at Assets/Game/Enemies/Resonator/AI/Data/Resonator_Zombie_Stumbling_Motion.asset"
+    },
+    {
+      "path": "Assets/Resonator/AI/Data/Resonator_Zombie_Stumbling_Motion.asset.meta",
+      "bytes": 189,
+      "sha256": "eafb4bb307e4cdee348e717401bd28eed1314302cb394735c702e292bccd2a11",
+      "reason": "Consolidated at Assets/Game/Enemies/Resonator/AI/Data/Resonator_Zombie_Stumbling_Motion.asset.meta"
+    },
+    {
+      "path": "Assets/Resonator/AI/Data/Zombie_01_Attack_Walking_Motion.asset",
+      "bytes": 23756,
+      "sha256": "9d61df675f61a351b451c28796f4264918c3c9a78aaaa80c45623ae9bde663b0",
+      "reason": "Consolidated at Assets/Game/Enemies/Resonator/AI/Data/Zombie_01_Attack_Walking_Motion.asset"
+    },
+    {
+      "path": "Assets/Resonator/AI/Data/Zombie_01_Attack_Walking_Motion.asset.meta",
+      "bytes": 189,
+      "sha256": "5f74226fa1f35d075c52814033bddb5772ab89b34be9bae7e9a6a7414032c216",
+      "reason": "Consolidated at Assets/Game/Enemies/Resonator/AI/Data/Zombie_01_Attack_Walking_Motion.asset.meta"
+    },
+    {
+      "path": "Assets/Resonator/AI/Data/Zombie_02_Being_Shot_Motion.asset",
+      "bytes": 29255,
+      "sha256": "5c59838a9e1f63298700daa6871979e4b69c39ca59eeec707c5fe5874ea452a4",
+      "reason": "Consolidated at Assets/Game/Enemies/Resonator/AI/Data/Zombie_02_Being_Shot_Motion.asset"
+    },
+    {
+      "path": "Assets/Resonator/AI/Data/Zombie_02_Being_Shot_Motion.asset.meta",
+      "bytes": 189,
+      "sha256": "5f85c0202202a20307f20ebb508787a3ca7f06e5f710ddb1e58f209850dc2412",
+      "reason": "Consolidated at Assets/Game/Enemies/Resonator/AI/Data/Zombie_02_Being_Shot_Motion.asset.meta"
+    },
+    {
+      "path": "Assets/Resonator/AI/Data/Zombie_03_Feeding_Ground_Motion.asset",
+      "bytes": 26217,
+      "sha256": "3f6be450e3de5910943cc058db202fd4ad6dc4c17f458849fde273a07de72415",
+      "reason": "Consolidated at Assets/Game/Enemies/Resonator/AI/Data/Zombie_03_Feeding_Ground_Motion.asset"
+    },
+    {
+      "path": "Assets/Resonator/AI/Data/Zombie_03_Feeding_Ground_Motion.asset.meta",
+      "bytes": 189,
+      "sha256": "fea182ab8f4adbaa1a20ec456131b24920f2e416857001fc0e8dc183d64c99f7",
+      "reason": "Consolidated at Assets/Game/Enemies/Resonator/AI/Data/Zombie_03_Feeding_Ground_Motion.asset.meta"
+    },
+    {
+      "path": "Assets/Resonator/AI/Data/Zombie_04_Idle_Restless_Motion.asset",
+      "bytes": 54161,
+      "sha256": "a75c45a46d9f859d94a8df604a85ac3c5d02db5390a4fa5ad84c73a9f0486519",
+      "reason": "Consolidated at Assets/Game/Enemies/Resonator/AI/Data/Zombie_04_Idle_Restless_Motion.asset"
+    },
+    {
+      "path": "Assets/Resonator/AI/Data/Zombie_04_Idle_Restless_Motion.asset.meta",
+      "bytes": 189,
+      "sha256": "39c4c60d0446cb0e77916a2ee96882ab0679606904ffd771241878da04c579f5",
+      "reason": "Consolidated at Assets/Game/Enemies/Resonator/AI/Data/Zombie_04_Idle_Restless_Motion.asset.meta"
+    },
+    {
+      "path": "Assets/Resonator/AI/Data/Zombie_05_Idle_Slow_Motion.asset",
+      "bytes": 45434,
+      "sha256": "a8862df4c5eaf211c644f88d6f13060e9c9abd9609a591960f4f66a7c229d21a",
+      "reason": "Consolidated at Assets/Game/Enemies/Resonator/AI/Data/Zombie_05_Idle_Slow_Motion.asset"
+    },
+    {
+      "path": "Assets/Resonator/AI/Data/Zombie_05_Idle_Slow_Motion.asset.meta",
+      "bytes": 189,
+      "sha256": "5bea8e41b45fc6948963d54fab0f55fa9c6d8d061bc344bb9e216968698619e5",
+      "reason": "Consolidated at Assets/Game/Enemies/Resonator/AI/Data/Zombie_05_Idle_Slow_Motion.asset.meta"
+    },
+    {
+      "path": "Assets/Resonator/AI/Data/Zombie_06_WakeUp_Transform_Motion.asset",
+      "bytes": 34975,
+      "sha256": "33039afd31160da8a14dfa05e0b2f302a47bf84ec59e8add4f7f58705235b12b",
+      "reason": "Consolidated at Assets/Game/Enemies/Resonator/AI/Data/Zombie_06_WakeUp_Transform_Motion.asset"
+    },
+    {
+      "path": "Assets/Resonator/AI/Data/Zombie_06_WakeUp_Transform_Motion.asset.meta",
+      "bytes": 189,
+      "sha256": "cc85ab86237071689d5053cac60793ba4464d617467de32cedff9485fb0000be",
+      "reason": "Consolidated at Assets/Game/Enemies/Resonator/AI/Data/Zombie_06_WakeUp_Transform_Motion.asset.meta"
+    },
+    {
+      "path": "Assets/Resonator/AI/Data/Zombie_07_Walk_Motion.asset",
+      "bytes": 26727,
+      "sha256": "b7dcbc51a592ca080e16fd5a6b3d7580fc31d6e3ea22dcb619c4c59b31ce945a",
+      "reason": "Consolidated at Assets/Game/Enemies/Resonator/AI/Data/Zombie_07_Walk_Motion.asset"
+    },
+    {
+      "path": "Assets/Resonator/AI/Data/Zombie_07_Walk_Motion.asset.meta",
+      "bytes": 189,
+      "sha256": "10b8c780a7d7168db21fd15d7d245bfb42f99b54d29933aea0b5b8568c244257",
+      "reason": "Consolidated at Assets/Game/Enemies/Resonator/AI/Data/Zombie_07_Walk_Motion.asset.meta"
+    },
+    {
+      "path": "Assets/Resonator/AI/Data/Zombie_08_Walk_Slow_Motion.asset",
+      "bytes": 36496,
+      "sha256": "8ef46723522eb602690caf80321e3f7bc9d65a2f59a30b6f055bc8f3cb317baf",
+      "reason": "Consolidated at Assets/Game/Enemies/Resonator/AI/Data/Zombie_08_Walk_Slow_Motion.asset"
+    },
+    {
+      "path": "Assets/Resonator/AI/Data/Zombie_08_Walk_Slow_Motion.asset.meta",
+      "bytes": 189,
+      "sha256": "e93d856ad68dad58d8d81458ca9b88435aeaefc60a24d2853b23ab088f346312",
+      "reason": "Consolidated at Assets/Game/Enemies/Resonator/AI/Data/Zombie_08_Walk_Slow_Motion.asset.meta"
+    },
+    {
+      "path": "Assets/Resonator/AI/Data.meta",
+      "bytes": 172,
+      "sha256": "908485898e3fed70e681234b0f76441f18fe39d36b8a646d853bc02cb2018bb5",
+      "reason": "Consolidated at Assets/Game/Enemies/Resonator/AI/Data.meta"
+    },
+    {
+      "path": "Assets/Resonator/AI/Editor/ResonatorAIBuilder.cs",
+      "bytes": 15835,
+      "sha256": "32a09a7e7330ef1913df43da8017af759ef30a490173372dac1a6f6c93ac06c0",
+      "reason": "Consolidated at Assets/Game/Enemies/Resonator/AI/Editor/ResonatorAIBuilder.cs"
+    },
+    {
+      "path": "Assets/Resonator/AI/Editor/ResonatorAIBuilder.cs.meta",
+      "bytes": 59,
+      "sha256": "e3e59d99ca78492d7e91aae3d810d88ef697df954b3fb576f8a876e27d840827",
+      "reason": "Consolidated at Assets/Game/Enemies/Resonator/AI/Editor/ResonatorAIBuilder.cs.meta"
+    },
+    {
+      "path": "Assets/Resonator/AI/Editor/ResonatorAnimationWorkbench.cs",
+      "bytes": 34601,
+      "sha256": "29d02b6aa6ac6dbb74315822b95042036b8be3473dc659f59130701b02007134",
+      "reason": "Moved to organized asset folder"
+    },
+    {
+      "path": "Assets/Resonator/AI/Editor/ResonatorAnimationWorkbench.cs.meta",
+      "bytes": 59,
+      "sha256": "cb69c9c9c802e14f1b1a956aaac031613e444477fc9c2836d790478746686356",
+      "reason": "Moved to organized asset folder"
+    },
+    {
+      "path": "Assets/Resonator/AI/Editor/ResonatorAnimationWorkbench.Movement.cs",
+      "bytes": 8770,
+      "sha256": "c48c4487c7cfc7c4697f2b8360665bb9cc6a0ecec5fc7d303e7dd3b19edb759e",
+      "reason": "Moved to organized asset folder"
+    },
+    {
+      "path": "Assets/Resonator/AI/Editor/ResonatorAnimationWorkbench.Movement.cs.meta",
+      "bytes": 59,
+      "sha256": "2aa67326dc35ea43ccf76ff9bfe4c72c8dee2aaf2476105ba605b44522fe7364",
+      "reason": "Moved to organized asset folder"
+    },
+    {
+      "path": "Assets/Resonator/AI/Editor/ResonatorAttackExitSetup.cs",
+      "bytes": 1701,
+      "sha256": "f92c8772dcbed07127af423988ec902f52b68cee397fc0934612f979de670384",
+      "reason": "Consolidated at Assets/Game/Enemies/Resonator/AI/Editor/ResonatorAttackExitSetup.cs"
+    },
+    {
+      "path": "Assets/Resonator/AI/Editor/ResonatorAttackExitSetup.cs.meta",
+      "bytes": 59,
+      "sha256": "eeabb1c4d7ef502be7c735e4a076a5a25b3fb528fbb3562cd827f80fb8d68dcf",
+      "reason": "Consolidated at Assets/Game/Enemies/Resonator/AI/Editor/ResonatorAttackExitSetup.cs.meta"
+    },
+    {
+      "path": "Assets/Resonator/AI/Editor/ResonatorAttackMotionSetup.cs",
+      "bytes": 996,
+      "sha256": "3d15e7d19fdf261229753ee3e3a3b08050230498ca1fcbd9514dd4eaf83de851",
+      "reason": "Consolidated at Assets/Game/Enemies/Resonator/AI/Editor/ResonatorAttackMotionSetup.cs"
+    },
+    {
+      "path": "Assets/Resonator/AI/Editor/ResonatorAttackMotionSetup.cs.meta",
+      "bytes": 59,
+      "sha256": "0d722da12a5c79b61ef224e2c5a704789754b25d7051a728dfe1a59dd8f6b728",
+      "reason": "Consolidated at Assets/Game/Enemies/Resonator/AI/Editor/ResonatorAttackMotionSetup.cs.meta"
+    },
+    {
+      "path": "Assets/Resonator/AI/Editor/ResonatorEnemyInspector.cs",
+      "bytes": 2921,
+      "sha256": "f94fbdcadfd963920e91e915ba5262604c4efb4326e07581415d7ccbe4378f2f",
+      "reason": "Consolidated at Assets/Game/Enemies/Resonator/AI/Editor/ResonatorEnemyInspector.cs"
+    },
+    {
+      "path": "Assets/Resonator/AI/Editor/ResonatorEnemyInspector.cs.meta",
+      "bytes": 59,
+      "sha256": "0b9eaf820afefe45d7ae5bc6f4d0274ac0eacbd5cc6b992d6a719a71c169b8b1",
+      "reason": "Consolidated at Assets/Game/Enemies/Resonator/AI/Editor/ResonatorEnemyInspector.cs.meta"
+    },
+    {
+      "path": "Assets/Resonator/AI/Editor/ResonatorHitboxDefaults.cs",
+      "bytes": 3058,
+      "sha256": "648440a28c1dcf41854bf4e45ae01d2c9c6fbaac975b50c77f262a33e24934bc",
+      "reason": "Consolidated at Assets/Game/Enemies/Resonator/AI/Editor/ResonatorHitboxDefaults.cs"
+    },
+    {
+      "path": "Assets/Resonator/AI/Editor/ResonatorHitboxDefaults.cs.meta",
+      "bytes": 59,
+      "sha256": "720d809cc115cebb3245365a1ab14f6fc88e1d2cee2d904dc7867a13ba315358",
+      "reason": "Consolidated at Assets/Game/Enemies/Resonator/AI/Editor/ResonatorHitboxDefaults.cs.meta"
+    },
+    {
+      "path": "Assets/Resonator/AI/Editor/ResonatorNavigationSetup.cs",
+      "bytes": 922,
+      "sha256": "81fbe67e06110882b59eb46f3e9119b657eb79808abf3eff33a6ed4c17306a4c",
+      "reason": "Consolidated at Assets/Game/Enemies/Resonator/AI/Editor/ResonatorNavigationSetup.cs"
+    },
+    {
+      "path": "Assets/Resonator/AI/Editor/ResonatorNavigationSetup.cs.meta",
+      "bytes": 59,
+      "sha256": "4018a569e759eaa1da5fc5ea9974abe81e82582d0158ff8e271b040cd6cdfcd4",
+      "reason": "Consolidated at Assets/Game/Enemies/Resonator/AI/Editor/ResonatorNavigationSetup.cs.meta"
+    },
+    {
+      "path": "Assets/Resonator/AI/Editor/ResonatorTransitionDrawer.cs",
+      "bytes": 3099,
+      "sha256": "0ad47133aac6141f3f50d1aab952ca081b0de4c3763e84d65bf1b6c4cfd4d31b",
+      "reason": "Moved to organized asset folder"
+    },
+    {
+      "path": "Assets/Resonator/AI/Editor/ResonatorTransitionDrawer.cs.meta",
+      "bytes": 59,
+      "sha256": "c7e29117001d5f03f1f1af7c32738f2905cae13cd678f803360602975ee7d288",
+      "reason": "Moved to organized asset folder"
+    },
+    {
+      "path": "Assets/Resonator/AI/Editor.meta",
+      "bytes": 172,
+      "sha256": "b4a06c0370c75edf7a651c505fe6c32244898a0f5ab2e5fb02a7f230aa52c7f7",
+      "reason": "Consolidated at Assets/Game/Enemies/Resonator/AI/Editor.meta"
+    },
+    {
+      "path": "Assets/Resonator/AI/Prefabs/ResonatorAgent.prefab",
+      "bytes": 34623,
+      "sha256": "444ea519dc59e66d7846a4047b56b8c58570b8d96a8275311bfbe6d96758fac6",
+      "reason": "Consolidated at Assets/Game/Enemies/Resonator/AI/Prefabs/ResonatorAgent.prefab"
+    },
+    {
+      "path": "Assets/Resonator/AI/Prefabs/ResonatorAgent.prefab.meta",
+      "bytes": 154,
+      "sha256": "cbdb219f9acd14e248380d515cb3f95f28482128dc8d93b8fab789ce700f97d9",
+      "reason": "Consolidated at Assets/Game/Enemies/Resonator/AI/Prefabs/ResonatorAgent.prefab.meta"
+    },
+    {
+      "path": "Assets/Resonator/AI/Prefabs.meta",
+      "bytes": 172,
+      "sha256": "3b7771fab89893f9ed3b5b143cc13be48d7e88dc6e4f3da4d1d26887f585e687",
+      "reason": "Consolidated at Assets/Game/Enemies/Resonator/AI/Prefabs.meta"
+    },
+    {
+      "path": "Assets/Resonator/AI/README.md",
+      "bytes": 16521,
+      "sha256": "33887d4fad86d3771322b3ea2a63b24c2b2aba7d44388c08dca3731ac4095606",
+      "reason": "Consolidated at Assets/Game/Enemies/Resonator/AI/README.md"
+    },
+    {
+      "path": "Assets/Resonator/AI/README.md.meta",
+      "bytes": 158,
+      "sha256": "1aeb73eedec47fb5afe8d1588d9c8fc3d8e5782ae7c7397481742f7080add7dd",
+      "reason": "Consolidated at Assets/Game/Enemies/Resonator/AI/README.md.meta"
+    },
+    {
+      "path": "Assets/Resonator/AI/Runtime/AttackDisplacement.cs",
+      "bytes": 6366,
+      "sha256": "68d5c14d07c61572c2cffe216ce25063b15ceb2e45f1cdea4bc0812b50104834",
+      "reason": "Consolidated at Assets/Game/Enemies/Resonator/AI/Runtime/AttackDisplacement.cs"
+    },
+    {
+      "path": "Assets/Resonator/AI/Runtime/AttackDisplacement.cs.meta",
+      "bytes": 59,
+      "sha256": "c82336249f63d1a21879ff8ad2dea9e006015600e6ac00aa336029d7e759357c",
+      "reason": "Consolidated at Assets/Game/Enemies/Resonator/AI/Runtime/AttackDisplacement.cs.meta"
+    },
+    {
+      "path": "Assets/Resonator/AI/Runtime/MotionFrameEvent.cs",
+      "bytes": 766,
+      "sha256": "beb5403d69752ec4efff3c547a590517a7313f45a1180238d2a842a886ade3ba",
+      "reason": "Consolidated at Assets/Game/Enemies/Resonator/AI/Runtime/MotionFrameEvent.cs"
+    },
+    {
+      "path": "Assets/Resonator/AI/Runtime/MotionFrameEvent.cs.meta",
+      "bytes": 59,
+      "sha256": "57ef46483d4112b709841c62d8f89f4cd6ea13bbe3f953c57505863c53b4ef23",
+      "reason": "Consolidated at Assets/Game/Enemies/Resonator/AI/Runtime/MotionFrameEvent.cs.meta"
+    },
+    {
+      "path": "Assets/Resonator/AI/Runtime/ResonatorArenaHUD.cs",
+      "bytes": 1721,
+      "sha256": "db47c0d85dfe6c83fae8246232630eba425bfdcb0d7fe48a524803001f3867ff",
+      "reason": "Consolidated at Assets/Game/Enemies/Resonator/AI/Runtime/ResonatorArenaHUD.cs"
+    },
+    {
+      "path": "Assets/Resonator/AI/Runtime/ResonatorArenaHUD.cs.meta",
+      "bytes": 59,
+      "sha256": "59bd672cf4e8a20c3456a0a79bd2f7e1747c0e23d466ba3cf490a09c1639bee4",
+      "reason": "Consolidated at Assets/Game/Enemies/Resonator/AI/Runtime/ResonatorArenaHUD.cs.meta"
+    },
+    {
+      "path": "Assets/Resonator/AI/Runtime/ResonatorAttackMover.cs",
+      "bytes": 2923,
+      "sha256": "4f5818177ad56de634685bfb5a9e40e5b045f8ddcf6a97298d70677b8a52d1f3",
+      "reason": "Consolidated at Assets/Game/Enemies/Resonator/AI/Runtime/ResonatorAttackMover.cs"
+    },
+    {
+      "path": "Assets/Resonator/AI/Runtime/ResonatorAttackMover.cs.meta",
+      "bytes": 59,
+      "sha256": "c6de23feab85132fee9208ae3883b99d824189f06defe2112e3d23f57e58fb6e",
+      "reason": "Consolidated at Assets/Game/Enemies/Resonator/AI/Runtime/ResonatorAttackMover.cs.meta"
+    },
+    {
+      "path": "Assets/Resonator/AI/Runtime/ResonatorCrowd.cs",
+      "bytes": 3774,
+      "sha256": "5d465764d2d5033d0788c4677b3e3610c0d8d3f604cc67ef688125d0bfa774a7",
+      "reason": "Consolidated at Assets/Game/Enemies/Resonator/AI/Runtime/ResonatorCrowd.cs"
+    },
+    {
+      "path": "Assets/Resonator/AI/Runtime/ResonatorCrowd.cs.meta",
+      "bytes": 59,
+      "sha256": "5cc2716064f19351a9e82c94cda08ad72e3deede146af768988dbc990f8a3191",
+      "reason": "Consolidated at Assets/Game/Enemies/Resonator/AI/Runtime/ResonatorCrowd.cs.meta"
+    },
+    {
+      "path": "Assets/Resonator/AI/Runtime/ResonatorEnemy.cs",
+      "bytes": 26551,
+      "sha256": "f356d1db58260e07a82eb058fac2fa364d853da7a90db88e292e4d09dd9ea53e",
+      "reason": "Consolidated at Assets/Game/Enemies/Resonator/AI/Runtime/ResonatorEnemy.cs"
+    },
+    {
+      "path": "Assets/Resonator/AI/Runtime/ResonatorEnemy.cs.meta",
+      "bytes": 59,
+      "sha256": "b66670f52071405fc8c243d9ff733a2e52040f25e9b5d32d73817cbf25599ab6",
+      "reason": "Consolidated at Assets/Game/Enemies/Resonator/AI/Runtime/ResonatorEnemy.cs.meta"
+    },
+    {
+      "path": "Assets/Resonator/AI/Runtime/ResonatorHitbox.cs",
+      "bytes": 5556,
+      "sha256": "24011c1b6ad2924458a0d68da52dcb5ed540fc91f01437686943954e59b63940",
+      "reason": "Consolidated at Assets/Game/Enemies/Resonator/AI/Runtime/ResonatorHitbox.cs"
+    },
+    {
+      "path": "Assets/Resonator/AI/Runtime/ResonatorHitbox.cs.meta",
+      "bytes": 59,
+      "sha256": "b0d25ad26cbd9a523257fba693430e6098754efb6906edc5e757ddfdad6e8920",
+      "reason": "Consolidated at Assets/Game/Enemies/Resonator/AI/Runtime/ResonatorHitbox.cs.meta"
+    },
+    {
+      "path": "Assets/Resonator/AI/Runtime/ResonatorMotionPlayer.cs",
+      "bytes": 8159,
+      "sha256": "e1e0fffc2415bcfa0356bb5d0adf5c84b3adf3bea5dbef5038089c3ace8f95ee",
+      "reason": "Consolidated at Assets/Game/Enemies/Resonator/AI/Runtime/ResonatorMotionPlayer.cs"
+    },
+    {
+      "path": "Assets/Resonator/AI/Runtime/ResonatorMotionPlayer.cs.meta",
+      "bytes": 59,
+      "sha256": "e84cbb01145b164b0244b199f9edb9f9a88bbbbb1eb344f24f0b787b7c2c55af",
+      "reason": "Consolidated at Assets/Game/Enemies/Resonator/AI/Runtime/ResonatorMotionPlayer.cs.meta"
+    },
+    {
+      "path": "Assets/Resonator/AI/Runtime/ResonatorMotionTrack.cs",
+      "bytes": 797,
+      "sha256": "909dbf13b5554e2aa04d05c14e8a63a9019fe256fbad7496c7ca8c99b735a60f",
+      "reason": "Consolidated at Assets/Game/Enemies/Resonator/AI/Runtime/ResonatorMotionTrack.cs"
+    },
+    {
+      "path": "Assets/Resonator/AI/Runtime/ResonatorMotionTrack.cs.meta",
+      "bytes": 59,
+      "sha256": "e3b37657518b9c4a4ba2c57ed25b0e1b76ab4ca9c36e2a216da3bf012fd0e20f",
+      "reason": "Consolidated at Assets/Game/Enemies/Resonator/AI/Runtime/ResonatorMotionTrack.cs.meta"
+    },
+    {
+      "path": "Assets/Resonator/AI/Runtime/ResonatorMotor.cs",
+      "bytes": 14362,
+      "sha256": "9e2b5c15c045c2d6ac3a9156fdb48066ba825bfbc62f875f85837fa2e766ba4a",
+      "reason": "Consolidated at Assets/Game/Enemies/Resonator/AI/Runtime/ResonatorMotor.cs"
+    },
+    {
+      "path": "Assets/Resonator/AI/Runtime/ResonatorMotor.cs.meta",
+      "bytes": 59,
+      "sha256": "86ea6dd29e7fa78dedc271e0cdcdcfa40ddb777f68f1b479af7700462773ba24",
+      "reason": "Consolidated at Assets/Game/Enemies/Resonator/AI/Runtime/ResonatorMotor.cs.meta"
+    },
+    {
+      "path": "Assets/Resonator/AI/Runtime/ResonatorPlayerBridge.cs",
+      "bytes": 3857,
+      "sha256": "7a7fc92abd171496c3a0509fe05f4d0cc8e013088f7ff5123e277e5ecc577d91",
+      "reason": "Consolidated at Assets/Game/Enemies/Resonator/AI/Runtime/ResonatorPlayerBridge.cs"
+    },
+    {
+      "path": "Assets/Resonator/AI/Runtime/ResonatorPlayerBridge.cs.meta",
+      "bytes": 59,
+      "sha256": "c4e1b0601b94cdf7d8ade019a0cfda4054873d226e605fbf27b5d02122466e22",
+      "reason": "Consolidated at Assets/Game/Enemies/Resonator/AI/Runtime/ResonatorPlayerBridge.cs.meta"
+    },
+    {
+      "path": "Assets/Resonator/AI/Runtime/ResonatorRagdoll.cs",
+      "bytes": 2951,
+      "sha256": "7944e7a4278ecfe99437bf3ceeefc848e5a30d321736ee88cf1a47d6d27905a7",
+      "reason": "Consolidated at Assets/Game/Enemies/Resonator/AI/Runtime/ResonatorRagdoll.cs"
+    },
+    {
+      "path": "Assets/Resonator/AI/Runtime/ResonatorRagdoll.cs.meta",
+      "bytes": 59,
+      "sha256": "8b4c323d9a64e3eedc1695b86b8eeabf81ae42d5b94fae74d48f656b2d044daf",
+      "reason": "Consolidated at Assets/Game/Enemies/Resonator/AI/Runtime/ResonatorRagdoll.cs.meta"
+    },
+    {
+      "path": "Assets/Resonator/AI/Runtime/ResonatorTarget.cs",
+      "bytes": 2573,
+      "sha256": "20e60ba204b4939442cfba752a9d033bf691352892f74fc164894102a49a5444",
+      "reason": "Consolidated at Assets/Game/Enemies/Resonator/AI/Runtime/ResonatorTarget.cs"
+    },
+    {
+      "path": "Assets/Resonator/AI/Runtime/ResonatorTarget.cs.meta",
+      "bytes": 59,
+      "sha256": "85c590646f3004cb8ebc4e8d8e2a7f48049c1ebda4c3307f1bdf2b6d7f0a4a8d",
+      "reason": "Consolidated at Assets/Game/Enemies/Resonator/AI/Runtime/ResonatorTarget.cs.meta"
+    },
+    {
+      "path": "Assets/Resonator/AI/Runtime/ResonatorTransition.cs",
+      "bytes": 1377,
+      "sha256": "1a40b187ef4518a917458b180582f180289face871039daec498895ebef713b8",
+      "reason": "Consolidated at Assets/Game/Enemies/Resonator/AI/Runtime/ResonatorTransition.cs"
+    },
+    {
+      "path": "Assets/Resonator/AI/Runtime/ResonatorTransition.cs.meta",
+      "bytes": 59,
+      "sha256": "185b9208ce77382c53126518053d143a7f78740c06c961284fe5c02abbe12f40",
+      "reason": "Consolidated at Assets/Game/Enemies/Resonator/AI/Runtime/ResonatorTransition.cs.meta"
+    },
+    {
+      "path": "Assets/Resonator/AI/Runtime/ResonatorTuning.cs",
+      "bytes": 10192,
+      "sha256": "a5355b35a8105a89560d38e9002bf2a0a00b9ee2269e7a088b109d846150ed99",
+      "reason": "Consolidated at Assets/Game/Enemies/Resonator/AI/Runtime/ResonatorTuning.cs"
+    },
+    {
+      "path": "Assets/Resonator/AI/Runtime/ResonatorTuning.cs.meta",
+      "bytes": 59,
+      "sha256": "3b8422d5485ff34019a782dfbbf94926bb23090e04e5fbfca6a9593724f26233",
+      "reason": "Consolidated at Assets/Game/Enemies/Resonator/AI/Runtime/ResonatorTuning.cs.meta"
+    },
+    {
+      "path": "Assets/Resonator/AI/Runtime.meta",
+      "bytes": 172,
+      "sha256": "647692cc7bd1466eefceb7d590225b2d9979f9049d702f1a4f1e33afded1686b",
+      "reason": "Consolidated at Assets/Game/Enemies/Resonator/AI/Runtime.meta"
+    },
+    {
+      "path": "Assets/Resonator/AI/Scenes/ResonatorArenaNav 1.asset",
+      "bytes": 9064,
+      "sha256": "2b8ae49974449a253afcfad54693e1410e0599d69658a85ee3aaf1eb6dc88060",
+      "reason": "Consolidated at Assets/Game/Enemies/Resonator/AI/Scenes/ResonatorArenaNav 1.asset"
+    },
+    {
+      "path": "Assets/Resonator/AI/Scenes/ResonatorArenaNav 1.asset.meta",
+      "bytes": 189,
+      "sha256": "b20ed52ce244af80c8d50bf395dfb236c8361e8d623437750333bed2ac6a0afe",
+      "reason": "Consolidated at Assets/Game/Enemies/Resonator/AI/Scenes/ResonatorArenaNav 1.asset.meta"
+    },
+    {
+      "path": "Assets/Resonator/AI/Scenes/ResonatorArenaNav.asset",
+      "bytes": 9064,
+      "sha256": "7a8b0884d6468719d70d81ba3a00e916c3850fd0d72b31ae2c96dc8bd4ff25b9",
+      "reason": "Consolidated at Assets/Game/Enemies/Resonator/AI/Scenes/ResonatorArenaNav.asset"
+    },
+    {
+      "path": "Assets/Resonator/AI/Scenes/ResonatorArenaNav.asset.meta",
+      "bytes": 189,
+      "sha256": "beffb227035bd636800001beb47980ea353e8d371a1433098490c1efcb66318a",
+      "reason": "Consolidated at Assets/Game/Enemies/Resonator/AI/Scenes/ResonatorArenaNav.asset.meta"
+    },
+    {
+      "path": "Assets/Resonator/AI/Scenes/ResonatorArenaNavFinal 1.asset",
+      "bytes": 9376,
+      "sha256": "45da2ea592d418a12c363fa3feb45b281521706407f466e3868623114e4f7a1f",
+      "reason": "Consolidated at Assets/Game/Enemies/Resonator/AI/Scenes/ResonatorArenaNavFinal 1.asset"
+    },
+    {
+      "path": "Assets/Resonator/AI/Scenes/ResonatorArenaNavFinal 1.asset.meta",
+      "bytes": 189,
+      "sha256": "87390f58a10fc3df99c12ae7e5ff401994979243224d36faa24e52334fa6000a",
+      "reason": "Consolidated at Assets/Game/Enemies/Resonator/AI/Scenes/ResonatorArenaNavFinal 1.asset.meta"
+    },
+    {
+      "path": "Assets/Resonator/AI/Scenes.meta",
+      "bytes": 172,
+      "sha256": "b6fb20310fb81c7d56bd4caf1c93a40b771bce0cf520451c961e9efa63e4c891",
+      "reason": "Consolidated at Assets/Game/Enemies/Resonator/AI/Scenes.meta"
+    },
+    {
+      "path": "Assets/Resonator/AI/Tests.meta",
+      "bytes": 172,
+      "sha256": "fc8910911d1394b9e7bcfaf8edac321450e36455e9cad9a2e33835e8378ac38c",
+      "reason": "Consolidated at Assets/Game/Enemies/Resonator/AI/Tests.meta"
+    },
+    {
+      "path": "Assets/Resonator/AI/Validation/Arena_PlayerView.png",
+      "bytes": 388181,
+      "sha256": "2b2f999ebd0d60b827064a35d5c51f5f93798cf271caa529bdcabcbbc40920f6",
+      "reason": "Consolidated at Assets/Game/Enemies/Resonator/AI/Validation/Arena_PlayerView.png"
+    },
+    {
+      "path": "Assets/Resonator/AI/Validation/Arena_PlayerView.png.meta",
+      "bytes": 2652,
+      "sha256": "acf75e5a0f0ece373813d897def058f66efdc3a0c95c379443690d633237cd19",
+      "reason": "Consolidated at Assets/Game/Enemies/Resonator/AI/Validation/Arena_PlayerView.png.meta"
+    },
+    {
+      "path": "Assets/Resonator/AI/Validation/AttackDisplacementReport.json",
+      "bytes": 1190,
+      "sha256": "b18792c81d9e0f900feef0ec98a9322d667852689ae64ec12d423621c4ee5f5a",
+      "reason": "Consolidated at Assets/Game/Enemies/Resonator/AI/Validation/AttackDisplacementReport.json"
+    },
+    {
+      "path": "Assets/Resonator/AI/Validation/AttackDisplacementReport.json.meta",
+      "bytes": 158,
+      "sha256": "42d83ad1a971b6eb69911883db25fefb049b95f3b83a28ea2551d74bb1ec250e",
+      "reason": "Consolidated at Assets/Game/Enemies/Resonator/AI/Validation/AttackDisplacementReport.json.meta"
+    },
+    {
+      "path": "Assets/Resonator/AI/Validation/AttackExitReport.json",
+      "bytes": 1010,
+      "sha256": "8023d0fd17bc796f7751f98b9ba2bb78c0447c14c51ec724216c78851e087d83",
+      "reason": "Consolidated at Assets/Game/Enemies/Resonator/AI/Validation/AttackExitReport.json"
+    },
+    {
+      "path": "Assets/Resonator/AI/Validation/AttackExitReport.json.meta",
+      "bytes": 158,
+      "sha256": "93e09d2686ce622c8f4d93cd5ed43b185bbf43f4e4ae921195de16c7e1513b21",
+      "reason": "Consolidated at Assets/Game/Enemies/Resonator/AI/Validation/AttackExitReport.json.meta"
+    },
+    {
+      "path": "Assets/Resonator/AI/Validation/AuthoringReport.json",
+      "bytes": 1058,
+      "sha256": "05f9b1db60b61dde980759e7cda3ca1650ff8ad80f82e9cf40ec9be4936f82a7",
+      "reason": "Consolidated at Assets/Game/Enemies/Resonator/AI/Validation/AuthoringReport.json"
+    },
+    {
+      "path": "Assets/Resonator/AI/Validation/AuthoringReport.json.meta",
+      "bytes": 158,
+      "sha256": "14687b8aff0c8a635c960985b7a3904cd65f3c0b2ba71ac520fe3739e75f7845",
+      "reason": "Consolidated at Assets/Game/Enemies/Resonator/AI/Validation/AuthoringReport.json.meta"
+    },
+    {
+      "path": "Assets/Resonator/AI/Validation/BoneStabilityReport.json",
+      "bytes": 352,
+      "sha256": "a7088ecd48bbe8e4e72d36b7ec5427a271979370e94817eae648121507e60ae2",
+      "reason": "Consolidated at Assets/Game/Enemies/Resonator/AI/Validation/BoneStabilityReport.json"
+    },
+    {
+      "path": "Assets/Resonator/AI/Validation/BoneStabilityReport.json.meta",
+      "bytes": 158,
+      "sha256": "1ff404f2dbcce4052e32f3faf0814afa78ae9c6b56130265670d979fe0c9c99b",
+      "reason": "Consolidated at Assets/Game/Enemies/Resonator/AI/Validation/BoneStabilityReport.json.meta"
+    },
+    {
+      "path": "Assets/Resonator/AI/Validation/Combat_Kicking.png",
+      "bytes": 147500,
+      "sha256": "a184ea1440122735d3c33aab2116628a4ac808306751f3e2359e944d736ab194",
+      "reason": "Consolidated at Assets/Game/Enemies/Resonator/AI/Validation/Combat_Kicking.png"
+    },
+    {
+      "path": "Assets/Resonator/AI/Validation/Combat_Kicking.png.meta",
+      "bytes": 2652,
+      "sha256": "45b28ae8f478d1fbf6c09b70edf8eb47599de17cf792a9c7eaf1ffcdec3346ef",
+      "reason": "Consolidated at Assets/Game/Enemies/Resonator/AI/Validation/Combat_Kicking.png.meta"
+    },
+    {
+      "path": "Assets/Resonator/AI/Validation/Combat_Running.png",
+      "bytes": 147999,
+      "sha256": "1b856036e08faf000c3df45af333905376f9d563b8cd0a17cb8e6bb1c1ba77e2",
+      "reason": "Consolidated at Assets/Game/Enemies/Resonator/AI/Validation/Combat_Running.png"
+    },
+    {
+      "path": "Assets/Resonator/AI/Validation/Combat_Running.png.meta",
+      "bytes": 2652,
+      "sha256": "7129577f165c0df7a11328fddb22c261e5dc8ee49bb42ee5ddacbfef0f7831a4",
+      "reason": "Consolidated at Assets/Game/Enemies/Resonator/AI/Validation/Combat_Running.png.meta"
+    },
+    {
+      "path": "Assets/Resonator/AI/Validation/CrowdNavigationReport.json",
+      "bytes": 1440,
+      "sha256": "253cc61b739d22b4bd24821aa0fcd99b7aa1ac908197741c28c20a5fead34dbc",
+      "reason": "Consolidated at Assets/Game/Enemies/Resonator/AI/Validation/CrowdNavigationReport.json"
+    },
+    {
+      "path": "Assets/Resonator/AI/Validation/CrowdNavigationReport.json.meta",
+      "bytes": 158,
+      "sha256": "4f8f8d8dd523d5a2eb2a2571adeff11ad57291d1f6c4f0a65758990dfd55968c",
+      "reason": "Consolidated at Assets/Game/Enemies/Resonator/AI/Validation/CrowdNavigationReport.json.meta"
+    },
+    {
+      "path": "Assets/Resonator/AI/Validation/Death_Ragdoll.png",
+      "bytes": 133095,
+      "sha256": "ea3713786900af31f1fc17f044591f17020a1f4e3266900597a9a594918a79d4",
+      "reason": "Consolidated at Assets/Game/Enemies/Resonator/AI/Validation/Death_Ragdoll.png"
+    },
+    {
+      "path": "Assets/Resonator/AI/Validation/Death_Ragdoll.png.meta",
+      "bytes": 2652,
+      "sha256": "64b8b36a322dd8318d3aa7151bc615819dac6917aa50b5bc37a5b9aff28042ce",
+      "reason": "Consolidated at Assets/Game/Enemies/Resonator/AI/Validation/Death_Ragdoll.png.meta"
+    },
+    {
+      "path": "Assets/Resonator/AI/Validation/InitializationReport.json",
+      "bytes": 1019,
+      "sha256": "47415a93b62c96e4c29d0ada7b5abb22bd72e492b623958527c5ab151a9063ee",
+      "reason": "Consolidated at Assets/Game/Enemies/Resonator/AI/Validation/InitializationReport.json"
+    },
+    {
+      "path": "Assets/Resonator/AI/Validation/InitializationReport.json.meta",
+      "bytes": 158,
+      "sha256": "6254b0400adc9be4de4279cdca8eda566f81dc387009327289bf8b75e30f8d4e",
+      "reason": "Consolidated at Assets/Game/Enemies/Resonator/AI/Validation/InitializationReport.json.meta"
+    },
+    {
+      "path": "Assets/Resonator/AI/Validation/Preview_WorkingCopy_BeforeAI.unity",
+      "bytes": 72927,
+      "sha256": "a506c9b23a816ad8c86f36334d3ba67ecfe20e05eeae55a6941611b4007a940c",
+      "reason": "Consolidated at Assets/Game/Enemies/Resonator/AI/Validation/Preview_WorkingCopy_BeforeAI.unity"
+    },
+    {
+      "path": "Assets/Resonator/AI/Validation/Preview_WorkingCopy_BeforeAI.unity.meta",
+      "bytes": 155,
+      "sha256": "52ca661a44b881a68522991448c26067501d02defeac1ceddc8090c4a84aca18",
+      "reason": "Consolidated at Assets/Game/Enemies/Resonator/AI/Validation/Preview_WorkingCopy_BeforeAI.unity.meta"
+    },
+    {
+      "path": "Assets/Resonator/AI/Validation/Resonator_BeforeAttackDisplacement.asset",
+      "bytes": 10106,
+      "sha256": "cf15cefca0ca9fa27082b3e2d10a919428ca8b8877d4a9f75c57da7485919df0",
+      "reason": "Consolidated at Assets/Game/Enemies/Resonator/AI/Validation/Resonator_BeforeAttackDisplacement.asset"
+    },
+    {
+      "path": "Assets/Resonator/AI/Validation/Resonator_BeforeAttackDisplacement.asset.meta",
+      "bytes": 189,
+      "sha256": "025bbaadd01f784f8b8cbdb527160eb94fa844a33797577a7c0f789747b70aab",
+      "reason": "Consolidated at Assets/Game/Enemies/Resonator/AI/Validation/Resonator_BeforeAttackDisplacement.asset.meta"
+    },
+    {
+      "path": "Assets/Resonator/AI/Validation/Resonator_BeforeAttackExits.asset",
+      "bytes": 9788,
+      "sha256": "6c598fe5e08cbb1bd03758745c592ad1f34a9e118a96bc9f506e4b5dec93fb15",
+      "reason": "Consolidated at Assets/Game/Enemies/Resonator/AI/Validation/Resonator_BeforeAttackExits.asset"
+    },
+    {
+      "path": "Assets/Resonator/AI/Validation/Resonator_BeforeAttackExits.asset.meta",
+      "bytes": 189,
+      "sha256": "bf1e5275ade1db43a3078e306c2acdd679672247e844851d4a65137f3c9095f5",
+      "reason": "Consolidated at Assets/Game/Enemies/Resonator/AI/Validation/Resonator_BeforeAttackExits.asset.meta"
+    },
+    {
+      "path": "Assets/Resonator/AI/Validation/Resonator_BeforeCrowdNavigation.asset",
+      "bytes": 15953,
+      "sha256": "59a8e3204a29fb7d0819d6fd856182a6090c1732051dec6e817b542c0f9dcc80",
+      "reason": "Consolidated at Assets/Game/Enemies/Resonator/AI/Validation/Resonator_BeforeCrowdNavigation.asset"
+    },
+    {
+      "path": "Assets/Resonator/AI/Validation/Resonator_BeforeCrowdNavigation.asset.meta",
+      "bytes": 189,
+      "sha256": "abdcaf14a27a80c3f17430d2895373f5ea711d5aac139d333bf06ad6d7423b44",
+      "reason": "Consolidated at Assets/Game/Enemies/Resonator/AI/Validation/Resonator_BeforeCrowdNavigation.asset.meta"
+    },
+    {
+      "path": "Assets/Resonator/AI/Validation/Resonator_BeforeHitboxEditor 1.asset",
+      "bytes": 10280,
+      "sha256": "dbc992644e2c4fba9a9f17145e0a02d4fc765f01e824edb1a2becdfac6355d2d",
+      "reason": "Consolidated at Assets/Game/Enemies/Resonator/AI/Validation/Resonator_BeforeHitboxEditor 1.asset"
+    },
+    {
+      "path": "Assets/Resonator/AI/Validation/Resonator_BeforeHitboxEditor 1.asset.meta",
+      "bytes": 189,
+      "sha256": "f90c58749be95dfedcd1fac1ba97b83af049f93bb271079528de05b1a49a78f3",
+      "reason": "Consolidated at Assets/Game/Enemies/Resonator/AI/Validation/Resonator_BeforeHitboxEditor 1.asset.meta"
+    },
+    {
+      "path": "Assets/Resonator/AI/Validation/Resonator_BeforeHitboxEditor.asset",
+      "bytes": 10212,
+      "sha256": "bfe00f2d8bd7efde9a2c3f4fb50888dcc4fd25382023840be93bcebacd988fb4",
+      "reason": "Consolidated at Assets/Game/Enemies/Resonator/AI/Validation/Resonator_BeforeHitboxEditor.asset"
+    },
+    {
+      "path": "Assets/Resonator/AI/Validation/Resonator_BeforeHitboxEditor.asset.meta",
+      "bytes": 189,
+      "sha256": "1a2ca95f9e37a6c9f02433dc6c993b44f85aa642530526dd66ec1efb30544b18",
+      "reason": "Consolidated at Assets/Game/Enemies/Resonator/AI/Validation/Resonator_BeforeHitboxEditor.asset.meta"
+    },
+    {
+      "path": "Assets/Resonator/AI/Validation/Rest_Feeding.png",
+      "bytes": 139886,
+      "sha256": "a9d3d3dcaffdb4d8be9a66f2e41e108bc75366a84491944d7ba1b6f9c352b679",
+      "reason": "Consolidated at Assets/Game/Enemies/Resonator/AI/Validation/Rest_Feeding.png"
+    },
+    {
+      "path": "Assets/Resonator/AI/Validation/Rest_Feeding.png.meta",
+      "bytes": 2652,
+      "sha256": "59e5d8e28aa9f1039ee21b75216f90bee6ba9225245740fd444832f3d9ab29cf",
+      "reason": "Consolidated at Assets/Game/Enemies/Resonator/AI/Validation/Rest_Feeding.png.meta"
+    },
+    {
+      "path": "Assets/Resonator/AI/Validation/Rest_FeignDeath.png",
+      "bytes": 124183,
+      "sha256": "00bb135414d413411d03c27eda59749eb5c3f3810be22340936b87620aef1b39",
+      "reason": "Consolidated at Assets/Game/Enemies/Resonator/AI/Validation/Rest_FeignDeath.png"
+    },
+    {
+      "path": "Assets/Resonator/AI/Validation/Rest_FeignDeath.png.meta",
+      "bytes": 2652,
+      "sha256": "4d4d581a792acc13a03461d38a4bf409b9f9081a724f96104a5fb3cec01697eb",
+      "reason": "Consolidated at Assets/Game/Enemies/Resonator/AI/Validation/Rest_FeignDeath.png.meta"
+    },
+    {
+      "path": "Assets/Resonator/AI/Validation/Rest_Resonating.png",
+      "bytes": 154695,
+      "sha256": "6709cc9953793b1620e8d878e29d2842233a742323dfebb10e7c44bf97bc42c6",
+      "reason": "Consolidated at Assets/Game/Enemies/Resonator/AI/Validation/Rest_Resonating.png"
+    },
+    {
+      "path": "Assets/Resonator/AI/Validation/Rest_Resonating.png.meta",
+      "bytes": 2652,
+      "sha256": "345a43511e24567ffd2b9dab69e31ea15707f9a42378b92491aed648fe59726c",
+      "reason": "Consolidated at Assets/Game/Enemies/Resonator/AI/Validation/Rest_Resonating.png.meta"
+    },
+    {
+      "path": "Assets/Resonator/AI/Validation/ScenarioReport.json",
+      "bytes": 1857,
+      "sha256": "0078b99a0032767342a36d0e3500d5524a9a7ad0dff950fcc70e150f03d5ec68",
+      "reason": "Consolidated at Assets/Game/Enemies/Resonator/AI/Validation/ScenarioReport.json"
+    },
+    {
+      "path": "Assets/Resonator/AI/Validation/ScenarioReport.json.meta",
+      "bytes": 158,
+      "sha256": "2f262e6cc13ce83404159abec6bc0efa41d062492f7d6ef776ff6491f5803433",
+      "reason": "Consolidated at Assets/Game/Enemies/Resonator/AI/Validation/ScenarioReport.json.meta"
+    },
+    {
+      "path": "Assets/Resonator/AI/Validation/Workbench_AttackDisplacement.png",
+      "bytes": 151159,
+      "sha256": "af1e02d6f8a958fdfbf34c64565fec14fc6dc89fa4798a804a47d305e50152e5",
+      "reason": "Consolidated at Assets/Game/Enemies/Resonator/AI/Validation/Workbench_AttackDisplacement.png"
+    },
+    {
+      "path": "Assets/Resonator/AI/Validation/Workbench_AttackDisplacement.png.meta",
+      "bytes": 2652,
+      "sha256": "a38e3d55f0686502758b01f575e53cd683472eb19ed9564b1987b52401a90b0f",
+      "reason": "Consolidated at Assets/Game/Enemies/Resonator/AI/Validation/Workbench_AttackDisplacement.png.meta"
+    },
+    {
+      "path": "Assets/Resonator/AI/Validation/Workbench_ComboBlend.png",
+      "bytes": 140435,
+      "sha256": "dcd3ca58f4896abe75d774f28e329bd00f03dd967bd2eff5428be56cd98c469e",
+      "reason": "Consolidated at Assets/Game/Enemies/Resonator/AI/Validation/Workbench_ComboBlend.png"
+    },
+    {
+      "path": "Assets/Resonator/AI/Validation/Workbench_ComboBlend.png.meta",
+      "bytes": 2652,
+      "sha256": "43149eb966454209d79bf1eb27afc3278e3350e686fd804c08823088aecc1637",
+      "reason": "Consolidated at Assets/Game/Enemies/Resonator/AI/Validation/Workbench_ComboBlend.png.meta"
+    },
+    {
+      "path": "Assets/Resonator/AI/Validation/Workbench_Kick24.png",
+      "bytes": 130287,
+      "sha256": "f7c1ce3f79a0dfa2d633aa24fae640bd152ff43d9fc3253bacbe70c6295260d5",
+      "reason": "Consolidated at Assets/Game/Enemies/Resonator/AI/Validation/Workbench_Kick24.png"
+    },
+    {
+      "path": "Assets/Resonator/AI/Validation/Workbench_Kick24.png.meta",
+      "bytes": 2652,
+      "sha256": "ddb085af784531f3fb1b20b12ccd5af89e8a5d9f88aa222308b3316dd4f7a13f",
+      "reason": "Consolidated at Assets/Game/Enemies/Resonator/AI/Validation/Workbench_Kick24.png.meta"
+    },
+    {
+      "path": "Assets/Resonator/AI/Validation/WorkbenchPreviewReport.json",
+      "bytes": 464,
+      "sha256": "4abf8357692c9d1e07b2c7707588bd061323184be19f2c9fe90933e77473c757",
+      "reason": "Consolidated at Assets/Game/Enemies/Resonator/AI/Validation/WorkbenchPreviewReport.json"
+    },
+    {
+      "path": "Assets/Resonator/AI/Validation/WorkbenchPreviewReport.json.meta",
+      "bytes": 158,
+      "sha256": "29301f9b22cc650f8bd806f179ea6a2c2f59c0f993ebb5f2127e6303744893f3",
+      "reason": "Consolidated at Assets/Game/Enemies/Resonator/AI/Validation/WorkbenchPreviewReport.json.meta"
+    },
+    {
+      "path": "Assets/Resonator/AI/Validation.meta",
+      "bytes": 172,
+      "sha256": "7128dcadfdf6ae2a7257e30b93129988e380353b8dde27eb3f03f5e7d6e7d7b2",
+      "reason": "Consolidated at Assets/Game/Enemies/Resonator/AI/Validation.meta"
+    },
+    {
+      "path": "Assets/Resonator/AI.meta",
+      "bytes": 172,
+      "sha256": "e931470b26eed5c1ffa39650b5534f8b9b648e37581302dbba81fc3cb3cef055",
+      "reason": "Consolidated at Assets/Game/Enemies/Resonator/AI.meta"
+    },
+    {
+      "path": "Assets/Resonator/Animations/Resonator_Walking.fbx",
+      "bytes": 780220,
+      "sha256": "51c779a271aebd256b62fc8268876e351123813481857e97b76f8826e6d00263",
+      "reason": "Consolidated at Assets/Game/Enemies/Resonator/Animations/Resonator_Walking.fbx"
+    },
+    {
+      "path": "Assets/Resonator/Animations/Resonator_Walking.fbx.meta",
+      "bytes": 3754,
+      "sha256": "1017a9fa4bf2342308cfe1c3ab0ad0b7c12ced77764c0942490513b46a79f022",
+      "reason": "Consolidated at Assets/Game/Enemies/Resonator/Animations/Resonator_Walking.fbx.meta"
+    },
+    {
+      "path": "Assets/Resonator/Animations/Resonator_Zombie_Agonizing.fbx",
+      "bytes": 2220172,
+      "sha256": "7283b6410dbf3417fc1a973c7eef642372666044760fb348796b08cd90325993",
+      "reason": "Consolidated at Assets/Game/Enemies/Resonator/Animations/Resonator_Zombie_Agonizing.fbx"
+    },
+    {
+      "path": "Assets/Resonator/Animations/Resonator_Zombie_Agonizing.fbx.meta",
+      "bytes": 3764,
+      "sha256": "d072cf788bd61f766c4fe59f210680642d8a450725b501e523ef351d3e8e2058",
+      "reason": "Consolidated at Assets/Game/Enemies/Resonator/Animations/Resonator_Zombie_Agonizing.fbx.meta"
+    },
+    {
+      "path": "Assets/Resonator/Animations/Resonator_Zombie_Attack.fbx",
+      "bytes": 1217404,
+      "sha256": "97a3c6684e326a52f7eb143ed6712906ffb65f4374428c9b4a73cf87f6653602",
+      "reason": "Consolidated at Assets/Game/Enemies/Resonator/Animations/Resonator_Zombie_Attack.fbx"
+    },
+    {
+      "path": "Assets/Resonator/Animations/Resonator_Zombie_Attack.fbx.meta",
+      "bytes": 3761,
+      "sha256": "359a37392034a9c943a8793fa6d0c8e19f7b627b4cb1b38739bec277802022a4",
+      "reason": "Consolidated at Assets/Game/Enemies/Resonator/Animations/Resonator_Zombie_Attack.fbx.meta"
+    },
+    {
+      "path": "Assets/Resonator/Animations/Resonator_Zombie_Death.fbx",
+      "bytes": 984780,
+      "sha256": "3eb1f026a8bfd0f01ff93c9fc7501163e625ff9af721122a02ae06e7ab6fecc8",
+      "reason": "Consolidated at Assets/Game/Enemies/Resonator/Animations/Resonator_Zombie_Death.fbx"
+    },
+    {
+      "path": "Assets/Resonator/Animations/Resonator_Zombie_Death.fbx.meta",
+      "bytes": 3759,
+      "sha256": "9fd2420aded3074e4fee49cb0b781a5d5354d735e341841d0747e1f36b140a9a",
+      "reason": "Consolidated at Assets/Game/Enemies/Resonator/Animations/Resonator_Zombie_Death.fbx.meta"
+    },
+    {
+      "path": "Assets/Resonator/Animations/Resonator_Zombie_Headbutt.fbx",
+      "bytes": 933292,
+      "sha256": "20f124c9ff33c4366f0cd913c4aa60f8abded43521482f7a88248d3b2552bd50",
+      "reason": "Consolidated at Assets/Game/Enemies/Resonator/Animations/Resonator_Zombie_Headbutt.fbx"
+    },
+    {
+      "path": "Assets/Resonator/Animations/Resonator_Zombie_Headbutt.fbx.meta",
+      "bytes": 3762,
+      "sha256": "ab891d1e72a22559a1f7dd4c86c03cd68d800e127b296d4e9ce8aa954f1a6219",
+      "reason": "Consolidated at Assets/Game/Enemies/Resonator/Animations/Resonator_Zombie_Headbutt.fbx.meta"
+    },
+    {
+      "path": "Assets/Resonator/Animations/Resonator_Zombie_Kicking.fbx",
+      "bytes": 1042828,
+      "sha256": "4803e721cef7a781072941ca422b7371615eb0affc912f9d82afb3139c2a08e7",
+      "reason": "Consolidated at Assets/Game/Enemies/Resonator/Animations/Resonator_Zombie_Kicking.fbx"
+    },
+    {
+      "path": "Assets/Resonator/Animations/Resonator_Zombie_Kicking.fbx.meta",
+      "bytes": 3762,
+      "sha256": "864a930b449680b8d48fe2884398aa100a97f58ca27e46f5a11fee3accdf66f1",
+      "reason": "Consolidated at Assets/Game/Enemies/Resonator/Animations/Resonator_Zombie_Kicking.fbx.meta"
+    },
+    {
+      "path": "Assets/Resonator/Animations/Resonator_Zombie_Punching.fbx",
+      "bytes": 1099212,
+      "sha256": "12ebe32e5e64bda99ecd888332bb2b024c17a9e615445577956c7bb76dc86f13",
+      "reason": "Consolidated at Assets/Game/Enemies/Resonator/Animations/Resonator_Zombie_Punching.fbx"
+    },
+    {
+      "path": "Assets/Resonator/Animations/Resonator_Zombie_Punching.fbx.meta",
+      "bytes": 3763,
+      "sha256": "95df3ba9a0b91247d6b0508e7b9f1edf2e31b6f90e918836e58fdd64027aa222",
+      "reason": "Consolidated at Assets/Game/Enemies/Resonator/Animations/Resonator_Zombie_Punching.fbx.meta"
+    },
+    {
+      "path": "Assets/Resonator/Animations/Resonator_Zombie_Reaction_Hit.fbx",
+      "bytes": 860652,
+      "sha256": "361dfaa025e86c61f099a5a7b047078044e7ba511b40529ab8ce2e1396f8d3fa",
+      "reason": "Consolidated at Assets/Game/Enemies/Resonator/Animations/Resonator_Zombie_Reaction_Hit.fbx"
+    },
+    {
+      "path": "Assets/Resonator/Animations/Resonator_Zombie_Reaction_Hit.fbx.meta",
+      "bytes": 3766,
+      "sha256": "45b18906425a72b42d1622ff040a3483dfc03458230ded54b623b45c4df3c32b",
+      "reason": "Consolidated at Assets/Game/Enemies/Resonator/Animations/Resonator_Zombie_Reaction_Hit.fbx.meta"
+    },
+    {
+      "path": "Assets/Resonator/Animations/Resonator_Zombie_Running.fbx",
+      "bytes": 654412,
+      "sha256": "34fb1eedcdc5096d22498d53163733e01bab22e78b6c2bb830999403f4480cd8",
+      "reason": "Consolidated at Assets/Game/Enemies/Resonator/Animations/Resonator_Zombie_Running.fbx"
+    },
+    {
+      "path": "Assets/Resonator/Animations/Resonator_Zombie_Running.fbx.meta",
+      "bytes": 3761,
+      "sha256": "adbdad68745e4e3a7e6851bd499d427b466630b55a51d7d6f8a3b4f3c235b602",
+      "reason": "Consolidated at Assets/Game/Enemies/Resonator/Animations/Resonator_Zombie_Running.fbx.meta"
+    },
+    {
+      "path": "Assets/Resonator/Animations/Resonator_Zombie_Scream.fbx",
+      "bytes": 966092,
+      "sha256": "34b01ef869a7c4b4a54b2a544145c1848787fc64c8e3f8e718b2ffcaa5858bf6",
+      "reason": "Consolidated at Assets/Game/Enemies/Resonator/Animations/Resonator_Zombie_Scream.fbx"
+    },
+    {
+      "path": "Assets/Resonator/Animations/Resonator_Zombie_Scream.fbx.meta",
+      "bytes": 3760,
+      "sha256": "5f3c1f474230ef33918af00cda6a029c58def4f94995b236e15c4b54f9ff23be",
+      "reason": "Consolidated at Assets/Game/Enemies/Resonator/Animations/Resonator_Zombie_Scream.fbx.meta"
+    },
+    {
+      "path": "Assets/Resonator/Animations/Resonator_Zombie_Stumbling.fbx",
+      "bytes": 1266172,
+      "sha256": "0ba7a6862c9305cfc9e0c373be6ed55794269689b2d8c33571ee111b4abacfe4",
+      "reason": "Consolidated at Assets/Game/Enemies/Resonator/Animations/Resonator_Zombie_Stumbling.fbx"
+    },
+    {
+      "path": "Assets/Resonator/Animations/Resonator_Zombie_Stumbling.fbx.meta",
+      "bytes": 3764,
+      "sha256": "8418a572d98f77b3e2352dd5f50ce02b17094b61663d8345f3cb0d9bed2aa185",
+      "reason": "Consolidated at Assets/Game/Enemies/Resonator/Animations/Resonator_Zombie_Stumbling.fbx.meta"
+    },
+    {
+      "path": "Assets/Resonator/Animations/Zombie_01_Attack_Walking.fbx",
+      "bytes": 2867804,
+      "sha256": "d46bef5a244f6e35e0afbb08295c86ee0b3ff153041680083df526e2fa481ec1",
+      "reason": "Consolidated at Assets/Game/Enemies/Resonator/Animations/Zombie_01_Attack_Walking.fbx"
+    },
+    {
+      "path": "Assets/Resonator/Animations/Zombie_01_Attack_Walking.fbx.meta",
+      "bytes": 3762,
+      "sha256": "a7b5602c82f761693a2b7472e6ba3581d53210a6a4f8d14154e72f072f1de3e0",
+      "reason": "Consolidated at Assets/Game/Enemies/Resonator/Animations/Zombie_01_Attack_Walking.fbx.meta"
+    },
+    {
+      "path": "Assets/Resonator/Animations/Zombie_02_Being_Shot.fbx",
+      "bytes": 3432428,
+      "sha256": "1e53c05c67f0163c12be4ce7d68d694c8fec10d67dfd27f37e04e6f14d933377",
+      "reason": "Consolidated at Assets/Game/Enemies/Resonator/Animations/Zombie_02_Being_Shot.fbx"
+    },
+    {
+      "path": "Assets/Resonator/Animations/Zombie_02_Being_Shot.fbx.meta",
+      "bytes": 3758,
+      "sha256": "de2a211354beb01d8d400a1c5a431883d143adfb58c15c3a8c8d352ea8db7daf",
+      "reason": "Consolidated at Assets/Game/Enemies/Resonator/Animations/Zombie_02_Being_Shot.fbx.meta"
+    },
+    {
+      "path": "Assets/Resonator/Animations/Zombie_03_Feeding_Ground.fbx",
+      "bytes": 3130172,
+      "sha256": "5ca55d49f66c75715b441fbd7bf3b9f9fe99c4ad9f6d45dde9d3535d86934c24",
+      "reason": "Consolidated at Assets/Game/Enemies/Resonator/Animations/Zombie_03_Feeding_Ground.fbx"
+    },
+    {
+      "path": "Assets/Resonator/Animations/Zombie_03_Feeding_Ground.fbx.meta",
+      "bytes": 3762,
+      "sha256": "72e712ceedbf53eda8a7c0c9f9f44431e397eb702ec367e12fe6d81bb5596c61",
+      "reason": "Consolidated at Assets/Game/Enemies/Resonator/Animations/Zombie_03_Feeding_Ground.fbx.meta"
+    },
+    {
+      "path": "Assets/Resonator/Animations/Zombie_04_Idle_Restless.fbx",
+      "bytes": 5570428,
+      "sha256": "adea3665af04ac28c335320f3828ed276ce60c8b2d3d0efb39b3718df8aefdb3",
+      "reason": "Consolidated at Assets/Game/Enemies/Resonator/Animations/Zombie_04_Idle_Restless.fbx"
+    },
+    {
+      "path": "Assets/Resonator/Animations/Zombie_04_Idle_Restless.fbx.meta",
+      "bytes": 3762,
+      "sha256": "164c110d9e061e23aa4eef95827531f12b865030958b0d243352e15911d8c026",
+      "reason": "Consolidated at Assets/Game/Enemies/Resonator/Animations/Zombie_04_Idle_Restless.fbx.meta"
+    },
+    {
+      "path": "Assets/Resonator/Animations/Zombie_05_Idle_Slow.fbx",
+      "bytes": 4892876,
+      "sha256": "1ad76fc20c2cfbba0d57e09750d49fb56f3c756728e0cfa48643f9ee7b060a8c",
+      "reason": "Consolidated at Assets/Game/Enemies/Resonator/Animations/Zombie_05_Idle_Slow.fbx"
+    },
+    {
+      "path": "Assets/Resonator/Animations/Zombie_05_Idle_Slow.fbx.meta",
+      "bytes": 3757,
+      "sha256": "c29bb5bf0944a39b499608e546f341b49dd9c04d0084622896d5d9a6c2333f16",
+      "reason": "Consolidated at Assets/Game/Enemies/Resonator/Animations/Zombie_05_Idle_Slow.fbx.meta"
+    },
+    {
+      "path": "Assets/Resonator/Animations/Zombie_06_WakeUp_Transform.fbx",
+      "bytes": 3817388,
+      "sha256": "e49d5da017ecd0cca74ba0ad5132a809e09f485a5d35e67a26add8a7b0f0d9b9",
+      "reason": "Consolidated at Assets/Game/Enemies/Resonator/Animations/Zombie_06_WakeUp_Transform.fbx"
+    },
+    {
+      "path": "Assets/Resonator/Animations/Zombie_06_WakeUp_Transform.fbx.meta",
+      "bytes": 3764,
+      "sha256": "d63e7e545e990369678be458b131b0f52923de2cb4a389482a045615f4287039",
+      "reason": "Consolidated at Assets/Game/Enemies/Resonator/Animations/Zombie_06_WakeUp_Transform.fbx.meta"
+    },
+    {
+      "path": "Assets/Resonator/Animations/Zombie_07_Walk.fbx",
+      "bytes": 3124716,
+      "sha256": "b86e0697db8fba44ecbe4f4a34f53d0c46537840a2f7eac164d3406fa10c3647",
+      "reason": "Consolidated at Assets/Game/Enemies/Resonator/Animations/Zombie_07_Walk.fbx"
+    },
+    {
+      "path": "Assets/Resonator/Animations/Zombie_07_Walk.fbx.meta",
+      "bytes": 3752,
+      "sha256": "64fb3c1920ab330fcbca108cb61d4de37ad93a010668754273ec959b2e5dc5d0",
+      "reason": "Consolidated at Assets/Game/Enemies/Resonator/Animations/Zombie_07_Walk.fbx.meta"
+    },
+    {
+      "path": "Assets/Resonator/Animations/Zombie_08_Walk_Slow.fbx",
+      "bytes": 4111676,
+      "sha256": "a081dc55aaf38a06d82831d3632e3729ebf2905a51bb7eae84a48d56cae10a17",
+      "reason": "Consolidated at Assets/Game/Enemies/Resonator/Animations/Zombie_08_Walk_Slow.fbx"
+    },
+    {
+      "path": "Assets/Resonator/Animations/Zombie_08_Walk_Slow.fbx.meta",
+      "bytes": 3757,
+      "sha256": "da0b30b7105aa9687a7be9688864547ee7682bd4e44f12cdf3fcec9b3ce85951",
+      "reason": "Consolidated at Assets/Game/Enemies/Resonator/Animations/Zombie_08_Walk_Slow.fbx.meta"
+    },
+    {
+      "path": "Assets/Resonator/Animations.meta",
+      "bytes": 172,
+      "sha256": "8a38f51b032426dc0d14f620ad69a95fc223c1e95998a759c76fb93057f481e9",
+      "reason": "Consolidated at Assets/Game/Enemies/Resonator/Animations.meta"
+    },
+    {
+      "path": "Assets/Resonator/Editor/ResonatorImport.cs",
+      "bytes": 7730,
+      "sha256": "fd76d1a6f093c0ecd6023efb7865650aaab69e04aeb90b27dd5b7d6a1cad941e",
+      "reason": "Consolidated at Assets/Game/Enemies/Resonator/Editor/ResonatorImport.cs"
+    },
+    {
+      "path": "Assets/Resonator/Editor/ResonatorImport.cs.meta",
+      "bytes": 59,
+      "sha256": "5a46c0304ea8d16e2cb418aeaecb07b4e224a532ac2291673d766552950ab52a",
+      "reason": "Consolidated at Assets/Game/Enemies/Resonator/Editor/ResonatorImport.cs.meta"
+    },
+    {
+      "path": "Assets/Resonator/Editor.meta",
+      "bytes": 172,
+      "sha256": "b5167aca15ad9706634b8543ff9e1a77a0a634c99f5216edb73925cb2fd74c18",
+      "reason": "Consolidated at Assets/Game/Enemies/Resonator/Editor.meta"
+    },
+    {
+      "path": "Assets/Resonator/manifest.json",
+      "bytes": 13752,
+      "sha256": "a383d4b1862eded4c28005d2826f0f57639021094e5e5794e7ba03a8caaa2437",
+      "reason": "Consolidated at Assets/Game/Enemies/Resonator/manifest.json"
+    },
+    {
+      "path": "Assets/Resonator/manifest.json.meta",
+      "bytes": 158,
+      "sha256": "c90894661449298dfb45daa6fdeb152b23be5b78775487c808f19595460b0825",
+      "reason": "Consolidated at Assets/Game/Enemies/Resonator/manifest.json.meta"
+    },
+    {
+      "path": "Assets/Resonator/Materials/Clothing_Unity.mat",
+      "bytes": 4066,
+      "sha256": "35b1fe591081b998cc66214d13ca28da333672abe4bebc3c3962f3fbb2deda7b",
+      "reason": "Consolidated at Assets/Game/Enemies/Resonator/Materials/Clothing_Unity.mat"
+    },
+    {
+      "path": "Assets/Resonator/Materials/Clothing_Unity.mat.meta",
+      "bytes": 188,
+      "sha256": "cbfc05edbabbf83f72bb4e5097db3a1da1cec7ef4cd8e0b96722b5f6a92c043a",
+      "reason": "Consolidated at Assets/Game/Enemies/Resonator/Materials/Clothing_Unity.mat.meta"
+    },
+    {
+      "path": "Assets/Resonator/Materials/Crystal_Clothing_Unity.mat",
+      "bytes": 4073,
+      "sha256": "274211600e4c2a5b583cb169687b8dc7158e1853269f32acbe9dca7f237024a5",
+      "reason": "Consolidated at Assets/Game/Enemies/Resonator/Materials/Crystal_Clothing_Unity.mat"
+    },
+    {
+      "path": "Assets/Resonator/Materials/Crystal_Clothing_Unity.mat.meta",
+      "bytes": 188,
+      "sha256": "43324264d9cbc576c1809c7e0ac8e5bad93500ac1d48e538b7f36c2903ef5420",
+      "reason": "Consolidated at Assets/Game/Enemies/Resonator/Materials/Crystal_Clothing_Unity.mat.meta"
+    },
+    {
+      "path": "Assets/Resonator/Materials/Crystal_SculptedHeadSkin_Unity.mat",
+      "bytes": 4082,
+      "sha256": "e0a6d78d71641f4fdc8eb258b58ef635791483cb167982ff687d251454e69f59",
+      "reason": "Consolidated at Assets/Game/Enemies/Resonator/Materials/Crystal_SculptedHeadSkin_Unity.mat"
+    },
+    {
+      "path": "Assets/Resonator/Materials/Crystal_SculptedHeadSkin_Unity.mat.meta",
+      "bytes": 188,
+      "sha256": "82b84c8bee4facd5da9cd7dfd543b2b3e8562725a41622ad43ae8980657bd6d3",
+      "reason": "Consolidated at Assets/Game/Enemies/Resonator/Materials/Crystal_SculptedHeadSkin_Unity.mat.meta"
+    },
+    {
+      "path": "Assets/Resonator/Materials/Ground.mat",
+      "bytes": 3836,
+      "sha256": "3f7a6c68ad8603934d5c28df4bc8b9c1655389bd056094c266cd95f4a3707238",
+      "reason": "Consolidated at Assets/Game/Enemies/Resonator/Materials/Ground.mat"
+    },
+    {
+      "path": "Assets/Resonator/Materials/Ground.mat.meta",
+      "bytes": 188,
+      "sha256": "29f832aab10215dd961e435971ae2b603c7b9813bf1e0dd05a4d0af5984ccf81",
+      "reason": "Consolidated at Assets/Game/Enemies/Resonator/Materials/Ground.mat.meta"
+    },
+    {
+      "path": "Assets/Resonator/Materials/SculptedHeadSkin_Unity.mat",
+      "bytes": 4074,
+      "sha256": "c6f6a0503c09814ea3639e0de99d32d9a4ae8f2c1a5bdb5a05e77f8e1976703a",
+      "reason": "Consolidated at Assets/Game/Enemies/Resonator/Materials/SculptedHeadSkin_Unity.mat"
+    },
+    {
+      "path": "Assets/Resonator/Materials/SculptedHeadSkin_Unity.mat.meta",
+      "bytes": 188,
+      "sha256": "0016d94c108f74c53737cb45a66058a9505e01b678141c3aa952717ae290c367",
+      "reason": "Consolidated at Assets/Game/Enemies/Resonator/Materials/SculptedHeadSkin_Unity.mat.meta"
+    },
+    {
+      "path": "Assets/Resonator/Materials/StudioSky.mat",
+      "bytes": 988,
+      "sha256": "10dc66354569d3dd5314cecae16892dd59b159bdda4de74449ede1ecda2455df",
+      "reason": "Consolidated at Assets/Game/Enemies/Resonator/Materials/StudioSky.mat"
+    },
+    {
+      "path": "Assets/Resonator/Materials/StudioSky.mat.meta",
+      "bytes": 188,
+      "sha256": "90d5c91b7fe9998bd340f64e19ebe94770a815ecae8ceb26615d47ac0f04110c",
+      "reason": "Consolidated at Assets/Game/Enemies/Resonator/Materials/StudioSky.mat.meta"
+    },
+    {
+      "path": "Assets/Resonator/Materials.meta",
+      "bytes": 172,
+      "sha256": "7af491acd3963eb04e1ec66abadab526116f1fa79f1cd843c0bea4a7cacb8940",
+      "reason": "Consolidated at Assets/Game/Enemies/Resonator/Materials.meta"
+    },
+    {
+      "path": "Assets/Resonator/Models/Resonator.fbx",
+      "bytes": 1618908,
+      "sha256": "5b2e961e817908c7f760f204eae136f2666c9340b4c47db077a17216bfd5fd7d",
+      "reason": "Consolidated at Assets/Game/Enemies/Resonator/Models/Resonator.fbx"
+    },
+    {
+      "path": "Assets/Resonator/Models/Resonator.fbx.meta",
+      "bytes": 2891,
+      "sha256": "cfb6b7787dc711fb84dd6de0797ba746fd199f8490e4272f908a213d94178fab",
+      "reason": "Consolidated at Assets/Game/Enemies/Resonator/Models/Resonator.fbx.meta"
+    },
+    {
+      "path": "Assets/Resonator/Models.meta",
+      "bytes": 172,
+      "sha256": "c92501368f62e49b520aaf4e8bf5a8182b8204d03d58c689f72b88f667af8b55",
+      "reason": "Consolidated at Assets/Game/Enemies/Resonator/Models.meta"
+    },
+    {
+      "path": "Assets/Resonator/Prefabs/ResonatorScientist.prefab",
+      "bytes": 133985,
+      "sha256": "c9448e98865aa997d92dda68fa039d590d839f41948c89a8245d78e12b3f18a2",
+      "reason": "Consolidated at Assets/Game/Enemies/Resonator/Prefabs/ResonatorScientist.prefab"
+    },
+    {
+      "path": "Assets/Resonator/Prefabs/ResonatorScientist.prefab.meta",
+      "bytes": 154,
+      "sha256": "cedf44915b60669f65e597873813a7cd018739558213f445fbb614bb5a5cab71",
+      "reason": "Consolidated at Assets/Game/Enemies/Resonator/Prefabs/ResonatorScientist.prefab.meta"
+    },
+    {
+      "path": "Assets/Resonator/Prefabs.meta",
+      "bytes": 172,
+      "sha256": "781575398fe49549a263aeb8fe567972fe086bb9926f300291d12d4ec7953007",
+      "reason": "Consolidated at Assets/Game/Enemies/Resonator/Prefabs.meta"
+    },
+    {
+      "path": "Assets/Resonator/README.md",
+      "bytes": 2097,
+      "sha256": "6287222693d50ba7fceb990f697ae0eefe224ec3075cbdc602199d028431ebd5",
+      "reason": "Consolidated at Assets/Game/Enemies/Resonator/README.md"
+    },
+    {
+      "path": "Assets/Resonator/README.md.meta",
+      "bytes": 158,
+      "sha256": "2c9c225fa62018ee00897ffac2a73fdd8342bca4eec31ea13917d6ded5d5021a",
+      "reason": "Consolidated at Assets/Game/Enemies/Resonator/README.md.meta"
+    },
+    {
+      "path": "Assets/Resonator/Resonator.controller",
+      "bytes": 16862,
+      "sha256": "8b8175a6ca12c7078f70b5aedf8f335fed4daec6df86f96cbd27f2f28341392d",
+      "reason": "Consolidated at Assets/Game/Enemies/Resonator/Resonator.controller"
+    },
+    {
+      "path": "Assets/Resonator/Resonator.controller.meta",
+      "bytes": 188,
+      "sha256": "ed2aacb57a1a9c77757a27c4d2bb3740c9f37239c1c85b893797637981cd3460",
+      "reason": "Consolidated at Assets/Game/Enemies/Resonator/Resonator.controller.meta"
+    },
+    {
+      "path": "Assets/Resonator/Runtime/ResonatorAnimationPreview.cs",
+      "bytes": 886,
+      "sha256": "f9be3c9710ed4b97f7a8695489b7718be8845389ff84ad27f49f8f0da9d01814",
+      "reason": "Consolidated at Assets/Game/Enemies/Resonator/Runtime/ResonatorAnimationPreview.cs"
+    },
+    {
+      "path": "Assets/Resonator/Runtime/ResonatorAnimationPreview.cs.meta",
+      "bytes": 59,
+      "sha256": "4464486b3fe350204339516ac5f7d88fb8aa089136b633a2470e1de428cc6c8c",
+      "reason": "Consolidated at Assets/Game/Enemies/Resonator/Runtime/ResonatorAnimationPreview.cs.meta"
+    },
+    {
+      "path": "Assets/Resonator/Runtime.meta",
+      "bytes": 172,
+      "sha256": "30bb9200c333bb395195ed997dfac2ccb3af977c4e113bce494b4a22e7cf8065",
+      "reason": "Consolidated at Assets/Game/Enemies/Resonator/Runtime.meta"
+    },
+    {
+      "path": "Assets/Resonator/Scenes/ResonatorPreview.unity",
+      "bytes": 24966,
+      "sha256": "f415b053ea8c1a2d8657d7f109272065d18be7389104015a44372c8b9839ebc8",
+      "reason": "Consolidated at Assets/Game/Enemies/Resonator/Scenes/ResonatorPreview.unity"
+    },
+    {
+      "path": "Assets/Resonator/Scenes/ResonatorPreview.unity.meta",
+      "bytes": 155,
+      "sha256": "63d2fce51baf4c14dc66c557b4af145ac5df878b52e603ab9441a99ffffa1834",
+      "reason": "Consolidated at Assets/Game/Enemies/Resonator/Scenes/ResonatorPreview.unity.meta"
+    },
+    {
+      "path": "Assets/Resonator/Scenes.meta",
+      "bytes": 172,
+      "sha256": "f18ea97e774cbe14a43b3c9f3d784d2266a9cc8b353813705df1d0e3d53f5768",
+      "reason": "Consolidated at Assets/Game/Enemies/Resonator/Scenes.meta"
+    },
+    {
+      "path": "Assets/Resonator/Textures/Clothing_BaseColor.png",
+      "bytes": 7378239,
+      "sha256": "46ec78556d793b6179a21b7419cbf845948159ab8ecacf9426dea8d8400e3639",
+      "reason": "Consolidated at Assets/Game/Enemies/Resonator/Textures/Clothing_BaseColor.png"
+    },
+    {
+      "path": "Assets/Resonator/Textures/Clothing_BaseColor.png.meta",
+      "bytes": 2652,
+      "sha256": "30d541a2ecd3f076b5a90263fb11a7483aadfe45860ce092c9e75dfb605e33e6",
+      "reason": "Consolidated at Assets/Game/Enemies/Resonator/Textures/Clothing_BaseColor.png.meta"
+    },
+    {
+      "path": "Assets/Resonator/Textures/Clothing_Normal.png",
+      "bytes": 21407488,
+      "sha256": "909fae897c4a82f55da9e9ac25dc04f627d94cfdd63014d9e45a1cb893e4772f",
+      "reason": "Consolidated at Assets/Game/Enemies/Resonator/Textures/Clothing_Normal.png"
+    },
+    {
+      "path": "Assets/Resonator/Textures/Clothing_Normal.png.meta",
+      "bytes": 2652,
+      "sha256": "a66ba9bbcf1e82d0d130c2b297bc71af2542132908b3bc8833d14d0ef2b18a42",
+      "reason": "Consolidated at Assets/Game/Enemies/Resonator/Textures/Clothing_Normal.png.meta"
+    },
+    {
+      "path": "Assets/Resonator/Textures/Clothing_Surface.png",
+      "bytes": 8370176,
+      "sha256": "97d579be4cb592ac262c1ff5cb85646700dba88b2836f599b2cab1062d10fd06",
+      "reason": "Consolidated at Assets/Game/Enemies/Resonator/Textures/Clothing_Surface.png"
+    },
+    {
+      "path": "Assets/Resonator/Textures/Clothing_Surface.png.meta",
+      "bytes": 2652,
+      "sha256": "1daf3ed7abd04688006b049a9f506d3cbdd0eb73007852fdf74ee692dc9d876e",
+      "reason": "Consolidated at Assets/Game/Enemies/Resonator/Textures/Clothing_Surface.png.meta"
+    },
+    {
+      "path": "Assets/Resonator/Textures/SculptedHeadSkin_BaseColor.png",
+      "bytes": 3337727,
+      "sha256": "d3e2b5e82025b78eaf2c8d0b556e4e087fedb5c62285808228c5a8569ddfcf52",
+      "reason": "Consolidated at Assets/Game/Enemies/Resonator/Textures/SculptedHeadSkin_BaseColor.png"
+    },
+    {
+      "path": "Assets/Resonator/Textures/SculptedHeadSkin_BaseColor.png.meta",
+      "bytes": 2652,
+      "sha256": "ee210adc021b924983d901e8890f2f7eb023ae64b653e9b880ff707ae5165143",
+      "reason": "Consolidated at Assets/Game/Enemies/Resonator/Textures/SculptedHeadSkin_BaseColor.png.meta"
+    },
+    {
+      "path": "Assets/Resonator/Textures/SculptedHeadSkin_Normal.png",
+      "bytes": 14433644,
+      "sha256": "1cc359e286e987abb0d1c9b22e5651bfa2287f7c719968e10d61c3ce34bbd793",
+      "reason": "Consolidated at Assets/Game/Enemies/Resonator/Textures/SculptedHeadSkin_Normal.png"
+    },
+    {
+      "path": "Assets/Resonator/Textures/SculptedHeadSkin_Normal.png.meta",
+      "bytes": 2652,
+      "sha256": "efc7cce0594f7d602fc6c1d0d3ea40599eddd6be8d4eb966894fac5c8676d764",
+      "reason": "Consolidated at Assets/Game/Enemies/Resonator/Textures/SculptedHeadSkin_Normal.png.meta"
+    },
+    {
+      "path": "Assets/Resonator/Textures/SculptedHeadSkin_Surface.png",
+      "bytes": 5217595,
+      "sha256": "fa4b4eb242aba7807da58cedc604727616533f27d7eda03fa45f54ff79d5bb60",
+      "reason": "Consolidated at Assets/Game/Enemies/Resonator/Textures/SculptedHeadSkin_Surface.png"
+    },
+    {
+      "path": "Assets/Resonator/Textures/SculptedHeadSkin_Surface.png.meta",
+      "bytes": 2652,
+      "sha256": "877d959a670a2133d1a6be9516fab00595588377edde46ed60129abd4b206855",
+      "reason": "Consolidated at Assets/Game/Enemies/Resonator/Textures/SculptedHeadSkin_Surface.png.meta"
+    },
+    {
+      "path": "Assets/Resonator/Textures.meta",
+      "bytes": 172,
+      "sha256": "6131bab7c031f3ab1082ac2abb17ed392e985859a1aac0a2998c2fc4412cc009",
+      "reason": "Consolidated at Assets/Game/Enemies/Resonator/Textures.meta"
+    },
+    {
+      "path": "Assets/Resonator/Validation/Final_Resonator_Walking.png",
+      "bytes": 208808,
+      "sha256": "805733ece4e14b06af2a65b3c7e58966806b4de6c8f5eaf2f32278f0a82ff5ad",
+      "reason": "Consolidated at Assets/Game/Enemies/Resonator/Validation/Final_Resonator_Walking.png"
+    },
+    {
+      "path": "Assets/Resonator/Validation/Final_Resonator_Walking.png.meta",
+      "bytes": 2652,
+      "sha256": "d4d508a0d7023fd2cc2686f9f270c069707e2107cf9d5ce676ceda01fb1a6acb",
+      "reason": "Consolidated at Assets/Game/Enemies/Resonator/Validation/Final_Resonator_Walking.png.meta"
+    },
+    {
+      "path": "Assets/Resonator/Validation/Final_Resonator_Zombie_Attack.png",
+      "bytes": 183278,
+      "sha256": "88842736e7dc9fe867163fd7e600370f6454a1419e98e646d36948d66ff6f673",
+      "reason": "Consolidated at Assets/Game/Enemies/Resonator/Validation/Final_Resonator_Zombie_Attack.png"
+    },
+    {
+      "path": "Assets/Resonator/Validation/Final_Resonator_Zombie_Attack.png.meta",
+      "bytes": 2652,
+      "sha256": "b78fb1b3bc0fb716747652e161193813ac000ab2b99e5805ca762348728c4e73",
+      "reason": "Consolidated at Assets/Game/Enemies/Resonator/Validation/Final_Resonator_Zombie_Attack.png.meta"
+    },
+    {
+      "path": "Assets/Resonator/Validation/Final_Resonator_Zombie_Death.png",
+      "bytes": 130907,
+      "sha256": "d41c8dcf4d6e0f9162227b3d974a04fe1653884c4bb87aa49383ee617999a1fe",
+      "reason": "Consolidated at Assets/Game/Enemies/Resonator/Validation/Final_Resonator_Zombie_Death.png"
+    },
+    {
+      "path": "Assets/Resonator/Validation/Final_Resonator_Zombie_Death.png.meta",
+      "bytes": 2652,
+      "sha256": "b2e2560b8ae2f1d0fc2c5258cb8131b2582dd6ac43b131dd6055a8c4ec2551fd",
+      "reason": "Consolidated at Assets/Game/Enemies/Resonator/Validation/Final_Resonator_Zombie_Death.png.meta"
+    },
+    {
+      "path": "Assets/Resonator/Validation/Final_Resonator_Zombie_Kicking.png",
+      "bytes": 192744,
+      "sha256": "c3f1e662b40739a0d7f65438bde71fc2e95160351b8fa0afbbc7a26ee47959a0",
+      "reason": "Consolidated at Assets/Game/Enemies/Resonator/Validation/Final_Resonator_Zombie_Kicking.png"
+    },
+    {
+      "path": "Assets/Resonator/Validation/Final_Resonator_Zombie_Kicking.png.meta",
+      "bytes": 2652,
+      "sha256": "999b02ecf9d0d6ff4775a10696ea9a0cdf60e02c0a1eba65ea93f90140b019c7",
+      "reason": "Consolidated at Assets/Game/Enemies/Resonator/Validation/Final_Resonator_Zombie_Kicking.png.meta"
+    },
+    {
+      "path": "Assets/Resonator/Validation/PlayValidation.cs.txt",
+      "bytes": 1173,
+      "sha256": "0d84ca302f938d076c9c8b5e6b72001b7fc30e3b12a00e430dd537ebcff95129",
+      "reason": "Consolidated at Assets/Game/Enemies/Resonator/Validation/PlayValidation.cs.txt"
+    },
+    {
+      "path": "Assets/Resonator/Validation/PlayValidation.cs.txt.meta",
+      "bytes": 158,
+      "sha256": "beedd33833beb6552d70b3b8b2fe59b680ef5eb2f01a050196c4ad09be75ff27",
+      "reason": "Consolidated at Assets/Game/Enemies/Resonator/Validation/PlayValidation.cs.txt.meta"
+    },
+    {
+      "path": "Assets/Resonator/Validation.meta",
+      "bytes": 172,
+      "sha256": "62ec1a66be2f79a489b3129ee645f7fa1550bdd152385b9921f8666ed84506e8",
+      "reason": "Consolidated at Assets/Game/Enemies/Resonator/Validation.meta"
+    },
+    {
+      "path": "Assets/Resonator.meta",
+      "bytes": 172,
+      "sha256": "159b40a92404dbfbe059af57109397df95777dfe004463fa7115cc48e8f01451",
+      "reason": "Duplicate folder GUID; organized folder retained"
+    },
+    {
+      "path": "Assets/Gauntlet/Animations/Clips.json",
+      "bytes": 22869,
+      "sha256": "20cdd78162d53f8a9bff994dd0d133815c667b77eaf274ca5357d6fc21618be9",
+      "reason": "Consolidated at Assets/Game/Player/Gauntlet/Animations/Clips.json"
+    },
+    {
+      "path": "Assets/Gauntlet/Animations/Clips.json.meta",
+      "bytes": 158,
+      "sha256": "255f65f231c77ba27bf2866e60d89c4b310157a1150d7d64b7ff8bd485bd48d1",
+      "reason": "Consolidated at Assets/Game/Player/Gauntlet/Animations/Clips.json.meta"
+    },
+    {
+      "path": "Assets/Gauntlet/Animations/Gauntlet.controller",
+      "bytes": 10141,
+      "sha256": "eaf6f4a095dfa8a9ae78f3ea10d30083b9f9a3d68be02266a7ec7ce3b7af10d0",
+      "reason": "Consolidated at Assets/Game/Player/Gauntlet/Animations/Gauntlet.controller"
+    },
+    {
+      "path": "Assets/Gauntlet/Animations/Gauntlet.controller.meta",
+      "bytes": 188,
+      "sha256": "35b943ff7fa90e3a1b7d8781e97863c04a422366464ad3017a1e525be8ebe451",
+      "reason": "Consolidated at Assets/Game/Player/Gauntlet/Animations/Gauntlet.controller.meta"
+    },
+    {
+      "path": "Assets/Gauntlet/Animations/Gauntlet_charge.fbx",
+      "bytes": 784044,
+      "sha256": "8b06782efa4fc714cfe17b975008f109e0872690e794baea0810dcb5ab2c3a22",
+      "reason": "Consolidated at Assets/Game/Player/Gauntlet/Animations/Gauntlet_charge.fbx"
+    },
+    {
+      "path": "Assets/Gauntlet/Animations/Gauntlet_charge.fbx.meta",
+      "bytes": 3754,
+      "sha256": "d278f0afe2d49b1b0738ebdad5c4984c7a73f3d540a93d4faa1f661ff2678ecc",
+      "reason": "Consolidated at Assets/Game/Player/Gauntlet/Animations/Gauntlet_charge.fbx.meta"
+    },
+    {
+      "path": "Assets/Gauntlet/Animations/Gauntlet_charge_full.fbx",
+      "bytes": 616316,
+      "sha256": "40f37c9454e90d6b40d5807d99baa85fdb6013586be92122f108948ce9d2c3eb",
+      "reason": "Consolidated at Assets/Game/Player/Gauntlet/Animations/Gauntlet_charge_full.fbx"
+    },
+    {
+      "path": "Assets/Gauntlet/Animations/Gauntlet_charge_full.fbx.meta",
+      "bytes": 3758,
+      "sha256": "87817a37564b3622e11b6ca42daeb743fff7771947b1f4d5aa7b421829b7752a",
+      "reason": "Consolidated at Assets/Game/Player/Gauntlet/Animations/Gauntlet_charge_full.fbx.meta"
+    },
+    {
+      "path": "Assets/Gauntlet/Animations/Gauntlet_Idle.fbx",
+      "bytes": 691004,
+      "sha256": "968db3bbb2f8d3f09dc0e50a4a2e9cb036d8d991e2108b8ddc600d4695f07d64",
+      "reason": "Consolidated at Assets/Game/Player/Gauntlet/Animations/Gauntlet_Idle.fbx"
+    },
+    {
+      "path": "Assets/Gauntlet/Animations/Gauntlet_Idle.fbx.meta",
+      "bytes": 3752,
+      "sha256": "f6a930c25539ead8ebfba2100a763be0b43fcffa45c92f47c83aeb62584a08fb",
+      "reason": "Consolidated at Assets/Game/Player/Gauntlet/Animations/Gauntlet_Idle.fbx.meta"
+    },
+    {
+      "path": "Assets/Gauntlet/Animations/Gauntlet_Parry-Hit.fbx",
+      "bytes": 435084,
+      "sha256": "b7643ea284666594a94429d5767152fce6dbc86d74a18d87d31e7a44ab682b38",
+      "reason": "Consolidated at Assets/Game/Player/Gauntlet/Animations/Gauntlet_Parry-Hit.fbx"
+    },
+    {
+      "path": "Assets/Gauntlet/Animations/Gauntlet_Parry-Hit.fbx.meta",
+      "bytes": 3756,
+      "sha256": "4cc415ba0b21e0ea95d457e013f67df027f3cdfc0abb15936a38ded5b907df40",
+      "reason": "Consolidated at Assets/Game/Player/Gauntlet/Animations/Gauntlet_Parry-Hit.fbx.meta"
+    },
+    {
+      "path": "Assets/Gauntlet/Animations/Gauntlet_Parry-Holster.fbx",
+      "bytes": 435084,
+      "sha256": "225166f8ce590afc56562644a6ac81c315727bc400884761bfd163d827463d53",
+      "reason": "Consolidated at Assets/Game/Player/Gauntlet/Animations/Gauntlet_Parry-Holster.fbx"
+    },
+    {
+      "path": "Assets/Gauntlet/Animations/Gauntlet_Parry-Holster.fbx.meta",
+      "bytes": 3760,
+      "sha256": "51a2cad22aa2fc206d4ba1581027ce82b5e1b02761f40bc0354567cafcbb0c6b",
+      "reason": "Consolidated at Assets/Game/Player/Gauntlet/Animations/Gauntlet_Parry-Holster.fbx.meta"
+    },
+    {
+      "path": "Assets/Gauntlet/Animations/Gauntlet_Parry-Keep.fbx",
+      "bytes": 668220,
+      "sha256": "168aacd7ae413b022c1fe991cb923827bf16d5a7f845dd8836054f6e179fe657",
+      "reason": "Consolidated at Assets/Game/Player/Gauntlet/Animations/Gauntlet_Parry-Keep.fbx"
+    },
+    {
+      "path": "Assets/Gauntlet/Animations/Gauntlet_Parry-Keep.fbx.meta",
+      "bytes": 3758,
+      "sha256": "2ae2753468005c368accceaae893d296d5d394e72c7fd2fd2cda17701cd39dbc",
+      "reason": "Consolidated at Assets/Game/Player/Gauntlet/Animations/Gauntlet_Parry-Keep.fbx.meta"
+    },
+    {
+      "path": "Assets/Gauntlet/Animations/Gauntlet_Parry-Start.fbx",
+      "bytes": 435084,
+      "sha256": "2a48a5ac8d98d659d2222d45336bf28929691d6fc8a3e4350ab5ec42508ff3ce",
+      "reason": "Consolidated at Assets/Game/Player/Gauntlet/Animations/Gauntlet_Parry-Start.fbx"
+    },
+    {
+      "path": "Assets/Gauntlet/Animations/Gauntlet_Parry-Start.fbx.meta",
+      "bytes": 3758,
+      "sha256": "2001d35d47e58b3ddf305d6b261e44ac50de31f413df1c15a76ad8129efb9b54",
+      "reason": "Consolidated at Assets/Game/Player/Gauntlet/Animations/Gauntlet_Parry-Start.fbx.meta"
+    },
+    {
+      "path": "Assets/Gauntlet/Animations/Gauntlet_punch1.fbx",
+      "bytes": 559692,
+      "sha256": "2605f3036caeb61b0cf08d9687c9bcdcf327f453ccc27657fc6249ff43ab01b0",
+      "reason": "Consolidated at Assets/Game/Player/Gauntlet/Animations/Gauntlet_punch1.fbx"
+    },
+    {
+      "path": "Assets/Gauntlet/Animations/Gauntlet_punch1.fbx.meta",
+      "bytes": 3754,
+      "sha256": "95b0d36a5cc3a3e8e4b37f9d7fc238d263919fc9ef2570c907a4378eb4e172cf",
+      "reason": "Consolidated at Assets/Game/Player/Gauntlet/Animations/Gauntlet_punch1.fbx.meta"
+    },
+    {
+      "path": "Assets/Gauntlet/Animations/Gauntlet_punch2.fbx",
+      "bytes": 488316,
+      "sha256": "6e9171805310baa85b45f90aad0431f95eabaf53931270efb8aa55158a7bf25e",
+      "reason": "Consolidated at Assets/Game/Player/Gauntlet/Animations/Gauntlet_punch2.fbx"
+    },
+    {
+      "path": "Assets/Gauntlet/Animations/Gauntlet_punch2.fbx.meta",
+      "bytes": 3754,
+      "sha256": "f52f4bae4e9db715b6f3f13516f857e134c21d1e1145c1c7c26e23d9c6e53e1b",
+      "reason": "Consolidated at Assets/Game/Player/Gauntlet/Animations/Gauntlet_punch2.fbx.meta"
+    },
+    {
+      "path": "Assets/Gauntlet/Animations/Gauntlet_punch3.fbx",
+      "bytes": 500012,
+      "sha256": "af03f19c596cf4cc44e6545e2f4fe6669eea76281a10a1fbc944ae5f8b01d3b0",
+      "reason": "Consolidated at Assets/Game/Player/Gauntlet/Animations/Gauntlet_punch3.fbx"
+    },
+    {
+      "path": "Assets/Gauntlet/Animations/Gauntlet_punch3.fbx.meta",
+      "bytes": 3754,
+      "sha256": "7a7cba5f14efe6c21c1654aaa08d6c25787ebe0acc1eb30c12b7eb82bdf6faaf",
+      "reason": "Consolidated at Assets/Game/Player/Gauntlet/Animations/Gauntlet_punch3.fbx.meta"
+    },
+    {
+      "path": "Assets/Gauntlet/Animations/Gauntlet_punch4.fbx",
+      "bytes": 500012,
+      "sha256": "5705153010de24889007030ee7c153bf6a10b786402f2b16f84cbd60a94ad9c6",
+      "reason": "Consolidated at Assets/Game/Player/Gauntlet/Animations/Gauntlet_punch4.fbx"
+    },
+    {
+      "path": "Assets/Gauntlet/Animations/Gauntlet_punch4.fbx.meta",
+      "bytes": 3754,
+      "sha256": "bc665eb82dd128f8eb776e2c5c42786fbd8741dbfd6d7eb99aa358fde2d3fddb",
+      "reason": "Consolidated at Assets/Game/Player/Gauntlet/Animations/Gauntlet_punch4.fbx.meta"
+    },
+    {
+      "path": "Assets/Gauntlet/Animations.meta",
+      "bytes": 172,
+      "sha256": "86b3c1a564091bb523e326bfae53e5c9aeff3d3a16066566bf152f6a0d3500b7",
+      "reason": "Consolidated at Assets/Game/Player/Gauntlet/Animations.meta"
+    },
+    {
+      "path": "Assets/Gauntlet/CINEMACHINE_CAMERA.md",
+      "bytes": 900,
+      "sha256": "fbfc538b9caf28ab46fba6bc5aa101be2c742ea39052d785a75eb34020ce7d7d",
+      "reason": "Consolidated at Assets/Game/Player/Gauntlet/CINEMACHINE_CAMERA.md"
+    },
+    {
+      "path": "Assets/Gauntlet/CINEMACHINE_CAMERA.md.meta",
+      "bytes": 158,
+      "sha256": "d19fa3977784552dfae7a185d17550891881e86579875c0b67d0ca060fb3697d",
+      "reason": "Consolidated at Assets/Game/Player/Gauntlet/CINEMACHINE_CAMERA.md.meta"
+    },
+    {
+      "path": "Assets/Gauntlet/Editor/GauntletAssetTools.cs",
+      "bytes": 14720,
+      "sha256": "276852827b06cae7e6b93f768495e006df77d9a8e3426ea78c7f8fbae964e8d9",
+      "reason": "Consolidated at Assets/Game/Player/Gauntlet/Editor/GauntletAssetTools.cs"
+    },
+    {
+      "path": "Assets/Gauntlet/Editor/GauntletAssetTools.cs.meta",
+      "bytes": 59,
+      "sha256": "5cbe0b24a6681e3e76ad90518f8e52bd44204622590ce7dcae4e440c72fef3a1",
+      "reason": "Consolidated at Assets/Game/Player/Gauntlet/Editor/GauntletAssetTools.cs.meta"
+    },
+    {
+      "path": "Assets/Gauntlet/Editor/GauntletCinemachineSetup.cs",
+      "bytes": 6135,
+      "sha256": "d5f3f566ebd98a21fb4fc3768a6d0106a51284ac46c87253e4c2a2962378ac06",
+      "reason": "Consolidated at Assets/Game/Player/Gauntlet/Editor/GauntletCinemachineSetup.cs"
+    },
+    {
+      "path": "Assets/Gauntlet/Editor/GauntletCinemachineSetup.cs.meta",
+      "bytes": 59,
+      "sha256": "8f8ede94375b5e48e00c6046df7f334ac5e37be4cee321c6953f22b778eed968",
+      "reason": "Consolidated at Assets/Game/Player/Gauntlet/Editor/GauntletCinemachineSetup.cs.meta"
+    },
+    {
+      "path": "Assets/Gauntlet/Editor.meta",
+      "bytes": 172,
+      "sha256": "0f647cb6c90543f318fd4a673cb1cb7c077c0071af60e8566a7262c54821ef20",
+      "reason": "Consolidated at Assets/Game/Player/Gauntlet/Editor.meta"
+    },
+    {
+      "path": "Assets/Gauntlet/GauntletAnimationPlayer.cs",
+      "bytes": 3431,
+      "sha256": "5e98a4393c95ee6e1e1225221542ccb7590e7d4fd12908cb0e60eceedae42a41",
+      "reason": "Consolidated at Assets/Game/Player/Gauntlet/GauntletAnimationPlayer.cs"
+    },
+    {
+      "path": "Assets/Gauntlet/GauntletAnimationPlayer.cs.meta",
+      "bytes": 59,
+      "sha256": "af5f96ce30069555d3353f7d5e9e7066b7377696f1ab631c95b0ca4381317a1a",
+      "reason": "Consolidated at Assets/Game/Player/Gauntlet/GauntletAnimationPlayer.cs.meta"
+    },
+    {
+      "path": "Assets/Gauntlet/GauntletCameraMotion.cs",
+      "bytes": 2892,
+      "sha256": "73743fb0fd1660931de53844697c95b34b32b2bf9a36d10862a0aacd1e8eab49",
+      "reason": "Consolidated at Assets/Game/Player/Gauntlet/GauntletCameraMotion.cs"
+    },
+    {
+      "path": "Assets/Gauntlet/GauntletCameraMotion.cs.meta",
+      "bytes": 59,
+      "sha256": "e6f10c6936ac10a386d7ebc3c0709466dd6f365ce5598def3ca20f3976d0b71f",
+      "reason": "Consolidated at Assets/Game/Player/Gauntlet/GauntletCameraMotion.cs.meta"
+    },
+    {
+      "path": "Assets/Gauntlet/GauntletPreviewControls.cs",
+      "bytes": 1932,
+      "sha256": "fde7926119275afa6e64178e926eed030820e7e0d9ec540e5b2c485da09907eb",
+      "reason": "Consolidated at Assets/Game/Player/Gauntlet/GauntletPreviewControls.cs"
+    },
+    {
+      "path": "Assets/Gauntlet/GauntletPreviewControls.cs.meta",
+      "bytes": 59,
+      "sha256": "f3589f73a9e07ef36ac1c6169f478d85adaf3cedb71af841d8136f9b5c6ae71e",
+      "reason": "Consolidated at Assets/Game/Player/Gauntlet/GauntletPreviewControls.cs.meta"
+    },
+    {
+      "path": "Assets/Gauntlet/Materials/Gauntlet_Atlas.mat",
+      "bytes": 1502,
+      "sha256": "61773800f30d142ff1c2eae1afcee26afda69577899ea4d5bb38cbb2a67e4738",
+      "reason": "Consolidated at Assets/Game/Player/Gauntlet/Materials/Gauntlet_Atlas.mat"
+    },
+    {
+      "path": "Assets/Gauntlet/Materials/Gauntlet_Atlas.mat.meta",
+      "bytes": 188,
+      "sha256": "0939b411e566b9d9550df40af792f6bf834277871a0ae06f30b86c191b23a486",
+      "reason": "Consolidated at Assets/Game/Player/Gauntlet/Materials/Gauntlet_Atlas.mat.meta"
+    },
+    {
+      "path": "Assets/Gauntlet/Materials/Gauntlet_Glass.mat",
+      "bytes": 3928,
+      "sha256": "652a8a1d170820ec6510021579e74e72429f4486b036e3cec91364e334ea1ebc",
+      "reason": "Consolidated at Assets/Game/Player/Gauntlet/Materials/Gauntlet_Glass.mat"
+    },
+    {
+      "path": "Assets/Gauntlet/Materials/Gauntlet_Glass.mat.meta",
+      "bytes": 188,
+      "sha256": "e4a9e0a146633e50ebd36ea4d5ecd7828051b2f24a7c66f1b7b0060e523852ba",
+      "reason": "Consolidated at Assets/Game/Player/Gauntlet/Materials/Gauntlet_Glass.mat.meta"
+    },
+    {
+      "path": "Assets/Gauntlet/Materials/GauntletAtlas.shader",
+      "bytes": 3929,
+      "sha256": "b1c310f1b3ffe5ce15b9aaea2e6de4eaecb37cc2c0dd71fc740857eb58a3f9c5",
+      "reason": "Consolidated at Assets/Game/Player/Gauntlet/Materials/GauntletAtlas.shader"
+    },
+    {
+      "path": "Assets/Gauntlet/Materials/GauntletAtlas.shader.meta",
+      "bytes": 204,
+      "sha256": "4382b735c5326b52bbc3c7511212ab92b435198cc62d839d4a37c11d77734c6f",
+      "reason": "Consolidated at Assets/Game/Player/Gauntlet/Materials/GauntletAtlas.shader.meta"
+    },
+    {
+      "path": "Assets/Gauntlet/Materials.meta",
+      "bytes": 172,
+      "sha256": "a15e104600f09792c292e601ba8e1da840dc7567e52dd78331804bae3ae21d3d",
+      "reason": "Consolidated at Assets/Game/Player/Gauntlet/Materials.meta"
+    },
+    {
+      "path": "Assets/Gauntlet/Models/Gauntlet_Model.fbx",
+      "bytes": 2038108,
+      "sha256": "bb385d0cd274c40a73fb2ee389332e7dca8d0f9d4551779a6351e8322dc31cf5",
+      "reason": "Consolidated at Assets/Game/Player/Gauntlet/Models/Gauntlet_Model.fbx"
+    },
+    {
+      "path": "Assets/Gauntlet/Models/Gauntlet_Model.fbx.meta",
+      "bytes": 2892,
+      "sha256": "91b93561bd8f03b15121d8c5deff6d5aaa61be7ec412cd692cecd1d15b600c95",
+      "reason": "Consolidated at Assets/Game/Player/Gauntlet/Models/Gauntlet_Model.fbx.meta"
+    },
+    {
+      "path": "Assets/Gauntlet/Models.meta",
+      "bytes": 172,
+      "sha256": "0a2ebc05fe58d8179211491b3deec0d432c368e0a1e9d42707fb8968fcf93861",
+      "reason": "Consolidated at Assets/Game/Player/Gauntlet/Models.meta"
+    },
+    {
+      "path": "Assets/Gauntlet/Prefabs/GauntletViewModel.prefab",
+      "bytes": 108852,
+      "sha256": "2a4a0b2697e7dad7d6be40ce76ad1cb1f60eb461171e06ddc90b2f40c94bc8e3",
+      "reason": "Consolidated at Assets/Game/Player/Gauntlet/Prefabs/GauntletViewModel.prefab"
+    },
+    {
+      "path": "Assets/Gauntlet/Prefabs/GauntletViewModel.prefab.meta",
+      "bytes": 154,
+      "sha256": "cae94fb49186d91c6eeb5ede2069b754dcb36f4c39f095bd7fadde5cf27a09d9",
+      "reason": "Consolidated at Assets/Game/Player/Gauntlet/Prefabs/GauntletViewModel.prefab.meta"
+    },
+    {
+      "path": "Assets/Gauntlet/Prefabs.meta",
+      "bytes": 172,
+      "sha256": "0c9c6a89afb5f110a0e398e64d12dd2c7d55b4295d3593b60b609b403f83b9e6",
+      "reason": "Consolidated at Assets/Game/Player/Gauntlet/Prefabs.meta"
+    },
+    {
+      "path": "Assets/Gauntlet/README_拳套使用说明.md",
+      "bytes": 8210,
+      "sha256": "b2bc49190d375455bf8582a2262395467103f492c7451134660390722529487a",
+      "reason": "Consolidated at Assets/Game/Player/Gauntlet/README_拳套使用说明.md"
+    },
+    {
+      "path": "Assets/Gauntlet/README_拳套使用说明.md.meta",
+      "bytes": 158,
+      "sha256": "73ccdce395a5e5803bb23f4e38958218acc690d9eae24950815ff3915d2b95e9",
+      "reason": "Consolidated at Assets/Game/Player/Gauntlet/README_拳套使用说明.md.meta"
+    },
+    {
+      "path": "Assets/Gauntlet/Scenes/GauntletPreview.unity",
+      "bytes": 64463,
+      "sha256": "99a1674ad53c592435e14762d1a04296229fd21e9204326c1df0497c45620027",
+      "reason": "Consolidated at Assets/Game/Player/Gauntlet/Scenes/GauntletPreview.unity"
+    },
+    {
+      "path": "Assets/Gauntlet/Scenes/GauntletPreview.unity.meta",
+      "bytes": 155,
+      "sha256": "176f42adefa5ef7dc0f63f733bd6c3cd7a608968de936d0be7c2fb581c5a4a28",
+      "reason": "Consolidated at Assets/Game/Player/Gauntlet/Scenes/GauntletPreview.unity.meta"
+    },
+    {
+      "path": "Assets/Gauntlet/Scenes.meta",
+      "bytes": 172,
+      "sha256": "8a0f66e0a66546d80579bdb7c1c3b7156a34f885776e6324e8a957851f827927",
+      "reason": "Consolidated at Assets/Game/Player/Gauntlet/Scenes.meta"
+    },
+    {
+      "path": "Assets/Gauntlet/Textures/Gauntlet_BaseColor.png",
+      "bytes": 3829476,
+      "sha256": "92b4307237800b5fa5facad3aea12f0ae919579aa83aa9129c65d19b103c210e",
+      "reason": "Consolidated at Assets/Game/Player/Gauntlet/Textures/Gauntlet_BaseColor.png"
+    },
+    {
+      "path": "Assets/Gauntlet/Textures/Gauntlet_BaseColor.png.meta",
+      "bytes": 2652,
+      "sha256": "2f7ba2453e857fb07b4d3594a4d29db4b1481216f942adbd7a8465ed7368d908",
+      "reason": "Consolidated at Assets/Game/Player/Gauntlet/Textures/Gauntlet_BaseColor.png.meta"
+    },
+    {
+      "path": "Assets/Gauntlet/Textures/Gauntlet_EmissionRegions.png",
+      "bytes": 54308,
+      "sha256": "c0de3808021557c6eaa0c3698d5040244cdfa3739388e78067a6fe7a8baa2e86",
+      "reason": "Consolidated at Assets/Game/Player/Gauntlet/Textures/Gauntlet_EmissionRegions.png"
+    },
+    {
+      "path": "Assets/Gauntlet/Textures/Gauntlet_EmissionRegions.png.meta",
+      "bytes": 2652,
+      "sha256": "c76ffd2d4095340b10faf30c31809615258cc79b11546ba5cf584a4b9737851c",
+      "reason": "Consolidated at Assets/Game/Player/Gauntlet/Textures/Gauntlet_EmissionRegions.png.meta"
+    },
+    {
+      "path": "Assets/Gauntlet/Textures/Gauntlet_MetallicSmoothness.png",
+      "bytes": 1157566,
+      "sha256": "c9c56cb28a255253efabf2d98c7a34f34537b5b16da7058ffd5e3be48f22267c",
+      "reason": "Consolidated at Assets/Game/Player/Gauntlet/Textures/Gauntlet_MetallicSmoothness.png"
+    },
+    {
+      "path": "Assets/Gauntlet/Textures/Gauntlet_MetallicSmoothness.png.meta",
+      "bytes": 2652,
+      "sha256": "243fb331cd0e3217568dfacfaec90a06620c71147707c25d30feeb0a8ce97d70",
+      "reason": "Consolidated at Assets/Game/Player/Gauntlet/Textures/Gauntlet_MetallicSmoothness.png.meta"
+    },
+    {
+      "path": "Assets/Gauntlet/Textures/Gauntlet_Normal.png",
+      "bytes": 2291189,
+      "sha256": "027d7e220dbbdab3347d7ec1da4c465a0d3324d0ff675422072ae247ce0ba201",
+      "reason": "Consolidated at Assets/Game/Player/Gauntlet/Textures/Gauntlet_Normal.png"
+    },
+    {
+      "path": "Assets/Gauntlet/Textures/Gauntlet_Normal.png.meta",
+      "bytes": 2652,
+      "sha256": "76534f7dedae1996fc1b74d99102db82cf82c54145d7265e3d5d7ce2c440f805",
+      "reason": "Consolidated at Assets/Game/Player/Gauntlet/Textures/Gauntlet_Normal.png.meta"
+    },
+    {
+      "path": "Assets/Gauntlet/Textures.meta",
+      "bytes": 172,
+      "sha256": "e2ef52fea94334bfe555f85ab363203c9c7e04e296aad136479aea8ea1d59f5d",
+      "reason": "Consolidated at Assets/Game/Player/Gauntlet/Textures.meta"
+    },
+    {
+      "path": "Assets/Gauntlet.meta",
+      "bytes": 172,
+      "sha256": "c9e24d45b6cbb9590c85808516f773098cd00d48f2b92b6410895987b53c0498",
+      "reason": "Duplicate folder GUID; organized folder retained"
+    },
+    {
+      "path": "Assets/Settings/DefaultVolumeProfile.asset",
+      "bytes": 24035,
+      "sha256": "463776c51ae49d4fef980e8fd268081b2f505610d79315003faae1acff8f4115",
+      "reason": "Relocated render settings retained under Assets/Game/Settings"
+    },
+    {
+      "path": "Assets/Settings/Mobile_RPAsset.asset",
+      "bytes": 4650,
+      "sha256": "2d5182d2b8884ac88bc6ed033a0a722c23cfb15a7bc8b7daa38db37227bafd09",
+      "reason": "Relocated render settings retained under Assets/Game/Settings"
+    },
+    {
+      "path": "Assets/Settings/PC_RPAsset.asset",
+      "bytes": 4669,
+      "sha256": "70b76a59fb5b3ee0bbc0269df512833053efb96fd7abd681fd0b064a6c5cb564",
+      "reason": "Relocated render settings retained under Assets/Game/Settings"
+    },
+    {
+      "path": "Assets/Settings/UniversalRenderPipelineGlobalSettings.asset",
+      "bytes": 26069,
+      "sha256": "92cbacda3fc4a0a9f8078d84dac0989a14d88f1163a9c4e9c9167a5157c20509",
+      "reason": "Relocated render settings retained under Assets/Game/Settings"
+    },
+    {
+      "path": "Assets/Game/Documentation/Readme.asset",
+      "bytes": 1144,
+      "sha256": "6d098604e909b6a0e64fe5910c2719704864d49678bcf5413bd47b67e5490107",
+      "reason": "Unused Unity template welcome content"
+    },
+    {
+      "path": "Assets/Game/Documentation/Readme.asset.meta",
+      "bytes": 182,
+      "sha256": "46c6b89ac1d47bd0c0d1a8b141ae3e32cd95d3e74c49381f0d9f942488c254ce",
+      "reason": "Unused Unity template welcome content"
+    },
+    {
+      "path": "Assets/Game/Documentation/TutorialInfo.meta",
+      "bytes": 172,
+      "sha256": "07f022e5932c833d026e020b27d73452ebd781993b616d76003494af1e140946",
+      "reason": "Unused Unity template welcome content"
+    },
+    {
+      "path": "Assets/Game/Documentation/TutorialInfo/Icons.meta",
+      "bytes": 193,
+      "sha256": "546e7d7af6b4d5e17d284c8f1188d05472e681911b8359905ee9b9e20769a106",
+      "reason": "Unused Unity template welcome content"
+    },
+    {
+      "path": "Assets/Game/Documentation/TutorialInfo/Layout.wlt",
+      "bytes": 16133,
+      "sha256": "30d232879ca5c0c7377f245c9601feaf77053e5d70c222419ef25782e3272d2c",
+      "reason": "Unused Unity template welcome content"
+    },
+    {
+      "path": "Assets/Game/Documentation/TutorialInfo/Layout.wlt.meta",
+      "bytes": 176,
+      "sha256": "b8745a251df078ffa75dbaac0c4c6debecb61ab306b5b119a490ce6c635a11d8",
+      "reason": "Unused Unity template welcome content"
+    },
+    {
+      "path": "Assets/Game/Documentation/TutorialInfo/Scripts.meta",
+      "bytes": 193,
+      "sha256": "930d0c8276cea1559a3e315f8500ea6ca8b58d980eee3b44aaa1d461742c47e0",
+      "reason": "Unused Unity template welcome content"
+    },
+    {
+      "path": "Assets/Game/Documentation/TutorialInfo/Icons/URP.png",
+      "bytes": 24069,
+      "sha256": "1d17a9ff3537859abe2c008603d29d90cf43191ae77aa386167cc65e53ba03d9",
+      "reason": "Unused Unity template welcome content"
+    },
+    {
+      "path": "Assets/Game/Documentation/TutorialInfo/Icons/URP.png.meta",
+      "bytes": 3156,
+      "sha256": "b330f1fcfc4e6ceccc95fc34a38434141603469b135633e1c4e8a03c19f9fdbc",
+      "reason": "Unused Unity template welcome content"
+    },
+    {
+      "path": "Assets/Game/Documentation/TutorialInfo/Scripts/Editor.meta",
+      "bytes": 193,
+      "sha256": "7036bdbc8af05799b5fd508484343b35c28a68b390198da4673d34357d7d667f",
+      "reason": "Unused Unity template welcome content"
+    },
+    {
+      "path": "Assets/Game/Documentation/TutorialInfo/Scripts/Readme.cs",
+      "bytes": 318,
+      "sha256": "baa133f5baae44c1217e10c64061f8fb7d56878477339d746470502165d35019",
+      "reason": "Unused Unity template welcome content"
+    },
+    {
+      "path": "Assets/Game/Documentation/TutorialInfo/Scripts/Readme.cs.meta",
+      "bytes": 317,
+      "sha256": "80a3df9969fab6e656583ee9bbca884d0507e2b7de3417f6ea3118fba901cd60",
+      "reason": "Unused Unity template welcome content"
+    },
+    {
+      "path": "Assets/Game/Documentation/TutorialInfo/Scripts/Editor/ReadmeEditor.cs",
+      "bytes": 6957,
+      "sha256": "076b5415144113d3b3e23c92df745873df79e8c4874ac77425d5602ca9d17e2d",
+      "reason": "Unused Unity template welcome content"
+    },
+    {
+      "path": "Assets/Game/Documentation/TutorialInfo/Scripts/Editor/ReadmeEditor.cs.meta",
+      "bytes": 264,
+      "sha256": "f59080b424c16fa13edd105bf006fdbad98c11fce0c921043e63c8877f144cd9",
+      "reason": "Unused Unity template welcome content"
+    },
+    {
+      "path": "Assets/Game/Documentation.meta",
+      "bytes": 172,
+      "sha256": "6ca405bb34523e9e56581888408fbb3d24c9c42c8a0e4535277f804fce5dc56c",
+      "reason": "Unused template folder"
+    },
+    {
+      "path": "Assets/Game/Enemies/Resonator/AI/Editor/ResonatorAnimationWorkbench.cs",
+      "bytes": 34640,
+      "sha256": "c43432f42cb56f5407ce4e5339327778053a6298e5b623ca2afe862c725450c1",
+      "reason": "Older duplicate class; retained Assets/Tools/AnimationWorkbench/Editor/ResonatorAnimationWorkbench.cs"
+    },
+    {
+      "path": "Assets/Game/Enemies/Resonator/AI/Editor/ResonatorAnimationWorkbench.cs.meta",
+      "bytes": 59,
+      "sha256": "cb69c9c9c802e14f1b1a956aaac031613e444477fc9c2836d790478746686356",
+      "reason": "Older duplicate class; retained Assets/Tools/AnimationWorkbench/Editor/ResonatorAnimationWorkbench.cs"
+    },
+    {
+      "path": "Assets/Game/Enemies/Resonator/AI/Editor/ResonatorAnimationWorkbench.Movement.cs",
+      "bytes": 8770,
+      "sha256": "c48c4487c7cfc7c4697f2b8360665bb9cc6a0ecec5fc7d303e7dd3b19edb759e",
+      "reason": "Older duplicate class; retained Assets/Tools/AnimationWorkbench/Editor/ResonatorAnimationWorkbench.Movement.cs"
+    },
+    {
+      "path": "Assets/Game/Enemies/Resonator/AI/Editor/ResonatorAnimationWorkbench.Movement.cs.meta",
+      "bytes": 59,
+      "sha256": "2aa67326dc35ea43ccf76ff9bfe4c72c8dee2aaf2476105ba605b44522fe7364",
+      "reason": "Older duplicate class; retained Assets/Tools/AnimationWorkbench/Editor/ResonatorAnimationWorkbench.Movement.cs"
+    },
+    {
+      "path": "Assets/Game/Enemies/Resonator/AI/Editor/ResonatorTransitionDrawer.cs",
+      "bytes": 3099,
+      "sha256": "0ad47133aac6141f3f50d1aab952ca081b0de4c3763e84d65bf1b6c4cfd4d31b",
+      "reason": "Older duplicate class; retained Assets/Tools/AnimationWorkbench/Editor/ResonatorTransitionDrawer.cs"
+    },
+    {
+      "path": "Assets/Game/Enemies/Resonator/AI/Editor/ResonatorTransitionDrawer.cs.meta",
+      "bytes": 59,
+      "sha256": "c7e29117001d5f03f1f1af7c32738f2905cae13cd678f803360602975ee7d288",
+      "reason": "Older duplicate class; retained Assets/Tools/AnimationWorkbench/Editor/ResonatorTransitionDrawer.cs"
+    }
+  ],
+  "moved": [
+    [
+      "Assets/Resonator/AI/Editor/ResonatorAnimationWorkbench.cs",
+      "Assets/Game/Enemies/Resonator/AI/Editor/ResonatorAnimationWorkbench.cs"
+    ],
+    [
+      "Assets/Resonator/AI/Editor/ResonatorAnimationWorkbench.cs.meta",
+      "Assets/Game/Enemies/Resonator/AI/Editor/ResonatorAnimationWorkbench.cs.meta"
+    ],
+    [
+      "Assets/Resonator/AI/Editor/ResonatorAnimationWorkbench.Movement.cs",
+      "Assets/Game/Enemies/Resonator/AI/Editor/ResonatorAnimationWorkbench.Movement.cs"
+    ],
+    [
+      "Assets/Resonator/AI/Editor/ResonatorAnimationWorkbench.Movement.cs.meta",
+      "Assets/Game/Enemies/Resonator/AI/Editor/ResonatorAnimationWorkbench.Movement.cs.meta"
+    ],
+    [
+      "Assets/Resonator/AI/Editor/ResonatorTransitionDrawer.cs",
+      "Assets/Game/Enemies/Resonator/AI/Editor/ResonatorTransitionDrawer.cs"
+    ],
+    [
+      "Assets/Resonator/AI/Editor/ResonatorTransitionDrawer.cs.meta",
+      "Assets/Game/Enemies/Resonator/AI/Editor/ResonatorTransitionDrawer.cs.meta"
+    ]
+  ],
+  "totalBytes": 124163431
+}

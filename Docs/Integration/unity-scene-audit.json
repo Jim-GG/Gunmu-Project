@@ -1,0 +1,54 @@
+{
+  "unity": "6000.3.26f1",
+  "time": "2026-11-10T12:43:35.1323125+08:00",
+  "reports": [
+    {
+      "scene": "Assets/Scenes/Soviet_1.unity",
+      "objects": 140,
+      "missingScripts": [],
+      "brokenReferences": [],
+      "dependencies": 409
+    },
+    {
+      "scene": "Assets/Scenes/Soviet_TheBridge.unity",
+      "objects": 158,
+      "missingScripts": [],
+      "brokenReferences": [],
+      "dependencies": 405
+    },
+    {
+      "scene": "Assets/Game/Scene/UDK7MBossArena_ThreePhase.unity",
+      "objects": 1047,
+      "missingScripts": [],
+      "brokenReferences": [],
+      "dependencies": 377
+    },
+    {
+      "scene": "Assets/Scenes/Test_01_PunchThrough.unity",
+      "objects": 19,
+      "missingScripts": [],
+      "brokenReferences": [],
+      "dependencies": 53
+    },
+    {
+      "scene": "Assets/Scenes/Test_02_Combat.unity",
+      "objects": 23,
+      "missingScripts": [],
+      "brokenReferences": [],
+      "dependencies": 108
+    },
+    {
+      "scene": "Assets/Scenes/Test_03_Billiards.unity",
+      "objects": 22,
+      "missingScripts": [],
+      "brokenReferences": [],
+      "dependencies": 56
+    }
+  ],
+  "damage": {
+    "before": 6,
+    "after": 5,
+    "result": "Damaged",
+    "passed": true
+  }
+}

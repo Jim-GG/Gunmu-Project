@@ -13,6 +13,7 @@ namespace FirstPerson
         private void OnEnable() { Cursor.lockState = CursorLockMode.Locked; Cursor.visible = false; }
         private void Update()
         {
+            if (GameplayGate.IsBlocked) { Unlock(); return; }
             var k = Keyboard.current; var m = Mouse.current;
             if (k != null && k.escapeKey.wasPressedThisFrame) Unlock();
             if (Cursor.lockState != CursorLockMode.Locked)

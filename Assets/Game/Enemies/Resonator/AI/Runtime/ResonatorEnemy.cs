@@ -75,6 +75,7 @@ namespace Resonator.AI
         void Start(){if(!started)Initialize(initialActivity);}
         public void Initialize(RestActivity activity)
         {
+            if (!GetComponent<ResonatorPunchTarget>()) gameObject.AddComponent<ResonatorPunchTarget>();
             if(!tuning||!motion){Debug.LogError("Resonator requires tuning and motion player",this);enabled=false;return;}
             initialActivity=activity;started=true;health=tuning.maxHealth;aware=false;
             Absorbed=false;PlayerLaunched=false;PlayerLaunchTime=float.NegativeInfinity;LastDeathCause=GameActions.DamageCause.Ordinary;

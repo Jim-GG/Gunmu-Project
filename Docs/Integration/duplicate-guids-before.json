@@ -1,0 +1,694 @@
+{
+  "12fac1b0f38ef15488e446e28694d68c": [
+    "Assets/Gauntlet",
+    "Assets/Game/Player/Gauntlet"
+  ],
+  "396c52944d0f84e46b8b1d23a2030959": [
+    "Assets/Resonator",
+    "Assets/Game/Enemies/Resonator"
+  ],
+  "c832c2f6398af79458846a78fdfca8c4": [
+    "Assets/Game/Enemies/Resonator/AI",
+    "Assets/Resonator/AI"
+  ],
+  "0918c052d6c6da6449c6e38895aa527f": [
+    "Assets/Game/Enemies/Resonator/Animations",
+    "Assets/Resonator/Animations"
+  ],
+  "bbc34ad294d6bdb448ff23189916c5ad": [
+    "Assets/Game/Enemies/Resonator/Editor",
+    "Assets/Resonator/Editor"
+  ],
+  "88022a89ae4b3df41a8c60d5abf706ac": [
+    "Assets/Game/Enemies/Resonator/manifest.json",
+    "Assets/Resonator/manifest.json"
+  ],
+  "e6982dc6a750ba543ba70042daa67333": [
+    "Assets/Game/Enemies/Resonator/Materials",
+    "Assets/Resonator/Materials"
+  ],
+  "0e8516d47e1c1324690e4ba648d69217": [
+    "Assets/Game/Enemies/Resonator/Models",
+    "Assets/Resonator/Models"
+  ],
+  "e688902d0da812e43b6d519080cd05e1": [
+    "Assets/Game/Enemies/Resonator/Prefabs",
+    "Assets/Resonator/Prefabs"
+  ],
+  "c8f7545a6515f2d4ea6a833916386569": [
+    "Assets/Game/Enemies/Resonator/README.md",
+    "Assets/Resonator/README.md"
+  ],
+  "304b1c3e027e5144c8fac2aa8543e935": [
+    "Assets/Game/Enemies/Resonator/Resonator.controller",
+    "Assets/Resonator/Resonator.controller"
+  ],
+  "c47642ab2832d9b4b9dd25d8aed5f2cf": [
+    "Assets/Game/Enemies/Resonator/Runtime",
+    "Assets/Resonator/Runtime"
+  ],
+  "fcddc0e11f2dbda499723aa7bb7c401f": [
+    "Assets/Game/Enemies/Resonator/Scenes",
+    "Assets/Resonator/Scenes"
+  ],
+  "57daf4222e3ab4549aa906e1c8529766": [
+    "Assets/Game/Enemies/Resonator/Textures",
+    "Assets/Resonator/Textures"
+  ],
+  "32ddba3392303cf4ebc41b89734edb70": [
+    "Assets/Game/Enemies/Resonator/Validation",
+    "Assets/Resonator/Validation"
+  ],
+  "154d80b32d0a9f441a7f94e62b6f6741": [
+    "Assets/Game/Enemies/Resonator/AI/Data",
+    "Assets/Resonator/AI/Data"
+  ],
+  "ee0d2f9abee672249b770decdd53b69d": [
+    "Assets/Game/Enemies/Resonator/AI/Editor",
+    "Assets/Resonator/AI/Editor"
+  ],
+  "b91dccd17d8e2414dbab00ecc75bed5f": [
+    "Assets/Game/Enemies/Resonator/AI/Prefabs",
+    "Assets/Resonator/AI/Prefabs"
+  ],
+  "f543de1b532737242aa5e5934c841dd1": [
+    "Assets/Game/Enemies/Resonator/AI/README.md",
+    "Assets/Resonator/AI/README.md"
+  ],
+  "e5ebfc9f54db5e946a326e952cb10d3f": [
+    "Assets/Game/Enemies/Resonator/AI/Runtime",
+    "Assets/Resonator/AI/Runtime"
+  ],
+  "7a8e8c3b51d32c14d99656f4203b1aa6": [
+    "Assets/Game/Enemies/Resonator/AI/Scenes",
+    "Assets/Resonator/AI/Scenes"
+  ],
+  "04eed131f07394c44854d988940be221": [
+    "Assets/Game/Enemies/Resonator/AI/Tests",
+    "Assets/Resonator/AI/Tests"
+  ],
+  "4adac2067a16f3d44aea9f87c4adde4a": [
+    "Assets/Game/Enemies/Resonator/AI/Validation",
+    "Assets/Resonator/AI/Validation"
+  ],
+  "a995b48aea3215848ae5671cbbd73089": [
+    "Assets/Game/Enemies/Resonator/AI/Data/Resonator_Default.asset",
+    "Assets/Resonator/AI/Data/Resonator_Default.asset"
+  ],
+  "19e0875e64b7a134a90558ec161220a9": [
+    "Assets/Game/Enemies/Resonator/AI/Data/Resonator_Walking_Motion.asset",
+    "Assets/Resonator/AI/Data/Resonator_Walking_Motion.asset"
+  ],
+  "c0a838d624f3fdf45854dc39989fa8c9": [
+    "Assets/Game/Enemies/Resonator/AI/Data/Resonator_Zombie_Agonizing_Motion.asset",
+    "Assets/Resonator/AI/Data/Resonator_Zombie_Agonizing_Motion.asset"
+  ],
+  "19db1f1ea2c95214fa28e2026977111f": [
+    "Assets/Game/Enemies/Resonator/AI/Data/Resonator_Zombie_Attack_Motion.asset",
+    "Assets/Resonator/AI/Data/Resonator_Zombie_Attack_Motion.asset"
+  ],
+  "bff0d5a2919cfcf4d910f1048fabd912": [
+    "Assets/Game/Enemies/Resonator/AI/Data/Resonator_Zombie_Death_Motion.asset",
+    "Assets/Resonator/AI/Data/Resonator_Zombie_Death_Motion.asset"
+  ],
+  "535fb199ee91eb44290eca82d1ab6f61": [
+    "Assets/Game/Enemies/Resonator/AI/Data/Resonator_Zombie_Headbutt_Motion.asset",
+    "Assets/Resonator/AI/Data/Resonator_Zombie_Headbutt_Motion.asset"
+  ],
+  "2262a8bf734087949a6aadd036dfc2e0": [
+    "Assets/Game/Enemies/Resonator/AI/Data/Resonator_Zombie_Kicking_Motion.asset",
+    "Assets/Resonator/AI/Data/Resonator_Zombie_Kicking_Motion.asset"
+  ],
+  "e14763c2e30a7874e8bc6e2880d378c8": [
+    "Assets/Game/Enemies/Resonator/AI/Data/Resonator_Zombie_Punching_Motion.asset",
+    "Assets/Resonator/AI/Data/Resonator_Zombie_Punching_Motion.asset"
+  ],
+  "8e03319a1fce803458743f5666525678": [
+    "Assets/Game/Enemies/Resonator/AI/Data/Resonator_Zombie_Reaction_Hit_Motion.asset",
+    "Assets/Resonator/AI/Data/Resonator_Zombie_Reaction_Hit_Motion.asset"
+  ],
+  "fbf14f813e7d14747a31cd23ef0b7419": [
+    "Assets/Game/Enemies/Resonator/AI/Data/Resonator_Zombie_Running_Motion.asset",
+    "Assets/Resonator/AI/Data/Resonator_Zombie_Running_Motion.asset"
+  ],
+  "e05df12749dca6c4ea9d76145dfe1b11": [
+    "Assets/Game/Enemies/Resonator/AI/Data/Resonator_Zombie_Scream_Motion.asset",
+    "Assets/Resonator/AI/Data/Resonator_Zombie_Scream_Motion.asset"
+  ],
+  "f0158cf99b3c1ec49b9a21f10876eaa5": [
+    "Assets/Game/Enemies/Resonator/AI/Data/Resonator_Zombie_Stumbling_Motion.asset",
+    "Assets/Resonator/AI/Data/Resonator_Zombie_Stumbling_Motion.asset"
+  ],
+  "8f1a72d1740de8d48b64e4adfc17fc22": [
+    "Assets/Game/Enemies/Resonator/AI/Data/Zombie_01_Attack_Walking_Motion.asset",
+    "Assets/Resonator/AI/Data/Zombie_01_Attack_Walking_Motion.asset"
+  ],
+  "b78632c6e8b140140a9a9ae93b59de6b": [
+    "Assets/Game/Enemies/Resonator/AI/Data/Zombie_02_Being_Shot_Motion.asset",
+    "Assets/Resonator/AI/Data/Zombie_02_Being_Shot_Motion.asset"
+  ],
+  "56c2496cb39e07647a668ea9a822b28e": [
+    "Assets/Game/Enemies/Resonator/AI/Data/Zombie_03_Feeding_Ground_Motion.asset",
+    "Assets/Resonator/AI/Data/Zombie_03_Feeding_Ground_Motion.asset"
+  ],
+  "3dd46d840a1c29c44ab6b0985cb13170": [
+    "Assets/Game/Enemies/Resonator/AI/Data/Zombie_04_Idle_Restless_Motion.asset",
+    "Assets/Resonator/AI/Data/Zombie_04_Idle_Restless_Motion.asset"
+  ],
+  "19e30da27e94ec546920b5a0b201b6eb": [
+    "Assets/Game/Enemies/Resonator/AI/Data/Zombie_05_Idle_Slow_Motion.asset",
+    "Assets/Resonator/AI/Data/Zombie_05_Idle_Slow_Motion.asset"
+  ],
+  "fc147bc5d2885214eafb36d94cfe7f34": [
+    "Assets/Game/Enemies/Resonator/AI/Data/Zombie_06_WakeUp_Transform_Motion.asset",
+    "Assets/Resonator/AI/Data/Zombie_06_WakeUp_Transform_Motion.asset"
+  ],
+  "7fee28aca4a205f4ab2664bfa58ab3a8": [
+    "Assets/Game/Enemies/Resonator/AI/Data/Zombie_07_Walk_Motion.asset",
+    "Assets/Resonator/AI/Data/Zombie_07_Walk_Motion.asset"
+  ],
+  "17f543dc935632f4182c489c22d4e1a0": [
+    "Assets/Game/Enemies/Resonator/AI/Data/Zombie_08_Walk_Slow_Motion.asset",
+    "Assets/Resonator/AI/Data/Zombie_08_Walk_Slow_Motion.asset"
+  ],
+  "8efb3f827d6c00045a4f98e58b49e4e4": [
+    "Assets/Game/Enemies/Resonator/AI/Editor/ResonatorAIBuilder.cs",
+    "Assets/Resonator/AI/Editor/ResonatorAIBuilder.cs"
+  ],
+  "3cde9d0bc3d6b0f489a6ae0ef1fe1620": [
+    "Assets/Game/Enemies/Resonator/AI/Editor/ResonatorAttackExitSetup.cs",
+    "Assets/Resonator/AI/Editor/ResonatorAttackExitSetup.cs"
+  ],
+  "be74c42c5ccf5a64689bac690df8c5d8": [
+    "Assets/Game/Enemies/Resonator/AI/Editor/ResonatorAttackMotionSetup.cs",
+    "Assets/Resonator/AI/Editor/ResonatorAttackMotionSetup.cs"
+  ],
+  "ac73fb01eb69c804c8594b872a81769e": [
+    "Assets/Game/Enemies/Resonator/AI/Editor/ResonatorEnemyInspector.cs",
+    "Assets/Resonator/AI/Editor/ResonatorEnemyInspector.cs"
+  ],
+  "e1a8693f64b59f84080763d270fbed8a": [
+    "Assets/Game/Enemies/Resonator/AI/Editor/ResonatorHitboxDefaults.cs",
+    "Assets/Resonator/AI/Editor/ResonatorHitboxDefaults.cs"
+  ],
+  "3e9035f1367cc0945a215642ed23ac1a": [
+    "Assets/Game/Enemies/Resonator/AI/Editor/ResonatorNavigationSetup.cs",
+    "Assets/Resonator/AI/Editor/ResonatorNavigationSetup.cs"
+  ],
+  "9a77a87cb9ef26e44b4ea7d66d2d094a": [
+    "Assets/Game/Enemies/Resonator/AI/Prefabs/ResonatorAgent.prefab",
+    "Assets/Resonator/AI/Prefabs/ResonatorAgent.prefab"
+  ],
+  "42bc0113c44c6744fa29ace38864c017": [
+    "Assets/Game/Enemies/Resonator/AI/Runtime/AttackDisplacement.cs",
+    "Assets/Resonator/AI/Runtime/AttackDisplacement.cs"
+  ],
+  "d83b858532dfd8e48a36498bdc17e953": [
+    "Assets/Game/Enemies/Resonator/AI/Runtime/MotionFrameEvent.cs",
+    "Assets/Resonator/AI/Runtime/MotionFrameEvent.cs"
+  ],
+  "4b5c8451ea605aa41a6770bdd5e33b8a": [
+    "Assets/Game/Enemies/Resonator/AI/Runtime/ResonatorArenaHUD.cs",
+    "Assets/Resonator/AI/Runtime/ResonatorArenaHUD.cs"
+  ],
+  "6a2c1300e6bedb44ba636363331b29bf": [
+    "Assets/Game/Enemies/Resonator/AI/Runtime/ResonatorAttackMover.cs",
+    "Assets/Resonator/AI/Runtime/ResonatorAttackMover.cs"
+  ],
+  "50e23541de8d7ce48a7e2da4e907174d": [
+    "Assets/Game/Enemies/Resonator/AI/Runtime/ResonatorCrowd.cs",
+    "Assets/Resonator/AI/Runtime/ResonatorCrowd.cs"
+  ],
+  "01da0eb6f6aa67e498a69cfc40731159": [
+    "Assets/Game/Enemies/Resonator/AI/Runtime/ResonatorEnemy.cs",
+    "Assets/Resonator/AI/Runtime/ResonatorEnemy.cs"
+  ],
+  "4a1cd0a6c8644ac41b03bc0ba4d4e886": [
+    "Assets/Game/Enemies/Resonator/AI/Runtime/ResonatorHitbox.cs",
+    "Assets/Resonator/AI/Runtime/ResonatorHitbox.cs"
+  ],
+  "b822fc72ed58810499b913f88ed5fdaa": [
+    "Assets/Game/Enemies/Resonator/AI/Runtime/ResonatorMotionPlayer.cs",
+    "Assets/Resonator/AI/Runtime/ResonatorMotionPlayer.cs"
+  ],
+  "1f464a784a79d7646910e52ec6c98420": [
+    "Assets/Game/Enemies/Resonator/AI/Runtime/ResonatorMotionTrack.cs",
+    "Assets/Resonator/AI/Runtime/ResonatorMotionTrack.cs"
+  ],
+  "eb055bd55ec7da24b956f5d61b40c1af": [
+    "Assets/Game/Enemies/Resonator/AI/Runtime/ResonatorMotor.cs",
+    "Assets/Resonator/AI/Runtime/ResonatorMotor.cs"
+  ],
+  "3473932edaae4524ca0ecebc52b74416": [
+    "Assets/Game/Enemies/Resonator/AI/Runtime/ResonatorPlayerBridge.cs",
+    "Assets/Resonator/AI/Runtime/ResonatorPlayerBridge.cs"
+  ],
+  "16601fad4f0aaca499ebc1a52fd22729": [
+    "Assets/Game/Enemies/Resonator/AI/Runtime/ResonatorRagdoll.cs",
+    "Assets/Resonator/AI/Runtime/ResonatorRagdoll.cs"
+  ],
+  "ba701f4fe7dc4d24fb21f23f9be9d341": [
+    "Assets/Game/Enemies/Resonator/AI/Runtime/ResonatorTarget.cs",
+    "Assets/Resonator/AI/Runtime/ResonatorTarget.cs"
+  ],
+  "91f7523c574185c418336f61b6540a34": [
+    "Assets/Game/Enemies/Resonator/AI/Runtime/ResonatorTransition.cs",
+    "Assets/Resonator/AI/Runtime/ResonatorTransition.cs"
+  ],
+  "f5a71cc6fc304f049abd015e4accc49e": [
+    "Assets/Game/Enemies/Resonator/AI/Runtime/ResonatorTuning.cs",
+    "Assets/Resonator/AI/Runtime/ResonatorTuning.cs"
+  ],
+  "0de8bdd08d94bd148acfd261a699cc50": [
+    "Assets/Game/Enemies/Resonator/AI/Scenes/ResonatorArenaNav 1.asset",
+    "Assets/Resonator/AI/Scenes/ResonatorArenaNav 1.asset"
+  ],
+  "9f925c5d21095ff4ab340738f6d64496": [
+    "Assets/Game/Enemies/Resonator/AI/Scenes/ResonatorArenaNav.asset",
+    "Assets/Resonator/AI/Scenes/ResonatorArenaNav.asset"
+  ],
+  "ea751ef1b1dea4e43b6f5ee410d48c3b": [
+    "Assets/Game/Enemies/Resonator/AI/Scenes/ResonatorArenaNavFinal 1.asset",
+    "Assets/Resonator/AI/Scenes/ResonatorArenaNavFinal 1.asset"
+  ],
+  "33649f234f8b68744968b43d6be1113a": [
+    "Assets/Game/Enemies/Resonator/AI/Validation/Arena_PlayerView.png",
+    "Assets/Resonator/AI/Validation/Arena_PlayerView.png"
+  ],
+  "9cdaa7640c79f224c95d335b5ac9cef4": [
+    "Assets/Game/Enemies/Resonator/AI/Validation/AttackDisplacementReport.json",
+    "Assets/Resonator/AI/Validation/AttackDisplacementReport.json"
+  ],
+  "2067b15fce16c144d87b99e43c704777": [
+    "Assets/Game/Enemies/Resonator/AI/Validation/AttackExitReport.json",
+    "Assets/Resonator/AI/Validation/AttackExitReport.json"
+  ],
+  "a4f09976e2be0a640b645a4edd123d50": [
+    "Assets/Game/Enemies/Resonator/AI/Validation/AuthoringReport.json",
+    "Assets/Resonator/AI/Validation/AuthoringReport.json"
+  ],
+  "a9e84d26ed1a7384c8c5e73ab33d78ea": [
+    "Assets/Game/Enemies/Resonator/AI/Validation/BoneStabilityReport.json",
+    "Assets/Resonator/AI/Validation/BoneStabilityReport.json"
+  ],
+  "9fbcd52a8449f1a44a22e61a6e334a16": [
+    "Assets/Game/Enemies/Resonator/AI/Validation/Combat_Kicking.png",
+    "Assets/Resonator/AI/Validation/Combat_Kicking.png"
+  ],
+  "3d37bf3d85e7804429c2faa38e2b4c55": [
+    "Assets/Game/Enemies/Resonator/AI/Validation/Combat_Running.png",
+    "Assets/Resonator/AI/Validation/Combat_Running.png"
+  ],
+  "f0fbb3764ae2c1d4daf5b935be88c645": [
+    "Assets/Game/Enemies/Resonator/AI/Validation/CrowdNavigationReport.json",
+    "Assets/Resonator/AI/Validation/CrowdNavigationReport.json"
+  ],
+  "8c68914dea6b0c9439102662ecfae2c4": [
+    "Assets/Game/Enemies/Resonator/AI/Validation/Death_Ragdoll.png",
+    "Assets/Resonator/AI/Validation/Death_Ragdoll.png"
+  ],
+  "ee86d40f2e768f94faf8c74102d91d51": [
+    "Assets/Game/Enemies/Resonator/AI/Validation/InitializationReport.json",
+    "Assets/Resonator/AI/Validation/InitializationReport.json"
+  ],
+  "972223b353893bb42a303a375d81a1af": [
+    "Assets/Game/Enemies/Resonator/AI/Validation/Preview_WorkingCopy_BeforeAI.unity",
+    "Assets/Resonator/AI/Validation/Preview_WorkingCopy_BeforeAI.unity"
+  ],
+  "07d351e337dd6d143a21336ed0d70fa6": [
+    "Assets/Game/Enemies/Resonator/AI/Validation/Resonator_BeforeAttackDisplacement.asset",
+    "Assets/Resonator/AI/Validation/Resonator_BeforeAttackDisplacement.asset"
+  ],
+  "b789f662e32ab6d4dbef196447058d4f": [
+    "Assets/Game/Enemies/Resonator/AI/Validation/Resonator_BeforeAttackExits.asset",
+    "Assets/Resonator/AI/Validation/Resonator_BeforeAttackExits.asset"
+  ],
+  "d21e1f65795c0894686d84e28703712a": [
+    "Assets/Game/Enemies/Resonator/AI/Validation/Resonator_BeforeCrowdNavigation.asset",
+    "Assets/Resonator/AI/Validation/Resonator_BeforeCrowdNavigation.asset"
+  ],
+  "023e01ff17863b246b89e400c47d04c0": [
+    "Assets/Game/Enemies/Resonator/AI/Validation/Resonator_BeforeHitboxEditor 1.asset",
+    "Assets/Resonator/AI/Validation/Resonator_BeforeHitboxEditor 1.asset"
+  ],
+  "a75d6706f2047664a8064f12f9d3cb41": [
+    "Assets/Game/Enemies/Resonator/AI/Validation/Resonator_BeforeHitboxEditor.asset",
+    "Assets/Resonator/AI/Validation/Resonator_BeforeHitboxEditor.asset"
+  ],
+  "c0f25933f4c41ee4e99cec9ef9baaa91": [
+    "Assets/Game/Enemies/Resonator/AI/Validation/Rest_Feeding.png",
+    "Assets/Resonator/AI/Validation/Rest_Feeding.png"
+  ],
+  "76c242df8e36ace4da632dce7555609d": [
+    "Assets/Game/Enemies/Resonator/AI/Validation/Rest_FeignDeath.png",
+    "Assets/Resonator/AI/Validation/Rest_FeignDeath.png"
+  ],
+  "202bd0da4c311e140b60e13025599f56": [
+    "Assets/Game/Enemies/Resonator/AI/Validation/Rest_Resonating.png",
+    "Assets/Resonator/AI/Validation/Rest_Resonating.png"
+  ],
+  "0ee80230de300d249aa3dcd5d267c13a": [
+    "Assets/Game/Enemies/Resonator/AI/Validation/ScenarioReport.json",
+    "Assets/Resonator/AI/Validation/ScenarioReport.json"
+  ],
+  "8e0a7f0d841c8c24a8bd9058b079bf5a": [
+    "Assets/Game/Enemies/Resonator/AI/Validation/WorkbenchPreviewReport.json",
+    "Assets/Resonator/AI/Validation/WorkbenchPreviewReport.json"
+  ],
+  "13d6983ab62f54a4ca983911d762c234": [
+    "Assets/Game/Enemies/Resonator/AI/Validation/Workbench_AttackDisplacement.png",
+    "Assets/Resonator/AI/Validation/Workbench_AttackDisplacement.png"
+  ],
+  "e7459633491344343a69a35c30bfac92": [
+    "Assets/Game/Enemies/Resonator/AI/Validation/Workbench_ComboBlend.png",
+    "Assets/Resonator/AI/Validation/Workbench_ComboBlend.png"
+  ],
+  "1784858cecdfdeb49aef56209b5291fe": [
+    "Assets/Game/Enemies/Resonator/AI/Validation/Workbench_Kick24.png",
+    "Assets/Resonator/AI/Validation/Workbench_Kick24.png"
+  ],
+  "35737f72de6780440961232c413fd164": [
+    "Assets/Game/Enemies/Resonator/Animations/Resonator_Walking.fbx",
+    "Assets/Resonator/Animations/Resonator_Walking.fbx"
+  ],
+  "c31fa0f97fb86a04db2fd2b9212b0740": [
+    "Assets/Game/Enemies/Resonator/Animations/Resonator_Zombie_Agonizing.fbx",
+    "Assets/Resonator/Animations/Resonator_Zombie_Agonizing.fbx"
+  ],
+  "79c5acb99c5ae834abbe21a24ca8850a": [
+    "Assets/Game/Enemies/Resonator/Animations/Resonator_Zombie_Attack.fbx",
+    "Assets/Resonator/Animations/Resonator_Zombie_Attack.fbx"
+  ],
+  "c828f8c5b6659124689d9c0786f66d86": [
+    "Assets/Game/Enemies/Resonator/Animations/Resonator_Zombie_Death.fbx",
+    "Assets/Resonator/Animations/Resonator_Zombie_Death.fbx"
+  ],
+  "a404e684e46abaf41969754d19c5e272": [
+    "Assets/Game/Enemies/Resonator/Animations/Resonator_Zombie_Headbutt.fbx",
+    "Assets/Resonator/Animations/Resonator_Zombie_Headbutt.fbx"
+  ],
+  "310424232d595374f87f0774694446bf": [
+    "Assets/Game/Enemies/Resonator/Animations/Resonator_Zombie_Kicking.fbx",
+    "Assets/Resonator/Animations/Resonator_Zombie_Kicking.fbx"
+  ],
+  "dce340848b660374bbae57030b9a14bd": [
+    "Assets/Game/Enemies/Resonator/Animations/Resonator_Zombie_Punching.fbx",
+    "Assets/Resonator/Animations/Resonator_Zombie_Punching.fbx"
+  ],
+  "2d712db44ced8c64fbc2af7bd53b236f": [
+    "Assets/Game/Enemies/Resonator/Animations/Resonator_Zombie_Reaction_Hit.fbx",
+    "Assets/Resonator/Animations/Resonator_Zombie_Reaction_Hit.fbx"
+  ],
+  "6168356f17f684e498f33c7af3edd078": [
+    "Assets/Game/Enemies/Resonator/Animations/Resonator_Zombie_Running.fbx",
+    "Assets/Resonator/Animations/Resonator_Zombie_Running.fbx"
+  ],
+  "2eb6a6d730eab5b429e56974966b7ad4": [
+    "Assets/Game/Enemies/Resonator/Animations/Resonator_Zombie_Scream.fbx",
+    "Assets/Resonator/Animations/Resonator_Zombie_Scream.fbx"
+  ],
+  "7a4bdcb1bccecae4c85d76aa0efee2c9": [
+    "Assets/Game/Enemies/Resonator/Animations/Resonator_Zombie_Stumbling.fbx",
+    "Assets/Resonator/Animations/Resonator_Zombie_Stumbling.fbx"
+  ],
+  "b53a6e2d98208c140b98132d68958560": [
+    "Assets/Game/Enemies/Resonator/Animations/Zombie_01_Attack_Walking.fbx",
+    "Assets/Resonator/Animations/Zombie_01_Attack_Walking.fbx"
+  ],
+  "91991012973f6cb4a90d0f73f23d42bc": [
+    "Assets/Game/Enemies/Resonator/Animations/Zombie_02_Being_Shot.fbx",
+    "Assets/Resonator/Animations/Zombie_02_Being_Shot.fbx"
+  ],
+  "457512903de03c842a218820db38f6d8": [
+    "Assets/Game/Enemies/Resonator/Animations/Zombie_03_Feeding_Ground.fbx",
+    "Assets/Resonator/Animations/Zombie_03_Feeding_Ground.fbx"
+  ],
+  "978dd0105f51d4149a7c5ed87fb319ec": [
+    "Assets/Game/Enemies/Resonator/Animations/Zombie_04_Idle_Restless.fbx",
+    "Assets/Resonator/Animations/Zombie_04_Idle_Restless.fbx"
+  ],
+  "5fbcddd4e47807a49ba64e9f4e40f046": [
+    "Assets/Game/Enemies/Resonator/Animations/Zombie_05_Idle_Slow.fbx",
+    "Assets/Resonator/Animations/Zombie_05_Idle_Slow.fbx"
+  ],
+  "1145de7522c43104e88007e08e42d879": [
+    "Assets/Game/Enemies/Resonator/Animations/Zombie_06_WakeUp_Transform.fbx",
+    "Assets/Resonator/Animations/Zombie_06_WakeUp_Transform.fbx"
+  ],
+  "7b146427cf53c0a4db75d04c63c846b0": [
+    "Assets/Game/Enemies/Resonator/Animations/Zombie_07_Walk.fbx",
+    "Assets/Resonator/Animations/Zombie_07_Walk.fbx"
+  ],
+  "cb770ffd0ce1ed843b4614413fbfd532": [
+    "Assets/Game/Enemies/Resonator/Animations/Zombie_08_Walk_Slow.fbx",
+    "Assets/Resonator/Animations/Zombie_08_Walk_Slow.fbx"
+  ],
+  "dafcbd2148a1a7b41bad833603f7bd9d": [
+    "Assets/Game/Enemies/Resonator/Editor/ResonatorImport.cs",
+    "Assets/Resonator/Editor/ResonatorImport.cs"
+  ],
+  "593eb94650231ba4f9ae08c40caf3855": [
+    "Assets/Game/Enemies/Resonator/Materials/Clothing_Unity.mat",
+    "Assets/Resonator/Materials/Clothing_Unity.mat"
+  ],
+  "7324099b23d8d114883b988f13839d70": [
+    "Assets/Game/Enemies/Resonator/Materials/Crystal_Clothing_Unity.mat",
+    "Assets/Resonator/Materials/Crystal_Clothing_Unity.mat"
+  ],
+  "499253d89ad46af49b0fec0ffb3c1934": [
+    "Assets/Game/Enemies/Resonator/Materials/Crystal_SculptedHeadSkin_Unity.mat",
+    "Assets/Resonator/Materials/Crystal_SculptedHeadSkin_Unity.mat"
+  ],
+  "ee7bbf9106b683e45aebb386f429eaa7": [
+    "Assets/Game/Enemies/Resonator/Materials/Ground.mat",
+    "Assets/Resonator/Materials/Ground.mat"
+  ],
+  "269563d297a96cb45a73d9d8f3599e29": [
+    "Assets/Game/Enemies/Resonator/Materials/SculptedHeadSkin_Unity.mat",
+    "Assets/Resonator/Materials/SculptedHeadSkin_Unity.mat"
+  ],
+  "dca232845b3e80e4d85bc706c6c47ad9": [
+    "Assets/Game/Enemies/Resonator/Materials/StudioSky.mat",
+    "Assets/Resonator/Materials/StudioSky.mat"
+  ],
+  "90ad1193285d0794281da4b11f55a2ca": [
+    "Assets/Game/Enemies/Resonator/Models/Resonator.fbx",
+    "Assets/Resonator/Models/Resonator.fbx"
+  ],
+  "38805a82a20135f499759937372e22e1": [
+    "Assets/Game/Enemies/Resonator/Prefabs/ResonatorScientist.prefab",
+    "Assets/Resonator/Prefabs/ResonatorScientist.prefab"
+  ],
+  "a9f7772663fa07940a79d94e535324a4": [
+    "Assets/Game/Enemies/Resonator/Runtime/ResonatorAnimationPreview.cs",
+    "Assets/Resonator/Runtime/ResonatorAnimationPreview.cs"
+  ],
+  "0dede7671cd358b4ea5e4617380dc09d": [
+    "Assets/Game/Enemies/Resonator/Scenes/ResonatorPreview.unity",
+    "Assets/Resonator/Scenes/ResonatorPreview.unity"
+  ],
+  "d76a98e145084f4408c14dfd3c086268": [
+    "Assets/Game/Enemies/Resonator/Textures/Clothing_BaseColor.png",
+    "Assets/Resonator/Textures/Clothing_BaseColor.png"
+  ],
+  "154bf965f09ae314dbfac7f957b91943": [
+    "Assets/Game/Enemies/Resonator/Textures/Clothing_Normal.png",
+    "Assets/Resonator/Textures/Clothing_Normal.png"
+  ],
+  "8ebe300e75409bc4e9fd2fa014aa0fb5": [
+    "Assets/Game/Enemies/Resonator/Textures/Clothing_Surface.png",
+    "Assets/Resonator/Textures/Clothing_Surface.png"
+  ],
+  "0aa0a0151d132304f8148f045d420af3": [
+    "Assets/Game/Enemies/Resonator/Textures/SculptedHeadSkin_BaseColor.png",
+    "Assets/Resonator/Textures/SculptedHeadSkin_BaseColor.png"
+  ],
+  "c05465b92a35430448bbc9680790d685": [
+    "Assets/Game/Enemies/Resonator/Textures/SculptedHeadSkin_Normal.png",
+    "Assets/Resonator/Textures/SculptedHeadSkin_Normal.png"
+  ],
+  "fe12c92c733977f4e9e3c0d08736582c": [
+    "Assets/Game/Enemies/Resonator/Textures/SculptedHeadSkin_Surface.png",
+    "Assets/Resonator/Textures/SculptedHeadSkin_Surface.png"
+  ],
+  "17344119110c9184d8e9317c107b090e": [
+    "Assets/Game/Enemies/Resonator/Validation/Final_Resonator_Walking.png",
+    "Assets/Resonator/Validation/Final_Resonator_Walking.png"
+  ],
+  "d4c199c589fbe504d9bdd4381455a7a4": [
+    "Assets/Game/Enemies/Resonator/Validation/Final_Resonator_Zombie_Attack.png",
+    "Assets/Resonator/Validation/Final_Resonator_Zombie_Attack.png"
+  ],
+  "589c61d39407ec94a9b1848d3cc8fc97": [
+    "Assets/Game/Enemies/Resonator/Validation/Final_Resonator_Zombie_Death.png",
+    "Assets/Resonator/Validation/Final_Resonator_Zombie_Death.png"
+  ],
+  "8a0ed08935a9bc2439276f845ee2bbe8": [
+    "Assets/Game/Enemies/Resonator/Validation/Final_Resonator_Zombie_Kicking.png",
+    "Assets/Resonator/Validation/Final_Resonator_Zombie_Kicking.png"
+  ],
+  "fd7a510b11d89c340972652ab5fba091": [
+    "Assets/Game/Enemies/Resonator/Validation/PlayValidation.cs.txt",
+    "Assets/Resonator/Validation/PlayValidation.cs.txt"
+  ],
+  "8adaacc3c7649ce48a707b9215b12185": [
+    "Assets/Game/Player/Gauntlet/Animations",
+    "Assets/Gauntlet/Animations"
+  ],
+  "ab725d388832d9148a27e2b8117fd3b9": [
+    "Assets/Game/Player/Gauntlet/CINEMACHINE_CAMERA.md",
+    "Assets/Gauntlet/CINEMACHINE_CAMERA.md"
+  ],
+  "0257719be3ee5b34dbb73dd41317486b": [
+    "Assets/Game/Player/Gauntlet/Editor",
+    "Assets/Gauntlet/Editor"
+  ],
+  "fd6e9c4b130ed1b4bad210b99f419516": [
+    "Assets/Game/Player/Gauntlet/GauntletAnimationPlayer.cs",
+    "Assets/Gauntlet/GauntletAnimationPlayer.cs"
+  ],
+  "8b3c9311190197c48b8a990a6ee8fc82": [
+    "Assets/Game/Player/Gauntlet/GauntletCameraMotion.cs",
+    "Assets/Gauntlet/GauntletCameraMotion.cs"
+  ],
+  "cc2471d48c8022f4184206df0cf8509e": [
+    "Assets/Game/Player/Gauntlet/GauntletPreviewControls.cs",
+    "Assets/Gauntlet/GauntletPreviewControls.cs"
+  ],
+  "d224f9683338e7e498bc88cf785e0c80": [
+    "Assets/Game/Player/Gauntlet/Materials",
+    "Assets/Gauntlet/Materials"
+  ],
+  "48a63763a2395754c9991cff2b26aa36": [
+    "Assets/Game/Player/Gauntlet/Models",
+    "Assets/Gauntlet/Models"
+  ],
+  "95bd68e5de576fc43a34871ac34b755e": [
+    "Assets/Game/Player/Gauntlet/Prefabs",
+    "Assets/Gauntlet/Prefabs"
+  ],
+  "e2390fdcfe6f1ae45878f603582df655": [
+    "Assets/Game/Player/Gauntlet/README_拳套使用说明.md",
+    "Assets/Gauntlet/README_拳套使用说明.md"
+  ],
+  "9cd6d07f9e505dc4abcc0a8c90007d82": [
+    "Assets/Game/Player/Gauntlet/Scenes",
+    "Assets/Gauntlet/Scenes"
+  ],
+  "7d02f513d3b936743b4db5873ffd889b": [
+    "Assets/Game/Player/Gauntlet/Textures",
+    "Assets/Gauntlet/Textures"
+  ],
+  "b10a8cba0a774b34390d65d46dfed6ce": [
+    "Assets/Game/Player/Gauntlet/Animations/Clips.json",
+    "Assets/Gauntlet/Animations/Clips.json"
+  ],
+  "2ed71912b63adee4b99c0201d26afdc3": [
+    "Assets/Game/Player/Gauntlet/Animations/Gauntlet.controller",
+    "Assets/Gauntlet/Animations/Gauntlet.controller"
+  ],
+  "8cf1abb0154e24749a7d79d5cd3ef430": [
+    "Assets/Game/Player/Gauntlet/Animations/Gauntlet_charge.fbx",
+    "Assets/Gauntlet/Animations/Gauntlet_charge.fbx"
+  ],
+  "b172ac8feff954b489e86ff0b63d10c1": [
+    "Assets/Game/Player/Gauntlet/Animations/Gauntlet_charge_full.fbx",
+    "Assets/Gauntlet/Animations/Gauntlet_charge_full.fbx"
+  ],
+  "daaa4170fe96b9f448208eb4e54d78ea": [
+    "Assets/Game/Player/Gauntlet/Animations/Gauntlet_Idle.fbx",
+    "Assets/Gauntlet/Animations/Gauntlet_Idle.fbx"
+  ],
+  "0efe47bab58ef6b47a7375bdf2e5fb5a": [
+    "Assets/Game/Player/Gauntlet/Animations/Gauntlet_Parry-Hit.fbx",
+    "Assets/Gauntlet/Animations/Gauntlet_Parry-Hit.fbx"
+  ],
+  "b0da204ccb48f38408d941f41556549e": [
+    "Assets/Game/Player/Gauntlet/Animations/Gauntlet_Parry-Holster.fbx",
+    "Assets/Gauntlet/Animations/Gauntlet_Parry-Holster.fbx"
+  ],
+  "b05805cff92f4904ea63269fb83c4096": [
+    "Assets/Game/Player/Gauntlet/Animations/Gauntlet_Parry-Keep.fbx",
+    "Assets/Gauntlet/Animations/Gauntlet_Parry-Keep.fbx"
+  ],
+  "d4914ed103abb7145aad38b0bdfec6cf": [
+    "Assets/Game/Player/Gauntlet/Animations/Gauntlet_Parry-Start.fbx",
+    "Assets/Gauntlet/Animations/Gauntlet_Parry-Start.fbx"
+  ],
+  "9671e1e070de6294e8eb5d32280bfb58": [
+    "Assets/Game/Player/Gauntlet/Animations/Gauntlet_punch1.fbx",
+    "Assets/Gauntlet/Animations/Gauntlet_punch1.fbx"
+  ],
+  "65ba415dc8595bb459d7cf81308505a7": [
+    "Assets/Game/Player/Gauntlet/Animations/Gauntlet_punch2.fbx",
+    "Assets/Gauntlet/Animations/Gauntlet_punch2.fbx"
+  ],
+  "f626cf474038c834ba96c0c545962b15": [
+    "Assets/Game/Player/Gauntlet/Animations/Gauntlet_punch3.fbx",
+    "Assets/Gauntlet/Animations/Gauntlet_punch3.fbx"
+  ],
+  "210f05dd16c5946408e53ddfec07273b": [
+    "Assets/Game/Player/Gauntlet/Animations/Gauntlet_punch4.fbx",
+    "Assets/Gauntlet/Animations/Gauntlet_punch4.fbx"
+  ],
+  "9e3d74127dc399c49b66b6615b6c1925": [
+    "Assets/Game/Player/Gauntlet/Editor/GauntletAssetTools.cs",
+    "Assets/Gauntlet/Editor/GauntletAssetTools.cs"
+  ],
+  "cfe96b94d90176c40bfcc200a3018cdd": [
+    "Assets/Game/Player/Gauntlet/Editor/GauntletCinemachineSetup.cs",
+    "Assets/Gauntlet/Editor/GauntletCinemachineSetup.cs"
+  ],
+  "aeb2eb0ff0da39b4aba0be9e11975449": [
+    "Assets/Game/Player/Gauntlet/Materials/GauntletAtlas.shader",
+    "Assets/Gauntlet/Materials/GauntletAtlas.shader"
+  ],
+  "ffc2e12e1a438424997e216c28e3220a": [
+    "Assets/Game/Player/Gauntlet/Materials/Gauntlet_Atlas.mat",
+    "Assets/Gauntlet/Materials/Gauntlet_Atlas.mat"
+  ],
+  "555cf1215e6586d418c369af4de2e2a9": [
+    "Assets/Game/Player/Gauntlet/Materials/Gauntlet_Glass.mat",
+    "Assets/Gauntlet/Materials/Gauntlet_Glass.mat"
+  ],
+  "50cf96c5d08f79143bacafd96bae9141": [
+    "Assets/Game/Player/Gauntlet/Models/Gauntlet_Model.fbx",
+    "Assets/Gauntlet/Models/Gauntlet_Model.fbx"
+  ],
+  "5b29a22175004c343a1ad604937b06dc": [
+    "Assets/Game/Player/Gauntlet/Prefabs/GauntletViewModel.prefab",
+    "Assets/Gauntlet/Prefabs/GauntletViewModel.prefab"
+  ],
+  "9d366e7ea4d57964dad2f7965ff21362": [
+    "Assets/Game/Player/Gauntlet/Scenes/GauntletPreview.unity",
+    "Assets/Gauntlet/Scenes/GauntletPreview.unity"
+  ],
+  "202521c0db5b60648a14f2900de52316": [
+    "Assets/Game/Player/Gauntlet/Textures/Gauntlet_BaseColor.png",
+    "Assets/Gauntlet/Textures/Gauntlet_BaseColor.png"
+  ],
+  "7270358732bc0a04397265bb57b2d9a2": [
+    "Assets/Game/Player/Gauntlet/Textures/Gauntlet_EmissionRegions.png",
+    "Assets/Gauntlet/Textures/Gauntlet_EmissionRegions.png"
+  ],
+  "573d62f56924bec4c89e1ded02ca733a": [
+    "Assets/Game/Player/Gauntlet/Textures/Gauntlet_MetallicSmoothness.png",
+    "Assets/Gauntlet/Textures/Gauntlet_MetallicSmoothness.png"
+  ],
+  "3f3e064864c33bf43b5008beb427eb57": [
+    "Assets/Game/Player/Gauntlet/Textures/Gauntlet_Normal.png",
+    "Assets/Gauntlet/Textures/Gauntlet_Normal.png"
+  ],
+  "5356f012ea25c374884a089a167b9c4b": [
+    "Assets/Resonator/AI/Editor/ResonatorAnimationWorkbench.cs",
+    "Assets/Tools/AnimationWorkbench/Editor/ResonatorAnimationWorkbench.cs"
+  ],
+  "f523942d05d573f4081c837ecddea5a2": [
+    "Assets/Resonator/AI/Editor/ResonatorAnimationWorkbench.Movement.cs",
+    "Assets/Tools/AnimationWorkbench/Editor/ResonatorAnimationWorkbench.Movement.cs"
+  ],
+  "7562e996a65244e49b34ed1818629da7": [
+    "Assets/Resonator/AI/Editor/ResonatorTransitionDrawer.cs",
+    "Assets/Tools/AnimationWorkbench/Editor/ResonatorTransitionDrawer.cs"
+  ]
+}

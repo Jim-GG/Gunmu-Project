@@ -17,11 +17,17 @@ namespace Resonator.AI
     public sealed class ResonatorTarget : MonoBehaviour,GameActions.IActionTarget,GameActions.IActionDamageReceiver
     {
         public Transform eyes;
+        public PlayerCombatController combat;
+        void Awake()
+        {
+            if (!combat) combat = GetComponent<PlayerCombatController>();
+            if (!eyes) { var camera = GetComponentInChildren<Camera>(); if (camera) eyes = camera.transform; }
+        }
         public FirstPerson.FirstPersonVitals vitals;
         public FirstPerson.GauntletCombat gauntlet;
         public NullBoundary.Demo.DemoPlayer demoPlayer;
         public bool invulnerableForTesting;
-        public bool Alive => invulnerableForTesting || (vitals ? vitals.Health>0 : demoPlayer ? demoPlayer.IsAlive : true);
+        public bool Alive => invulnerableForTesting || (combat ? !combat.IsDefeated : vitals ? vitals.Health>0 : demoPlayer ? demoPlayer.IsAlive : true);
         public Vector3 EyePosition => eyes?eyes.position:transform.position+Vector3.up*1.6f;
         public Vector3 ChestPosition => transform.position+Vector3.up*1.05f;
         public bool ActionTargetAlive=>Alive;
@@ -37,6 +43,13 @@ namespace Resonator.AI
         StrikeResult ResolveStrike(GameActions.ActionDamage hit)
         {
             if(!Alive)return StrikeResult.Miss;
+            if (combat)
+            {
+                if (invulnerableForTesting) return StrikeResult.Damaged;
+                if (hit.damage <= 0) return StrikeResult.Miss;
+                bool blocked = combat.ReceiveAttack(hit.source, Mathf.Max(1, Mathf.RoundToInt(hit.damage)));
+                return blocked ? StrikeResult.Blocked : StrikeResult.Damaged;
+            }
             var guard=hit.blockable&&gauntlet?gauntlet.ResolveGuard(hit.source):GameActions.GuardKind.None;
             float damage=hit.damage*(guard==GameActions.GuardKind.Perfect?0:guard==GameActions.GuardKind.Imperfect?.34f:1);
             var motor=GetComponent<FirstPerson.FirstPersonMotor>();if(motor)motor.Knockback(hit.source,hit.knockback*(guard==GameActions.GuardKind.None?1:hit.blockedKnockback),hit.duration);
