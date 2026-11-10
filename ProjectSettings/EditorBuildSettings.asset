@@ -9,11 +9,38 @@ EditorBuildSettings:
     path: Assets/Scenes/Soviet_1.unity
     guid: ae33451900b271748bb0298cacb0baac
   - enabled: 1
-    path: Assets/Scenes/Soviet_TheBridge.unity
+    path: Assets/Scenes/Soviet_TheCatwalk.unity
     guid: b19c7f20daa95e54b95846b916db1fa6
+  - enabled: 1
+    path: Assets/Scenes/Soviet_MomentumShaft.unity
+    guid: 9e3d7d3868bfe414a8e40946871cf885
+  - enabled: 1
+    path: Assets/Scenes/Soviet_TheBridge.unity
+    guid: e0980e5415c441e99f2074e2a51061a6
+  - enabled: 1
+    path: Assets/Scenes/Soviet_Workstations.unity
+    guid: 114861c868643e44997ff716a8b91705
+  - enabled: 1
+    path: Assets/Scenes/Soviet_GetTheBox.unity
+    guid: 0dd6c00f0e196d24cba6318b0ffc3044
+  - enabled: 1
+    path: Assets/Scenes/Soviet_Traffic.unity
+    guid: bc2265a0b46e0f144925e0c51f482a36
+  - enabled: 1
+    path: Assets/Scenes/Soviet_Seesaw.unity
+    guid: d94d0bad67fa795408a702d2edca5c53
+  - enabled: 1
+    path: Assets/Scenes/Soviet_Relay.unity
+    guid: cad1cb95131b1024aad6b78ab317fd8a
+  - enabled: 1
+    path: Assets/Scenes/Soviet_Multi.unity
+    guid: a68f0e39268b94f46830b04faa7dd392
   - enabled: 1
     path: Assets/Game/Scene/UDK7MBossArena_ThreePhase.unity
     guid: b35dc8213185dbf4f81cfa7f2eb9303f
+  - enabled: 1
+    path: Assets/Scenes/ModernFacility_Chapter2.unity
+    guid: 33d1b8062e23a6a458609e787ffad9ff
   - enabled: 1
     path: Assets/Scenes/Test_01_PunchThrough.unity
     guid: b1808e3951832a14a92c63821cd21769

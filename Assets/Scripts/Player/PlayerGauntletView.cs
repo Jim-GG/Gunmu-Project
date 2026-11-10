@@ -14,6 +14,7 @@ public class PlayerGauntletView : MonoBehaviour
     [SerializeField, InspectorName("拳套外观预制体（GauntletViewModel）")] private GameObject viewModelPrefab;
     [SerializeField, InspectorName("挂载点（留空 = 玩家相机）")] private Transform mount;
     [SerializeField, Min(0.001f), InspectorName("相机近裁剪面")] private float nearClipPlane = 0.01f;
+    [SerializeField, Range(0f, 1f), InspectorName("拳套镜头动作强度")] private float cameraMotionStrength = .55f;
 
     [Header("蓄力动画帧映射（源动画 30 FPS）")]
     [SerializeField, Min(1f), InspectorName("源动画帧率")] private float animationFps = 30f;
@@ -24,6 +25,7 @@ public class PlayerGauntletView : MonoBehaviour
     private enum Phase { Idle, Charging, Full, Punching, ParryStart, ParryKeep, ParryHit, ParryHolster }
 
     private GauntletAnimationPlayer animationPlayer;
+    private GauntletCameraMotion cameraMotion;
     private Animator animator;
     private PlayerChargedPunch punch;
     private PlayerGauntletEquipment equipment;
@@ -35,6 +37,15 @@ public class PlayerGauntletView : MonoBehaviour
     private bool subscribed;
 
     public bool IsVisible => model != null && model.gameObject.activeSelf;
+
+    /// <summary>临时隐藏外观（望远镜等放大视野时用，不影响装备/玩法状态）。</summary>
+    public bool Hidden { get; set; }
+
+    public bool ApplyCameraPose(Transform cameraTransform, Vector3 position, Quaternion rotation)
+    {
+        return isActiveAndEnabled && IsVisible && cameraMotion != null
+            && cameraMotion.ApplyPose(cameraTransform, position, rotation, cameraMotionStrength);
+    }
 
     private void Awake()
     {
@@ -73,10 +84,26 @@ public class PlayerGauntletView : MonoBehaviour
             return;
         }
 
-        // 相机烘焙运动与 PunchPresentation 的震屏都会写相机局部姿态，只保留一处：
-        // 拳套的位移手感由动画本身 + 震屏负责。
-        GauntletCameraMotion cameraMotion = instance.GetComponentInChildren<GauntletCameraMotion>(true);
-        if (cameraMotion != null) cameraMotion.enabled = false;
+        // PunchPresentation 在同一次镜头更新里合成骨骼动作和打击震屏。
+        cameraMotion = instance.GetComponentInChildren<GauntletCameraMotion>(true);
+        if (cameraMotion != null)
+        {
+            Transform cameraTarget = null;
+            foreach (Transform bone in animator.GetComponentsInChildren<Transform>(true))
+            {
+                if (bone.name != "camera_target") continue;
+                cameraTarget = bone;
+                break;
+            }
+            foreach (AnimationClip clip in animator.runtimeAnimatorController.animationClips)
+            {
+                if (clip.name != "Idle") continue;
+                clip.SampleAnimation(animator.gameObject, 0f);
+                break;
+            }
+            cameraMotion.PrepareExternalDrive(cameraTarget);
+        }
+        animator.updateMode = AnimatorUpdateMode.UnscaledTime;
 
         Camera view = parent.GetComponent<Camera>();
         if (view != null) view.nearClipPlane = Mathf.Min(view.nearClipPlane, nearClipPlane);
@@ -140,23 +167,24 @@ public class PlayerGauntletView : MonoBehaviour
     {
         if (model == null) return;
         bool equipped = equipment == null || equipment.HasGauntlet;
-        if (model.gameObject.activeSelf != equipped) model.gameObject.SetActive(equipped);
+        bool visible = equipped && !Hidden;
+        if (model.gameObject.activeSelf != visible) model.gameObject.SetActive(visible);
     }
 
     // ---- 状态机 ----
 
     private void HandleChargeStarted()
     {
-        // 蓄力从 0 帧开始，由 ChargeChanged 逐帧定位。
         phase = Phase.Charging;
-        if (!IsGuardingPhase()) PlayClip("charge", 0.02f);
+        PlayClip("charge", .06f);
     }
 
     private void HandleChargeChanged(float seconds)
     {
         if (phase != Phase.Charging && phase != Phase.Full) return;
-        if (IsGuardingPhase()) return;
-        if (punch != null && punch.IsChargeCapped)
+        if (punch == null || !punch.IsCharging) return;
+        animationPlayer.SetCharge(ChargeFrame(seconds) / Mathf.Max(1f, fullFrame));
+        if (punch.IsChargeCapped && punch.CurrentTier == 3)
         {
             if (phase != Phase.Full)
             {
@@ -165,7 +193,8 @@ public class PlayerGauntletView : MonoBehaviour
             }
             return;
         }
-        SeekCharge(seconds);
+        // Allow the blend from idle or guard to finish before seeking the authored pose.
+        if (seconds >= .06f && !animator.IsInTransition(0)) SeekCharge(seconds);
     }
 
     private void HandleChargeCanceled()
@@ -205,6 +234,8 @@ public class PlayerGauntletView : MonoBehaviour
     private void Update()
     {
         if (model == null || animationPlayer == null || animator == null) return;
+        animator.speed = GameplayGate.IsBlocked ? 0f : 1f;
+        if (GameplayGate.IsBlocked) return;
         switch (phase)
         {
             case Phase.Punching:
@@ -236,12 +267,14 @@ public class PlayerGauntletView : MonoBehaviour
     private void EnterParry(Phase next, string clip)
     {
         phase = next;
+        animationPlayer.SetCharge(0f);
         PlayClip(clip, 0.02f);
     }
 
     private void PlayIdle()
     {
         phase = Phase.Idle;
+        animationPlayer.SetCharge(0f);
         PlayClip("Idle", 0.06f);
     }
 

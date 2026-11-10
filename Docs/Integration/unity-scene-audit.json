@@ -1,17 +1,73 @@
 {
   "unity": "6000.3.26f1",
-  "time": "2026-11-10T12:43:35.1323125+08:00",
+  "time": "2026-11-10T12:56:08.9042547+08:00",
   "reports": [
     {
       "scene": "Assets/Scenes/Soviet_1.unity",
-      "objects": 140,
+      "objects": 143,
+      "missingScripts": [],
+      "brokenReferences": [],
+      "dependencies": 78
+    },
+    {
+      "scene": "Assets/Scenes/Soviet_TheCatwalk.unity",
+      "objects": 160,
+      "missingScripts": [],
+      "brokenReferences": [],
+      "dependencies": 75
+    },
+    {
+      "scene": "Assets/Scenes/Soviet_MomentumShaft.unity",
+      "objects": 134,
+      "missingScripts": [],
+      "brokenReferences": [],
+      "dependencies": 68
+    },
+    {
+      "scene": "Assets/Scenes/Soviet_TheBridge.unity",
+      "objects": 169,
+      "missingScripts": [],
+      "brokenReferences": [],
+      "dependencies": 55
+    },
+    {
+      "scene": "Assets/Scenes/Soviet_Workstations.unity",
+      "objects": 117,
+      "missingScripts": [],
+      "brokenReferences": [],
+      "dependencies": 436
+    },
+    {
+      "scene": "Assets/Scenes/Soviet_GetTheBox.unity",
+      "objects": 102,
+      "missingScripts": [],
+      "brokenReferences": [],
+      "dependencies": 426
+    },
+    {
+      "scene": "Assets/Scenes/Soviet_Traffic.unity",
+      "objects": 100,
+      "missingScripts": [],
+      "brokenReferences": [],
+      "dependencies": 424
+    },
+    {
+      "scene": "Assets/Scenes/Soviet_Seesaw.unity",
+      "objects": 120,
+      "missingScripts": [],
+      "brokenReferences": [],
+      "dependencies": 417
+    },
+    {
+      "scene": "Assets/Scenes/Soviet_Relay.unity",
+      "objects": 84,
       "missingScripts": [],
       "brokenReferences": [],
       "dependencies": 409
     },
     {
-      "scene": "Assets/Scenes/Soviet_TheBridge.unity",
-      "objects": 158,
+      "scene": "Assets/Scenes/Soviet_Multi.unity",
+      "objects": 71,
       "missingScripts": [],
       "brokenReferences": [],
       "dependencies": 405
@@ -24,25 +80,32 @@
       "dependencies": 377
     },
     {
+      "scene": "Assets/Scenes/ModernFacility_Chapter2.unity",
+      "objects": 12,
+      "missingScripts": [],
+      "brokenReferences": [],
+      "dependencies": 44
+    },
+    {
       "scene": "Assets/Scenes/Test_01_PunchThrough.unity",
       "objects": 19,
       "missingScripts": [],
       "brokenReferences": [],
-      "dependencies": 53
+      "dependencies": 54
     },
     {
       "scene": "Assets/Scenes/Test_02_Combat.unity",
       "objects": 23,
       "missingScripts": [],
       "brokenReferences": [],
-      "dependencies": 108
+      "dependencies": 109
     },
     {
       "scene": "Assets/Scenes/Test_03_Billiards.unity",
       "objects": 22,
       "missingScripts": [],
       "brokenReferences": [],
-      "dependencies": 56
+      "dependencies": 58
     }
   ],
   "damage": {

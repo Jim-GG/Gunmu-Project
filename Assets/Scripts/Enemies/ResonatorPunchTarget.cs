@@ -12,6 +12,7 @@ public class ResonatorPunchTarget : MonoBehaviour, IPunchReceiver
     [SerializeField, InspectorName("基础 / 一 / 二 / 三级伤害")]
     private Vector4 damagePerTier = new Vector4(24f, 40f, 65f, 110f);
     [SerializeField, Min(0f), InspectorName("推离力度倍率")] private float forceMultiplier = 1.5f;
+    [SerializeField, InspectorName("教学：蓄力拳直接击飞")] private bool tutorialLaunch;
 
     private ResonatorEnemy enemy;
     private ResonatorEnemy Enemy => enemy != null ? enemy : enemy = GetComponent<ResonatorEnemy>();
@@ -23,6 +24,16 @@ public class ResonatorPunchTarget : MonoBehaviour, IPunchReceiver
     {
         ResonatorEnemy target = Enemy;
         if (target == null) return;
+        if (tutorialLaunch)
+        {
+            if (tier > 0)
+            {
+                Vector3 forward = Vector3.ProjectOnPlane(direction, Vector3.up).normalized;
+                if (forward == Vector3.zero) forward = -target.transform.forward;
+                target.DefeatWithLaunch(forward * (10f + tier * 3f) + Vector3.up * (3f + tier * 0.5f));
+            }
+            return;
+        }
         float damage = damagePerTier[Mathf.Clamp(tier, 0, 3)];
         if (damage <= 0f) return;
         Vector3 flat = Vector3.ProjectOnPlane(direction, Vector3.up);

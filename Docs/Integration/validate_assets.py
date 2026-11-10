@@ -6,3 +6,6 @@ for p in paths:
 dups={g:v for g,v in groups.items() if len(v)>1};orphans=[p.as_posix() for p in paths if not pathlib.Path(str(p)[:-5]).exists()]
 d=dict(assetGuidCount=len(groups),duplicateGuids=dups,orphanMetas=orphans)
 pathlib.Path('Docs/Integration/static-audit.json').write_text(json.dumps(d,ensure_ascii=False,indent=2),encoding='utf-8');print(json.dumps(d,ensure_ascii=False))
+
+if dups or orphans:
+    raise SystemExit(1)

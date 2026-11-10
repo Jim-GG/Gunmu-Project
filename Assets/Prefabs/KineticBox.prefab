@@ -154,6 +154,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::KineticBox
   groundLinearDamping: 0.8
+  airborneLinearDamping: 0.08
   launchedLinearDamping: 0.02
   stopSpeedThreshold: 0.15
   applyPhysicsDefaults: 1
@@ -166,7 +167,7 @@ MonoBehaviour:
   reflectionInterval: 0.12
   minPlayerImpactSpeed: 3.5
   minBoxTransferSpeed: 3.5
-  castMargin: 0.15
+  castMargin: 0.1
   boxTransferLateralTolerance: 0.9
   boxTransferVerticalTolerance: 1
   boxTransferLockedVerticalTolerance: 2
@@ -179,8 +180,8 @@ MonoBehaviour:
   stateMaterial: {fileID: 2100000, guid: 44d95a649908af8438f44c6089065375, type: 2}
   stateEmissionIntensity: 1.5
   normalColor: {r: 0.95, g: 0.75, b: 0.15, a: 1}
-  bulletTimeHighlightColor: {r: 0, g: 1, b: 0.95, a: 1}
-  bulletTimeHoverColor: {r: 0.35, g: 1, b: 0.2, a: 1}
+  bulletTimeHighlightColor: {r: 1, g: 0.52, b: 0.12, a: 1}
+  bulletTimeHoverColor: {r: 1, g: 0.96, b: 0.82, a: 1}
   lockedBaseColor: {r: 0.85, g: 0.15, b: 1, a: 1}
   lockedChargedColor: {r: 1, g: 0.15, b: 0.05, a: 1}
   momentumArrow: {fileID: 0}

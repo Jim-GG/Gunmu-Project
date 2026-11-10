@@ -229,8 +229,9 @@
       "name": "Cinemachine listener position receives nonzero shake signal",
       "passed": true,
       "details": {
-        "amplitude": 0.0139027145
+        "amplitude": 0.0197625533
       }
     }
-  ]
+  ],
+  "verifiedAt": "2026-11-10T13:00:05.924901"
 }

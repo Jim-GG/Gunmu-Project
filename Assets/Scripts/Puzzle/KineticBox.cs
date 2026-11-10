@@ -29,7 +29,7 @@ public class KineticBox : MonoBehaviour, IPuzzleResettable
     [SerializeField, InspectorName("反射间隔（秒）"), Min(0f)] private float reflectionInterval = 0.12f;
     [SerializeField, InspectorName("撞玩家判定的最低速度"), Min(0f)] private float minPlayerImpactSpeed = 3.5f;
     [SerializeField, InspectorName("方块之间传力的最低速度"), Min(0f)] private float minBoxTransferSpeed = 3.5f;
-    [SerializeField, InspectorName("前瞻距离余量（米）"), Min(0f)] private float castMargin = 0.15f;
+    [SerializeField, InspectorName("前瞻距离余量（米）"), Min(0f)] private float castMargin = 0.02f;
     [SerializeField, InspectorName("传力横向容差（米）"), Min(0f)] private float boxTransferLateralTolerance = 0.9f;
     [SerializeField, InspectorName("传力纵向容差（米）"), Min(0f)] private float boxTransferVerticalTolerance = 1.0f;
     [SerializeField, InspectorName("对锁定方块的纵向容差（米）"), Min(0f)] private float boxTransferLockedVerticalTolerance = 2.0f;
@@ -46,8 +46,8 @@ public class KineticBox : MonoBehaviour, IPuzzleResettable
     [SerializeField, InspectorName("特殊状态材质（留空 = 直接在静态材质上染色）")] private Material stateMaterial;
     [SerializeField, InspectorName("发光强度"), Min(0f)] private float stateEmissionIntensity = 1.5f;
     [SerializeField, InspectorName("静态颜色")] private Color normalColor = new Color(0.95f, 0.75f, 0.15f, 1f);
-    [SerializeField, InspectorName("子弹时间高亮色")] private Color bulletTimeHighlightColor = new Color(0.0f, 1.0f, 0.95f, 1f);
-    [SerializeField, InspectorName("子弹时间瞄准色")] private Color bulletTimeHoverColor = new Color(0.35f, 1.0f, 0.2f, 1f);
+    [SerializeField, InspectorName("子弹时间高亮色（可锁定）")] private Color bulletTimeHighlightColor = new Color(1f, 0.52f, 0.12f, 1f);
+    [SerializeField, InspectorName("子弹时间瞄准色（准心对准）")] private Color bulletTimeHoverColor = new Color(1f, 0.96f, 0.82f, 1f);
     [SerializeField, InspectorName("锁定基础色")] private Color lockedBaseColor = new Color(0.85f, 0.15f, 1.0f, 1f);
     [SerializeField, InspectorName("锁定充能色")] private Color lockedChargedColor = new Color(1.0f, 0.15f, 0.05f, 1f);
 
@@ -506,6 +506,15 @@ public class KineticBox : MonoBehaviour, IPuzzleResettable
 
             if (forwardDist > 0f && forwardDist <= hitRadius && lateralDist <= boxTransferLateralTolerance && verticalDist <= maxVertTolerance)
             {
+                // 本帧还没真的贴上（判定前瞻会比接触早一帧），把方块推到接触面再停住，避免看上去“隔空碰撞”。
+                float surfaceGap = forwardDist - (boxCollider.bounds.extents.x + other.boxCollider.bounds.extents.x);
+                if (surfaceGap > 0f)
+                {
+                    float maxSnap = speed * Time.fixedDeltaTime + castMargin;
+                    Vector3 snapped = rb.position + moveDir * Mathf.Min(surfaceGap, maxSnap);
+                    rb.position = snapped;
+                }
+
                 // Transfer impulse strictly along the 6 cardinal axes of the struck box, and stop the Cue Ball box!
                 // 方块之间的传力（任意方块撞任意方块）
                 other.ApplyCardinalImpulse(-moveDir, moveDir, speed, allowVerticalAxis: false);

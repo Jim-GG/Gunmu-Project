@@ -190,6 +190,7 @@ GameObject:
   - component: {fileID: 6743337849494353427}
   - component: {fileID: 7398332742189900834}
   - component: {fileID: 2310124353051374048}
+  - component: {fileID: 8118778348460007633}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -269,7 +270,7 @@ MonoBehaviour:
   groundAcceleration: 45
   groundDeceleration: 35
   airAcceleration: 6
-  airDrag: 0.25
+  airDrag: 0.05
   jumpHeight: 1.2
   gravity: 20
   cameraPivot: {fileID: 8599460903090411290}
@@ -287,6 +288,7 @@ MonoBehaviour:
   minObjectCollisionSpeed: 3.5
   bulletTimeScale: 0.12
   maxLockDistance: 60
+  startsWithMomentumRemote: 1
 --- !u!114 &9178383069150783004
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -313,7 +315,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 60f82d6945001654db0ecc1bbe72aa96, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerGauntletEquipment
-  hasGauntlet: 0
+  startsEquipped: 0
   onEquipped:
     m_PersistentCalls:
       m_Calls: []
@@ -399,6 +401,7 @@ MonoBehaviour:
   viewModelPrefab: {fileID: 388306111364748650, guid: 5b29a22175004c343a1ad604937b06dc, type: 3}
   mount: {fileID: 3432550702921839812}
   nearClipPlane: 0.01
+  cameraMotionStrength: 0.55
   animationFps: 30
   tierOneFrame: 32
   tierTwoFrame: 62
@@ -417,7 +420,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PunchPresentation
   shakeStrength: 1
   hitStopStrength: 1
-  guardSound: {fileID: 0}
 --- !u!114 &2310124353051374048
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -434,9 +436,8 @@ MonoBehaviour:
   tierOneTime: 0.5
   tierTwoTime: 1.25
   tierThreeTime: 2.5
-  reach: 0.9
+  reach: 1
   recovery: 0.3
-  basicLungeDistance: 0.75
   tierOneLungeDistance: 2.5
   tierTwoLungeDistance: 4.5
   tierThreeLungeDistance: 6.5
@@ -452,3 +453,23 @@ MonoBehaviour:
   guardAngle: 120
   initialEnergy: 0
   storedEnergy: 0
+--- !u!114 &8118778348460007633
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8886367873197257864}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f2d9742f1afa3d449184ad62c555626, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerZoom
+  viewCamera: {fileID: 5601234802905729116}
+  playerLook: {fileID: 3246180585310966953}
+  gauntletView: {fileID: 6743337849494353427}
+  zoomFieldOfView: 20
+  transitionTime: 0.12
+  toggleKey: 17
+  zoomSensitivityScale: 0.35
+  hideGauntletWhileZoomed: 1

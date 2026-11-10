@@ -29,14 +29,6 @@ public class RoomRestartController : MonoBehaviour
         { restartKeyArmed = false; RestartRoom(); }
     }
 
-    private void OnGUI()
-    {
-        if (GameStateManager.State != GameState.Dead) return;
-        ChineseGameUI.EnsureFont();
-        GUI.Label(new Rect(15f, Screen.height * 0.5f - 30f, Screen.width - 30f, 30f), "你已阵亡｜按 R 重新开始");
-        if (GUI.Button(new Rect(Screen.width * 0.5f - 100f, Screen.height * 0.5f + 10f, 200f, 44f), "重新开始（R）"))
-            RestartRoom();
-    }
     public void RestartRoom()
     {
         GameStateManager.RestartCurrentRoom();

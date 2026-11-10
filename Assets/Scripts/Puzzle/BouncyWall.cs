@@ -38,6 +38,8 @@ public class BouncyWall : MonoBehaviour
     public Vector3 LastReflectedVelocity { get; private set; }
     /// <summary>最近一次反弹速度大小。</summary>
     public float LastReflectedSpeed => LastReflectedVelocity.magnitude;
+    /// <summary>是否曾经把玩家弹出去（教学提示等只读查询用）。</summary>
+    public bool HasReflectedPlayer { get; private set; }
 
     private void Awake()
     {
@@ -126,6 +128,13 @@ public class BouncyWall : MonoBehaviour
         LastReflectedNormal = normal;
         LastReflectedVelocity = reflectedVelocity;
         onReflected.Invoke();
+    }
+
+    /// <summary>玩家被这面墙弹出去时调用（除了通用通知，还记录“弹过玩家”）。</summary>
+    public void NotifyReflectedPlayer(Vector3 point, Vector3 normal, Vector3 reflectedVelocity)
+    {
+        HasReflectedPlayer = true;
+        NotifyReflected(point, normal, reflectedVelocity);
     }
 
     /// <summary>

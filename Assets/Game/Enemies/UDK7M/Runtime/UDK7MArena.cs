@@ -8,7 +8,7 @@ using Resonator.AI;
 using FirstPerson;
 namespace UDK7M
 {
-    [DefaultExecutionOrder(100)]public sealed class UDK7MArena:MonoBehaviour
+    [DefaultExecutionOrder(100)]public sealed class UDK7MArena:MonoBehaviour, ISceneGravity
     {
         public UDK7MTuning tuning;public UDK7MBoss boss;public UDK7MMinions minions;public ResonatorTarget player;public Transform checkpoint;public UDK7MCrystalPillar[] pillars;
         public UDK7MFeedback feedback;
@@ -16,6 +16,9 @@ namespace UDK7M
         public AudioClip[] warningSounds;
         public Material rockMaterial,crystalMaterial,warningMaterial;public float ceiling=22;public bool Started {get;private set;}public bool Won {get;private set;}
         readonly List<UDK7MDebris> debris=new List<UDK7MDebris>();readonly List<GameObject> warningObjects=new List<GameObject>();int epoch;float retryAt;GUIStyle text;
+        [Tooltip("本场景的刚体重力；离开场景时恢复关卡工程重力。")]
+        public Vector3 physicsGravity = new Vector3(0, -9.81f, 0);
+        public Vector3 Gravity => physicsGravity;
         void Start()
         {
             if(!feedback)feedback=GetComponent<UDK7MFeedback>();if(!feedback)feedback=gameObject.AddComponent<UDK7MFeedback>();feedback.tuning=tuning;

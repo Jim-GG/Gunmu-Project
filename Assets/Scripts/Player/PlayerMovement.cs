@@ -10,7 +10,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField, Min(1f)] private float groundAcceleration = 45f;
     [SerializeField, Min(1f)] private float groundDeceleration = 35f;
     [SerializeField, Min(0f)] private float airAcceleration = 6f;
-    [SerializeField, Min(0f)] private float airDrag = 0.25f;
+    [SerializeField, Min(0f)] private float airDrag = 0.05f;
     [SerializeField, Min(0f)] private float jumpHeight = 1.3f;
     [SerializeField, Min(0.1f)] private float gravity = 20f;
 
@@ -32,6 +32,7 @@ public class PlayerMovement : MonoBehaviour
     [Header("动量锁定与子弹时间")]
     [SerializeField, Range(0.05f, 0.5f)] private float bulletTimeScale = 0.12f;
     [SerializeField, Min(5f)] private float maxLockDistance = 60f;
+    [SerializeField, InspectorName("开局即拥有动量遥控（关掉 = 要先捡到 MomentumRemotePickup）")] private bool startsWithMomentumRemote = true;
 
     private CharacterController controller;
     private PlayerChargedPunch chargedPunch;
@@ -54,6 +55,8 @@ public class PlayerMovement : MonoBehaviour
     private KineticBox currentLockedBox;
     private KineticBox hoveredBox;
     private KineticBox[] allBoxes;
+    private int lastBoxScanFrame = -1000;
+    private const int BoxScanIntervalFrames = 20;
 
     private Collider ignoredBoxCollider;
     private float ignoreBoxTimer;
@@ -64,6 +67,13 @@ public class PlayerMovement : MonoBehaviour
 
     public bool IsDashing => dashTimer > 0f;
     public bool IsBulletTimeActive => isBulletTimeActive;
+    public bool HasMomentumRemote { get; private set; }
+    /// <summary>当前是否有被锁定的动能方块（教学提示等只读查询用）。</summary>
+    public bool HasLockedBox => currentLockedBox != null;
+    /// <summary>是否曾经靠格挡被方块反冲/弹开过（教学提示等只读查询用）。</summary>
+    public bool HasGuardedBoxBounce { get; private set; }
+
+    public void EquipMomentumRemote() => HasMomentumRemote = true;
     public Vector3 CurrentVelocity => new Vector3(currentHorizontalVelocity.x, verticalSpeed, currentHorizontalVelocity.z);
     public bool IsIgnoringBox(Collider col) => col != null && ignoreBoxTimer > 0f && ignoredBoxCollider == col;
 
@@ -80,6 +90,10 @@ public class PlayerMovement : MonoBehaviour
         chargedPunch = GetComponent<PlayerChargedPunch>();
         if (chargedPunch == null)
             chargedPunch = gameObject.AddComponent<PlayerChargedPunch>();
+
+        // 默认开局就能用子弹时间/锁定（Soviet_1、TheCatwalk、Traffic 等关卡依赖它）；
+        // 需要“先捡遥控器”的关卡在场景里把这个开关关掉。
+        HasMomentumRemote = startsWithMomentumRemote;
     }
 
     private void Start()
@@ -132,10 +146,10 @@ public class PlayerMovement : MonoBehaviour
         bool cursorLocked = Cursor.lockState == CursorLockMode.Locked;
 
         // 1. Update crosshair target detection for KineticBox
-        UpdateHoveredBox();
+        if (HasMomentumRemote) UpdateHoveredBox();
 
         // Right mouse is reserved for guarding; Q toggles bullet time.
-        if (cursorLocked && keyboard != null && keyboard.qKey.wasPressedThisFrame)
+        if (HasMomentumRemote && cursorLocked && keyboard != null && keyboard.qKey.wasPressedThisFrame)
         {
             SetBulletTime(!isBulletTimeActive);
         }
@@ -143,12 +157,12 @@ public class PlayerMovement : MonoBehaviour
         // 3. Handle Momentum Lock / Release inputs
         PlayerInteractor interactor = GetComponent<PlayerInteractor>();
         bool interactionOwnsE = interactor != null && interactor.isActiveAndEnabled && interactor.ConsumesInteractionKey;
-        if (cursorLocked && !interactionOwnsE && keyboard != null && keyboard.eKey.wasPressedThisFrame)
+        if (HasMomentumRemote && cursorLocked && !interactionOwnsE && keyboard != null && keyboard.eKey.wasPressedThisFrame)
         {
             HandleLockOrReleaseAction();
         }
 
-        UpdateBoxesHighlightState();
+        if (HasMomentumRemote) UpdateBoxesHighlightState();
 
         float dt = Time.deltaTime;
         bool grounded = controller.isGrounded;
@@ -256,14 +270,16 @@ public class PlayerMovement : MonoBehaviour
         if (cameraPivot == null)
             return;
 
-        if (Physics.Raycast(cameraPivot.position, cameraPivot.forward, out RaycastHit hit, maxLockDistance) &&
+        if (Physics.Raycast(cameraPivot.position, cameraPivot.forward, out RaycastHit hit, maxLockDistance,
+            Physics.DefaultRaycastLayers, QueryTriggerInteraction.Ignore) &&
             hit.collider.TryGetComponent(out KineticBox rayBox))
         {
             hoveredBox = rayBox;
             return;
         }
 
-        if (Physics.SphereCast(cameraPivot.position, 0.45f, cameraPivot.forward, out RaycastHit sphereHit, maxLockDistance) &&
+        if (Physics.SphereCast(cameraPivot.position, 0.45f, cameraPivot.forward, out RaycastHit sphereHit,
+            maxLockDistance, Physics.DefaultRaycastLayers, QueryTriggerInteraction.Ignore) &&
             sphereHit.collider.TryGetComponent(out KineticBox sphereBox))
         {
             hoveredBox = sphereBox;
@@ -306,13 +322,17 @@ public class PlayerMovement : MonoBehaviour
         isBulletTimeActive = active;
         Time.timeScale = active ? bulletTimeScale : 1.0f;
         Time.fixedDeltaTime = 0.02f * Time.timeScale;
+
+        // 进入子弹时间时立即重扫一次，保证刚生成 / 刚回收过方块也能正确高亮。
+        if (active)
+            RefreshBoxCacheIfNeeded(true);
+
         UpdateBoxesHighlightState();
     }
 
     private void UpdateBoxesHighlightState()
     {
-        if (allBoxes == null || allBoxes.Length == 0)
-            allBoxes = FindObjectsByType<KineticBox>(FindObjectsSortMode.None);
+        RefreshBoxCacheIfNeeded();
 
         for (int i = 0; i < allBoxes.Length; i++)
         {
@@ -322,6 +342,36 @@ public class PlayerMovement : MonoBehaviour
                 allBoxes[i].SetBulletTimeHighlight(isBulletTimeActive, hovered);
             }
         }
+    }
+
+    /// <summary>
+    /// 重扫场景里的方块。不能用“只在 Start 扫一次”的缓存：
+    /// 运输管道（KineticBoxDropper）会在运行时不断生成/销毁方块，
+    /// 旧缓存里全是已销毁的 null，新方块永远进不来，子弹时间就再也不高亮了。
+    /// 所以：有空槽、或距上次扫描超过 <see cref="BoxScanIntervalFrames"/> 帧、或被强制要求时重扫。
+    /// </summary>
+    private void RefreshBoxCacheIfNeeded(bool force = false)
+    {
+        bool needsScan = force || allBoxes == null || allBoxes.Length == 0 ||
+                         Time.frameCount - lastBoxScanFrame >= BoxScanIntervalFrames;
+
+        if (!needsScan)
+        {
+            for (int i = 0; i < allBoxes.Length; i++)
+            {
+                if (allBoxes[i] == null)
+                {
+                    needsScan = true;
+                    break;
+                }
+            }
+        }
+
+        if (!needsScan)
+            return;
+
+        allBoxes = FindObjectsByType<KineticBox>(FindObjectsSortMode.None);
+        lastBoxScanFrame = Time.frameCount;
     }
 
     public void BeginPunchLunge(float distance)
@@ -373,6 +423,18 @@ public class PlayerMovement : MonoBehaviour
     {
         // Called only for a confirmed enemy impact, so puzzle launches retain their trajectory.
         verticalSpeed = Mathf.Max(verticalSpeed, Mathf.Max(0f, upwardSpeed));
+    }
+
+    /// <summary>
+    /// 外部装置（大炮 / 弹射器等）直接把玩家当弹体发射：接管当前速度，保留原有惯性规则。
+    /// </summary>
+    public void LaunchAsProjectile(Vector3 velocity)
+    {
+        punchLunging = false;
+        dashTimer = 0f;
+        activeLungeSpeed = 0f;
+        currentHorizontalVelocity = new Vector3(velocity.x, 0f, velocity.z);
+        verticalSpeed = velocity.y;
     }
 
     /// <summary>
@@ -458,6 +520,7 @@ public class PlayerMovement : MonoBehaviour
             bool guarded = ResolveIncomingImpact(box.transform.position, contactPoint, surfaceNormalOnPlayer, boxVelocity);
             if (guarded)
             {
+                HasGuardedBoxBounce = true;
                 IgnoreBoxBriefly(box.Collider, 0.25f);
                 float gentleRebound = Mathf.Min(boxSpeed * guardBoxReboundRatio, guardBoxMaxReboundSpeed);
                 box.ApplyGentleGuardRebound(-boxVelocity, gentleRebound);
@@ -476,6 +539,7 @@ public class PlayerMovement : MonoBehaviour
 
             if (isGuardingBox)
             {
+                HasGuardedBoxBounce = true;
                 chargedPunch.RefillEnergyByGuard(contactPoint, surfaceNormalOnPlayer);
                 IgnoreBoxBriefly(box.Collider, 0.25f);
 
@@ -562,7 +626,7 @@ public class PlayerMovement : MonoBehaviour
                     chargedPunch.RefillEnergyByGuard(hit.point, hit.normal);
                     currentHorizontalVelocity = new Vector3(reflectedVel.x, 0f, reflectedVel.z);
                     verticalSpeed = reflectedVel.y;
-                    bouncyWall.NotifyReflected(hit.point, hit.normal, reflectedVel);
+                    bouncyWall.NotifyReflectedPlayer(hit.point, hit.normal, reflectedVel);
                 }
                 else
                 {
@@ -660,22 +724,6 @@ public class PlayerMovement : MonoBehaviour
         ChineseGameUI.EnsureFont();
         float cx = Screen.width * 0.5f;
         float cy = Screen.height * 0.5f;
-
-        if (isBulletTimeActive)
-        {
-            GUI.color = new Color(0f, 1f, 0.95f, 0.9f);
-            GUIStyle btStyle = new GUIStyle(GUI.skin.box)
-            {
-                fontSize = 18,
-                fontStyle = FontStyle.Bold,
-                alignment = TextAnchor.MiddleCenter
-            };
-            btStyle.normal.textColor = new Color(0.1f, 1f, 0.95f);
-            string btHint = hoveredBox != null
-                ? (hoveredBox.IsMomentumLocked ? "⏱ 子弹时间 | [E] 释放目标方块" : "⏱ 子弹时间 | [E] 锁定高亮方块！")
-                : "⏱ 子弹时间已开启 | 瞄准高亮方块按 [E] 锁定或释放";
-            GUI.Box(new Rect(cx - 260f, 20f, 520f, 40f), btHint, btStyle);
-        }
 
         bool hasEnergy = chargedPunch != null && chargedPunch.StoredEnergy > 0;
         GUI.color = hoveredBox != null ? Color.green : (hasEnergy ? Color.cyan : Color.gray);

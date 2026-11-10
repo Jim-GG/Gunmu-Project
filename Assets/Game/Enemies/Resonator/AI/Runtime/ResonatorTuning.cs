@@ -75,7 +75,7 @@ namespace Resonator.AI
         [Header("Rest activities: source frames")]
         public float wakeRevealFrame=520, feedingResumeFrame=421, feedingRevealFrame=490, ragdollFrame=50;
         [Header("Detection")]
-        public float sightRange=14, sightAngle=105, hearingMultiplier=1, sensorInterval=.12f;
+        public float sightRange=10, sightAngle=105, hearingMultiplier=1, sensorInterval=.12f;
         public LayerMask obstructionMask=~0;
         [Header("Combat distances (centre to centre)")]
         [Min(.1f)] public float attackEnterDistance=1.1f;

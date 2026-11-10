@@ -27,6 +27,8 @@ public enum GameState
 [DefaultExecutionOrder(-10000)]
 public class GameStateManager : MonoBehaviour
 {
+    [SerializeField, InspectorName("默认关卡重力")] private Vector3 levelGravity = new Vector3(0, -20, 0);
+
     public static GameStateManager Instance { get; private set; }
     public static GameState State { get; private set; } = GameState.Starting;
     public static string LastDeathReason { get; private set; }
@@ -95,6 +97,12 @@ public class GameStateManager : MonoBehaviour
 
     private void OnSceneLoaded(Scene scene, LoadSceneMode loadMode)
     {
+        Vector3 gravity = levelGravity;
+        foreach (GameObject root in scene.GetRootGameObjects())
+            foreach (MonoBehaviour component in root.GetComponentsInChildren<MonoBehaviour>(true))
+                if (component is ISceneGravity settings) gravity = settings.Gravity;
+        Physics.gravity = gravity;
+
         if (loadMode != LoadSceneMode.Single)
             return;
 

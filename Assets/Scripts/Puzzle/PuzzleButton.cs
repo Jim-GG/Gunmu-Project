@@ -73,12 +73,16 @@ public class PuzzleButton : MonoBehaviour
         UpdateVisuals(false);
     }
 
+    /// <summary>是否被按下过（教学提示等只读查询用）。</summary>
+    public bool HasBeenPressed { get; private set; }
+
     /// <summary>按下按钮：触发全部目标机关并抛出 onPressed。</summary>
     public void Press()
     {
         if (GameplayGate.IsBlocked)
             return;
 
+        HasBeenPressed = true;
         PuzzleTriggerUtility.TriggerAll(resolvedTargets);
         onPressed.Invoke();
     }

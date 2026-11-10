@@ -98,15 +98,16 @@ namespace Resonator.AI
             motor.AdvanceKnockback(dt);
             nextSight-=dt;
             bool living=target&&target.Alive;
-            UpdateTargetVelocity(dt,living);
-            if(aware&&living)LastKnownPosition=target.transform.position;
+            bool visible=aware&&living&&CanSeeTarget();
+            UpdateTargetVelocity(dt,visible);
+            if(visible)LastKnownPosition=target.transform.position;
             if(state==EnemyState.Dormant)
             {
                 if(crystalFocus&&initialActivity==RestActivity.Resonating)motor.Face(crystalFocus.position,tuning.navigationTurnSpeed,dt);
                 if((initialActivity==RestActivity.SlowIdle||initialActivity==RestActivity.RestlessIdle)&&nextSight<=0)
                 {
                     nextSight=tuning.sensorInterval;
-                    if(CanSeeTarget()){Detect();return;}
+                    if(CanSeeTarget()){LastKnownPosition=target.transform.position;Detect();return;}
                 }
                 motion.Advance(dt,1,initialActivity==RestActivity.FeignDeath);return;
             }
@@ -130,11 +131,12 @@ namespace Resonator.AI
                 // A nearby ally may obstruct the strike line. Keep seeking an
                 // opening instead of stopping forever at the launch-radius ring.
                 bool canAttack=CanStartAttack(plannedAttack);Vector3 approach=LastKnownPosition;
-                if(!canAttack&&Distance<=range+.5f&&motor.TryCrowdApproach(LastKnownPosition,range,dt,out var flank)){approach=flank;stopping=.05f;}
-                else if(Distance<=range+tuning.attackDecisionSlack&&!canAttack)stopping=tuning.minimumSeparation+.03f;
+                float approachDistance=FlatDistance(transform.position,approach);
+                if(visible&&!canAttack&&approachDistance<=range+.5f&&motor.TryCrowdApproach(approach,range,dt,out var flank)){approach=flank;stopping=.05f;}
+                else if(approachDistance<=range+tuning.attackDecisionSlack&&!canAttack)stopping=tuning.minimumSeparation+.03f;
                 motor.Navigate(approach,speed,stopping);
-                motor.NavigationStep(target,tuning.minimumSeparation,dt);
-                if(Distance<=range+.25f)motor.Face(LastKnownPosition,tuning.navigationTurnSpeed,dt);
+                motor.NavigationStep(visible?target:null,tuning.minimumSeparation,dt);
+                if(approachDistance<=range+.25f)motor.Face(LastKnownPosition,tuning.navigationTurnSpeed,dt);
                 float actual=Vector3.ProjectOnPlane(motor.ActualVelocity,Vector3.up).magnitude;
                 float multiplier=actual<.025f?0:Mathf.Clamp(actual/Mathf.Max(.01f,motion.Beat.track.averageSpeed*motion.Beat.speed),tuning.locomotionPlaybackLimits.x,tuning.locomotionPlaybackLimits.y);
                 motion.Advance(dt,multiplier);
@@ -158,7 +160,7 @@ namespace Resonator.AI
             else if(state==EnemyState.Agonizing&&motion.Finished)EvaluateCombat(false);
             else if((state==EnemyState.Hit||state==EnemyState.Stumbling)&&motion.Finished)
             {
-                if(Distance>AttackStartRange(EnemyState.Headbutt)+tuning.attackDecisionSlack)Enter(EnemyState.Running);else BeginAttack(EnemyState.Headbutt,true);
+                if(CanStartAttack(EnemyState.Headbutt))BeginAttack(EnemyState.Headbutt,true);else Enter(EnemyState.Running);
             }
             else if(state==EnemyState.CombatIdle&&StateSeconds>=recoveryDuration)EvaluateCombat(false);
         }
@@ -174,7 +176,7 @@ namespace Resonator.AI
             targetVelocity=Vector3.Lerp(targetVelocity,Vector3.ClampMagnitude(delta/dt,8),1-Mathf.Exp(-dt*8));
         }
         float RetreatSpeed=>target?Mathf.Max(0,Vector3.Dot(targetVelocity,Vector3.ProjectOnPlane(target.transform.position-transform.position,Vector3.up).normalized)):0;
-        bool ShouldRun()=>Distance>tuning.walkToRunDistance||tuning.retreatRunThreshold>0&&RetreatSpeed>tuning.retreatRunThreshold&&Distance>AttackStartRange(EnemyState.Kicking)+.3f;
+        bool ShouldRun()=>FlatDistance(transform.position,LastKnownPosition)>tuning.walkToRunDistance||tuning.retreatRunThreshold>0&&RetreatSpeed>tuning.retreatRunThreshold&&Distance>AttackStartRange(EnemyState.Kicking)+.3f;
         public float AttackStartRange(EnemyState attackState)
         {
             if(!tuning)return 0;var attack=tuning.AttackFor(attackState);
@@ -188,7 +190,7 @@ namespace Resonator.AI
         }
         bool CanStartAttack(EnemyState attackState)
         {
-            if(!target||!target.Alive||Distance>AttackStartRange(attackState)+tuning.attackDecisionSlack)return false;
+            if(!target||!target.Alive||Distance>AttackStartRange(attackState)+tuning.attackDecisionSlack||!CanSeeTarget())return false;
             var direction=Vector3.ProjectOnPlane(target.transform.position-transform.position,Vector3.up);
             return Vector3.Angle(transform.forward,direction)<=tuning.attackStartFacingAngle&&LineClear(transform.position+Vector3.up,target.ChestPosition);
         }
@@ -202,6 +204,7 @@ namespace Resonator.AI
         {
             if(!started||state==EnemyState.Dying||state==EnemyState.Dead||!noise.source||!noise.source.Alive)return;
             if(Vector3.Distance(transform.position+Vector3.up,noise.position)>noise.radius*tuning.hearingMultiplier)return;
+            if(!LineClear(transform.position+Vector3.up*1.5f,noise.source.ChestPosition,noise.source))return;
             target=noise.source;LastKnownPosition=noise.position;
             if(state==EnemyState.Dormant)Detect();
         }
@@ -221,7 +224,7 @@ namespace Resonator.AI
             Vector3 to=target.ChestPosition-(transform.position+Vector3.up*1.5f);Vector3 flat=Vector3.ProjectOnPlane(to,Vector3.up);
             return Vector3.Angle(transform.forward,flat)<=tuning.sightAngle*.5f&&LineClear(transform.position+Vector3.up*1.5f,target.ChestPosition);
         }
-        bool LineClear(Vector3 from,Vector3 to)
+        bool LineClear(Vector3 from,Vector3 to,ResonatorTarget recipient=null)
         {
             var hits=Physics.RaycastAll(from,(to-from).normalized,Vector3.Distance(from,to),tuning.obstructionMask,QueryTriggerInteraction.Ignore);
             float nearest=float.PositiveInfinity;Collider first=null;
@@ -232,7 +235,8 @@ namespace Resonator.AI
                 if(enemy&&(enemy.State==EnemyState.Dead||enemy.State==EnemyState.Dying))continue;
                 if(h.distance<nearest){nearest=h.distance;first=h.collider;}
             }
-            return !first||(target&&first.transform.IsChildOf(target.transform));
+            var actor=recipient!=null?recipient:target;
+            return !first||(actor&&first.transform.IsChildOf(actor.transform));
         }
         void EvaluateCombat(bool fromScream)
         {
@@ -248,6 +252,7 @@ namespace Resonator.AI
         }
         void BeginAttack(EnemyState next,bool newSequence)
         {
+            if(!CanSeeTarget()){BeginRecovery();return;}
             Enter(next);
         }
         void SharedHit(int index,GameActions.IActionTarget recipient)
@@ -263,7 +268,7 @@ namespace Resonator.AI
             if(attack.hits==null)return;
             if(visitedWindows.Length!=attack.hits.Length)Array.Resize(ref visitedWindows,attack.hits.Length);
             if(runtimeAttack==null||runtimeAttack.action!=attack)runtimeAttack=new GameActions.ActionDefinition{id=state.ToString(),isAttack=true,action=attack};
-            sharedContacts.Resolve(runtimeAttack,motion,hitbox,transform,transform.position+Vector3.up, tuning.obstructionMask,0,dt);
+            if(CanSeeTarget())sharedContacts.Resolve(runtimeAttack,motion,hitbox,transform,transform.position+Vector3.up, tuning.obstructionMask,0,dt);
             for(int i=0;i<attack.hits.Length;i++)
             {
                 var window=attack.hits[i];
@@ -309,9 +314,10 @@ namespace Resonator.AI
                     if(rule!=null&&rule.exitFrame>CurrentFrame+.0001f)next=Mathf.Min(next,rule.exitFrame);
                 }
                 step=Mathf.Min(step,Mathf.Max(.000001f,(next-CurrentFrame)/(motion.Beat.track.framesPerSecond*motion.Beat.speed)));
-                attackMover.Aim(attack,CurrentFrame+step*motion.Beat.track.framesPerSecond*motion.Beat.speed,step,motor,target);
+                var visibleTarget=CanSeeTarget()?target:null;
+                attackMover.Aim(attack,CurrentFrame+step*motion.Beat.track.framesPerSecond*motion.Beat.speed,step,motor,visibleTarget);
                 motion.Advance(step);if(state!=entered)return;
-                attackMover.Move(attack,motion.PreviousFrame,CurrentFrame,step,motor,target,motion.RootDelta,currentActionHit,ActiveHitboxTouches(attack));
+                attackMover.Move(attack,motion.PreviousFrame,CurrentFrame,step,motor,visibleTarget,motion.RootDelta,currentActionHit,visibleTarget!=null&&ActiveHitboxTouches(attack));
                 ResolveWindows(attack,step);if(state!=entered)return;
                 if(TryAutomaticCombo())return;
                 if(TryAttackExit())return;
@@ -390,7 +396,7 @@ namespace Resonator.AI
         }
         public bool TryCancelAttack(EnemyState next)
         {
-            if(next==state||!IsAttack(state)||!IsAttack(next)||!target||!target.Alive)return false;
+            if(next==state||!IsAttack(state)||!IsAttack(next)||!CanSeeTarget())return false;
             var rule=tuning.Transition(state,next);if(rule==null)return false;
             float frame=rule.CancelFrame(currentActionHit);
             if(frame<0||CurrentFrame+0.0001f<frame)return false;
@@ -423,9 +429,16 @@ namespace Resonator.AI
                 return;
             }
             if(hit.knockback>0)motor.Push(source,hit.knockback,hit.duration);
-            aware=true;if(target)LastKnownPosition=target.transform.position;
+            aware=true;LastKnownPosition=CanSeeTarget()?target.transform.position:source;
             Vector3 to=Vector3.ProjectOnPlane(source-transform.position,Vector3.up).normalized;
             Enter(Vector3.Dot(transform.forward,to)>=tuning.frontHitDot?EnemyState.Hit:EnemyState.Stumbling);
+        }
+        public void DefeatWithLaunch(Vector3 velocity)
+        {
+            if (!started || state == EnemyState.Dead || state == EnemyState.Dying) return;
+            health = 0f;
+            lastImpulse = Vector3.zero;
+            BecomeRagdoll(velocity);
         }
         void Enter(EnemyState next,bool immediate=false)
         {
@@ -440,7 +453,7 @@ namespace Resonator.AI
                 case EnemyState.Waking:beat=tuning.wake;break;
                 case EnemyState.FeedingRise:beat=feedingRise;break;
                 case EnemyState.Agonizing:beat=tuning.agonizing;break;
-                case EnemyState.Screaming:aware=true;if(target)LastKnownPosition=target.transform.position;beat=tuning.scream;break;
+                case EnemyState.Screaming:aware=true;beat=tuning.scream;break;
                 case EnemyState.Walking:beat=tuning.walk;break;
                 case EnemyState.Running:beat=tuning.run;break;
                 case EnemyState.CombatIdle:beat=tuning.idleRestless;break;
@@ -454,10 +467,16 @@ namespace Resonator.AI
             if(IsAttack(next))attackMover.Reset(tuning.AttackFor(next),CurrentFrame,transform,target);
             StateChanged?.Invoke(next);
         }
-        void BecomeRagdoll()
+        void BecomeRagdoll(Vector3? launchVelocity = null)
         {
             motor.Disable();motion.StopForRagdoll();state=EnemyState.Dead;
-            if(ragdoll)ragdoll.Activate(lastImpulse);
+            if(ragdoll)
+            {
+                ragdoll.Activate(lastImpulse);
+                if (launchVelocity.HasValue)
+                    foreach (Rigidbody body in ragdoll.bodies)
+                        if (body) body.linearVelocity = launchVelocity.Value;
+            }
             StateChanged?.Invoke(state);Died?.Invoke();
         }
     }

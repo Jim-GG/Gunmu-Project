@@ -57,7 +57,5 @@ public class PlayerCombatController : MonoBehaviour
         ChineseGameUI.EnsureFont();
         GUI.Label(new Rect(15f, Screen.height - 65f, 240f, 30f),
             $"生命：{health}/{maxHealth} | {(IsGuarding ? "防御中" : "按住右键防御")}");
-        if (Time.unscaledTime < feedbackUntil)
-            GUI.Label(new Rect(15f, Screen.height - 195f, Screen.width - 30f, 30f), feedback);
     }
 }
