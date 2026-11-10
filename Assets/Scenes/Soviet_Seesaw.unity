@@ -8781,6 +8781,76 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1488803791}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1492419794
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1492419796}
+  - component: {fileID: 1492419795}
+  m_Layer: 0
+  m_Name: "\u6309\u952E\u63D0\u793A"
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1492419795
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1492419794}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba0cce7fe6e8e9d41838f200a2c388b6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::KeyPromptHint
+  player: {fileID: 0}
+  tutorial: {fileID: 0}
+  steps:
+  - focus: {fileID: 0}
+    radius: 6
+    prefixText: "\u6309\u4F4F"
+    icon: {fileID: 2800000, guid: 9c2aa2bb4c0ad3c488d99081533f648a, type: 3}
+    suffixText: "\u5229\u7528\u98DE\u884C\u7684\u65B9\u5757\u53CD\u51B2"
+    whitenIcon: 1
+    goal: 9
+    extraGoal: 10
+    key: 0
+    areaTarget: {fileID: 0}
+    areaRadius: 0
+    button: {fileID: 0}
+    cannon: {fileID: 0}
+    bouncyWall: {fileID: 0}
+    gate: {fileID: 0}
+    showProgress: 0
+  margin: {x: 32, y: 26}
+  fontSize: 18
+  iconSize: 26
+  paddingX: 16
+  paddingY: 8
+  spacing: 8
+  stackBelowTutorial: 1
+--- !u!4 &1492419796
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1492419794}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1502718622
 GameObject:
   m_ObjectHideFlags: 0
@@ -11945,3 +12015,4 @@ SceneRoots:
   - {fileID: 339444615}
   - {fileID: 1324839952}
   - {fileID: 1599108466}
+  - {fileID: 1492419796}

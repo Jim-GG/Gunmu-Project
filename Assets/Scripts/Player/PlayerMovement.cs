@@ -70,6 +70,8 @@ public class PlayerMovement : MonoBehaviour
     public bool HasMomentumRemote { get; private set; }
     /// <summary>当前是否有被锁定的动能方块（教学提示等只读查询用）。</summary>
     public bool HasLockedBox => currentLockedBox != null;
+    /// <summary>是否曾经靠格挡被方块反冲/弹开过（教学提示等只读查询用）。</summary>
+    public bool HasGuardedBoxBounce { get; private set; }
 
     public void EquipMomentumRemote() => HasMomentumRemote = true;
     public Vector3 CurrentVelocity => new Vector3(currentHorizontalVelocity.x, verticalSpeed, currentHorizontalVelocity.z);
@@ -518,6 +520,7 @@ public class PlayerMovement : MonoBehaviour
             bool guarded = ResolveIncomingImpact(box.transform.position, contactPoint, surfaceNormalOnPlayer, boxVelocity);
             if (guarded)
             {
+                HasGuardedBoxBounce = true;
                 IgnoreBoxBriefly(box.Collider, 0.25f);
                 float gentleRebound = Mathf.Min(boxSpeed * guardBoxReboundRatio, guardBoxMaxReboundSpeed);
                 box.ApplyGentleGuardRebound(-boxVelocity, gentleRebound);
@@ -536,6 +539,7 @@ public class PlayerMovement : MonoBehaviour
 
             if (isGuardingBox)
             {
+                HasGuardedBoxBounce = true;
                 chargedPunch.RefillEnergyByGuard(contactPoint, surfaceNormalOnPlayer);
                 IgnoreBoxBriefly(box.Collider, 0.25f);
 

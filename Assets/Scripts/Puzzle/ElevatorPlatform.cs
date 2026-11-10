@@ -1,10 +1,11 @@
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
 /// <summary>
-/// 升降机平台：被按钮/开关（<see cref="IPuzzleTriggerable"/>）触发后，将平台（及站在上面的玩家、子物体按钮）平滑升起或降回。
+/// 升降机平台：被按钮/开关（<see cref="IPuzzleTriggerable"/>）触发后，将平台（及站在上面的玩家、动能方块、子物体按钮）平滑升起或降回。
 /// - 支持单向升起或往返切换（再次按按钮降回）。
-/// - 自动携带站在平台顶面上的玩家（CharacterController），避免穿模或抖动。
+/// - 自动携带站在平台顶面上的玩家（CharacterController）与动能方块（KineticBox），避免穿模或抖动。
 /// - 实现 <see cref="IPuzzleResettable"/>，按 R 重置时回到初始位置。
 /// </summary>
 [DisallowMultipleComponent]
@@ -27,6 +28,7 @@ public class ElevatorPlatform : MonoBehaviour, IPuzzleTriggerable, IPuzzleResett
     private Vector3 startPosition;
     private Collider platformCollider;
     private CharacterController cachedPlayerController;
+    private readonly List<KineticBox> carriedBoxesBuffer = new List<KineticBox>();
     private float progress; // 0 = bottom, 1 = top
     private int moveDirection; // 0 = idle, +1 = rising, -1 = descending
     private bool reachedTopOnce;
@@ -73,12 +75,33 @@ public class ElevatorPlatform : MonoBehaviour, IPuzzleTriggerable, IPuzzleResett
 
         if (delta.sqrMagnitude > 1e-9f)
         {
-            // 若玩家站在平台上，先检查乘员，再同步平台与玩家位移
-            bool shouldCarry = carryPlayer && IsPlayerOnPlatform();
+            // 先检测站在平台上的玩家与动能方块，再同步平台与乘员位移
+            bool shouldCarryPlayer = carryPlayer && IsPlayerOnPlatform();
+            CollectBoxesOnPlatform(carriedBoxesBuffer);
+
             platform.position = newPos;
+
+            for (int i = 0; i < carriedBoxesBuffer.Count; i++)
+            {
+                KineticBox box = carriedBoxesBuffer[i];
+                if (box == null || box.IsMomentumLocked)
+                    continue;
+
+                box.transform.position += delta;
+                if (box.Body != null && !box.Body.isKinematic)
+                {
+                    Vector3 v = box.Body.linearVelocity;
+                    if (v.y < 0f)
+                    {
+                        v.y = 0f;
+                        box.Body.linearVelocity = v;
+                    }
+                }
+            }
+
             Physics.SyncTransforms();
 
-            if (shouldCarry && cachedPlayerController != null && cachedPlayerController.enabled)
+            if (shouldCarryPlayer && cachedPlayerController != null && cachedPlayerController.enabled)
             {
                 cachedPlayerController.Move(delta);
             }
@@ -127,6 +150,13 @@ public class ElevatorPlatform : MonoBehaviour, IPuzzleTriggerable, IPuzzleResett
         }
     }
 
+    private Bounds GetPlatformBounds()
+    {
+        return platformCollider != null
+            ? platformCollider.bounds
+            : new Bounds(platform.position, platform.lossyScale);
+    }
+
     private bool IsPlayerOnPlatform()
     {
         if (cachedPlayerController == null)
@@ -139,10 +169,7 @@ public class ElevatorPlatform : MonoBehaviour, IPuzzleTriggerable, IPuzzleResett
         if (cachedPlayerController == null || !cachedPlayerController.enabled)
             return false;
 
-        Bounds platBounds = platformCollider != null
-            ? platformCollider.bounds
-            : new Bounds(platform.position, platform.lossyScale);
-
+        Bounds platBounds = GetPlatformBounds();
         Vector3 playerPos = cachedPlayerController.transform.position;
         float horizontalMargin = 0.35f;
 
@@ -157,6 +184,41 @@ public class ElevatorPlatform : MonoBehaviour, IPuzzleTriggerable, IPuzzleResett
 
         float surfaceY = platBounds.max.y;
         return playerPos.y >= surfaceY - 0.45f && playerPos.y <= surfaceY + passengerCheckHeight;
+    }
+
+    private void CollectBoxesOnPlatform(List<KineticBox> results)
+    {
+        results.Clear();
+        Bounds platBounds = GetPlatformBounds();
+
+        float surfaceY = platBounds.max.y;
+        float minY = surfaceY - 0.35f;
+        float maxY = surfaceY + passengerCheckHeight;
+        Vector3 boxCenter = new Vector3(platBounds.center.x, (minY + maxY) * 0.5f, platBounds.center.z);
+        Vector3 halfExtents = new Vector3(
+            platBounds.extents.x + 0.15f,
+            (maxY - minY) * 0.5f,
+            platBounds.extents.z + 0.15f);
+
+        Collider[] hits = Physics.OverlapBox(
+            boxCenter,
+            halfExtents,
+            Quaternion.identity,
+            Physics.AllLayers,
+            QueryTriggerInteraction.Collide);
+
+        for (int i = 0; i < hits.Length; i++)
+        {
+            Collider hit = hits[i];
+            if (hit == null || hit.transform.IsChildOf(platform))
+                continue;
+
+            KineticBox box = hit.GetComponentInParent<KineticBox>();
+            if (box == null || box.IsMomentumLocked || results.Contains(box))
+                continue;
+
+            results.Add(box);
+        }
     }
 
 #if UNITY_EDITOR

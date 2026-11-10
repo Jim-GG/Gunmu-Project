@@ -13,6 +13,7 @@ public enum KeyPromptGoal
     [InspectorName("目标已达成（ILevelExitGate）")] GateSatisfied,
     [InspectorName("已坐上大炮")] CannonLoaded,
     [InspectorName("已被弹性墙弹射")] BouncyWallReflected,
+    [InspectorName("已格挡方块反冲")] BoxBounce,
     [InspectorName("（不启用）")] None,
 }
 
@@ -93,6 +94,9 @@ public sealed class KeyPromptStep
 
         if (which == KeyPromptGoal.BouncyWallReflected)
             return bouncyWall != null && bouncyWall.HasReflectedPlayer;
+
+        if (which == KeyPromptGoal.BoxBounce)
+            return movement != null && movement.HasGuardedBoxBounce;
 
         if (which == KeyPromptGoal.GateSatisfied)
         {
