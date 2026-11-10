@@ -554,8 +554,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b129c69e1dec1f438cfe5454e714286, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::LevelExit
-  nextSceneName: UDK7MBossArena_ThreePhase
-  editorNextScene: {fileID: 102900000, guid: b35dc8213185dbf4f81cfa7f2eb9303f, type: 3}
+  nextSceneName: Modern_01_DroneEscape
+  editorNextScene: {fileID: 102900000, guid: f4ddbde3716a4098a055696971d36727, type: 3}
   gates:
   - {fileID: 211375909}
   onReached:

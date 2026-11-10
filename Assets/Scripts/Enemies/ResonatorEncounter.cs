@@ -40,7 +40,9 @@ public class ResonatorEncounter : MonoBehaviour, ILevelExitGate
         var missing = new System.Collections.Generic.List<string>();
         if (player == null) missing.Add("Player（玩家战斗组件）");
         if (enemyPrefab == null) missing.Add("Enemy Prefab（敌人预制体）");
+        else if (!enemyPrefab.GetComponent<ResonatorEnemy>()) missing.Add("敌人预制体上的 ResonatorEnemy 组件");
         if (spawnPoints == null || spawnPoints.Length == 0) missing.Add("Spawn Points（至少一个出生点）");
+        else if (System.Array.Exists(spawnPoints, point => point == null)) missing.Add("出生点中存在空引用");
         if (missing.Count > 0)
         {
             Debug.LogError("战斗遭遇缺少配置：" + string.Join("、", missing) + "。请停止运行后拖入引用并保存场景。", this);
@@ -81,8 +83,7 @@ public class ResonatorEncounter : MonoBehaviour, ILevelExitGate
         {
             Debug.LogError("敌人预制体上没有 ResonatorEnemy 组件。", this);
             Destroy(instance);
-            spawned = enemyCount;
-            Clear();
+            ready = false;
             return;
         }
         if (!instance.GetComponent<ResonatorPunchTarget>()) instance.AddComponent<ResonatorPunchTarget>();
