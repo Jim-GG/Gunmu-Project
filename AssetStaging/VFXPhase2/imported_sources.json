@@ -1,0 +1,14 @@
+[
+  {
+    "source": "D:\\特效纹理\\95张4K高清烟火爆炸序列图\\95张4K高清烟火爆炸序列图\\Explosion_14_8x8.tga",
+    "destination": "Assets\\Game\\VFX\\Combat\\Advanced\\Textures\\Explosion_14_8x8.tga"
+  },
+  {
+    "source": "D:\\特效纹理\\95张4K高清烟火爆炸序列图\\95张4K高清烟火爆炸序列图\\Explosion_30_8x8.tga",
+    "destination": "Assets\\Game\\VFX\\Combat\\Advanced\\Textures\\Explosion_30_8x8.tga"
+  },
+  {
+    "source": "D:\\特效纹理\\95张4K高清烟火爆炸序列图\\95张4K高清烟火爆炸序列图\\Smoke24_8x8.TGA",
+    "destination": "Assets\\Game\\VFX\\Combat\\Advanced\\Textures\\Smoke24_8x8.TGA"
+  }
+]

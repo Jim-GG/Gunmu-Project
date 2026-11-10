@@ -21,12 +21,12 @@ namespace AssetPipeline.Editor
             Assert(engine.source.clip&&engine.source.clip.name=="机器轰鸣"&&engine.source.loop&&engine.source.isPlaying,"Diesel engine loop missing or not playing");
             Assert(drill.source.clip&&drill.source.clip.name=="电钻循环"&&drill.transform.IsChildOf(arena.boss.drill),"Drill loop not attached to drill bone");
             Assert(!arena.boss.GetComponentsInChildren<PlayerObjectAudio>(true).Any()&&!arena.boss.GetComponentsInChildren<Transform>(true).Any(t=>t.name=="Footstep AudioSource"),"Tracked boss has footsteps");
-            Assert(loops.All(l=>l.source.spatialBlend<.67f),"Machine detail loops are too spatial");
+            Assert(engine.source.spatialBlend>=.9f&&drill.source.spatialBlend>=.8f,"Continuous machinery is not spatial enough");
             var prepare=arena.boss.GetComponentsInChildren<MachinePrepareAudio>(true).Single();
             Assert(prepare.source.clip&&prepare.source.clip.name=="metal_scrape_loop"&&prepare.source.loop&&prepare.source.spatialBlend<.67f,"Missing looping prepare warning");
             arena.boss.ForceState(BossState.SlamPrepare);prepare.Sync();Assert(prepare.source.isPlaying,"Slam prepare warning failed to start");
             arena.boss.ForceState(BossState.ChargePrepare);prepare.Sync();Assert(prepare.source.isPlaying,"Charge does not share prepare loop");
-            arena.boss.ForceState(BossState.ChargeHold);prepare.Sync();Assert(!prepare.source.isPlaying,"Prepare loop leaked into charge hold");
+            prepare.source.time=.4f;arena.boss.ForceState(BossState.ChargeHold);prepare.Sync();Assert(prepare.source.isPlaying&&prepare.source.time>=.39f,"Prepare loop restarted/stopped on hold transition");arena.boss.ForceState(BossState.ChargeRecover);prepare.Sync();Assert(!prepare.source.isPlaying,"Warning did not stop in recover");
             Pass("Tracked boss has no footsteps; Slam/Charge share looping preparation warning with automatic stop");
             foreach(var binding in arena.boss.GetComponentsInChildren<ObjectAudio>(true))Assert(binding.sounds.All(s=>s.clips!=null&&s.clips.Any(c=>c)),"Missing assigned local clip on "+binding.name);
             arena.boss.ForceState(BossState.SlamHold);arena.boss.Tick(.12f);drill.SendMessage("Update");Assert(drill.source.isPlaying==arena.boss.DrillSpinning,"Drill loop does not follow rotation");
@@ -45,6 +45,7 @@ namespace AssetPipeline.Editor
                 var cue=pair.Item1.sounds.Single(s=>s.cue==pair.Item2);Assert(cue.spatialBlend==0&&cue.clips.Single().name=="大共振音效","Major resonance not mapped to pure 2D recording");
                 float volume=pair.Item1.source.volume;try{pair.Item1.source.volume=0;pair.Item1.Play(pair.Item2,pair.Item1.transform.position);Assert(pair.Item1.source.spatialBlend==0&&pair.Item1.LastClip.name=="大共振音效","Major resonance playback routing incorrect");}finally{pair.Item1.source.Stop();pair.Item1.source.volume=volume;}
             }
+            Assert(arena.warningSounds.Length==0,"Five simultaneous falling-rock warning sounds still mask heavy slam");
             Assert(!bossEvents.sounds.Any(s=>s.cue==UDK7MSound.ChargeStart||s.cue==UDK7MSound.CycleRestart),"Unnecessary charge/restart embellishments remain");
             var landing=arena.localDebrisPrefab.GetComponent<ObjectAudio>().sounds.Single(s=>s.cue==UDK7MSound.CrystalLanding);Assert(landing.clips.Single().name=="BigImpact","Falling crystal still uses glass landing sound");
             var chargeAudio=arena.player.GetComponent<GauntletChargeAudio>();Assert(chargeAudio&&chargeAudio.stages.clip.name=="三段蓄力"&&chargeAudio.fullLoop.clip.name=="蓄力满循环音效","Provided gauntlet recordings not assigned");
@@ -106,6 +107,7 @@ namespace AssetPipeline.Editor
         }
     }
 }
+
 
 
 

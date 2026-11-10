@@ -1,0 +1,16 @@
+{
+    "unityVersion": "6000.3.26f1",
+    "pipeline": "UnityEngine.Rendering.Universal.UniversalRenderPipelineAsset",
+    "shader": "WindConeFX/URP/WindCone",
+    "integratedPrefab": "Assets/Game/VFX/Combat/ReconstructedWindCone/Prefabs/WindCone_ProjectAdapter.prefab",
+    "originalPrefab": "Assets/Game/VFX/Combat/Advanced/Prefabs/DashWindCone.prefab",
+    "shaderSupported": true,
+    "shaderErrors": false,
+    "lifeZeroInvisible": true,
+    "lifeMidVisible": true,
+    "lifeEndInvisible": true,
+    "meshCount": 3,
+    "shellCount": 3,
+    "visibleDifferencePixels": 37143,
+    "messages": []
+}

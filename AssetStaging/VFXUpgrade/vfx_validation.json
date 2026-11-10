@@ -1,0 +1,54 @@
+{
+  "passed": true,
+  "error": null,
+  "checks": [
+    {
+      "name": "Review scene loaded",
+      "passed": true
+    },
+    {
+      "name": "Refraction Shader Graph compiles",
+      "passed": true
+    },
+    {
+      "name": "Each cosmetic crystal has eight triangles",
+      "passed": true
+    },
+    {
+      "name": "Cosmetic crystals have no pickup or gameplay collider",
+      "passed": true
+    },
+    {
+      "name": "GPU sparks emit dozens of live particles",
+      "passed": true
+    },
+    {
+      "name": "GPU ground collider is bound below impact",
+      "passed": true
+    },
+    {
+      "name": "Orange spark flash lights without shadows",
+      "passed": true
+    },
+    {
+      "name": "Purple flipbook mist is alive",
+      "passed": true
+    },
+    {
+      "name": "More than eighty crystal particles use world collision",
+      "passed": true
+    },
+    {
+      "name": "Seven animated lightning bolts have core and glow",
+      "passed": true
+    },
+    {
+      "name": "Lightning point lights do not cast shadows",
+      "passed": true
+    },
+    {
+      "name": "Crystal debris stays above the floor after five seconds",
+      "passed": true
+    }
+  ]
+}

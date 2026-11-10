@@ -1,0 +1,9 @@
+{
+  "passed": true,
+  "anchor": "FX_FullChargeCore",
+  "directParent": true,
+  "simulationSpace": "Local",
+  "followErrorMetres": 0.0,
+  "movedMetres": 0.178147525,
+  "rotationFollows": true
+}

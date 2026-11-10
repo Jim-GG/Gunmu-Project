@@ -1,0 +1,7 @@
+{
+  "passed": true,
+  "difference": 2854901,
+  "realFloorShader": "ModernLab/ModernLabLayered",
+  "noBaseColor": true,
+  "noEmission": true
+}

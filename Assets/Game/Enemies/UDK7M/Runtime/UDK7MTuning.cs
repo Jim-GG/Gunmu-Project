@@ -16,6 +16,9 @@ namespace UDK7M
         [HideInInspector]public Vector2 farWeights=new Vector2(55,45);[HideInInspector]public Vector3 rearWeights=new Vector3(40,30,30);
         [Header("Three phases / Slam, TripleSlam, Charge")]
         public Vector3 stableWeights=new Vector3(50,30,20),overloadedWeights=new Vector3(10,40,50);
+        [Tooltip("Horizontal distance from boss root to an unbroken pillar centre.")]
+        [Min(0)]public float nearPillarDistance=10;
+        [Range(0,1)]public float nearPillarTripleChance=.1f;
         public float overloadChargeSeconds=3,paralyzedFreezeFrame=64;
         public float paralyzedCenterClearance=8,paralyzedStaggerSeconds=.6f;
         public int cyclesToDefeat=3;
@@ -36,12 +39,16 @@ namespace UDK7M
         public Vector2 ordinaryRespawn=new Vector2(3,5),resonanceRespawn=new Vector2(15,20);
         public float corpseLifetime=30,spawnMinimumDistance=9;
         public float rockWarningSeconds=1,rockDamage=20,liquidDps=12;
+        [Header("Falling debris landing VFX / defaults to gauntlet heavy ground impact")]
+        public GameObject fallingImpactEffect;
+        [Min(.01f)]public float fallingRockImpactScale=.65f,fallingCrystalImpactScale=.85f,centralCrystalImpactScale=1.67f;
         [Header("Arena, rebound and ground impact")]
         public float arenaRadius=36,centralCrystalScale=2.2f,centralLaunchSpeed=23,pillarReboundSpeed=19,pureCrystalHeight=9;
         public float groundPoundMinimumHeight=3,groundPoundFallSpeed=35,groundPoundBossDamage=0,groundPoundRadius=40,groundPoundMinBossDistance=10,groundPoundPushSpeed=28;
         [Header("Cinemachine impulse")]
         public int impulseChannel=4;
         public float lightSlamShake=.12f,heavySlamShake=.38f,chargeImpactShake=.23f,resonanceShake=.5f,groundPoundShake=.8f;
+        [Min(0)]public float thirdSlamContactMuteSeconds=.35f;
     }
 }
 

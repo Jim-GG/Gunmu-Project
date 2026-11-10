@@ -1,0 +1,42 @@
+[
+  {
+    "name": "_FlowSpeed",
+    "value": "5.83"
+  },
+  {
+    "name": "_SwirlSpeed",
+    "value": "1.2"
+  },
+  {
+    "name": "_FlowLines",
+    "value": "WindLines (UnityEngine.Texture2D)"
+  },
+  {
+    "name": "_NoiseTex",
+    "value": "Noise_002 (UnityEngine.Texture2D)"
+  },
+  {
+    "name": "_LineThreshold",
+    "value": "0.55"
+  },
+  {
+    "name": "_Opacity",
+    "value": "0.4"
+  },
+  {
+    "name": "_LifeAlpha",
+    "value": "1"
+  },
+  {
+    "name": "_WindColor",
+    "value": "RGBA(0.800, 0.860, 0.900, 1.000)"
+  },
+  {
+    "name": "mesh",
+    "value": "DashWind_UserMesh (UnityEngine.Mesh)"
+  },
+  {
+    "name": "subMeshMask",
+    "value": "4294967295"
+  }
+]

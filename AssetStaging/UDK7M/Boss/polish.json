@@ -1,0 +1,21 @@
+{
+  "passed": true,
+  "prefabs": [
+    "Assets/Game/VFX/Combat/Sparks.prefab",
+    "Assets/Game/VFX/Combat/Explosion.prefab",
+    "Assets/Game/VFX/Combat/ResonanceShockwave.prefab"
+  ],
+  "nearPillarDistance": 10.0,
+  "tripleChance": 0.1,
+  "fallWarningAudio": 0,
+  "loops": [
+    {
+      "drill": true,
+      "spatialBlend": 0.85
+    },
+    {
+      "drill": false,
+      "spatialBlend": 0.95
+    }
+  ]
+}

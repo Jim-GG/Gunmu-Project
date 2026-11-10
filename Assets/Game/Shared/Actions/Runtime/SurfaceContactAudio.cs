@@ -12,7 +12,8 @@ namespace GameActions
         [Min(0)]public float interval=.12f;
         public AudioClip LastClip{get;private set;}
         public int ContactsPlayed{get;private set;}
-        readonly Dictionary<int,float> next=new Dictionary<int,float>();int cursor;
+        readonly Dictionary<int,float> next=new Dictionary<int,float>();int cursor;float mutedUntil;
+        public void MuteFor(float seconds){mutedUntil=Time.time+Mathf.Max(0,seconds);foreach(var s in sources)if(s)s.Stop();}
         public void EnsureSources()
         {
             if(sources!=null&&sources.Length>0&&Array.TrueForAll(sources,s=>s))return;
@@ -25,7 +26,7 @@ namespace GameActions
         }
         public bool Contact(Collider target,Vector3 point,bool fist)
         {
-            if(!target||target.isTrigger)return false;int key=SurfaceAudio.Identity(target);
+            if(!target||target.isTrigger||Time.time<mutedUntil)return false;int key=SurfaceAudio.Identity(target);
             if(next.TryGetValue(key,out var deadline)&&Time.time<deadline)return false;
             var clip=SurfaceAudio.ContactClip(target,fist);if(!clip)return false;
             EnsureSources();AudioSource source=null;foreach(var candidate in sources)if(!candidate.isPlaying){source=candidate;break;}
@@ -33,7 +34,7 @@ namespace GameActions
             source.transform.position=point;source.pitch=UnityEngine.Random.Range(.95f,1.05f);source.PlayOneShot(clip,volume);
             LastClip=clip;ContactsPlayed++;if(next.Count>128)next.Clear();next[key]=Time.time+interval;return true;
         }
-        void OnEnable(){next.Clear();}
+        void OnEnable(){next.Clear();mutedUntil=0;}
         void OnDisable(){if(sources!=null)foreach(var s in sources)if(s)s.Stop();next.Clear();}
     }
 }

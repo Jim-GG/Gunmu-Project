@@ -10,12 +10,13 @@ namespace UDK7M
         public bool Consume(UDK7MBoss boss)
         {
             if(Consumed||!boss||!boss.Engaged||boss.Phase!=MachinePhase.Stable)return false;
-            boss.arena.PillarResonated();return true;
+            boss.arena.PillarResonated(this);return true;
         }
-        public void Shatter(Vector3 source)
+        public void Shatter(Vector3 source,bool playEffects=true)
         {
+            if(Consumed)return;
             Consumed=true;
-            CombatEffects.Emit(CombatEffect.Resonance,ContactPoint(source),Vector3.up,2);CombatEffects.Emit(CombatEffect.CrystalShards,ContactPoint(source),Vector3.up,2);
+            if(playEffects){var boss=GetComponentInParent<UDK7MArena>()?.boss;if(!boss)boss=UnityEngine.Object.FindFirstObjectByType<UDK7MBoss>();if(boss)UDK7MPresentation.Ensure(boss).PlayPillarShatter(ContactPoint(source));}
             if(crystals)crystals.SetActive(false);
         }
         public void Regrow(){StopAllCoroutines();Consumed=false;if(crystals){crystals.SetActive(true);StartCoroutine(Grow());}}

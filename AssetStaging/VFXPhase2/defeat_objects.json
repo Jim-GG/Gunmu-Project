@@ -1,0 +1,82 @@
+[
+  {
+    "name": "ExplosionFinalGPU(Clone)",
+    "asset": "VFX_ExplosionFinal",
+    "alive": 499,
+    "position": "(-3.47, 2.90, 4.44)",
+    "bounds": "Center: (-3.47, 4.90, 4.44), Extents: (25.50, 25.50, 25.50)",
+    "rate": 1.0
+  },
+  {
+    "name": "ExplosionSmallGPU(Clone)",
+    "asset": "VFX_ExplosionSmall",
+    "alive": 10,
+    "position": "(-3.71, 2.90, 4.51)",
+    "bounds": "Center: (-3.71, 4.90, 4.51), Extents: (25.50, 25.50, 25.50)",
+    "rate": 1.0
+  },
+  {
+    "name": "ExplosionSmallGPU(Clone)",
+    "asset": "VFX_ExplosionSmall",
+    "alive": 23,
+    "position": "(-3.88, 3.72, 5.49)",
+    "bounds": "Center: (-3.88, 5.72, 5.49), Extents: (25.50, 25.50, 25.50)",
+    "rate": 1.0
+  },
+  {
+    "name": "Track rear GPU dust 2",
+    "asset": "VFX_TrackDust",
+    "alive": -1,
+    "position": "(-2.80, 0.15, 2.50)",
+    "bounds": "Center: (-2.80, 0.15, 2.50), Extents: (80.50, 80.50, 80.50)",
+    "rate": 1.0
+  },
+  {
+    "name": "ExplosionSmallGPU(Clone)",
+    "asset": "VFX_ExplosionSmall",
+    "alive": 13,
+    "position": "(-5.74, 2.95, 3.00)",
+    "bounds": "Center: (-5.74, 4.95, 3.00), Extents: (25.50, 25.50, 25.50)",
+    "rate": 1.0
+  },
+  {
+    "name": "ExplosionSmallGPU(Clone)",
+    "asset": "VFX_ExplosionSmall",
+    "alive": 24,
+    "position": "(-6.75, 3.65, 4.49)",
+    "bounds": "Center: (-6.75, 5.65, 4.49), Extents: (25.50, 25.50, 25.50)",
+    "rate": 1.0
+  },
+  {
+    "name": "Track rear GPU dust 1",
+    "asset": "VFX_TrackDust",
+    "alive": -1,
+    "position": "(-7.20, 0.15, 2.50)",
+    "bounds": "Center: (-7.20, 0.15, 2.50), Extents: (80.50, 80.50, 80.50)",
+    "rate": 1.0
+  },
+  {
+    "name": "ExplosionSmallGPU(Clone)",
+    "asset": "VFX_ExplosionSmall",
+    "alive": 6,
+    "position": "(-6.20, 2.85, 5.36)",
+    "bounds": "Center: (-6.20, 4.85, 5.36), Extents: (25.50, 25.50, 25.50)",
+    "rate": 1.0
+  },
+  {
+    "name": "ExplosionSmallGPU(Clone)",
+    "asset": "VFX_ExplosionSmall",
+    "alive": 20,
+    "position": "(-6.05, 5.23, 5.22)",
+    "bounds": "Center: (-6.05, 7.23, 5.22), Extents: (25.50, 25.50, 25.50)",
+    "rate": 1.0
+  },
+  {
+    "name": "ExplosionSmallGPU(Clone)",
+    "asset": "VFX_ExplosionSmall",
+    "alive": 16,
+    "position": "(-4.53, 2.95, 6.24)",
+    "bounds": "Center: (-4.53, 4.95, 6.24), Extents: (25.50, 25.50, 25.50)",
+    "rate": 1.0
+  }
+]

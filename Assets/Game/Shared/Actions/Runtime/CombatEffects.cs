@@ -3,25 +3,33 @@ using System.Collections.Generic;
 using System.Linq;
 namespace GameActions
 {
-    public enum CombatEffect { Sparks, Resonance, PurpleBlood, CrystalShards, Explosion, Dust, MetalDebris }
+    public enum CombatEffect { Sparks, Resonance, PurpleBlood, CrystalShards, Explosion, Dust, MetalDebris, ConcreteImpactLight, ConcreteImpactHeavy }
     public static class CombatEffects
     {
         static ParticleSystem[] pool;static int cursor;static Material material;static Mesh shard;
         static Transform root;static readonly Dictionary<int,List<CombatEffectLease>> custom=new Dictionary<int,List<CombatEffectLease>>();
-        [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.SubsystemRegistration)]static void Reset(){pool=null;material=null;shard=null;cursor=0;root=null;custom.Clear();}
+        static CombatEffectLibrary library;
+        [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.SubsystemRegistration)]static void Reset(){pool=null;material=null;shard=null;cursor=0;root=null;library=null;custom.Clear();}
+        public static GameObject Burst(GameObject prefab,Vector3 point,Vector3 normal,float size,float lifetime)
+        {return Spawn(prefab,null,point,Quaternion.FromToRotation(Vector3.up,normal),size,lifetime);}
         public static void Contact(GameObject prefab,AudioClip sound,Vector3 point,float lifetime)
+        {Spawn(prefab,sound,point,Quaternion.identity,1,lifetime);}
+        static GameObject Spawn(GameObject prefab,AudioClip sound,Vector3 point,Quaternion rotation,float size,float lifetime)
         {
-            if(!prefab&&!sound)return;
+            if(!prefab&&!sound)return null;
             if(!root)Create();int key=prefab?prefab.GetInstanceID():sound.GetInstanceID();if(!custom.TryGetValue(key,out var leases))custom[key]=leases=new List<CombatEffectLease>();
             leases.RemoveAll(l=>!l);var lease=leases.FirstOrDefault(l=>!l.gameObject.activeSelf||l.Until<=Time.time);
             if(!lease&&leases.Count>=8)lease=leases.OrderBy(l=>l.Until).First();
             if(!lease){var go=prefab?Object.Instantiate(prefab,root):new GameObject("Pooled contact audio");go.transform.SetParent(root);lease=go.AddComponent<CombatEffectLease>();leases.Add(lease);}
-            lease.gameObject.SetActive(false);lease.transform.position=point;lease.Until=Time.time+Mathf.Max(.05f,lifetime);lease.gameObject.SetActive(true);
-            foreach(var p in lease.GetComponentsInChildren<ParticleSystem>()){p.Stop(true,ParticleSystemStopBehavior.StopEmittingAndClear);p.Play();}
+            lease.gameObject.SetActive(false);lease.transform.SetPositionAndRotation(point,rotation*(prefab?prefab.transform.localRotation:Quaternion.identity));lease.transform.localScale=(prefab?prefab.transform.localScale:Vector3.one)*size;lease.Until=Time.time+Mathf.Max(.05f,lifetime);lease.gameObject.SetActive(true);
+            foreach(var p in lease.GetComponentsInChildren<ParticleSystem>()){p.Stop(false,ParticleSystemStopBehavior.StopEmittingAndClear);p.Play(false);}
             if(sound){var source=lease.GetComponent<AudioSource>();if(!source)source=lease.gameObject.AddComponent<AudioSource>();source.spatialBlend=.6f;source.minDistance=3;source.maxDistance=80;source.playOnAwake=false;source.PlayOneShot(sound);lease.Until=Mathf.Max(lease.Until,Time.time+sound.length);}
+            return lease.gameObject;
         }
         public static void Emit(CombatEffect kind,Vector3 position,Vector3 normal,float size=1)
         {
+            if(!library)library=Resources.Load<CombatEffectLibrary>("CombatVFX");var configured=library?library.Find(kind):null;
+            if(configured!=null){Spawn(configured.prefab,null,position,Quaternion.FromToRotation(Vector3.up,normal.sqrMagnitude>.001f?normal.normalized:Vector3.up),size,configured.lifetime);return;}
             if(pool==null||pool.Length==0||!pool[0])Create();
             var p=pool[cursor++%pool.Length];p.Stop(true,ParticleSystemStopBehavior.StopEmittingAndClear);p.transform.position=position;
             var main=p.main;main.startLifetime=kind==CombatEffect.Sparks?.25f:kind==CombatEffect.PurpleBlood?.6f:1.1f;main.startSpeed=(kind==CombatEffect.Sparks?3:kind==CombatEffect.Explosion?9:4)*size;main.gravityModifier=kind==CombatEffect.Resonance?0:.7f;
@@ -43,4 +51,5 @@ namespace GameActions
         }
     }
 }
+
 

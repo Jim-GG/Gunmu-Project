@@ -1,0 +1,388 @@
+{
+  "vfx": {
+    "type": "UnityEditor.VFX.VFXGraph",
+    "name": "",
+    "inputs": null,
+    "children": [
+      {
+        "type": "UnityEditor.VFX.VFXBasicSpawner",
+        "name": "Spawn",
+        "inputs": [
+          {
+            "type": "VFXSlotFloat",
+            "name": "LoopDuration",
+            "value": "2",
+            "children": []
+          }
+        ],
+        "children": [
+          {
+            "type": "UnityEditor.VFX.VFXSpawnerBurst",
+            "name": "Single Burst",
+            "inputs": [
+              {
+                "type": "VFXSlotFloat",
+                "name": "Count",
+                "value": "128",
+                "children": []
+              },
+              {
+                "type": "VFXSlotFloat",
+                "name": "Delay",
+                "value": "0",
+                "children": []
+              }
+            ],
+            "children": []
+          }
+        ]
+      },
+      {
+        "type": "UnityEditor.VFX.VFXBasicInitialize",
+        "name": "Initialize Particle",
+        "inputs": [
+          {
+            "type": "VFXSlot",
+            "name": "bounds",
+            "value": "UnityEditor.VFX.AABox",
+            "children": [
+              {
+                "type": "VFXSlotFloat3",
+                "name": "center",
+                "value": "(0.00, -2.00, 0.00)",
+                "children": [
+                  {
+                    "type": "VFXSlotFloat",
+                    "name": "x",
+                    "value": "0",
+                    "children": []
+                  },
+                  {
+                    "type": "VFXSlotFloat",
+                    "name": "y",
+                    "value": "-2",
+                    "children": []
+                  },
+                  {
+                    "type": "VFXSlotFloat",
+                    "name": "z",
+                    "value": "0",
+                    "children": []
+                  }
+                ]
+              },
+              {
+                "type": "VFXSlotFloat3",
+                "name": "size",
+                "value": "(7.00, 8.00, 7.00)",
+                "children": [
+                  {
+                    "type": "VFXSlotFloat",
+                    "name": "x",
+                    "value": "7",
+                    "children": []
+                  },
+                  {
+                    "type": "VFXSlotFloat",
+                    "name": "y",
+                    "value": "8",
+                    "children": []
+                  },
+                  {
+                    "type": "VFXSlotFloat",
+                    "name": "z",
+                    "value": "7",
+                    "children": []
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "VFXSlotFloat3",
+            "name": "boundsPadding",
+            "value": "(0.50, 0.50, 0.50)",
+            "children": [
+              {
+                "type": "VFXSlotFloat",
+                "name": "x",
+                "value": "0.5",
+                "children": []
+              },
+              {
+                "type": "VFXSlotFloat",
+                "name": "y",
+                "value": "0.5",
+                "children": []
+              },
+              {
+                "type": "VFXSlotFloat",
+                "name": "z",
+                "value": "0.5",
+                "children": []
+              }
+            ]
+          }
+        ],
+        "children": [
+          {
+            "type": "UnityEditor.VFX.Block.SetAttribute",
+            "name": "|Set|_Lifetime|Random Uniform",
+            "inputs": [
+              {
+                "type": "VFXSlotFloat",
+                "name": "A",
+                "value": "0.5",
+                "children": []
+              },
+              {
+                "type": "VFXSlotFloat",
+                "name": "B",
+                "value": "1",
+                "children": []
+              }
+            ],
+            "children": []
+          },
+          {
+            "type": "UnityEditor.VFX.Block.PositionShape",
+            "name": "|Set|_Position Shape|Sphere",
+            "inputs": [
+              {
+                "type": "VFXSlot",
+                "name": "arcSphere",
+                "value": "UnityEditor.VFX.TArcSphere",
+                "children": [
+                  {
+                    "type": "VFXSlot",
+                    "name": "sphere",
+                    "value": "UnityEditor.VFX.TSphere",
+                    "children": [
+                      {
+                        "type": "VFXSlotTransform",
+                        "name": "transform",
+                        "value": "UnityEditor.VFX.Transform",
+                        "children": [
+                          {
+                            "type": "VFXSlotFloat3",
+                            "name": "position",
+                            "value": "(0.00, 0.00, 0.00)",
+                            "children": null
+                          },
+                          {
+                            "type": "VFXSlotFloat3",
+                            "name": "angles",
+                            "value": "(0.00, 0.00, 0.00)",
+                            "children": null
+                          },
+                          {
+                            "type": "VFXSlotFloat3",
+                            "name": "scale",
+                            "value": "(1.00, 1.00, 1.00)",
+                            "children": null
+                          }
+                        ]
+                      },
+                      {
+                        "type": "VFXSlotFloat",
+                        "name": "radius",
+                        "value": "0.15",
+                        "children": []
+                      }
+                    ]
+                  },
+                  {
+                    "type": "VFXSlotFloat",
+                    "name": "arc",
+                    "value": "6.28",
+                    "children": []
+                  }
+                ]
+              }
+            ],
+            "children": []
+          },
+          {
+            "type": "UnityEditor.VFX.Block.VelocityDirection",
+            "name": "|Set|_Velocity from Direction & Speed|New Direction",
+            "inputs": [
+              {
+                "type": "VFXSlotDirection",
+                "name": "Direction",
+                "value": "(0.00, 1.00, 0.00)",
+                "children": [
+                  {
+                    "type": "VFXSlotFloat3",
+                    "name": "direction",
+                    "value": "(0.00, 1.00, 0.00)",
+                    "children": [
+                      {
+                        "type": "VFXSlotFloat",
+                        "name": "x",
+                        "value": "0",
+                        "children": []
+                      },
+                      {
+                        "type": "VFXSlotFloat",
+                        "name": "y",
+                        "value": "1",
+                        "children": []
+                      },
+                      {
+                        "type": "VFXSlotFloat",
+                        "name": "z",
+                        "value": "0",
+                        "children": []
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "VFXSlotFloat",
+                "name": "MinSpeed",
+                "value": "0.5",
+                "children": []
+              },
+              {
+                "type": "VFXSlotFloat",
+                "name": "MaxSpeed",
+                "value": "4.5",
+                "children": []
+              },
+              {
+                "type": "VFXSlotFloat",
+                "name": "DirectionBlend",
+                "value": "0",
+                "children": []
+              }
+            ],
+            "children": []
+          }
+        ]
+      },
+      {
+        "type": "UnityEditor.VFX.VFXBasicUpdate",
+        "name": "Update Particle",
+        "inputs": [],
+        "children": [
+          {
+            "type": "UnityEditor.VFX.Block.Gravity",
+            "name": "Gravity",
+            "inputs": [
+              {
+                "type": "VFXSlotVector",
+                "name": "Force",
+                "value": "(0.00, -9.81, 0.00)",
+                "children": [
+                  {
+                    "type": "VFXSlotFloat3",
+                    "name": "vector",
+                    "value": "(0.00, -9.81, 0.00)",
+                    "children": [
+                      {
+                        "type": "VFXSlotFloat",
+                        "name": "x",
+                        "value": "0",
+                        "children": []
+                      },
+                      {
+                        "type": "VFXSlotFloat",
+                        "name": "y",
+                        "value": "-9.81",
+                        "children": []
+                      },
+                      {
+                        "type": "VFXSlotFloat",
+                        "name": "z",
+                        "value": "0",
+                        "children": []
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "children": []
+          },
+          {
+            "type": "UnityEditor.VFX.Block.Drag",
+            "name": "Linear Drag",
+            "inputs": [
+              {
+                "type": "VFXSlotFloat",
+                "name": "dragCoefficient",
+                "value": "0.5",
+                "children": []
+              }
+            ],
+            "children": []
+          }
+        ]
+      },
+      {
+        "type": "UnityEditor.VFX.VFXPlanarPrimitiveOutput",
+        "name": "Output Particle|Unlit\nQuad",
+        "inputs": [
+          {
+            "type": "VFXSlotTexture2D",
+            "name": "mainTexture",
+            "value": "DefaultDot (UnityEngine.Texture2D)",
+            "children": []
+          }
+        ],
+        "children": [
+          {
+            "type": "UnityEditor.VFX.Block.Orient",
+            "name": "Orient: Face Camera Plane",
+            "inputs": [],
+            "children": []
+          },
+          {
+            "type": "UnityEditor.VFX.Block.AttributeFromCurve",
+            "name": "|Multiply|_Size|Over Life",
+            "inputs": [
+              {
+                "type": "VFXSlotAnimationCurve",
+                "name": "Size",
+                "value": "UnityEngine.AnimationCurve",
+                "children": []
+              }
+            ],
+            "children": []
+          },
+          {
+            "type": "UnityEditor.VFX.Block.AttributeFromCurve",
+            "name": "|Multiply|_Color|Over Life",
+            "inputs": [
+              {
+                "type": "VFXSlotGradient",
+                "name": "Color",
+                "value": "UnityEngine.Gradient",
+                "children": []
+              }
+            ],
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  "shaderTypes": [
+    {
+      "name": "UnityEditor.ShaderGraph.GraphData",
+      "found": true,
+      "assembly": "Unity.ShaderGraph.Editor"
+    },
+    {
+      "name": "UnityEditor.ShaderGraph.Vector4MaterialSlot",
+      "found": true,
+      "assembly": "Unity.ShaderGraph.Editor"
+    },
+    {
+      "name": "UnityEditor.Rendering.Universal.ShaderGraph.UniversalTarget",
+      "found": true,
+      "assembly": "Unity.RenderPipelines.Universal.Editor"
+    }
+  ]
+}

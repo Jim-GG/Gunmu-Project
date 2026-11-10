@@ -1,0 +1,107 @@
+[
+  {
+    "name": "Review scene and resource library load",
+    "passed": true,
+    "required": true
+  },
+  {
+    "name": "SG_ChromaticDistortion compiles",
+    "passed": true,
+    "required": true
+  },
+  {
+    "name": "SG_HeatHaze_URP compiles",
+    "passed": true,
+    "required": true
+  },
+  {
+    "name": "SG_DashWind_URP compiles",
+    "passed": true,
+    "required": true
+  },
+  {
+    "name": "SG_WeaponSurfaceEnergy compiles",
+    "passed": true,
+    "required": true
+  },
+  {
+    "name": "Mesh refraction changes opaque background",
+    "passed": true,
+    "required": true
+  },
+  {
+    "name": "GPU Shader Graph samples background and separates RGB",
+    "passed": false,
+    "required": false
+  },
+  {
+    "name": "Zero strength removes GPU distortion",
+    "passed": true,
+    "required": false
+  },
+  {
+    "name": "New dual-noise heat haze distorts background",
+    "passed": true,
+    "required": true
+  },
+  {
+    "name": "GPU heat Shader Graph compatibility",
+    "passed": false,
+    "required": false
+  },
+  {
+    "name": "GPU fragment events emit more smoke particles than seed fragments",
+    "passed": true,
+    "required": true
+  },
+  {
+    "name": "Thirty-Hz trail property exposed",
+    "passed": true,
+    "required": true
+  },
+  {
+    "name": "Wind tip placement is exact",
+    "passed": true,
+    "required": true
+  },
+  {
+    "name": "User wind prefab nested and rendered",
+    "passed": true,
+    "required": true
+  },
+  {
+    "name": "Final blast originates outside the visible hull surface",
+    "passed": true,
+    "required": true
+  },
+  {
+    "name": "Orange fire illumination is active without shadows",
+    "passed": true,
+    "required": true
+  },
+  {
+    "name": "Defeat runs all small explosions followed by one final explosion",
+    "passed": true,
+    "required": true
+  },
+  {
+    "name": "Every blast stage sends a Cinemachine impulse",
+    "passed": true,
+    "required": true
+  },
+  {
+    "name": "Final explosion graph contains fire, streaks, fragments and smoke",
+    "passed": true,
+    "required": true
+  },
+  {
+    "name": "Existing expanding ground dust is reused in six instances",
+    "passed": true,
+    "required": true
+  },
+  {
+    "name": "Track dust emits GPU particles at moving world positions",
+    "passed": false,
+    "required": true
+  }
+]

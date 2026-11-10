@@ -1,0 +1,7 @@
+UnityEngine.MissingReferenceException: The object of type 'UnityEngine.Texture2D' has been destroyed but you are still trying to access it.
+Your script should either check if it is null or you should not destroy the object.
+  at UnityEngine.Object+MarshalledUnityObject.TryThrowEditorNullExceptionObject (UnityEngine.Object unityObj, System.String parameterName) [0x0006a] in <4188a0f79dff4b4191dbeaff03bfe462>:0 
+  at UnityEngine.Bindings.ThrowHelper.ThrowNullReferenceException (System.Object obj) [0x00010] in <4188a0f79dff4b4191dbeaff03bfe462>:0 
+  at UnityEngine.Texture2D.GetPixels32 (System.Int32 miplevel) [0x00006] in <4188a0f79dff4b4191dbeaff03bfe462>:0 
+  at UnityEngine.Texture2D.GetPixels32 () [0x00001] in <4188a0f79dff4b4191dbeaff03bfe462>:0 
+  at AssetPipeline.Editor.SurfaceVFXSetup+<>c__DisplayClass11_0.<PreviewVerify>b__0 () [0x00184] in D:\UNITY工程\棍木项目\棍木项目\Assets\Tools\AssetPipeline\Editor\SurfaceVFXSetup.cs:116 

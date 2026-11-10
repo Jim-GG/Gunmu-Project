@@ -48,6 +48,16 @@
       "details": null
     },
     {
+      "name": "User wind follows animated drill tip; track dust follows actual travel and stops with machine",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "ChargeRecover has no crater; SlamRecover retains impact decals",
+      "passed": true,
+      "details": null
+    },
+    {
       "name": "Wide boss navigation routes around all four columns",
       "passed": true,
       "details": null
@@ -66,6 +76,24 @@
       "name": "Collision-constrained boss push reflects at arena wall",
       "passed": true,
       "details": null
+    },
+    {
+      "name": "Stable phase near pillar uses 70/10/20; far from pillars retains 50/30/20",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "Editable Sparks/Explosion library and Shockwave prefab connected",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "Prepare warning continues through SlamHold, audibly loops past clip duration, and stops at recover",
+      "passed": true,
+      "details": {
+        "loops": 1,
+        "dspSeconds": 1.8133333333335031
+      }
     },
     {
       "name": "Phase one 50/30/20 weights, two light/one heavy impulse, rocks without purple crystals",
@@ -183,6 +211,11 @@
       "details": null
     },
     {
+      "name": "Final defeat finishes all seven small blasts and the final stage",
+      "passed": true,
+      "details": null
+    },
+    {
       "name": "Three-phase encounter resets",
       "passed": true,
       "details": null
@@ -191,7 +224,7 @@
       "name": "Cinemachine listener position receives nonzero shake signal",
       "passed": true,
       "details": {
-        "amplitude": 0.0852599
+        "amplitude": 0.0128430808
       }
     }
   ]

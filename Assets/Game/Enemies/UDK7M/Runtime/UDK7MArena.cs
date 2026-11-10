@@ -30,12 +30,12 @@ namespace UDK7M
         void PlayerDied(){retryAt=Time.time+1.3f;}
         void Update(){if(Keyboard.current!=null&&Keyboard.current.rKey.wasPressedThisFrame||retryAt>0&&Time.time>=retryAt)ResetEncounter();}
         public void BeginFight(){if(Started||Won)return;Started=true;boss.Engage();}
-        public void PillarResonated(){if(boss.Phase!=MachinePhase.Stable||boss.State==BossState.OverloadCharge)return;foreach(var p in pillars){p.Shatter(boss.DrillTip);feedback.Sound(UDK7MSound.PillarShatter,p.ContactPoint(boss.DrillTip),p.transform);}boss.PillarOverload();}
+        public void PillarResonated(UDK7MCrystalPillar struck=null){if(boss.Phase!=MachinePhase.Stable||boss.State==BossState.OverloadCharge)return;if(!struck)struck=pillars.Where(p=>p&&!p.Consumed).OrderBy(p=>(p.ContactPoint(boss.DrillTip)-boss.DrillTip).sqrMagnitude).FirstOrDefault();foreach(var p in pillars)if(p)p.Shatter(boss.DrillTip,p==struck);if(struck)feedback.Sound(UDK7MSound.PillarShatter,struck.ContactPoint(boss.DrillTip),struck.transform);boss.PillarOverload();}
         public void ResetPopulationForCycle(){minions.StopAndClear();ClearDebris();foreach(var p in gameObject.scene.GetRootGameObjects().SelectMany(g=>g.GetComponentsInChildren<UDK7MPureCrystal>(true)))p.ResetCrystal();}
         void ClearDebris(){epoch++;StopAllCoroutines();ClearWarnings();foreach(var d in debris)if(d)d.gameObject.SetActive(false);}
         public bool GroundImpact(Vector3 point)
         {
-            if(!boss.GroundPound(point))return false;feedback.Wave(point,tuning.groundPoundRadius,1.25f);feedback.Shake(point,tuning.groundPoundShake,.8f);feedback.Sound(UDK7MSound.GroundPoundImpact,point,player.transform);foreach(var p in pillars){p.Regrow();feedback.Sound(UDK7MSound.PillarRegrow,p.transform.position,p.transform);}
+            if(!boss.GroundPound(point))return false;var heavy=Resources.Load<GameActions.CombatEffectLibrary>("CombatVFX")?.Find(GameActions.CombatEffect.ConcreteImpactHeavy);if(heavy?.prefab)GameActions.CombatEffects.Burst(heavy.prefab,point,Vector3.up,1.67f,heavy.lifetime);feedback.Shake(point,tuning.groundPoundShake,.8f);feedback.Sound(UDK7MSound.GroundPoundImpact,point,player.transform);foreach(var p in pillars){p.Regrow();feedback.Sound(UDK7MSound.PillarRegrow,p.transform.position,p.transform);}
             foreach(var e in minions.Actors.Where(e=>e&&e.ActionTargetAlive).ToArray())e.ReceiveActionDamage(new GameActions.ActionDamage(130,point,4,.3f,cause:GameActions.DamageCause.Resonance));return true;
         }
         public UDK7MCrystalPillar AvailablePillar(Vector3 origin)=>pillars.Where(p=>p&&!p.Consumed).OrderBy(p=>(p.transform.position-origin).sqrMagnitude).FirstOrDefault();
@@ -60,7 +60,7 @@ namespace UDK7M
                 if(NavMesh.SamplePosition(p,out var nav,5,NavMesh.AllAreas))p=nav.position;
                 if(Vector3.ProjectOnPlane(p,Vector3.up).magnitude>tuning.arenaRadius-3)p=Vector3.ProjectOnPlane(p,Vector3.up).normalized*(tuning.arenaRadius-4);
                 points[i]=p;var warn=GameObject.CreatePrimitive(PrimitiveType.Cylinder);Destroy(warn.GetComponent<Collider>());warn.name="Locked falling debris warning";warn.transform.position=p+Vector3.up*.03f;warn.transform.localScale=new Vector3(2,.015f,2);warn.GetComponent<Renderer>().sharedMaterial=warningMaterial;warn.transform.SetParent(transform);warnings[i]=warn;warningObjects.Add(warn);
-                var warningAudio=warn.AddComponent<GameActions.ObjectAudio>();warningAudio.sounds=new[]{new GameActions.ObjectSound{cue=UDK7MSound.RockWarning,clips=warningSounds,volume=.25f}};feedback.Sound(UDK7MSound.RockWarning,p,warn.transform);
+                if(warningSounds!=null&&warningSounds.Any(c=>c)){var warningAudio=warn.AddComponent<GameActions.ObjectAudio>();warningAudio.sounds=new[]{new GameActions.ObjectSound{cue=UDK7MSound.RockWarning,clips=warningSounds,volume=.25f}};feedback.Sound(UDK7MSound.RockWarning,p,warn.transform);}
             }
             yield return new WaitForSeconds(tuning.rockWarningSeconds);
             for(int i=0;i<count;i++)

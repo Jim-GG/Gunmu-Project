@@ -1,0 +1,30 @@
+[
+  {
+    "source": "D:\\特效纹理\\95张4K高清烟火爆炸序列图\\95张4K高清烟火爆炸序列图\\Smoke_01_loop_8x8.tga",
+    "destination": "Assets\\Game\\VFX\\Combat\\Textures\\Smoke_01_loop_8x8.tga"
+  },
+  {
+    "source": "D:\\特效纹理\\95张4K高清烟火爆炸序列图\\95张4K高清烟火爆炸序列图\\Smoke_05_loop_8x8.tga",
+    "destination": "Assets\\Game\\VFX\\Combat\\Textures\\Smoke_05_loop_8x8.tga"
+  },
+  {
+    "source": "D:\\特效纹理\\95张4K高清烟火爆炸序列图\\95张4K高清烟火爆炸序列图\\Smoke_07_loop_8x8.tga",
+    "destination": "Assets\\Game\\VFX\\Combat\\Textures\\Smoke_07_loop_8x8.tga"
+  },
+  {
+    "source": "D:\\特效纹理\\100张高清无缝噪波纹理\\Noise_001.png",
+    "destination": "Assets\\Game\\VFX\\Combat\\Textures\\Noise_001.png"
+  },
+  {
+    "source": "D:\\特效纹理\\100张高清无缝噪波纹理\\Noise_002.png",
+    "destination": "Assets\\Game\\VFX\\Combat\\Textures\\Noise_002.png"
+  },
+  {
+    "source": "D:\\特效纹理\\199张电流贴图\\199张电流贴图\\199张电流贴图\\electric_001.png",
+    "destination": "Assets\\Game\\VFX\\Combat\\Textures\\electric_001.png"
+  },
+  {
+    "source": "D:\\特效纹理\\199张电流贴图\\199张电流贴图\\199张电流贴图\\electric_003.png",
+    "destination": "Assets\\Game\\VFX\\Combat\\Textures\\electric_003.png"
+  }
+]

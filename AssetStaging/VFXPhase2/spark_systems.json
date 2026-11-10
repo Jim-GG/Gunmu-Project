@@ -1,0 +1,12 @@
+[
+  {
+    "name": "Simple Burst",
+    "capacity": 1024,
+    "alive": 0
+  },
+  {
+    "name": "System",
+    "capacity": 4,
+    "alive": 0
+  }
+]

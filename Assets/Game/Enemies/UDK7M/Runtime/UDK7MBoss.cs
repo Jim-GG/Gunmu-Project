@@ -31,12 +31,12 @@ namespace UDK7M
             if(!motor)motor=GetComponent<UDK7MMotor>();motor.tuning=tuning;motor.Initialize();
             if(!runner)runner=GetComponentInChildren<ActionRunner>();runner.profile=actions;boxes=new ActionHitbox(transform);boxes.BindProfile(actions);
             contacts.TargetFilter=t=>t is ResonatorTarget||t is ResonatorEnemy;runner.motion.FrameEventRaised+=FrameEvent;
-            ResetBoss();tracks=new UDK7MTracks(transform);crush=new UDK7MCrush(transform,tuning);
+            UDK7MPresentation.Ensure(this);ResetBoss();tracks=new UDK7MTracks(transform);crush=new UDK7MCrush(transform,tuning);
         }
         public void ResetBoss()
         {
             if(!ready){Initialize();return;}ReleaseCapture();motor.Stop();transform.SetPositionAndRotation(spawn,spawnRotation);motor.Initialize();
-            Health=tuning.maxHealth;Engaged=false;Phase=MachinePhase.Stable;CompletedCycles=BodiesConsumed=0;DrillSpinning=false;
+            GetComponent<UDK7MPresentation>()?.ResetVisuals();GetComponent<GroundImpactDecals>()?.Clear();Health=tuning.maxHealth;Engaged=false;Phase=MachinePhase.Stable;CompletedCycles=BodiesConsumed=0;DrillSpinning=false;
             previousDrill=drill?drill.localRotation:Quaternion.identity;Enter(BossState.Idle,true);nextDecision=UnityEngine.Random.Range(tuning.ambientInterval.x,tuning.ambientInterval.y);tracks?.Reset();crush?.Reset();
         }
         public void Engage(){Initialize();Engaged=true;nextDecision=0;}
@@ -51,14 +51,14 @@ namespace UDK7M
         void Defeat()
         {
             Health=0;ReleaseCapture();Enter(BossState.Defeated);DrillSpinning=false;runner.motion.StopForRagdoll();
-            CombatEffects.Emit(CombatEffect.Explosion,ActionAimPoint,Vector3.up,3);CombatEffects.Emit(CombatEffect.Dust,ActionAimPoint,Vector3.up,3);CombatEffects.Emit(CombatEffect.MetalDebris,ActionAimPoint,Vector3.up,2);
-            arena?.feedback.Shake(ActionAimPoint,tuning.groundPoundShake,1);arena?.feedback.Sound(UDK7MSound.Defeat,ActionAimPoint,transform);arena?.BossDefeated();Defeated?.Invoke();onDefeated.Invoke();
+            UDK7MPresentation.Ensure(this).PlayDefeat();
+            arena?.BossDefeated();Defeated?.Invoke();onDefeated.Invoke();
         }
         void FrameEvent(MotionFrameEvent e)
         {
-            events.Dispatch(e,boxes);if(e.name=="SlamLight1"||e.name=="SlamLight2"){arena?.feedback.Shake(DrillTip,tuning.lightSlamShake);arena?.feedback.Sound(UDK7MSound.SlamLight,DrillTip,drill);}
+            events.Dispatch(e,boxes);if(State!=BossState.ChargeRecover&&(e.name=="SlamLight1"||e.name=="SlamLight2"||e.name=="SlamImpact"||e.name=="ThirdSlam"))GetComponent<GroundImpactDecals>()?.Stamp(DrillTip,e.name=="ThirdSlam"?2.2f:e.name=="SlamImpact"?1.7f:1.1f);if(e.name=="SlamLight1"||e.name=="SlamLight2"){arena?.feedback.Shake(DrillTip,tuning.lightSlamShake);arena?.feedback.Sound(UDK7MSound.SlamLight,DrillTip,drill);}
             if(e.name=="SlamImpact"){arena?.feedback.Shake(DrillTip,tuning.heavySlamShake);arena?.feedback.Sound(State==BossState.ChargeRecover?UDK7MSound.ChargeImpact:UDK7MSound.SlamHeavy,DrillTip,drill);}
-            if(e.name=="ThirdSlam"&&State==BossState.TripleSlam){arena?.feedback.Shake(DrillTip,tuning.heavySlamShake,.5f);arena?.feedback.Sound(UDK7MSound.TripleFinalImpact,DrillTip,drill);if(Phase==MachinePhase.Paralyzed)arena.DropCentralCrystal();else arena.DropRocks();}
+            if(e.name=="ThirdSlam"&&State==BossState.TripleSlam){GetComponent<SurfaceContactAudio>()?.MuteFor(tuning.thirdSlamContactMuteSeconds);arena?.feedback.Shake(DrillTip,tuning.heavySlamShake,.5f);arena?.feedback.Sound(UDK7MSound.TripleFinalImpact,DrillTip,drill);if(Phase==MachinePhase.Paralyzed)arena.DropCentralCrystal();else arena.DropRocks();}
         }
         void Update(){if(ready&&ActionTargetAlive)Tick(Time.deltaTime);}
         public void Tick(float dt)
@@ -139,8 +139,19 @@ namespace UDK7M
         public bool InSlamRange(float distance,float previous,float angle)=>angle<=tuning.slamFrontAngle&&(distance<=tuning.slamRange||previous>tuning.slamRange&&distance<tuning.slamMinimumRange);
         public BossState SelectAttack(float unitRoll)
         {
-            var w=Phase==MachinePhase.Stable?tuning.stableWeights:tuning.overloadedWeights;float choice=Mathf.Clamp01(unitRoll)*(w.x+w.y+w.z);
+            var w=CurrentAttackWeights;float choice=Mathf.Clamp01(unitRoll)*(w.x+w.y+w.z);
             return choice<w.x?BossState.SlamPrepare:choice<w.x+w.y?BossState.TripleSlam:BossState.ChargePrepare;
+        }
+        public bool NearUnbrokenPillar=>arena&&arena.pillars!=null&&arena.pillars.Any(p=>p&&!p.Consumed&&Vector3.ProjectOnPlane(p.transform.position-transform.position,Vector3.up).sqrMagnitude<=tuning.nearPillarDistance*tuning.nearPillarDistance);
+        public Vector3 CurrentAttackWeights
+        {
+            get
+            {
+                var w=Phase==MachinePhase.Stable?tuning.stableWeights:tuning.overloadedWeights;
+                if(Phase==MachinePhase.Stable&&NearUnbrokenPillar)
+                {float removed=Mathf.Max(0,w.y-(w.x+w.y+w.z)*tuning.nearPillarTripleChance);w.x+=removed;w.y-=removed;}
+                return w;
+            }
         }
         void Decide(){if(!arena.player||!arena.player.Alive)return;afterTurn=SelectAttack(UnityEngine.Random.value);Enter(motor.Angle(arena.player.transform.position)>tuning.turnBeforeChargeAngle?BossState.Turning:afterTurn);}
         public void ForceState(BossState next,bool align=false){afterTurn=next;if(align)Enter(BossState.Turning);else Enter(next);}
@@ -179,7 +190,7 @@ namespace UDK7M
         {
             if(!corpse||!corpse.gameObject.activeInHierarchy||corpse.ActionTargetAlive||corpse.Absorbed||!ActionTargetAlive||Phase!=MachinePhase.Overloaded)return;
             corpse.Absorbed=true;BodiesConsumed++;var point=DrillTip;ReleaseCapture();
-            CombatEffects.Emit(CombatEffect.PurpleBlood,point,Vector3.up);CombatEffects.Emit(CombatEffect.CrystalShards,point,Vector3.up);CombatEffects.Emit(CombatEffect.Explosion,point,Vector3.up,2);arena.feedback.Wave(point,tuning.resonanceRadius);arena.feedback.Shake(point,tuning.resonanceShake,.65f);arena.feedback.Sound(UDK7MSound.ResonanceBurst,point,drill);
+            CombatEffects.Emit(CombatEffect.PurpleBlood,point,Vector3.up,2);CombatEffects.Emit(CombatEffect.CrystalShards,point,Vector3.up);arena.feedback.Wave(point,tuning.resonanceRadius);arena.feedback.Shake(point,tuning.resonanceShake,.65f);arena.feedback.Sound(UDK7MSound.ResonanceBurst,point,drill);
             arena.minions.Recycle(corpse);foreach(var enemy in arena.minions.Actors.ToArray())if(enemy&&enemy.ActionTargetAlive){if(Vector3.Distance(enemy.ActionAimPoint,point)<=tuning.resonanceRadius)enemy.ReceiveActionDamage(new ActionDamage(tuning.resonanceDamage,point,cause:DamageCause.Resonance));if(enemy.ActionTargetAlive)enemy.Agonize();}
             Damage(tuning.corpseDamage);Phase=MachinePhase.Paralyzed;
             var centreOffset=Vector3.ProjectOnPlane(transform.position,Vector3.up);var away=centreOffset.sqrMagnitude>.01f?centreOffset.normalized:-transform.forward;
@@ -200,3 +211,4 @@ namespace UDK7M
         void OnDrawGizmosSelected(){if(tuning&&tuning.crushEnabled)crush?.DrawGizmos();}
     }
 }
+

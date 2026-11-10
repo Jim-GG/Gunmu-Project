@@ -62,6 +62,8 @@ MonoBehaviour:
   rearWeights: {x: 40, y: 30, z: 30}
   stableWeights: {x: 50, y: 30, z: 20}
   overloadedWeights: {x: 10, y: 40, z: 50}
+  nearPillarDistance: 10
+  nearPillarTripleChance: 0.1
   overloadChargeSeconds: 3
   paralyzedFreezeFrame: 64
   paralyzedCenterClearance: 8
@@ -127,3 +129,4 @@ MonoBehaviour:
   chargeImpactShake: 0.23
   resonanceShake: 0.5
   groundPoundShake: 0.8
+  thirdSlamContactMuteSeconds: 0.35

@@ -32181,6 +32181,8 @@ MonoBehaviour:
   - {fileID: 1182307589}
   - {fileID: 1546316230}
   feedback: {fileID: 0}
+  localDebrisPrefab: {fileID: 0}
+  warningSounds: []
   rockMaterial: {fileID: 2100000, guid: ea4c78b82edb03d4cad29626d94af9be, type: 2}
   crystalMaterial: {fileID: 2100000, guid: c7c7152b4108f6c49b977345c2a9b079, type: 2}
   warningMaterial: {fileID: 2100000, guid: 7b588a6568fc288468a5d7a5e3ca1297, type: 2}

@@ -1,0 +1,31 @@
+{
+  "source": "D:\\AdobeSubstanceDesigner\\工程\\特效\\贴花.sbs",
+  "nodes": 93,
+  "dependencies": [
+    "sbs://noise_perlin_noise.sbs",
+    "sbs://cross_section.sbs",
+    "sbs://histogram_scan.sbs",
+    "sbs://trapezoid_transform.sbs",
+    "sbs://noise_cells_4.sbs",
+    "sbs://blur_hq.sbs",
+    "sbs://pattern_splatter_circular.sbs",
+    "sbs://pbr_base_material.sbs",
+    "sbs://noise_cells_3.sbs",
+    "sbs://edge_detect.sbs",
+    "sbs://multi_directional_warp.sbs",
+    "sbs://slope_blur.sbs",
+    "sbs://shape_mapper.sbs",
+    "sbs://invert.sbs",
+    "sbs://bevel.sbs",
+    "sbs://pattern_shape.sbs",
+    "sbs://height_blend.sbs",
+    "sbs://normal_intensity.sbs",
+    "sbs://pattern_tile_sampler.sbs",
+    "sbs://pattern_polygon_1.sbs",
+    "sbs://normal_combine.sbs",
+    "sbs://normal_invert.sbs",
+    "sbs://hbao_2.sbs",
+    "sbs://highpass.sbs",
+    "sbs://noise_grunge_map_008.sbs"
+  ]
+}

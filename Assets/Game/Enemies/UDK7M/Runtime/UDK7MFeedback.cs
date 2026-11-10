@@ -7,6 +7,8 @@ namespace UDK7M
     {
         public UDK7MTuning tuning;public CinemachineImpulseSource source;
         public UDK7MAudio audio;
+        public GameObject shockwavePrefab,energyGatherPrefab;
+        readonly System.Collections.Generic.List<GameObject> waves=new System.Collections.Generic.List<GameObject>();
         public void Sound(UDK7MSound cue,Vector3 point,Transform follow=null)
         {
             var target=follow?follow:transform;
@@ -27,12 +29,18 @@ namespace UDK7M
         public void Wave(Vector3 position,float radius,float duration=.85f)
         {
             CombatEffects.Emit(CombatEffect.Dust,position,Vector3.up,3);
-            var go=new GameObject("Expanding resonance shockwave");go.transform.SetParent(transform);go.transform.position=position+Vector3.up*.08f;var wave=go.AddComponent<UDK7MShockwave>();wave.Begin(radius,duration);
+            SpawnWave(shockwavePrefab,"Expanding resonance shockwave",position+Vector3.up*.08f,radius,duration,false);
         }
         public void Accumulate(Vector3 position,float duration)
         {
-            var go=new GameObject("Energy gathering inward");go.transform.SetParent(transform);go.transform.position=position;go.AddComponent<UDK7MShockwave>().Begin(7,duration,true);
+            SpawnWave(energyGatherPrefab?energyGatherPrefab:shockwavePrefab,"Energy gathering inward",position,7,duration,true);
         }
-        public void ClearWaves(){foreach(var wave in GetComponentsInChildren<UDK7MShockwave>())Destroy(wave.gameObject);}
+        void SpawnWave(GameObject prefab,string name,Vector3 position,float radius,float duration,bool collapse)
+        {
+            var go=prefab?Instantiate(prefab,transform):new GameObject(name);go.name=name;go.transform.SetParent(transform);go.transform.position=position;waves.RemoveAll(g=>!g);waves.Add(go);
+            var wave=go.GetComponent<ICombatWave>();if(!prefab&&wave==null)wave=go.AddComponent<UDK7MShockwave>();
+            if(wave!=null)wave.Begin(radius,duration,collapse);else{float life=duration;foreach(var p in go.GetComponentsInChildren<ParticleSystem>())life=Mathf.Max(life,p.main.duration+p.main.startLifetime.constantMax);Destroy(go,life);}
+        }
+        public void ClearWaves(){foreach(var wave in waves)if(wave)Destroy(wave);waves.Clear();}
     }
 }

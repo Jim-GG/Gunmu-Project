@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.IO;
 using System.Linq;
 using System.Collections.Generic;
@@ -18,7 +18,7 @@ namespace AssetPipeline.Editor
     [InitializeOnLoad]public static partial class UDK7MBossValidation
     {
         const string Stage="AssetStaging/UDK7M/Boss/";const string Key="UDK7MBossValidation";
-        static UDK7MArena arena;static int phase;static float at;static Vector3 start,flightStart;static ResonatorEnemy flying,ordinary;static readonly List<object> checks=new List<object>();static bool started;
+        static UDK7MArena arena;static int phase;static float at;static Vector3 start,flightStart;static ResonatorEnemy flying,ordinary;static readonly List<object> checks=new List<object>();static bool started,loadingIsolated;
         static UDK7MBossValidation(){EditorApplication.update+=Poll;EditorApplication.playModeStateChanged+=ModeChanged;}
         static void ModeChanged(PlayModeStateChange mode)
         {
@@ -31,16 +31,17 @@ namespace AssetPipeline.Editor
         static void Poll()
         {
             if(EditorApplication.isCompiling||EditorApplication.isUpdating)return;
+   if(Application.isPlaying&&SessionState.GetBool(Key,false)){Application.runInBackground=true;Time.timeScale=1;EditorApplication.isPaused=false;EditorApplication.QueuePlayerLoopUpdate();}
             if(!Application.isPlaying&&File.Exists(Stage+"ThreePhaseCheck.request")){File.Delete(Stage+"ThreePhaseCheck.request");SessionState.SetBool(Key+"ThreePhase",true);File.WriteAllText(Stage+"PlayCheck.request","three complete cycles");}
             if(!Application.isPlaying&&File.Exists(Stage+"CorrectionCheck.request")){File.Delete(Stage+"CorrectionCheck.request");SessionState.SetBool(Key+"Correction",true);File.WriteAllText(Stage+"PlayCheck.request","live fist kill, tracks and unified turning");}
             if(!Application.isPlaying&&File.Exists(Stage+"EnvironmentCheck.request")){File.Delete(Stage+"EnvironmentCheck.request");SessionState.SetBool(Key+"Environment",true);File.WriteAllText(Stage+"PlayCheck.request","environment mechanics");}
             if(!Application.isPlaying&&File.Exists(Stage+"EditorCheck.request")){File.Delete(Stage+"EditorCheck.request");EditorChecks();return;}
             if(!Application.isPlaying&&!EditorApplication.isPlayingOrWillChangePlaymode&&File.Exists(Stage+"PlayCheck.request"))
             {
-                File.Delete(Stage+"PlayCheck.request");started=false;phase=0;checks.Clear();SessionState.SetBool(Key,true);SessionState.SetBool(Key+"Restore",true);SessionState.SetString(Key+"Previous",AssetDatabase.GetAssetPath(EditorSceneManager.playModeStartScene));EditorSceneManager.playModeStartScene=AssetDatabase.LoadAssetAtPath<SceneAsset>(SessionState.GetBool(Key+"ThreePhase",false)?UDK7MThreePhaseBuilder.ScenePath:UDK7MBossBuilder.ScenePath);EditorApplication.EnterPlaymode();return;
+                File.Delete(Stage+"PlayCheck.request");loadingIsolated=false;for(int i=0;i<SceneManager.sceneCount;i++){var scene=SceneManager.GetSceneAt(i);if(scene.isDirty)EditorSceneManager.SaveScene(scene,Stage+"UserBeforeRegression_"+i+".unity",true);}started=false;phase=0;checks.Clear();SessionState.SetBool(Key,true);SessionState.SetBool(Key+"Restore",true);SessionState.SetString(Key+"Previous",AssetDatabase.GetAssetPath(EditorSceneManager.playModeStartScene));EditorSceneManager.playModeStartScene=null;EditorApplication.EnterPlaymode();return;
             }
             if(!Application.isPlaying||!SessionState.GetBool(Key,false)||Time.timeSinceLevelLoad<.5f)return;
-            try{if(!started){started=true;phase=0;checks.Clear();arena=UnityEngine.Object.FindFirstObjectByType<UDK7MArena>();Assert(arena,"Arena not loaded");}if(SessionState.GetBool(Key+"ThreePhase",false))RunThreePhase();else if(SessionState.GetBool(Key+"Correction",false))RunCorrections();else if(SessionState.GetBool(Key+"Environment",false))RunEnvironment();else RunPlay();}
+            try{if(!started){string target=SessionState.GetBool(Key+"ThreePhase",false)?UDK7MThreePhaseBuilder.ScenePath:UDK7MBossBuilder.ScenePath;if(!loadingIsolated){foreach(var scene in Enumerable.Range(0,SceneManager.sceneCount).Select(SceneManager.GetSceneAt).ToArray())foreach(var go in scene.GetRootGameObjects())go.SetActive(false);EditorSceneManager.LoadSceneInPlayMode(target,new LoadSceneParameters(LoadSceneMode.Additive));loadingIsolated=true;return;}var loaded=Enumerable.Range(0,SceneManager.sceneCount).Select(SceneManager.GetSceneAt).LastOrDefault(s=>s.path==target&&s.isLoaded);if(!loaded.isLoaded)return;SceneManager.SetActiveScene(loaded);typeof(CombatEffects).GetMethod("Reset",BindingFlags.NonPublic|BindingFlags.Static).Invoke(null,null);started=true;phase=0;checks.Clear();arena=loaded.GetRootGameObjects().SelectMany(g=>g.GetComponentsInChildren<UDK7MArena>()).FirstOrDefault();Assert(arena,"Arena not loaded");}if(SessionState.GetBool(Key+"ThreePhase",false))RunThreePhase();else if(SessionState.GetBool(Key+"Correction",false))RunCorrections();else if(SessionState.GetBool(Key+"Environment",false))RunEnvironment();else RunPlay();}
             catch(Exception e){Finish(false,e.ToString());}
         }
         static void Finish(bool success,string error=null)
@@ -153,3 +154,4 @@ namespace AssetPipeline.Editor
         }
     }
 }
+

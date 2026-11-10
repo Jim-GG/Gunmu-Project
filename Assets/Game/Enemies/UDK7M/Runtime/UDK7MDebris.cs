@@ -31,8 +31,8 @@ namespace UDK7M
         {
             if(!arena)return;var target=collision.collider.GetComponentInParent<ResonatorTarget>();
             if(target&&!hitPlayer&&!landed){hitPlayer=true;target.ReceiveStrike(new ActionDamage(arena.tuning.rockDamage,transform.position,1,.18f,true,.5f));}
-            if(collision.contacts.Length>0&&collision.contacts[0].normal.y>.35f)
-            {landed=true;body.linearVelocity=Vector3.zero;body.angularVelocity=Vector3.zero;body.isKinematic=true;expires=Time.time+(large?600:crystal?60:8);if(surface)surface.launchNormal=transform.InverseTransformDirection(Vector3.up);CombatEffects.Emit(CombatEffect.Dust,transform.position,Vector3.up);arena.feedback.Shake(transform.position,large?arena.tuning.heavySlamShake:arena.tuning.lightSlamShake);arena.feedback.Sound(crystal?UDK7MSound.CrystalLanding:UDK7MSound.RockLanding,transform.position,transform);}
+            if(!landed&&collision.contacts.Length>0&&collision.contacts[0].normal.y>.35f&&collision.collider.GetComponentInParent<IActionTarget>()==null)
+            {landed=true;body.linearVelocity=Vector3.zero;body.angularVelocity=Vector3.zero;body.isKinematic=true;expires=Time.time+(large?600:crystal?60:8);if(surface)surface.launchNormal=transform.InverseTransformDirection(Vector3.up);var contact=collision.contacts[0];var impact=Resources.Load<CombatEffectLibrary>("CombatVFX")?.Find(CombatEffect.ConcreteImpactHeavy);var prefab=arena.tuning.fallingImpactEffect?arena.tuning.fallingImpactEffect:impact?.prefab;float scale=large?arena.tuning.centralCrystalImpactScale:crystal?arena.tuning.fallingCrystalImpactScale:arena.tuning.fallingRockImpactScale;if(prefab)CombatEffects.Burst(prefab,contact.point+contact.normal*.025f,contact.normal,scale,impact?.lifetime??8);else CombatEffects.Emit(CombatEffect.Dust,contact.point,contact.normal);arena.feedback.Shake(transform.position,large?arena.tuning.heavySlamShake:arena.tuning.lightSlamShake);arena.feedback.Sound(crystal?UDK7MSound.CrystalLanding:UDK7MSound.RockLanding,transform.position,transform);}
         }
         void Update()
         {

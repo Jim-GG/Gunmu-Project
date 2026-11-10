@@ -1,0 +1,419 @@
+{
+  "scope": "One observed Rush smoke cone renderer candidate; exact mesh tail field role and in-game reachability remain unverified. No claim this is player dash wind cone.",
+  "renderer": {
+    "identity": {
+      "type": "ParticleSystemRenderer",
+      "name": "",
+      "pathID": -9112028799566364785,
+      "source": "D:\\game\\ZZZ\\ZenlessZoneZero Game\\ZenlessZoneZero_Data\\StreamingAssets\\Blocks\\362073758.blk",
+      "cab": "CAB-eabecbe629a2bb2c4d1cca430121bdc8",
+      "offset": 1198897,
+      "objectOffset": 5856,
+      "bytes": 300
+    },
+    "commonHeaderConsumed": 148,
+    "gameObject": {
+      "fileID": 0,
+      "pathID": -6301050214826281778,
+      "resolved": true,
+      "target": {
+        "type": "GameObject",
+        "name": "Smokemask (2)",
+        "pathID": -6301050214826281778,
+        "source": "D:\\game\\ZZZ\\ZenlessZoneZero Game\\ZenlessZoneZero_Data\\StreamingAssets\\Blocks\\362073758.blk",
+        "cab": "CAB-eabecbe629a2bb2c4d1cca430121bdc8",
+        "offset": 1198897,
+        "objectOffset": 47528,
+        "bytes": 79
+      },
+      "external": null
+    },
+    "materials": [
+      {
+        "fileID": 1,
+        "pathID": -3803100975422044968,
+        "resolved": true,
+        "target": {
+          "type": "Material",
+          "name": "Rush_ConeSmoke21_zy_006",
+          "pathID": -3803100975422044968,
+          "source": "D:\\game\\ZZZ\\ZenlessZoneZero Game\\ZenlessZoneZero_Data\\StreamingAssets\\Blocks\\362073758.blk",
+          "cab": "CAB-3e40c63e960953818c727194d309ab6a",
+          "offset": 1224057,
+          "objectOffset": 4096,
+          "bytes": 8456
+        },
+        "external": "CAB-3e40c63e960953818c727194d309ab6a"
+      }
+    ],
+    "meshPointerCandidates": [
+      {
+        "relativeByteOffset": 236,
+        "fileID": 2,
+        "pathID": -4733781400487060895,
+        "target": {
+          "type": "Mesh",
+          "name": "Eff_Cone_03",
+          "pathID": -4733781400487060895,
+          "source": "D:\\game\\ZZZ\\ZenlessZoneZero Game\\ZenlessZoneZero_Data\\StreamingAssets\\Blocks\\362073758.blk",
+          "cab": "CAB-e543e23a65346561dd68382f57c4bc55",
+          "offset": 1261053,
+          "objectOffset": 4288,
+          "bytes": 5952
+        }
+      }
+    ],
+    "rawBase64": "AAAAAM50Yck2LI6oAQAAAQEAAAAAAAAAAQAAAAAAAAD/////AACAPwAAgD8AAAAAAAAAAAAAgD8AAIA/AAAAAAAAAAABAAAAAQAAANgEBwPQqzjLAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAJz/AQD/AAAAAAAEAAAAAAACAAAAAAAAAAA/AAAAAAAAAAAAAABA4XokQAAAgD8AAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEBAAEAAAAAAAAAAAAAAAAGAAAAAAMEGiImAAACAAAAYRqem+U6Tr4AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+    "interpretation": "Common Renderer header parsed using existing MeshRenderer reader; tail mesh pointers are aligned identity matches, field roles not yet decoded."
+  },
+  "material": {
+    "shader": {
+      "fileID": 1,
+      "pathID": -8861675102675100451,
+      "resolved": false,
+      "target": null,
+      "external": "CAB-3f3bc03f15709ec085bef31f4953663b"
+    },
+    "textures": [
+      {
+        "property": "_AnimationSheetsVectorMap",
+        "texture": {
+          "fileID": 0,
+          "pathID": 0,
+          "resolved": false,
+          "target": null,
+          "external": null
+        },
+        "scale": {
+          "X": 1.0,
+          "Y": 1.0
+        },
+        "offset": {
+          "X": 0.0,
+          "Y": 0.0
+        }
+      },
+      {
+        "property": "_CG_VEMaskTex",
+        "texture": {
+          "fileID": 0,
+          "pathID": 0,
+          "resolved": false,
+          "target": null,
+          "external": null
+        },
+        "scale": {
+          "X": 1.0,
+          "Y": 1.0
+        },
+        "offset": {
+          "X": 0.0,
+          "Y": 0.0
+        }
+      },
+      {
+        "property": "_DTTex",
+        "texture": {
+          "fileID": 0,
+          "pathID": 0,
+          "resolved": false,
+          "target": null,
+          "external": null
+        },
+        "scale": {
+          "X": 1.0,
+          "Y": 1.0
+        },
+        "offset": {
+          "X": 0.0,
+          "Y": 0.0
+        }
+      },
+      {
+        "property": "_DissolveRampTex",
+        "texture": {
+          "fileID": 0,
+          "pathID": 0,
+          "resolved": false,
+          "target": null,
+          "external": null
+        },
+        "scale": {
+          "X": 1.0,
+          "Y": 1.0
+        },
+        "offset": {
+          "X": 0.0,
+          "Y": 0.0
+        }
+      },
+      {
+        "property": "_DissolveTex",
+        "texture": {
+          "fileID": 0,
+          "pathID": 0,
+          "resolved": false,
+          "target": null,
+          "external": null
+        },
+        "scale": {
+          "X": 1.0,
+          "Y": 1.0
+        },
+        "offset": {
+          "X": 0.0,
+          "Y": 0.0
+        }
+      },
+      {
+        "property": "_DistortionTex",
+        "texture": {
+          "fileID": 2,
+          "pathID": -4777947832003447155,
+          "resolved": false,
+          "target": null,
+          "external": "CAB-5855d6748d6bbd5a4bddec2cb55ad298"
+        },
+        "scale": {
+          "X": 0.5,
+          "Y": 0.5
+        },
+        "offset": {
+          "X": 0.0,
+          "Y": 0.0
+        }
+      },
+      {
+        "property": "_DistortionTex2",
+        "texture": {
+          "fileID": 0,
+          "pathID": 0,
+          "resolved": false,
+          "target": null,
+          "external": null
+        },
+        "scale": {
+          "X": 1.0,
+          "Y": 1.0
+        },
+        "offset": {
+          "X": 0.0,
+          "Y": 0.0
+        }
+      },
+      {
+        "property": "_MainTex",
+        "texture": {
+          "fileID": 3,
+          "pathID": -1947607653855025747,
+          "resolved": true,
+          "target": {
+            "type": "Texture2D",
+            "name": "Eff_Smoke_075",
+            "pathID": -1947607653855025747,
+            "source": "D:\\game\\ZZZ\\ZenlessZoneZero Game\\ZenlessZoneZero_Data\\StreamingAssets\\Blocks\\362073758.blk",
+            "cab": "CAB-26b28fa37a0712b6da23c3202798082c",
+            "offset": 1227288,
+            "objectOffset": 4096,
+            "bytes": 208
+          },
+          "external": "CAB-26b28fa37a0712b6da23c3202798082c"
+        },
+        "scale": {
+          "X": 2.0,
+          "Y": 1.0
+        },
+        "offset": {
+          "X": 0.0,
+          "Y": 0.0
+        }
+      },
+      {
+        "property": "_MaskTex",
+        "texture": {
+          "fileID": 0,
+          "pathID": 0,
+          "resolved": false,
+          "target": null,
+          "external": null
+        },
+        "scale": {
+          "X": 1.0,
+          "Y": 1.0
+        },
+        "offset": {
+          "X": 0.0,
+          "Y": 0.0
+        }
+      },
+      {
+        "property": "_RampTex",
+        "texture": {
+          "fileID": 0,
+          "pathID": 0,
+          "resolved": false,
+          "target": null,
+          "external": null
+        },
+        "scale": {
+          "X": 1.0,
+          "Y": 1.0
+        },
+        "offset": {
+          "X": 0.0,
+          "Y": 0.0
+        }
+      },
+      {
+        "property": "_VertexColorTex",
+        "texture": {
+          "fileID": 0,
+          "pathID": 0,
+          "resolved": false,
+          "target": null,
+          "external": null
+        },
+        "scale": {
+          "X": 1.0,
+          "Y": 1.0
+        },
+        "offset": {
+          "X": 0.0,
+          "Y": 0.0
+        }
+      },
+      {
+        "property": "_VertexExtrusionTex",
+        "texture": {
+          "fileID": 0,
+          "pathID": 0,
+          "resolved": false,
+          "target": null,
+          "external": null
+        },
+        "scale": {
+          "X": 1.0,
+          "Y": 1.0
+        },
+        "offset": {
+          "X": 0.0,
+          "Y": 0.0
+        }
+      },
+      {
+        "property": "_VertexNormalTex",
+        "texture": {
+          "fileID": 0,
+          "pathID": 0,
+          "resolved": false,
+          "target": null,
+          "external": null
+        },
+        "scale": {
+          "X": 1.0,
+          "Y": 1.0
+        },
+        "offset": {
+          "X": 0.0,
+          "Y": 0.0
+        }
+      },
+      {
+        "property": "_VertexPositionTex",
+        "texture": {
+          "fileID": 0,
+          "pathID": 0,
+          "resolved": false,
+          "target": null,
+          "external": null
+        },
+        "scale": {
+          "X": 1.0,
+          "Y": 1.0
+        },
+        "offset": {
+          "X": 0.0,
+          "Y": 0.0
+        }
+      }
+    ]
+  },
+  "shader": {
+    "shaderIdentity": {
+      "type": "Shader",
+      "name": "miHoYo/Particles/Particles_Dissolve_CustomColor_Mask",
+      "pathID": -8861675102675100451,
+      "source": "D:\\game\\ZZZ\\ZenlessZoneZero Game\\ZenlessZoneZero_Data\\StreamingAssets\\Blocks\\460719577.blk",
+      "cab": "CAB-3f3bc03f15709ec085bef31f4953663b",
+      "offset": 994,
+      "objectOffset": 4096,
+      "bytes": 62637056
+    },
+    "rawAndParsedRecovered": true,
+    "authoredSourceRecovered": false,
+    "convertedShaderRecovered": false,
+    "failure": "Isolated native D3DDisassemble access violation 0xC0000005; conversion stopped after one attempt. Existing raw, parsed, summary remain valid as export evidence; not proof that every parsed field is runtime-validated.",
+    "properties": 299,
+    "subShaders": 1,
+    "passCount": 3
+  },
+  "sourceHashes": [
+    {
+      "path": "D:\\game\\ZZZ\\ZenlessZoneZero Game\\ZenlessZoneZero_Data\\StreamingAssets\\Blocks\\3350712430.blk",
+      "bytes": 4204563,
+      "sha256": "710c5466c3bd45360737a6dd59a268b50283b667badff439e743de18871b4296"
+    },
+    {
+      "path": "D:\\game\\ZZZ\\ZenlessZoneZero Game\\ZenlessZoneZero_Data\\StreamingAssets\\Blocks\\362073758.blk",
+      "bytes": 6147619,
+      "sha256": "214332ccd90daf9e97a8d25e71e3c33d3bc4ba2dc9717cbe9b5c17431abaceef"
+    },
+    {
+      "path": "D:\\game\\ZZZ\\ZenlessZoneZero Game\\ZenlessZoneZero_Data\\StreamingAssets\\Blocks\\460719577.blk",
+      "bytes": 31036110,
+      "sha256": "a0fa161468df5b5b4690ba4ed8b3d85f74b1b2ab86b46a7e6b4334e8c7c97c5a"
+    }
+  ],
+  "files": [
+    {
+      "path": "Material\\Material_Rush_ConeSmoke21_zy_006_-3803100975422044968.json",
+      "bytes": 23968,
+      "sha256": "04ff812603f9190402878119c1638b7c7a9048b834ced163a09ad89fe6b5c603"
+    },
+    {
+      "path": "Mesh\\Eff_Cone_03.obj",
+      "bytes": 11438,
+      "sha256": "f6ae68483f1dc12d86ac4110a8d66adf5f7dafccb69f772bd8604c4c2219525e"
+    },
+    {
+      "path": "Shader\\shader_-8861675102675100451.parsed.json",
+      "bytes": 477306969,
+      "sha256": "f97f9218932851e40b57cdefd478ae09aaef18e7abe7f3ffb01d4e4eb96feec9"
+    },
+    {
+      "path": "Shader\\shader_-8861675102675100451.raw.bin",
+      "bytes": 62637056,
+      "sha256": "5a168083950f0ae4bb8a1d20bb72e5530e7af617c2f747af6703b4c6658474b7"
+    },
+    {
+      "path": "Shader\\shader_-8861675102675100451.summary.json",
+      "bytes": 159599,
+      "sha256": "a561c157a9653a87881ccc38914ea9df726d6426314e2ee233ac176831adb6d4"
+    },
+    {
+      "path": "Shader\\status.json",
+      "bytes": 803,
+      "sha256": "9bfc8a76c740b00d22a9d5003cc8243842d31fa15eba3702e67f101b4c78db63"
+    },
+    {
+      "path": "Texture2D\\Eff_Noise_006.png",
+      "bytes": 79691,
+      "sha256": "4edd1a9c3b5038bb7606f1ea51863e68c3456447ee3ce4ed5d809ebc4eda715d"
+    },
+    {
+      "path": "Texture2D\\Eff_Smoke_075.png",
+      "bytes": 21632,
+      "sha256": "f67cb469589735279aead43e55f9f42607c7f7bd21a2048010faa8e59a54ef2a"
+    }
+  ]
+}

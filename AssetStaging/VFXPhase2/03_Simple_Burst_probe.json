@@ -1,0 +1,540 @@
+{
+  "type": "UnityEditor.VFX.VFXGraph",
+  "label": null,
+  "name": "",
+  "inputs": [],
+  "settings": [],
+  "children": [
+    {
+      "type": "UnityEditor.VFX.VFXBasicSpawner",
+      "label": "Spawn system",
+      "name": "Spawn",
+      "inputs": [
+        {
+          "name": "LoopDuration",
+          "value": "2"
+        }
+      ],
+      "settings": [
+        {
+          "name": "loopDuration",
+          "value": "Constant"
+        },
+        {
+          "name": "loopCount",
+          "value": "Infinite"
+        },
+        {
+          "name": "delayBeforeLoop",
+          "value": "None"
+        },
+        {
+          "name": "delayAfterLoop",
+          "value": "None"
+        }
+      ],
+      "children": [
+        {
+          "type": "UnityEditor.VFX.VFXSpawnerBurst",
+          "label": null,
+          "name": "Single Burst",
+          "inputs": [
+            {
+              "name": "Count",
+              "value": "128"
+            },
+            {
+              "name": "Delay",
+              "value": "0"
+            }
+          ],
+          "settings": [
+            {
+              "name": "repeat",
+              "value": "Single"
+            },
+            {
+              "name": "spawnMode",
+              "value": "Constant"
+            },
+            {
+              "name": "delayMode",
+              "value": "Constant"
+            }
+          ],
+          "children": []
+        }
+      ]
+    },
+    {
+      "type": "UnityEditor.VFX.VFXBasicInitialize",
+      "label": "Initialize Particles",
+      "name": "Initialize Particle",
+      "inputs": [
+        {
+          "name": "bounds",
+          "value": "UnityEditor.VFX.AABox"
+        },
+        {
+          "name": "boundsPadding",
+          "value": "(0.50, 0.50, 0.50)"
+        }
+      ],
+      "settings": [
+        {
+          "name": "dataType",
+          "value": "Particle"
+        },
+        {
+          "name": "capacity",
+          "value": "128"
+        },
+        {
+          "name": "stripCapacity",
+          "value": "1"
+        },
+        {
+          "name": "particlePerStripCount",
+          "value": "32"
+        },
+        {
+          "name": "needsComputeBounds",
+          "value": "False"
+        },
+        {
+          "name": "boundsMode",
+          "value": "Recorded"
+        }
+      ],
+      "children": [
+        {
+          "type": "UnityEditor.VFX.Block.SetAttribute",
+          "label": null,
+          "name": "|Set|_Lifetime|Random Uniform",
+          "inputs": [
+            {
+              "name": "A",
+              "value": "0.5"
+            },
+            {
+              "name": "B",
+              "value": "1"
+            }
+          ],
+          "settings": [
+            {
+              "name": "attribute",
+              "value": "lifetime"
+            },
+            {
+              "name": "Composition",
+              "value": "Overwrite"
+            },
+            {
+              "name": "Source",
+              "value": "Slot"
+            },
+            {
+              "name": "Random",
+              "value": "Uniform"
+            },
+            {
+              "name": "channels",
+              "value": "XYZ"
+            }
+          ],
+          "children": []
+        },
+        {
+          "type": "UnityEditor.VFX.Block.PositionShape",
+          "label": null,
+          "name": "|Set|_Position Shape|Sphere",
+          "inputs": [
+            {
+              "name": "arcSphere",
+              "value": "UnityEditor.VFX.TArcSphere"
+            }
+          ],
+          "settings": [
+            {
+              "name": "shape",
+              "value": "Sphere"
+            },
+            {
+              "name": "heightMode",
+              "value": "Volume"
+            },
+            {
+              "name": "applyOrientation",
+              "value": "Direction"
+            },
+            {
+              "name": "killOutliers",
+              "value": "False"
+            },
+            {
+              "name": "projectionSteps",
+              "value": "2"
+            },
+            {
+              "name": "compositionPosition",
+              "value": "Overwrite"
+            },
+            {
+              "name": "compositionAxes",
+              "value": "Overwrite"
+            },
+            {
+              "name": "compositionDirection",
+              "value": "Overwrite"
+            },
+            {
+              "name": "positionMode",
+              "value": "Surface"
+            },
+            {
+              "name": "spawnMode",
+              "value": "Random"
+            }
+          ],
+          "children": []
+        },
+        {
+          "type": "UnityEditor.VFX.Block.VelocityDirection",
+          "label": null,
+          "name": "|Set|_Velocity from Direction & Speed|New Direction",
+          "inputs": [
+            {
+              "name": "Direction",
+              "value": "(0.00, 1.00, 0.00)"
+            },
+            {
+              "name": "MinSpeed",
+              "value": "0.5"
+            },
+            {
+              "name": "MaxSpeed",
+              "value": "4.5"
+            },
+            {
+              "name": "DirectionBlend",
+              "value": "0"
+            }
+          ],
+          "settings": [
+            {
+              "name": "composition",
+              "value": "Overwrite"
+            },
+            {
+              "name": "speedMode",
+              "value": "Random"
+            }
+          ],
+          "children": []
+        }
+      ]
+    },
+    {
+      "type": "UnityEditor.VFX.VFXBasicUpdate",
+      "label": "Update Particles",
+      "name": "Update Particle",
+      "inputs": [],
+      "settings": [
+        {
+          "name": "integration",
+          "value": "Euler"
+        },
+        {
+          "name": "angularIntegration",
+          "value": "Euler"
+        },
+        {
+          "name": "ageParticles",
+          "value": "True"
+        },
+        {
+          "name": "reapParticles",
+          "value": "True"
+        },
+        {
+          "name": "skipZeroDeltaUpdate",
+          "value": "False"
+        }
+      ],
+      "children": [
+        {
+          "type": "UnityEditor.VFX.Block.Gravity",
+          "label": null,
+          "name": "Gravity",
+          "inputs": [
+            {
+              "name": "Force",
+              "value": "(0.00, -9.81, 0.00)"
+            }
+          ],
+          "settings": [],
+          "children": []
+        },
+        {
+          "type": "UnityEditor.VFX.Block.Drag",
+          "label": null,
+          "name": "Linear Drag",
+          "inputs": [
+            {
+              "name": "dragCoefficient",
+              "value": "0.5"
+            }
+          ],
+          "settings": [
+            {
+              "name": "UseParticleSize",
+              "value": "False"
+            }
+          ],
+          "children": []
+        }
+      ]
+    },
+    {
+      "type": "UnityEditor.VFX.VFXPlanarPrimitiveOutput",
+      "label": "Render Quad",
+      "name": "Output Particle|Unlit\nQuad",
+      "inputs": [
+        {
+          "name": "mainTexture",
+          "value": "DefaultDot (UnityEngine.Texture2D)"
+        }
+      ],
+      "settings": [
+        {
+          "name": "primitiveType",
+          "value": "Quad"
+        },
+        {
+          "name": "shaderGraph",
+          "value": null
+        },
+        {
+          "name": "materialSettings",
+          "value": "UnityEditor.VFX.VFXMaterialSerializedSettings"
+        },
+        {
+          "name": "useBaseColorMap",
+          "value": "ColorAndAlpha"
+        },
+        {
+          "name": "colorMapping",
+          "value": "Default"
+        },
+        {
+          "name": "uvMode",
+          "value": "Default"
+        },
+        {
+          "name": "flipbookLayout",
+          "value": "Texture2D"
+        },
+        {
+          "name": "flipbookBlendFrames",
+          "value": "False"
+        },
+        {
+          "name": "flipbookMotionVectors",
+          "value": "False"
+        },
+        {
+          "name": "useSoftParticle",
+          "value": "False"
+        },
+        {
+          "name": "vfxSystemSortPriority",
+          "value": "0"
+        },
+        {
+          "name": "sort",
+          "value": "Off"
+        },
+        {
+          "name": "sortMode",
+          "value": "YoungestInFront"
+        },
+        {
+          "name": "revertSorting",
+          "value": "False"
+        },
+        {
+          "name": "indirectDraw",
+          "value": "False"
+        },
+        {
+          "name": "computeCulling",
+          "value": "False"
+        },
+        {
+          "name": "frustumCulling",
+          "value": "False"
+        },
+        {
+          "name": "castShadows",
+          "value": "False"
+        },
+        {
+          "name": "useExposureWeight",
+          "value": "False"
+        },
+        {
+          "name": "enableRayTracing",
+          "value": "False"
+        },
+        {
+          "name": "decimationFactor",
+          "value": "1"
+        },
+        {
+          "name": "raytracedScaleMode",
+          "value": "Default"
+        },
+        {
+          "name": "blendMode",
+          "value": "Alpha"
+        },
+        {
+          "name": "cullMode",
+          "value": "Default"
+        },
+        {
+          "name": "zWriteMode",
+          "value": "Default"
+        },
+        {
+          "name": "zTestMode",
+          "value": "Default"
+        },
+        {
+          "name": "useAlphaClipping",
+          "value": "False"
+        },
+        {
+          "name": "generateMotionVector",
+          "value": "False"
+        },
+        {
+          "name": "excludeFromTUAndAA",
+          "value": "False"
+        },
+        {
+          "name": "sortingPriority",
+          "value": "0"
+        }
+      ],
+      "children": [
+        {
+          "type": "UnityEditor.VFX.Block.Orient",
+          "label": null,
+          "name": "Orient: Face Camera Plane",
+          "inputs": [],
+          "settings": [
+            {
+              "name": "mode",
+              "value": "FaceCameraPlane"
+            },
+            {
+              "name": "axes",
+              "value": "ZY"
+            },
+            {
+              "name": "faceRay",
+              "value": "True"
+            }
+          ],
+          "children": []
+        },
+        {
+          "type": "UnityEditor.VFX.Block.AttributeFromCurve",
+          "label": null,
+          "name": "|Multiply|_Size|Over Life",
+          "inputs": [
+            {
+              "name": "Size",
+              "value": "UnityEngine.AnimationCurve"
+            }
+          ],
+          "settings": [
+            {
+              "name": "attribute",
+              "value": "size"
+            },
+            {
+              "name": "Composition",
+              "value": "Multiply"
+            },
+            {
+              "name": "AlphaComposition",
+              "value": "Overwrite"
+            },
+            {
+              "name": "SampleMode",
+              "value": "OverLife"
+            },
+            {
+              "name": "Mode",
+              "value": "PerComponent"
+            },
+            {
+              "name": "ColorMode",
+              "value": "ColorAndAlpha"
+            },
+            {
+              "name": "channels",
+              "value": "XYZ"
+            }
+          ],
+          "children": []
+        },
+        {
+          "type": "UnityEditor.VFX.Block.AttributeFromCurve",
+          "label": null,
+          "name": "|Multiply|_Color|Over Life",
+          "inputs": [
+            {
+              "name": "Color",
+              "value": "UnityEngine.Gradient"
+            }
+          ],
+          "settings": [
+            {
+              "name": "attribute",
+              "value": "color"
+            },
+            {
+              "name": "Composition",
+              "value": "Multiply"
+            },
+            {
+              "name": "AlphaComposition",
+              "value": "Overwrite"
+            },
+            {
+              "name": "SampleMode",
+              "value": "OverLife"
+            },
+            {
+              "name": "Mode",
+              "value": "PerComponent"
+            },
+            {
+              "name": "ColorMode",
+              "value": "ColorAndAlpha"
+            },
+            {
+              "name": "channels",
+              "value": "XYZ"
+            }
+          ],
+          "children": []
+        }
+      ]
+    }
+  ]
+}

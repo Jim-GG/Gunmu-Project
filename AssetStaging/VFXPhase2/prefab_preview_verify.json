@@ -1,0 +1,293 @@
+{
+  "passed": false,
+  "sparkFrameDifference": 2.45610785,
+  "crystalVisiblePixels": 124163,
+  "maxAlive": 0,
+  "maxSimulationTime": 0.0,
+  "timeline": [
+    {
+      "tick": 1,
+      "asset": "VFX_SparksFine",
+      "alive": -2,
+      "paused": false,
+      "spawn": [
+        {
+          "name": "Spawn system",
+          "time": 0.0
+        },
+        {
+          "name": "One contact flash",
+          "time": 0.0
+        }
+      ]
+    },
+    {
+      "tick": 2,
+      "asset": "VFX_SparksFine",
+      "alive": -2,
+      "paused": false,
+      "spawn": [
+        {
+          "name": "Spawn system",
+          "time": 0.0
+        },
+        {
+          "name": "One contact flash",
+          "time": 0.0
+        }
+      ]
+    },
+    {
+      "tick": 3,
+      "asset": "VFX_SparksFine",
+      "alive": -2,
+      "paused": false,
+      "spawn": [
+        {
+          "name": "Spawn system",
+          "time": 0.0
+        },
+        {
+          "name": "One contact flash",
+          "time": 0.0
+        }
+      ]
+    },
+    {
+      "tick": 4,
+      "asset": "VFX_SparksFine",
+      "alive": -2,
+      "paused": false,
+      "spawn": [
+        {
+          "name": "Spawn system",
+          "time": 0.0
+        },
+        {
+          "name": "One contact flash",
+          "time": 0.0
+        }
+      ]
+    },
+    {
+      "tick": 5,
+      "asset": "VFX_CrystalShatterGPU",
+      "alive": -2,
+      "paused": false,
+      "spawn": [
+        {
+          "name": "Spawn system",
+          "time": 0.0
+        }
+      ]
+    },
+    {
+      "tick": 6,
+      "asset": "VFX_CrystalShatterGPU",
+      "alive": -2,
+      "paused": false,
+      "spawn": [
+        {
+          "name": "Spawn system",
+          "time": 0.0
+        }
+      ]
+    },
+    {
+      "tick": 7,
+      "asset": "VFX_CrystalShatterGPU",
+      "alive": -2,
+      "paused": false,
+      "spawn": [
+        {
+          "name": "Spawn system",
+          "time": 0.0
+        }
+      ]
+    },
+    {
+      "tick": 8,
+      "asset": "VFX_CrystalShatterGPU",
+      "alive": -2,
+      "paused": false,
+      "spawn": [
+        {
+          "name": "Spawn system",
+          "time": 0.0
+        }
+      ]
+    },
+    {
+      "tick": 9,
+      "asset": "VFX_CrystalShatterGPU",
+      "alive": -2,
+      "paused": false,
+      "spawn": [
+        {
+          "name": "Spawn system",
+          "time": 0.0
+        }
+      ]
+    },
+    {
+      "tick": 10,
+      "asset": "VFX_CrystalShatterGPU",
+      "alive": -2,
+      "paused": false,
+      "spawn": [
+        {
+          "name": "Spawn system",
+          "time": 0.0
+        }
+      ]
+    },
+    {
+      "tick": 11,
+      "asset": "VFX_CrystalShatterGPU",
+      "alive": -2,
+      "paused": false,
+      "spawn": [
+        {
+          "name": "Spawn system",
+          "time": 0.0
+        }
+      ]
+    },
+    {
+      "tick": 12,
+      "asset": "VFX_CrystalShatterGPU",
+      "alive": -2,
+      "paused": false,
+      "spawn": [
+        {
+          "name": "Spawn system",
+          "time": 0.0
+        }
+      ]
+    },
+    {
+      "tick": 13,
+      "asset": "VFX_CrystalShatterGPU",
+      "alive": -2,
+      "paused": false,
+      "spawn": [
+        {
+          "name": "Spawn system",
+          "time": 0.0
+        }
+      ]
+    },
+    {
+      "tick": 14,
+      "asset": "VFX_CrystalShatterGPU",
+      "alive": -2,
+      "paused": false,
+      "spawn": [
+        {
+          "name": "Spawn system",
+          "time": 0.0
+        }
+      ]
+    },
+    {
+      "tick": 15,
+      "asset": "VFX_CrystalShatterGPU",
+      "alive": -2,
+      "paused": false,
+      "spawn": [
+        {
+          "name": "Spawn system",
+          "time": 0.0
+        }
+      ]
+    },
+    {
+      "tick": 16,
+      "asset": "VFX_CrystalShatterGPU",
+      "alive": -2,
+      "paused": false,
+      "spawn": [
+        {
+          "name": "Spawn system",
+          "time": 0.0
+        }
+      ]
+    },
+    {
+      "tick": 17,
+      "asset": "VFX_CrystalShatterGPU",
+      "alive": -2,
+      "paused": false,
+      "spawn": [
+        {
+          "name": "Spawn system",
+          "time": 0.0
+        }
+      ]
+    },
+    {
+      "tick": 18,
+      "asset": "VFX_CrystalShatterGPU",
+      "alive": -2,
+      "paused": false,
+      "spawn": [
+        {
+          "name": "Spawn system",
+          "time": 0.0
+        }
+      ]
+    },
+    {
+      "tick": 19,
+      "asset": "VFX_CrystalShatterGPU",
+      "alive": -2,
+      "paused": false,
+      "spawn": [
+        {
+          "name": "Spawn system",
+          "time": 0.0
+        }
+      ]
+    },
+    {
+      "tick": 20,
+      "asset": "VFX_CrystalShatterGPU",
+      "alive": -2,
+      "paused": false,
+      "spawn": [
+        {
+          "name": "Spawn system",
+          "time": 0.0
+        }
+      ]
+    },
+    {
+      "tick": 21,
+      "asset": "VFX_CrystalShatterGPU",
+      "alive": -2,
+      "paused": false,
+      "spawn": [
+        {
+          "name": "Spawn system",
+          "time": 0.0
+        }
+      ]
+    },
+    {
+      "tick": 22,
+      "asset": "VFX_CrystalShatterGPU",
+      "alive": -2,
+      "paused": false,
+      "spawn": [
+        {
+          "name": "Spawn system",
+          "time": 0.0
+        }
+      ]
+    }
+  ],
+  "images": [
+    "prefab_preview_sparks.png",
+    "prefab_preview_crystal.png"
+  ]
+}

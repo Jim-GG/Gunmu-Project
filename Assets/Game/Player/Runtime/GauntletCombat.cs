@@ -71,6 +71,7 @@ namespace FirstPerson
         readonly GameActions.ActionTargetAssist assist=new GameActions.ActionTargetAssist();
         readonly GameActions.ActionEventDispatcher eventDispatcher=new GameActions.ActionEventDispatcher();
         GameActions.ActionHitbox boxes;
+        GameActions.GauntletSurfaceVFX surfaceVFX;
         CharacterController body;
         FirstPersonVitals vitals;
         bool held,blockHeld,connected,ready,attackOverridesGuard,stopping;
@@ -102,9 +103,12 @@ namespace FirstPerson
                 if(t.name=="hand_L.L")boxes.Bind(Resonator.AI.HitboxAnchor.LeftHand,t);
             }
             boxes.BindProfile(profile);
-            motion.FrameEventRaised-=ReceiveFrameEvent;motion.FrameEventRaised+=ReceiveFrameEvent;ready=true;ReturnIdle(true);return true;
+            surfaceVFX=GetComponent<GameActions.GauntletSurfaceVFX>();if(!surfaceVFX)surfaceVFX=gameObject.AddComponent<GameActions.GauntletSurfaceVFX>();
+            contacts.SurfaceContactDelivered-=SurfaceContact;contacts.SurfaceContactDelivered+=SurfaceContact;
+            motion.FrameEventRaised-=ReceiveFrameEvent;motion.FrameEventRaised+=ReceiveFrameEvent;ready=true;GameActions.WeaponEnergyVFXController.Ensure(this);ReturnIdle(true);return true;
         }
         void OnEnable(){stopping=false;ready=false;if(Application.isPlaying)InitializePipeline();}
+        void SurfaceContact(Collider hit,Vector3 point,Vector3 normal){if(surfaceVFX)surfaceVFX.Contact(hit,point,normal);}
         void ReceiveFrameEvent(Resonator.AI.MotionFrameEvent marker)
         {eventDispatcher.Dispatch(marker,boxes);FrameEventReceived?.Invoke(marker);onAnimationEvent?.Invoke(marker.name);}
         public void Press()

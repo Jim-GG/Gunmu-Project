@@ -1,0 +1,78 @@
+[
+  {
+    "name": "_NoiseScale",
+    "value": "3"
+  },
+  {
+    "name": "_FlowSpeed",
+    "value": "0.8"
+  },
+  {
+    "name": "_SecondaryFlowSpeed",
+    "value": "0.3"
+  },
+  {
+    "name": "_HorizontalWobble",
+    "value": "0.2"
+  },
+  {
+    "name": "_NoiseA",
+    "value": "Noise_001 (UnityEngine.Texture2D)"
+  },
+  {
+    "name": "_NoiseB",
+    "value": "Noise_002 (UnityEngine.Texture2D)"
+  },
+  {
+    "name": "_DistortionPixels",
+    "value": "5"
+  },
+  {
+    "name": "_ChromaticPixels",
+    "value": "1.5"
+  },
+  {
+    "name": "_Opacity",
+    "value": "0.85"
+  },
+  {
+    "name": "_Lifecycle",
+    "value": "0"
+  },
+  {
+    "name": "_Mode",
+    "value": "1"
+  },
+  {
+    "name": "_CenterSS",
+    "value": "(0.50, 0.50)"
+  },
+  {
+    "name": "_RingRadius",
+    "value": "0.72"
+  },
+  {
+    "name": "_RingHalfWidth",
+    "value": "0.09"
+  },
+  {
+    "name": "_EdgeSoftness",
+    "value": "0.05"
+  },
+  {
+    "name": "_NoiseStrength",
+    "value": "0.15"
+  },
+  {
+    "name": "_InsideSphere",
+    "value": "0"
+  },
+  {
+    "name": "mesh",
+    "value": "pSphere1 (UnityEngine.Mesh)"
+  },
+  {
+    "name": "subMeshMask",
+    "value": "4294967295"
+  }
+]

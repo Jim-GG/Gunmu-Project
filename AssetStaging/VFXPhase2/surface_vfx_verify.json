@@ -1,0 +1,26 @@
+{
+  "passed": true,
+  "checks": [
+    "All surface variants reference valid resources",
+    "No placeholder cube: Assets/Game/VFX/Combat/TankSteam.prefab",
+    "Steam particles preserved: Assets/Game/VFX/Combat/TankSteam.prefab",
+    "No placeholder cube: Assets/Game/VFX/Combat/Advanced/Prefabs/TankSteamAdvanced.prefab",
+    "Steam particles preserved: Assets/Game/VFX/Combat/Advanced/Prefabs/TankSteamAdvanced.prefab",
+    "Surface dispatch: Metal",
+    "Surface dispatch: Concrete",
+    "Crater has one fifth SlamImpact diameter",
+    "Crater follows wall contact normal",
+    "POM depth scales down with fist crater",
+    "Surface dispatch: Flesh",
+    "Environment VFX is once per strike, despite resampling",
+    "Next strike can affect the same surface again",
+    "Windup/recovery outside hit window produces no contact VFX",
+    "Enemy hit and VFX are deduplicated across multiple colliders",
+    "Dead target does not produce a new successful-hit burst",
+    "Pillar light rises quickly, then fades completely",
+    "Linked pillar disappears without spawning VFX: 0",
+    "Linked pillar disappears without spawning VFX: 1",
+    "Linked pillar disappears without spawning VFX: 2",
+    "Linked pillar disappears without spawning VFX: 3"
+  ]
+}
