@@ -5355,8 +5355,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b129c69e1dec1f438cfe5454e714286, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::LevelExit
-  nextSceneName: Soviet_MomentumShaft
-  editorNextScene: {fileID: 102900000, guid: 9e3d7d3868bfe414a8e40946871cf885, type: 3}
+  nextSceneName: Soviet_Workstations
+  editorNextScene: {fileID: 102900000, guid: 114861c868643e44997ff716a8b91705, type: 3}
   gates: []
   onReached:
     m_PersistentCalls:

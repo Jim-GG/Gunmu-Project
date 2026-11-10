@@ -15,17 +15,17 @@ EditorBuildSettings:
     path: Assets/Scenes/Soviet_TheCatwalk.unity
     guid: b19c7f20daa95e54b95846b916db1fa6
   - enabled: 1
-    path: Assets/Scenes/Soviet_MomentumShaft.unity
-    guid: 9e3d7d3868bfe414a8e40946871cf885
-  - enabled: 1
-    path: Assets/Scenes/Soviet_TheBridge.unity
-    guid: e0980e5415c441e99f2074e2a51061a6
-  - enabled: 1
     path: Assets/Scenes/Soviet_Workstations.unity
     guid: 114861c868643e44997ff716a8b91705
   - enabled: 1
     path: Assets/Scenes/Soviet_GetTheBox.unity
     guid: 0dd6c00f0e196d24cba6318b0ffc3044
+  - enabled: 1
+    path: Assets/Scenes/Soviet_MomentumShaft.unity
+    guid: 9e3d7d3868bfe414a8e40946871cf885
+  - enabled: 1
+    path: Assets/Scenes/Soviet_TheBridge.unity
+    guid: e0980e5415c441e99f2074e2a51061a6
   - enabled: 1
     path: Assets/Scenes/Soviet_Traffic.unity
     guid: bc2265a0b46e0f144925e0c51f482a36

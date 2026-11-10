@@ -9452,7 +9452,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b129c69e1dec1f438cfe5454e714286, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::LevelExit
-  nextSceneName: Soviet_Workstations
+  nextSceneName: Soviet_Traffic
   editorNextScene: {fileID: 0}
   gates: []
   onReached:
