@@ -45,6 +45,9 @@ namespace GameActions
         public static SoundSurface Classify(Collider c)
         {
             if(!c)return SoundSurface.Concrete;
+            if(c.GetComponentInParent<KineticBox>()||c.GetComponentInParent<PendulumMechanism>()||c.GetComponentInParent<Cannon>())return SoundSurface.Metal;
+            if(c.GetComponentInParent<DashCrystal>())return SoundSurface.Crystal;
+            if(c.GetComponentInParent<PlayerCombatController>()||c.GetComponentInParent<FirstPerson.FirstPersonVitals>())return SoundSurface.Flesh;
             if(c.GetComponentInParent<CrystalParkour.CrystalSurface>())return SoundSurface.Crystal;
             if(c.GetComponentInParent<Resonator.AI.ResonatorEnemy>())return SoundSurface.Flesh;
             if(c.GetComponentInParent<UDK7M.UDK7MBoss>())return SoundSurface.Metal;

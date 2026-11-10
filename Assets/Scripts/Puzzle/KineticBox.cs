@@ -106,6 +106,7 @@ public class KineticBox : MonoBehaviour, IPuzzleResettable
 
     private void Awake()
     {
+        GameActions.PuzzlePresentation.Ensure(gameObject);
         rb = GetComponent<Rigidbody>();
         boxCollider = GetComponent<BoxCollider>();
         boxRenderer = GetComponent<Renderer>();
@@ -542,6 +543,7 @@ public class KineticBox : MonoBehaviour, IPuzzleResettable
             : Vector3.zero;
 
         isMomentumLocked = true;
+        GameActions.PuzzlePresentation.Play(this, GameActions.PuzzleFeedback.Lock);
         recentLinearVelocity = Vector3.zero;
         rb.linearVelocity = Vector3.zero;
         rb.angularVelocity = Vector3.zero;
@@ -579,6 +581,7 @@ public class KineticBox : MonoBehaviour, IPuzzleResettable
 
         // If the released box immediately collides with the player, resolve guard/plastic collision right away!
         CheckMovingBoxPlayerCollision();
+        GameActions.PuzzlePresentation.Play(this, GameActions.PuzzleFeedback.Release);
     }
 
     public void SetBulletTimeHighlight(bool bulletTimeActive, bool hovered)

@@ -41,6 +41,7 @@ public class DashCrystal : MonoBehaviour, IPuzzleResettable
         PlayerMovement player = other.GetComponent<PlayerMovement>();
         if (player != null && player.TryRechargeDash("Crystal"))
         {
+            GameActions.PuzzlePresentation.Play(this, GameActions.PuzzleFeedback.Recharge);
             respawnTimer = respawnCooldown;
             SetCrystalActive(false);
         }
@@ -54,6 +55,7 @@ public class DashCrystal : MonoBehaviour, IPuzzleResettable
         PlayerMovement player = other.GetComponent<PlayerMovement>();
         if (player != null && player.TryRechargeDash("Crystal"))
         {
+            GameActions.PuzzlePresentation.Play(this, GameActions.PuzzleFeedback.Recharge);
             respawnTimer = respawnCooldown;
             SetCrystalActive(false);
         }

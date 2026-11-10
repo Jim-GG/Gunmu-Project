@@ -1,418 +1,137 @@
 using System;
+using System.Collections.Generic;
+using FirstPerson;
+using GameActions;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-// Each press starts a fresh charge. Release uses the last fully completed tier.
+// Compatibility for authored levels. GauntletCombat owns all attack clocks and hitboxes.
 public class PlayerChargedPunch : MonoBehaviour
 {
-    [SerializeField, Min(0.01f)] private float minimumWindup = 0.15f;
-    [SerializeField, Min(0.02f)] private float tierOneTime = 0.5f;
-    [SerializeField, Min(0.03f)] private float tierTwoTime = 1.25f;
-    [SerializeField, Min(0.04f)] private float tierThreeTime = 2.5f;
-    [SerializeField, Min(0.1f), InspectorName("击打距离（距身体，米）")] private float reach = 1f;
-    [SerializeField, Min(0f)] private float recovery = 0.3f;
-    [Header("各档冲撞距离（米）")]
-    [SerializeField, Min(0f)] private float tierOneLungeDistance = 2.5f;
-    [SerializeField, Min(0f)] private float tierTwoLungeDistance = 4.5f;
-    [SerializeField, Min(0f)] private float tierThreeLungeDistance = 6.5f;
-    [SerializeField, Min(1)] private int basicDamage = 1;
-    [SerializeField, Min(1)] private int tierOneDamage = 2;
-    [SerializeField, Min(1)] private int tierTwoDamage = 4;
-    [SerializeField, Min(1)] private int tierThreeDamage = 6;
-    [SerializeField, Min(0f)] private float tierOneImpulse = 11f;
-    [SerializeField, Min(0f)] private float tierTwoImpulse = 16f;
-    [SerializeField, Min(0f)] private float tierThreeImpulse = 22f;
-    [SerializeField, InspectorName("命中敌人时轻微腾空")] private bool liftOnEnemyHit = true;
-    [SerializeField, InspectorName("一至三级自身腾空速度")] private Vector3 combatLiftSpeeds = new Vector3(2.2f, 3f, 3.8f);
-
-    [Header("右键格挡与充能")]
-    [SerializeField, Range(30f, 180f), InspectorName("格挡判定角度")] private float guardAngle = 120f;
-    [SerializeField, Range(0, 3)] private int initialEnergy = 0;
-    [SerializeField] private int storedEnergy;
-
-    private bool attacking;
-    private int attackTier;
-    public int StoredEnergy => storedEnergy;
-    public float VisualCharge => charging ? .3f + .7f * Mathf.Clamp01(elapsed / tierThreeTime) : 0f;
-
-    // ---- 表现层订阅点（只读状态，不改玩法规则）----
-    public event Action ChargeStarted;
-    public event Action ChargeCanceled;
-    /// <summary>蓄力中每帧广播已蓄力时间（秒）。</summary>
+    [SerializeField] private float tierOneLungeDistance=2.5f,tierTwoLungeDistance=4.5f,tierThreeLungeDistance=6.5f;
+    [SerializeField] private float tierOneImpulse=11,tierTwoImpulse=16,tierThreeImpulse=22;
+    [SerializeField] private int basicDamage=1,tierOneDamage=2,tierTwoDamage=4,tierThreeDamage=6;
+    [SerializeField] private bool liftOnEnemyHit=true;
+    [SerializeField] private Vector3 combatLiftSpeeds=new Vector3(2.2f,3,3.8f);
+    [SerializeField,Range(0,3)] private int initialEnergy;
+    // Retained for old scene serialization; authored ChargePolicy now owns timing.
+    [SerializeField,HideInInspector] private float minimumWindup=.15f,tierOneTime=.5f,tierTwoTime=1.25f,tierThreeTime=2.5f,reach=1,recovery=.3f,guardAngle=120;
+    [SerializeField,HideInInspector] private int storedEnergy;
+    GauntletCombat shared;
+    PlayerMovement movement;
+    PlayerCombatController health;
+    PlayerGauntletEquipment equipment;
+    PunchPresentation presentation;
+    bool wasCharging,wasGuarding;
+    readonly HashSet<int> puzzleHits=new HashSet<int>();
+    public GauntletCombat SharedCombat=>shared;
+    public bool CanUseSharedCombat=>isActiveAndEnabled&&!GameplayGate.IsBlocked&&(!equipment||equipment.HasGauntlet)&&(!health||!health.IsDefeated);
+    public int StoredEnergy=>shared?shared.BlockEnergy:0;
+    public bool IsCharging=>shared&&(shared.State==GauntletCombat.Phase.Charging||shared.State==GauntletCombat.Phase.ReleasePending||shared.State==GauntletCombat.Phase.Full);
+    public bool IsAttacking=>shared&&shared.State==GauntletCombat.Phase.Punching;
+    public float ChargeTime=>shared?shared.ChargeSeconds:0;
+    public int CurrentTier=>shared?shared.ChargeTier:0;
+    public float TierOneTime=>shared?shared.policy.tierOne/shared.policy.framesPerSecond:32/30f;
+    public float TierTwoTime=>shared?shared.policy.tierTwo/shared.policy.framesPerSecond:62/30f;
+    public float TierThreeTime=>shared?shared.policy.full/shared.policy.framesPerSecond:92/30f;
+    public float ChargeCap=>TierThreeTime;
+    public bool IsChargeCapped=>shared&&shared.State==GauntletCombat.Phase.Full;
+    public float VisualCharge=>IsCharging?Mathf.Clamp01(ChargeTime/TierThreeTime):0;
+    public bool CanGuard=>CanUseSharedCombat&&shared;
+    public bool IsGuarding=>CanGuard&&shared.IsBlocking;
+    public event Action ChargeStarted,ChargeCanceled,GuardStarted,GuardEnded,GuardSucceeded;
     public event Action<float> ChargeChanged;
-    /// <summary>出拳瞬间广播档位：0 无蓄力，1~3 对应一至三段。</summary>
     public event Action<int> PunchReleased;
-    public event Action GuardStarted;
-    public event Action GuardEnded;
-    /// <summary>成功格挡一次（已回充能）。</summary>
-    public event Action GuardSucceeded;
-
-    public bool IsCharging => charging;
-    public bool IsAttacking => attacking;
-    public float ChargeTime => elapsed;
-    public float TierOneTime => tierOneTime;
-    public float TierTwoTime => tierTwoTime;
-    public float TierThreeTime => tierThreeTime;
-    /// <summary>当前充能允许的蓄力上限（秒）。到达后松开即为最高可用档位。</summary>
-    public float ChargeCap => storedEnergy == 3 ? tierThreeTime : storedEnergy == 2 ? tierTwoTime
-        : storedEnergy == 1 ? tierOneTime : minimumWindup;
-    public bool IsChargeCapped => charging && elapsed >= ChargeCap - 0.0001f;
-
-    private PunchPresentation presentation;
-    private PlayerMovement movement;
-    private PlayerCombatController combat;
-    private PlayerGauntletEquipment equipment;
-    private PlayerInteractor interactor;
-    private CharacterController controller;
-    private Camera aimCamera;
-    private Transform aim;
-
-    public bool CanGuard => isActiveAndEnabled
-        && !charging
-        && !attacking
-        && (equipment == null || equipment.HasGauntlet)
-        && (combat == null || !combat.IsDefeated);
-
-    public bool IsGuarding => CanGuard
-        && Cursor.lockState == CursorLockMode.Locked
-        && Mouse.current != null
-        && Mouse.current.rightButton.isPressed;
-
-    /// <summary>
-    /// Checks whether the player is currently holding Right-Click guard and facing toward the given world position.
-    /// </summary>
-    public bool IsGuardingTowardsPoint(Vector3 targetWorldPoint)
+    void Awake()
     {
-        if (!IsGuarding) return false;
-        Vector3 origin = aim != null ? aim.position : transform.position;
-        Vector3 toTarget = targetWorldPoint - origin;
-        return IsDirectionWithinGuardCone(toTarget);
+        movement=GetComponent<PlayerMovement>();health=GetComponent<PlayerCombatController>();equipment=GetComponent<PlayerGauntletEquipment>();
+        presentation=GetComponent<PunchPresentation>()??gameObject.AddComponent<PunchPresentation>();
+        shared=GetComponent<GauntletCombat>()??gameObject.AddComponent<GauntletCombat>();
+        shared.useTargetAssist=false;shared.externalInputEnabled=isActiveAndEnabled;
+        shared.AttackStarted+=Attack;shared.AttackFinished+=Finished;shared.ContactResolved+=Contact;shared.AttackBlocked+=Blocked;
+        if(initialEnergy>0)shared.AddEnergy(initialEnergy);
+        LevelPlayerPresentation.Ensure(gameObject);
     }
-
-    /// <summary>
-    /// Checks whether the player is currently holding Right-Click guard and facing against a surface with the given normal.
-    /// (surfaceNormal points outward from the wall/object toward the player.)
-    /// </summary>
-    public bool IsGuardingSurface(Vector3 surfaceNormal)
+    void OnEnable(){if(shared)shared.externalInputEnabled=true;}
+    void Update()
     {
-        if (!IsGuarding) return false;
-        return IsDirectionWithinGuardCone(-surfaceNormal);
+        if(!shared||!shared.InitializePipeline())return;
+        if(!CanUseSharedCombat||!Application.isFocused||Cursor.lockState!=CursorLockMode.Locked)
+        {if(shared.State!=GauntletCombat.Phase.Idle||shared.HasBufferedInput)CancelCharge();return;}
+        var mouse=Mouse.current;if(mouse==null)return;
+        if(mouse.rightButton.wasPressedThisFrame)shared.BeginBlock();
+        if(mouse.rightButton.wasReleasedThisFrame)shared.EndBlock();
+        if(mouse.leftButton.wasPressedThisFrame)shared.Press();
+        if(mouse.leftButton.wasReleasedThisFrame)shared.Release();
     }
-
-    private bool IsDirectionWithinGuardCone(Vector3 toObstacleDir)
+    void LateUpdate()
     {
-        if (toObstacleDir.sqrMagnitude < 0.0001f) return true;
-        float halfAngle = guardAngle * 0.5f;
-
-        Vector3 viewForward = aim != null ? aim.forward : transform.forward;
-        if (Vector3.Angle(viewForward, toObstacleDir) <= halfAngle)
-            return true;
-
-        Vector3 flatForward = Vector3.ProjectOnPlane(viewForward, Vector3.up);
-        Vector3 flatTarget = Vector3.ProjectOnPlane(toObstacleDir, Vector3.up);
-        if (flatForward.sqrMagnitude > 0.001f && flatTarget.sqrMagnitude > 0.001f)
+        bool charging=IsCharging,guarding=IsGuarding;
+        if(charging&&!wasCharging)ChargeStarted?.Invoke();
+        if(charging)ChargeChanged?.Invoke(ChargeTime);
+        if(guarding!=wasGuarding){if(guarding)GuardStarted?.Invoke();else GuardEnded?.Invoke();}
+        wasCharging=charging;wasGuarding=guarding;
+    }
+    void Attack(int punch)
+    {
+        puzzleHits.Clear();int tier=Mathf.Clamp(punch-1,0,3);PunchReleased?.Invoke(tier);presentation.Swing(tier);
+        float distance=tier==3?tierThreeLungeDistance:tier==2?tierTwoLungeDistance:tier==1?tierOneLungeDistance:0;
+        if(movement&&distance>0)movement.BeginPunchLunge(distance);
+    }
+    void Finished(int punch){if(movement)movement.StopPunchLunge();}
+    void Blocked(){GuardSucceeded?.Invoke();presentation.GuardFeedback(true);}
+    void Contact(Collider collider,Vector3 point,Vector3 normal)
+    {
+        if(!collider)return;
+        int tier=Mathf.Clamp(shared.ActivePunch-1,0,3);
+        var actionTarget=collider.GetComponentInParent<IActionTarget>();
+        bool flesh=SurfaceAudio.Kind(collider)==SoundSurface.Flesh;
+        // ActionContact already emits surface VFX/audio and damages IActionTarget.
+        presentation.Impact(point,normal,tier,flesh);
+        var box=collider.GetComponentInParent<KineticBox>();
+        int identity=box?box.GetInstanceID():collider.attachedRigidbody?collider.attachedRigidbody.GetInstanceID():collider.GetInstanceID();
+        if(!puzzleHits.Add(identity))return;
+        var direction=shared.attackOrigin?shared.attackOrigin.forward:transform.forward;
+        float impulse=tier==3?tierThreeImpulse:tier==2?tierTwoImpulse:tier==1?tierOneImpulse:0;
+        if(box&&tier>0)
         {
-            if (Vector3.Angle(flatForward, flatTarget) <= halfAngle)
-                return true;
+            Vector3 horizontal=Vector3.ProjectOnPlane(direction,Vector3.up);
+            var controller=GetComponent<CharacterController>();
+            bool sideLid=normal.y>.65f&&controller&&controller.bounds.min.y<point.y-.15f&&horizontal.sqrMagnitude>.01f;
+            var applied=box.ApplyCardinalImpulse(sideLid?-horizontal.normalized:normal,direction,impulse);
+            if(movement)movement.ApplyBoxHitRecoil(applied);
         }
-
-        return false;
+        if(actionTarget==null)
+        {
+            var receiver=collider.GetComponentInParent<IPunchReceiver>();receiver?.OnPunched(point,normal,direction,tier,impulse);
+            var targetHealth=collider.GetComponentInParent<PunchTargetHealth>();
+            if(targetHealth)targetHealth.TakeDamage(tier==3?tierThreeDamage:tier==2?tierTwoDamage:tier==1?tierOneDamage:basicDamage);
+            var body=collider.attachedRigidbody;
+            if(!box&&tier>0&&body&&!body.isKinematic)body.AddForce(direction*impulse,ForceMode.VelocityChange);
+        }
+        if(flesh&&tier>0&&liftOnEnemyHit&&movement)movement.LiftAfterCombatPunch(tier==3?combatLiftSpeeds.z:tier==2?combatLiftSpeeds.y:combatLiftSpeeds.x);
     }
-
     public bool AddEnergy(int amount)
     {
-        if (equipment == null) equipment = GetComponent<PlayerGauntletEquipment>();
-        if (equipment != null && !equipment.HasGauntlet) return false;
-        if (amount <= 0 || storedEnergy >= 3) return false;
-        storedEnergy = Mathf.Min(3, storedEnergy + amount);
-        feedback = $"充能：{storedEnergy}/3 格";
-        feedbackUntil = Time.unscaledTime + 1.5f;
-        return true;
+        if(!shared||amount<=0||StoredEnergy>=3||(equipment&&!equipment.HasGauntlet))return false;
+        shared.AddEnergy(amount);return true;
     }
-
-    /// <summary>
-    /// Refills 1 energy and triggers metallic guard feedback (sound, sparks, camera shake).
-    /// </summary>
-    public void RefillEnergyByGuard(Vector3 impactPoint, Vector3 impactNormal)
+    public bool IsGuardingTowardsPoint(Vector3 point)=>IsGuarding&&WithinGuard(point-transform.position);
+    public bool IsGuardingSurface(Vector3 normal)=>IsGuarding&&WithinGuard(-normal);
+    bool WithinGuard(Vector3 direction)=>Vector3.Angle(transform.forward,Vector3.ProjectOnPlane(direction,Vector3.up))<=shared.blockAngle*.5f;
+    public void RefillEnergyByGuard(Vector3 point,Vector3 normal){if(shared&&CanUseSharedCombat)shared.ResolveGuard(point);}
+    public void NotifySuccessfulBlock()=>AddEnergy(1);
+    public void NotifyPlasticCollision()=>presentation.GuardFeedback(false);
+    // Body contact stops movement only. Authored hitboxes exclusively decide damage.
+    public void ResolveLungeContact(Collider collider,Vector3 point,Vector3 normal){if(normal.y>.65f&&shared&&shared.attackOrigin&&shared.attackOrigin.forward.y>-.4f)return;if(movement)movement.StopPunchLunge();}
+    public void CancelCharge(){bool charging=IsCharging;if(shared)shared.Cancel();if(movement)movement.StopPunchLunge();if(charging){ChargeChanged?.Invoke(0);ChargeCanceled?.Invoke();}}
+    public void ResetPunchState(){CancelCharge();if(shared){shared.ResetResonance();shared.AddEnergy(initialEnergy);}}
+    void OnDisable(){CancelCharge();if(shared)shared.externalInputEnabled=false;}
+    void OnApplicationFocus(bool focused){if(!focused)CancelCharge();}
+    void OnDestroy(){if(shared){shared.AttackStarted-=Attack;shared.AttackFinished-=Finished;shared.ContactResolved-=Contact;shared.AttackBlocked-=Blocked;}}
+    void OnGUI()
     {
-        if (equipment == null) equipment = GetComponent<PlayerGauntletEquipment>();
-        if (equipment != null && !equipment.HasGauntlet) return;
-
-        storedEnergy = Mathf.Min(3, storedEnergy + 1);
-        if (presentation != null)
-            presentation.GuardFeedback(true, impactPoint, impactNormal);
-        GuardSucceeded?.Invoke();
-    }
-
-    public void NotifyPlasticCollision()
-    {
-        if (presentation != null)
-            presentation.GuardFeedback(false);
-    }
-
-    // Call only after the combat system confirms a successful block.
-    public void NotifySuccessfulBlock() => AddEnergy(3);
-
-    private bool charging;
-    private bool releaseQueued;
-    private bool cursorWasLocked;
-    private float elapsed;
-    private float chargeStartedAt;
-    private float nextReady;
-    private float feedbackUntil;
-    private string feedback = "";
-    public int CurrentTier => Mathf.Min(storedEnergy, elapsed >= tierThreeTime ? 3 : elapsed >= tierTwoTime ? 2 : elapsed >= tierOneTime ? 1 : 0);
-
-    private void Awake()
-    {
-        storedEnergy = initialEnergy;
-        presentation = GetComponent<PunchPresentation>();
-        if (presentation == null) presentation = gameObject.AddComponent<PunchPresentation>();
-        movement = GetComponent<PlayerMovement>();
-        combat = GetComponent<PlayerCombatController>();
-        equipment = GetComponent<PlayerGauntletEquipment>();
-        interactor = GetComponent<PlayerInteractor>();
-        controller = GetComponent<CharacterController>();
-        aimCamera = GetComponentInChildren<Camera>();
-        aim = aimCamera != null ? aimCamera.transform : transform.Find("CameraPivot");
-        if (aim == null) aim = transform;
-    }
-
-    private void OnValidate()
-    {
-        minimumWindup = Mathf.Max(0.01f, minimumWindup);
-        tierOneTime = Mathf.Max(minimumWindup + 0.01f, tierOneTime);
-        tierTwoTime = Mathf.Max(tierOneTime + 0.01f, tierTwoTime);
-        tierThreeTime = Mathf.Max(tierTwoTime + 0.01f, tierThreeTime);
-        tierOneLungeDistance = Mathf.Max(0.05f, tierOneLungeDistance);
-        tierTwoLungeDistance = Mathf.Max(tierOneLungeDistance + 0.05f, tierTwoLungeDistance);
-        tierThreeLungeDistance = Mathf.Max(tierTwoLungeDistance + 0.05f, tierThreeLungeDistance);
-    }
-
-    private void Update()
-    {
-        if (presentation != null && presentation.IsHitStopped) return;
-        if (equipment == null) equipment = GetComponent<PlayerGauntletEquipment>();
-        if (equipment != null && !equipment.HasGauntlet)
-        {
-            CancelCharge();
-            attacking = false;
-            if (movement != null) movement.StopPunchLunge();
-            return;
-        }
-        if (attacking)
-        {
-            if (!Application.isFocused || Cursor.lockState != CursorLockMode.Locked
-                || movement == null || !movement.enabled
-                || (Keyboard.current != null && (Keyboard.current.rKey.wasPressedThisFrame || Keyboard.current.escapeKey.wasPressedThisFrame)))
-            {
-                attacking = false;
-                if (movement != null) movement.StopPunchLunge();
-                return;
-            }
-            TryLungeHit();
-            return;
-        }
-        Keyboard key = Keyboard.current;
-        Mouse mouse = Mouse.current;
-        bool cancel = !Application.isFocused || Cursor.lockState != CursorLockMode.Locked
-            || (movement != null && (!movement.enabled || movement.IsDashing))
-            || (key != null && (key.escapeKey.wasPressedThisFrame || key.rKey.wasPressedThisFrame));
-        if (cancel || mouse == null)
-        {
-            CancelCharge();
-            return;
-        }
-        // Pressing Right Mouse Button to guard cancels any unlaunched charge
-        if (charging && mouse.rightButton.wasPressedThisFrame)
-        {
-            CancelCharge();
-            return;
-        }
-        if (!charging && cursorWasLocked && !mouse.rightButton.isPressed && Time.unscaledTime >= nextReady && mouse.leftButton.wasPressedThisFrame)
-        {
-            charging = true;
-            releaseQueued = false;
-            elapsed = 0f;
-            chargeStartedAt = Time.unscaledTime;
-            ChargeChanged?.Invoke(0f);
-            ChargeStarted?.Invoke();
-        }
-        if (!charging) return;
-        // Real time keeps the hold duration consistent inside bullet time.
-        elapsed = Mathf.Min(ChargeCap, Time.unscaledTime - chargeStartedAt);
-        ChargeChanged?.Invoke(elapsed);
-        if (mouse.leftButton.wasReleasedThisFrame || !mouse.leftButton.isPressed) releaseQueued = true;
-        if (releaseQueued && elapsed >= minimumWindup)
-        {
-            int tier = CurrentTier;
-            ClearCharge();
-            nextReady = Time.unscaledTime + recovery;
-            storedEnergy -= tier;
-            attackTier = tier;
-            attacking = true;
-            PunchReleased?.Invoke(tier);
-            // 无蓄力快拳（0 档）不给任何冲刺位移：否则玩家能靠零消耗的普攻反复推自己上天（无限飞行）。
-            float distance = tier == 3 ? tierThreeLungeDistance
-                : tier == 2 ? tierTwoLungeDistance
-                : tier == 1 ? tierOneLungeDistance
-                : 0f;
-            if (presentation != null) presentation.Swing(tier);
-            if (TryHitAimedTarget()) return;
-            if (movement != null && distance > 0.0001f) movement.BeginPunchLunge(distance);
-            FinishMissIfLungeEnded();
-        }
-    }
-
-    private void LateUpdate()
-    {
-        cursorWasLocked = Cursor.lockState == CursorLockMode.Locked;
-        bool guarding = IsGuarding;
-        if (guarding == guardWasHeld) return;
-        guardWasHeld = guarding;
-        if (guarding) GuardStarted?.Invoke(); else GuardEnded?.Invoke();
-    }
-
-    private bool guardWasHeld;
-    private void OnDisable() { CancelCharge(); attacking = false; if (movement != null) movement.StopPunchLunge(); cursorWasLocked = false; }
-    private void OnApplicationFocus(bool focused) { if (!focused) { CancelCharge(); cursorWasLocked = false; } }
-    public void CancelCharge()
-    {
-        bool wasCharging = charging;
-        ClearCharge();
-        if (!wasCharging) return;
-        ChargeChanged?.Invoke(0f);
-        ChargeCanceled?.Invoke();
-    }
-
-    private void ClearCharge()
-    {
-        charging = false;
-        releaseQueued = false;
-        elapsed = 0f;
-    }
-    public void ResetPunchState() { CancelCharge(); attacking = false; storedEnergy = initialEnergy; nextReady = 0f; feedbackUntil = 0f; }
-
-    private void TryLungeHit()
-    {
-        if (!TryHitAimedTarget()) FinishMissIfLungeEnded();
-    }
-
-    private void FinishMissIfLungeEnded()
-    {
-        if (attacking && (movement == null || !movement.IsPunchLunging))
-        {
-            attacking = false;
-            ChargedPunchPulse.Spawn(aim.position + aim.forward * reach, -aim.forward, attackTier);
-            feedback = (attackTier == 0 ? "普攻未命中" : $"{attackTier} 档冲撞未命中") + $"｜剩余充能：{storedEnergy}/3 格";
-            feedbackUntil = Time.unscaledTime + 1.5f;
-            nextReady = Time.unscaledTime + recovery;
-        }
-    }
-
-    private bool TryHitAimedTarget()
-    {
-        Camera camera = interactor != null && interactor.ViewCamera != null ? interactor.ViewCamera : aimCamera;
-        Ray ray = camera != null ? camera.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0f))
-            : new Ray(aim.position, aim.forward);
-        if (camera != null && !camera.orthographic) ray.origin = camera.transform.position;
-
-        Bounds body = controller != null ? controller.bounds : new Bounds(transform.position, Vector3.zero);
-        float searchDistance = reach + Vector3.Distance(ray.origin, body.center) + body.extents.magnitude;
-        RaycastHit? nearest = null;
-        foreach (RaycastHit hit in Physics.RaycastAll(ray, searchDistance,
-            Physics.DefaultRaycastLayers, QueryTriggerInteraction.Ignore))
-        {
-            if (hit.collider.transform.IsChildOf(transform)) continue;
-            if (!nearest.HasValue || hit.distance < nearest.Value.distance) nearest = hit;
-        }
-        if (!nearest.HasValue) return false;
-
-        RaycastHit target = nearest.Value;
-        // Measure from the player capsule, so looking down at a box does not shorten the reach.
-        float radius = Mathf.Min(body.extents.x, body.extents.y, body.extents.z);
-        float halfSegment = body.extents.y - radius;
-        Vector3 axisPoint = body.center;
-        axisPoint.y = Mathf.Clamp(target.point.y, axisPoint.y - halfSegment, axisPoint.y + halfSegment);
-        if ((target.point - axisPoint).sqrMagnitude > (reach + radius) * (reach + radius)) return false;
-
-        Collider collider = target.collider;
-        KineticBox box = collider.GetComponentInParent<KineticBox>();
-        IPunchReceiver receiver = collider.GetComponentInParent<IPunchReceiver>();
-        PunchTargetHealth health = collider.GetComponentInParent<PunchTargetHealth>();
-        Rigidbody rigidbody = collider.attachedRigidbody;
-        if (box == null && receiver == null && health == null && (rigidbody == null || rigidbody.isKinematic))
-            return false;
-
-        ResolvePunchHit(collider, target.point, target.normal, ray.direction, box, receiver, health);
-        return true;
-    }
-
-    public void ResolveLungeContact(Collider collider, Vector3 point, Vector3 normal)
-    {
-        if (!attacking || collider.transform.IsChildOf(transform)) return;
-        // Ignore ground support contact; walls/targets consume this attack exactly once.
-        if (normal.y > 0.65f && aim.forward.y > -0.4f) return;
-        ResolvePunchHit(collider, point, normal, aim.forward, collider.GetComponentInParent<KineticBox>(),
-            collider.GetComponentInParent<IPunchReceiver>(), collider.GetComponentInParent<PunchTargetHealth>());
-    }
-
-    private void ResolvePunchHit(Collider collider, Vector3 point, Vector3 normal, Vector3 direction,
-        KineticBox box, IPunchReceiver receiver, PunchTargetHealth health)
-    {
-        attacking = false;
-        if (movement != null) movement.StopPunchLunge();
-        int tier = attackTier;
-        int damage = tier == 3 ? tierThreeDamage : tier == 2 ? tierTwoDamage : tier == 1 ? tierOneDamage : basicDamage;
-        float impulse = tier == 3 ? tierThreeImpulse : tier == 2 ? tierTwoImpulse : tier == 1 ? tierOneImpulse : 0f;
-        if (box != null && tier > 0)
-        {
-            // Aiming at the lid from beside a box should push it across the floor.
-            Vector3 horizontalAim = Vector3.ProjectOnPlane(direction, Vector3.up);
-            bool hitLidFromBeside = normal.y > 0.65f && controller != null
-                && controller.bounds.min.y < point.y - 0.15f && horizontalAim.sqrMagnitude > 0.01f;
-            Vector3 appliedDir = box.ApplyCardinalImpulse(hitLidFromBeside ? -horizontalAim.normalized : normal,
-                direction, impulse);
-            if (movement != null) movement.ApplyBoxHitRecoil(appliedDir);
-        }
-        if (health != null) health.TakeDamage(damage);
-
-        if (receiver != null) receiver.OnPunched(point, normal, direction, tier, impulse);
-        if (receiver != null && tier > 0 && liftOnEnemyHit && movement != null)
-            movement.LiftAfterCombatPunch(tier == 3 ? combatLiftSpeeds.z : tier == 2 ? combatLiftSpeeds.y : combatLiftSpeeds.x);
-        if (presentation != null) presentation.Impact(point, normal, tier, receiver != null && receiver.IsFlesh);
-        Rigidbody body = collider.attachedRigidbody;
-        if (box == null && tier > 0 && body != null && !body.isKinematic)
-            body.AddForce(direction * impulse, ForceMode.VelocityChange);
-        ChargedPunchPulse.Spawn(point + normal * 0.03f, normal, tier);
-        feedback = (tier == 0 ? "普攻命中" : $"{tier} 档攻击命中") + $"｜剩余充能：{storedEnergy}/3 格";
-        feedbackUntil = Time.unscaledTime + 1.5f;
-        nextReady = Time.unscaledTime + recovery;
-    }
-
-    private void OnGUI()
-    {
-        if (GameplayGate.IsBlocked) return;
-        ChineseGameUI.EnsureFont();
-        float width = Mathf.Min(520f, Screen.width - 20f);
-        Rect panel = new Rect((Screen.width - width) * 0.5f, Screen.height - 125f, width, 105f);
-        GUI.Box(panel, "");
-        GUI.Label(new Rect(panel.x + 10f, panel.y + 5f, width - 20f, 25f),
-            charging ? $"充能：{storedEnergy}/3 格｜当前蓄力：{CurrentTier} 档｜{elapsed:0.00} 秒"
-                : $"充能：{storedEnergy}/3 格｜按住左键蓄力，松开后冲撞出拳");
-        for (int i = 0; i < 3; i++)
-        {
-            float from = i == 0 ? 0f : i == 1 ? tierOneTime : tierTwoTime;
-            float to = i == 0 ? tierOneTime : i == 1 ? tierTwoTime : tierThreeTime;
-            float fill = charging ? Mathf.Clamp01((elapsed - from) / (to - from)) : 0f;
-            float cellWidth = (width - 40f) / 3f;
-            Rect cell = new Rect(panel.x + 10f + i * (cellWidth + 10f), panel.y + 35f, cellWidth, 20f);
-            Color old = GUI.color;
-            GUI.color = i < storedEnergy ? new Color(0.1f, 0.35f, 0.45f) : Color.gray;
-            GUI.DrawTexture(cell, Texture2D.whiteTexture);
-            GUI.color = fill >= 1f ? Color.cyan : new Color(0.9f, 0.65f, 0.15f);
-            GUI.DrawTexture(new Rect(cell.x, cell.y, cell.width * fill, cell.height), Texture2D.whiteTexture);
-            GUI.color = old;
-        }
+        if(GameplayGate.IsBlocked||(equipment&&!equipment.HasGauntlet))return;
+        ChineseGameUI.EnsureFont();GUI.Label(new Rect(15,Screen.height-95,500,30),$"充能：{StoredEnergy}/3 格｜蓄力：{CurrentTier} 档");
     }
 }

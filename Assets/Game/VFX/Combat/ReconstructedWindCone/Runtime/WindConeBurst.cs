@@ -13,6 +13,8 @@ namespace WindConeFX
         public bool deactivateOnComplete = true;
         [ColorUsage(true, true)] public Color tint = new Color(0.68f, 0.9f, 1f, 1f);
         [Range(0, 8)] public float intensity = 1.7f;
+        [Tooltip("启用后由组件覆盖材质亮度/颜色；默认尊重 prefab 材质设置。") ]
+        public bool overrideMaterialAppearance;
         MaterialPropertyBlock block;
         float age;
         bool playing;
@@ -65,7 +67,9 @@ namespace WindConeFX
                 shell.GetPropertyBlock(block);
                 float baseOpacity = shell.sharedMaterial && shell.sharedMaterial.HasProperty(Opacity) ? shell.sharedMaterial.GetFloat(Opacity) : 1f;
                 block.SetFloat(Life, 1); block.SetFloat(Opacity, opacity * baseOpacity); block.SetFloat(Progress, progress);
-                block.SetColor(Tint, tint); block.SetFloat(Intensity, intensity);
+                var material = shell.sharedMaterial;
+                block.SetColor(Tint, overrideMaterialAppearance ? tint : material && material.HasProperty(Tint) ? material.GetColor(Tint) : Color.white);
+                block.SetFloat(Intensity, overrideMaterialAppearance ? intensity : material && material.HasProperty(Intensity) ? material.GetFloat(Intensity) : 1f);
                 shell.SetPropertyBlock(block);
             }
         }

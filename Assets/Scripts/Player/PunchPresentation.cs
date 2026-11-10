@@ -1,7 +1,7 @@
 using UnityEngine;
 
 /// <summary>
-/// 拳套的打击反馈：镜头震动、命中顿帧、准星反馈（本项目不使用音效）。
+/// 拳套的打击反馈：镜头震动、命中顿帧、准星反馈及共享音效/特效。
 /// 只做表现，不改变伤害 / 蓄力 / 格挡规则；拳套外观与动画由 <see cref="PlayerGauntletView"/> 负责。
 /// </summary>
 public class PunchPresentation : MonoBehaviour
@@ -10,6 +10,8 @@ public class PunchPresentation : MonoBehaviour
     [SerializeField, Range(0f, 2f), InspectorName("镜头震动强度")] private float shakeStrength = 1f;
     [SerializeField, Range(0f, 2f), InspectorName("命中停顿强度")] private float hitStopStrength = 1f;
 
+    private GameActions.LevelPlayerPresentation polished;
+    private GameActions.LevelPlayerPresentation Polished => polished ? polished : polished = GameActions.LevelPlayerPresentation.Ensure(gameObject);
     private Camera view;
     private PlayerChargedPunch punch;
     private PlayerGauntletEquipment equipment;
@@ -37,15 +39,16 @@ public class PunchPresentation : MonoBehaviour
     public void Swing(int tier)
     {
         Shake(.12f, .009f + tier * .004f);
+        Polished.Swing(tier);
     }
 
-    public void Impact(Vector3 point, Vector3 normal, int tier, bool flesh)
+    public void Impact(Vector3 point, Vector3 normal, int tier, bool flesh, Collider target = null)
     {
         hitAt = Time.unscaledTime;
         // Freeze only the player's translation and the struck enemy, never global timeScale.
         freezeUntil = Time.unscaledTime + (flesh ? .045f + tier * .025f : .018f + tier * .009f) * hitStopStrength;
         Shake(.16f + tier * .055f, .022f + tier * .016f);
-        DemoImpactBurst.Spawn(point, normal, tier, flesh);
+        Polished.Contact(target, point, normal);
     }
 
     public void GuardFeedback(bool success, Vector3? hitPoint = null, Vector3? hitNormal = null)
@@ -55,8 +58,9 @@ public class PunchPresentation : MonoBehaviour
         {
             Vector3 spawnPos = hitPoint ?? (view.transform.position + view.transform.forward * .85f);
             Vector3 spawnNormal = hitNormal ?? (-view.transform.forward);
-            DemoImpactBurst.Spawn(spawnPos, spawnNormal, 2, false);
+            Polished.Guard(true, spawnPos, spawnNormal);
         }
+        else if (!success) Polished.Guard(false, transform.position, Vector3.up);
     }
 
     private void Shake(float duration, float amount)

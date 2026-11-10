@@ -47,8 +47,8 @@ namespace Resonator.AI
             {
                 if (invulnerableForTesting) return StrikeResult.Damaged;
                 if (hit.damage <= 0) return StrikeResult.Miss;
-                bool blocked = combat.ReceiveAttack(hit.source, Mathf.Max(1, Mathf.RoundToInt(hit.damage)));
-                return blocked ? StrikeResult.Blocked : StrikeResult.Damaged;
+                bool blocked = combat.ReceiveAttack(hit.source, hit.damage, hit.blockable);
+                return combat.LastGuard == GameActions.GuardKind.Perfect ? StrikeResult.Blocked : StrikeResult.Damaged;
             }
             var guard=hit.blockable&&gauntlet?gauntlet.ResolveGuard(hit.source):GameActions.GuardKind.None;
             float damage=hit.damage*(guard==GameActions.GuardKind.Perfect?0:guard==GameActions.GuardKind.Imperfect?.34f:1);

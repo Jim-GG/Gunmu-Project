@@ -46,6 +46,8 @@ namespace FirstPerson
         [Range(0,360)] public float blockAngle=120;
         public string fullState="charge full";
         public bool externalInputEnabled=true, drawHitboxes=true;
+        public bool useTargetAssist=true;
+        public event Action<Collider,Vector3,Vector3> ContactResolved;
         public Phase State {get;private set;}
         public float ChargeSeconds {get;private set;}
         public int ChargeTier=>policy.Tier(ChargeSeconds);
@@ -78,14 +80,14 @@ namespace FirstPerson
         float heldSeconds;
         double clock;
         int lastTier,activePunch,visitedSkips;
-        bool CanAct=>externalInputEnabled&&(!vitals||vitals.Health>0);
+        bool CanAct=>externalInputEnabled&&!GameplayGate.IsBlocked&&(!vitals||vitals.Health>0)&&(!GetComponent<PlayerChargedPunch>()||GetComponent<PlayerChargedPunch>().CanUseSharedCombat);
         void Awake()=>InitializePipeline();
         public bool InitializePipeline()
         {
             if(ready&&actions&&actions.motion&&boxes!=null&&actions.profile)return true;
             if(!animationPlayer)animationPlayer=GetComponentInChildren<Gauntlet.GauntletAnimationPlayer>();
             if(!profile)profile=Resources.Load<GameActions.ActionSet>("GauntletActions");
-            if(!animationPlayer||!animationPlayer.animator||!profile)return false;
+            if(!animationPlayer||!animationPlayer.gameObject.activeInHierarchy||!animationPlayer.animator||!profile)return false;
             animationPlayer.SuspendAutomaticPlayback();
             var go=animationPlayer.animator.gameObject;
             var motion=go.GetComponent<GameActions.ActionMotionPlayer>();if(!motion)motion=go.AddComponent<GameActions.ActionMotionPlayer>();
@@ -108,7 +110,7 @@ namespace FirstPerson
             motion.FrameEventRaised-=ReceiveFrameEvent;motion.FrameEventRaised+=ReceiveFrameEvent;ready=true;GameActions.WeaponEnergyVFXController.Ensure(this);ReturnIdle(true);return true;
         }
         void OnEnable(){stopping=false;ready=false;if(Application.isPlaying)InitializePipeline();}
-        void SurfaceContact(Collider hit,Vector3 point,Vector3 normal){if(surfaceVFX)surfaceVFX.Contact(hit,point,normal);}
+        void SurfaceContact(Collider hit,Vector3 point,Vector3 normal){if(surfaceVFX)surfaceVFX.Contact(hit,point,normal);ContactResolved?.Invoke(hit,point,normal); }
         void ReceiveFrameEvent(Resonator.AI.MotionFrameEvent marker)
         {eventDispatcher.Dispatch(marker,boxes);FrameEventReceived?.Invoke(marker);onAnimationEvent?.Invoke(marker.name);}
         public void Press()
@@ -190,7 +192,7 @@ namespace FirstPerson
                 if(State!=beforeState||motion.Beat!=definition.Motion){remaining-=step;continue;}
                 if(State==Phase.Punching)
                 {
-                    assist.Step(definition,previous,motion.SourceFrame,step,transform,attackOrigin,body,obstructionMask,profile.minimumSeparation,connected);
+                    if(useTargetAssist)assist.Step(definition,previous,motion.SourceFrame,step,transform,attackOrigin,body,obstructionMask,profile.minimumSeparation,connected);
                     Physics.SyncTransforms();
                     connected|=contacts.Resolve(definition,motion,boxes,transform,attackOrigin.position,obstructionMask,activePunch*1.5f,step,Mathf.Clamp(activePunch-1,0,3),attackOrigin.forward);
                     if(!TryBuffered()&&State==Phase.Punching&&motion.Finished)

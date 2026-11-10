@@ -1,0 +1,36 @@
+{
+  "passed": true,
+  "isolated": true,
+  "unity": "6000.3.26f1",
+  "checks": {
+    "authoredCombat": 26,
+    "levelFlow": 32,
+    "bossRegression": 45,
+    "sceneAudit": 15
+  },
+  "sources": {
+    "Assets/Game/Enemies/Resonator/AI/Runtime/ResonatorEnemy.cs": "ceb663f91679180e4cebdb4ac3e72fc4c3a6301147cec18e8f9a6fe7e5ee2514",
+    "Assets/Game/Enemies/Resonator/AI/Runtime/ResonatorTarget.cs": "3d77e5fc4e3f61b6313ede093d9e4403dfae8a2c8abf6692880cce1b53697d57",
+    "Assets/Game/Player/Runtime/GauntletCombat.cs": "b34d9eceddf54a02b0a0058bfbb80ce54de7b69487e5de050525ee3e43a06c2a",
+    "Assets/Game/Shared/Actions/Runtime/GauntletChargeAudio.cs": "5cbab5e968324296683f2cb6f57b9b5cc3c1296d5d1cfa87ef9c374b4512da45",
+    "Assets/Game/Shared/Actions/Runtime/SurfaceAudio.cs": "185f6030ea8b3ff9e0b072a014a63b0faf0b10863892e857c3e8dc131c76bd86",
+    "Assets/Game/VFX/Combat/ReconstructedWindCone/Runtime/WindConeBurst.cs": "444bb0c25941453d57e4f20bdac72b93b8d6a7dd0202f49f445edb75ba836296",
+    "Assets/Game/VFX/Combat/Runtime/WeaponEnergyVFXController.cs": "f61b13b30fe92006ea71f8a2d40bb1b256dfe6b2f20c6c10626be02c054b4843",
+    "Assets/Scripts/Enemies/ResonatorPunchTarget.cs": "7b83b9efcc1f1fafd0ffe6d8e3704841649325d4ef998469ec0b1ff2ab1de5dd",
+    "Assets/Scripts/Player/PlayerChargedPunch.cs": "cce208c3383f6ceb056824e1fcaaed14dfca92df7204eab21e35e631960d6a2e",
+    "Assets/Scripts/Player/PlayerCombatController.cs": "cb2f91f8ce3a0afdd82cef8735131a49bc8e5bbc91032948b8f9bb26b95eefba",
+    "Assets/Scripts/Player/PlayerGauntletView.cs": "be5925907540a2cda5077d1c1fa978f08b89c04eafd166306910828cbbb0ddf8",
+    "Assets/Scripts/Player/PunchPresentation.cs": "aeb1f0d8c4b81ac797b1a09332bb45133f5edb375deb6c4eae2e3813bbbd924c",
+    "Assets/Scripts/Puzzle/DashCrystal.cs": "08efbe183533c01ba4f4d245a9a70571a015bcbd04eec313e985f32eb033ddd2",
+    "Assets/Scripts/Puzzle/KineticBox.cs": "c39fab362b122a1b816b3947db5467e3342d90607a6f3db7ed3144bd85b8526d",
+    "Assets/Scripts/Puzzle/PuzzleButton.cs": "948b1f1e5b208b6b3dfa4756ece8b5bde744742f095fd7d9871fc9bd86ddb114",
+    "Assets/Scripts/Puzzle/PuzzleSwitch.cs": "5a6ceaed69e33410899bf9f15066d6f854e131323eb227b5767c2ca558c80c6a",
+    "Assets/Tools/AssetPipeline/Editor/CrystalReleaseSmoke.cs": "a65dd43518222ee2cc4e8640e09873d6f3efc5b940651c6ee562366272a6687c",
+    "Assets/Game/Shared/Actions/Runtime/GauntletPresentationSource.cs": "7dec85b7585125a5aedf7a36a3715a0f672d25afd1ae86109776c612736aeebd",
+    "Assets/Game/Shared/Actions/Runtime/LevelFeedbackProfile.cs": "861ee3f66dc74b5fb3b9bef72a46df90119767b5a7c3d645a7076047be233bdd",
+    "Assets/Game/Shared/Actions/Runtime/LevelPlayerPresentation.cs": "8afc3c5c8d44e4345038b8210d0c0795c53b091957293c92993a88a00ef16b3c",
+    "Assets/Game/Shared/Actions/Runtime/PuzzlePresentation.cs": "55beb6848347cd063949d187abac44ec0ee9339ac15d72a3037cea0c20528f57",
+    "Assets/Game/Shared/Actions/Resources/LevelFeedback.asset": "b5abdad4ebab7b11f50ef00bf084dd84ca76ddc03de8ab925edb2c39baddab2e",
+    "Assets/Tools/AssetPipeline/Editor/LevelFeedbackValidation.cs": "eacda52d9b4921b7418cc5e413080aeea9af0943cc9b71f867b2e18fa00a6640"
+  }
+}

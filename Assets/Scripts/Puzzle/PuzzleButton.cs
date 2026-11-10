@@ -85,6 +85,7 @@ public class PuzzleButton : MonoBehaviour
         HasBeenPressed = true;
         PuzzleTriggerUtility.TriggerAll(resolvedTargets);
         onPressed.Invoke();
+        GameActions.PuzzlePresentation.Play(this, GameActions.PuzzleFeedback.Mechanism);
     }
 
     private void OnTriggerEnter(Collider other)

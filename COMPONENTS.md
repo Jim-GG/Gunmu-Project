@@ -14,8 +14,8 @@
 | `Assets/Scripts/Player/` | 玩家控制、拳套规则与外观、表现 | ✅ |
 | `Assets/Scripts/Enemies/` | 敌人接入玩家框架的适配器（打击 / 遭遇战） | ✅ |
 | `Assets/Scripts/`（根） | 全局契约：`GameplayGate`、`IPunchReceiver`、`ILevelExitGate`、`GameStateManager` | ✅ |
-| `Assets/Resonator/` | 共鸣者模型、动作、AI（`AI/Runtime`、`AI/Editor`） | ⚠️ 依赖玩家框架的伤害/死亡契约 |
-| `Assets/Gauntlet/` | 拳套美术与运行时（模型、动作、控制器、Viewmodel、预览场景） | ✅ |
+| `Assets/Game/Enemies/Resonator/` | 共鸣者模型、动作、AI（`AI/Runtime`、`AI/Editor`） | ⚠️ 依赖玩家框架的伤害/死亡契约 |
+| `Assets/Game/Player/Gauntlet/` | 拳套美术与运行时（模型、动作、控制器、Viewmodel、预览场景） | ✅ |
 | `Assets/Prefabs/` | `Player.prefab`、`Pendulum.prefab`、`Seesaw.prefab` | ✅ |
 
 ---
@@ -163,7 +163,7 @@ Trigger 或实体碰撞都可以触发；被任意 `KineticBox` 击中也会激�
 
 ---
 
-### 1.10 共鸣者敌人（`Assets/Resonator/`）
+### 1.10 共鸣者敌人（`Assets/Game/Enemies/Resonator/`）
 
 预制体：`Resonator/AI/Prefabs/ResonatorAgent.prefab`（根节点：`NavMeshAgent` + `CapsuleCollider` + `ResonatorMotor` + `ResonatorRagdoll` + `ResonatorEnemy` + **`ResonatorPunchTarget`**）。
 
@@ -242,11 +242,11 @@ Trigger 或实体碰撞都可以触发；被任意 `KineticBox` 击中也会激�
 
 | 组件 | 负责 |
 |---|---|
-| `PlayerChargedPunch` | **玩法规则**：蓄力档位、冲撞距离、冲量、伤害、充能、格挡判定锥 |
+| `PlayerChargedPunch` | **关卡兼容接口**：转发原版拳套输入、晶体三格补能、关卡冲刺与方块轴向冲量；实际动画/Hitbox/格挡由 GauntletCombat 负责 |
 
 - **0 档（无蓄力快拳）不产生任何冲刺位移**，只做一次接触判定：否则玩家能靠零消耗普攻反复推自己上天（无限飞行）。冲撞距离只对 1~3 档生效。
-| `PlayerGauntletView` | **外观与动画**：实例化 `GauntletViewModel`，把蓄力/出拳/格挡映射到 `Gauntlet.controller` 的片段 |
-| `PunchPresentation` | **打击反馈**：镜头震动、命中顿帧、准星反馈（本项目不使用音效） |
+| `PlayerGauntletView` | **外观与相机动作**：实例化 `GauntletViewModel`，由原版 GauntletCombat 的 Playable 动画图驱动骨骼 |
+| `PunchPresentation` | **打击反馈**：镜头震动、命中顿帧、准星反馈，并接入共享音效/特效 |
 
 - 正式外观 = `Gauntlet/Prefabs/GauntletViewModel.prefab`（自带 `GauntletAnimationPlayer` + Animator）。
 - 帧映射：一档 32 帧、二档 62 帧、满蓄力 92 帧（源动画 30 FPS），在 `PlayerGauntletView` 的 Inspector 可调。
@@ -379,8 +379,8 @@ BouncyWall（斜置、非 Trigger、倍率 1.1~1.2）
 5. **两套 R 重置并存**：挂了 `RoomRestartController` → R 重载场景；没挂 → R 原位复位（`PuzzleResetUtility.ResetAll()`）。别在一个关卡里同时依赖两种语义。
 6. **KineticBox 的 6 轴吸附**：默认会把水平速度吸附到 ±X/±Z，斜向撞墙的反射方向以吸附后的速度为准。
 7. **箱体、门、抬升机关的自身位移**都是用 `PuzzleSwitch` 的“移动目标 + 激活偏移”实现的；没有专门的位移组件，需要更复杂的过场就用 Timeline / Animator。
-8. **拳套外观与规则分开**：改手感去 `PlayerChargedPunch`，换美术去 `PlayerGauntletView`（只需换 `viewModelPrefab`）。
-9. **拳套美术的预览场景**：`Assets/Gauntlet/Scenes/GauntletPreview.unity` 不依赖游戏玩法脚本，按 1-4 / C / I / P / K / H / O 或左侧按钮直接播片段；`GauntletCameraMotion` 只在预览里有意义，正式玩家由 `PlayerGauntletView` 自动禁用（避免和震屏抢相机）。
+8. **拳套外观与规则分开**：改动画、蓄力和 Hitbox 去 `GauntletCombat` / `GauntletActions`，关卡冲刺距离与方块冲量仍在 `PlayerChargedPunch`；换美术去 `PlayerGauntletView`（只需换 `viewModelPrefab`）。
+9. **拳套美术的预览场景**：`Assets/Game/Player/Gauntlet/Scenes/GauntletPreview.unity` 不依赖游戏玩法脚本，按 1-4 / C / I / P / K / H / O 或左侧按钮直接播片段；`GauntletCameraMotion` 只在预览里有意义，正式玩家由 `PlayerGauntletView` 自动禁用（避免和震屏抢相机）。
 10. **子弹时间高亮要能撑住“动态生成的方块”**：`PlayerMovement` 的 `allBoxes` 缓存会定期重扫（并且进入子弹时间、出现空槽时立即重扫）。早期版本只在 `Start()` 扫一次，导致 `Soviet_TheCatwalk` 这种全部由 `KineticBoxDropper` 运行时冒方块、旧方块又被回收的关卡完全不高亮。以后再加“运行时生成/销毁方块”的关卡不用改代码。
 
 ---

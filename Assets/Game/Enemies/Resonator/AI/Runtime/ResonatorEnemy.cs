@@ -34,7 +34,12 @@ namespace Resonator.AI
         public bool Absorbed {get;set;}
         public bool PlayerLaunched {get;private set;}
         public float PlayerLaunchTime {get;private set;}
-        public void ReceiveActionDamage(GameActions.ActionDamage hit)=>ApplyDamage(hit);
+        public void ReceiveActionDamage(GameActions.ActionDamage hit)
+        {
+            var tutorial=GetComponent<ResonatorPunchTarget>();
+            if(tutorial&&tutorial.OverridesAuthoredDamage){tutorial.OnPunched(transform.position,Vector3.up,hit.direction,hit.chargeLevel,hit.knockback);return;}
+            ApplyDamage(hit);
+        }
         public void BeginBossWake(){aware=true;Enter(EnemyState.Waking);}
         public void Agonize(){if(ActionTargetAlive){aware=true;if(target)LastKnownPosition=target.transform.position;Enter(EnemyState.Agonizing);}}
         public void ResetForPool()

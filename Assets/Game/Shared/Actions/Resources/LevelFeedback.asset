@@ -1,0 +1,42 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: efeb7ec9f47336945844729a2ed6057a, type: 3}
+  m_Name: LevelFeedback
+  m_EditorClassIdentifier: 
+  actorSounds:
+  - cue: 28
+    clips:
+    - {fileID: 8300000, guid: c7929ca96f5215a4fa48ab8feb863399, type: 3}
+    volume: 0.5
+    cooldown: 0.12
+    spatialBlend: 0.15
+    minDistance: 3
+    maxDistance: 80
+    priority: 60
+  - cue: 29
+    clips:
+    - {fileID: 8300000, guid: 1fb566f3ed2301243a406fcbd233030b, type: 3}
+    volume: 0.7
+    cooldown: 0.12
+    spatialBlend: 0.15
+    minDistance: 3
+    maxDistance: 80
+    priority: 60
+  chargeStages: {fileID: 8300000, guid: d696551c54e70ac4199471c0e37487d1, type: 3}
+  fullChargeLoop: {fileID: 8300000, guid: ab2b4f4a36e8e3a45bfc34ff72e62853, type: 3}
+  wounded: {fileID: 8300000, guid: 5de9caa6413de81448b6f56ec90df5dc, type: 3}
+  recharge: {fileID: 8300000, guid: 404ee927f4630024da2aa93af0ab2131, type: 3}
+  momentumLock: {fileID: 8300000, guid: 1bd8204ccbc71b840b104548be530549, type: 3}
+  momentumRelease: {fileID: 8300000, guid: a6095f3c203428d46935b21184892baf, type: 3}
+  mechanism: {fileID: 8300000, guid: 92c5e9350f8ef064f9b885f0516f34c4, type: 3}
+  puzzleVolume: 0.35
+  puzzleEffectScale: 0.22

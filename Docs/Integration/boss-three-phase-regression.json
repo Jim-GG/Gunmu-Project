@@ -92,7 +92,7 @@
       "passed": true,
       "details": {
         "loops": 1,
-        "dspSeconds": 1.813333333333503
+        "dspSeconds": 3.0506666666666433
       }
     },
     {
@@ -229,9 +229,9 @@
       "name": "Cinemachine listener position receives nonzero shake signal",
       "passed": true,
       "details": {
-        "amplitude": 0.0197625533
+        "amplitude": 0.007125534
       }
     }
   ],
-  "verifiedAt": "2026-11-10T13:00:05.924901"
+  "verifiedAt": "2026-11-10T14:48:19.658691"
 }

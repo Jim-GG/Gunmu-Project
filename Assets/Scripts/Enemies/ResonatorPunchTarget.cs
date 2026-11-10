@@ -19,6 +19,7 @@ public class ResonatorPunchTarget : MonoBehaviour, IPunchReceiver
 
     /// <summary>共鸣者按肉体处理：命中顿帧、血液特效、打击音更重。</summary>
     public bool IsFlesh => true;
+    public bool OverridesAuthoredDamage => tutorialLaunch;
 
     public void OnPunched(Vector3 point, Vector3 normal, Vector3 direction, int tier, float strength)
     {

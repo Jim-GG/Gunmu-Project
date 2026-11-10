@@ -1,13 +1,13 @@
 {
   "unity": "6000.3.26f1",
-  "time": "2026-11-10T12:56:08.9042547+08:00",
+  "time": "2026-11-10T14:48:38.5578938+08:00",
   "reports": [
     {
       "scene": "Assets/Scenes/Soviet_1.unity",
-      "objects": 143,
+      "objects": 141,
       "missingScripts": [],
       "brokenReferences": [],
-      "dependencies": 78
+      "dependencies": 79
     },
     {
       "scene": "Assets/Scenes/Soviet_TheCatwalk.unity",
@@ -35,49 +35,49 @@
       "objects": 117,
       "missingScripts": [],
       "brokenReferences": [],
-      "dependencies": 436
+      "dependencies": 453
     },
     {
       "scene": "Assets/Scenes/Soviet_GetTheBox.unity",
       "objects": 102,
       "missingScripts": [],
       "brokenReferences": [],
-      "dependencies": 426
+      "dependencies": 443
     },
     {
       "scene": "Assets/Scenes/Soviet_Traffic.unity",
       "objects": 100,
       "missingScripts": [],
       "brokenReferences": [],
-      "dependencies": 424
+      "dependencies": 441
     },
     {
       "scene": "Assets/Scenes/Soviet_Seesaw.unity",
       "objects": 120,
       "missingScripts": [],
       "brokenReferences": [],
-      "dependencies": 417
+      "dependencies": 434
     },
     {
       "scene": "Assets/Scenes/Soviet_Relay.unity",
       "objects": 84,
       "missingScripts": [],
       "brokenReferences": [],
-      "dependencies": 409
+      "dependencies": 426
     },
     {
       "scene": "Assets/Scenes/Soviet_Multi.unity",
       "objects": 71,
       "missingScripts": [],
       "brokenReferences": [],
-      "dependencies": 405
+      "dependencies": 422
     },
     {
       "scene": "Assets/Game/Scene/UDK7MBossArena_ThreePhase.unity",
       "objects": 1047,
       "missingScripts": [],
       "brokenReferences": [],
-      "dependencies": 377
+      "dependencies": 394
     },
     {
       "scene": "Assets/Scenes/ModernFacility_Chapter2.unity",

@@ -44,14 +44,15 @@ namespace AssetPipeline.Editor
                     EditorSceneManager.SaveScene(scene, "AssetStaging/CrystalRelease_UserScene_" + scene.handle + ".unity", true);
                 phase = 0; SessionState.SetBool(Key, true); EditorApplication.EnterPlaymode(); return;
             }
+            if (Application.isPlaying && SessionState.GetBool(Key,false))
+            { Application.runInBackground=true; EditorApplication.isPaused=false; EditorApplication.QueuePlayerLoopUpdate(); if(phase==0)Time.timeScale=1; }
             if (!Application.isPlaying || !SessionState.GetBool(Key, false) || Time.timeSinceLevelLoad < .5f) return;
             try
             {
                 if (phase == 0)
                 {
                     Application.runInBackground = true; checks.Clear(); deadline = EditorApplication.timeSinceStartup + 90;
-                    foreach (var go in Enumerable.Range(0,SceneManager.sceneCount).Select(SceneManager.GetSceneAt).SelectMany(s=>s.GetRootGameObjects())) go.SetActive(false);
-                    EditorSceneManager.LoadSceneInPlayMode("Assets/Scenes/Soviet_1.unity", new LoadSceneParameters(LoadSceneMode.Additive)); phase = 1; return;
+                    EditorSceneManager.LoadSceneInPlayMode("Assets/Scenes/Soviet_1.unity", new LoadSceneParameters(LoadSceneMode.Single)); phase = 1; return;
                 }
                 if (EditorApplication.timeSinceStartup > deadline) throw new Exception("Play smoke timed out at phase " + phase);
                 if (phase == 1)

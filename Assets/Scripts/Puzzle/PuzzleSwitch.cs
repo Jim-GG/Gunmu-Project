@@ -137,6 +137,7 @@ public class PuzzleSwitch : MonoBehaviour, IPuzzleResettable, ILevelExitGate
         // 和按钮一样：激活时触发挂在上面的机关（摆锤 / 跷跷板 / 以后的任何 IPuzzleTriggerable）。
         PuzzleTriggerUtility.TriggerAll(resolvedTargets);
         onActivated.Invoke();
+        GameActions.PuzzlePresentation.Play(this, GameActions.PuzzleFeedback.Mechanism);
     }
 
     public void ResetSwitch()
