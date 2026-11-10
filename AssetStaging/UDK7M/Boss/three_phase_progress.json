@@ -89,7 +89,7 @@
     "passed": true,
     "details": {
       "loops": 1,
-      "dspSeconds": 1.8133333333335031
+      "dspSeconds": 1.8133333333333326
     }
   },
   {
@@ -213,6 +213,11 @@
     "details": null
   },
   {
+    "name": "Big explosion is placed outside player-facing hull surface",
+    "passed": true,
+    "details": null
+  },
+  {
     "name": "Three-phase encounter resets",
     "passed": true,
     "details": null
@@ -221,7 +226,7 @@
     "name": "Cinemachine listener position receives nonzero shake signal",
     "passed": true,
     "details": {
-      "amplitude": 0.0128430808
+      "amplitude": 0.0105131716
     }
   }
 ]

@@ -16,6 +16,7 @@ namespace UDK7M
         public AudioClip[] warningSounds;
         public Material rockMaterial,crystalMaterial,warningMaterial;public float ceiling=22;public bool Started {get;private set;}public bool Won {get;private set;}
         readonly List<UDK7MDebris> debris=new List<UDK7MDebris>();readonly List<GameObject> warningObjects=new List<GameObject>();int epoch;float retryAt;GUIStyle text;
+        Mesh warningMesh;
         [Tooltip("本场景的刚体重力；离开场景时恢复关卡工程重力。")]
         public Vector3 physicsGravity = new Vector3(0, -9.81f, 0);
         public Vector3 Gravity => physicsGravity;
@@ -29,7 +30,7 @@ namespace UDK7M
             // trap the player's capsule during an upward escape rebound.
             foreach(var surface in gameObject.scene.GetRootGameObjects().SelectMany(g=>g.GetComponentsInChildren<CrystalParkour.CrystalSurface>(true)).Where(s=>s.gameObject.layer==LayerMask.NameToLayer("ArenaLowerFloor")))foreach(var c in surface.GetComponentsInChildren<Collider>())Physics.IgnoreCollision(player.GetComponent<CharacterController>(),c,true);
         }
-        void OnDestroy(){if(player&&player.vitals)player.vitals.Died-=PlayerDied;}
+        void OnDestroy(){if(player&&player.vitals)player.vitals.Died-=PlayerDied;if(warningMesh)Destroy(warningMesh);}
         void PlayerDied(){retryAt=Time.time+1.3f;}
         void Update(){if(Keyboard.current!=null&&Keyboard.current.rKey.wasPressedThisFrame||retryAt>0&&Time.time>=retryAt)ResetEncounter();}
         public void BeginFight(){if(Started||Won)return;Started=true;boss.Engage();}
@@ -54,6 +55,13 @@ namespace UDK7M
         }
         public void DropRocks(){if(Won)return;StartCoroutine(Rocks(epoch,false));}
         public void DropCentralCrystal(){if(Won)return;StartCoroutine(Rocks(epoch,true));}
+        public GameObject CreateFallingWarning(Vector3 point,bool central)
+        {
+            if(!warningMesh){warningMesh=new Mesh{name="Falling warning ground quad"};warningMesh.vertices=new[]{new Vector3(-.5f,0,-.5f),new Vector3(.5f,0,-.5f),new Vector3(.5f,0,.5f),new Vector3(-.5f,0,.5f)};warningMesh.uv=new[]{Vector2.zero,Vector2.right,Vector2.one,Vector2.up};warningMesh.triangles=new[]{0,2,1,0,3,2};warningMesh.RecalculateNormals();}
+            var profile=GameActions.CombatFeedbackProfile.Load();float diameter=profile?profile.WarningDiameter(central):central?tuning.centralCrystalScale*2.5f:3.5f;
+            var go=new GameObject("Locked falling debris warning");go.transform.SetParent(transform);go.transform.position=point+Vector3.up*.035f;go.transform.localScale=new Vector3(diameter,1,diameter);go.AddComponent<MeshFilter>().sharedMesh=warningMesh;
+            var renderer=go.AddComponent<MeshRenderer>();renderer.sharedMaterial=profile&&profile.fallingWarning?profile.fallingWarning:warningMaterial;renderer.shadowCastingMode=UnityEngine.Rendering.ShadowCastingMode.Off;renderer.receiveShadows=false;warningObjects.Add(go);return go;
+        }
         IEnumerator Rocks(int generation,bool central)
         {
             int count=central?1:5;var points=new Vector3[count];var warnings=new GameObject[count];
@@ -62,7 +70,7 @@ namespace UDK7M
                 var p=central?Vector3.zero:i<2?player.transform.position+Quaternion.Euler(0,i*180+Random.Range(-45,45),0)*Vector3.forward*1.2f:new Vector3(Random.Range(-tuning.arenaRadius*.8f,tuning.arenaRadius*.8f),0,Random.Range(-tuning.arenaRadius*.8f,tuning.arenaRadius*.8f));p.y=0;
                 if(NavMesh.SamplePosition(p,out var nav,5,NavMesh.AllAreas))p=nav.position;
                 if(Vector3.ProjectOnPlane(p,Vector3.up).magnitude>tuning.arenaRadius-3)p=Vector3.ProjectOnPlane(p,Vector3.up).normalized*(tuning.arenaRadius-4);
-                points[i]=p;var warn=GameObject.CreatePrimitive(PrimitiveType.Cylinder);Destroy(warn.GetComponent<Collider>());warn.name="Locked falling debris warning";warn.transform.position=p+Vector3.up*.03f;warn.transform.localScale=new Vector3(2,.015f,2);warn.GetComponent<Renderer>().sharedMaterial=warningMaterial;warn.transform.SetParent(transform);warnings[i]=warn;warningObjects.Add(warn);
+                points[i]=p;var warn=CreateFallingWarning(p,central);warnings[i]=warn;
                 if(warningSounds!=null&&warningSounds.Any(c=>c)){var warningAudio=warn.AddComponent<GameActions.ObjectAudio>();warningAudio.sounds=new[]{new GameActions.ObjectSound{cue=UDK7MSound.RockWarning,clips=warningSounds,volume=.25f}};feedback.Sound(UDK7MSound.RockWarning,p,warn.transform);}
             }
             yield return new WaitForSeconds(tuning.rockWarningSeconds);

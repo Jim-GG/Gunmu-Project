@@ -10,6 +10,7 @@ public class PlayerCombatController:MonoBehaviour
     public bool IsDefeated=>health<=0;
     public int Health=>Mathf.CeilToInt(health);
     public float ExactHealth=>health;
+    public float HealthFraction=>health/Mathf.Max(1,maxHealth);
     public GuardKind LastGuard {get;private set;}
     public bool IsGuarding=>!IsDefeated&&GetComponent<GauntletCombat>()&&GetComponent<GauntletCombat>().IsBlocking;
     void Awake(){health=maxHealth;}
@@ -25,7 +26,8 @@ public class PlayerCombatController:MonoBehaviour
         if(received<=0)return LastGuard!=GuardKind.None;
         if(Time.time<nextHurt)return LastGuard!=GuardKind.None;
         health=Mathf.Max(0,health-received);nextHurt=Time.time+hurtProtection;
-        GetComponent<PunchPresentation>()?.GuardFeedback(false);
+        ScreenEffectSignals.Emit(ScreenCue.Hurt,source,receiver:gameObject);
+        GetComponent<GauntletCombatFeedback>()?.PlayHurt();
         if(IsDefeated)GameStateManager.NotifyPlayerDied();
         return LastGuard!=GuardKind.None;
     }

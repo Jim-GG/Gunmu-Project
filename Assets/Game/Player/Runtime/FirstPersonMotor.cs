@@ -51,7 +51,7 @@ namespace FirstPerson
             if(!input || !viewPivot)return;
             transform.Rotate(0,input.Look.x*sensitivity,0);
             pitch = ForcedLookPitch.HasValue?Mathf.Clamp(ForcedLookPitch.Value,-85,85):Mathf.Clamp(pitch-input.Look.y*sensitivity,-85,85);viewPivot.localRotation=Quaternion.Euler(pitch,0,0);
-            if(MovementSuspended)return;
+            if(MovementSuspended||GameActions.GauntletCombatFeedback.Stopped(gameObject))return;
             bool controlledAir=TraversalAirControl&&!motor.isGrounded;
             float speed=controlledAir?airSpeed:input.Sprint?sprintSpeed:walkSpeed;
             Vector3 desired=(transform.right*input.Move.x+transform.forward*input.Move.y)*speed;

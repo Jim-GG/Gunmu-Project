@@ -89,8 +89,7 @@ namespace UDK7M
             }
             if(State==BossState.OverloadCharge)
             {
-                motor.Stop();if(stateTime>=tuning.overloadChargeSeconds){Phase=MachinePhase.Overloaded;arena.minions.Activate();Enter(BossState.Idle);nextDecision=.2f;}
-                else if(Mathf.FloorToInt((stateTime-dt)*4)!=Mathf.FloorToInt(stateTime*4))CombatEffects.Emit(CombatEffect.Resonance,ActionAimPoint,Vector3.up,.7f);
+                motor.Stop();if(stateTime>=tuning.overloadChargeSeconds){Phase=MachinePhase.Overloaded;arena.minions.Activate();UDK7MPresentation.Ensure(this).PlayOverloadRelease();Enter(BossState.Idle);nextDecision=.2f;}
             }
             else if(State==BossState.Turning)
             {
@@ -166,7 +165,7 @@ namespace UDK7M
             string clip=next==BossState.Turning?"SlamHold":next==BossState.OverloadCharge?"Idle":next.ToString();runner.Play(clip,immediate);
             if(next==BossState.SlamHold||next==BossState.ChargeHold)chargeHeading=transform.rotation;onStateChanged.Invoke(next.ToString());
         }
-        public void PillarOverload(){if(Phase!=MachinePhase.Stable)return;Enter(BossState.OverloadCharge);arena.feedback.Accumulate(ActionAimPoint,tuning.overloadChargeSeconds);arena.feedback.Shake(ActionAimPoint,tuning.resonanceShake,.7f);arena.feedback.Sound(UDK7MSound.OverloadCharge,ActionAimPoint,transform);}
+        public void PillarOverload(){if(Phase!=MachinePhase.Stable)return;Enter(BossState.OverloadCharge);UDK7MPresentation.Ensure(this).PlayOverloadSurge();arena.feedback.Shake(ActionAimPoint,tuning.resonanceShake,.7f);arena.feedback.Sound(UDK7MSound.OverloadCharge,ActionAimPoint,transform);}
         void FixedUpdate()
         {
             if(!ActionTargetAlive||!Engaged||!arena||Phase!=MachinePhase.Overloaded)return;

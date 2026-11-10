@@ -22,7 +22,7 @@ public class PunchPresentation : MonoBehaviour
     private float hitAt = -10f;
 
     public bool IsHitStopped => Time.unscaledTime < freezeUntil;
-    public static bool IsStopped(GameObject actor) => actor != null && actor.TryGetComponent(out PunchPresentation p) && p.IsHitStopped;
+    public static bool IsStopped(GameObject actor) => GameActions.GauntletCombatFeedback.Stopped(actor) || actor != null && actor.TryGetComponent(out PunchPresentation p) && p.IsHitStopped;
 
     private void Start()
     {
@@ -46,8 +46,8 @@ public class PunchPresentation : MonoBehaviour
     {
         hitAt = Time.unscaledTime;
         // Freeze only the player's translation and the struck enemy, never global timeScale.
-        freezeUntil = Time.unscaledTime + (flesh ? .045f + tier * .025f : .018f + tier * .009f) * hitStopStrength;
-        Shake(.16f + tier * .055f, .022f + tier * .016f);
+        freezeUntil = flesh ? 0 : Time.unscaledTime + (.018f + tier * .009f) * hitStopStrength;
+        if(!flesh) Shake(.16f + tier * .055f, .022f + tier * .016f);
         Polished.Contact(target, point, normal);
     }
 

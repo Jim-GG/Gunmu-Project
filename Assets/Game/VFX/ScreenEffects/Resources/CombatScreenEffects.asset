@@ -1,0 +1,154 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f41d759924a8c25449bfe0774df9dc0c, type: 3}
+  m_Name: CombatScreenEffects
+  m_EditorClassIdentifier: Assembly-CSharp::GameActions.ScreenEffectsProfile
+  material: {fileID: 2100000, guid: 701d78261954a604dbf9b1572cea5d5d, type: 2}
+  rendererFeatures:
+  - {fileID: 6706493996955735247, guid: f288ae1f4751b564a96ac7587541f7a2, type: 2}
+  - {fileID: -6917595607716937580, guid: 65bc7dbf4170f435aa868c779acfb082, type: 2}
+  signals:
+  - cue: 0
+    radial: 0.38
+    strength: 0.075
+    attack: 0.025
+    release: 0.11
+    chromaticPixels: 0
+    purpleNoise: 0
+    zoomMetres: 0.006
+    zoomFrequency: 24
+    hurtDegrees: 0.85
+  - cue: 1
+    radial: 0.5
+    strength: 0.1
+    attack: 0.025
+    release: 0.14
+    chromaticPixels: 0
+    purpleNoise: 0
+    zoomMetres: 0.009
+    zoomFrequency: 24
+    hurtDegrees: 0.85
+  - cue: 2
+    radial: 0.72
+    strength: 0.14
+    attack: 0.025
+    release: 0.19
+    chromaticPixels: 1.2
+    purpleNoise: 0
+    zoomMetres: 0.013
+    zoomFrequency: 24
+    hurtDegrees: 0.85
+  - cue: 3
+    radial: 0.9
+    strength: 0.18
+    attack: 0.025
+    release: 0.24
+    chromaticPixels: 2.4
+    purpleNoise: 0
+    zoomMetres: 0.019
+    zoomFrequency: 24
+    hurtDegrees: 0.85
+  - cue: 4
+    radial: 0.6
+    strength: 0.13
+    attack: 0.025
+    release: 0.21
+    chromaticPixels: 0
+    purpleNoise: 0
+    zoomMetres: 0.009
+    zoomFrequency: 24
+    hurtDegrees: 0.85
+  - cue: 5
+    radial: 0.9
+    strength: 0.19
+    attack: 0.025
+    release: 0.28
+    chromaticPixels: 3.5
+    purpleNoise: 0
+    zoomMetres: 0.015
+    zoomFrequency: 24
+    hurtDegrees: 0.85
+  - cue: 6
+    radial: 0.95
+    strength: 0.18
+    attack: 0.025
+    release: 0.42
+    chromaticPixels: 4.5
+    purpleNoise: 0.5
+    zoomMetres: 0.014
+    zoomFrequency: 24
+    hurtDegrees: 0.85
+  - cue: 7
+    radial: 0.22
+    strength: 0.06
+    attack: 0.025
+    release: 0.2
+    chromaticPixels: 0
+    purpleNoise: 0
+    zoomMetres: 0
+    zoomFrequency: 24
+    hurtDegrees: 0.85
+  - cue: 8
+    radial: 0.4
+    strength: 0.085
+    attack: 0.025
+    release: 0.16
+    chromaticPixels: 2.5
+    purpleNoise: 0
+    zoomMetres: 0.006
+    zoomFrequency: 24
+    hurtDegrees: 0.85
+  - cue: 9
+    radial: 0.8
+    strength: 0.16
+    attack: 0.025
+    release: 0.32
+    chromaticPixels: 4.5
+    purpleNoise: 0.12
+    zoomMetres: 0.01
+    zoomFrequency: 24
+    hurtDegrees: 0.85
+  - cue: 10
+    radial: 0.8
+    strength: 0.13
+    attack: 0.025
+    release: 0.22
+    chromaticPixels: 0
+    purpleNoise: 0
+    zoomMetres: 0
+    zoomFrequency: 24
+    hurtDegrees: 0.85
+  - cue: 11
+    radial: 0.55
+    strength: 0.12
+    attack: 0.025
+    release: 0.24
+    chromaticPixels: 3
+    purpleNoise: 0
+    zoomMetres: 0.004
+    zoomFrequency: 24
+    hurtDegrees: 0.85
+  effectsEnabled: 1
+  quality: 12
+  innerRadius: 0.06
+  outerRadius: 0.65
+  speedStart: 10
+  speedFull: 28
+  speedIntensity: 0.75
+  speedStrength: 0.14
+  chargeVignette: 0.12
+  lowHealthThreshold: 0.3
+  redEdgeOpacity: 0.36
+  resonanceColor: {r: 0.4, g: 0.04, b: 0.58, a: 1}
+  damageColor: {r: 0.6, g: 0.015, b: 0.025, a: 1}
+  noiseFlow: {x: 0.11, y: 0.08}
+  noiseScale: 15

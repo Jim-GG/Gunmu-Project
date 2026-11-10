@@ -28,6 +28,7 @@ namespace GameActions
         }
         public static void Emit(CombatEffect kind,Vector3 position,Vector3 normal,float size=1)
         {
+            if(kind==CombatEffect.Explosion)ScreenEffectSignals.Emit(ScreenCue.Explosion,position,Mathf.Clamp01(size),Mathf.Max(12,size*25));
             if(!library)library=Resources.Load<CombatEffectLibrary>("CombatVFX");var configured=library?library.Find(kind):null;
             if(configured!=null){Spawn(configured.prefab,null,position,Quaternion.FromToRotation(Vector3.up,normal.sqrMagnitude>.001f?normal.normalized:Vector3.up),size,configured.lifetime);return;}
             if(pool==null||pool.Length==0||!pool[0])Create();

@@ -9,6 +9,7 @@ namespace GameActions
         public SoundSurface surface;
         public AudioClip[] contacts=Array.Empty<AudioClip>(),steps=Array.Empty<AudioClip>(),landings=Array.Empty<AudioClip>();
         public AudioClip fist;
+        public AudioClip[] fists=Array.Empty<AudioClip>();
     }
     // Optional material override only. Reading a surface never creates an AudioSource.
     public sealed class SurfaceAudio:MonoBehaviour
@@ -34,6 +35,7 @@ namespace GameActions
         {
             var tag=Tag(c);var preset=Preset(c);
             if(tag&&tag.overrides!=null&&tag.overrides.Length>0)return Pick(tag.overrides);
+            if(fist){var variant=Pick(preset?.fists);if(variant)return variant;}
             return fist&&preset?.fist?preset.fist:Pick(preset?.contacts);
         }
         public static AudioClip Pick(AudioClip[] clips)

@@ -1,0 +1,478 @@
+{
+  "passed": true,
+  "scene": "Assets/Game/Scene/UDK7MBossArena_ThreePhase.unity",
+  "time": "2026-11-10T18:46:14.9965004+08:00",
+  "checks": [
+    {
+      "name": "测试位置位于场内有效导航地面",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "UDK7M 原版玩家初始化",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "三级出拳、旧格挡、十个打击、吼叫、受击与尸体音效已绑定",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "每个游戏相机持有独立材质，资源材质保持零强度",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "PC/Mobile 仅追加原生 Full Screen Pass，抓取包含透明物体的当前颜色",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "全屏与电流覆盖 Shader 无编译错误",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "原版拳套真实命中与局部卡肉 0",
+      "passed": true,
+      "details": {
+        "seconds": 0.033,
+        "health": 96.0
+      }
+    },
+    {
+      "name": "卡肉时挥拳动画保持 0",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "共鸣者命中使用新增打击变体 0",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "活体受击动作在卡肉窗口保持 0",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "实际击退距离 0",
+      "passed": true,
+      "details": {
+        "metres": 0.779999733,
+        "ready": true,
+        "knockbackDistance": 0.78
+      }
+    },
+    {
+      "name": "原版拳套真实命中与局部卡肉 1",
+      "passed": true,
+      "details": {
+        "seconds": 0.033,
+        "health": 80.0
+      }
+    },
+    {
+      "name": "卡肉时挥拳动画保持 1",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "共鸣者命中使用新增打击变体 1",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "活体受击动作在卡肉窗口保持 1",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "实际击退距离 1",
+      "passed": true,
+      "details": {
+        "metres": 0.9100013,
+        "ready": true,
+        "knockbackDistance": 0.91
+      }
+    },
+    {
+      "name": "原版拳套真实命中与局部卡肉 2",
+      "passed": true,
+      "details": {
+        "seconds": 0.05,
+        "health": 55.0
+      }
+    },
+    {
+      "name": "卡肉时挥拳动画保持 2",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "共鸣者命中使用新增打击变体 2",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "活体受击动作在卡肉窗口保持 2",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "实际击退距离 2",
+      "passed": true,
+      "details": {
+        "metres": 1.67000008,
+        "ready": true,
+        "knockbackDistance": 1.67
+      }
+    },
+    {
+      "name": "原版拳套真实命中与局部卡肉 3",
+      "passed": true,
+      "details": {
+        "seconds": 0.078,
+        "health": 0.0
+      }
+    },
+    {
+      "name": "卡肉时挥拳动画保持 3",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "共鸣者命中使用新增打击变体 3",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "三级拳立即进入击飞布娃娃",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "三级出拳使用专用音效",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "卡肉期间尸体继续实际物理飞行，不改变全局时间",
+      "passed": true,
+      "details": {
+        "travel": 0.392438084,
+        "speed": 9.772299
+      }
+    },
+    {
+      "name": "每个布娃娃骨骼上报碰撞，共用尸体限流",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "有效尸体碰撞播放 body fall",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "尸体音效使用 body fall 且多骨骼接触不会叠播",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "静止微碰撞不触发尸体音效",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "成功格挡恢复旧版 ParryImpact 音效",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "共鸣者真实 Screaming 状态播放新增吼叫",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "附近共鸣者真实吼叫同时触发径向模糊和色散",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "共鸣者死亡立即停止吼叫",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "拳套命中混凝土使用 Impact Blunt Large Stone",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "命中血雾为原地单次 4–5 粒，不连续喷射",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "真实粒子模拟只生成四到五粒紫色血雾",
+      "passed": true,
+      "details": {
+        "count": 5
+      }
+    },
+    {
+      "name": "坠落外形与碰撞尺寸已归一化 0",
+      "passed": true,
+      "details": {
+        "mesh": "立方体_cell.002",
+        "diameter": 2.1
+      }
+    },
+    {
+      "name": "落物凸包与显示 mesh 共用几何、缩放和旋转 0",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "实际物理包围范围贴合真实 mesh 顶点 0",
+      "passed": true,
+      "details": {
+        "physical": "(2.013, 0.566, 2.044)",
+        "vertices": "(2.013, 0.566, 2.044)"
+      }
+    },
+    {
+      "name": "落石使用新增 mesh 并保留原有石材",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "落石最大面朝下，随机变体保留小幅倾斜",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "坠落外形与碰撞尺寸已归一化 1",
+      "passed": true,
+      "details": {
+        "mesh": "Crystal_04_Squat",
+        "diameter": 1.3
+      }
+    },
+    {
+      "name": "落物凸包与显示 mesh 共用几何、缩放和旋转 1",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "实际物理包围范围贴合真实 mesh 顶点 1",
+      "passed": true,
+      "details": {
+        "physical": "(1.003, 1.340, 1.204)",
+        "vertices": "(1.003, 1.340, 1.204)"
+      }
+    },
+    {
+      "name": "坠落外形与碰撞尺寸已归一化 2",
+      "passed": true,
+      "details": {
+        "mesh": "Crystal_04_Squat",
+        "diameter": 3.1
+      }
+    },
+    {
+      "name": "落物凸包与显示 mesh 共用几何、缩放和旋转 2",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "实际物理包围范围贴合真实 mesh 顶点 2",
+      "passed": true,
+      "details": {
+        "physical": "(2.607, 3.128, 2.740)",
+        "vertices": "(2.607, 3.128, 2.740)"
+      }
+    },
+    {
+      "name": "放大落石同步扩大半透明警示圈，圈本身无碰撞",
+      "passed": true,
+      "details": {
+        "rockDiameter": 2.1,
+        "warningDiameter": 4.26214933
+      }
+    },
+    {
+      "name": "真实撞柱入口进入过载蓄能",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "撞晶柱触发短促模型电流覆盖",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "电流覆层保留原模型材质",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "电流覆盖在配置时间后结束",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "真实完整过载等待结束，以一次色散冲击进入二阶段",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "整个过载阶段不再每四分之一秒生成青蓝方块粒子",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "二阶段释放使用实际色散/扭曲波控制器",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "完整 Pass 禁用时透传原图",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "零强度不黑屏、不偏色",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "径向范围为零时保持原图",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "真实 UDK7M 画面产生径向拉伸",
+      "passed": true,
+      "details": {
+        "radialPixels": 257085
+      }
+    },
+    {
+      "name": "偏左径向中心正确",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "偏右径向中心正确",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "采样档位实际渲染 8",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "采样档位实际渲染 12",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "采样档位实际渲染 16",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "冲击脉冲自动衰减为零",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "高速运动增强径向模糊",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "减速后恢复清晰",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "范围外共鸣爆炸不影响相机",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "附近共鸣爆炸同时触发径向模糊、紫色边缘噪波与色散",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "噪波随时间平移 UV",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "蓄力三级渐增轻量暗角",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "低血量启用透明不规则红边",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "恢复生命后红边消失",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "实际受击方向镜头反馈 front",
+      "passed": true,
+      "details": {
+        "angles": "(-0.7640, 0.0000, 0.0000)"
+      }
+    },
+    {
+      "name": "实际受击方向镜头反馈 back",
+      "passed": true,
+      "details": {
+        "angles": "(-0.7640, 0.0000, 0.0000)"
+      }
+    },
+    {
+      "name": "实际受击方向镜头反馈 left",
+      "passed": true,
+      "details": {
+        "angles": "(-0.7640, 0.6112, 0.0000)"
+      }
+    },
+    {
+      "name": "实际受击方向镜头反馈 right",
+      "passed": true,
+      "details": {
+        "angles": "(-0.7640, -0.6112, 0.0000)"
+      }
+    },
+    {
+      "name": "原版主角真实扣血后播放受击音效",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "渲染结束解除材质绑定，不污染其他相机或共享材质",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "三个采样变体编译后仍无 Shader 错误",
+      "passed": true,
+      "details": null
+    }
+  ],
+  "error": null
+}
