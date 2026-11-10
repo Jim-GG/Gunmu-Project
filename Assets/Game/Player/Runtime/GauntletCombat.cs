@@ -64,6 +64,7 @@ namespace FirstPerson
         public float AssistTravel=>assist.Travel;
         public Transform AssistTarget=>assist.Target;
         public int ContactsThisAttack=>contacts.HitCount;
+        public GameActions.GuardKind LastGuard {get;private set;}
         public event Action<int> TierChanged,AttackStarted,AttackFinished,AttackCancelled,EnergyChanged,ChargeSkipped;
         public event Action AttackBlocked;
         public event Action<Resonator.AI.MotionFrameEvent> FrameEventReceived;
@@ -107,7 +108,7 @@ namespace FirstPerson
             boxes.BindProfile(profile);
             surfaceVFX=GetComponent<GameActions.GauntletSurfaceVFX>();if(!surfaceVFX)surfaceVFX=gameObject.AddComponent<GameActions.GauntletSurfaceVFX>();
             contacts.SurfaceContactDelivered-=SurfaceContact;contacts.SurfaceContactDelivered+=SurfaceContact;
-            motion.FrameEventRaised-=ReceiveFrameEvent;motion.FrameEventRaised+=ReceiveFrameEvent;ready=true;GameActions.WeaponEnergyVFXController.Ensure(this);ReturnIdle(true);return true;
+            motion.FrameEventRaised-=ReceiveFrameEvent;motion.FrameEventRaised+=ReceiveFrameEvent;ready=true;GameActions.WeaponEnergyVFXController.Ensure(this);GameActions.GauntletAdvancedPresentation.Ensure(this);ReturnIdle(true);return true;
         }
         void OnEnable(){stopping=false;ready=false;if(Application.isPlaying)InitializePipeline();}
         void SurfaceContact(Collider hit,Vector3 point,Vector3 normal){if(surfaceVFX)surfaceVFX.Contact(hit,point,normal);ContactResolved?.Invoke(hit,point,normal); }
@@ -165,7 +166,7 @@ namespace FirstPerson
             var direction=Vector3.ProjectOnPlane(attackerPosition-transform.position,Vector3.up);
             if(direction.sqrMagnitude>.0001f&&Vector3.Angle(transform.forward,direction)>blockAngle*.5f)return GameActions.GuardKind.None;
             var result=State==Phase.ParryStart?GameActions.GuardKind.Perfect:GameActions.GuardKind.Imperfect;
-            SetEnergy(BlockEnergy+1);EnterParry(Phase.ParryHit,"Parry-Hit");AttackBlocked?.Invoke();return result;
+            LastGuard=result;SetEnergy(BlockEnergy+1);EnterParry(Phase.ParryHit,"Parry-Hit");AttackBlocked?.Invoke();return result;
         }
         void EnterParry(Phase phase,string clip)
         {assist.Clear();State=phase;actions.Play(clip);animationPlayer.SetCharge(0);}

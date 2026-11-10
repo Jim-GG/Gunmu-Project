@@ -40,3 +40,19 @@ MonoBehaviour:
   mechanism: {fileID: 8300000, guid: 92c5e9350f8ef064f9b885f0516f34c4, type: 3}
   puzzleVolume: 0.35
   puzzleEffectScale: 0.22
+  advancedScreenEffects: 1
+  chargingHeatStart: 0.65
+  chargingHeatScale: 0.22
+  chargingHeatDistortion: 8
+  chargingHeatOpacity: 0.75
+  heavyWaveRadius: 1.2
+  heavyDistortion: 6
+  heavyChromatic: 2
+  impactHeatScale: 0.5
+  impactHeatDistortion: 6
+  impactHeatOpacity: 0.7
+  perfectGuardRadius: 0.55
+  perfectGuardDistortion: 6
+  perfectGuardChromatic: 3
+  puzzleDistortion: 2
+  puzzleChromatic: 0.8

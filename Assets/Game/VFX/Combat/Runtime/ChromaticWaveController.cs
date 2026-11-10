@@ -5,6 +5,8 @@ namespace GameActions
  {
   public VisualEffect gpu;public Renderer meshCore;public bool useGPU;public float radius=2,duration=.65f,distortionPixels=8,chromaticPixels=3;
   float age;MaterialPropertyBlock block;Camera camera;
+  public void SetCamera(Camera view){camera=view;}
+  public void SetNormalizedTime(float value){age=Mathf.Clamp01(value)*duration;Apply();}
   void OnEnable(){age=0;block=new MaterialPropertyBlock();if(gpu){gpu.gameObject.SetActive(useGPU);gpu.playRate=.65f/Mathf.Max(.1f,duration);gpu.Reinit();}if(meshCore)meshCore.gameObject.SetActive(!useGPU);}
   public void PlayAt(Vector3 point,float radius,float duration,float distortion,float chromatic){transform.position=point;this.radius=radius;this.duration=duration;distortionPixels=distortion;chromaticPixels=chromatic;age=0;if(gpu){gpu.playRate=.65f/Mathf.Max(.1f,duration);gpu.Reinit();}Apply();}
   void Update(){age+=Time.deltaTime;Apply();if(age>=duration)gameObject.SetActive(false);}

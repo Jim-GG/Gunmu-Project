@@ -33,7 +33,11 @@ namespace GameActions
             if (clip) source.PlayOneShot(clip, profile.puzzleVolume);
             // Keep locked-box vectors and button labels readable; particles are brief and small.
             if (cue == PuzzleFeedback.Recharge || cue == PuzzleFeedback.Release)
+            {
                 CombatEffects.Emit(CombatEffect.Resonance, transform.position, Vector3.up, profile.puzzleEffectScale);
+                if (profile.advancedScreenEffects)
+                    GauntletAdvancedPresentation.Wave(transform.position, cue == PuzzleFeedback.Recharge ? .55f : .8f, .35f, profile.puzzleDistortion, profile.puzzleChromatic);
+            }
         }
         void OnCollisionEnter(Collision hit)
         {
