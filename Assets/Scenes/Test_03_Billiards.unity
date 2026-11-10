@@ -304,6 +304,9 @@ MonoBehaviour:
   doorOrIndicatorToMove: {fileID: 1668829326}
   activatedOffset: {x: 0, y: 3.4, z: 0}
   allowPlayerActivation: 1
+  holdToActivate: 0
+  holdReleaseDelay: 1
+  holdContactMargin: 0.12
   targets: []
   onActivated:
     m_PersistentCalls:
@@ -1866,7 +1869,7 @@ MonoBehaviour:
   playerSweepMargin: 0.4
   appearanceMaterial: {fileID: 0}
   appearanceTexture: {fileID: 0}
-  tintStaticAppearance: 1
+  tintStaticAppearance: 0
   stateMaterial: {fileID: 2100000, guid: 44d95a649908af8438f44c6089065375, type: 2}
   stateEmissionIntensity: 1.5
   normalColor: {r: 0.95, g: 0.75, b: 0.15, a: 1}

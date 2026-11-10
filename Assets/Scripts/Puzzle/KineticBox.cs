@@ -64,6 +64,10 @@ public class KineticBox : MonoBehaviour, IPuzzleResettable
     private BoxCollider boxCollider;
     private Renderer boxRenderer;
     private Material baseMaterial;
+    // 外观换成多材质模型（箱子）后，特殊状态要把整组材质一起换掉，不能只换 0 号槽位。
+    private Material[] baseMaterials;
+    private Material[] stateMaterials;
+    private Material[] appliedMaterials;
     private PhysicsMaterial generatedSurfaceMaterial;
     private MaterialPropertyBlock propBlock;
     private PlayerMovement cachedPlayer;
@@ -114,9 +118,23 @@ public class KineticBox : MonoBehaviour, IPuzzleResettable
 
         if (boxRenderer != null)
         {
-            baseMaterial = appearanceMaterial != null ? appearanceMaterial : boxRenderer.sharedMaterial;
-            if (baseMaterial != null)
-                boxRenderer.sharedMaterial = baseMaterial;
+            baseMaterials = boxRenderer.sharedMaterials;
+            if (appearanceMaterial != null)
+            {
+                var overridden = new Material[Mathf.Max(1, baseMaterials.Length)];
+                for (int i = 0; i < overridden.Length; i++) overridden[i] = appearanceMaterial;
+                baseMaterials = overridden;
+                boxRenderer.sharedMaterials = baseMaterials;
+            }
+
+            appliedMaterials = baseMaterials;
+            baseMaterial = baseMaterials.Length > 0 ? baseMaterials[0] : null;
+
+            if (stateMaterial != null)
+            {
+                stateMaterials = new Material[Mathf.Max(1, baseMaterials.Length)];
+                for (int i = 0; i < stateMaterials.Length; i++) stateMaterials[i] = stateMaterial;
+            }
         }
 
         initialPosition = transform.position;
@@ -748,9 +766,12 @@ public class KineticBox : MonoBehaviour, IPuzzleResettable
         }
 
         // 特殊状态优先用专用材质做“纯色发光”；没指定时退化为直接在静态材质上染色。
-        Material targetMaterial = isSpecialState && stateMaterial != null ? stateMaterial : baseMaterial;
-        if (targetMaterial != null && boxRenderer.sharedMaterial != targetMaterial)
-            boxRenderer.sharedMaterial = targetMaterial;
+        Material[] targetMaterials = isSpecialState && stateMaterials != null ? stateMaterials : baseMaterials;
+        if (targetMaterials != null && targetMaterials.Length > 0 && appliedMaterials != targetMaterials)
+        {
+            boxRenderer.sharedMaterials = targetMaterials;
+            appliedMaterials = targetMaterials;
+        }
 
         propBlock.Clear();
         if (isSpecialState || tintStaticAppearance)

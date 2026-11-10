@@ -43,7 +43,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1298571260874966945}
-  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+  m_Mesh: {fileID: 4300000, guid: 38c0a4a3128f7e84b8b250daa1e21ac3, type: 2}
 --- !u!65 &5971966374532241653
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -90,7 +90,11 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: baf03f141c3216045a2d92e42cd9662d, type: 2}
+  - {fileID: 2100000, guid: ce21d35edf404d444875412b1cb2467b, type: 2}
+  - {fileID: 2100000, guid: 242e9415104bd044ea84e09f9a76dd48, type: 2}
+  - {fileID: 2100000, guid: 9163b756d2107ea4da759540dbf99db8, type: 2}
+  - {fileID: 2100000, guid: 5d80d16008f9b4843a93d576c5e3fa0e, type: 2}
+  - {fileID: 2100000, guid: 84b629acc8365db418f4680589967637, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -174,9 +178,9 @@ MonoBehaviour:
   playerBoundsSize: {x: 0.95, y: 1.9, z: 0.95}
   playerCenterHeight: 0.9
   playerSweepMargin: 0.4
-  appearanceMaterial: {fileID: 2100000, guid: baf03f141c3216045a2d92e42cd9662d, type: 2}
+  appearanceMaterial: {fileID: 0}
   appearanceTexture: {fileID: 0}
-  tintStaticAppearance: 1
+  tintStaticAppearance: 0
   stateMaterial: {fileID: 2100000, guid: 44d95a649908af8438f44c6089065375, type: 2}
   stateEmissionIntensity: 1.5
   normalColor: {r: 0.95, g: 0.75, b: 0.15, a: 1}
