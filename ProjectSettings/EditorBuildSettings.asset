@@ -39,6 +39,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Soviet_Multi.unity
     guid: a68f0e39268b94f46830b04faa7dd392
   - enabled: 1
+    path: Assets/Scenes/现代设施/Modern_01_UnloadingHall.unity
+    guid: 1613c473f377f8443b809dbe3b0e19db
+  - enabled: 1
     path: Assets/Scenes/Modern_01_DroneEscape.unity
     guid: f4ddbde3716a4098a055696971d36727
   - enabled: 1
