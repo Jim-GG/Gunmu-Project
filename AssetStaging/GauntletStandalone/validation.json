@@ -1,0 +1,17 @@
+{
+  "passed": true,
+  "objects": 1,
+  "vertices": 16635,
+  "triangles": 27260,
+  "armatures": 0,
+  "uvLayers": 1,
+  "materials": [
+    "Gauntlet_Atlas",
+    "Gauntlet_Glass"
+  ],
+  "scale": [
+    1.0,
+    1.0,
+    1.0
+  ]
+}

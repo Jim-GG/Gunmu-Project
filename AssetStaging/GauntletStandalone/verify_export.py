@@ -1,0 +1,6 @@
+import bpy,json
+from pathlib import Path
+R=Path.cwd();S=R/'AssetStaging/GauntletStandalone';p=S/'Gauntlet_Standalone.blend';bpy.ops.wm.open_mainfile(filepath=str(p));bpy.data.orphans_purge(do_recursive=True);bpy.context.preferences.filepaths.save_version=0;bpy.ops.wm.save_as_mainfile(filepath=str(p),compress=True)
+assert len(bpy.data.objects)==1;assert bpy.data.objects[0].type=='MESH';assert not bpy.data.objects[0].vertex_groups;assert not bpy.data.objects[0].modifiers;assert len(bpy.data.images)==4;assert all(im.packed_file for im in bpy.data.images)
+bpy.ops.wm.read_factory_settings(use_empty=True);bpy.ops.import_scene.fbx(filepath=str(R/'Assets/Game/Player/Gauntlet/Models/Gauntlet_Standalone.fbx'));objects=list(bpy.data.objects);assert len(objects)==1 and objects[0].type=='MESH';o=objects[0];assert len(o.data.vertices)==16635;assert len(o.data.materials)==2;assert len(o.data.uv_layers)==1;assert not o.vertex_groups;assert not o.modifiers
+report={'passed':True,'objects':len(objects),'vertices':len(o.data.vertices),'triangles':len(o.data.polygons),'armatures':0,'uvLayers':len(o.data.uv_layers),'materials':[m.name for m in o.data.materials],'scale':list(o.scale)};(S/'validation.json').write_text(json.dumps(report,indent=2),encoding='utf-8');print(json.dumps(report))

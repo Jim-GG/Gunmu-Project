@@ -1,0 +1,157 @@
+[
+  {
+    "name": "Armature",
+    "type": "ARMATURE",
+    "vertices": 0,
+    "materials": [],
+    "hidden": false
+  },
+  {
+    "name": "crosshair",
+    "type": "MESH",
+    "vertices": 20,
+    "materials": [
+      "crosshair"
+    ],
+    "hidden": false
+  },
+  {
+    "name": "hardknuckle",
+    "type": "MESH",
+    "vertices": 5666,
+    "materials": [
+      "v_l_skin",
+      "glove_hardknuckle"
+    ],
+    "hidden": true
+  },
+  {
+    "name": "shape_circle",
+    "type": "MESH",
+    "vertices": 32,
+    "materials": [],
+    "hidden": false
+  },
+  {
+    "name": "shape_circle2",
+    "type": "MESH",
+    "vertices": 64,
+    "materials": [],
+    "hidden": false
+  },
+  {
+    "name": "shape_finger",
+    "type": "MESH",
+    "vertices": 64,
+    "materials": [],
+    "hidden": false
+  },
+  {
+    "name": "shape_plane",
+    "type": "MESH",
+    "vertices": 32,
+    "materials": [],
+    "hidden": false
+  },
+  {
+    "name": "shape_pose",
+    "type": "MESH",
+    "vertices": 820,
+    "materials": [],
+    "hidden": false
+  },
+  {
+    "name": "shape_sphere",
+    "type": "MESH",
+    "vertices": 96,
+    "materials": [],
+    "hidden": false
+  },
+  {
+    "name": "sleeve",
+    "type": "MESH",
+    "vertices": 4286,
+    "materials": [
+      "sleeve_st6_generalist"
+    ],
+    "hidden": true
+  },
+  {
+    "name": "smd_bone_vis",
+    "type": "MESH",
+    "vertices": 162,
+    "materials": [],
+    "hidden": false
+  },
+  {
+    "name": "备份拳套",
+    "type": "MESH",
+    "vertices": 16623,
+    "materials": [
+      "占位",
+      "电熨斗",
+      "黑管",
+      "握把",
+      "Aged Ochre Enamel - Stamped Steel",
+      "圆环",
+      "Oxidized Gunmetal - Inner Covers",
+      "Black Elastic Honeycomb - Recessed Backing",
+      "Black Elastic Honeycomb - Rounded Ribs",
+      "Hammertone Industrial Enamel - Graphite",
+      "蓄能灯管",
+      "Lamp - Clear Protective Glass",
+      "Lamp - Invisible Internal Seam",
+      "红拉杆",
+      "橙拉杆",
+      "Black Industrial Knob Plastic - Fine Grain",
+      "银塑料",
+      "红灯",
+      "绿灯",
+      "黄灯",
+      "Status Dome - Fluted Smoked Amber Glass",
+      "Lamp - Destructive Amber Liquid Energy",
+      "Status Dome - Breathing Amber Lamp",
+      "Status Dome - Graphite Retaining Collar"
+    ],
+    "hidden": false
+  },
+  {
+    "name": "拳套",
+    "type": "ARMATURE",
+    "vertices": 0,
+    "materials": [],
+    "hidden": false
+  },
+  {
+    "name": "拳套.001",
+    "type": "MESH",
+    "vertices": 16623,
+    "materials": [
+      "占位",
+      "电熨斗",
+      "黑管",
+      "握把",
+      "Aged Ochre Enamel - Stamped Steel",
+      "圆环",
+      "Oxidized Gunmetal - Inner Covers",
+      "Black Elastic Honeycomb - Recessed Backing",
+      "Black Elastic Honeycomb - Rounded Ribs",
+      "Hammertone Industrial Enamel - Graphite",
+      "蓄能灯管",
+      "Lamp - Clear Protective Glass",
+      "Lamp - Invisible Internal Seam",
+      "红拉杆",
+      "橙拉杆",
+      "Black Industrial Knob Plastic - Fine Grain",
+      "银塑料",
+      "红灯",
+      "绿灯",
+      "黄灯",
+      "Status Dome - Fluted Smoked Amber Glass",
+      "Lamp - Destructive Amber Liquid Energy",
+      "Status Dome - Breathing Amber Lamp",
+      "Status Dome - Graphite Retaining Collar"
+    ],
+    "hidden": false
+  }
+]

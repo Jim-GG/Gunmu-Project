@@ -1,0 +1,26 @@
+{
+  "source": "Assets/Game/Player/Gauntlet/Models/Gauntlet_Model.fbx",
+  "selection": "Gauntlet_Mechanism weight > 0.99",
+  "vertices": 16635,
+  "triangles": 27260,
+  "materials": [
+    "Gauntlet_Atlas",
+    "Gauntlet_Glass"
+  ],
+  "uvLayers": [
+    "UnityAtlas"
+  ],
+  "mixedBoundaryFaces": [],
+  "dimensionsMetres": [
+    0.21012413501739502,
+    0.5292515158653259,
+    0.17046993970870972
+  ],
+  "sourcePivot": [
+    8.940696716308594e-08,
+    0.11312175542116165,
+    -0.8580094575881958
+  ],
+  "armatureCount": 0,
+  "output": "Assets/Game/Player/Gauntlet/Models/Gauntlet_Standalone.fbx"
+}

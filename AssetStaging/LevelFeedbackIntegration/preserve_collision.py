@@ -1,0 +1,3 @@
+from pathlib import Path
+p=Path('Assets/Scripts/Player/PlayerChargedPunch.cs');s=p.read_text(encoding='utf-8-sig');s=s.replace('public void ResolveLungeContact(Collider collider,Vector3 point,Vector3 normal){if(movement&&normal.y<.65f)movement.StopPunchLunge();}','public void ResolveLungeContact(Collider collider,Vector3 point,Vector3 normal){if(normal.y>.65f&&shared&&shared.attackOrigin&&shared.attackOrigin.forward.y>-.4f)return;if(movement)movement.StopPunchLunge();}');p.write_text(s,encoding='utf-8')
+b=Path('AssetStaging/LevelFeedbackIntegration/BatchProject')/p;b.write_text(s,encoding='utf-8')
