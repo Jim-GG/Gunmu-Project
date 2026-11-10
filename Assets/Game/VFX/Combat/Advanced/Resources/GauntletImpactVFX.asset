@@ -14,14 +14,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::GameActions.GauntletImpactVFXProfile
   metalSpark: {fileID: 1963061893149187784, guid: 47801666601f368468149abec76e9874, type: 3}
   concreteDebris: {fileID: 2602326102723932226, guid: dd21bef7022fc35468000f87b7123e61, type: 3}
-  bloodMist: {fileID: 2403597753488983317, guid: 3f55273901784e5479f3f7ca316a63e1, type: 3}
+  bloodMist: {fileID: 2637797952105191494, guid: 5e2b18c1aadc32d46ba24a1912047fb4, type: 3}
   crystalFragments: {fileID: 1943577305155810740, guid: e5ed5e40fc58ed0459fec68987264f26, type: 3}
   concreteCracks:
   - {fileID: 6630500850770188129, guid: ce9f00842a46e07458838bc948e5c2ad, type: 3}
   - {fileID: 6966274702912466141, guid: ca9db8828ee46e24b98d8139c2d7308d, type: 3}
   sparkScale: 1
   concreteDebrisScale: 0.3
-  bloodScale: 0.3
+  bloodScale: 1
   crystalScale: 0.35
   concreteDecalScale: 0.2
   referenceCraterDiameter: 3.4

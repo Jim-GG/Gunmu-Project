@@ -34,8 +34,8 @@ namespace GameActions
         void OnEnable(){previous=transform.position;distance=fallSpeed=0;grounded=false;}
         void Tether(CrystalSurface s){if(events)events.Play(UDK7MSound.TetherStart,transform.position);}
         void Attach(CrystalSurface s){if(events)events.Play(UDK7MSound.TetherAttach,transform.position);}
-        void Swing(int punch){if(events)events.Play(UDK7MSound.GauntletSwing,transform.position);}
-        void Parry(){if(events)events.Play(UDK7MSound.ParryImpact,transform.position);}
+        void Swing(int punch){var custom=CombatFeedbackProfile.Load();if(punch==4&&custom&&custom.tierThreeSwing)return;if(events)events.Play(UDK7MSound.GauntletSwing,transform.position);}
+        void Parry(){var custom=CombatFeedbackProfile.Load();if(custom&&custom.guardImpact)return;if(events)events.Play(UDK7MSound.ParryImpact,transform.position);}
         void Frame(MotionFrameEvent e){if(useAnimationEvents&&(e.name=="Footstep"||e.name=="FootLeft"||e.name=="FootRight"))Footstep();}
         bool Ground(out RaycastHit ground)
         {

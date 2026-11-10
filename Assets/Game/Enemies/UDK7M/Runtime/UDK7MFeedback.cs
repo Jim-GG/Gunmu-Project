@@ -11,6 +11,8 @@ namespace UDK7M
         readonly System.Collections.Generic.List<GameObject> waves=new System.Collections.Generic.List<GameObject>();
         public void Sound(UDK7MSound cue,Vector3 point,Transform follow=null)
         {
+            if(cue==UDK7MSound.ResonanceBurst)ScreenEffectSignals.Emit(ScreenCue.Resonance,point,1,28);
+            else if(cue==UDK7MSound.Defeat)ScreenEffectSignals.Emit(ScreenCue.Explosion,point,1,55);
             var target=follow?follow:transform;
             for(var current=target;current;current=current.parent)
             {
@@ -21,6 +23,7 @@ namespace UDK7M
         public int SignalsSent {get;private set;}
         public void Shake(Vector3 position,float force,float duration=.28f)
         {
+            if(force>0)ScreenEffectSignals.Emit(ScreenCue.Impact,position,Mathf.Clamp01(force*2),24);
             if(force<=0)return;if(!source)source=GetComponent<CinemachineImpulseSource>();if(!source)source=gameObject.AddComponent<CinemachineImpulseSource>();
             source.ImpulseDefinition.ImpulseChannel=tuning?tuning.impulseChannel:4;source.ImpulseDefinition.ImpulseShape=CinemachineImpulseDefinition.ImpulseShapes.Rumble;
             source.ImpulseDefinition.ImpulseType=CinemachineImpulseDefinition.ImpulseTypes.Dissipating;source.ImpulseDefinition.DissipationDistance=90;source.ImpulseDefinition.ImpulseDuration=duration;

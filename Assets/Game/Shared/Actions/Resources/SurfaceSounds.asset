@@ -33,6 +33,7 @@ MonoBehaviour:
     - {fileID: 8300000, guid: f3c5bfe6e32b94c4689b58198f587a61, type: 3}
     - {fileID: 8300000, guid: 5e3f2ddd82e707043a792f94683d8aac, type: 3}
     fist: {fileID: 8300000, guid: 71dd8704b932f3646b7d6583172e39ad, type: 3}
+    fists: []
   - surface: 0
     contacts:
     - {fileID: 8300000, guid: 238f8319cd3452744b88520b131865d4, type: 3}
@@ -52,7 +53,8 @@ MonoBehaviour:
     - {fileID: 8300000, guid: 18b1012e2a3d0ce42a76665c0e055054, type: 3}
     - {fileID: 8300000, guid: 57d71a05043cf924186315d033818bec, type: 3}
     - {fileID: 8300000, guid: a661b3e644109ee4cbf9fd3e92ea67ee, type: 3}
-    fist: {fileID: 0}
+    fist: {fileID: 8300000, guid: 3e7a2643a93d0e74c83f8f34a397a148, type: 3}
+    fists: []
   - surface: 2
     contacts:
     - {fileID: 8300000, guid: 3dabae00a97259a478cd055ab6cb2f4c, type: 3}
@@ -73,6 +75,7 @@ MonoBehaviour:
     - {fileID: 8300000, guid: eb2bae82323148843b814a2b89dce544, type: 3}
     - {fileID: 8300000, guid: d3e698a3a469abf498e29ac7689937d2, type: 3}
     fist: {fileID: 0}
+    fists: []
   - surface: 3
     contacts:
     - {fileID: 8300000, guid: 37f185d40f266ea4093365f6c381dee8, type: 3}
@@ -98,6 +101,7 @@ MonoBehaviour:
     - {fileID: 8300000, guid: 6e20d50448edd9c44917a7efc2163506, type: 3}
     - {fileID: 8300000, guid: f64dd2917a67a934bab325ed0284ad12, type: 3}
     fist: {fileID: 0}
+    fists: []
   - surface: 4
     contacts:
     - {fileID: 8300000, guid: 64321555800db054b96d0c843e515426, type: 3}
@@ -118,6 +122,17 @@ MonoBehaviour:
     - {fileID: 8300000, guid: 57d71a05043cf924186315d033818bec, type: 3}
     - {fileID: 8300000, guid: a661b3e644109ee4cbf9fd3e92ea67ee, type: 3}
     fist: {fileID: 0}
+    fists:
+    - {fileID: 8300000, guid: bf640cd2994d0504ba0993304dd64eac, type: 3}
+    - {fileID: 8300000, guid: d2a69c7db77143a4cb0988acc7d935af, type: 3}
+    - {fileID: 8300000, guid: 24479e7bc1574174da3c7fb2aa9922f1, type: 3}
+    - {fileID: 8300000, guid: 691d49d657b099541b66ae2a433a1498, type: 3}
+    - {fileID: 8300000, guid: c24fa74c900e2054ca923670c95eb1b5, type: 3}
+    - {fileID: 8300000, guid: 13e5947994347e349bdf001f60ca8d88, type: 3}
+    - {fileID: 8300000, guid: bcd1f2303b0c0cc4da9243fb419e8902, type: 3}
+    - {fileID: 8300000, guid: 4427f738ee6689f49a403208cacf6185, type: 3}
+    - {fileID: 8300000, guid: 5cb7d129ee51e5a478d459d32b43d6ad, type: 3}
+    - {fileID: 8300000, guid: d7f445f5a42c61c4d827bb748588e249, type: 3}
   - surface: 5
     contacts:
     - {fileID: 8300000, guid: 92c5e9350f8ef064f9b885f0516f34c4, type: 3}
@@ -140,3 +155,4 @@ MonoBehaviour:
     - {fileID: 8300000, guid: 57d71a05043cf924186315d033818bec, type: 3}
     - {fileID: 8300000, guid: a661b3e644109ee4cbf9fd3e92ea67ee, type: 3}
     fist: {fileID: 0}
+    fists: []

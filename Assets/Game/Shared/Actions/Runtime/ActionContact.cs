@@ -66,11 +66,8 @@ namespace GameActions
                     var target=collider.GetComponentInParent<IActionTarget>();
                     if(SurfaceContactDelivered!=null&&target==null&&!collider.isTrigger&&ActionVisibility.Clear(origin,collider.ClosestPoint(origin),owner,collider.transform,mask))
                         NotifySurface(collider,group,origin,pose.centre,direction);
-                    if(!collider.isTrigger&&!h.contactSound)
-                    {
-                        var audio=owner.GetComponent<SurfaceContactAudio>();if(!audio)audio=owner.gameObject.AddComponent<SurfaceContactAudio>();string audioKey=group+":"+SurfaceAudio.Identity(collider);
-                        if((h.repeat!=HitRepeat.Once||!heardContacts.Contains(audioKey))&&audio.Contact(collider,collider.ClosestPoint(pose.centre),owner.GetComponent<FirstPerson.GauntletCombat>()!=null))heardContacts.Add(audioKey);
-                    }
+                    if(target==null&&!collider.isTrigger&&!h.contactSound&&ActionVisibility.Clear(origin,collider.ClosestPoint(origin),owner,collider.transform,mask))
+                        ContactSound(owner,collider,pose.centre,group,h);
                     if(SurfaceContactDelivered==null&&h.contactEffects&&(!nextEffect.TryGetValue(collider.GetInstanceID(),out var at)||clock>=at))
                     {nextEffect[collider.GetInstanceID()]=clock+Mathf.Max(.02f,h.effectCooldown);var point=collider.ClosestPoint(pose.centre);if(h.contactEffect||h.contactSound)CombatEffects.Contact(h.contactEffect,h.contactSound,point,h.contactEffectLifetime);else CombatEffects.Emit(collider.GetComponentInParent<CrystalParkour.CrystalSurface>()?CombatEffect.CrystalShards:CombatEffect.Sparks,point,Vector3.up);}
                     if(h.repeat==HitRepeat.EffectsOnly)continue;
@@ -81,11 +78,18 @@ namespace GameActions
                     if(!ActionVisibility.Clear(origin,target.ActionAimPoint,owner,target.ActionRoot,mask))continue;
                     set.Add(target);nextDamage[key]=clock+Mathf.Max(.01f,h.damageCooldown);HitCount++;connected=true;
                     NotifySurface(collider,group,origin,pose.centre,direction);
+                    if(!collider.isTrigger&&!h.contactSound)ContactSound(owner,collider,pose.centre,group,h);
                     ActionDamageDelivery.Deliver(target,ActionDamage.From(h,owner.position,chargeOverride>=0?chargeOverride:action.chargeLevel,direction),impulse);
                     HitDelivered?.Invoke(w,target);
                 }
             }
             return connected;
+        }
+        void ContactSound(Transform owner,Collider collider,Vector3 centre,string group,HitWindow hit)
+        {
+            string key=group+":"+SurfaceAudio.Identity(collider);if(hit.repeat==HitRepeat.Once&&heardContacts.Contains(key))return;
+            var audio=owner.GetComponent<SurfaceContactAudio>()??owner.gameObject.AddComponent<SurfaceContactAudio>();
+            if(audio.Contact(collider,collider.ClosestPoint(centre),owner.GetComponent<FirstPerson.GauntletCombat>()!=null))heardContacts.Add(key);
         }
         void NotifySurface(Collider collider,string group,Vector3 origin,Vector3 centre,Vector3 direction)
         {

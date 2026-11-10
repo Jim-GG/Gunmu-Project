@@ -18,6 +18,19 @@ namespace Resonator.AI
         public Vector3 Centre=>bodies.Length>0&&bodies[0]?bodies[0].worldCenterOfMass:transform.position+Vector3.up;
         public float Speed=>bodies.Length>0&&bodies[0]?bodies[0].linearVelocity.magnitude:0;
         Vector3[] restPositions;Quaternion[] restRotations;
+        GameActions.CombatFeedbackProfile feedback;AudioSource collisionVoice;float nextCollision;
+        public int CollisionSoundsPlayed {get;private set;}
+        public AudioClip LastCollisionClip {get;private set;}
+        public bool PlayCollision(Collider other,float speed,Vector3 point)
+        {
+            if(!Active||!other||other.isTrigger||other.transform.IsChildOf(transform)||Time.time<nextCollision)return false;
+            if(!feedback)feedback=GameActions.CombatFeedbackProfile.Load();
+            if(!feedback||speed<feedback.corpseMinimumSpeed)return false;
+            var clip=GameActions.SurfaceAudio.Pick(feedback.bodyFalls);if(!clip)return false;
+            if(!collisionVoice){var go=new GameObject("Corpse body fall audio");go.transform.SetParent(transform,false);collisionVoice=go.AddComponent<AudioSource>();collisionVoice.playOnAwake=false;collisionVoice.spatialBlend=1;collisionVoice.minDistance=2;collisionVoice.maxDistance=50;}
+            collisionVoice.transform.position=point;collisionVoice.pitch=UnityEngine.Random.Range(.95f,1.05f);collisionVoice.PlayOneShot(clip,feedback.bodyVolume*Mathf.Clamp(speed/8,.4f,1));
+            nextCollision=Time.time+feedback.corpseSoundInterval;LastCollisionClip=clip;CollisionSoundsPlayed++;return true;
+        }
         void Awake(){restPositions=new Vector3[definitions.Length];restRotations=new Quaternion[definitions.Length];for(int i=0;i<definitions.Length;i++){restPositions[i]=definitions[i].bone.localPosition;restRotations[i]=definitions[i].bone.localRotation;}SetDormant();}
         public void ResetForReuse()
         {
@@ -47,6 +60,7 @@ namespace Resonator.AI
         void OnDisable()=>ResonatorCrowd.UnregisterCorpse(this);
         public void SetDormant()
         {
+            nextCollision=0;if(collisionVoice)collisionVoice.Stop();
             ResonatorCrowd.UnregisterCorpse(this);
             Active=false;
             foreach(var c in boneColliders)if(c)c.enabled=false;
@@ -73,6 +87,7 @@ namespace Resonator.AI
                 joint.lowTwistLimit=new SoftJointLimit{limit=-30};joint.highTwistLimit=new SoftJointLimit{limit=30};joint.swing1Limit=new SoftJointLimit{limit=50};joint.swing2Limit=new SoftJointLimit{limit=30};
             }
             foreach(var c in boneColliders)if(c)c.enabled=true;
+            foreach(var b in bodies)if(b){var sound=b.GetComponent<CorpseImpactAudio>()??b.gameObject.AddComponent<CorpseImpactAudio>();sound.owner=this;}
             ResonatorCrowd.RegisterCorpse(this);
             foreach(var b in bodies)if(b){b.detectCollisions=true;b.isKinematic=false;b.useGravity=true;b.linearVelocity=Vector3.zero;b.interpolation=RigidbodyInterpolation.Interpolate;}
             if(bodies.Length>0&&bodies[0])bodies[0].AddForce(impulse,ForceMode.Impulse);

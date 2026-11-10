@@ -66,6 +66,8 @@ namespace Resonator.AI
         public float AttackAddedTravel=>attackMover.AddedTravel;
         public bool AttackAimLocked=>attackMover.AimLocked;
         Vector3 lastImpulse;
+        float hitStopUntil;
+        public void FreezeHitReaction(float seconds)=>hitStopUntil=Mathf.Max(hitStopUntil,Time.unscaledTime+Mathf.Max(0,seconds));
         MotionBeat feedingRise;
         EnemyState plannedAttack=EnemyState.Headbutt;
         Vector3 targetVelocity,previousTargetPosition;
@@ -80,9 +82,11 @@ namespace Resonator.AI
         void Start(){if(!started)Initialize(initialActivity);}
         public void Initialize(RestActivity activity)
         {
+            ResonatorVoice.Ensure(this);
             if (!GetComponent<ResonatorPunchTarget>()) gameObject.AddComponent<ResonatorPunchTarget>();
             if(!tuning||!motion){Debug.LogError("Resonator requires tuning and motion player",this);enabled=false;return;}
             initialActivity=activity;started=true;health=tuning.maxHealth;aware=false;
+            hitStopUntil=0;
             Absorbed=false;PlayerLaunched=false;PlayerLaunchTime=float.NegativeInfinity;LastDeathCause=GameActions.DamageCause.Ordinary;
             if(!motor)motor=GetComponent<ResonatorMotor>();motor.tuning=tuning;
             if(!target)target=FindFirstObjectByType<ResonatorTarget>();
@@ -99,6 +103,7 @@ namespace Resonator.AI
         public void Tick(float dt)
         {
             if(!started||state==EnemyState.Dead||!motion||dt<=0)return;
+            if(ActionTargetAlive&&Time.unscaledTime<hitStopUntil)return;
             StateSeconds+=dt;
             motor.AdvanceKnockback(dt);
             nextSight-=dt;

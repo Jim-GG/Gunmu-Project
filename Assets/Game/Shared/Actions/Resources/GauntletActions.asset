@@ -241,10 +241,13 @@ MonoBehaviour:
         effectCooldown: 0.1
         onlyWhileRotating: 0
         contactEffects: 0
+        contactEffect: {fileID: 0}
+        contactSound: {fileID: 0}
+        contactEffectLifetime: 2
         rotationAxis: {x: 0, y: 1, z: 0}
         rotationThreshold: 5
         blockable: 1
-        knockbackDistance: -1
+        knockbackDistance: 0.78
         knockbackPerDamage: 0.012
         knockbackDuration: 0.2
         blockedKnockbackMultiplier: 0
@@ -335,10 +338,13 @@ MonoBehaviour:
         effectCooldown: 0.1
         onlyWhileRotating: 0
         contactEffects: 0
+        contactEffect: {fileID: 0}
+        contactSound: {fileID: 0}
+        contactEffectLifetime: 2
         rotationAxis: {x: 0, y: 1, z: 0}
         rotationThreshold: 5
         blockable: 1
-        knockbackDistance: -1
+        knockbackDistance: 0.91
         knockbackPerDamage: 0.012
         knockbackDuration: 0.2
         blockedKnockbackMultiplier: 0
@@ -429,10 +435,13 @@ MonoBehaviour:
         effectCooldown: 0.1
         onlyWhileRotating: 0
         contactEffects: 0
+        contactEffect: {fileID: 0}
+        contactSound: {fileID: 0}
+        contactEffectLifetime: 2
         rotationAxis: {x: 0, y: 1, z: 0}
         rotationThreshold: 5
         blockable: 1
-        knockbackDistance: -1
+        knockbackDistance: 1.67
         knockbackPerDamage: 0.012
         knockbackDuration: 0.2
         blockedKnockbackMultiplier: 0
@@ -523,6 +532,9 @@ MonoBehaviour:
         effectCooldown: 0.1
         onlyWhileRotating: 0
         contactEffects: 0
+        contactEffect: {fileID: 0}
+        contactSound: {fileID: 0}
+        contactEffectLifetime: 2
         rotationAxis: {x: 0, y: 1, z: 0}
         rotationThreshold: 5
         blockable: 1

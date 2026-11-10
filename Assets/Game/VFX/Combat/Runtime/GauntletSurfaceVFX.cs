@@ -20,7 +20,7 @@ namespace GameActions
                     CombatEffects.Burst(profile.metalSpark,point+normal*.015f,normal,profile.sparkScale,2);break;
                 case SoundSurface.Flesh:
                     CombatEffects.Burst(profile.bloodMist,point,normal,profile.bloodScale,4);
-                    CombatEffects.Burst(profile.crystalFragments,point,normal,profile.crystalScale,8);break;
+                    if(!collider.GetComponentInParent<Resonator.AI.ResonatorEnemy>())CombatEffects.Burst(profile.crystalFragments,point,normal,profile.crystalScale,8);break;
                 case SoundSurface.Crystal:
                     CombatEffects.Burst(profile.crystalFragments,point,normal,profile.crystalScale,8);break;
                 case SoundSurface.Concrete:

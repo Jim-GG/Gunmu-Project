@@ -38,7 +38,7 @@ namespace Resonator.AI
         public StrikeResult ReceiveStrike(float damage,Vector3 source)
         {return ReceiveStrike(new GameActions.ActionDamage(damage,source));}
         public StrikeResult ReceiveStrike(GameActions.ActionDamage hit)
-        {LastStrike=ResolveStrike(hit);return LastStrike;}
+        {LastStrike=ResolveStrike(hit);if(!combat&&!invulnerableForTesting&&LastStrike==StrikeResult.Damaged&&hit.damage>0)GameActions.ScreenEffectSignals.Emit(GameActions.ScreenCue.Hurt,hit.source,receiver:gameObject);return LastStrike;}
         public StrikeResult LastStrike {get;private set;}
         StrikeResult ResolveStrike(GameActions.ActionDamage hit)
         {

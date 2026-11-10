@@ -1,0 +1,77 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c0967d0eec710464c89712365f29cc36, type: 3}
+  m_Name: CombatFeedback
+  m_EditorClassIdentifier: Assembly-CSharp::GameActions.CombatFeedbackProfile
+  tierThreeSwing: {fileID: 8300000, guid: 4156458b680b89b42b0090e2b8a92bc3, type: 3}
+  guardImpact: {fileID: 0}
+  concreteImpact: {fileID: 8300000, guid: 3e7a2643a93d0e74c83f8f34a397a148, type: 3}
+  fleshHits:
+  - {fileID: 8300000, guid: bf640cd2994d0504ba0993304dd64eac, type: 3}
+  - {fileID: 8300000, guid: d2a69c7db77143a4cb0988acc7d935af, type: 3}
+  - {fileID: 8300000, guid: 24479e7bc1574174da3c7fb2aa9922f1, type: 3}
+  - {fileID: 8300000, guid: 691d49d657b099541b66ae2a433a1498, type: 3}
+  - {fileID: 8300000, guid: c24fa74c900e2054ca923670c95eb1b5, type: 3}
+  - {fileID: 8300000, guid: 13e5947994347e349bdf001f60ca8d88, type: 3}
+  - {fileID: 8300000, guid: bcd1f2303b0c0cc4da9243fb419e8902, type: 3}
+  - {fileID: 8300000, guid: 4427f738ee6689f49a403208cacf6185, type: 3}
+  - {fileID: 8300000, guid: 5cb7d129ee51e5a478d459d32b43d6ad, type: 3}
+  - {fileID: 8300000, guid: d7f445f5a42c61c4d827bb748588e249, type: 3}
+  bodyFalls:
+  - {fileID: 8300000, guid: 927e5259db2de5746b7cac24efe526c7, type: 3}
+  - {fileID: 8300000, guid: e64aff199ec5dc0479faa7c93630333f, type: 3}
+  - {fileID: 8300000, guid: e0a5e5ac20f65854fbd3d58a242f7d28, type: 3}
+  - {fileID: 8300000, guid: f03757e187a5c1149b1e6f3e54a03d82, type: 3}
+  - {fileID: 8300000, guid: ca7ccb0d83e4b5142a8f2ba79de0031e, type: 3}
+  resonatorRoar: {fileID: 8300000, guid: b159027c05af3a04aa57f3a76092d1c7, type: 3}
+  playerHurts:
+  - {fileID: 8300000, guid: 5de9caa6413de81448b6f56ec90df5dc, type: 3}
+  - {fileID: 8300000, guid: 9641876ba8c4c31499fec4b1317be110, type: 3}
+  - {fileID: 8300000, guid: e2423c98c64aa0b449c4fd8f1c3bc2a6, type: 3}
+  - {fileID: 8300000, guid: ef0130474ed810c43b43c9ab8e8337af, type: 3}
+  - {fileID: 8300000, guid: 1881cb3c0925ac74388d7619844da3f4, type: 3}
+  - {fileID: 8300000, guid: 5d39e7d4717c92148b11c1684a4822ac, type: 3}
+  - {fileID: 8300000, guid: fc598df0ccc0a9f4cafa1e444c69c369, type: 3}
+  playerHurtVolume: 0.28
+  roarVolume: 0.55
+  hurtSoundInterval: 0.25
+  roarInterval: 2
+  roarScreenRadius: 18
+  swingVolume: 0.65
+  guardVolume: 0.65
+  bodyVolume: 0.55
+  corpseMinimumSpeed: 1.5
+  corpseSoundInterval: 0.2
+  hitStopSeconds: {x: 0.033, y: 0.033, z: 0.05, w: 0.078}
+  knockbackMetres: {x: 0.78, y: 0.91, z: 1.67}
+  knockbackSeconds: 0.2
+  fracturedCrystal: {fileID: 2011187459146223819, guid: 626cab2c340a21c4da3cc14d3a331709, type: 3}
+  squatCrystal: {fileID: 7858126334309507472, guid: 0b18e8c83703ba242b72e76d5a4f973d, type: 3}
+  rockMeshes:
+  - {fileID: 7012939384165181999, guid: 4e5fe011c9f9531498ceb4461e28fd4e, type: 3}
+  - {fileID: 4252584427527894246, guid: a83576b8601f5644e82570c820e2bfe3, type: 3}
+  - {fileID: 556642120036608024, guid: 34bc469aa7811984e8792ca522817f2f, type: 3}
+  - {fileID: -154761437429969932, guid: 775dc6159f59bc442a10bae5c5875118, type: 3}
+  rockFaceDown:
+  - {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
+  - {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
+  - {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
+  - {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
+  rockTiltDegrees: 6
+  rockDiameter: 2.1
+  crystalDiameter: 1.3
+  centralCrystalDiameter: 3.1
+  fallingWarning: {fileID: 2100000, guid: 32c5b60e50a082a42b3d6d348203b55d, type: 2}
+  warningPadding: 0.45
+  electricity: {fileID: 2100000, guid: 62946799ec11bb048afa871ab62189b8, type: 2}
+  electricitySeconds: 0.6
+  overloadWaveRadius: 6

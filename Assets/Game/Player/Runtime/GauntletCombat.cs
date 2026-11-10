@@ -108,7 +108,7 @@ namespace FirstPerson
             boxes.BindProfile(profile);
             surfaceVFX=GetComponent<GameActions.GauntletSurfaceVFX>();if(!surfaceVFX)surfaceVFX=gameObject.AddComponent<GameActions.GauntletSurfaceVFX>();
             contacts.SurfaceContactDelivered-=SurfaceContact;contacts.SurfaceContactDelivered+=SurfaceContact;
-            motion.FrameEventRaised-=ReceiveFrameEvent;motion.FrameEventRaised+=ReceiveFrameEvent;ready=true;GameActions.WeaponEnergyVFXController.Ensure(this);GameActions.GauntletAdvancedPresentation.Ensure(this);ReturnIdle(true);return true;
+            motion.FrameEventRaised-=ReceiveFrameEvent;motion.FrameEventRaised+=ReceiveFrameEvent;ready=true;GameActions.WeaponEnergyVFXController.Ensure(this);GameActions.GauntletAdvancedPresentation.Ensure(this);GameActions.GauntletCombatFeedback.Ensure(this);ReturnIdle(true);return true;
         }
         void OnEnable(){stopping=false;ready=false;if(Application.isPlaying)InitializePipeline();}
         void SurfaceContact(Collider hit,Vector3 point,Vector3 normal){if(surfaceVFX)surfaceVFX.Contact(hit,point,normal);ContactResolved?.Invoke(hit,point,normal); }
@@ -177,6 +177,7 @@ namespace FirstPerson
         {
             if(!InitializePipeline())return;
             if(!CanAct){if(State!=Phase.Idle||HasBufferedInput)Cancel();return;}
+            if(GameActions.GauntletCombatFeedback.Stopped(gameObject))return;
             float remaining=Mathf.Max(0,dt);
             while(remaining>.000001f)
             {
@@ -227,6 +228,7 @@ namespace FirstPerson
                 }
                 else if(State==Phase.Idle)TryBuffered();
                 remaining-=step;
+                if(GameActions.GauntletCombatFeedback.Stopped(gameObject))break;
             }
         }
         void Attack(int punch)
