@@ -1,0 +1,15 @@
+{
+  "resolutions": [
+    "960x540",
+    "1280x720",
+    "1600x700"
+  ],
+  "tapVariants": [
+    8,
+    12,
+    16
+  ],
+  "radialPixels": 257085,
+  "gpuTiming": "GPU timestamp measurement not available in this automated camera-render test; no GPU milliseconds claimed.",
+  "limits": "Single PC gameplay camera verified. Mobile hardware, XR and dynamic resolution unverified."
+}
